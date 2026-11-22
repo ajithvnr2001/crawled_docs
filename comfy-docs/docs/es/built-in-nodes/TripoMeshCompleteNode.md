@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/TripoMeshCompleteNode/
 title: Tripo: Completar partes de malla - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:37.606000+00:00
+fetched_at: 2026-11-22T15:07:53.097558+00:00
 ---
 
 # Tripo: Completar partes de malla - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,22 +21,16 @@ Copiar páginaCopiar página
 
 Completa las partes de un modelo 3D segmentado y repara las regiones faltantes o dañadas de la malla. Toma el ID de tarea de un resultado de segmentación de malla de Tripo, solicita el trabajo de completado a Tripo y espera a que finalice. Opcionalmente, puedes limitar el trabajo a nombres de partes específicos. El modelo completado se devuelve como un archivo GLB.
 
-## 
+> **Nota:** Tripo conserva los registros de tareas en sus servidores durante 7 días (a partir del 1 de diciembre de 2026). Un ID de tarea más antiguo ya no se puede resolver, por lo que volver a ejecutar un flujo de trabajo guardado después de ese plazo falla en este nodo. Para continuar, ejecute de nuevo el nodo Tripo de segmentación de malla anterior para crear un nuevo `SEGMENT_TASK_ID`. La segmentación necesita un `MODEL_TASK_ID`, así que si también ha caducado, vuelva a importar el modelo descargado con **Tripo: Importar modelo**. Si nunca descargó el modelo, vuelva a ejecutar el nodo Tripo de generación de modelo original y conecte su nuevo `MODEL_TASK_ID` al nodo de segmentación; la malla puede ser distinta de la original.
 
-​
-
-Entradas
+## Entradas
 
 Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
 ---|---|---|---|---  
 `segment_task_id`| ID de tarea de una tarea de segmentación de malla de Tripo. Se completan las partes del modelo segmentado de esta tarea. Conecta la salida SEGMENT_TASK_ID de un nodo anterior de segmentación de malla de Tripo.| SEGMENT_TASK_ID| Sí| ID de tarea único  
 `part_names`| Nombres de partes separados por comas que se van a completar. Si está vacío, completa todas las partes. Predeterminado: cadena vacía. Los espacios adicionales alrededor de los nombres se eliminan y los nombres duplicados se ignoran.| STRING| No| Texto libre o vacío  
   
-## 
-
-​
-
-Salidas
+## Salidas
 
 Nombre de salida| Descripción| Tipo de dato  
 ---|---|---  

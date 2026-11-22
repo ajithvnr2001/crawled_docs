@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:29.481899+00:00
+fetched_at: 2026-11-22T15:07:58.369728+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -46,6 +46,7 @@ Back to top
   * Stability
   * Synclabs
   * Tencent
+  * Typesafe
   * Veed
   * Veo
   * Wan
@@ -363,7 +364,7 @@ Audio (51)
 
 
 
-Text (50)
+Text (52)
 
   * [Claude Fable 5.1](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5.2](https://docs.comfy.org/development/comfy-router/models/anthropic/claude-fable-5-2/code): `anthropic/claude-fable-5-2`
@@ -415,6 +416,8 @@ Text (50)
   * [GPT 6 Sol](https://docs.comfy.org/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
   * [o3](https://docs.comfy.org/development/comfy-router/models/openai/o3/code): `openai/o3`
   * [Chat Completions](https://docs.comfy.org/development/comfy-router/models/openrouter/chat-completions/code): `openrouter/chat-completions`
+  * [Jev 1.13.0](https://docs.comfy.org/development/comfy-router/models/typesafe/jev-1-13-0/code): `typesafe/jev-1.13.0`
+  * [Jev 1.14.0](https://docs.comfy.org/development/comfy-router/models/typesafe/jev-1-14-0/code): `typesafe/jev-1.14.0`
 
 
 
@@ -595,7 +598,7 @@ Model| ID| Input| Output
 
 Model| ID| Input| Output  
 ---|---|---|---  
-[Kelly Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-kling-4-0/code)| `kelly/kelly-kling-4.0`| Text| Video  
+[Kelly Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-kling-4-0/code)| `kelly/kelly-kling-4.0`| Text, Image, Video| Video  
 [Kelly Seedance 2.0 Fast](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code)| `kelly/kelly-seedance-2.0-fast`| Text, Image, Video, Audio| Video + Audio  
 [Kelly Seedance 2.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0/code)| `kelly/kelly-seedance-2.0`| Text, Image, Video, Audio| Video + Audio  
 [Kelly Seedance 2.5](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-5/code)| `kelly/kelly-seedance-2.5`| Text, Image, Video, Audio| Video + Audio  
@@ -813,6 +816,13 @@ Model| ID| Input| Output
 [Hunyuan 3D Smart Topology](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-smart-topology/code)| `tencent/hunyuan-3d-smart-topology`| 3D| 3D  
 [Hunyuan 3D Texture Edit](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-texture-edit/code)| `tencent/hunyuan-3d-texture-edit`| 3D, Text| 3D  
 [Hunyuan 3D Uv](https://docs.comfy.org/development/comfy-router/models/tencent/hunyuan-3d-uv/code)| `tencent/hunyuan-3d-uv`| 3D| 3D  
+  
+## Typesafe
+
+Model| ID| Input| Output  
+---|---|---|---  
+[Jev 1.13.0](https://docs.comfy.org/development/comfy-router/models/typesafe/jev-1-13-0/code)| `typesafe/jev-1.13.0`| Text, Image| Text  
+[Jev 1.14.0](https://docs.comfy.org/development/comfy-router/models/typesafe/jev-1-14-0/code)| `typesafe/jev-1.14.0`| Text, Image| Text  
   
 ## Veed
 

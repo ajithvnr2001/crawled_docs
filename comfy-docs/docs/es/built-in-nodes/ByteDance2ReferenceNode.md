@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ByteDance2ReferenceNode/
 title: ByteDance Seedance 2.5 Referencia a v\u00eddeo (Heredado) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:34.749393+00:00
+fetched_at: 2026-11-22T15:07:54.034368+00:00
 ---
 
 # ByteDance Seedance 2.5 Referencia a vídeo (Heredado) - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,49 +15,38 @@ Bytedance
 
 Copiar páginaCopiar página
 
-Este nodo genera, edita o extiende videos utilizando los modelos de IA Seedance 2.5 o Seedance 2.0 de ByteDance.
+Este nodo genera, edita o extiende videos usando los modelos de IA Seedance 2.5 o Seedance 2.0 de ByteDance.
 
 Copiar páginaCopiar página
 
-Este nodo genera, edita o extiende videos utilizando los modelos de IA Seedance 2.5 o Seedance 2.0 de ByteDance. Describes el video en un prompt de texto y puedes adjuntar imágenes, videos y audio de referencia para guiar el resultado, con soporte para referencia multimodal, edición de video y extensión de video. Esta es la versión heredada y obsoleta del nodo de referencia a video de Seedance.
+Este nodo genera, edita o extiende videos usando los modelos de IA Seedance 2.5 o Seedance 2.0 de ByteDance. Usted describe el video en un prompt de texto y puede adjuntar imágenes, videos y audio de referencia para guiar el resultado, con compatibilidad para referencia multimodal, edición de video y extensión de video. Esta es la versión heredada y obsoleta del nodo de referencia a video de Seedance.
 
-## 
+## Entradas
 
-​
+La selección de un `model` determina cuáles de los parámetros siguientes están disponibles. `video_editing` y `output_format` aparecen solo cuando se selecciona Seedance 2.5. Las ranuras de referencia ampliables y las opciones de cambio de tamaño automático de videos de referencia son compartidas por todos los modelos y se describen en Entradas de referencia.
 
-Entradas
+### Entradas comunes
 
-Seleccionar un `model` determina cuáles de los parámetros a continuación están disponibles. `video_editing` y `output_format` aparecen solo cuando se selecciona Seedance 2.5. Las ranuras de referencia expandibles y las opciones de redimensionado automático de video de referencia son compartidas por todos los modelos y se describen en Entradas de referencia.
-
-### 
-
-​
-
-Entradas comunes
-
-Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`modelo`| El modelo de IA utilizado para generar el video. Seedance 2.5 para el modelo más reciente, videos de hasta 30 segundos y salida mp4/mov; Seedance 2.0 para máxima calidad y 4k; Fast para optimización de velocidad; Mini para la generación más rápida y de menor costo. Seleccionar un modelo revela las entradas específicas del modelo que se enumeran a continuación.| DYNAMIC_COMBO| Sí| `"Seedance 2.5"`  
+`modelo`| El modelo de IA utilizado para generar el video. Seedance 2.5 para el modelo más reciente, videos de hasta 30 segundos, salida en 4k y mp4/mov; Seedance 2.0 para máxima calidad y 4k; Fast para optimización de velocidad; Mini para la generación más rápida y de menor costo. Al seleccionar un modelo se muestran las entradas específicas del modelo que se indican a continuación.| DYNAMIC_COMBO| Sí| `"Seedance 2.5"`  
 `"Seedance 2.0"`  
 `"Seedance 2.0 Fast"`  
 `"Seedance 2.0 Mini"`  
 `semilla`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla (predeterminado: 0).| INT| Sí| 0 a 2147483647  
 Paso: 1  
-`marca_de_agua`| Si se debe agregar una marca de agua al video (predeterminado: False). Configuración avanzada.| BOOLEAN| Sí| `True`  
+`marca_de_agua`| Indica si se debe añadir una marca de agua al video (predeterminado: False). Ajuste avanzado.| BOOLEAN| Sí| `True`  
 `False`  
   
-### 
+### Entradas de Seedance 2.5
 
-​
-
-Entradas de Seedance 2.5
-
-Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`prompt`| Prompt de texto para la generación de video. Coloca las líneas habladas entre comillas dobles para dirigir el diálogo generado. Debe contener al menos un carácter que no sea espacio en blanco (predeterminado: vacío).| STRING| Sí| Cualquier texto  
+`prompt`| Prompt de texto para la generación de video. Coloque las líneas habladas entre comillas dobles para orientar el diálogo generado. Debe contener al menos un carácter que no sea un espacio en blanco (predeterminado: vacío).| STRING| Sí| Texto cualquiera  
 `resolution`| Resolución del video de salida (predeterminado: `"720p"`).| COMBO| Sí| `"480p"`  
 `"720p"`  
 `"1080p"`  
+`"4k"`  
 `ratio`| Relación de aspecto del video de salida (predeterminado: `"16:9"`).| COMBO| Sí| `"16:9"`  
 `"4:3"`  
 `"1:1"`  
@@ -69,19 +58,15 @@ Parámetro| Descripción| Tipo de dato| Requerido| Rango
 Paso: 1  
 `generate_audio`| Habilitar la generación de audio para el video de salida (predeterminado: True).| BOOLEAN| Sí| `True`  
 `False`  
-`video_editing`| Habilitar cuando el prompt edita un video de referencia conectado, por ejemplo, reemplazando un objeto en él. La salida entonces conserva la duración y la relación de aspecto del clip de origen, y los widgets `duration` y `ratio` se ignoran. Déjalo deshabilitado para generar un nuevo video, o para extender uno a la duración que establezcas (predeterminado: False).| BOOLEAN| Sí| `True`  
+`video_editing`| Actívelo cuando el prompt edite un video de referencia conectado, por ejemplo, reemplazando un objeto en él. La salida conserva entonces la duración y la relación de aspecto propias del clip de origen, y los widgets `duration` y `ratio` se ignoran. Déjelo desactivado para generar un video nuevo o para extender uno a la duración que establezca (predeterminado: False).| BOOLEAN| Sí| `True`  
 `False`  
 `output_format`| Formato de contenedor del video de salida (predeterminado: `"mp4"`).| COMBO| Sí| `"mp4"`  
   
-### 
+### Entradas de Seedance 2.0
 
-​
-
-Entradas de Seedance 2.0
-
-Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`prompt`| Prompt de texto para la generación de video. Debe contener al menos un carácter que no sea espacio en blanco (predeterminado: vacío).| STRING| Sí| Cualquier texto  
+`prompt`| Prompt de texto para la generación de video. Debe contener al menos un carácter que no sea un espacio en blanco (predeterminado: vacío).| STRING| Sí| Texto cualquiera  
 `resolution`| Resolución del video de salida.| COMBO| Sí| `"480p"`  
 `"720p"`  
 `"1080p"`  
@@ -98,17 +83,13 @@ Paso: 1
 `generate_audio`| Habilitar la generación de audio para el video de salida (predeterminado: True).| BOOLEAN| Sí| `True`  
 `False`  
   
-### 
+### Entradas de Seedance 2.0 Fast y Seedance 2.0 Mini
 
-​
+Compartidas por Seedance 2.0 Fast y Seedance 2.0 Mini. Estos dos modelos exponen el mismo conjunto de entradas que Seedance 2.0, excepto que `resolution` está limitado a 480p y 720p.
 
-Entradas de Seedance 2.0 Fast y Seedance 2.0 Mini
-
-Compartido por Seedance 2.0 Fast y Seedance 2.0 Mini. Estos dos modelos exponen el mismo conjunto de entradas que Seedance 2.0, excepto que `resolution` está limitado a 480p y 720p.
-
-Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`prompt`| Prompt de texto para la generación de video. Debe contener al menos un carácter que no sea espacio en blanco (predeterminado: vacío).| STRING| Sí| Cualquier texto  
+`prompt`| Prompt de texto para la generación de video. Debe contener al menos un carácter que no sea un espacio en blanco (predeterminado: vacío).| STRING| Sí| Texto cualquiera  
 `resolution`| Resolución del video de salida.| COMBO| Sí| `"480p"`  
 `"720p"`  
 `ratio`| Relación de aspecto del video de salida (predeterminado: `"adaptive"`).| COMBO| Sí| `"16:9"`  
@@ -123,47 +104,39 @@ Paso: 1
 `generate_audio`| Habilitar la generación de audio para el video de salida (predeterminado: True).| BOOLEAN| Sí| `True`  
 `False`  
   
-### 
+### Entradas de referencia
 
-​
+Disponibles para todos los modelos. El número máximo de ranuras depende del modelo seleccionado: Seedance 2.5 admite más referencias que los modelos Seedance 2.0.
 
-Entradas de referencia
-
-Disponible para todos los modelos. El número máximo de ranuras depende del modelo seleccionado: Seedance 2.5 admite más referencias que los modelos Seedance 2.0.
-
-Parámetro| Descripción| Tipo de dato| Requerido| Rango  
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`reference_images`| Ranura expandible: conecta una o más imágenes de referencia (`image_1`, `image_2`, …) que guíen la generación del video. Las imágenes se reducen automáticamente a un lado máximo de 6000 píxeles y deben tener al menos 300x300 píxeles con una relación de aspecto entre 0.4 y 2.5.| IMAGE| No| Hasta 30 (Seedance 2.5)  
+`reference_images`| Ranura ampliable: conecte una o más imágenes de referencia (`image_1`, `image_2`, …) que guíen la generación del video. Las imágenes se reducen automáticamente hasta un lado máximo de 6000 píxeles y deben ser de al menos 300x300 píxeles con una relación de aspecto entre 0.4 y 2.5.| IMAGE| No| Hasta 30 (Seedance 2.5)  
 Hasta 9 (modelos Seedance 2.0)  
-`reference_videos`| Ranura expandible: conecta uno o más videos de referencia (`video_1`, `video_2`, …) que guíen la generación del video; se utilizan para edición y extensión de video.| VIDEO| No| Hasta 10 (Seedance 2.5)  
+`reference_videos`| Ranura ampliable: conecte uno o más videos de referencia (`video_1`, `video_2`, …) que guíen la generación del video; se utilizan para edición y extensión de video.| VIDEO| No| Hasta 10 (Seedance 2.5)  
 Hasta 3 (modelos Seedance 2.0)  
-`reference_audios`| Ranura expandible: conecta uno o más clips de audio de referencia (`audio_1`, `audio_2`, …) que guíen la generación del video.| AUDIO| No| Hasta 10 (Seedance 2.5)  
+`reference_audios`| Ranura ampliable: conecte uno o más clips de audio de referencia (`audio_1`, `audio_2`, …) que guíen la generación del video.| AUDIO| No| Hasta 10 (Seedance 2.5)  
 Hasta 3 (modelos Seedance 2.0)  
-`auto_downscale`| Reduce automáticamente la escala de los videos de referencia que exceden el presupuesto de píxeles del modelo para la resolución seleccionada. Se conserva la relación de aspecto; los videos que ya están dentro de los límites no se modifican (predeterminado: True).| BOOLEAN| No| `True`  
+`auto_downscale`| Reducir automáticamente los videos de referencia que superen el presupuesto de píxeles del modelo para la resolución seleccionada. Se conserva la relación de aspecto; los videos que ya están dentro de los límites no se modifican (predeterminado: True).| BOOLEAN| No| `True`  
 `False`  
-`auto_upscale`| Configuración avanzada. Aumenta automáticamente la escala de los videos de referencia que están por debajo del recuento mínimo de píxeles del modelo para la resolución seleccionada. Se conserva la relación de aspecto; los videos que ya cumplen el mínimo no se modifican. Nota: aumentar la escala de una fuente de baja resolución no agrega detalle real y puede producir generaciones de menor calidad (predeterminado: False).| BOOLEAN| No| `True`  
+`auto_upscale`| Ajuste avanzado. Aumentar automáticamente la escala de los videos de referencia que estén por debajo del recuento mínimo de píxeles del modelo para la resolución seleccionada. Se conserva la relación de aspecto; los videos que ya cumplen el mínimo no se modifican. Nota: aumentar la escala de una fuente de baja resolución no añade detalle real y puede producir generaciones de menor calidad (predeterminado: False).| BOOLEAN| No| `True`  
 `False`  
-`reference_assets`| Ranura expandible: IDs de activos de la biblioteca virtual de Seedance creados previamente (Imagen, Video o Audio) para usar como referencias (`asset_1`, `asset_2`, …). Cada activo debe existir y tener un estado Activo. En el prompt, se puede hacer referencia a los activos como `asset1`, `asset 1`, etc.; el nodo reemplaza estos tokens con etiquetas como “Image 2”.| STRING| No| Hasta 30 (Seedance 2.5)  
+`reference_assets`| Ranura ampliable: ID de recursos de la biblioteca virtual de Seedance creados previamente (Imagen, Video o Audio) que se usarán como referencias (`asset_1`, `asset_2`, …). Cada recurso debe existir y tener un estado Activo. En el prompt, se puede hacer referencia a los recursos como `asset1`, `asset 1`, etc.; el nodo reemplaza estos tokens con etiquetas como “Imagen 2”.| STRING| No| Hasta 30 (Seedance 2.5)  
 Hasta 9 (modelos Seedance 2.0)  
   
 **Restricciones importantes:**
 
-  * Se requiere al menos una referencia. Para Seedance 2.0, 2.0 Fast y 2.0 Mini, debes proporcionar al menos una imagen o video de referencia (a través de `reference_images`, `reference_videos`, o una entrada de imagen o video en `reference_assets`). Seedance 2.5 además acepta referencias solo de audio (a través de `reference_audios` o una entrada de audio en `reference_assets`).
-  * Los recuentos de referencias dependen del modelo y se validan en conjunto entre las entradas directas y las referencias de activos: Seedance 2.5 permite hasta 30 `reference_images`, 10 `reference_videos`, 10 `reference_audios` y 30 `reference_assets`; los modelos Seedance 2.0 permiten hasta 9 imágenes, 3 videos, 3 clips de audio y 9 activos.
-  * Cada video de referencia debe tener al menos 1.8 segundos de duración, y cada clip de audio de referencia debe tener al menos 1.8 segundos de duración. La duración total de todos los videos de referencia y de todos los audios de referencia debe mantenerse dentro del límite del modelo seleccionado (15.1 segundos para los modelos Seedance 2.0).
-  * Los videos de referencia también deben cumplir con los límites de recuento de píxeles del modelo para la resolución seleccionada. Con `auto_downscale` habilitado (predeterminado), los videos demasiado grandes se redimensionan automáticamente; con `auto_upscale` habilitado, los videos demasiado pequeños se amplían. Si cualquiera de los ajustes automáticos está deshabilitado, los videos fuera del límite correspondiente generan un error.
-  * Cuando `video_editing` está habilitado en Seedance 2.5, las entradas `duration` y `ratio` se ignoran; la salida coincide con la duración y la relación de aspecto del propio video de referencia. Si el proveedor interpreta el prompt como una edición de un video de referencia, la generación falla a menos que `video_editing` esté habilitado o se reformule el prompt para describir un video nuevo.
-  * Si el proveedor rechaza la pista de audio generada para el video (por ejemplo, una posible coincidencia de derechos de autor), la tarea falla; deshabilitar `generate_audio` produce un video silencioso.
+  * Se requiere al menos una referencia. Para Seedance 2.0, 2.0 Fast y 2.0 Mini, debe proporcionar al menos una referencia de imagen o video (mediante `reference_images`, `reference_videos`, o una entrada de imagen o video en `reference_assets`). Seedance 2.5 además acepta referencias solo de audio (mediante `reference_audios` o una entrada de audio en `reference_assets`).
+  * Los recuentos de referencias dependen del modelo y se validan combinando las entradas directas y las referencias de recursos: Seedance 2.5 permite hasta 30 `reference_images`, 10 `reference_videos`, 10 `reference_audios` y 30 `reference_assets`; los modelos Seedance 2.0 permiten hasta 9 imágenes, 3 videos, 3 clips de audio y 9 recursos.
+  * Cada video de referencia debe tener una duración mínima de 1.8 segundos, y cada clip de audio de referencia debe tener una duración mínima de 1.8 segundos. La duración total de todos los videos de referencia y de todos los audios de referencia debe mantenerse dentro del límite del modelo seleccionado (15.1 segundos para los modelos Seedance 2.0).
+  * Los videos de referencia también deben cumplir los límites de recuento de píxeles del modelo para la resolución seleccionada. Con `auto_downscale` habilitado (predeterminado), los videos de tamaño excesivo se redimensionan automáticamente; con `auto_upscale` habilitado, los videos de tamaño insuficiente se amplían. Si cualquiera de los ajustes automáticos está deshabilitado, los videos que estén fuera del límite correspondiente generarán un error.
+  * Cuando `video_editing` está habilitado en Seedance 2.5, las entradas `duration` y `ratio` se ignoran; la salida coincide con la duración y la relación de aspecto propias del video de referencia. Si el proveedor interpreta el prompt como una edición de un video de referencia, la generación falla a menos que `video_editing` esté habilitado o que el prompt se reformule para describir un video nuevo.
+  * Si el proveedor rechaza la pista de audio generada para el video (por ejemplo, una posible coincidencia de derechos de autor), la tarea falla; deshabilitar `generate_audio` produce un video sin sonido.
 
 
 
-## 
+## Salidas
 
-​
-
-Salidas
-
-Nombre de salida| Descripción| Tipo de dato  
+Nombre de salida| Descripción| Tipo de datos  
 ---|---|---  
 `video`| El archivo de video generado.| VIDEO  
   
@@ -171,7 +144,7 @@ Nombre de salida| Descripción| Tipo de dato
 
 * * *
 
-**Source fingerprint (SHA-256):** `4a1b62f65ff3515cdb749c9b3916e631e53523fe144e8cdf71ca020825196ae6`
+**Source fingerprint (SHA-256):** `2c8ff29bb772b9ef005e264dd5c07b36f83b5b7068eebefa83ed567029187184`
 
 ¿Esta página le ayudó?
 

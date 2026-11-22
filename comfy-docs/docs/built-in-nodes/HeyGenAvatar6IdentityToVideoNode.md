@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/HeyGenAvatar6IdentityToVideoNode/
-title: HeyGenAvatar6IdentityToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: HeyGen Avatar 6 Identity to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:05.464186+00:00
+fetched_at: 2026-11-22T15:07:55.452640+00:00
 ---
 
-# HeyGenAvatar6IdentityToVideoNode - ComfyUI Built-in Node Documentation - ComfyUI
+# HeyGen Avatar 6 Identity to Video - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/HeyGenAvatar6IdentityToVideoNode/
 
 Heygen
 
-# HeyGenAvatar6IdentityToVideoNode - ComfyUI Built-in Node Documentation
+# HeyGen Avatar 6 Identity to Video - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -99,4 +99,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/HeyGenAvatar6IdentityToVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/HeyGenAvatar6IdentityToVideoNode)
 
-[Grok Reference-to-Video](https://docs.comfy.org/built-in-nodes/GrokVideoReferenceNode)[HeyGenAvatar6ReferenceToVideoNode](https://docs.comfy.org/built-in-nodes/HeyGenAvatar6ReferenceToVideoNode)
+[Grok Reference-to-Video](https://docs.comfy.org/built-in-nodes/GrokVideoReferenceNode)[HeyGen Avatar 6 Reference to Video](https://docs.comfy.org/built-in-nodes/HeyGenAvatar6ReferenceToVideoNode)

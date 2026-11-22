@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/PatinaMaterialExtractNode/
 title: Extracci\u00f3n de material Patina - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:54.087410+00:00
+fetched_at: 2026-11-22T15:07:53.196303+00:00
 ---
 
 # Extracción de material Patina - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,32 +21,28 @@ Copiar páginaCopiar página
 
 Extrae un material PBR con mosaico continuo de una región de una imagen de entrada, guiado por un prompt que nombra qué tomar: una pared, un suelo, una tela. Devuelve la textura base extraída más hasta cinco mapas de material, con escalado opcional de los mapas mediante SeedVR. Úsalo para convertir una foto de una superficie real en un material reutilizable y repetible.
 
-## 
-
-​
-
-Entradas
+## Entradas
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`image`| La imagen de la que se extrae una textura.| IMAGE| Sí| -  
+`imagen`| La imagen de la que se extrae una textura.| IMAGE| Sí| -  
 `prompt`| Descripción de qué textura extraer de la imagen, por ejemplo `"the wall"`.| STRING| Sí| Texto multilínea  
-`image_size`| Tamaño de la textura de salida. `"custom"` muestra las entradas `width` y `height`. Predeterminado: `"1:1 (1024x1024)"`.| DYNAMIC_COMBO| Sí| `"1:1 (1024x1024)"`  
+`tamaño_de_imagen`| Tamaño de la textura de salida. `"custom"` muestra las entradas `width` y `height`. Predeterminado: `"1:1 (1024x1024)"`.| DYNAMIC_COMBO| Sí| `"1:1 (1024x1024)"`  
 `"1:1 (512x512)"`  
 `"4:3 (1024x768)"`  
 `"3:4 (768x1024)"`  
 `"16:9 (1024x576)"`  
 `"9:16 (576x1024)"`  
 `"custom"`  
-`basecolor`| Genera el mapa de basecolor (albedo). Predeterminado: True.| BOOLEAN| Sí| true  
+`color_base`| Genera el mapa de basecolor (albedo). Predeterminado: True.| BOOLEAN| Sí| true  
 false  
 `normal`| Genera el mapa de normales. Predeterminado: True.| BOOLEAN| Sí| true  
 false  
-`roughness`| Genera el mapa de rugosidad. Predeterminado: False.| BOOLEAN| Sí| true  
+`rugosidad`| Genera el mapa de rugosidad. Predeterminado: False.| BOOLEAN| Sí| true  
 false  
-`metalness`| Genera el mapa de metalness. Predeterminado: False.| BOOLEAN| Sí| true  
+`metalicidad`| Genera el mapa de metalness. Predeterminado: False.| BOOLEAN| Sí| true  
 false  
-`height`| Genera el mapa de altura (desplazamiento). Predeterminado: False.| BOOLEAN| Sí| true  
+`altura`| Genera el mapa de altura (desplazamiento). Predeterminado: False.| BOOLEAN| Sí| true  
 false  
 `upscale_factor`| Escalado SeedVR sin costuras de los mapas PBR. La textura base no se escala, y 4x convierte un mapa de 2048 píxeles en uno de 8K. Predeterminado: 0 (desactivado).| INT| Sí| 0 a 4 (paso: 2)  
 `seed`| Semilla para una generación reproducible. Predeterminado: 42.| INT| Sí| 0 a 2147483646  
@@ -62,11 +58,7 @@ false
 `safety_checker`| Ejecuta la verificación de seguridad de contenido del proveedor en la solicitud. Ajuste avanzado. Predeterminado: False.| BOOLEAN| Sí| true  
 false  
   
-### 
-
-​
-
-Entradas de tamaño de imagen personalizado
+### Entradas de tamaño de imagen personalizado
 
 Estas entradas aparecen cuando `image_size` se establece en `"custom"`.
 
@@ -83,11 +75,7 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 
 
 
-## 
-
-​
-
-Salidas
+## Salidas
 
 Nombre de salida| Descripción| Tipo de datos  
 ---|---|---  
@@ -111,4 +99,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/PatinaMaterialExtractNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/PatinaMaterialExtractNode)
 
-[Doblaje de VEED](https://docs.comfy.org/es/built-in-nodes/VeedDubbingNode)[Material de pátina](https://docs.comfy.org/es/built-in-nodes/PatinaMaterialNode)
+[Pruna P-Video-2 Pro de referencia a video](https://docs.comfy.org/es/built-in-nodes/PrunaReferenceToVideoNode)[Material de pátina](https://docs.comfy.org/es/built-in-nodes/PatinaMaterialNode)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:29.725319+00:00
+fetched_at: 2026-11-22T15:07:58.173102+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -106,6 +106,7 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **quiver** : `quiver/arrow-2`, `quiver/arrow-2-telos`
   * **runware** : `runware/runware-gpt-image-2`, `runware/runware-gpt-image-2.5-flare`, `runware/runware-gpt-image-2.5-sunburst`, `runware/runware-nano-banana-2`, `runware/runware-nano-banana-pro`, `runware/runware-seedance-2.0`, `runware/runware-seedance-2.5`
   * **synclabs** : `synclabs/sync-3`
+  * **typesafe** : `typesafe/jev-1.13.0`, `typesafe/jev-1.14.0`
   * **veed** : `veed/video-background-removal`, `veed/video-background-removal-fast`, `veed/video-background-removal-green-screen`
   * **wavespeed** : `wavespeed/wavespeed-gpt-image-2`, `wavespeed/wavespeed-gpt-image-2.5-flare`, `wavespeed/wavespeed-gpt-image-2.5-sunburst`
 

@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/SenseNovaConditioning/
-title: SenseNovaConditioning - ComfyUI Built-in Node Documentation - ComfyUI
+title: Condicionamiento de SenseNova - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:05.878531+00:00
+fetched_at: 2026-11-22T15:07:53.008415+00:00
 ---
 
-# SenseNovaConditioning - ComfyUI Built-in Node Documentation - ComfyUI
+# Condicionamiento de SenseNova - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/SenseNovaConditioning/
 
 Sensenova
 
-# SenseNovaConditioning - ComfyUI Built-in Node Documentation
+# Condicionamiento de SenseNova - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -25,7 +25,7 @@ Prepare el condicionamiento de SenseNova para la generación de imágenes o para
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`clip`| Modelo CLIP de SenseNova. Conecte el cargador CLIP que también alimenta a CLIP Text Encode; la salida del codificador va a `conditioning`. Obligatorio para todas las tareas excepto cuando el condicionamiento entrante está vacío o ya está finalizado.| CLIP| No| -  
+`clip`| Modelo CLIP de SenseNova. Conecte el cargador CLIP que también alimenta a CLIP Text Encode; la salida del codificador va a `conditioning`. Obligatorio para todas las tareas excepto cuando el condicionamiento entrante ya está finalizado.| CLIP| No| -  
 `conditioning`| Condicionamiento de texto de SenseNova desde CLIP Text Encode.| CONDITIONING| Sí| -  
 `negative`| Condicionamiento negativo opcional. Se actualiza y se devuelve para las tareas `interleave` y `self-correction`.| CONDITIONING| No| -  
 `task`| Tarea que se va a ejecutar. `"image"` codifica el prompt para un sampler estándar, `"image thinking"` permite que el modelo piense antes de responder, `"interleave"` produce texto e imágenes en una sola pasada, y `"self-correction"` permite que el modelo corrija su propia salida anterior.| DYNAMIC_COMBO| Sí| `"image"`  
@@ -54,7 +54,7 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
   
 **Restricciones y comportamiento:**
 
-  * La entrada `clip` recibe el modelo CLIP de SenseNova, no la salida de CLIP Text Encode (que es `CONDITIONING`). El nodo retorna antes de usar `clip` cuando el condicionamiento entrante está vacío o ya está finalizado; en caso contrario, que falte `clip` o que no sea un CLIP de SenseNova es un error.
+  * La entrada `clip` recibe el modelo CLIP de SenseNova, no la salida de CLIP Text Encode (que es `CONDITIONING`). El nodo da error si `clip` falta (salvo que el condicionamiento entrante ya esté finalizado) o no es un CLIP de SenseNova.
   * `"image thinking"` necesita exactamente una entrada de condicionamiento positiva; `"interleave"` y `"self-correction"` necesitan una entrada positiva y una negativa.
   * Cuando el modelo esté esperando una imagen, conecte la salida LATENT del sampler anterior a `samples`. Pasar `samples` antes de que se solicite una imagen es un error.
   * Cuando el condicionamiento entrante ya está finalizado, el nodo lo devuelve sin cambios con `generated_text` vacío y `image_requested` establecido en False.
@@ -82,4 +82,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SenseNovaConditioning.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SenseNovaConditioning)
 
-[RelayVSRConditioning](https://docs.comfy.org/es/built-in-nodes/RelayVSRConditioning)[SenseNovaInterleaveDecode](https://docs.comfy.org/es/built-in-nodes/SenseNovaInterleaveDecode)
+[RelayVSRConditioning](https://docs.comfy.org/es/built-in-nodes/RelayVSRConditioning)[Decodificación de intercalación de SenseNova](https://docs.comfy.org/es/built-in-nodes/SenseNovaInterleaveDecode)

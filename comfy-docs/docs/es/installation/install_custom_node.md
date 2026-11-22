@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/install_custom_node/
 title: C\u00f3mo instalar nodos personalizados en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:04.037749+00:00
+fetched_at: 2026-11-22T15:07:58.418757+00:00
 ---
 
 # Cómo instalar nodos personalizados en ComfyUI - ComfyUI
@@ -31,11 +31,7 @@ Instala nodos personalizados en ComfyUI con ComfyUI Manager, git clone o una des
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-¿Qué son los nodos personalizados?
+## ¿Qué son los nodos personalizados?
 
 Los nodos personalizados son extensiones para ComfyUI que añaden nuevas funcionalidades como procesamiento avanzado de imágenes, ajuste fino de aprendizaje automático, ajustes de color y más. Estos nodos desarrollados por la comunidad pueden expandir significativamente las capacidades principales de ComfyUI.
 
@@ -69,11 +65,7 @@ Método| Ventajas| Desventajas
   
 Consejo: Antes de instalar nodos personalizados, revisa el archivo README del complemento para comprender los métodos de instalación, el uso y los requisitos, como modelos específicos, versiones de dependencias y soluciones a problemas comunes.
 
-## 
-
-​
-
-Método 1: ComfyUI Manager (recomendado)
+## Método 1: ComfyUI Manager (recomendado)
 
 Necesitas tener ComfyUI Manager disponible en tu entorno antes de usar este método. Si falta o está deshabilitado, consulta la [descripción general de ComfyUI Manager](https://docs.comfy.org/es/manager/overview) y la [guía de instalación](https://docs.comfy.org/es/manager/install).
 
@@ -87,11 +79,7 @@ La nueva interfaz de administración de nodos, habilitada de forma predeterminad
 
 La interfaz clásica de Manager para instalar nodos personalizados.
 
-## 
-
-​
-
-Método 2: Instalación manual usando Git
+## Método 2: Instalación manual usando Git
 
 Adecuado para nodos nuevos que no se encuentran en ComfyUI Manager o cuando se necesitan versiones específicas. Requiere tener [Git](https://git-scm.com/) instalado en tu sistema.
 
@@ -133,7 +121,7 @@ Las dependencias deben instalarse en tu entorno de ComfyUI. Ten cuidado de no me
 Para la versión portable de Windows, instala las dependencias en el entorno de Python Integrado
     
     
-    python_embeded\python.exe -m pip install -r ComfyUI\custom_nodes\[node directory]\requirements.txt
+    ..\..\python_embeded\python.exe -m pip install -r [node directory]\requirements.txt
     
 
 Instala las dependencias en tu entorno de ComfyUI
@@ -149,11 +137,7 @@ Reinicia ComfyUI y actualiza el navegador
 
 Reinicia ComfyUI y actualiza tu navegador. Revisa los registros de inicio para detectar errores de `import failed`
 
-## 
-
-​
-
-Método 3: Instalación por descarga de ZIP
+## Método 3: Instalación por descarga de ZIP
 
 Adecuado para usuarios que no pueden usar Git o ComfyUI Manager
 
@@ -189,11 +173,7 @@ Verifica que la instalación se haya realizado correctamente
 
 Revisa ComfyUI Manager después de reiniciar para confirmar que el complemento se instaló correctamente y que no hay errores de `import failed`
 
-## 
-
-​
-
-Recursos para nodos personalizados
+## Recursos para nodos personalizados
 
 En ComfyUI, además de la funcionalidad básica de extensión de nodos, los nodos personalizados también pueden incluir los siguientes recursos adicionales:
 

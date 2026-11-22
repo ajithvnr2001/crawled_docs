@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/changelog/
 title: Registro de cambios - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:07.995910+00:00
+fetched_at: 2026-11-22T15:07:52.628348+00:00
 ---
 
 # Registro de cambios - ComfyUI
@@ -13,6 +13,8 @@ fetched_at: 2026-11-19T16:26:07.995910+00:00
 
 Volver arriba
 
+  * v0.46.2
+  * v0.46.1
   * v0.46.0
   * v0.45.6
   * v0.45.5
@@ -176,6 +178,36 @@ Copiar páginaCopiar página
 Historial de ComfyUI: novedades, mejoras y correcciones de cada versión, actualizado a medida que se publican.
 
 Copiar páginaCopiar página
+
+v0.46.2
+
+20 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Kling 4.0 4K y HDR**](https://github.com/Comfy-Org/ComfyUI/pull/17862): salida en 4K y HDR en 1080p/4K en los nodos de video Kling 4.0
+  * [**Creatify Boreal-H3 y Aurora 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17851): Boreal-H3 Text to Video y Reference to Video, además del nodo Aurora 2.0 Avatar
+  * [**Nodos Decision de Google Gemini**](https://github.com/Comfy-Org/ComfyUI/pull/17876): nodos Yes/No, Choice, Pick Image y Score que responden una pregunta sobre imágenes, audio o video
+  * [**Nodos Decision de HeyGen**](https://github.com/Comfy-Org/ComfyUI/pull/17878): nodos Yes/No, Choice y Score, en un modelo estándar y uno Turbo
+  * [**Reducción de resolución de video de Mirelo**](https://github.com/Comfy-Org/ComfyUI/pull/17829): Video to SFX reduce la resolución de las fuentes por encima de 2160p de forma predeterminada
+
+**Corrección de errores**
+
+  * [**Entradas de audio**](https://github.com/Comfy-Org/ComfyUI/pull/17866): ahora se remuestrean y se convierten a menos canales cuando un codificador rechaza el clip, así que el audio de 96 kHz y de 3 o más canales se codifica
+  * [**Errores de relación de aspecto**](https://github.com/Comfy-Org/ComfyUI/pull/17865): ahora reportan el tamaño de la imagen y el rango permitido
+
+
+
+v0.46.1
+
+19 de noviembre de 2026
+
+**Actualizaciones de nodos de socios**
+
+  * [**Ideogram 4.6**](https://github.com/Comfy-Org/ComfyUI/pull/17854): Nueva opción de modelo en los nodos Ideogram Text to Image, Edit y Precise Edit, con tamaños de 4K y fondos transparentes
+  * [**Tripo Smart UV**](https://github.com/Comfy-Org/ComfyUI/pull/17827): Vuelve a desplegar las UV y reasigna las texturas manteniendo el rig y la animación
+
+
 
 v0.46.0
 

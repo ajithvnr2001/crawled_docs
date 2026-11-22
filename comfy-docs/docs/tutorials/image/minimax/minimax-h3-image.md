@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/minimax/minimax-h3-image/
 title: MiniMax-H3-Image: 16 MP text to image and image editing in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:28:55.504723+00:00
+fetched_at: 2026-11-22T15:07:57.395754+00:00
 ---
 
 # MiniMax-H3-Image: 16 MP text to image and image editing in ComfyUI - ComfyUI
@@ -15,11 +15,12 @@ Back to top
 
   * Key features
   * Templates
+    * MiniMax-H3-Image Text to Image
+    * MiniMax-H3-Image Image Edit
   * Model downloads
   * Sampling and canvas size
   * Reference images in image editing
   * Prompt expander
-  * Licensing
 
 
 
@@ -44,11 +45,7 @@ Copy pageCopy page
 
 
 
-## 
-
-​
-
-Key features
+## Key features
 
   * **Text to image and editing in one checkpoint** : no separate edit model or adapter to load
   * **6-step sampling** : guidance is fixed at 1, so there is no CFG pass and no negative prompt
@@ -82,29 +79,33 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Templates
+## Templates
 
 Two template Workflows ship with the model. Both need ComfyUI **0.45.0+** and template pack **0.11.104+**.
 
-## MiniMax-H3-Image: Text to Image
+### MiniMax-H3-Image Text to Image
+
+Generate an image from a text prompt. The template opens at 16 MP (4096 x 4096 at 1:1), the resolution the model is built for. Lower `megapixels` in the resolution selector to about 4 MP on a small GPU or for faster runs. ![MiniMax-H3-Image text to image example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_minimax_h3_image_t2i-1.webp)
+
+## Download Workflow
 
 Download JSON or search “MiniMax-H3-Image: Text to Image” in Template Library
 
-## MiniMax-H3-Image: Image Edit
+### MiniMax-H3-Image Image Edit
+
+Edit a picture by describing the change. The template loads the source as `<Picture 1>`, builds a reference-aware caption from your instruction, and finishes with a before/after comparison node. ![MiniMax-H3-Image image edit example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_minimax_h3_image_edit-1.webp)
+
+## Download Workflow
 
 Download JSON or search “MiniMax-H3-Image: Image Edit” in Template Library
 
-The text-to-image template opens at 4 MP on a square canvas, deliberately below the model’s native resolution so low-VRAM machines do not run out of memory. Raise the size with the resolution selector when the GPU has room. The image editing template loads the source as `<Picture 1>`, builds a reference-aware caption from your instruction, and finishes with a before/after comparison node. Both templates show their example output in Template Library, so the first queue demonstrates the model without any changes.
+**Input materials** The template ships with one source picture, loaded as `<Picture 1>` in its `LoadImage` node.
 
-## 
+## vintage_yellow_taxi.png
 
-​
+Source image the template edits
 
-Model downloads
+## Model downloads
 
 Four files go under `ComfyUI/models`. All of them come from Comfy-Org mirror repositories.
 
@@ -138,11 +139,7 @@ Image VAE, FP16, 1.17 GB. Place in `ComfyUI/models/vae/`
     │       └── minimax_h3_image_vae_fp16.safetensors
     
 
-## 
-
-​
-
-Sampling and canvas size
+## Sampling and canvas size
 
 Both templates ship the distilled schedule:
 
@@ -167,31 +164,15 @@ Aspect ratio| Size (width x height)
 9:16| 3072 x 5472  
 21:9| 6272 x 2688  
   
-Smaller canvases work too and cost less time. In the text-to-image template the resolution selector sets the aspect ratio and the target megapixels separately, so 4 MP is a starting point rather than a limit.
+Smaller canvases work too and cost less time. In the text-to-image template the resolution selector sets the aspect ratio and the target megapixels separately, so any target from about 4 MP up to the selector’s 16 MP ceiling is one setting away.
 
-## 
-
-​
-
-Reference images in image editing
+## Reference images in image editing
 
 The image editing template sends the source image to the model as `<Picture 1>`. Additional images are labelled in order, `<Picture 2>`, `<Picture 3>`, up to 16 references, and the prompt addresses each one by its label. The first picture is the one being edited; the rest supply identity, props, materials, or composition. A short instruction is enough, for example replacing the vehicle in `<Picture 1>` with the one in `<Picture 2>`. To add a reference, place another `Load Image` node in the workflow and connect it to both the prompt generation step and the conditioning node. Reference images need no preparation: the template rounds the source to a multiple of 32 px, and ComfyUI scales the internal copies itself, a 1024 px short edge for the vision side and a short edge clamped between 1024 and 2048 px for the VAE side, both on the 32 px grid. If an edit runs out of memory, enable the `Resize Image/Mask` node in the template and lower its megapixels before sampling.
 
-## 
+## Prompt expander
 
-​
-
-Prompt expander
-
-Both templates hold a text generation step in front of the sampler. In the text-to-image template it rewrites the prompt into a detailed English caption and picks an aspect ratio for the canvas. In the image editing template it turns a short instruction into a reference-aware description of the finished image. The official expander for MiniMax-H3-Image is a Qwen3.8-27B FP4 model, published as [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). The templates use a lighter Qwen3.5 9B W4A8 build instead, so the expander fits beside the 21 GB diffusion model on one GPU. The text-to-image template ships with the expander switched off, so your prompt reaches the model exactly as typed; switch it on when you want the caption rewritten and the aspect ratio chosen for you. The image editing template ships with it on.
-
-## 
-
-​
-
-Licensing
-
-MiniMax-H3-Image’s open weights let you run the model locally. Commercial use of locally generated outputs requires a [MiniMax commercial license](https://comfy.org/minimax/license), available through Comfy, the only official reseller. Generations on Comfy Cloud already include commercial rights.
+Both templates hold a text generation step in front of the sampler. In the text-to-image template it rewrites the prompt into a detailed English caption. In the image editing template it turns a short instruction into a reference-aware description of the finished image. The official expander for MiniMax-H3-Image is a Qwen3.8-27B FP4 model, published as [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). The templates use a lighter Qwen3.5 9B W4A8 build instead, so the expander fits beside the 21 GB diffusion model on one GPU. Both templates ship with the expander switched on, so your prompt is rewritten before sampling. Switch it off to send your prompt to the model exactly as typed.
 
 Was this page helpful?
 

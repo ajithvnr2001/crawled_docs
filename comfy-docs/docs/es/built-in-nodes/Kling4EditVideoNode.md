@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Kling4EditVideoNode/
 title: Kling 4.0: editar v\u00eddeo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:53.746712+00:00
+fetched_at: 2026-11-22T15:07:53.865399+00:00
 ---
 
 # Kling 4.0: editar vídeo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -19,60 +19,74 @@ Edita un video existente con un prompt de texto usando el modelo Kling 4.0, opci
 
 Copiar páginaCopiar página
 
-Edita un video existente con un prompt de texto usando el modelo Kling 4.0, opcionalmente guiado por videos de referencia e imágenes de referencia. El resultado conserva la duración del video de entrada. Úsalo para cambiar lo que ocurre en un clip, cambiar su estilo o intercambiar elementos mientras se mantiene intacta la sincronización original.
+Edita un video existente con un prompt de texto usando el modelo Kling 4.0, opcionalmente guiado por videos de referencia e imágenes de referencia. El resultado conserva la duración del video de entrada. Úsalo para cambiar lo que sucede en un clip, cambiar su estilo o intercambiar elementos mientras la sincronización original se mantiene intacta.
 
-## 
+## Entradas
 
-​
-
-Entradas
-
-### 
-
-​
-
-Entradas comunes
+### Entradas comunes
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`model`| Selector de modelo. Solo `"kling-4.0"` está disponible; al seleccionarlo se muestran las entradas siguientes.| DYNAMIC_COMBO| Sí| `"kling-4.0"`  
+`modelo`| Selector de modelo. `"kling-4.0"` admite ediciones de hasta 4K HDR y 30 segundos; `"kling-4.0-flash"` está limitado a 720p y 20 segundos. Al seleccionar un modelo, se muestran sus entradas a continuación.| DYNAMIC_COMBO| Sí| `"kling-4.0"`  
+`"kling-4.0-flash"`  
   
-### 
+### Entradas de kling-4.0
 
-​
-
-Entradas de kling-4.0
-
-Estas entradas aparecen cuando `model` se establece en `"kling-4.0"`.
+Estas entradas aparecen cuando `model` está establecido en `"kling-4.0"`.
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
-`video_1`| El video que se va a editar, de 3 a 30 segundos de duración. La salida conserva su duración.| VIDEO| Sí| 3 a 30 segundos  
-`reference_videos`| Ranuras ampliables para videos de referencia, hasta 4. Haz referencia a ellos en el prompt como `@Video2` y así sucesivamente. Cada video y el conjunto de todos los videos deben tener una duración de 3 a 30 segundos.| AUTOGROW| No| 0 a 4 videos  
+`video_1`| El video a editar, de 3 a 30 segundos de duración. La salida conserva su duración.| VIDEO| Sí| 3 a 30 segundos  
+`reference_videos`| Ranuras ampliables para videos de referencia, hasta 4. Haz referencia a ellos en el prompt como `@Video2` y así sucesivamente. Cada video y todos los videos en conjunto deben durar de 3 a 30 segundos.| AUTOGROW| No| 0 a 4 videos  
 `reference_images`| Ranuras ampliables para imágenes de referencia, hasta 10. Haz referencia a ellas en el prompt como `@Image1`, `@Image2` y así sucesivamente.| AUTOGROW| No| 0 a 10 imágenes  
 `prompt`| Descripción de qué cambiar y qué conservar. Haz referencia al video que se está editando como `@Video1`, a los videos de referencia como `@Video2` y así sucesivamente, y a las imágenes como `@Image1` y así sucesivamente.| STRING| Sí| 1 a 26000 caracteres  
-`resolution`| Resolución del video de salida. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
+`resolution`| Resolución del video de salida; una opción con `HDR` en su nombre devuelve un video HDR. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
 `"1080p"`  
+`"4k"`  
+`"1080p HDR"`  
+`"4k HDR"`  
 `aspect_ratio`| Relación de aspecto del video de salida. `"adaptive"` conserva la relación de aspecto del video de entrada. Predeterminado: `"adaptive"`.| COMBO| Sí| `"adaptive"`  
 `"16:9"`  
 `"9:16"`  
 `"1:1"`  
 `"21:9"`  
+`"4:3"`  
+`"3:4"`  
 `seed`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla. Predeterminado: 42.| INT| Sí| 0 a 2147483647  
+`audio`| `"native"` genera nuevo audio para el video editado; `"original"` conserva el audio del video de entrada. Predeterminado: `"native"`.| COMBO| No| `"native"`  
+`"original"`  
+  
+### Entradas de kling-4.0-flash
+
+Estas entradas aparecen cuando `model` está establecido en `"kling-4.0-flash"`.
+
+Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+---|---|---|---|---  
+`video_1`| El video a editar, de 3 a 20 segundos de duración. La salida conserva su duración.| VIDEO| Sí| 3 a 20 segundos  
+`reference_videos`| Ranuras ampliables para videos de referencia, hasta 4. Haz referencia a ellos en el prompt como `@Video2` y así sucesivamente. Cada video y todos los videos en conjunto deben durar de 3 a 20 segundos.| AUTOGROW| No| 0 a 4 videos  
+`reference_images`| Ranuras ampliables para imágenes de referencia, hasta 10. Haz referencia a ellas en el prompt como `@Image1`, `@Image2` y así sucesivamente.| AUTOGROW| No| 0 a 10 imágenes  
+`prompt`| Descripción de qué cambiar y qué conservar. Haz referencia al video que se está editando como `@Video1`, a los videos de referencia como `@Video2` y así sucesivamente, y a las imágenes como `@Image1` y así sucesivamente.| STRING| Sí| 1 a 26000 caracteres  
+`resolution`| Resolución del video de salida. Flash solo renderiza en 720p. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
+`aspect_ratio`| Relación de aspecto del video de salida. `"adaptive"` conserva la relación de aspecto del video de entrada. Predeterminado: `"adaptive"`.| COMBO| Sí| `"adaptive"`  
+`"16:9"`  
+`"9:16"`  
+`"1:1"`  
+`"21:9"`  
+`"4:3"`  
+`"3:4"`  
+`seed`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla. Predeterminado: 42.| INT| Sí| 0 a 2147483647  
+`audio`| `"native"` genera nuevo audio para el video editado; `"original"` conserva el audio del video de entrada. Predeterminado: `"native"`.| COMBO| No| `"native"`  
+`"original"`  
   
 **Restricciones y comportamiento:**
 
-  * El video de entrada y cada video de referencia deben durar de 3 a 30 segundos, medir al menos 700x700 y como máximo 4553x4553 píxeles, no superar los 8,294,400 píxeles en total, tener una relación de aspecto entre 2:5 y 5:2 y una frecuencia de fotogramas de al menos 24 fps. Todos los videos juntos no deben superar los 30 segundos.
-  * Cada imagen de referencia debe medir al menos 300x300 píxeles, con una relación de aspecto entre 2:5 y 5:2, y se pueden conectar como máximo 10 imágenes.
-  * Un prompt que mencione `@VideoN` o `@ImageN` genera un error cuando hay conectadas menos de N entradas de ese tipo.
+  * El video de entrada y cada video de referencia deben durar de 3 a 30 segundos (de 3 a 20 con `kling-4.0-flash`), tener al menos 700x700 y como máximo 4553x4553 píxeles, no más de 8,294,400 píxeles en total, con una relación de aspecto entre 2:5 y 5:2 y una velocidad de fotogramas de al menos 24 fps. Todos los videos en conjunto no deben superar el mismo límite.
+  * Cada imagen de referencia debe tener al menos 300x300 píxeles con una relación de aspecto entre 2:5 y 5:2, y se pueden conectar como máximo 10 imágenes.
+  * Un prompt que mencione `@VideoN` o `@ImageN` genera un error cuando se conectan menos de N entradas de ese tipo.
 
 
 
-## 
-
-​
-
-Salidas
+## Salidas
 
 Nombre de salida| Descripción| Tipo de datos  
 ---|---|---  
@@ -82,7 +96,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `00e8de2529df9be6bc1fae5f2c2beda01f151143448e91b79f9cfb27436064ff`
+**Source fingerprint (SHA-256):** `7b7f48c3292a0c380f5fceecca2291dc74d99d5d73e4049bd67d33822cd0696e`
 
 ¿Esta página le ayudó?
 

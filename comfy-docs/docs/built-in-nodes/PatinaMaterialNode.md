@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/PatinaMaterialNode/
 title: Patina Material - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:52.403542+00:00
+fetched_at: 2026-11-22T15:07:54.276792+00:00
 ---
 
 # Patina Material - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 Generates a complete, seamlessly tiling PBR material from a text description: a base texture plus up to five material maps, with optional SeedVR upscaling of the maps. An input image can drive the result as an image-to-image pass, and an input image with a mask turns it into an inpaint pass. Use it to produce game-ready or 3D-ready surfaces without scanning a real material.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -63,11 +59,7 @@ false
 `safety_checker`| Run the provider’s content safety check on the request. Advanced setting. Default: False.| BOOLEAN| Yes| true  
 false  
   
-### 
-
-​
-
-custom Image Size Inputs
+### custom Image Size Inputs
 
 These inputs appear when `image_size` is set to `"custom"`.
 
@@ -84,11 +76,7 @@ Parameter| Description| Data Type| Required| Range
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

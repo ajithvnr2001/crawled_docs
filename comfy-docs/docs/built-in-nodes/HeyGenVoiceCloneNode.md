@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/HeyGenVoiceCloneNode/
-title: HeyGenVoiceCloneNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: HeyGen Voice 1.0 Instant Clone - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:47.016322+00:00
+fetched_at: 2026-11-22T15:07:55.260852+00:00
 ---
 
-# HeyGenVoiceCloneNode - ComfyUI Built-in Node Documentation - ComfyUI
+# HeyGen Voice 1.0 Instant Clone - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/HeyGenVoiceCloneNode/
 
 Audio
 
-# HeyGenVoiceCloneNode - ComfyUI Built-in Node Documentation
+# HeyGen Voice 1.0 Instant Clone - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -19,13 +19,9 @@ Clone a voice from a recording of one speaker with HeyGen’s Voice 1.0 engine.
 
 Copy pageCopy page
 
-Clone a voice from a recording of one speaker with HeyGen’s Voice 1.0 engine. The node uploads the recording, creates an instant voice clone, waits until HeyGen finishes processing it, and returns the `voice_id`. Connect that to HeyGen Voice 1.0 Text to Speech, or to `custom_voice_id` in HeyGen Avatar Video and HeyGen Talking Photo. Creating the clone is free; you are billed for the speech you generate with the voice.
+Clone a voice from a recording of one speaker with HeyGen’s Voice 1.0 engine. The node uploads the recording, creates an instant voice clone, waits until HeyGen finishes processing it, and returns the `voice_id`. Connect that to HeyGen Voice 1.0 Text to Speech, or to `custom_voice_id` in HeyGen Avatar Video and HeyGen Talking Photo. Creating the clone is free; you are billed for the speech you generate with the voice. **Note:** This node is marked as deprecated in the source code. Use HeyGen Voice 1.0 Instant Clone Text to Speech to clone a voice and speak in it in a single node.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -40,13 +36,9 @@ Multiple language presets
 False  
 `seed`| Change the seed to clone the recording again; each clone is a slightly different voice (default: 42).| INT| Yes| 0 to 2147483647  
   
-**Note:** The voice is created as “ComfyUI Voice” in your HeyGen account, and the node prints the `voice_id` in the UI so you can copy it for reuse. Leave `language` on “auto” unless the speaker speaks a language that is easily confused with a closely related one. The `seed` input includes a fixed Control After Generate control in the UI, so change it by hand when you want another clone.
+**Note:** The voice is created as “ComfyUI Voice” in your HeyGen account, and the `voice_id` appears on its output, so connect a text display node to read it. Leave `language` on “auto” unless the speaker speaks a language that is easily confused with a closely related one. The `seed` input includes a fixed Control After Generate control in the UI, so change it by hand when you want another clone.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -56,7 +48,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `0bf5c7170d140936841cc4afd28022574df8e4c2280137607dcfca8e36862317`
+**Source fingerprint (SHA-256):** `a44924942311ca520e8d77d89119cb56c1b8030124ce608ae89efd72a0e2ad28`
 
 Was this page helpful?
 
@@ -64,4 +56,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/HeyGenVoiceCloneNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/HeyGenVoiceCloneNode)
 
-[SoniloVideoToMusic](https://docs.comfy.org/built-in-nodes/SoniloVideoToMusic)[HeyGenVoiceTextToSpeechNode](https://docs.comfy.org/built-in-nodes/HeyGenVoiceTextToSpeechNode)
+[Breeze Voice Selector](https://docs.comfy.org/built-in-nodes/BreezeVoiceSelector)[HeyGen Voice 1.0 Text to Speech](https://docs.comfy.org/built-in-nodes/HeyGenVoiceTextToSpeechNode)

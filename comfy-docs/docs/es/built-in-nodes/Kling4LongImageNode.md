@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/Kling4LongImageNode/
-title: Kling4LongImageNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Kling 4.0 Imagen larga - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:05.694710+00:00
+fetched_at: 2026-11-22T15:07:53.306751+00:00
 ---
 
-# Kling4LongImageNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Kling 4.0 Imagen larga - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/Kling4LongImageNode/
 
 Kling
 
-# Kling4LongImageNode - ComfyUI Built-in Node Documentation
+# Kling 4.0 Imagen larga - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -85,4 +85,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Kling4LongImageNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Kling4LongImageNode)
 
-[Kling4ImageNode](https://docs.comfy.org/es/built-in-nodes/Kling4ImageNode)[Agregar prefijo de texto](https://docs.comfy.org/es/built-in-nodes/AddTextPrefix)
+[Kling 4.0 Imagen](https://docs.comfy.org/es/built-in-nodes/Kling4ImageNode)[Agregar prefijo de texto](https://docs.comfy.org/es/built-in-nodes/AddTextPrefix)

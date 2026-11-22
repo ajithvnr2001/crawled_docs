@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/basic-concepts/workflow/
 title: ComfyUI Workflows: Nodes, Links, and Visual Programming - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:18.676517+00:00
+fetched_at: 2026-11-22T15:07:58.011286+00:00
 ---
 
 # ComfyUI Workflows: Nodes, Links, and Visual Programming - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:18.676517+00:00
 > Source: https://docs.comfy.org/basic-concepts/workflow/
 
 ## On this page
+
+Back to top
 
   * What is a workflow?
   * Nodes are the steps
@@ -32,11 +34,7 @@ Learn what a workflow is in ComfyUI: a graph of connected nodes that creates ima
 
 Copy pageCopy page
 
-## 
-
-​
-
-What is a workflow?
+## What is a workflow?
 
 A workflow is a set of steps that tells ComfyUI how to create something. You can think of a workflow like a recipe:
 
@@ -54,11 +52,7 @@ For example, a simple image workflow might:
 
 ComfyUI displays these steps as boxes on a canvas. ![A simple ComfyUI workflow](https://mintcdn.com/dripart/7m9lukFrTCZs7Mhj/images/simple_workflow.jpg?fit=max&auto=format&n=7m9lukFrTCZs7Mhj&q=85&s=b3f3e488389463fbddef9a9e45c50eac)
 
-## 
-
-​
-
-Nodes are the steps
+## Nodes are the steps
 
 A node performs one specific job. Some nodes load files, some change data, and others generate or save the result. For example:
 
@@ -69,19 +63,11 @@ A node performs one specific job. Some nodes load files, some change data, and o
 
 You can combine nodes in different ways to create different workflows. You do not need to write code to use them. Learn more about nodes in [Nodes](https://docs.comfy.org/basic-concepts/nodes).
 
-## 
-
-​
-
-Links pass data between nodes
+## Links pass data between nodes
 
 Nodes work together by passing data from one node to another. A link connects an output from one node to an input on another node. For example, a model loaded by a **Load Checkpoint** node can be passed to a **KSampler** node. Text instructions created by a text-encoding node can also be passed to the sampler. Only compatible data types can be connected. For example, an image output cannot be connected directly to an input that expects a number. Learn more about links in [Links](https://docs.comfy.org/basic-concepts/links).
 
-## 
-
-​
-
-Properties control each step
+## Properties control each step
 
 Nodes contain properties. Properties are the settings that control how a node works. For example, a sampler node may have properties for:
 
@@ -92,35 +78,19 @@ Nodes contain properties. Properties are the settings that control how a node wo
 
 You can usually set a property directly on the node. Some properties can also receive their values from another node. Learn more about properties in [Properties](https://docs.comfy.org/basic-concepts/properties).
 
-## 
-
-​
-
-Running a workflow
+## Running a workflow
 
 When you run a workflow, ComfyUI executes the required nodes and passes data through the links. The workflow continues until it produces its final output. If a node is missing, has an error, or does not receive the data it needs, ComfyUI cannot complete the workflow. The node is marked so you can find and fix the problem.
 
-## 
-
-​
-
-Starting with a template
+## Starting with a template
 
 To get started, open a built-in workflow template from **Workflow** → **Browse Workflow Templates**. Templates provide complete examples that you can run and edit. Templates use Core nodes included with ComfyUI. They also prompt you to download any required models. The community has created many custom nodes that add more capabilities. Learn more in [Custom Nodes](https://docs.comfy.org/basic-concepts/custom-nodes).
 
-## 
+## Saving and sharing workflows
 
-​
+You can save a workflow as a JSON file and share it independently of the generated media. When you save an output with a built-in save node, ComfyUI can also store the workflow inside the output file. You can then drag the file back onto the canvas to recover the workflow. To share the graph itself as a picture, open the workflow tab menu and choose **Export (Workflow Image)**. ComfyUI saves a PNG of the canvas with the workflow embedded, so the file opens in any image viewer and still loads back onto the canvas as a workflow. Requires ComfyUI frontend 1.61.4 or later. Large graphs take a few seconds to render. ![A workflow exported as a workflow image](https://mintcdn.com/dripart/Iq5UjRnR18cIirMF/images/concepts/workflow/workflow_image_export.png?fit=max&auto=format&n=Iq5UjRnR18cIirMF&q=85&s=0b2e55bac9cd82d6c8a4de61ec5c67c9) For details about the embedded data, supported file formats, and programmatic access, see [Workflow Metadata](https://docs.comfy.org/development/api-development/workflow-metadata).
 
-Saving and sharing workflows
-
-You can save a workflow as a JSON file and share it independently of the generated media. When you save an output with a built-in save node, ComfyUI can also store the workflow inside the output file. You can then drag the file back onto the canvas to recover the workflow. For details about the embedded data, supported file formats, and programmatic access, see [Workflow Metadata](https://docs.comfy.org/development/api-development/workflow-metadata).
-
-## 
-
-​
-
-A little background
+## A little background
 
 Technically, a workflow is a node graph. The nodes are the points in the graph, and the links show how data moves between them. This is also called visual programming because you create a program by arranging and connecting visual blocks instead of writing code.
 
@@ -130,26 +100,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/basic-concepts/workflow.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/basic-concepts/workflow)
 
-[Comfy Skills for Coding AgentsPrevious](https://docs.comfy.org/agent-tools/skills)[ComfyUI Nodes: Types, Inputs, and OutputsNext](https://docs.comfy.org/basic-concepts/nodes)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Nodes](https://docs.comfy.org/basic-concepts/nodes)

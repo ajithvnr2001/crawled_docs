@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/SenseNovaInterleaveDecode/
-title: SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation - ComfyUI
+title: SenseNova Interleave Decode - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:05.399917+00:00
+fetched_at: 2026-11-22T15:07:54.133776+00:00
 ---
 
-# SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation - ComfyUI
+# SenseNova Interleave Decode - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/SenseNovaInterleaveDecode/
 
 Sensenova
 
-# SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation
+# SenseNova Interleave Decode - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -57,4 +57,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/SenseNovaInterleaveDecode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/SenseNovaInterleaveDecode)
 
-[SenseNovaConditioning](https://docs.comfy.org/built-in-nodes/SenseNovaConditioning)[Load Training Dataset](https://docs.comfy.org/built-in-nodes/LoadTrainingDataset)
+[SenseNova Conditioning](https://docs.comfy.org/built-in-nodes/SenseNovaConditioning)[Load Training Dataset](https://docs.comfy.org/built-in-nodes/LoadTrainingDataset)

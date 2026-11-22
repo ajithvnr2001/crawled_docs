@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/Kling4EditVideoNode/
 title: Kling 4.0 Edit Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:52.140304+00:00
+fetched_at: 2026-11-22T15:07:55.008140+00:00
 ---
 
 # Kling 4.0 Edit Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,27 +21,16 @@ Copy pageCopy page
 
 Edits an existing video with a text prompt using the Kling 4.0 model, optionally guided by reference videos and reference images. The result keeps the length of the input video. Use it to change what happens in a clip, restyle it, or swap elements while the original timing stays intact.
 
-## 
+## Inputs
 
-​
-
-Inputs
-
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
-`model`| Model selector. Only `"kling-4.0"` is available; selecting it reveals the inputs below.| DYNAMIC_COMBO| Yes| `"kling-4.0"`  
+`model`| Model selector. `"kling-4.0"` supports edits up to 4K HDR and 30 seconds; `"kling-4.0-flash"` is limited to 720p and 20 seconds. Selecting a model reveals its inputs below.| DYNAMIC_COMBO| Yes| `"kling-4.0"`  
+`"kling-4.0-flash"`  
   
-### 
-
-​
-
-kling-4.0 Inputs
+### kling-4.0 Inputs
 
 These inputs appear when `model` is set to `"kling-4.0"`.
 
@@ -51,28 +40,53 @@ Parameter| Description| Data Type| Required| Range
 `reference_videos`| Growable slots for reference videos, up to 4. Refer to them in the prompt as `@Video2` and so on. Each video and all videos together must be 3 to 30 seconds long.| AUTOGROW| No| 0 to 4 videos  
 `reference_images`| Growable slots for reference images, up to 10. Refer to them in the prompt as `@Image1`, `@Image2` and so on.| AUTOGROW| No| 0 to 10 images  
 `prompt`| Description of what to change and what to keep. Refer to the video being edited as `@Video1`, the reference videos as `@Video2` and so on, and the images as `@Image1` and so on.| STRING| Yes| 1 to 26000 characters  
-`resolution`| Resolution of the output video. Default: `"720p"`.| COMBO| Yes| `"720p"`  
+`resolution`| Resolution of the output video; an option with `HDR` in its name returns an HDR video. Default: `"720p"`.| COMBO| Yes| `"720p"`  
 `"1080p"`  
+`"4k"`  
+`"1080p HDR"`  
+`"4k HDR"`  
 `aspect_ratio`| Aspect ratio of the output video. `"adaptive"` keeps the aspect ratio of the input video. Default: `"adaptive"`.| COMBO| Yes| `"adaptive"`  
 `"16:9"`  
 `"9:16"`  
 `"1:1"`  
 `"21:9"`  
+`"4:3"`  
+`"3:4"`  
 `seed`| Seed controls whether the node should re-run; results are non-deterministic regardless of seed. Default: 42.| INT| Yes| 0 to 2147483647  
+`audio`| `"native"` generates new audio for the edited video, `"original"` keeps the audio of the input video. Default: `"native"`.| COMBO| No| `"native"`  
+`"original"`  
+  
+### kling-4.0-flash Inputs
+
+These inputs appear when `model` is set to `"kling-4.0-flash"`.
+
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`video_1`| The video to edit, 3 to 20 seconds long. The output keeps its length.| VIDEO| Yes| 3 to 20 seconds  
+`reference_videos`| Growable slots for reference videos, up to 4. Refer to them in the prompt as `@Video2` and so on. Each video and all videos together must be 3 to 20 seconds long.| AUTOGROW| No| 0 to 4 videos  
+`reference_images`| Growable slots for reference images, up to 10. Refer to them in the prompt as `@Image1`, `@Image2` and so on.| AUTOGROW| No| 0 to 10 images  
+`prompt`| Description of what to change and what to keep. Refer to the video being edited as `@Video1`, the reference videos as `@Video2` and so on, and the images as `@Image1` and so on.| STRING| Yes| 1 to 26000 characters  
+`resolution`| Resolution of the output video. Flash renders 720p only. Default: `"720p"`.| COMBO| Yes| `"720p"`  
+`aspect_ratio`| Aspect ratio of the output video. `"adaptive"` keeps the aspect ratio of the input video. Default: `"adaptive"`.| COMBO| Yes| `"adaptive"`  
+`"16:9"`  
+`"9:16"`  
+`"1:1"`  
+`"21:9"`  
+`"4:3"`  
+`"3:4"`  
+`seed`| Seed controls whether the node should re-run; results are non-deterministic regardless of seed. Default: 42.| INT| Yes| 0 to 2147483647  
+`audio`| `"native"` generates new audio for the edited video, `"original"` keeps the audio of the input video. Default: `"native"`.| COMBO| No| `"native"`  
+`"original"`  
   
 **Constraints and behavior:**
 
-  * The input video and every reference video must be 3 to 30 seconds long, at least 700x700 and at most 4553x4553 pixels, no more than 8,294,400 pixels in total, with an aspect ratio between 2:5 and 5:2 and a frame rate of at least 24 fps. All videos together must not exceed 30 seconds.
+  * The input video and every reference video must be 3 to 30 seconds long (3 to 20 with `kling-4.0-flash`), at least 700x700 and at most 4553x4553 pixels, no more than 8,294,400 pixels in total, with an aspect ratio between 2:5 and 5:2 and a frame rate of at least 24 fps. All videos together must not exceed the same limit.
   * Every reference image must be at least 300x300 pixels with an aspect ratio between 2:5 and 5:2, and at most 10 images can be connected.
   * A prompt that mentions `@VideoN` or `@ImageN` raises an error when fewer than N inputs of that kind are connected.
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -82,7 +96,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `00e8de2529df9be6bc1fae5f2c2beda01f151143448e91b79f9cfb27436064ff`
+**Source fingerprint (SHA-256):** `7b7f48c3292a0c380f5fceecca2291dc74d99d5d73e4049bd67d33822cd0696e`
 
 Was this page helpful?
 

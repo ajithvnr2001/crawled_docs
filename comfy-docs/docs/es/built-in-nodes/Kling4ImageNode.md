@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/Kling4ImageNode/
-title: Kling4ImageNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Kling 4.0 Imagen - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:05.820062+00:00
+fetched_at: 2026-11-22T15:07:53.755339+00:00
 ---
 
-# Kling4ImageNode - ComfyUI Built-in Node Documentation - ComfyUI
+# Kling 4.0 Imagen - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/Kling4ImageNode/
 
 Kling
 
-# Kling4ImageNode - ComfyUI Built-in Node Documentation
+# Kling 4.0 Imagen - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -80,4 +80,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/Kling4ImageNode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/Kling4ImageNode)
 
-[Imagen MiniMax H3](https://docs.comfy.org/es/built-in-nodes/MinimaxH3ImageNode)[Kling4LongImageNode](https://docs.comfy.org/es/built-in-nodes/Kling4LongImageNode)
+[Imagen MiniMax H3](https://docs.comfy.org/es/built-in-nodes/MinimaxH3ImageNode)[Kling 4.0 Imagen larga](https://docs.comfy.org/es/built-in-nodes/Kling4LongImageNode)

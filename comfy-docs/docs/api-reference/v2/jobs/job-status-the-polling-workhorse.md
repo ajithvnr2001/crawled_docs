@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/v2/jobs/job-status-the-polling-workhorse/
 title: Job status (the polling workhorse) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:22.588088+00:00
+fetched_at: 2026-11-22T15:07:56.998782+00:00
 ---
 
 # Job status (the polling workhorse) - ComfyUI
@@ -863,7 +863,6 @@ Example:
     
     
     { "queue_ms": 9000, "execution_ms": 42000 }
-    
 
 deployment_id
 
@@ -909,7 +908,6 @@ Example:
     
     
     { "client": "acme" }
-    
 
 Was this page helpful?
 

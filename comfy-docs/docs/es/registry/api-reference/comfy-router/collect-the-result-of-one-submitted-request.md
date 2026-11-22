@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/collect-the-result-of-one-submitted-request/
 title: Collect the result of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:30.433586+00:00
+fetched_at: 2026-11-22T15:07:58.769042+00:00
 ---
 
 # Collect the result of one submitted request. - ComfyUI

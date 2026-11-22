@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/jobs/what-the-run-printed/
 title: What the run printed - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:20.632795+00:00
+fetched_at: 2026-11-22T15:07:55.843055+00:00
 ---
 
 # What the run printed - ComfyUI

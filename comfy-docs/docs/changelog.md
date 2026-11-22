@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/changelog/
 title: Changelog - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:08.364283+00:00
+fetched_at: 2026-11-22T15:07:52.955428+00:00
 ---
 
 # Changelog - ComfyUI
@@ -13,6 +13,8 @@ fetched_at: 2026-11-19T16:26:08.364283+00:00
 
 Back to top
 
+  * v0.46.2
+  * v0.46.1
   * v0.46.0
   * v0.45.6
   * v0.45.5
@@ -176,6 +178,36 @@ Copy pageCopy page
 ComfyUI changelog: the latest features, improvements, and bug fixes in each release, updated as new versions ship.
 
 Copy pageCopy page
+
+v0.46.2
+
+November 20, 2026
+
+**Partner Node Updates**
+
+  * [**Kling 4.0 4K and HDR**](https://github.com/Comfy-Org/ComfyUI/pull/17862): 4K output and 1080p/4K HDR on the Kling 4.0 video nodes
+  * [**Creatify Boreal-H3 and Aurora 2.0**](https://github.com/Comfy-Org/ComfyUI/pull/17851): Boreal-H3 Text to Video and Reference to Video, plus the Aurora 2.0 Avatar node
+  * [**Google Gemini Decision nodes**](https://github.com/Comfy-Org/ComfyUI/pull/17876): Yes/No, Choice, Pick Image and Score nodes that answer a question about images, audio or video
+  * [**HeyGen Decision nodes**](https://github.com/Comfy-Org/ComfyUI/pull/17878): Yes/No, Choice and Score nodes, in a standard and a Turbo model
+  * [**Mirelo video downscaling**](https://github.com/Comfy-Org/ComfyUI/pull/17829): Video to SFX downscales sources above 2160p by default
+
+**Bug Fixes**
+
+  * [**Audio inputs**](https://github.com/Comfy-Org/ComfyUI/pull/17866): Resampled and downmixed when an encoder rejects the clip, so 96 kHz and 3+ channel audio encodes
+  * [**Aspect ratio errors**](https://github.com/Comfy-Org/ComfyUI/pull/17865): Now report the image size and the allowed range
+
+
+
+v0.46.1
+
+November 19, 2026
+
+**Partner Node Updates**
+
+  * [**Ideogram 4.6**](https://github.com/Comfy-Org/ComfyUI/pull/17854): New model option on the Ideogram Text to Image, Edit and Precise Edit nodes, with 4K sizes and transparent backgrounds
+  * [**Tripo Smart UV**](https://github.com/Comfy-Org/ComfyUI/pull/17827): Re-unwraps UVs and remaps textures while keeping the rig and animation
+
+
 
 v0.46.0
 

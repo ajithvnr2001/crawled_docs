@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/kelly/kelly-kling-4-0/code/
 title: Use Kelly Kling 4.0 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:28.874682+00:00
+fetched_at: 2026-11-22T15:07:58.214271+00:00
 ---
 
 # Use Kelly Kling 4.0 with Comfy Router - ComfyUI
@@ -31,7 +31,7 @@ Call kelly/kelly-kling-4.0 through Comfy Router: endpoint, request shape and the
 
 Copy pageCopy page
 
-API Reference for `kelly/kelly-kling-4.0`, served by Comfy Router from Kelly. **Input:** Text · **Output:** Video
+API Reference for `kelly/kelly-kling-4.0`, served by Comfy Router from Kelly. **Input:** Text, Image, Video · **Output:** Video
 
 ## Request setup
 

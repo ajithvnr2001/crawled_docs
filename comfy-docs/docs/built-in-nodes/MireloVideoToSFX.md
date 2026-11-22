@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/MireloVideoToSFX/
-title: MireloVideoToSFX - ComfyUI Built-in Node Documentation - ComfyUI
+title: Mirelo Video to SFX - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:47.397812+00:00
+fetched_at: 2026-11-22T15:07:54.575678+00:00
 ---
 
-# MireloVideoToSFX - ComfyUI Built-in Node Documentation - ComfyUI
+# Mirelo Video to SFX - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/MireloVideoToSFX/
 
 Audio
 
-# MireloVideoToSFX - ComfyUI Built-in Node Documentation
+# Mirelo Video to SFX - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,15 +21,11 @@ Copy pageCopy page
 
 Generate sound effects that follow a video with Mirelo SFX. The clip is uploaded, the model follows the action on screen and returns a sound-effects mix, plus a separate speech stem with the dialogue pulled out of the soundtrack. Use it to add foley, ambience and impacts to silent or partly silent clips.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
-`model`| Model to use. Selecting a model reveals the parameters specific to it: `video`, `audio`, `prompt`, `negative_prompt`, `preserve_speech` and `seed`.| DYNAMIC_COMBO| Yes| `"sfx-2.0"`  
+`model`| Model to use. Selecting a model reveals the parameters specific to it: `video`, `audio`, `prompt`, `negative_prompt`, `preserve_speech`, `seed` and `auto_downscale`.| DYNAMIC_COMBO| Yes| `"sfx-2.0"`  
 `video`| The video to generate sound for. Sound is generated for the whole clip, 1 to 600 seconds.| VIDEO| Yes| 1 to 600 seconds  
 `audio`| Dialogue track to use instead of the video’s own soundtrack for `preserve_speech` and for the `speech` output. Leave it unconnected to use the sound embedded in the video.| AUDIO| No| -  
 `prompt`| What the sound should be like. May be left empty (default: empty) because the model describes the video itself, and it does not always follow the prompt. Maximum 2000 characters.| STRING| Yes| Up to 2000 characters  
@@ -37,14 +33,12 @@ Parameter| Description| Data Type| Required| Range
 `preserve_speech`| Keep the dialogue mixed under the generated sound. Off returns sound effects only. (default: True)| BOOLEAN| Yes| false  
 true  
 `seed`| The seed for the request. Results are non-deterministic, so the same seed does not repeat a clip. (default: 42)| INT| Yes| 0 to 4294967295  
+`auto_downscale`| Downscale a clip whose shorter side is above 2160 pixels before uploading, keeping its aspect ratio; smaller clips are untouched (default: True).| BOOLEAN| No| `True`  
+`False`  
   
 The node stops with an error when the clip is shorter than 1 second or longer than 600 seconds. A connected `audio` track sets the dialogue that `preserve_speech` keeps and that the `speech` output separates; without one, the dialogue comes from the video’s own soundtrack.
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -55,7 +49,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `fa09525e6c9b10412823e358652220850fbc7109d81cc207d31ffa8921956495`
+**Source fingerprint (SHA-256):** `a6bd749a902d5ca2e91863fd6c4df57cdeba7fd9505026053b72b29d588587fa`
 
 Was this page helpful?
 
@@ -63,4 +57,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/MireloVideoToSFX.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/MireloVideoToSFX)
 
-[MireloTextToSFX](https://docs.comfy.org/built-in-nodes/MireloTextToSFX)[VeedCleanAudioNode](https://docs.comfy.org/built-in-nodes/VeedCleanAudioNode)
+[Mirelo Text to SFX](https://docs.comfy.org/built-in-nodes/MireloTextToSFX)[VEED Clean Audio](https://docs.comfy.org/built-in-nodes/VeedCleanAudioNode)

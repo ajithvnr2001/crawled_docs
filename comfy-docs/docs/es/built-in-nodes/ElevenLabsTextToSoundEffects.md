@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/ElevenLabsTextToSoundEffects/
 title: ElevenLabs texto a efectos de sonido - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:44.553754+00:00
+fetched_at: 2026-11-22T15:07:54.531479+00:00
 ---
 
 # ElevenLabs texto a efectos de sonido - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,32 +21,21 @@ Copiar páginaCopiar página
 
 El nodo ElevenLabs Text to Sound Effects genera efectos de sonido de audio a partir de una descripción de texto. Utiliza la API de ElevenLabs para crear efectos de sonido basados en tu prompt, permitiéndote controlar la duración, el comportamiento de bucle y la fidelidad con la que el sonido sigue al texto.
 
-## 
+## Entradas
 
-​
-
-Entradas
-
-### 
-
-​
-
-Entradas comunes
+### Entradas comunes
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
-`modelo`| Modelo a utilizar para la generación de efectos de sonido. Actualmente solo hay un modelo disponible: `eleven_sfx_v2`.| DYNAMIC_COMBO| Sí| `"eleven_sfx_v2"`  
-`texto`| Descripción de texto del efecto de sonido a generar. (por defecto: vacío)| STRING| Sí| N/A  
+`modelo`| Modelo a utilizar para la generación de efectos de sonido. Hay dos modelos disponibles: `eleven_sfx_v3` (predeterminado) y `eleven_sfx_v2`.| DYNAMIC_COMBO| Sí| `"eleven_sfx_v3"`  
+`"eleven_sfx_v2"`  
+`texto`| Descripción de texto del efecto de sonido a generar. Escríbala en inglés, con un máximo de 450 caracteres; los prompts en otros idiomas suelen leerse en voz alta en lugar de convertirse en sonido. (por defecto: vacío)| STRING| Sí| 1 a 450 caracteres  
 `formato_de_salida`| Formato de salida del audio.| COMBO| Sí| `"mp3_44100_192"`  
 `"opus_48000_192"`  
   
-### 
+### Entradas de eleven_sfx_v3 y eleven_sfx_v2
 
-​
-
-Entradas de eleven_sfx_v2
-
-Estos parámetros se muestran cuando se selecciona el modelo `eleven_sfx_v2`.
+Estos parámetros se muestran al seleccionar cualquiera de los dos modelos; ambos usan los mismos ajustes.
 
 Parámetro| Descripción| Tipo de datos| Requerido| Rango  
 ---|---|---|---|---  
@@ -55,13 +44,9 @@ Parámetro| Descripción| Tipo de datos| Requerido| Rango
 False  
 `prompt_influence`| Grado de fidelidad con el que la generación sigue el prompt. Los valores más altos hacen que el sonido siga el texto más de cerca. (por defecto: 0.3)| FLOAT| Sí| 0.0 a 1.0  
   
-**Nota:** El parámetro `text` no debe estar vacío; se valida antes de enviar la solicitud de generación de sonido.
+**Nota:** El parámetro `text` debe contener entre 1 y 450 caracteres; se valida antes de enviar la solicitud de generación de sonido.
 
-## 
-
-​
-
-Salidas
+## Salidas
 
 Nombre de salida| Descripción| Tipo de datos  
 ---|---|---  
@@ -71,7 +56,7 @@ Nombre de salida| Descripción| Tipo de datos
 
 * * *
 
-**Source fingerprint (SHA-256):** `218ff617256cea33f310c1bcfc6407c46aaadc59201a0324b0ec64583166ce58`
+**Source fingerprint (SHA-256):** `bf7735aed642b2d795a18f7ca2631cab6856a2e0980f4c9e7a8699f08784177c`
 
 ¿Esta página le ayudó?
 

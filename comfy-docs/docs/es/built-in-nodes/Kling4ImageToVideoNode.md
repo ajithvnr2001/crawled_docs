@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/Kling4ImageToVideoNode/
 title: Kling 4.0: imagen a v\u00eddeo - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:53.831417+00:00
+fetched_at: 2026-11-22T15:07:53.358642+00:00
 ---
 
 # Kling 4.0: imagen a vídeo - ComfyUI Built-in Node Documentation - ComfyUI
@@ -15,71 +15,71 @@ Video
 
 Copiar páginaCopiar página
 
-Genera un video a partir de un conjunto de fotogramas clave con el modelo Kling 4.0, con audio incluido.
+Genera un video a partir de un conjunto de fotogramas clave con el modelo Kling 4.0, incluido el audio.
 
 Copiar páginaCopiar página
 
-Genera un video a partir de un conjunto de fotogramas clave con el modelo Kling 4.0, con audio incluido. Se envían en orden el primer fotograma, hasta ocho fotogramas intermedios y el último fotograma; los fotogramas intermedios se distribuyen uniformemente a lo largo del clip y la salida toma la relación de aspecto del primer fotograma clave. Úsalo para animar una imagen o para guiar una toma a través de una secuencia de momentos clave.
+Genera un video a partir de un conjunto de fotogramas clave con el modelo Kling 4.0, incluido el audio. El primer fotograma, hasta ocho fotogramas intermedios y el último fotograma se envían en orden, los fotogramas intermedios se distribuyen uniformemente a lo largo del clip y la salida toma la relación de aspecto del primer fotograma clave. Úselo para animar una imagen o para dirigir una toma a través de una secuencia de momentos clave.
 
-## 
+## Entradas
 
-​
+### Entradas comunes
 
-Entradas
-
-### 
-
-​
-
-Entradas comunes
-
-Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
 ---|---|---|---|---  
-`model`| Selector de modelo. Solo `"kling-4.0"` está disponible; al seleccionarlo se muestran las entradas a continuación.| DYNAMIC_COMBO| Sí| `"kling-4.0"`  
+`modelo`| Selector de modelo. `"kling-4.0"` admite hasta 4K HDR y 30 segundos; `"kling-4.0-flash"` está limitado a 720p, 20 segundos y un único primer fotograma. Al seleccionar un modelo se muestran sus entradas a continuación.| DYNAMIC_COMBO| Sí| `"kling-4.0"`  
+`"kling-4.0-flash"`  
   
-### 
-
-​
-
-Entradas de kling-4.0
+### Entradas de kling-4.0
 
 Estas entradas aparecen cuando `model` se establece en `"kling-4.0"`. Al menos una de las entradas de fotograma debe estar conectada.
 
-Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
 ---|---|---|---|---  
 `first_frame`| Fotograma opcional en el que comienza el video.| IMAGE| No| -  
 `middle_frames`| Ranuras ampliables opcionales para fotogramas entre el primero y el último, hasta 8. Se distribuyen uniformemente a lo largo del clip.| AUTOGROW| No| 0 a 8 imágenes  
 `last_frame`| Fotograma opcional en el que termina el video.| IMAGE| No| -  
-`prompt`| Descripción opcional del movimiento. Haga referencia a los fotogramas conectados como `@Image1`, `@Image2`, etc., en el orden: primer fotograma, fotogramas intermedios, último fotograma. Predeterminado: cadena vacía.| STRING| Sí| Texto multilínea  
-`resolution`| Resolución del video de salida. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
+`prompt`| Descripción opcional del movimiento. Consulte los fotogramas conectados como `@Image1`, `@Image2`, etc., en el orden primer fotograma, fotogramas intermedios, último fotograma. Predeterminado: cadena vacía.| STRING| Sí| Texto multilínea  
+`resolution`| Resolución del video de salida; una opción con `HDR` en su nombre devuelve un video HDR. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
 `"1080p"`  
+`"4k"`  
+`"1080p HDR"`  
+`"4k HDR"`  
 `duration`| Duración del video generado en segundos. Predeterminado: 5.| INT| Sí| 3 a 30  
+`seed`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla. Predeterminado: 42.| INT| Sí| 0 a 2147483647  
+  
+### Entradas de kling-4.0-flash
+
+Estas entradas aparecen cuando `model` se establece en `"kling-4.0-flash"`. Flash anima un único primer fotograma.
+
+Parámetro| Descripción| Tipo de dato| Obligatorio| Rango  
+---|---|---|---|---  
+`first_frame`| Fotograma en el que comienza el video.| IMAGE| Sí| -  
+`prompt`| Descripción opcional del movimiento. Consulte el primer fotograma como `@Image1`. Predeterminado: cadena vacía.| STRING| Sí| Texto multilínea  
+`resolution`| Resolución del video de salida. Flash solo renderiza en 720p. Predeterminado: `"720p"`.| COMBO| Sí| `"720p"`  
+`duration`| Duración del video generado en segundos. Predeterminado: 5.| INT| Sí| 3 a 20  
 `seed`| La semilla controla si el nodo debe volver a ejecutarse; los resultados no son deterministas independientemente de la semilla. Predeterminado: 42.| INT| Sí| 0 a 2147483647  
   
 **Restricciones y comportamiento:**
 
-  * Como máximo se pueden conectar 10 fotogramas en total, contando el primer fotograma, cada fotograma intermedio y el último fotograma.
+  * Se pueden conectar como máximo 10 fotogramas en total, contando el primer fotograma, cada fotograma intermedio y el último fotograma.
   * El video toma la relación de aspecto del primer fotograma clave, por lo que no se necesita una entrada de relación de aspecto.
   * Cada fotograma debe tener al menos 300x300 píxeles con una relación de aspecto entre 2:5 y 5:2.
-  * Un prompt que mencione `@ImageN` genera un error cuando se conectan menos de N fotogramas.
+  * Un prompt que menciona `@ImageN` genera un error cuando se conectan menos de N fotogramas.
 
 
 
-## 
+## Salidas
 
-​
-
-Salidas
-
-Nombre de salida| Descripción| Tipo de datos  
+Nombre de salida| Descripción| Tipo de dato  
 ---|---|---  
-`video`| El video generado, descargado del proveedor una vez que la tarea finaliza.| VIDEO  
+`video`| El video generado, descargado del proveedor una vez que la tarea se completa.| VIDEO  
   
 > Esta documentación fue generada por IA. Si encuentra algún error o tiene sugerencias de mejora, ¡no dude en contribuir! [Editar en GitHub](https://github.com/Comfy-Org/embedded-docs/blob/main/comfyui_embedded_docs/docs/Kling4ImageToVideoNode/es.md)
 
 * * *
 
-**Source fingerprint (SHA-256):** `762c350abd4a881b96355a7ce5b9e346d5c3ff22e9f11db820584d02aee12885`
+**Source fingerprint (SHA-256):** `289c96204f02fdd378ae7a4dd5a5685ffa4bf7619d098785b9d1ae148fb3ac4a`
 
 ¿Esta página le ayudó?
 

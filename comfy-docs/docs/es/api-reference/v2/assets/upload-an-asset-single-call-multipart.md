@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/v2/assets/upload-an-asset-single-call-multipart/
 title: Upload an asset (single-call multipart) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:21.692851+00:00
+fetched_at: 2026-11-22T15:07:57.080019+00:00
 ---
 
 # Upload an asset (single-call multipart) - ComfyUI

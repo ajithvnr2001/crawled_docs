@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/install_custom_node/
 title: How to Install Custom Nodes in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:59.069549+00:00
+fetched_at: 2026-11-22T15:07:58.060169+00:00
 ---
 
 # How to Install Custom Nodes in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:59.069549+00:00
 > Source: https://docs.comfy.org/installation/install_custom_node/
 
 ## On this page
+
+Back to top
 
   * What are Custom Nodes ?
   * Method 1: ComfyUI Manager (Recommended)
@@ -29,11 +31,7 @@ Install custom nodes in ComfyUI with ComfyUI Manager, git clone, or a ZIP downlo
 
 Copy pageCopy page
 
-## 
-
-​
-
-What are Custom Nodes ?
+## What are Custom Nodes ?
 
 Custom nodes are extensions for ComfyUI that add new functionality like advanced image processing, machine learning fine-tuning, color adjustments, and more. These community-developed nodes can significantly expand ComfyUI’s core capabilities.
 
@@ -67,11 +65,7 @@ Method| Advantages| Disadvantages
   
 Tip: Before installing custom nodes, check the plugin’s README file to understand installation methods, usage, and requirements like specific models, dependency versions, and common issue solutions.
 
-## 
-
-​
-
-Method 1: ComfyUI Manager (Recommended)
+## Method 1: ComfyUI Manager (Recommended)
 
 You need ComfyUI Manager available in your environment before using this method. If it is missing or disabled, see the [ComfyUI Manager overview](https://docs.comfy.org/manager/overview) and [installation guide](https://docs.comfy.org/manager/install).
 
@@ -85,11 +79,7 @@ The new node management interface, enabled by default for Desktop users.
 
 The classic Manager interface for custom node installation.
 
-## 
-
-​
-
-Method 2: Manual Installation Using Git
+## Method 2: Manual Installation Using Git
 
 Suitable for new nodes not found in Manager or when specific versions are needed. Requires [Git](https://git-scm.com/) installed on your system.
 
@@ -131,7 +121,7 @@ Dependencies must be installed in your ComfyUI environment - be careful not to m
 For Windows portable version, install dependencies in the embedded Python environment
     
     
-    python_embeded\python.exe -m pip install -r ComfyUI\custom_nodes\[node directory]\requirements.txt
+    ..\..\python_embeded\python.exe -m pip install -r [node directory]\requirements.txt
     
 
 Install dependencies in your ComfyUI environment
@@ -147,11 +137,7 @@ Restart ComfyUI and refresh browser
 
 Restart ComfyUI and refresh your browser. Check startup logs for any `import failed` errors
 
-## 
-
-​
-
-Method 3: ZIP Download Installation
+## Method 3: ZIP Download Installation
 
 Suitable for users who cannot use Git or Manager
 
@@ -187,11 +173,7 @@ Verify successful installation
 
 Check ComfyUI Manager after restart to confirm the plugin installed successfully and there are no `import failed` errors
 
-## 
-
-​
-
-Custom Node Resources
+## Custom Node Resources
 
 In ComfyUI, besides the basic node extension functionality, custom nodes can also include the following additional resources:
 
@@ -207,26 +189,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/install_custom_node.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/install_custom_node)
 
-[Comfy Cloud - Official ComfyUI Cloud Platform Powered by RTX 6000 ProPrevious](https://docs.comfy.org/get_started/cloud)[ComfyUI-Manager OverviewNext](https://docs.comfy.org/manager/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Update ComfyUI](https://docs.comfy.org/installation/update_comfyui)[Overview](https://docs.comfy.org/manager/overview)

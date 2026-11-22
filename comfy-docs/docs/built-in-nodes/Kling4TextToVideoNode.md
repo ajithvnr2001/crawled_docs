@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/Kling4TextToVideoNode/
 title: Kling 4.0 Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:52.243615+00:00
+fetched_at: 2026-11-22T15:07:54.689557+00:00
 ---
 
 # Kling 4.0 Text to Video - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,47 +21,54 @@ Copy pageCopy page
 
 Generates a video from a text prompt with the Kling 4.0 model, including audio. This node sends the prompt and the generation settings to the Kling API, waits for the task to finish, and returns the finished video. Use it when a clip has to be created from a description alone, with no reference media.
 
-## 
+## Inputs
 
-​
-
-Inputs
-
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
-`model`| Model selector. Only `"kling-4.0"` is available; selecting it reveals the inputs below.| DYNAMIC_COMBO| Yes| `"kling-4.0"`  
+`model`| Model selector. `"kling-4.0"` supports up to 4K HDR and 30 seconds; `"kling-4.0-flash"` is limited to 720p and 20 seconds. Selecting a model reveals its inputs below.| DYNAMIC_COMBO| Yes| `"kling-4.0"`  
+`"kling-4.0-flash"`  
   
-### 
-
-​
-
-kling-4.0 Inputs
+### kling-4.0 Inputs
 
 These inputs appear when `model` is set to `"kling-4.0"`.
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
 `prompt`| Text description of the video to generate. Must be between 1 and 26000 characters.| STRING| Yes| 1 to 26000 characters  
-`resolution`| Resolution of the output video. Default: `"720p"`.| COMBO| Yes| `"720p"`  
+`resolution`| Resolution of the output video; an option with `HDR` in its name returns an HDR video. Default: `"720p"`.| COMBO| Yes| `"720p"`  
 `"1080p"`  
+`"4k"`  
+`"1080p HDR"`  
+`"4k HDR"`  
 `aspect_ratio`| Aspect ratio of the output video. Default: `"16:9"`.| COMBO| Yes| `"16:9"`  
 `"9:16"`  
 `"1:1"`  
 `"21:9"`  
+`"4:3"`  
+`"3:4"`  
 `duration`| Length of the generated video in seconds. Default: 5.| INT| Yes| 3 to 30  
 `seed`| Seed controls whether the node should re-run; results are non-deterministic regardless of seed. Default: 42.| INT| Yes| 0 to 2147483647  
   
-## 
+### kling-4.0-flash Inputs
 
-​
+These inputs appear when `model` is set to `"kling-4.0-flash"`.
 
-Outputs
+Parameter| Description| Data Type| Required| Range  
+---|---|---|---|---  
+`prompt`| Text description of the video to generate. Must be between 1 and 26000 characters.| STRING| Yes| 1 to 26000 characters  
+`resolution`| Resolution of the output video. Flash renders 720p only. Default: `"720p"`.| COMBO| Yes| `"720p"`  
+`aspect_ratio`| Aspect ratio of the output video. Default: `"16:9"`.| COMBO| Yes| `"16:9"`  
+`"9:16"`  
+`"1:1"`  
+`"21:9"`  
+`"4:3"`  
+`"3:4"`  
+`duration`| Length of the generated video in seconds. Default: 5.| INT| Yes| 3 to 20  
+`seed`| Seed controls whether the node should re-run; results are non-deterministic regardless of seed. Default: 42.| INT| Yes| 0 to 2147483647  
+  
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -71,7 +78,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `3835dcb7d83d843ea7f6c5dc691b48759d9c3e7a7baeead3d0f92817e73d6079`
+**Source fingerprint (SHA-256):** `7a5d99aa6f5fdb923ce9e2c89f64e92d46fad14d28002a033ddedc24c7d27894`
 
 Was this page helpful?
 
@@ -79,4 +86,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/Kling4TextToVideoNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/Kling4TextToVideoNode)
 
-[Kling 4.0 Reference to Video](https://docs.comfy.org/built-in-nodes/Kling4ReferenceToVideoNode)[PikaH3FlexReferenceVideoNode](https://docs.comfy.org/built-in-nodes/PikaH3FlexReferenceVideoNode)
+[Kling 4.0 Reference to Video](https://docs.comfy.org/built-in-nodes/Kling4ReferenceToVideoNode)[Pika H3 Flex Reference to Video](https://docs.comfy.org/built-in-nodes/PikaH3FlexReferenceVideoNode)

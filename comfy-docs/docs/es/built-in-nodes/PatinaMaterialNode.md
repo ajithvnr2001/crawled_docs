@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/built-in-nodes/PatinaMaterialNode/
 title: Material de p\u00e1tina - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:53.984775+00:00
+fetched_at: 2026-11-22T15:07:53.411206+00:00
 ---
 
 # Material de pátina - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copiar páginaCopiar página
 
 Genera un material PBR completo que se repite sin costuras a partir de una descripción de texto: una textura base más hasta cinco mapas de material, con escalado SeedVR opcional de los mapas. Una imagen de entrada puede guiar el resultado como una pasada de imagen a imagen, y una imagen de entrada con una máscara lo convierte en una pasada de inpainting. Úsalo para producir superficies listas para juegos o para 3D sin escanear un material real.
 
-## 
-
-​
-
-Entradas
+## Entradas
 
 Parámetro| Descripción| Tipo de datos| Obligatorio| Rango  
 ---|---|---|---|---  
@@ -45,29 +41,25 @@ false
 false  
 `metalness`| Genera el mapa de metalicidad. Predeterminado: False.| BOOLEAN| Sí| true  
 false  
-`height`| Genera el mapa de altura (desplazamiento). Predeterminado: False.| BOOLEAN| Sí| true  
+`altura`| Genera el mapa de altura (desplazamiento). Predeterminado: False.| BOOLEAN| Sí| true  
 false  
 `upscale_factor`| Escalado SeedVR sin costuras de los mapas PBR. La textura base no se escala, y 4x convierte un mapa de 2048 píxeles en uno de 8K. Predeterminado: 0 (desactivado).| INT| Sí| 0 a 4 (paso: 2)  
-`seed`| Semilla para una generación reproducible. Predeterminado: 42.| INT| Sí| 0 a 2147483646  
+`semilla`| Semilla para una generación reproducible. Predeterminado: 42.| INT| Sí| 0 a 2147483646  
 `tiling_mode`| Dirección de mosaico: omnidireccional, horizontal o vertical. Ajuste avanzado. Predeterminado: `"both"`.| COMBO| Sí| `"both"`  
 `"horizontal"`  
 `"vertical"`  
 `num_inference_steps`| Pasos de eliminación de ruido para la generación de texturas. Ajuste avanzado. Predeterminado: 8.| INT| Sí| 1 a 8  
 `tile_size`| Tamaño de mosaico en el espacio latente, donde 64 significa 512 píxeles y 128 significa 1024 píxeles. Ajuste avanzado. Predeterminado: 128.| INT| Sí| 32 a 256 (paso: 2)  
 `tile_stride`| Zancada de mosaico en el espacio latente. Ajuste avanzado. Predeterminado: 64.| INT| Sí| 16 a 128 (paso: 2)  
-`image`| Imagen de origen opcional. Por sí sola ejecuta una pasada de imagen a imagen; junto con una máscara ejecuta una pasada de inpainting.| IMAGE| No| -  
-`mask`| Máscara de inpainting opcional; requiere una imagen de entrada. Las áreas blancas se regeneran y las negras se conservan.| MASK| No| -  
-`strength`| Cuánto transformar la imagen de entrada. Solo se usa cuando se conecta una imagen. Ajuste avanzado. Predeterminado: 0.6.| FLOAT| Sí| 0.01 a 1.0 (paso: 0.01)  
+`imagen`| Imagen de origen opcional. Por sí sola ejecuta una pasada de imagen a imagen; junto con una máscara ejecuta una pasada de inpainting.| IMAGE| No| -  
+`máscara`| Máscara de inpainting opcional; requiere una imagen de entrada. Las áreas blancas se regeneran y las negras se conservan.| MASK| No| -  
+`intensidad`| Cuánto transformar la imagen de entrada. Solo se usa cuando se conecta una imagen. Ajuste avanzado. Predeterminado: 0.6.| FLOAT| Sí| 0.01 a 1.0 (paso: 0.01)  
 `prompt_expansion`| Expande el prompt con un modelo de lenguaje para obtener un detalle de textura más rico. Desactivado de forma predeterminada, porque la expansión reformula el prompt como una fotografía y tiende a diluir el mapa de metalicidad. Ajuste avanzado.| BOOLEAN| Sí| true  
 false  
 `safety_checker`| Ejecuta la comprobación de seguridad de contenido del proveedor sobre la solicitud. Ajuste avanzado. Predeterminado: False.| BOOLEAN| Sí| true  
 false  
   
-### 
-
-​
-
-Entradas de tamaño de imagen personalizado
+### Entradas de tamaño de imagen personalizado
 
 Estas entradas aparecen cuando `image_size` se establece en `"custom"`.
 
@@ -84,11 +76,7 @@ Parámetro| Descripción| Tipo de datos| Obligatorio| Rango
 
 
 
-## 
-
-​
-
-Salidas
+## Salidas
 
 Nombre de salida| Descripción| Tipo de datos  
 ---|---|---  

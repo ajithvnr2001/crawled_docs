@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/built-in-nodes/PatinaMaterialExtractNode/
 title: Patina Material Extract - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T14:51:51.986123+00:00
+fetched_at: 2026-11-22T15:07:54.637567+00:00
 ---
 
 # Patina Material Extract - ComfyUI Built-in Node Documentation - ComfyUI
@@ -21,11 +21,7 @@ Copy pageCopy page
 
 Extracts a seamlessly tiling PBR material from a region of an input image, guided by a prompt that names what to take: a wall, a floor, a fabric. It returns the extracted base texture plus up to five material maps, with optional SeedVR upscaling of the maps. Use it to turn a photo of a real surface into a reusable, tileable material.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -62,11 +58,7 @@ false
 `safety_checker`| Run the provider’s content safety check on the request. Advanced setting. Default: False.| BOOLEAN| Yes| true  
 false  
   
-### 
-
-​
-
-custom Image Size Inputs
+### custom Image Size Inputs
 
 These inputs appear when `image_size` is set to `"custom"`.
 
@@ -83,11 +75,7 @@ Parameter| Description| Data Type| Required| Range
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  

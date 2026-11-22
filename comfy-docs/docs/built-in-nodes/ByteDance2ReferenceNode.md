@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/built-in-nodes/ByteDance2ReferenceNode/
-title: ByteDance2ReferenceNode - ComfyUI Built-in Node Documentation - ComfyUI
+title: ByteDance Seedance 2.5 Reference to Video (Legacy) - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:28.637564+00:00
+fetched_at: 2026-11-22T15:07:55.512592+00:00
 ---
 
-# ByteDance2ReferenceNode - ComfyUI Built-in Node Documentation - ComfyUI
+# ByteDance Seedance 2.5 Reference to Video (Legacy) - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/built-in-nodes/ByteDance2ReferenceNode/
 
 Bytedance
 
-# ByteDance2ReferenceNode - ComfyUI Built-in Node Documentation
+# ByteDance Seedance 2.5 Reference to Video (Legacy) - ComfyUI Built-in Node Documentation
 
 Copy pageCopy page
 
@@ -21,23 +21,15 @@ Copy pageCopy page
 
 This node generates, edits, or extends videos using ByteDance’s Seedance 2.5 or Seedance 2.0 AI models. You describe the video in a text prompt and can attach reference images, videos, and audio to guide the result, with support for multimodal reference, video editing, and video extension. This is the legacy, deprecated version of the Seedance reference-to-video node.
 
-## 
-
-​
-
-Inputs
+## Inputs
 
 Selecting a `model` determines which of the parameters below are available. `video_editing` and `output_format` appear only when Seedance 2.5 is selected. The growable reference slots and the reference-video auto-resize options are shared by all models and are described under Reference Inputs.
 
-### 
-
-​
-
-Common Inputs
+### Common Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
-`model`| The AI model used to generate the video. Seedance 2.5 for the newest model, videos up to 30 seconds and mp4/mov output; Seedance 2.0 for maximum quality and 4k; Fast for speed optimization; Mini for the fastest, lowest-cost generation. Selecting a model reveals the model-specific inputs listed below.| DYNAMIC_COMBO| Yes| `"Seedance 2.5"`  
+`model`| The AI model used to generate the video. Seedance 2.5 for the newest model, videos up to 30 seconds, 4k and mp4/mov output; Seedance 2.0 for maximum quality and 4k; Fast for speed optimization; Mini for the fastest, lowest-cost generation. Selecting a model reveals the model-specific inputs listed below.| DYNAMIC_COMBO| Yes| `"Seedance 2.5"`  
 `"Seedance 2.0"`  
 `"Seedance 2.0 Fast"`  
 `"Seedance 2.0 Mini"`  
@@ -46,11 +38,7 @@ Step: 1
 `watermark`| Whether to add a watermark to the video (default: False). Advanced setting.| BOOLEAN| Yes| `True`  
 `False`  
   
-### 
-
-​
-
-Seedance 2.5 Inputs
+### Seedance 2.5 Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -58,6 +46,7 @@ Parameter| Description| Data Type| Required| Range
 `resolution`| Resolution of the output video (default: `"720p"`).| COMBO| Yes| `"480p"`  
 `"720p"`  
 `"1080p"`  
+`"4k"`  
 `ratio`| Aspect ratio of the output video (default: `"16:9"`).| COMBO| Yes| `"16:9"`  
 `"4:3"`  
 `"1:1"`  
@@ -73,11 +62,7 @@ Step: 1
 `False`  
 `output_format`| Container format of the output video (default: `"mp4"`).| COMBO| Yes| `"mp4"`  
   
-### 
-
-​
-
-Seedance 2.0 Inputs
+### Seedance 2.0 Inputs
 
 Parameter| Description| Data Type| Required| Range  
 ---|---|---|---|---  
@@ -98,11 +83,7 @@ Step: 1
 `generate_audio`| Enable audio generation for the output video (default: True).| BOOLEAN| Yes| `True`  
 `False`  
   
-### 
-
-​
-
-Seedance 2.0 Fast and Seedance 2.0 Mini Inputs
+### Seedance 2.0 Fast and Seedance 2.0 Mini Inputs
 
 Shared by Seedance 2.0 Fast and Seedance 2.0 Mini. These two models expose the same input set as Seedance 2.0, except that `resolution` is limited to 480p and 720p.
 
@@ -123,11 +104,7 @@ Step: 1
 `generate_audio`| Enable audio generation for the output video (default: True).| BOOLEAN| Yes| `True`  
 `False`  
   
-### 
-
-​
-
-Reference Inputs
+### Reference Inputs
 
 Available for all models. The maximum number of slots depends on the selected model: Seedance 2.5 supports more references than the Seedance 2.0 models.
 
@@ -157,11 +134,7 @@ Up to 9 (Seedance 2.0 models)
 
 
 
-## 
-
-​
-
-Outputs
+## Outputs
 
 Output Name| Description| Data Type  
 ---|---|---  
@@ -171,7 +144,7 @@ Output Name| Description| Data Type
 
 * * *
 
-**Source fingerprint (SHA-256):** `4a1b62f65ff3515cdb749c9b3916e631e53523fe144e8cdf71ca020825196ae6`
+**Source fingerprint (SHA-256):** `2c8ff29bb772b9ef005e264dd5c07b36f83b5b7068eebefa83ed567029187184`
 
 Was this page helpful?
 
@@ -179,26 +152,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/built-in-nodes/ByteDance2ReferenceNode.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/built-in-nodes/ByteDance2ReferenceNode)
 
-[ByteDance2FirstLastFrameNode - ComfyUI Built-in Node DocumentationPrevious](https://docs.comfy.org/built-in-nodes/ByteDance2FirstLastFrameNode)[ByteDance2ReferenceNodeV2 - ComfyUI Built-in Node DocumentationNext](https://docs.comfy.org/built-in-nodes/ByteDance2ReferenceNodeV2)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[ByteDance Seedance 2.5 First-Last-Frame to Video](https://docs.comfy.org/built-in-nodes/ByteDance2FirstLastFrameNode)[ByteDance Seedance 2.5 Reference to Video](https://docs.comfy.org/built-in-nodes/ByteDance2ReferenceNodeV2)

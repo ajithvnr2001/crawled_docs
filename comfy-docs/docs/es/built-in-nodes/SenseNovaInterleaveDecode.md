@@ -1,17 +1,17 @@
 ---
 url: https://docs.comfy.org/es/built-in-nodes/SenseNovaInterleaveDecode/
-title: SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation - ComfyUI
+title: Decodificaci\u00f3n de intercalaci\u00f3n de SenseNova - ComfyUI Built-in Node Documentation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:06.250573+00:00
+fetched_at: 2026-11-22T15:07:53.053033+00:00
 ---
 
-# SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation - ComfyUI
+# Decodificación de intercalación de SenseNova - ComfyUI Built-in Node Documentation - ComfyUI
 
 > Source: https://docs.comfy.org/es/built-in-nodes/SenseNovaInterleaveDecode/
 
 Sensenova
 
-# SenseNovaInterleaveDecode - ComfyUI Built-in Node Documentation
+# Decodificación de intercalación de SenseNova - ComfyUI Built-in Node Documentation
 
 Copiar páginaCopiar página
 
@@ -57,4 +57,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/built-in-nodes/SenseNovaInterleaveDecode.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/built-in-nodes/SenseNovaInterleaveDecode)
 
-[SenseNovaConditioning](https://docs.comfy.org/es/built-in-nodes/SenseNovaConditioning)[Generar texto](https://docs.comfy.org/es/built-in-nodes/TextGenerateV2)
+[Condicionamiento de SenseNova](https://docs.comfy.org/es/built-in-nodes/SenseNovaConditioning)[Fusión de modelos MiniMax H3](https://docs.comfy.org/es/built-in-nodes/ModelMergeMiniMaxH3)

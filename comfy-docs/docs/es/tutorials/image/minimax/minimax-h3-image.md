@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/minimax/minimax-h3-image/
 title: MiniMax-H3-Image: texto a imagen de 16 MP y edici\u00f3n de im\u00e1genes en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T15:28:55.556160+00:00
+fetched_at: 2026-11-22T15:07:57.860511+00:00
 ---
 
 # MiniMax-H3-Image: texto a imagen de 16 MP y edición de imágenes en ComfyUI - ComfyUI
@@ -15,11 +15,12 @@ Volver arriba
 
   * Características principales
   * Plantillas
+    * MiniMax-H3-Image Texto a imagen
+    * MiniMax-H3-Image Edición de imagen
   * Descarga de modelos
   * Muestreo y tamaño del lienzo
   * Imágenes de referencia en la edición de imágenes
   * Expansor de prompt
-  * Licencia
 
 
 
@@ -44,11 +45,7 @@ Copiar páginaCopiar página
 
 
 
-## 
-
-​
-
-Características principales
+## Características principales
 
   * **Texto a imagen y edición en un mismo checkpoint** : sin necesidad de cargar un modelo de edición o un adaptador aparte
   * **Muestreo de 6 pasos** : la orientación está fijada en 1, así que no hay pase CFG ni prompt negativo
@@ -82,29 +79,33 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Plantillas
+## Plantillas
 
 El modelo incluye dos flujos de trabajo de plantilla. Ambos requieren ComfyUI **0.45.0+** y el paquete de plantillas **0.11.104+**.
 
-## MiniMax-H3-Image: Text to Image
+### MiniMax-H3-Image Texto a imagen
+
+Genera una imagen a partir de un prompt de texto. La plantilla se abre a 16 MP (4096 x 4096 en 1:1), la resolución nativa del modelo. Baja `megapixels` en el Selector de resolución a unos 4 MP si tienes poca VRAM o quieres ejecuciones más rápidas. ![Salida de ejemplo de texto a imagen de MiniMax-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_minimax_h3_image_t2i-1.webp)
+
+## Descargar flujo de trabajo
 
 Descarga el JSON o busca “MiniMax-H3-Image: Text to Image” en Template Library
 
-## MiniMax-H3-Image: Image Edit
+### MiniMax-H3-Image Edición de imagen
+
+Edita una imagen describiendo el cambio. La plantilla carga la fuente como `<Picture 1>`, construye un caption que tiene en cuenta la referencia a partir de tu instrucción y termina con un nodo de comparación antes/después. ![Salida de ejemplo de edición de imagen de MiniMax-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_minimax_h3_image_edit-1.webp)
+
+## Descargar flujo de trabajo
 
 Descarga el JSON o busca “MiniMax-H3-Image: Image Edit” en Template Library
 
-La plantilla de texto a imagen se abre a 4 MP en un lienzo cuadrado, deliberadamente por debajo de la resolución nativa del modelo para que las máquinas con poca VRAM no se queden sin memoria. Aumenta el tamaño con el Selector de resolución cuando la GPU tenga margen. La plantilla de edición de imagen carga la fuente como `<Picture 1>`, construye un caption que tiene en cuenta la referencia a partir de tu instrucción y termina con un nodo de comparación ANTES/DESPUÉS. Ambas plantillas muestran su resultado de ejemplo en Template Library, así que la primera cola demuestra el modelo sin ningún cambio.
+**Materiales de entrada** La plantilla incluye una imagen de origen, cargada como `<Picture 1>` en su nodo `LoadImage`.
 
-## 
+## vintage_yellow_taxi.png
 
-​
+Imagen de origen que edita la plantilla
 
-Descarga de modelos
+## Descarga de modelos
 
 Los cuatro archivos van en `ComfyUI/models`. Todos provienen de repositorios espejo de Comfy-Org.
 
@@ -138,11 +139,7 @@ VAE de imagen, FP16, 1.17 GB. Colócalo en `ComfyUI/models/vae/`
     │       └── minimax_h3_image_vae_fp16.safetensors
     
 
-## 
-
-​
-
-Muestreo y tamaño del lienzo
+## Muestreo y tamaño del lienzo
 
 Ambas plantillas incluyen la programación destilada:
 
@@ -167,31 +164,15 @@ Relación de aspecto| Tamaño (ancho x alto)
 9:16| 3072 x 5472  
 21:9| 6272 x 2688  
   
-Los lienzos más pequeños también funcionan y requieren menos tiempo. En la plantilla de texto a imagen, el Selector de resolución establece la relación de aspecto y los megapíxeles objetivo por separado, así que 4 MP es un punto de partida en lugar de un límite.
+Los lienzos más pequeños también funcionan y requieren menos tiempo. En la plantilla de texto a imagen, el Selector de resolución establece la relación de aspecto y los megapíxeles objetivo por separado, así que cualquier tamaño desde unos 4 MP hasta el límite de 16 MP del selector está a un solo ajuste de distancia.
 
-## 
-
-​
-
-Imágenes de referencia en la edición de imágenes
+## Imágenes de referencia en la edición de imágenes
 
 La plantilla de edición de imágenes envía la imagen fuente al modelo como `<Picture 1>`. Las imágenes adicionales se etiquetan en orden, `<Picture 2>`, `<Picture 3>`, hasta 16 referencias, y el prompt se dirige a cada una por su etiqueta. La primera imagen es la que se edita; las demás aportan identidad, accesorios, materiales o composición. Basta con una instrucción breve, por ejemplo, reemplazar el vehículo de `<Picture 1>` por el de `<Picture 2>`. Para añadir una referencia, coloca otro nodo `Load Image` en el flujo de trabajo y conéctalo tanto al paso de generación del prompt como al nodo de acondicionamiento. Las imágenes de referencia no necesitan preparación: la plantilla redondea la fuente a un múltiplo de 32 px y ComfyUI escala las copias internas por sí mismo, con un lado corto de 1024 px para el lado de visión y un lado corto limitado entre 1024 y 2048 px para el lado del VAE, ambos en la cuadrícula de 32 px. Si una edición se queda sin memoria, habilita el nodo `Resize Image/Mask` de la plantilla y reduce sus megapíxeles antes del muestreo.
 
-## 
+## Expansor de prompt
 
-​
-
-Expansor de prompt
-
-Ambas plantillas incluyen un paso de generación de texto delante del sampler. En la plantilla de texto a imagen, reescribe el prompt en una descripción detallada en inglés y elige una relación de aspecto para el lienzo. En la plantilla de edición de imágenes, convierte una instrucción breve en una descripción de la imagen finalizada que tiene en cuenta la referencia. El expansor oficial para MiniMax-H3-Image es un modelo Qwen3.8-27B FP4, publicado como [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). Las plantillas usan en su lugar una versión más ligera de Qwen3.5 9B W4A8, para que el expansor quepa junto al modelo de diffusion de 21 GB en una sola GPU. La plantilla de texto a imagen viene con el expansor desactivado, así que tu prompt llega al modelo exactamente como lo escribiste; actívalo cuando quieras que se reescriba la descripción y se elija la relación de aspecto por ti. La plantilla de edición de imágenes viene con él activado.
-
-## 
-
-​
-
-Licencia
-
-Los pesos abiertos de MiniMax-H3-Image te permiten ejecutar el modelo localmente. El uso comercial de las salidas generadas localmente requiere una [licencia comercial de MiniMax](https://comfy.org/minimax/license), disponible a través de Comfy, el único revendedor oficial. Las generaciones en Comfy Cloud ya incluyen derechos comerciales.
+Ambas plantillas incluyen un paso de generación de texto delante del sampler. En la plantilla de texto a imagen, reescribe el prompt en una descripción detallada en inglés. En la plantilla de edición de imágenes, convierte una instrucción breve en una descripción de la imagen finalizada que tiene en cuenta la referencia. El expansor oficial para MiniMax-H3-Image es un modelo Qwen3.8-27B FP4, publicado como [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). Las plantillas usan en su lugar una versión más ligera de Qwen3.5 9B W4A8, para que el expansor quepa junto al modelo de diffusion de 21 GB en una sola GPU. Ambas plantillas vienen con el expansor activado, así que tu prompt se reescribe antes del muestreo. Desactívalo para enviar tu prompt al modelo exactamente como lo escribiste.
 
 ¿Esta página le ayudó?
 
