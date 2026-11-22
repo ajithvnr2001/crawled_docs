@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useSuggestions/
 title: useSuggestions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:21.604805+00:00
+fetched_at: 2026-11-22T11:00:18.237219+00:00
 ---
 
 # useSuggestions

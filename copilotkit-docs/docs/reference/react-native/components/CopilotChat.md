@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotChat/
 title: CopilotChat
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:40.607553+00:00
+fetched_at: 2026-11-22T11:00:23.081366+00:00
 ---
 
 # CopilotChat

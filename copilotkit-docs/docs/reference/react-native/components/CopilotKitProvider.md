@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotKitProvider/
 title: CopilotKitProvider
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:40.459521+00:00
+fetched_at: 2026-11-22T11:00:22.928939+00:00
 ---
 
 # CopilotKitProvider

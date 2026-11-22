@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotModal/
 title: CopilotModal
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:40.256578+00:00
+fetched_at: 2026-11-22T11:00:22.885263+00:00
 ---
 
 # CopilotModal

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/export-map/
 title: Complete v1 to v2 export map
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:27.876949+00:00
+fetched_at: 2026-11-22T11:00:20.898669+00:00
 ---
 
 # Complete v1 to v2 export map

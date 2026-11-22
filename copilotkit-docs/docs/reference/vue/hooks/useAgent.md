@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:23.102874+00:00
+fetched_at: 2026-11-22T11:00:18.870536+00:00
 ---
 
 # useAgent

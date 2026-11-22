@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:30.305492+00:00
+fetched_at: 2026-11-22T11:00:22.639467+00:00
 ---
 
 # useAgent

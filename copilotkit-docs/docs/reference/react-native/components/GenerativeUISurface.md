@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUISurface/
 title: GenerativeUISurface
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:30.452643+00:00
+fetched_at: 2026-11-22T11:00:22.534418+00:00
 ---
 
 # GenerativeUISurface

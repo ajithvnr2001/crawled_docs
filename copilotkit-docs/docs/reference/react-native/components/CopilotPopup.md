@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/CopilotPopup/
 title: CopilotPopup
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:40.521216+00:00
+fetched_at: 2026-11-22T11:00:22.836364+00:00
 ---
 
 # CopilotPopup

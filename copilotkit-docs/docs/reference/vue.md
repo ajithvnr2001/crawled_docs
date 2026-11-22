@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/
 title: Vue
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:24.298843+00:00
+fetched_at: 2026-11-22T11:00:18.754283+00:00
 ---
 
 # Vue
