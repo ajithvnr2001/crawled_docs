@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/renderToIR/
 title: renderToIR
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:47.157424+00:00
+fetched_at: 2026-11-23T12:09:23.031432+00:00
 ---
 
 # renderToIR

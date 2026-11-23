@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/StateStore/
 title: StateStore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:46.795456+00:00
+fetched_at: 2026-11-23T12:09:22.557406+00:00
 ---
 
 # StateStore

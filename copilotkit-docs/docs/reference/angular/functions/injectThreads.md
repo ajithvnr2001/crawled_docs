@@ -2,73 +2,39 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/injectThreads/
 title: injectThreads
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:24:59.207821+00:00
+fetched_at: 2026-11-23T12:09:25.240249+00:00
 ---
 
 # injectThreads
 
 > Source: https://docs.copilotkit.ai/reference/angular/functions/injectThreads/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁AngularSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Guides
-
-[Public API inventory](https://docs.copilotkit.ai/reference/angular/public-api)[Production and lifecycle](https://docs.copilotkit.ai/reference/angular/production-lifecycle)
-
-Components
-
-[CopilotActivity](https://docs.copilotkit.ai/reference/angular/components/CopilotActivity)[CopilotChat](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/angular/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatView)[CopilotPopup](https://docs.copilotkit.ai/reference/angular/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar)
-
-Functions
-
-[connectAgentContext](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext)[injectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)[injectCapabilities](https://docs.copilotkit.ai/reference/angular/functions/injectCapabilities)[injectChatLabels](https://docs.copilotkit.ai/reference/angular/functions/injectChatLabels)[injectCopilotKitConfig](https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig)[injectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[injectThreads](https://docs.copilotkit.ai/reference/angular/functions/injectThreads)[provideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)[provideCopilotKit](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit)[provideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[registerComponent](https://docs.copilotkit.ai/reference/angular/functions/registerComponent)[registerFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[registerHumanInTheLoop](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)[registerRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)[registerRenderToolCall](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)
-
-Services
-
-[CopilotKit](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
-
-Directives
-
-[CopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[angular](https://docs.copilotkit.ai/reference/angular)Functions
+Angular/Functions
 
 # injectThreads
 
 Angular function for listing and managing CopilotKit Intelligence threads with signals, pagination, realtime updates, and injector-scoped cleanup.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `injectThreads` returns the thread list and mutations for one agent as Angular signals and stable callbacks. It fetches the runtime-authenticated user's threads from CopilotKit Intelligence, keeps metadata current through realtime updates when available, and sorts the list by most recent agent activity.
 
 Call it from an Angular injection context such as a component field initializer or constructor. The list subscription, realtime connection, and core store registration are removed automatically when the owning injector is destroyed.
 
-## Signature
+For a full walkthrough, see the [Angular Headless Threads guide](https://docs.copilotkit.ai/angular/headless-threads).
+
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { injectThreads } from "@copilotkit/angular";
     
     function injectThreads(input: InjectThreadsInput): InjectThreadsResult;
 
-## Input
+## InputCopy Anchor Link
 
 Prop
 
@@ -76,25 +42,13 @@ Type
 
 `agentId`string | Signal<string>
 
-Prop
-
-Type
-
 `includeArchived?`boolean | Signal<boolean | undefined>
-
-Prop
-
-Type
 
 `limit?`number | Signal<number | undefined>
 
-Prop
-
-Type
-
 `enabled?`boolean | Signal<boolean | undefined>
 
-## Return value
+## Return valueCopy Anchor Link
 
 The returned `InjectThreadsResult` contains:
 
@@ -118,9 +72,11 @@ Member| Type| Purpose
   
 Each `Thread` has `id`, `agentId`, `name`, `archived`, `createdAt`, `updatedAt`, and an optional `lastRunAt`. Prefer `lastRunAt` for user-facing activity timestamps because metadata-only changes can update `updatedAt`.
 
-## Usage
+## UsageCopy Anchor Link
 
 src/app/thread-list.component.ts
+
+Copy Text
     
     
     import { Component, signal } from "@angular/core";
@@ -168,17 +124,21 @@ src/app/thread-list.component.ts
       });
     }
 
-Bind the selected id to a chat component in the same feature:
+Bind the selected id to a [`CopilotChat`](https://docs.copilotkit.ai/reference/angular/components/CopilotChat) component in the same feature:
+
+Copy Text
     
     
     <copilot-chat agentId="support" [threadId]="selectedThreadId()" />
 
-## Mutation behavior
+## Mutation behaviorCopy Anchor Link
 
 Rename, archive, unarchive, and delete update the visible list optimistically and return a promise that settles when the platform confirms the operation. Handle rejection in the calling UI. Deletion is irreversible and rolls back its optimistic removal if the request fails; ask the user for confirmation before calling it.
 
 Use `listError` for end-user messaging. The broader `error` signal can include configuration details such as a missing runtime URL or unavailable thread endpoints and is intended for developer diagnostics.
 
-## Related
+How is this guide?
 
-### [Angular threads and headless UI guideBuild thread selection, memory, attachments, and a custom signal-based chat.](https://docs.copilotkit.ai/angular/guides/threads-memory-attachments-headless)### [Threads explainedUnderstand persistence, realtime synchronization, naming, replay, and failure behavior.](https://docs.copilotkit.ai/angular/intelligence/threads-explained)### [CopilotChatConnect the selected thread to the prebuilt Angular chat.](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)
+GoodBad
+
+[Previous PageinjectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[Next PageprovideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)

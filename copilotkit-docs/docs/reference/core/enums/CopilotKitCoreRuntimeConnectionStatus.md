@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/enums/CopilotKitCoreRuntimeConnectionStatus/
 title: CopilotKitCoreRuntimeConnectionStatus
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:46.169555+00:00
+fetched_at: 2026-11-23T12:09:21.105456+00:00
 ---
 
 # CopilotKitCoreRuntimeConnectionStatus

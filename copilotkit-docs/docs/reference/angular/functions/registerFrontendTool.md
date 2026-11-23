@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool/
 title: registerFrontendTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:49.111134+00:00
+fetched_at: 2026-11-23T12:09:25.300782+00:00
 ---
 
 # registerFrontendTool

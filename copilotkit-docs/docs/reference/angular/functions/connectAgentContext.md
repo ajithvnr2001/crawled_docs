@@ -2,60 +2,22 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext/
 title: connectAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:24:56.133834+00:00
+fetched_at: 2026-11-23T12:09:26.767114+00:00
 ---
 
 # connectAgentContext
 
 > Source: https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-🪁AngularSDK
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-Guides
-
-[Public API inventory](https://docs.copilotkit.ai/reference/angular/public-api)[Production and lifecycle](https://docs.copilotkit.ai/reference/angular/production-lifecycle)
-
-Components
-
-[CopilotActivity](https://docs.copilotkit.ai/reference/angular/components/CopilotActivity)[CopilotChat](https://docs.copilotkit.ai/reference/angular/components/CopilotChat)[CopilotChatAssistantMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage)[CopilotChatInput](https://docs.copilotkit.ai/reference/angular/components/CopilotChatInput)[CopilotChatMessageView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView)[CopilotChatUserMessage](https://docs.copilotkit.ai/reference/angular/components/CopilotChatUserMessage)[CopilotChatView](https://docs.copilotkit.ai/reference/angular/components/CopilotChatView)[CopilotPopup](https://docs.copilotkit.ai/reference/angular/components/CopilotPopup)[CopilotSidebar](https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar)
-
-Functions
-
-[connectAgentContext](https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext)[injectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)[injectCapabilities](https://docs.copilotkit.ai/reference/angular/functions/injectCapabilities)[injectChatLabels](https://docs.copilotkit.ai/reference/angular/functions/injectChatLabels)[injectCopilotKitConfig](https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig)[injectInterrupt](https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt)[injectThreads](https://docs.copilotkit.ai/reference/angular/functions/injectThreads)[provideCopilotChatLabels](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels)[provideCopilotKit](https://docs.copilotkit.ai/reference/angular/functions/provideCopilotKit)[provideMCPApps](https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps)[registerComponent](https://docs.copilotkit.ai/reference/angular/functions/registerComponent)[registerFrontendTool](https://docs.copilotkit.ai/reference/angular/functions/registerFrontendTool)[registerHumanInTheLoop](https://docs.copilotkit.ai/reference/angular/functions/registerHumanInTheLoop)[registerRenderActivityMessage](https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage)[registerRenderToolCall](https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall)
-
-Services
-
-[CopilotKit](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
-
-Directives
-
-[CopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Reference](https://docs.copilotkit.ai/reference)[angular](https://docs.copilotkit.ai/reference/angular)Functions
+Angular/Functions
 
 # connectAgentContext
 
 Angular function that adds reactive context for the agent and cleans it up automatically for @copilotkit/angular.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
-
-## Overview
+## OverviewCopy Anchor Link
 
 `connectAgentContext` registers [context](https://docs.ag-ui.com/concepts/context) with the agent so it can read your application state. It accepts a static `Context` object or a zero-argument accessor. The internal Angular `effect` tracks any signals read by the accessor and updates the context when they change.
 
@@ -63,9 +25,11 @@ The registration is wrapped in an Angular `effect`, so the context is cleaned up
 
 For a template-driven alternative, use the [`CopilotKitAgentContext`](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext) directive.
 
-Call this from an Angular injection context, such as a constructor or field initializer. The current implementation resolves the ambient injector before it reads the config, so passing `config.injector` does not make an outside-context call valid.
+Call this from an Angular injection context, such as a constructor or field initializer. To call it from other code, pass `{ injector }` as the second argument.
 
-## Signature
+## SignatureCopy Anchor Link
+
+Copy Text
     
     
     import { connectAgentContext } from "@copilotkit/angular";
@@ -81,7 +45,7 @@ Call this from an Angular injection context, such as a constructor or field init
       config?: ConnectAgentContextConfig,
     ): void;
 
-## Parameters
+## ParametersCopy Anchor Link
 
 Prop
 
@@ -89,17 +53,15 @@ Type
 
 `context`Context | (() => Context)
 
-Prop
-
-Type
-
 `config?`ConnectAgentContextConfig
 
-## Usage
+## UsageCopy Anchor Link
 
-### Static context
+### Static contextCopy Anchor Link
 
 src/app/preferences.component.ts
+
+Copy Text
     
     
     import { Component } from "@angular/core";
@@ -119,11 +81,13 @@ src/app/preferences.component.ts
       }
     }
 
-### Reactive context with an accessor
+### Reactive context with an accessorCopy Anchor Link
 
 Pass an accessor that reads signals so the agent always sees the current value.
 
 src/app/cart.component.ts
+
+Copy Text
     
     
     import { Component, signal } from "@angular/core";
@@ -150,14 +114,16 @@ src/app/cart.component.ts
       }
     }
 
-## Behavior
+## BehaviorCopy Anchor Link
 
   * **Reactive updates.** When an accessor reads signals, the context is removed and re-added whenever one of those signals changes.
   * **Automatic cleanup.** Registration runs inside an Angular `effect`; the context is removed when the effect is torn down, which happens when the owning component, service, or injector is destroyed.
-  * **Injection context required.** Angular throws `NG0203` when you call the function outside an injection context.
+  * **Injection context.** Without `config.injector`, Angular throws `NG0203` when you call the function outside an injection context.
 
 
 
-## Related
+How is this guide?
 
-### [CopilotKitAgentContext directiveShare context with the agent from a template instead of a function.](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)### [injectAgentStoreSubscribe to an agent and read its messages, state, and run status.](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)### [CopilotKit serviceThe central handle on agents, tools, and the runtime connection.](https://docs.copilotkit.ai/reference/angular/services/CopilotKit)
+GoodBad
+
+[Previous PageCopilotKitAgentContext](https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext)[Next PageinjectAgentStore](https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore)

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Message/
 title: Message
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:47.714838+00:00
+fetched_at: 2026-11-23T12:09:23.873510+00:00
 ---
 
 # Message

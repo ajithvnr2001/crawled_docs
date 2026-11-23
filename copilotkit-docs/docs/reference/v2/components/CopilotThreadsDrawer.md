@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotThreadsDrawer/
 title: CopilotThreadsDrawer
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:44.948198+00:00
+fetched_at: 2026-11-23T12:09:21.621078+00:00
 ---
 
 # CopilotThreadsDrawer

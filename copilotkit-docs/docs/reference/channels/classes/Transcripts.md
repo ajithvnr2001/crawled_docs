@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/classes/Transcripts/
 title: Transcripts
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:48.319375+00:00
+fetched_at: 2026-11-23T12:09:24.308720+00:00
 ---
 
 # Transcripts

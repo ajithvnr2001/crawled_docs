@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/voice/
 title: Voice
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:42.347202+00:00
+fetched_at: 2026-11-23T12:09:26.641918+00:00
 ---
 
 # Voice

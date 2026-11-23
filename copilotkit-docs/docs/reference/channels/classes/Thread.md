@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/classes/Thread/
 title: Thread
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:48.446167+00:00
+fetched_at: 2026-11-23T12:09:24.357230+00:00
 ---
 
 # Thread

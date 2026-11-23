@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/provideCopilotChatLabels/
 title: provideCopilotChatLabels
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:49.334549+00:00
+fetched_at: 2026-11-23T12:09:25.094780+00:00
 ---
 
 # provideCopilotChatLabels

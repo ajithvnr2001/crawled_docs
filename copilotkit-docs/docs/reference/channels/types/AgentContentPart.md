@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/AgentContentPart/
 title: AgentContentPart
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:47.605931+00:00
+fetched_at: 2026-11-23T12:09:22.994718+00:00
 ---
 
 # AgentContentPart

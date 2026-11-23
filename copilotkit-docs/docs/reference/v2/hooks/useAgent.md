@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useAgent/
 title: useAgent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T11:16:25.819881+00:00
+fetched_at: 2026-11-23T12:09:20.330596+00:00
 ---
 
 # useAgent

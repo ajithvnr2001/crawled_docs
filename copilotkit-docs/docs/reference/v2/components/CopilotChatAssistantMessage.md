@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/components/CopilotChatAssistantMessage/
 title: CopilotChatAssistantMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:45.855466+00:00
+fetched_at: 2026-11-23T12:09:22.351820+00:00
 ---
 
 # CopilotChatAssistantMessage

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerComponent/
 title: registerComponent
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:49.225835+00:00
+fetched_at: 2026-11-23T12:09:25.196825+00:00
 ---
 
 # registerComponent
