@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/get-started/
 title: Getting started \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:37.704245+00:00
+fetched_at: 2026-11-23T10:29:12.649452+00:00
 ---
 
 # Getting started · Cloudflare D1 docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:10:37.704245+00:00
 
 # Getting started
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/d1/get-started/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick startPrerequisites1\. Create a Worker2\. Create a database3\. Bind your Worker to your D1 database4\. Run a query against your D1 database Populate your D1 database Write queries within your Worker5\. Deploy your application6\. (Optional) Develop locally with Wrangler7\. (Optional) Delete your databaseSummaryNext steps
 
@@ -54,7 +54,9 @@ You may wish to manually follow the steps if you are new to Cloudflare Workers.
 
 Node.js version manager
 
-Use a Node version manager like [Volta ↗︎](https://volta.sh/) or [nvm ↗︎](https://github.com/nvm-sh/nvm) to avoid permission issues and change Node.js versions. [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), discussed later in this guide, requires a Node version of `16.17.0` or later.
+Use [Vite+ (`vp env`) ↗︎](https://viteplus.dev/guide/env) to install and manage Node.js versions.
+
+For supported Node.js versions, refer to the [Wrangler system requirements](https://developers.cloudflare.com/workers/wrangler/install-and-update/#install-wrangler).
 
 ## 1\. Create a Worker
 
@@ -76,6 +78,7 @@ For setup, select the following options:
      * For _Which template would you like to use?_ , choose `Worker only`.
      * For _Which language do you want to use?_ , choose `TypeScript`.
      * For _Do you want to use git for version control?_ , choose `Yes`.
+     * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
      * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
 This creates a new `d1-tutorial` directory as illustrated below.
@@ -604,7 +607,6 @@ If you have any feature requests or notice any bugs, share your feedback directl
 
   * See supported [Wrangler commands for D1](https://developers.cloudflare.com/workers/wrangler/commands/d1/).
   * Learn how to use [D1 Worker Binding APIs](https://developers.cloudflare.com/d1/worker-api/) within your Worker, and test them from the [API playground](https://developers.cloudflare.com/d1/worker-api/#api-playground).
-  * Explore [community projects built on D1](https://developers.cloudflare.com/d1/reference/community-projects/).
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/tutorials/build-a-comments-api/
 title: Build a Comments API \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:32.234831+00:00
+fetched_at: 2026-11-23T10:29:12.465974+00:00
 ---
 
 # Build a Comments API · Cloudflare D1 docs
@@ -12,13 +12,13 @@ fetched_at: 2026-10-13T08:48:32.234831+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[D1](https://developers.cloudflare.com/d1/)
   3. /[Tutorials](https://developers.cloudflare.com/d1/tutorials/)
-  4. /Build A Comments Api
+  4. /Build a Comments API
 
 
 
 # Build a Comments API
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a new Worker project2\. Install Hono3\. Create a database4\. Create a schema and seed the database5\. Initialize the Hono application6\. Query comments7\. Insert comments8\. (Optional) Add CORS support9\. Deploy your applicationFull exampleNext steps
 
@@ -98,7 +98,7 @@ Confirm that your Wrangler configuration file contains the `d1_databases` bindin
            "main": "src/index.ts",
            "upload_source_maps": true,
            // Set this to today's date
-           "compatibility_date": "2026-10-13",
+           "compatibility_date": "2026-11-22",
            "d1_databases": [
              {
                "binding": "DB",
@@ -112,7 +112,7 @@ Confirm that your Wrangler configuration file contains the `d1_databases` bindin
          main = "src/index.ts"
          upload_source_maps = true
          # Set this to today's date
-         compatibility_date = "2026-10-13"
+         compatibility_date = "2026-11-22"
          
          [[d1_databases]]
          binding = "DB" # available in your Worker on env.DB
@@ -442,7 +442,6 @@ The complete `src/index.ts` with all routes and CORS support:
 
   * Refer to the [D1 Workers Binding API](https://developers.cloudflare.com/d1/worker-api/) for a full list of available methods.
   * Learn about [D1 local development](https://developers.cloudflare.com/d1/best-practices/local-development/) for testing your database without deploying.
-  * Explore [community projects built on D1](https://developers.cloudflare.com/d1/reference/community-projects/).
 
 
 
