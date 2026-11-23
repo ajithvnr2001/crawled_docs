@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/expansion/
-title: Expansi\u00f3n de nodos - ComfyUI
+title: Expansi\u00f3n de nodos en ComfyUI: devolver subgrafos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:50.005309+00:00
+fetched_at: 2026-11-23T19:03:26.700441+00:00
 ---
 
-# Expansión de nodos - ComfyUI
+# Expansión de nodos en ComfyUI: devolver subgrafos - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/expansion/
 
@@ -24,27 +24,19 @@ Volver arriba
 
 Python (backend)
 
-# Expansión de nodos
+# Expansión de nodos en ComfyUI: devolver subgrafos
 
 Copiar páginaCopiar página
 
-Domina la expansión de nodos de Comfy para devolver nuevos subgrafos en tus nodos personalizados de backend. Conoce los requisitos de GraphBuilder y las técnicas de caché.
+Haz que un nodo personalizado de backend devuelva un subgrafo en su lugar, con las claves result y expand, los helpers de GraphBuilder y las reglas de caché.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-Expansión de nodos
+## Expansión de nodos
 
 Normalmente, cuando se ejecuta un nodo, esa función de ejecución devuelve inmediatamente los resultados de salida de ese nodo. La “expansión de nodos” es una técnica relativamente avanzada que permite que los nodos devuelvan un nuevo subgrafo de nodos que deben ocupar su lugar en el gráfico. Esta técnica es la que permite que los Nodos personalizados implementen bucles.
 
-### 
-
-​
-
-Un ejemplo simple
+### Un ejemplo simple
 
 Primero, aquí tienes un ejemplo simple de cómo se ve la expansión de nodos:
 
@@ -67,11 +59,7 @@ Recomendamos encarecidamente usar la clase `GraphBuilder` al crear subgrafos. No
 
 Aunque este mismo nodo antes se podía implementar llamando manualmente a las partes internas de ComfyUI, usar la expansión significa que cada subnodo se almacenará en caché por separado (así que si cambias `model2`, no tienes que volver a cargar `model1`).
 
-### 
-
-​
-
-Requisitos
+### Requisitos
 
 Para realizar la expansión de nodos, un nodo debe devolver un diccionario con las siguientes claves:
 
@@ -80,11 +68,7 @@ Para realizar la expansión de nodos, un nodo debe devolver un diccionario con l
 
 
 
-#### 
-
-​
-
-Requisitos adicionales si no usas GraphBuilder
+#### Requisitos adicionales si no usas GraphBuilder
 
 El formato que espera la clave `expand` es el mismo que el del formato de API de ComfyUI. Los siguientes requisitos los gestiona `GraphBuilder`, pero debes gestionarlos manualmente si decides prescindir de él:
 
@@ -93,19 +77,11 @@ El formato que espera la clave `expand` es el mismo que el del formato de API de
 
 Incluso si no quieres usar `GraphBuilder` para construir realmente el gráfico (por ejemplo, porque cargas el json sin procesar del gráfico desde un archivo), puedes usar la función `GraphBuilder.alloc_prefix()` para generar un prefijo y `comfy.graph_utils.add_graph_prefix` para corregir gráficos existentes de modo que cumplan estos requisitos.
 
-### 
-
-​
-
-Almacenamiento en caché eficiente de subgrafos
+### Almacenamiento en caché eficiente de subgrafos
 
 Aunque puedes pasar entradas no literales a los nodos dentro del subgrafo (como tensores de torch), esto puede inhibir el almacenamiento en caché _dentro_ del subgrafo. Cuando sea posible, deberías pasar conexiones a los objetos del subgrafo en lugar del nodo en sí. (Puedes declarar una entrada como `rawLink` dentro de los [Parámetros adicionales](https://docs.comfy.org/es/custom-nodes/backend/datatypes#par%C3%A1metros-adicionales) de la entrada para hacerlo fácilmente.)
 
-## 
-
-​
-
-Véase también
+## Véase también
 
   * [Subgraphs (Guía para desarrolladores)](https://docs.comfy.org/es/custom-nodes/js/subgraphs): Guía del frontend para autores de extensiones
 

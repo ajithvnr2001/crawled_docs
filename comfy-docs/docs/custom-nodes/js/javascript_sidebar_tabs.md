@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/
-title: Sidebar Tabs - ComfyUI
+title: ComfyUI Sidebar Tabs API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:51.514891+00:00
+fetched_at: 2026-11-23T19:03:25.343155+00:00
 ---
 
-# Sidebar Tabs - ComfyUI
+# ComfyUI Sidebar Tabs API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/
 
@@ -24,21 +24,17 @@ Back to top
 
 JavaScript (UI)
 
-# Sidebar Tabs
+# ComfyUI Sidebar Tabs API
 
 Copy pageCopy page
 
-Master the Comfy Extension API to build custom JavaScript sidebar tabs. Explore code examples for React components and dynamic content updates. Read the docs.
+Add custom tabs to the ComfyUI sidebar with the Sidebar Tabs API, including tab configuration, Lucide icons, React components, and stateful content.
 
 Copy pageCopy page
 
 The Sidebar Tabs API allows extensions to add custom tabs to the sidebar of the ComfyUI interface. This is useful for adding features that require persistent visibility and quick access.
 
-## 
-
-​
-
-Basic Usage
+## Basic Usage
     
     
     app.extensionManager.registerSidebarTab({
@@ -53,11 +49,7 @@ Basic Usage
     });
     
 
-## 
-
-​
-
-Tab Configuration
+## Tab Configuration
 
 Each tab requires several properties:
     
@@ -74,19 +66,11 @@ Each tab requires several properties:
 
 The `render` function receives a DOM element where you should insert your tab’s content.
 
-## 
-
-​
-
-Icon Options
+## Icon Options
 
 Sidebar tab icons use [Lucide](https://lucide.dev/icons/) icon classes in the form `icon-[lucide--<icon-name>]` (e.g., `icon-[lucide--compass]`). The frontend generates these classes when it is built, so only the Lucide icons that the frontend itself uses are available. If an icon does not render, pick another icon, or define your own icon class in a stylesheet that your extension loads. PrimeIcons (`pi pi-*`) and Material Design Icons (`mdi mdi-*`) classes still render for now, but they are being phased out. Don’t use them in new code. See [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration).
 
-## 
-
-​
-
-Stateful Tab Example
+## Stateful Tab Example
 
 You can create tabs that maintain state:
     
@@ -124,11 +108,7 @@ You can create tabs that maintain state:
     });
     
 
-## 
-
-​
-
-Using React Components
+## Using React Components
 
 You can mount React components in sidebar tabs:
     
@@ -175,11 +155,7 @@ You can mount React components in sidebar tabs:
 
 For a real-world example of a React application integrated as a sidebar tab, check out the [ComfyUI-Copilot project on GitHub](https://github.com/AIDC-AI/ComfyUI-Copilot).
 
-## 
-
-​
-
-Dynamic Content Updates
+## Dynamic Content Updates
 
 You can update sidebar content in response to graph changes:
     
@@ -231,4 +207,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_sidebar_tabs.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_sidebar_tabs)
 
-[Bottom Panel Tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)[Selection Toolbox](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)
+[Bottom panel tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)[Selection Toolbox](https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox)

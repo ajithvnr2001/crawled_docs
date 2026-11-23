@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/examples/
 title: Comfy API Examples: Router Calls, Deployments, and Apps - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:58.339859+00:00
+fetched_at: 2026-11-23T19:03:21.971978+00:00
 ---
 
 # Comfy API Examples: Router Calls, Deployments, and Apps - ComfyUI
@@ -41,9 +41,9 @@ See the request and response shape for a Router model.
 
 Look up the shared Router endpoints and headers.
 
-## Comfy API
+## Custom Builds on Comfy Cloud
 
-Package your own ComfyUI workflow, deploy it to managed GPU infrastructure, and run it through the Comfy API.
+Package your own ComfyUI workflow as a custom Build, deploy it on Comfy Cloud, and call it from your code.
 
 ## Deploy a workflow
 

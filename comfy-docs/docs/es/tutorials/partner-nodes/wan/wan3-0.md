@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/wan/wan3-0/
 title: Wan 3.0 en ComfyUI: generaci\u00f3n de video con audio sincronizado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:57.224916+00:00
+fetched_at: 2026-11-23T19:03:23.621938+00:00
 ---
 
 # Wan 3.0 en ComfyUI: generación de video con audio sincronizado - ComfyUI
@@ -32,17 +32,13 @@ Wan
 
 Copiar páginaCopiar página
 
-Genera hasta 30 segundos de video con audio sincronizado en ComfyUI con los Nodos asociados de Wan 3.0, desde prompts de texto, imágenes de primer fotograma o medios de referencia.
+Genera video con audio sincronizado en ComfyUI con los Nodos asociados de Wan 3.0, desde prompts, una imagen inicial o medios de referencia.
 
 Copiar páginaCopiar página
 
 Wan 3.0 es el modelo de generación de video más reciente de Alibaba, ahora disponible en ComfyUI a través de Nodos asociados. Genera hasta 30 segundos de video en una sola pasada con una pista de audio sincronizada, y combina prompts de texto con imágenes, videos y audio de referencia para mantener personajes y escenas consistentes.
 
-## 
-
-​
-
-En qué destaca Wan 3.0
+## En qué destaca Wan 3.0
 
   * **Hasta 30 segundos** : Genera clips largos con movimiento y audio coherentes en una sola pasada
   * **Audio nativo** : Cada resultado incluye una pista de audio sincronizada de forma predeterminada
@@ -54,11 +50,7 @@ En qué destaca Wan 3.0
 
 
 
-## 
-
-​
-
-Salidas de ejemplo
+## Salidas de ejemplo
 
 Generación de texto a video a partir de un prompt, con audio sincronizado incluido de forma predeterminada: ![Ejemplo de salida de texto a video de Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_t2v-1.webp) Generación de imagen a video, animando una sola imagen para convertirla en un clip completo: ![Ejemplo de salida de imagen a video de Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_i2v-1.webp) Generación de referencia a video, manteniendo un producto y un personaje consistentes a partir de imágenes de referencia: ![Ejemplo de salida de referencia a video de Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_r2v-1.webp)
 
@@ -87,11 +79,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Flujo de trabajo de texto a video con Wan 3.0
+## Flujo de trabajo de texto a video con Wan 3.0
 
 Genera un video a partir de un prompt de texto únicamente, con audio sincronizado incluido de forma predeterminada. ![Ejemplo de salida de texto a video con Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_t2v-1.webp)
 
@@ -103,11 +91,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Wan 3.0” en la Biblioteca de plantillas
 
-#### 
-
-​
-
-Consejos para el prompt
+#### Consejos para el prompt
 
   1. **Duración** : Configura de 2 a 30 segundos, o `auto` para que el modelo elija una duración que se ajuste al prompt
   2. **Resolución y relación** : el flujo de trabajo viene en 720p con relación `adaptive`; cambia a 1080p o a una relación fija como `16:9` para formatos específicos
@@ -116,11 +100,7 @@ Consejos para el prompt
 
 
 
-## 
-
-​
-
-Flujo de trabajo de imagen a video con Wan 3.0
+## Flujo de trabajo de imagen a video con Wan 3.0
 
 Anima una sola imagen y conviértela en un video, con un último fotograma opcional hacia el que transiciona el resultado. ![Ejemplo de salida de imagen a video con Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_i2v-1.webp)
 
@@ -132,11 +112,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Wan 3.0” en la Biblioteca de plantillas
 
-#### 
-
-​
-
-Consejos para el prompt
+#### Consejos para el prompt
 
   1. **Primer fotograma** : La entrada `first_frame` es requerida. La entrada `last_frame` es opcional, y el modelo genera el movimiento entre ambos
   2. **Relación adaptable** : Con `adaptive`, las dimensiones de salida siguen a la imagen de entrada
@@ -144,11 +120,7 @@ Consejos para el prompt
 
 
 
-## 
-
-​
-
-Flujo de trabajo de referencia a video con Wan 3.0
+## Flujo de trabajo de referencia a video con Wan 3.0
 
 Genera un video condicionado por imágenes, videos y audio de referencia, y asigna a cada referencia una tarea mediante etiquetas en el prompt. ![Ejemplo de salida del flujo de trabajo de referencia a video con Wan 3.0](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_wan3_0_r2v-1.webp)
 
@@ -160,11 +132,7 @@ Abrir en Comfy Cloud
 
 Descarga el JSON o busca “Wan 3.0” en la Biblioteca de plantillas
 
-#### 
-
-​
-
-Consejos para el prompt
+#### Consejos para el prompt
 
   1. **Referencia por etiqueta** : menciona cada entrada en el prompt como `@Image1`, `@Video1` o `@Audio1`, numeradas por tipo en el orden de entrada. El prompt de ejemplo asigna el diseño del zapato a `@Image1` y el personaje a `@Image2`
   2. **Límites** : hasta 10 imágenes de referencia, 5 videos de referencia y 5 clips de audio de referencia. Cada video o clip de audio de referencia debe durar 15 segundos o menos, y la duración combinada de todos los videos de referencia debe mantenerse dentro de 15 segundos (lo mismo para el audio). La duración total de los videos de referencia más la salida no debe superar los 30 segundos
@@ -173,11 +141,7 @@ Consejos para el prompt
 
 
 
-## 
-
-​
-
-Empezar
+## Empezar
 
   1. Actualiza ComfyUI a la última versión o usa el [Comfy Desktop](https://www.comfy.org/download) más reciente
   2. Ve a Biblioteca de plantillas y busca `Wan 3.0`
@@ -187,11 +151,7 @@ Empezar
 
 
 
-## 
-
-​
-
-Preguntas frecuentes
+## Preguntas frecuentes
 
 ¿Qué es Wan 3.0?
 

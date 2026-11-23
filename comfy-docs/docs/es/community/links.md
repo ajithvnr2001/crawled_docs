@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/community/links/
-title: Enlaces de la comunidad - ComfyUI
+title: Enlaces de la comunidad de ComfyUI: Discord, foro y soporte - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:02:49.284354+00:00
+fetched_at: 2026-11-23T19:03:25.187321+00:00
 ---
 
-# Enlaces de la comunidad - ComfyUI
+# Enlaces de la comunidad de ComfyUI: Discord, foro y soporte - ComfyUI
 
 > Source: https://docs.comfy.org/es/community/links/
 
@@ -19,7 +19,7 @@ Volver arriba
 
 Community
 
-# Enlaces de la comunidad
+# Enlaces de la comunidad de ComfyUI: Discord, foro y soporte
 
 Copiar páginaCopiar página
 
@@ -27,11 +27,7 @@ Obtén ayuda de ComfyUI y comparte tu trabajo en Discord, el portal de soporte, 
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-¿Dónde puedes obtener ayuda de ComfyUI y conectar con la comunidad?
+## ¿Dónde puedes obtener ayuda de ComfyUI y conectar con la comunidad?
 
 Únete a la comunidad de ComfyUI para obtener ayuda, compartir tu trabajo y mantenerte al día con los últimos avances.
 

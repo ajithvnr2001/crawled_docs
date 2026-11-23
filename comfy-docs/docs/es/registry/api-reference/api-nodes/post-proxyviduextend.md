@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyviduextend/
 title: Post proxyviduextend - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:34.871177+00:00
+fetched_at: 2026-11-23T19:03:31.296266+00:00
 ---
 
 # Post proxyviduextend - ComfyUI

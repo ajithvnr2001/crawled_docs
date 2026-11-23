@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-custom-builds/
 title: Adding Custom Builds to Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:12.564969+00:00
+fetched_at: 2026-11-23T19:03:22.812849+00:00
 ---
 
 # Adding Custom Builds to Comfy Cloud - ComfyUI
@@ -262,7 +262,7 @@ The next time you open the editor in this browser, the editor runs your Workflow
 
 Upload a model from a terminal and pick it per request with `lora_name`.
 
-## Comfy API Quickstart
+## Call your deployment from code
 
 Call your deployment from your own code as an autoscaling endpoint.
 
@@ -280,4 +280,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/deploy/cloud-custom-builds.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/deploy/cloud-custom-builds)
 
-[Usage and Limits](https://docs.comfy.org/development/deploy/cloud-usage)[Hosting options](https://docs.comfy.org/development/deploy/self-hosting)
+[Deploy on Comfy Cloud](https://docs.comfy.org/development/deploy/cloud)[Manage Deployments](https://docs.comfy.org/development/serverless/overview)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/overview/
 title: Comfy Registry: publica y versiona nodos personalizados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:38.892192+00:00
+fetched_at: 2026-11-23T19:03:24.148508+00:00
 ---
 
 # Comfy Registry: publica y versiona nodos personalizados - ComfyUI
@@ -26,39 +26,23 @@ Package & Publish
 
 Copiar páginaCopiar página
 
-Descubre qué es el Comfy Registry, por qué se usa para versionar y proteger nodos, y cómo empezar a publicar nodos personalizados en ComfyUI-Manager.
+Comfy Registry es el índice público de nodos personalizados que usa ComfyUI-Manager: versiones semánticas, análisis de seguridad y guías de publicación.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-Introducción
+## Introducción
 
 El Registry es una colección pública de nodos personalizados que impulsa [ComfyUI-Manager](https://github.com/Comfy-Org/ComfyUI-Manager). Los desarrolladores pueden publicar, versionar, marcar como obsoletos y hacer seguimiento de las métricas relacionadas con sus nodos personalizados. Los usuarios de ComfyUI pueden descubrir, instalar y calificar nodos personalizados del Registry a través de ComfyUI-Manager.
 
-## 
-
-​
-
-¿Por qué usar el Registry?
+## ¿Por qué usar el Registry?
 
 El Comfy Registry ayuda a la comunidad estandarizando el desarrollo de Nodos personalizados: **Versionado de nodos:** Los desarrolladores publican con frecuencia nuevas versiones de sus Nodos personalizados que a menudo rompen los flujos de trabajo que dependen de ellos. Con los nodos del registry usando [versionado semántico](https://semver.org/), los usuarios ahora pueden elegir actualizar de forma segura, deprecar o fijar las versiones de sus nodos, sabiendo de antemano cómo sus acciones afectarán sus flujos de trabajo. El JSON del flujo de trabajo almacenará la versión del nodo utilizado, así que siempre podrás reproducir tus flujos de trabajo de forma confiable. **Seguridad de nodos:** El registry servirá como backend para el [ComfyUI-manager](https://github.com/Comfy-Org/ComfyUI-Manager). Todos los nodos serán escaneados en busca de comportamientos maliciosos, como paquetes pip personalizados, llamadas arbitrarias al sistema, etc. Los nodos que pasen estas verificaciones tendrán una marca de verificación () junto a su nombre en la interfaz de ComfyUI Manager. Para ver una lista de los estándares de seguridad, consulta los [estándares](https://docs.comfy.org/es/registry/standards). **Buscar:** Busca entre todos los nodos del Registry para encontrar nodos existentes para tu flujo de trabajo.
 
-## 
-
-​
-
-Publicar nodos
+## Publicar nodos
 
 Empieza a publicar tu primer nodo siguiendo el [tutorial](https://docs.comfy.org/es/registry/publishing).
 
-## 
-
-​
-
-Preguntas frecuentes
+## Preguntas frecuentes
 
 ¿Los nodos del Registry tienen identificadores únicos?
 

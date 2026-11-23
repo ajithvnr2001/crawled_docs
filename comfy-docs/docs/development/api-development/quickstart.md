@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/api-development/quickstart/
 title: Run your first workflow - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:35.244098+00:00
+fetched_at: 2026-11-23T19:03:22.544208+00:00
 ---
 
 # Run your first workflow - ComfyUI
@@ -110,12 +110,13 @@ This is a workflow connection check. It does not use a generative model. The sam
   * **Access or credit error:** check your Cloud subscription and available credits before retrying.
   * **Workflow file not found:** keep `workflow_api.json` next to the downloaded script.
   * **Unexpected endpoint:** check `COMFY_BASE_URL`. Unset it for this Cloud example.
+  * **A job fails on a Comfy API deployment:** its error may carry a category that says why. See [Failure categories](https://docs.comfy.org/development/api-development/sdks#failure-categories).
 
 For error handling and job progress, see the [SDK guide](https://docs.comfy.org/development/api-development/sdks).
 
 ## 4\. Run your own generation workflow
 
-Build or choose a workflow in the ComfyUI editor, run it successfully there, and [export it in API format](https://docs.comfy.org/development/api-development/workflow-api-format). Replace `workflow_api.json` with your export and update `get_outputs("2")` in Python or `getOutputs("2")` in TypeScript to use your workflow’s SaveImage node ID. Check that the target environment has the models and custom nodes your workflow uses. To host workflows with your own models and custom nodes, follow the [Comfy API Quickstart](https://docs.comfy.org/development/serverless/quickstart). To change workflow inputs, upload files, or watch progress, continue to [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
+Build or choose a workflow in the ComfyUI editor, run it successfully there, and [export it in API format](https://docs.comfy.org/development/api-development/workflow-api-format). Replace `workflow_api.json` with your export and update `get_outputs("2")` in Python or `getOutputs("2")` in TypeScript to use your workflow’s SaveImage node ID. Check that the target environment has the models and custom nodes your workflow uses. To run workflows with your own models and custom nodes, see [Run a Workflow on a custom Build](https://docs.comfy.org/development/deploy/cloud#run-a-workflow-on-a-custom-build). To change workflow inputs, upload files, or watch progress, continue to [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
 Was this page helpful?
 

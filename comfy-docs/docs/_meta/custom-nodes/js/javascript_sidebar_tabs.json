@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/",
   "file": "custom-nodes/js/javascript_sidebar_tabs.md",
-  "title": "Sidebar Tabs - ComfyUI",
+  "title": "ComfyUI Sidebar Tabs API - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-04T15:15:51.515299+00:00"
+  "fetched_at": "2026-11-23T19:03:25.343510+00:00"
 }

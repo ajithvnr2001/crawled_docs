@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/backend/expansion/",
   "file": "custom-nodes/backend/expansion.md",
-  "title": "Node Expansion - ComfyUI",
+  "title": "ComfyUI Node Expansion: Return Subgraphs From a Node - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:36.146052+00:00",
-  "html_len": 412393,
-  "md_len": 6024,
-  "depth": 0
+  "fetched_at": "2026-11-23T19:03:25.990338+00:00"
 }

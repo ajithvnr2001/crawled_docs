@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/registry/specifications/
-title: pyproject.toml - ComfyUI
+title: ComfyUI Registry: pyproject.toml Spec for Custom Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:13.174884+00:00
+fetched_at: 2026-11-23T19:03:23.076467+00:00
 ---
 
-# pyproject.toml - ComfyUI
+# ComfyUI Registry: pyproject.toml Spec for Custom Nodes - ComfyUI
 
 > Source: https://docs.comfy.org/registry/specifications/
 
 ## On this page
+
+Back to top
 
   * Specifications
   * [project] Section
@@ -35,33 +37,21 @@ fetched_at: 2026-10-17T10:51:13.174884+00:00
 
 Package & Publish
 
-# pyproject.toml
+# ComfyUI Registry: pyproject.toml Spec for Custom Nodes
 
 Copy pageCopy page
 
-Full spec for pyproject.toml in ComfyUI custom nodes: [project] and [tool.comfy] sections, required fields, versioning, and a complete example.
+Field reference for the [project] and [tool.comfy] sections: required keys, name rules, semantic versioning, and a complete example pyproject.toml.
 
 Copy pageCopy page
 
-# 
-
-​
-
-Specifications
+# Specifications
 
 The `pyproject.toml` file contains two main sections for ComfyUI custom nodes: `[project]` and `[tool.comfy]`. Below are the specifications for each section.
 
-## 
+## [project] Section
 
-​
-
-[project] Section
-
-### 
-
-​
-
-name (required)
+### name (required)
 
 The node id uniquely identifies the custom node and will be used in URLs from the registry. Users can install the node by referencing this name:
     
@@ -94,11 +84,7 @@ The node id uniquely identifies the custom node and will be used in URLs from th
 
 See the official [python documentation](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#name) for more details.
 
-### 
-
-​
-
-version (required)
+### version (required)
 
 Uses [semantic versioning](https://semver.org/) with a three-digit version number X.Y.Z:
 
@@ -115,11 +101,7 @@ Uses [semantic versioning](https://semver.org/) with a three-digit version numbe
     version = "2.0.0"    # Breaking changes
     
 
-### 
-
-​
-
-license (optional)
+### license (optional)
 
 Specifies the license for your custom node. Can be specified in two ways:
 
@@ -145,11 +127,7 @@ Specifies the license for your custom node. Can be specified in two ways:
 
 Common licenses: [MIT](https://opensource.org/license/mit), [GPL](https://www.gnu.org/licenses/gpl-3.0.en.html), [Apache](https://www.apache.org/licenses/LICENSE-2.0)
 
-### 
-
-​
-
-description (recommended)
+### description (recommended)
 
 A brief description of what your custom node does.
     
@@ -157,11 +135,7 @@ A brief description of what your custom node does.
     description = "A super resolution node for enhancing image quality"
     
 
-### 
-
-​
-
-repository (required)
+### repository (required)
 
 Links to related resources:
     
@@ -170,11 +144,7 @@ Links to related resources:
     Repository = "https://github.com/username/repository"
     
 
-### 
-
-​
-
-urls (recommended)
+### urls (recommended)
 
 Links to related resources:
     
@@ -184,11 +154,7 @@ Links to related resources:
     "Bug Tracker" = "https://github.com/username/repository/issues"
     
 
-### 
-
-​
-
-requires-python (recommended)
+### requires-python (recommended)
 
 Specifies the Python versions that your node supports:
     
@@ -197,11 +163,7 @@ Specifies the Python versions that your node supports:
     requires-python = ">=3.8,<3.11"  # Python 3.8 up to (but not including) 3.11
     
 
-### 
-
-​
-
-Frontend Version Compatibility (optional)
+### Frontend Version Compatibility (optional)
 
 If your node has specific requirements for which ComfyUI frontend versions it supports, you can specify this using the `comfyui-frontend-package` dependency. This package is published on [PyPI](https://pypi.org/project/comfyui-frontend-package/). For example, use this field when:
 
@@ -222,11 +184,7 @@ If your node has specific requirements for which ComfyUI frontend versions it su
     ]
     
 
-### 
-
-​
-
-classifiers (recommended)
+### classifiers (recommended)
 
 Use classifiers to specify operating system compatibility and GPU accelerators. This information is used to help users find the right node for their system.
     
@@ -250,17 +208,9 @@ Use classifiers to specify operating system compatibility and GPU accelerators. 
     ]
     
 
-## 
+## [tool.comfy] Section
 
-​
-
-[tool.comfy] Section
-
-### 
-
-​
-
-PublisherId (required)
+### PublisherId (required)
 
 Your unique publisher identifier, typically matching your GitHub username. **Examples:**
     
@@ -269,11 +219,7 @@ Your unique publisher identifier, typically matching your GitHub username. **Exa
     PublisherId = "image-wizard"    # ✅ Unique identifier
     
 
-### 
-
-​
-
-DisplayName (optional)
+### DisplayName (optional)
 
 A user-friendly name for your custom node.
     
@@ -281,11 +227,7 @@ A user-friendly name for your custom node.
     DisplayName = "Super Resolution Node"
     
 
-### 
-
-​
-
-Icon (optional)
+### Icon (optional)
 
 URL to your custom node’s icon that will be displayed on the ComfyUI Registry and ComfyUI-Manager. **Requirements:**
 
@@ -299,11 +241,7 @@ URL to your custom node’s icon that will be displayed on the ComfyUI Registry 
     Icon = "https://raw.githubusercontent.com/username/repo/main/icon.png"
     
 
-### 
-
-​
-
-Banner (optional)
+### Banner (optional)
 
 URL to a larger banner image that will be displayed on the ComfyUI Registry and ComfyUI-Manager. **Requirements:**
 
@@ -316,11 +254,7 @@ URL to a larger banner image that will be displayed on the ComfyUI Registry and 
     Banner = "https://raw.githubusercontent.com/username/repo/main/banner.png"
     
 
-### 
-
-​
-
-requires-comfyui (optional)
+### requires-comfyui (optional)
 
 Specifies which version of ComfyUI your node is compatible with. This helps users ensure they have the correct version of ComfyUI installed. **Supported operators:** `<`, `>`, `<=`, `>=`, `~=`, `<>`, `!=` and ranges
     
@@ -332,11 +266,7 @@ Specifies which version of ComfyUI your node is compatible with. This helps user
     requires-comfyui = ">0.1.3,<1.0.0"   # Greater than 0.1.3 and less than 1.0.0
     
 
-### 
-
-​
-
-includes (optional)
+### includes (optional)
 
 Specifies whether to force include certain specific folders. For some situations, such as custom nodes in frontend projects, the final packaged output folder might be included in .gitignore. In such cases, we need to force include it for registry use.
     
@@ -346,11 +276,7 @@ Specifies whether to force include certain specific folders. For some situations
 
 To exclude files from the published archive (the inverse of `includes`), see [`.comfyignore`](https://docs.comfy.org/registry/publishing#exclude-files-with-comfyignore) on the publishing page.
 
-## 
-
-​
-
-Complete Example
+## Complete Example
     
     
     [project]
@@ -389,26 +315,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/registry/specifications.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/registry/specifications)
 
-[Custom Node CI/CDPrevious](https://docs.comfy.org/registry/cicd)[API OverviewNext](https://docs.comfy.org/registry/api-reference/overview)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[CI/CD](https://docs.comfy.org/registry/cicd)[API Overview](https://docs.comfy.org/registry/api-reference/overview)

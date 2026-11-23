@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/installation/update_comfyui/
-title: C\u00f3mo actualizar ComfyUI - ComfyUI
+title: Actualizar ComfyUI: Portable, Desktop e instalaci\u00f3n manual - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:50.757633+00:00
+fetched_at: 2026-11-23T19:03:24.985747+00:00
 ---
 
-# Cómo actualizar ComfyUI - ComfyUI
+# Actualizar ComfyUI: Portable, Desktop e instalación manual - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/update_comfyui/
 
@@ -29,21 +29,17 @@ Volver arriba
 
 Local (autoalojado)
 
-# Cómo actualizar ComfyUI
+# Actualizar ComfyUI: Portable, Desktop e instalación manual
 
 Copiar páginaCopiar página
 
-Actualiza ComfyUI en cualquier instalación: scripts de Portable, Desktop y git pull, además de soluciones a problemas habituales.
+Actualiza ComfyUI en Portable, Desktop e instalaciones manuales y corrige el frontend, las plantillas o la ayuda de nodos que quedan desactualizados.
 
 Copiar páginaCopiar página
 
 Aunque las actualizaciones de ComfyUI ya aparecen en varias guías de instalación, aquí reunimos todos los procedimientos en un solo sitio para que quede claro cómo actualizar.
 
-## 
-
-​
-
-¿Cómo actualizar ComfyUI?
+## ¿Cómo actualizar ComfyUI?
 
   * Portable
 
@@ -56,11 +52,7 @@ Aunque las actualizaciones de ComfyUI ya aparecen en varias guías de instalaci�
 
 ComfyUI Portable incluye scripts `.bat` prácticos para actualizar con facilidad.
 
-### 
-
-​
-
-Ubicación de los scripts de actualización
+### Ubicación de los scripts de actualización
 
 En la carpeta `update` de tu instalación Portable encontrarás estos scripts:
     
@@ -78,14 +70,15 @@ Asegúrate de tener una conexión a internet estable durante las actualizaciones
 **⚠️ PELIGRO: ¡Usa`update_comfyui_and_python_dependencies.bat` con muchísima precaución!**Este script es más exhaustivo que las actualizaciones normales y hará lo siguiente:
 
   * ✅ Actualizar el propio código de ComfyUI
-  * ✅ Actualizar PyTorch (para NVIDIA GPU CUDA 12.9)
+  * ✅ Actualizar PyTorch para el **portable estándar de Nvidia** (actualmente **CUDA 13.0 / cu130** , Python 3.13)
   * ✅ Reinstalar TODAS las dependencias de Python
 
-**Riesgos:**
+**Portable legado de Nvidia (CUDA 12.6 / cu126):** Si instalaste el paquete portable aparte para GPUs Nvidia de la **serie 10 y anteriores** , esa compilación usa **CUDA 12.6** y Python 3.12. No tomes cu130 como el destino correcto para ese paquete: reinstala o actualiza PyTorch con el índice de wheels cu126 que corresponda a ese portable, o vuelve a descargar el paquete cu126 desde la [guía de instalación Portable](https://docs.comfy.org/es/installation/comfyui_portable_windows).**Riesgos:**
 
   * Puede causar conflictos de dependencias con tu configuración actual
   * Puede romper nodos personalizados que dependen de versiones específicas de paquetes
   * Puede sobrescribir paquetes configurados manualmente
+  * En un portable cu126 (u otro que no sea cu130), forzar un wheel cu130 puede romper el arranque de la GPU
 
 **⚠️ Usa este script solo cuando:**
 
@@ -97,7 +90,8 @@ Asegúrate de tener una conexión a internet estable durante las actualizaciones
 
   1. **Haz una copia de seguridad de toda tu instalación de ComfyUI**
   2. Documenta las versiones de paquetes personalizados que hayas instalado
-  3. Prepárate para reinstalar los nodos personalizados si es necesario
+  3. Confirma qué paquete portable tienes (cu130 estándar vs cu126 legado) — consulta [ComfyUI Portable para Windows](https://docs.comfy.org/es/installation/comfyui_portable_windows)
+  4. Prepárate para reinstalar los nodos personalizados si es necesario
 
 
 
@@ -105,19 +99,11 @@ Para actualizar ComfyUI, abre el [panel Administrar](https://docs.comfy.org/es/i
 
 ComfyUI instalado manualmente requiere comandos de Git para completar las actualizaciones.
 
-### 
-
-​
-
-Requisitos previos a la actualización
+### Requisitos previos a la actualización
 
 Asegúrate de que tu sistema tenga [Git](https://git-scm.com/downloads) instalado y de que ComfyUI se haya instalado mediante Git clone.
 
-### 
-
-​
-
-Pasos de actualización
+### Pasos de actualización
 
 1
 
@@ -169,11 +155,7 @@ Después de actualizar, reinicia ComfyUI:
     python main.py
     
 
-### 
-
-​
-
-Cambiar de versión (opcional)
+### Cambiar de versión (opcional)
 
 Para cambiar a una versión específica, usa estos comandos:
     
@@ -190,11 +172,7 @@ Para cambiar a una versión específica, usa estos comandos:
 
 Se recomiendan las actualizaciones regulares para obtener las últimas funciones y correcciones de seguridad, mientras que las versiones estables se recomiendan para la estabilidad del sistema
 
-## 
-
-​
-
-Tipos de versión de ComfyUI
+## Tipos de versión de ComfyUI
 
 Según tu método de instalación, ComfyUI ofrece varias versiones de instalación. Los enlaces a continuación contienen las instrucciones de actualización para cada versión.
 
@@ -245,11 +223,7 @@ Instalación manual
 
 Compatible con todos los tipos de sistema y de GPU (Nvidia, AMD, Intel, Apple Silicon, Ascend NPU, Cambricon MLU)
 
-## 
-
-​
-
-¿Qué se debe actualizar al actualizar ComfyUI?
+## ¿Qué se debe actualizar al actualizar ComfyUI?
 
 Las actualizaciones de ComfyUI consisten principalmente en dos componentes:
 
@@ -281,17 +255,9 @@ Es importante entender la diferencia entre las versiones de desarrollo (nightly)
 
 Muchos usuarios suelen encontrarse en versiones estables (release) o en el canal **Stable** predeterminado de Desktop durante las actualizaciones, pero descubren que las funciones que necesitan solo están disponibles en las compilaciones de desarrollo o nightly. En **Desktop** , cambia a **Latest on GitHub** en [Administrar → Actualizar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar). Para instalaciones portables o manuales, verifica si tu archivo local `ComfyUI/requirements.txt` coincide con las [dependencias de la versión nightly](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) para determinar si todas las dependencias admiten las funciones más recientes.
 
-## 
+## Problemas comunes al actualizar
 
-​
-
-Problemas comunes al actualizar
-
-### 
-
-​
-
-Interfaz, plantillas de flujos de trabajo y nodos faltantes o desactualizados después de actualizar
+### Interfaz, plantillas de flujos de trabajo y nodos faltantes o desactualizados después de actualizar
 
   * Dependencias no actualizadas correctamente
 
@@ -324,11 +290,7 @@ Sigue estos pasos para solucionar problemas:
 
 
 
-### 
-
-​
-
-Cómo actualizar correctamente las dependencias principales
+### Cómo actualizar correctamente las dependencias principales
 
   * Portátil
 
@@ -383,11 +345,7 @@ Actualiza las dependencias de ComfyUI: este paso es importante, sobre todo para 
 
 
 
-### 
-
-​
-
-Solución de problemas de actualización de dependencias principales
+### Solución de problemas de actualización de dependencias principales
 
 Si las actualizaciones de las dependencias principales fallan, sigue estos pasos para solucionar problemas:
 
@@ -418,11 +376,7 @@ Si la instalación por lotes falla, intenta instalar los paquetes individualment
 
 Se recomienda usar los números de versión exactos especificados en `ComfyUI/requirements.txt`. No actualices a las versiones más recientes por tu cuenta, ya que esto puede causar problemas de compatibilidad.
 
-### 
-
-​
-
-¿Por qué no encuentro las funciones nuevas después de actualizar?
+### ¿Por qué no encuentro las funciones nuevas después de actualizar?
 
 Este es uno de los problemas más comunes:
 
@@ -431,11 +385,7 @@ Este es uno de los problemas más comunes:
 
 Además, asegúrate de que las dependencias correspondientes se hayan actualizado correctamente durante el proceso de actualización. Si los problemas persisten después de actualizar, consulta la sección Solución de problemas de actualización de dependencias para diagnosticar el problema.
 
-### 
-
-​
-
-¿Cómo cambiar entre las versiones de desarrollo (Nightly) y estable (Release)?
+### ¿Cómo cambiar entre las versiones de desarrollo (Nightly) y estable (Release)?
 
 Diferencias entre versiones:
 
@@ -496,11 +446,7 @@ Abre el [panel Administrar](https://docs.comfy.org/es/installation/desktop/usage
 
 Usa **Switch Channel** , **Update Now** o **Copy & Update** según si el canal seleccionado tiene una compilación más reciente. Encontrarás los detalles en la página [pestaña Actualizar del panel Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-actualizar).
 
-### 
-
-​
-
-¿Qué hacer cuando aparecen errores después de actualizar?
+### ¿Qué hacer cuando aparecen errores después de actualizar?
 
   1. **Revisa las dependencias** : Ejecuta `pip install -r requirements.txt` para asegurarte de que todas las dependencias estén actualizadas
   2. **Revisa los nodos personalizados** : Algunos nodos personalizados pueden ser incompatibles con las versiones nuevas
@@ -512,11 +458,7 @@ Si se presentan problemas, consulta nuestra página de solución de problemas pa
 
 Aprende a solucionar problemas de ComfyUI
 
-### 
-
-​
-
-¿Cómo te mantienes al día con las funciones nuevas?
+### ¿Cómo te mantienes al día con las funciones nuevas?
 
   * **GitHub Releases** : Consulta [ComfyUI Releases](https://github.com/Comfy-Org/ComfyUI/releases) para ver las actualizaciones de la versión estable
   * **GitHub Commits** : Revisa los [commits más recientes](https://github.com/Comfy-Org/ComfyUI/commits/master) para conocer el avance del desarrollo

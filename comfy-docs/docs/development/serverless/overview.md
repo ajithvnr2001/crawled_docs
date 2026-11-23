@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/development/serverless/overview/
-title: Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
+title: Manage Comfy Cloud Deployments and Build Versions - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-14T14:00:34.299909+00:00
+fetched_at: 2026-11-23T19:03:22.241953+00:00
 ---
 
-# Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI
+# Manage Comfy Cloud Deployments and Build Versions - ComfyUI
 
 > Source: https://docs.comfy.org/development/serverless/overview/
 
@@ -13,106 +13,352 @@ fetched_at: 2026-11-14T14:00:34.299909+00:00
 
 Back to top
 
-  * Platform concepts
-  * The Build file
-  * Update and release
-  * Regions and GPU availability
-  * Workspace limits
-  * Monitor and call a deployment
+  * Before you begin
+  * Start a Build from Comfy Desktop, a Workflow file, or ComfyUI
+  * Find your deployment
+  * Release a version of your Build
+  * Change the GPU or region
+  * Scale the workers
+  * Stop and start a deployment
+  * Call your deployment from your application
   * Use workspace library models in API requests
-  * Operate a deployment
-  * Inspect and clean up
+  * Monitor a deployment
+  * Clean up
+  * Fix a failing build or deployment
   * FAQ
   * Next steps
 
 
 
-Comfy API
+Comfy Cloud
 
-# Comfy API Deployment: Builds, Releases, and Endpoints
-
-Copy pageCopy page
-
-Deploy ComfyUI workflows as managed GPU endpoints with Comfy API: Builds, releases, regions, worker scaling, workspace limits, and deployment monitoring.
+# Manage Comfy Cloud Deployments and Build Versions
 
 Copy pageCopy page
 
-Comfy API lets your application run ComfyUI workflows through a managed endpoint. You package the ComfyUI version, models, custom nodes, and dependencies the workflow needs, then Comfy runs it on managed GPUs. Use it when you need a repeatable environment and an endpoint your application can call.
+Release Build versions to a Comfy Cloud deployment, change its GPU and workers, call it from your app, and stop or delete it in the browser or with comfy-cli.
 
-## Platform concepts
+Copy pageCopy page
 
-Concept| Meaning  
----|---  
-**Workspace**|  The team account that manages members, Builds, deployments, and usage limits.  
-**Build**|  The ComfyUI environment definition: its version, models, custom nodes, and dependencies.  
-**Build version / release**|  A numbered version of a Build prepared for a deployment target, such as `linux/nvidia`.  
-**Deployment**|  A running endpoint that uses a release. It has its own GPU, region, and worker settings.  
-  
-Workflows supported by [Comfy Cloud](https://docs.comfy.org/development/deploy/cloud) can run there without creating a Build or deployment. To add a model to a deployment without a new Build, upload it to your workspace library. See [Add your own LoRA or model](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model).
+After you deploy your Build on Comfy Cloud, you can release new versions of the Build, change the deployment’s GPU and workers, and call the deployment from your application at its own URL. A deployment costs GPU time while its workers run and storage until you delete it. You keep managing it after you create it. This page shows how to start a Build from other sources, release versions, choose the GPU and workers, call the deployment, watch it, and stop or delete it. To create your first Build and deployment, see [Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds).
 
-## Comfy API Quickstart
+If Comfy Cloud already supports every Node in your Workflow, you can run the Workflow on Comfy Cloud without a Build or deployment. See [Deploy on Comfy Cloud](https://docs.comfy.org/development/deploy/cloud).
 
-Start with an agent or choose another way to provide your environment or workflow.
+## Before you begin
 
-For Desktop snapshots and workflow JSON imports, see [Build Sources](https://docs.comfy.org/development/serverless/build-sources).
+Each task on this page works in two places: on the Developer Platform at [platform.comfy.org](https://platform.comfy.org) in your browser, and with comfy-cli in a terminal. Make sure you have these:
 
-## The Build file
+  * **A workspace with Comfy Credits or an active plan** : creating or starting a deployment needs one of them.
+  * **For the comfy-cli tabs, comfy-cli signed in to your Comfy account** : run `comfy cloud login`.
 
-`comfy-build.yaml` stores the Build definition and last known remote state. The CLI uses that state to detect when the remote Build has changed. Keep the file with the project. It describes the environment but does not contain model files. Check how the local Build compares with the install and remote version before pushing changes:
+
+
+To create a Build and deployment with comfy-cli instead of the browser, run these commands in your `ComfyUI` install folder:
     
     
-    comfy build status
+    comfy build init
+    comfy build push --release --target linux/nvidia
+    comfy deploy up
     
 
-## Update and release
+`comfy build init` writes the Build file, `comfy-build.yaml`, to the folder. Later `comfy build` commands read it, so run them in the same folder.
 
-After changing the local install, refresh the Build definition:
+## Start a Build from Comfy Desktop, a Workflow file, or ComfyUI
+
+If you don’t have a Build yet, you can start one from something you already have. [Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds) shows the main browser flow, from a Workflow saved on Comfy Cloud. Pick the tab for what you start from.
+
+  * Comfy Desktop snapshot
+
+  * Workflow file
+
+  * ComfyUI
+
+
+
+
+A Comfy Desktop snapshot carries an instance’s ComfyUI version, Custom Nodes, and Python packages into a Build. It carries no models, so add them on the Build’s later steps.
+
+  1. In Comfy Desktop, click **Manage** on your instance, and then click the **Snapshots** tab.
+  2. If the instance’s current state isn’t listed, click **Create Snapshot**.
+  3. On the snapshot you want, click **Export**. ![Comfy Desktop Snapshots tab with the selected snapshot's Export button highlighted](https://mintcdn.com/dripart/iNsH_dGIhlvCFWxl/images/development/serverless/build-sources-desktop-snapshot.png?fit=max&auto=format&n=iNsH_dGIhlvCFWxl&q=85&s=13e0b54bdf0364f74e2978cc648c94ce)
+  4. On the Developer Platform, in the **Developer Platform sidebar** , click **Deploy** , and then click **New build**. If you have no Builds yet, click **Start from scratch** instead.
+  5. On the **Start with a workflow or snapshot?** step, drop the exported `.json` file onto the drop area, or click the area to browse.
+
+Another snapshot you drop replaces the current one. Continue with [Build with the suggested defaults](https://docs.comfy.org/development/deploy/cloud-custom-builds#create-a-build-from-your-workflow) in Custom Builds.
+
+  1. On the Developer Platform, in the **Developer Platform sidebar** , click **Deploy** , and then click **New build**. If you have no Builds yet, click **Start from scratch** instead.
+  2. On the **Start with a workflow or snapshot?** step, drop the Workflow’s `.json` file, or a `.png` image made with it, onto the drop area. You can also click the area to browse. ![Developer Platform new Build page on its first step, with a Workflow JSON file dropped and the builder reading what it needs](https://mintcdn.com/dripart/iNsH_dGIhlvCFWxl/images/development/serverless/build-sources-workflow-import.png?fit=max&auto=format&n=iNsH_dGIhlvCFWxl&q=85&s=288be8ba80618d14e16b294b846c5f88)
+
+The Developer Platform reads the models and Custom Nodes the Workflow uses. Each Workflow you drop adds to the ones before it. Continue with [Build with the suggested defaults](https://docs.comfy.org/development/deploy/cloud-custom-builds#create-a-build-from-your-workflow) in Custom Builds.
+
+In ComfyUI, the **Deploy to Comfy API** entry counts what the open Workflow needs, and then opens the Developer Platform.
+
+  1. In the **Top bar** , right-click the Workflow’s tab. You can also click the **Workflow actions** button. ![Workflow actions menu open from a Workflow tab, with Deploy to Comfy API and its NEW badge below Export \(API\)](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/deploy-to-comfy-api.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=8ad6bb82f3d9d29016e1cb51addbfdf3)
+  2. Select **Deploy to Comfy API**. The **Deploy to Comfy API** card opens and counts the Node packs, models, and Node classes the Workflow uses. ![Deploy to Comfy API card with a product video, the Node pack, model, and Node class counts, and the Deploy on Platform button](https://mintcdn.com/dripart/oPsov_e3HUhk_xUX/images/development/deploy/deploy-api-ui.png?fit=max&auto=format&n=oPsov_e3HUhk_xUX&q=85&s=ec4345b0864c7777b8b8c11afb17ae75)
+  3. Click **Deploy on Platform**. The Developer Platform opens in a new tab.
+
+To start the Build from this Workflow, select **Export** in the same menu to save the Workflow as a `.json` file, and then follow the **Workflow file** tab.
+
+## Find your deployment
+
+From here on, the page assumes you have a Build with at least one deployment. Every later task starts from the deployment, so find it first. Reading a deployment costs nothing. Pick the tab for the place you work in.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+  1. In the **Developer Platform sidebar** , click **Deploy**.
+  2. In the **Deployments** section, click the deployment’s name.
+
+The deployment’s page opens. Under its name, it shows the status, such as **Ready** or **Stopped** , and the version it runs, such as `v2`. The **Overview** tab shows its **Runtime configuration**.
+
+List every deployment in your workspace:
     
     
-    comfy build update --yes
+    comfy deploy ls --workspace
     
 
-To create another release from an existing Build, check the supported targets and select one:
+Each line shows a deployment’s name, its ID, its status, and the version it runs. Later commands select a deployment with `--deployment` followed by its ID. A bare name such as `production` works only when you run the command in the Build’s folder. Elsewhere, use the ID or `<build>/<name>`.
+
+## Release a version of your Build
+
+A published version of a Build never changes. To add a Custom Node or a model, you publish a version, and then move the deployment onto it. The Developer Platform calls a version `v1`, `v2`, and so on. comfy-cli calls it a release.
+
+Moving a deployment to another version, or rolling it back, costs GPU time while the old and the new version both run. On the Developer Platform, the **Change version** dialog shows the amount.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+To publish a version:
+
+  1. In the **Developer Platform sidebar** , click **Deploy**.
+  2. In the **Builds** section, click your Build.
+  3. Click **New version** , and make your changes in the steps.
+  4. On the last step, click **Save changes**. The Build’s page shows **Changed since v** _N_ , where _N_ is the latest version.
+  5. Click **Publish**. In the **Choose build targets** dialog, keep **Serverless build** selected, and then click **Publish**.
+
+Building usually takes 10 to 15 minutes. If the build fails, see Fix a failing build or deployment.To move the deployment onto the version:
+
+  1. Open the deployment’s page. When a newer version is ready, the page shows **v** _N_ **available** under the deployment’s name.
+  2. Click **Change version**.
+  3. Select the version, and then click **Update to v** _N_.
+
+The deployment keeps serving the version it runs until the new one is ready, and its URL stays the same. When the update finishes, the version under the deployment’s name reads **v** _N_.To go back to an earlier version:
+
+  1. On the deployment’s page, click the **History** tab.
+  2. On the version’s row, click **Roll back to this version**.
+
+
+
+Run these commands in the Build’s folder.
+
+  1. After you change the ComfyUI install, rescan it into the Build file:
+         
+         comfy build update --yes
+         
+
+  2. Compare the Build file with the install and with the Build on Comfy Cloud:
+         
+         comfy build status
+         
+
+  3. Push the Build file and cut a release for the `linux/nvidia` target, the target a deployment runs:
+         
+         comfy build push --release --target linux/nvidia
+         
+
+  4. Follow the release’s build log until the build finishes:
+         
+         comfy build release logs --target linux/nvidia --follow
+         
+
+  5. Move the deployment onto the newest release:
+         
+         comfy deploy up --deployment <deployment>
+         
+
+
+`comfy deploy up` follows the deployment until the move lands. The deployment keeps serving its current release until then.To go back to an earlier release:
+
+  * To return to the release before the current one, run:
+        
+        comfy deploy rollback --deployment <deployment>
+        
+
+  * To return to a specific release, add `--to`, such as `--to v5`.
+
+
+
+Every version of every Build counts toward your workspace’s limit of Build versions. When you reach it, delete a version you no longer need. See Clean up.
+
+## Change the GPU or region
+
+The GPU decides how much VRAM a Workflow gets and what each worker costs per hour. The region decides where the deployment runs, and the GPUs you can pick depend on it.
+
+On a running deployment, a GPU or region change starts a copy of the deployment on the new GPU. The old copy keeps serving, and costs GPU time, until Comfy Cloud moves the deployment to the new copy. On a stopped deployment, the change applies the next time you start it.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+You choose the **Location** when you create a deployment: **Anywhere** or **United States**. The Developer Platform can’t change the location of an existing deployment. To run in another location, deploy the Build again from its page.To change the GPU:
+
+  1. On the deployment’s page, click **Edit settings**.
+  2. In **Edit deployment** , select a GPU. Each GPU shows its VRAM and its price per hour.
+  3. Click **Save changes**.
+
+
+
+  1. List the regions and the GPUs each one offers:
+         
+         comfy deploy refs compute
+         
+
+The table shows each region, each GPU class, its VRAM, and its availability. To list one region, add `--region <region>`.
+  2. Set the GPU class, the region, or both:
+         
+         comfy deploy scale --deployment <deployment> --gpu <gpu-class> --region <region>
+         
+
+
+If the command refuses because the deployment is running, run `comfy deploy stop --deployment <deployment>` first, run `scale` again, and then run `comfy deploy start --deployment <deployment>`. The new GPU or region applies when the deployment starts.
+
+## Scale the workers
+
+Each worker is one GPU that runs your jobs. You set two numbers:
+
+  * **Always-warm workers** : workers that stay running so jobs don’t wait for a GPU to start. With `0`, the deployment turns its GPUs off when no jobs come in.
+  * **Max workers** : the most workers the deployment runs at once when jobs arrive. Requests beyond that wait in the deployment’s queue until a worker is free.
+
+
+
+**Always-warm workers** bill GPU time the whole time they run, even with no jobs.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+  1. On the deployment’s page, click **Edit settings**.
+  2. Set **Always-warm workers** and **Max workers**.
+  3. Click **Save changes**.
+
+The **Runtime configuration** shows the values you saved.
+
+Set both bounds together. `--min` takes `0` to `20`, and `--max` takes `1` to `20`:
     
     
-    comfy build refs build-targets
-    comfy build release create --target linux/nvidia --watch
+    comfy deploy scale --deployment <deployment> --min 0 --max 3
     
 
-Follow one release’s build log with:
+The command prints `Scaled deployment <id> to min=0, max=3`.
+
+Your plan sets the most workers one deployment can run. To see it, open [**Limits**](https://platform.comfy.org/settings/limits) on the Developer Platform and check **Max workers per deployment**.
+
+## Stop and start a deployment
+
+Stop a deployment to keep it, with its URL and models, without running jobs. Start it again when you need it.
+
+A stopped deployment still costs storage. Storage billing ends when you delete the last deployment of the Build in that region. See Clean up.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+To stop and start the deployment in the browser, see [Stop or delete your deployment](https://docs.comfy.org/development/deploy/cloud-custom-builds#stop-or-delete-your-deployment).To start a stopped deployment on another version:
+
+  1. Click the arrow next to **Start** , and then select **Start on v** _N_.
+  2. In the dialog, click **Start on v** _N_.
+
+
+
+To stop the deployment:
     
     
-    comfy build release logs rel_123456 --target linux/nvidia --follow
+    comfy deploy stop --deployment <deployment>
     
 
-## Regions and GPU availability
-
-Region capacity changes, so check the platform catalog when choosing a deployment target. Filter the results with `--region <region>`:
+To start it again:
     
     
-    comfy deploy refs compute --region <region>
+    comfy deploy start --deployment <deployment>
     
 
-The catalog is the source of truth for which GPU classes are available in each region at deployment time.
+Each command prints that the service accepted it. To follow the deployment until it settles, see Monitor a deployment.
 
-## Workspace limits
+## Call your deployment from your application
 
-See [Limits](https://platform.comfy.org/profile/limits) for your workspace’s usage and plan limits. Keep `--max` within the worker limit per deployment.
+Your application sends API-format Workflows to the deployment’s URL with the [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview), using a workspace API key. Before you send a job, check that the deployment’s status reads **Ready**. A job on a deployment with `0` always-warm workers can wait a few minutes while a GPU starts.
 
-## Monitor and call a deployment
+  * Developer Platform
 
-The `--min` and `--max` options set the worker bounds. Run `comfy deploy status --watch` to follow deployment health, release freshness, and serving activity. You can also call the endpoint with the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks). Set `COMFY_BASE_URL` to the deployment URL and provide an API key. See [Choosing a base URL](https://docs.comfy.org/development/api-development/sdks#choosing-a-base-url).
+  * comfy-cli
+
+
+
+
+  1. On the deployment’s page, find **Run via API** on the **Overview** tab.
+  2. Copy the **Deployment URL**.
+  3. Click **Create API key** , and copy the key.
+  4. Copy the Python, JavaScript, or cURL snippet.
+  5. Run the snippet with the key in the `COMFY_API_KEY` environment variable.
+
+To test the deployment from the page, use **Quick test**. It runs a small Workflow with no models on the deployment.
+
+A **Quick test** uses GPU time on the deployment.
+
+  1. Open **Test this deployment**.
+  2. Select **Quick test**.
+  3. Click **Run**.
+
+When the test finishes, it reads **Finished in** followed by the time it took.
+
+Send an API-format Workflow and wait for its outputs:
+    
+    
+    comfy deploy run --deployment <deployment> --workflow workflow_api.json
+    
+
+The command waits for the job and downloads its outputs to the `outputs` folder. To save them elsewhere, add `--output-dir <folder>`.
+
+From your own code, use the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks). Set `COMFY_BASE_URL` to the **Deployment URL**. See [Choosing a base URL](https://docs.comfy.org/development/api-development/sdks#choosing-a-base-url).
 
 ## Use workspace library models in API requests
 
-A deployment runs `.safetensors` models from your workspace library, even when its release doesn’t include them. To upload a model in the Comfy Cloud editor or on the Developer Platform, see [Add your own LoRA or model](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model). To upload from a terminal, set the model type with `--type`, and then check that the file is in the library:
+A deployment runs `.safetensors` models from your workspace library, even when its release doesn’t include them. To pick a LoRA per request, upload it to the library once, and then name it in each Workflow you send.
+
+1
+
+Upload the LoRA to your workspace library
+
+To upload a model in the Comfy Cloud editor or on the Developer Platform, see [Add your own LoRA or model](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model). That page also lists the plan and file size an upload needs.To upload from a terminal, set the model type with `--type`:
     
     
     comfy assets library upload my_style.safetensors --type loras
-    comfy assets library ls --tags models,loras
     
 
-In the [API-format Workflow](https://docs.comfy.org/development/api-development/workflow-api-format), set the loader input to the library file name, including `.safetensors`:
+When the upload finishes, the command prints `Added my_style.safetensors to loras`.
+
+2
+
+Set lora_name in the Workflow
+
+In the [API-format Workflow](https://docs.comfy.org/development/api-development/workflow-api-format), set the loader’s `lora_name` input to the library file name, including `.safetensors`:
     
     
     "10": {
@@ -127,104 +373,161 @@ In the [API-format Workflow](https://docs.comfy.org/development/api-development/
     }
     
 
-Send the Workflow with `comfy deploy run`, the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks), or the [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview):
-    
-    
-    comfy deploy run --deployment <deployment-id> --workflow workflow_api.json
-    
+3
+
+Send the request
+
+Send the Workflow as Call your deployment from your application shows.
 
 To use a different LoRA, change `lora_name` to another library file name in the next request. You don’t need a new Build, release, or redeploy.
 
   * A Workflow can name up to 100 library models. A loader that names a 101st library model fails as if the file were not in the library.
-  * Keep file names unique across the folders one loader reads. If the library has the same file name in two of them, a job sent through the API loads neither file.
+  * Keep file names unique across the folders one loader reads. If the library has the same file name in two of those folders, a job sent through the API loads neither file.
 
 
 
-## Operate a deployment
+## Monitor a deployment
+
+Check a deployment’s state when it starts, after you change it, and when jobs fail.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+On the deployment’s page:
+
+  * The status under the deployment’s name reads **Queued** , **Provisioning** , or **Starting** while the deployment comes up, and **Ready** when it serves jobs.
+  * While the deployment comes up, **Deployment progress** shows each step, such as **Copying models**. The deployment keeps starting on Comfy’s side, so you can close the page and come back.
+  * The **Boot log** tab shows what ComfyUI printed while the deployment started.
+  * The **History** tab lists the versions the deployment ran and what moved it.
+
+On the **Deploy** page, the **Deployments** section shows each deployment’s GPU credits over the last seven days in **Spend · 7d**. Model storage isn’t included.
+
+In the Build’s folder, follow the deployment until it settles:
     
     
-    # Change the worker bounds
-    comfy deploy scale --deployment dep_123456 --min 2 --max 5
-    
-    # Pause or resume while retaining the deployment record
-    comfy deploy stop --deployment dep_123456
-    comfy deploy start --deployment dep_123456
+    comfy deploy status --deployment <deployment> --watch
     
 
-## Inspect and clean up
+The command reports the status, such as `Deployment <name>: ready`, whether a newer release is waiting, and how many jobs are queued. To read more:
     
     
-    # Build state
-    comfy build ls
-    comfy build show --id bld_123456
-    comfy build release ls
-    comfy build release show rel_123456
-    
-    # Deployment state
-    comfy deploy ls --workspace --status ready
-    comfy deploy logs --deployment dep_123456
-    comfy deploy events --deployment dep_123456
+    comfy deploy logs --deployment <deployment>      # what ComfyUI printed while it started
+    comfy deploy events --deployment <deployment>    # its status changes, in order
+    comfy deploy history --deployment <deployment>   # the releases it ran
     
 
-Deleting a deployment and deleting a Build are separate irreversible operations. Confirm the target before using `comfy deploy delete --yes` or `comfy build delete --id bld_123456 --yes`.
+## Clean up
+
+Deleting the last deployment of a Build in a region stops its storage cost, and deleting a version frees a place under your limit of Build versions. You can’t delete a Build or a version while a deployment uses it, so delete the deployment first.
+
+Deleting a deployment, a version, or a Build is permanent. Deleting a deployment removes its URL, so apps that call it stop working. The Build and its versions stay, so you can deploy again. A deployment you create later gets a new URL, because the URL comes from the deployment’s ID. To keep the URL, stop the deployment instead.
+
+  * Developer Platform
+
+  * comfy-cli
+
+
+
+
+To delete a deployment, see [Stop or delete your deployment](https://docs.comfy.org/development/deploy/cloud-custom-builds#stop-or-delete-your-deployment).To delete a version:
+
+  1. Open the Build’s page.
+  2. On the version’s row, open **Version actions** , and then select **Delete version**.
+  3. Click **Delete**.
+
+To delete the Build:
+
+  1. On the Build’s page, click **Delete**.
+  2. In the **Delete build** dialog, click **Delete**.
+
+
+
+To delete a deployment:
+    
+    
+    comfy deploy delete --deployment <deployment>
+    
+
+To delete a version:
+    
+    
+    comfy build release delete <release-id>
+    
+
+To delete the Build:
+    
+    
+    comfy build delete --id <build-id>
+    
+
+Each command asks you to confirm. To list a Build’s releases and their IDs, run `comfy build release ls --id <build-id>`. To list your Builds, run `comfy build ls`.
+
+## Fix a failing build or deployment
+
+When a build or a deployment fails, its logs name the cause. Fix the cause, and then publish or start again.
+
+The build failed
+
+On the Developer Platform, follow [What if the build fails?](https://docs.comfy.org/development/deploy/cloud-custom-builds#publish-the-build) in Custom Builds.With comfy-cli, read the release’s state and its build log in the Build’s folder:
+    
+    
+    comfy build release show
+    comfy build release logs --target linux/nvidia
+    
+
+Change the ComfyUI install, such as by removing the Custom Node that failed, and then release again.
+
+The deployment status reads Failed
+
+The deployment’s page shows the error with **This deployment didn’t start. Fix what the error names, then start it again.** Click **Copy** to copy the error. The **Boot log** tab shows what ComfyUI printed.With comfy-cli, `comfy deploy status` prints the reason. For the log and the status changes, see Monitor a deployment.Fix what the error names, and then start the deployment again.
+
+The deployment takes a long time to start
+
+Follow the steps in **Deployment progress** on the deployment’s page, or run `comfy deploy status --deployment <deployment> --watch`. The **Copying models** step takes longer the more models the version has. When you create a deployment on the Developer Platform, **Estimated time** in the deploy dialog shows how long the deployment takes to start.If the GPU you picked has no capacity, change the GPU or region. With comfy-cli, `comfy deploy refs compute` shows each GPU’s availability.
+
+The status reads Stopped: out of credits
+
+The deployment stops when your workspace runs out of credits. Add credits, and then start the deployment again.
+
+The status reads Stop failed
+
+The stop request failed, so the deployment may still be billing. Click **Stop** again, or run `comfy deploy stop --deployment <deployment>` again.
+
+An update to a version failed
+
+The deployment page reads **Update to v** _N_ **failed.** , and the deployment keeps serving the version it ran before. Click **Retry** , or fix the version and release again.
 
 ## FAQ
 
-Can one Build come from multiple workflows?
+For how deployments are billed, see [Deployment billing](https://docs.comfy.org/development/deploy/cloud-usage#deployment-billing) in Usage and Limits.
 
-Yes. In the Builder, upload one or more workflows to preselect their models and custom nodes. Include the dependencies needed by all the workflows you plan to run, then submit each API-format workflow to the deployed endpoint.Each deployment uses one GPU type. To run workflows on different GPU types, create separate deployments of the same Build.
+Can one Build come from multiple Workflows?
 
-Am I charged for storing Builds that are not deployed?
-
-No. Builds and their releases are stored on your account at no charge. You are not billed for the storage footprint of a Build until you deploy it.Storage billing starts with a deployment:
-
-  * When you deploy a release, its models are staged onto network storage shared by the deployment’s workers. The storage is read-only after deployment and billed per GB-month for as long as any deployment of the Build exists in that region, including while a deployment is paused with `comfy deploy stop`. Models a job uses from your [workspace library](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model) are not staged there. The worker downloads them for the job.
-  * Each worker also gets a fixed 50 GB container disk. It is ephemeral and is only billed while the worker is running, as part of the worker’s compute cost.
-  * Deleting a deployment releases its compute. Staged network storage is cleaned up shortly after the last deployment using it in that region is deleted, and billing for it ends.
-
-For current storage rates, see the [Comfy pricing page](https://www.comfy.org/pricing). The compute catalog (`comfy deploy refs compute`) and the deploy dialog also show the rates that apply to a deployment.
-
-How are active workers billed, and at what hourly rates?
-
-`--min` sets the number of **active workers** : workers that stay running at all times so requests never wait for a cold start. An active worker is billed per second for the entire time it is running, whether or not it is processing jobs.Workers above `--min`, up to `--max`, are **flex workers**. A flex worker is billed per second from the moment it starts (including startup and model loading), through job processing, plus a short idle window (currently 30 seconds) before it scales back down. When flex workers are scaled down, they cost nothing. With `--min 0` the whole deployment scales to zero and bills no compute while idle, at the cost of a cold start on the first request.Billing meters actual per-second worker usage, multiplied by the number of workers running. If your workspace runs out of credits, deployments are stopped automatically.For current per-worker GPU rates, see the [Comfy pricing page](https://www.comfy.org/pricing). Rates are quoted per worker-hour and billed per second. GPU availability per region comes from the compute catalog: run `comfy deploy refs compute` for the current list.
-
-How does a deployment handle multiple requests?
-
-A deployment automatically distributes requests across its workers and scales within the configured `--min` and `--max` bounds. Requests that cannot run immediately are queued and processed as worker capacity becomes available.
-
-What should I do if provisioning takes a long time?
-
-Follow the deployment state, then inspect its logs and events for the cause:
-    
-    
-    comfy deploy status --deployment <deployment-id> --watch
-    comfy deploy logs --deployment <deployment-id>
-    comfy deploy events --deployment <deployment-id>
-    
-
-If the selected GPU or region has no capacity, retry later or run `comfy deploy refs compute` and choose an available region and GPU pair. Include the Build, release, and deployment IDs when asking for help.
-
-What happens when I delete a deployment?
-
-Deleting a deployment removes its endpoint and releases its compute. It does not delete the Build or its releases. After you delete the last deployment using that Build in a region, its staged network storage is cleaned up and storage billing ends shortly afterward.Deleting the Build is a separate operation: `comfy build delete --id <build-id> --yes`.
+Yes. When you create a Build on the Developer Platform, you can upload one or more Workflows to preselect their models and Custom Nodes. Include the dependencies of all the Workflows you plan to run, and then send each API-format Workflow to the deployment.Each deployment uses one GPU class. To run Workflows on different GPU classes, create separate deployments of the same Build.
 
 ## Next steps
 
+Once your deployment is running, use these pages to send Workflows to it from your own code.
+
 ## Comfy SDKs
 
-Use from a Python or TypeScript app to submit workflows and handle inputs, progress, and outputs.
+Submit Workflows from a Python or TypeScript app and handle inputs, progress, and outputs.
 
 ## Comfy API v2
 
-Use from any language when calling the HTTP API directly or checking its request and response formats.
+Call the HTTP API from any language and check its request and response formats.
 
-## Workflow API Format
+## Workflow API format
 
-Use when preparing a workflow JSON for an API request or troubleshooting its inputs and outputs.
+Prepare a Workflow JSON for an API request, or troubleshoot its inputs and outputs.
 
-## Comfy CLI Reference
+## Get started with comfy-cli
 
-Use to automate Build, release, deployment, and workflow commands from a terminal.
+Install comfy-cli and sign in to Comfy Cloud with `comfy cloud login`.
 
 Was this page helpful?
 
@@ -232,4 +535,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/serverless/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/serverless/overview)
 
-[Build Sources](https://docs.comfy.org/development/serverless/build-sources)[Quickstart](https://docs.comfy.org/development/deploy/cloud)
+[Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds)[Usage and Limits](https://docs.comfy.org/development/deploy/cloud-usage)

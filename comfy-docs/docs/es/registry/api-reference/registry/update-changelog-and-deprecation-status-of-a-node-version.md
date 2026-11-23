@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/update-changelog-and-deprecation-status-of-a-node-version/
 title: Update changelog and deprecation status of a node version - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:31.885988+00:00
+fetched_at: 2026-11-23T19:03:30.581904+00:00
 ---
 
 # Update changelog and deprecation status of a node version - ComfyUI

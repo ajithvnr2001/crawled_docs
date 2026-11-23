@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/registry/specifications/
-title: pyproject.toml - ComfyUI
+title: ComfyUI Registry: pyproject.toml para nodos personalizados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:27.812761+00:00
+fetched_at: 2026-11-23T19:03:24.092232+00:00
 ---
 
-# pyproject.toml - ComfyUI
+# ComfyUI Registry: pyproject.toml para nodos personalizados - ComfyUI
 
 > Source: https://docs.comfy.org/es/registry/specifications/
 
@@ -37,33 +37,21 @@ Volver arriba
 
 Package & Publish
 
-# pyproject.toml
+# ComfyUI Registry: pyproject.toml para nodos personalizados
 
 Copiar páginaCopiar página
 
-Especificación de pyproject.toml en Nodos personalizados de ComfyUI: secciones [project] y [tool.comfy], campos requeridos, versionado y un ejemplo completo.
+Referencia de los campos de [project] y [tool.comfy]: claves obligatorias, reglas del nombre, versionado semántico y un pyproject.toml de ejemplo completo.
 
 Copiar páginaCopiar página
 
-# 
-
-​
-
-Especificaciones
+# Especificaciones
 
 El archivo `pyproject.toml` contiene dos secciones principales para los nodos personalizados de ComfyUI: `[project]` y `[tool.comfy]`. A continuación encontrarás las especificaciones de cada sección.
 
-## 
+## Sección [project]
 
-​
-
-Sección [project]
-
-### 
-
-​
-
-name (requerido)
+### name (requerido)
 
 El id del nodo identifica de forma única al nodo personalizado y se usará en las URL del registry. Los usuarios pueden instalar el nodo haciendo referencia a este nombre:
     
@@ -96,11 +84,7 @@ El id del nodo identifica de forma única al nodo personalizado y se usará en l
 
 Consulta la [documentación oficial de python](https://packaging.python.org/en/latest/guides/writing-pyproject-toml/#name) para obtener más detalles.
 
-### 
-
-​
-
-version (requerido)
+### version (requerido)
 
 Usa [versionado semántico](https://semver.org/) con un número de versión de tres dígitos X.Y.Z:
 
@@ -117,11 +101,7 @@ Usa [versionado semántico](https://semver.org/) con un número de versión de t
     version = "2.0.0"    # Breaking changes
     
 
-### 
-
-​
-
-license (opcional)
+### license (opcional)
 
 Especifica la licencia de tu nodo personalizado. Puedes especificarla de dos maneras:
 
@@ -147,11 +127,7 @@ Especifica la licencia de tu nodo personalizado. Puedes especificarla de dos man
 
 Licencias comunes: [MIT](https://opensource.org/license/mit), [GPL](https://www.gnu.org/licenses/gpl-3.0.en.html), [Apache](https://www.apache.org/licenses/LICENSE-2.0)
 
-### 
-
-​
-
-description (recomendado)
+### description (recomendado)
 
 Una descripción breve de lo que hace tu nodo personalizado.
     
@@ -159,11 +135,7 @@ Una descripción breve de lo que hace tu nodo personalizado.
     description = "A super resolution node for enhancing image quality"
     
 
-### 
-
-​
-
-repository (requerido)
+### repository (requerido)
 
 Enlaces a recursos relacionados:
     
@@ -172,11 +144,7 @@ Enlaces a recursos relacionados:
     Repository = "https://github.com/username/repository"
     
 
-### 
-
-​
-
-urls (recomendado)
+### urls (recomendado)
 
 Enlaces a recursos relacionados:
     
@@ -186,11 +154,7 @@ Enlaces a recursos relacionados:
     "Bug Tracker" = "https://github.com/username/repository/issues"
     
 
-### 
-
-​
-
-requires-python (recomendado)
+### requires-python (recomendado)
 
 Especifica las versiones de Python que admite tu nodo:
     
@@ -199,11 +163,7 @@ Especifica las versiones de Python que admite tu nodo:
     requires-python = ">=3.8,<3.11"  # Python 3.8 up to (but not including) 3.11
     
 
-### 
-
-​
-
-Compatibilidad de versiones del frontend (opcional)
+### Compatibilidad de versiones del frontend (opcional)
 
 Si tu nodo tiene requisitos específicos sobre qué versiones del frontend de ComfyUI admite, puedes especificarlo con la dependencia `comfyui-frontend-package`. Este paquete se publica en [PyPI](https://pypi.org/project/comfyui-frontend-package/). Por ejemplo, usa este campo cuando:
 
@@ -224,11 +184,7 @@ Si tu nodo tiene requisitos específicos sobre qué versiones del frontend de Co
     ]
     
 
-### 
-
-​
-
-classifiers (recomendado)
+### classifiers (recomendado)
 
 Usa los clasificadores para especificar la compatibilidad con el sistema operativo y los aceleradores GPU. Esta información ayuda a los usuarios a encontrar el nodo adecuado para su sistema.
     
@@ -252,17 +208,9 @@ Usa los clasificadores para especificar la compatibilidad con el sistema operati
     ]
     
 
-## 
+## Sección [tool.comfy]
 
-​
-
-Sección [tool.comfy]
-
-### 
-
-​
-
-PublisherId (requerido)
+### PublisherId (requerido)
 
 Tu identificador único de editor, que normalmente coincide con tu nombre de usuario de GitHub. **Ejemplos:**
     
@@ -271,11 +219,7 @@ Tu identificador único de editor, que normalmente coincide con tu nombre de usu
     PublisherId = "image-wizard"    # ✅ Identificador único
     
 
-### 
-
-​
-
-DisplayName (opcional)
+### DisplayName (opcional)
 
 Un nombre fácil de leer y reconocer para tu nodo personalizado.
     
@@ -283,11 +227,7 @@ Un nombre fácil de leer y reconocer para tu nodo personalizado.
     DisplayName = "Super Resolution Node"
     
 
-### 
-
-​
-
-Icon (opcional)
+### Icon (opcional)
 
 URL al icono de tu nodo personalizado que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
 
@@ -301,11 +241,7 @@ URL al icono de tu nodo personalizado que se mostrará en ComfyUI Registry y Com
     Icon = "https://raw.githubusercontent.com/username/repo/main/icon.png"
     
 
-### 
-
-​
-
-Banner (opcional)
+### Banner (opcional)
 
 URL a una imagen de banner más grande que se mostrará en ComfyUI Registry y ComfyUI-Manager. **Requisitos:**
 
@@ -318,11 +254,7 @@ URL a una imagen de banner más grande que se mostrará en ComfyUI Registry y Co
     Banner = "https://raw.githubusercontent.com/username/repo/main/banner.png"
     
 
-### 
-
-​
-
-requires-comfyui (opcional)
+### requires-comfyui (opcional)
 
 Especifica con qué versión de ComfyUI es compatible tu nodo. Esto ayuda a los usuarios a asegurarse de que tienen instalada la versión correcta de ComfyUI. **Operadores admitidos:** `<`, `>`, `<=`, `>=`, `~=`, `<>`, `!=` y rangos
     
@@ -334,11 +266,7 @@ Especifica con qué versión de ComfyUI es compatible tu nodo. Esto ayuda a los 
     requires-comfyui = ">0.1.3,<1.0.0"   # Mayor que 0.1.3 y menor que 1.0.0
     
 
-### 
-
-​
-
-includes (opcional)
+### includes (opcional)
 
 Indica si quieres forzar la inclusión de determinadas carpetas concretas. En algunas situaciones, como los nodos personalizados en proyectos de frontend, la carpeta de salida final empaquetada puede estar incluida en .gitignore. En esos casos, necesitamos forzar su inclusión para poder usar el registro.
     
@@ -348,11 +276,7 @@ Indica si quieres forzar la inclusión de determinadas carpetas concretas. En al
 
 Para excluir archivos del paquete publicado (lo inverso de `includes`), consulta [`.comfyignore`](https://docs.comfy.org/es/registry/publishing#excluir-archivos-con-comfyignore) en la página de publicación.
 
-## 
-
-​
-
-Ejemplo completo
+## Ejemplo completo
     
     
     [project]

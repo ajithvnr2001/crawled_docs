@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/installation/install_custom_node/
-title: C\u00f3mo instalar nodos personalizados en ComfyUI - ComfyUI
+title: Nodos personalizados en ComfyUI: instalar con Manager, Git o ZIP - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:07:58.418757+00:00
+fetched_at: 2026-11-23T19:03:26.626559+00:00
 ---
 
-# Cómo instalar nodos personalizados en ComfyUI - ComfyUI
+# Nodos personalizados en ComfyUI: instalar con Manager, Git o ZIP - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/install_custom_node/
 
@@ -23,11 +23,11 @@ Volver arriba
 
 Instalar nodos personalizados
 
-# Cómo instalar nodos personalizados en ComfyUI
+# Nodos personalizados en ComfyUI: instalar con Manager, Git o ZIP
 
 Copiar páginaCopiar página
 
-Instala nodos personalizados en ComfyUI con ComfyUI Manager, git clone o una descarga ZIP, e instala sus dependencias de Python de forma segura.
+Añade nodos personalizados con ComfyUI Manager, git clone o un ZIP y luego instala las dependencias de Python para que carguen sin errores.
 
 Copiar páginaCopiar página
 

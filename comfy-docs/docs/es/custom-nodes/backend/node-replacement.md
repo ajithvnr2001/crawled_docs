@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/backend/node-replacement/
-title: Reemplazo de nodos - ComfyUI
+title: Reemplazo de nodos en ComfyUI: migrar nodos obsoletos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T14:55:24.012826+00:00
+fetched_at: 2026-11-23T19:03:27.159067+00:00
 ---
 
-# Reemplazo de nodos - ComfyUI
+# Reemplazo de nodos en ComfyUI: migrar nodos obsoletos - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/backend/node-replacement/
 
@@ -32,21 +32,17 @@ Volver arriba
 
 Migration Guides
 
-# Reemplazo de nodos
+# Reemplazo de nodos en ComfyUI: migrar nodos obsoletos
 
 Copiar páginaCopiar página
 
-Registra reemplazos de nodos para que los usuarios migren de los nodos obsoletos
+Registra reemplazos de nodos para que la interfaz ofrezca la actualización de nodos obsoletos o renombrados y reasigne sus entradas y salidas.
 
 Copiar páginaCopiar página
 
 La API de reemplazo de nodos permite a los desarrolladores de nodos personalizados definir rutas de migración desde nodos obsoletos hasta sus equivalentes más recientes. Cuando actualizas o renombras nodos, los usuarios pueden mejorar automáticamente sus flujos de trabajo.
 
-## 
-
-​
-
-Cuándo usar
+## Cuándo usar
 
   * **Cambiar nombres de clase de nodo** : Cambiaste el nombre de clase de un nodo (en su lugar, usa `DISPLAY_NAME` para cambios de nombre para mostrar)
   * **Fusionar nodos** : Varios nodos consolidados en uno (p. ej., `Load3DAnimation` fusionado en `Load3D`)
@@ -55,11 +51,7 @@ Cuándo usar
 
 
 
-## 
-
-​
-
-Dónde registrar los reemplazos
+## Dónde registrar los reemplazos
 
 Registra los reemplazos durante el hook del ciclo de vida `on_load` de tu extensión. Crea un archivo dedicado (por ejemplo, `node_replacements.py`) en tu paquete de nodos personalizados:
     
@@ -70,11 +62,7 @@ Registra los reemplazos durante el hook del ciclo de vida `on_load` de tu extens
     └── node_replacements.py   # Register replacements here
     
 
-## 
-
-​
-
-Ejemplo completo
+## Ejemplo completo
 
 Aquí tienes un ejemplo completo que muestra cómo estructurar los reemplazos de nodos en un paquete de nodos personalizados:
     
@@ -123,19 +111,11 @@ Aquí tienes un ejemplo completo que muestra cómo estructurar los reemplazos de
         return MyExtension()
     
 
-## 
-
-​
-
-Ejemplos principales
+## Ejemplos principales
 
 El núcleo de ComfyUI usa reemplazos de nodos para las migraciones de nodos integrados. Aquí hay ejemplos reales de [`comfy_extras/nodes_replacements.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_replacements.py):
 
-### 
-
-​
-
-Fusión simple de nodos
+### Fusión simple de nodos
 
 Cuando `Load3DAnimation` se fusionó con `Load3D`:
     
@@ -146,11 +126,7 @@ Cuando `Load3DAnimation` se fusionó con `Load3D`:
     ))
     
 
-### 
-
-​
-
-Corrección de un error tipográfico
+### Corrección de un error tipográfico
 
 Cómo corregir un error tipográfico en `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditioning`:
     
@@ -161,11 +137,7 @@ Cómo corregir un error tipográfico en `SDV_img2vid_Conditioning` → `SVD_img2
     ))
     
 
-### 
-
-​
-
-Renombrar entradas con valores predeterminados
+### Renombrar entradas con valores predeterminados
 
 Cómo reemplazar `ImageScaleBy` por `ResizeImageMaskNode`:
     
@@ -183,11 +155,7 @@ Cómo reemplazar `ImageScaleBy` por `ResizeImageMaskNode`:
     ))
     
 
-### 
-
-​
-
-Asignación de entradas con Autogrow
+### Asignación de entradas con Autogrow
 
 Para los nodos que usan Autogrow (entradas dinámicas), usa la notación con punto:
     
@@ -202,11 +170,7 @@ Para los nodos que usan Autogrow (entradas dinámicas), usa la notación con pun
     ))
     
 
-## 
-
-​
-
-Parámetros de NodeReplace
+## Parámetros de NodeReplace
 
 Parámetro| Tipo| Descripción  
 ---|---|---  
@@ -216,11 +180,7 @@ Parámetro| Tipo| Descripción
 `input_mapping`| list | None| Cómo asignar las entradas del nodo antiguo al nuevo  
 `output_mapping`| list | None| Cómo asignar las salidas del nodo antiguo al nuevo  
   
-## 
-
-​
-
-Asignación de entradas
+## Asignación de entradas
 
 Cada entrada de la asignación define cómo se transfiere una entrada del nodo anterior al nuevo. **Asignar desde la entrada anterior:**
     
@@ -240,11 +200,7 @@ Cada entrada de la asignación define cómo se transfiere una entrada del nodo a
     {"new_id": "images.image0", "old_id": "image1"}
     
 
-## 
-
-​
-
-Asignación de salidas
+## Asignación de salidas
 
 Las asignaciones de salidas usan referencias basadas en índices:
     
@@ -253,11 +209,7 @@ Las asignaciones de salidas usan referencias basadas en índices:
     {"new_idx": 1, "old_idx": 0}  # Old output 0 -> new output 1
     
 
-## 
-
-​
-
-Vinculación de ID de widget
+## Vinculación de ID de widget
 
 El campo `old_widget_ids` asigna los ID de widget a sus índices posicionales. Esto es requerido porque el JSON del flujo de trabajo almacena los valores de los widgets por posición, no por ID.
     
@@ -268,11 +220,7 @@ El campo `old_widget_ids` asigna los ID de widget a sus índices posicionales. E
     # Widget at index 2 = "sampler"
     
 
-## 
-
-​
-
-REST API
+## REST API
 
 Recupera todos los reemplazos registrados:
     
@@ -302,11 +250,7 @@ Recupera todos los reemplazos registrados:
     }
     
 
-## 
-
-​
-
-Comportamiento del frontend
+## Comportamiento del frontend
 
 Cuando un flujo de trabajo contiene un nodo obsoleto, el frontend:
 
@@ -330,4 +274,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/backend/node-replacement.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/backend/node-replacement)
 
-[Migración del menú contextual](https://docs.comfy.org/es/custom-nodes/js/context-menu-migration)[Documentación de nodos](https://docs.comfy.org/es/custom-nodes/help_page)
+[Eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration)[Documentación de nodos](https://docs.comfy.org/es/custom-nodes/help_page)

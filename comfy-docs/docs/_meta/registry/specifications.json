@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/registry/specifications/",
   "file": "registry/specifications.md",
-  "title": "pyproject.toml - ComfyUI",
+  "title": "ComfyUI Registry: pyproject.toml Spec for Custom Nodes - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:13.175234+00:00",
-  "html_len": 539638,
-  "md_len": 11535,
-  "depth": 0
+  "fetched_at": "2026-11-23T19:03:23.077771+00:00"
 }

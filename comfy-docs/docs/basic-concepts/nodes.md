@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/basic-concepts/nodes/
 title: ComfyUI Nodes: Types, Inputs, and Outputs - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:18.461473+00:00
+fetched_at: 2026-11-23T19:03:26.791009+00:00
 ---
 
 # ComfyUI Nodes: Types, Inputs, and Outputs - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:18.461473+00:00
 > Source: https://docs.comfy.org/basic-concepts/nodes/
 
 ## On this page
+
+Back to top
 
   * Nodes perform operations
   * Different Node States
@@ -20,6 +22,7 @@ fetched_at: 2026-10-17T10:47:18.461473+00:00
   * Node Context Menus
     * Node Context Menu
     * Mode
+    * Image preview resolution
     * Input/Output Context Menu
   * Node Selection Toolbox
   * Subgraphs
@@ -42,19 +45,11 @@ In ComfyUI, nodes are the fundamental building blocks for executing tasks. Each 
 
 ComfyUI is under active development, so some details here may be outdated. If you spot something that’s changed, feel free to [help us update the docs](https://github.com/Comfy-Org/docs).
 
-## 
+## Nodes perform operations
 
-​
+In computer science, a **_node_** is a container for information, usually including programmed instructions to perform some task. Nodes almost never exist in isolation, they’re almost always connected to other nodes in a networked graph. In ComfyUI, nodes take the visual form of boxes that are connected to each other. ComfyUI nodes are usually **_function operators_**. This means that they operate on some data to perform a function. A function is a process that accepts input data, performs some operation on it, and produces output data. In other words, nodes do some work, contributing to the completion of a task such as generating an image. So ComfyUI nodes almost always have at least one input or output, and usually have multiple inputs and outputs.
 
-Nodes perform operations
-
-In computer science, a _**node**_ is a container for information, usually including programmed instructions to perform some task. Nodes almost never exist in isolation, they’re almost always connected to other nodes in a networked graph. In ComfyUI, nodes take the visual form of boxes that are connected to each other. ComfyUI nodes are usually _**function operators**_. This means that they operate on some data to perform a function. A function is a process that accepts input data, performs some operation on it, and produces output data. In other words, nodes do some work, contributing to the completion of a task such as generating an image. So ComfyUI nodes almost always have at least one input or output, and usually have multiple inputs and outputs.
-
-## 
-
-​
-
-Different Node States
+## Different Node States
 
 ![Node States](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/status.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=150ab91575a7c9300b7ed20d8026e499) In ComfyUI, nodes have multiple states. Here are some common node states:
 
@@ -67,11 +62,7 @@ Different Node States
 
 
 
-## 
-
-​
-
-Connections Between Nodes
+## Connections Between Nodes
 
 In ComfyUI, nodes are connected through [links](https://docs.comfy.org/basic-concepts/links), allowing data of the same type to flow between different processing units to achieve the final result. ![ComfyUI Node Links](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/inpaint.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=40a62b27aa2f44cb97eae917c8c1f8da) Each node receives some input, processes it through its module, and converts it to corresponding output. Connections between different nodes must conform to the data type requirements. In ComfyUI, we use different colors to distinguish node data types. Below are some basic data types: ![ComfyUI Node Data Types](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/data_type.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=a2f5203bde87f24afff17ef3cf0bcaa5)
 
@@ -84,24 +75,16 @@ conditioning| orange
 latent image| pink  
 pixel image| blue  
 mask| green  
-number (integer or float)| light green  
+number (integer or float)| gray  
 mesh| bright green  
   
 As ComfyUI evolves, we may expand to more data types to meet the needs of more scenarios.
 
-### 
-
-​
-
-Connecting and Disconnecting Nodes
+### Connecting and Disconnecting Nodes
 
 ![ComfyUI Node Connecting](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/link_nodes.gif?s=06359a20664f48e43763696313a063f9) **Connecting** : Drag from the output point of one node to the input of the same color on another node to connect them **Disconnecting** : Click on the input endpoint and drag the mouse left button to disconnect, or cancel the connection through the midpoint menu of the link
 
-## 
-
-​
-
-Node Appearance
+## Node Appearance
 
 ![Node Appearance](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/index/node.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=e7ed881cf2c91cc9c48892dd491cae7b) We provide various style settings for you to customize the appearance of nodes:
 
@@ -111,11 +94,7 @@ Node Appearance
 
 
 
-### 
-
-​
-
-Node Badges
+### Node Badges
 
 ![Node Badges](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/badge.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=1e22b62c50745c547e2b99c5f13df990) We provide multiple node badge display features, such as:
 
@@ -124,11 +103,7 @@ Node Badges
 
 Currently, **Comfy Core nodes** use a fox icon for display, while custom nodes use their names. This way you can quickly understand which node package a node comes from. You can set the corresponding display in the menu: ![Badge Settings](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/badge_setting.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=f63c9698836a1debc6a1bed84d77fdf2)
 
-## 
-
-​
-
-Node Context Menus
+## Node Context Menus
 
 Node context menus are mainly divided into two types:
 
@@ -137,11 +112,7 @@ Node context menus are mainly divided into two types:
 
 
 
-### 
-
-​
-
-Node Context Menu
+### Node Context Menu
 
 By right-clicking on a node, you can expand the corresponding node context menu: ![Node Context Menu](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/context_menus_1.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=d7d99664537a4f2b09aaf0acc228da4f) In the node’s right-click context menu, you can:
 
@@ -156,11 +127,7 @@ In this menu, besides appearance-related settings, the following menu operations
 
 
 
-#### 
-
-​
-
-Mode
+#### Mode
 
 For modes, you may notice that we currently provide: Always, Never, On Event, On Trigger - four modes, but actually only **Always** and **Never** are effective. **On Event** and **On Trigger** are currently ineffective as we haven’t fully implemented this feature. Additionally, you can understand **Bypass** as a mode. Below is an explanation of the available modes:
 
@@ -175,19 +142,15 @@ Below is a comparison of the `Never` and `Bypass` modes: ![Never vs Bypass Mode]
 
 
 
-### 
+#### Image preview resolution
 
-​
+In [Nodes 2.0](https://docs.comfy.org/interface/nodes-2), a single-image node previews images larger than 1024 px as a downscaled copy. Choose **Show Full Resolution** in the node context menu to load the original, and **Show Downscaled Preview** to go back. The toggle only appears while **Downscale large image previews** is on in the LiteGraph settings (the default); nodes with several image outputs have no toggle and follow that setting. Requires ComfyUI frontend 1.61.3 or later.
 
-Input/Output Context Menu
+### Input/Output Context Menu
 
 This context menu is mainly related to the data type of the corresponding input/output: ![Node Input/Output Context Menu](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/context_menus_2.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=2daf16654cdd151a6b9ace6ef9d9e530) When dragging the input/output of a node, if a connection appears but you haven’t connected to another node’s input or output, releasing the mouse will pop up a context menu for the input/output, used to quickly add related types of nodes. You can adjust the number of node suggestions in the settings: ![Node Suggestion Count](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/node_suggestions.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=7a063583df5825a8cc24dc13a1723761)
 
-## 
-
-​
-
-Node Selection Toolbox
+## Node Selection Toolbox
 
 The **Node Selection Toolbox** is a floating tool that provides quick operations for nodes. When you select a node, it hovers above the selected node. Through this toolbox, you can:
 
@@ -198,11 +161,7 @@ The **Node Selection Toolbox** is a floating tool that provides quick operations
 
 Of course, these functions can also be found in the right-click menu of the corresponding node. The node selection toolbox just provides a shortcut operation. If you want to disable this feature, you can turn it off in the settings. ![Disable Node Selection Toolbox](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/setting_selection_toolbox.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=60747b0e83640a2f7a4f1bc66e63a89c)
 
-## 
-
-​
-
-Subgraphs
+## Subgraphs
 
 You can collapse a selection of nodes into one reusable subgraph node to tidy complex graphs and reuse the same structure across workflows.
 
@@ -210,19 +169,11 @@ You can collapse a selection of nodes into one reusable subgraph node to tidy co
 
 Learn how to create, edit, nest, and publish subgraph blueprints to the node library.
 
-## 
-
-​
-
-Custom Nodes
+## Custom Nodes
 
 ComfyUI includes many **Comfy Core** nodes in the base installation. The community also maintains a large catalog of [**custom nodes**](https://registry.comfy.org) for specialized workflows. For a full summary of how to install custom nodes—**ComfyUI Manager** , Git clone, ZIP download, dependencies, and safety tips—see [How to install custom nodes](https://docs.comfy.org/installation/install_custom_node).
 
-### 
-
-​
-
-ComfyUI Manager
+### ComfyUI Manager
 
 Use **ComfyUI Manager** for everyday custom node work: search and install from the registry, update or disable packages, detect missing nodes from imported workflows, and manage models and snapshots alongside extensions. Desktop builds ship with it enabled; portable and manual installs may need to turn it on first.
 
@@ -236,26 +187,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/basic-concepts/nodes.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/basic-concepts/nodes)
 
-[ComfyUI Workflows: Nodes, Links, and Visual ProgrammingPrevious](https://docs.comfy.org/basic-concepts/workflow)[Custom NodesNext](https://docs.comfy.org/basic-concepts/custom-nodes)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Workflows](https://docs.comfy.org/basic-concepts/workflow)[Custom Nodes](https://docs.comfy.org/basic-concepts/custom-nodes)

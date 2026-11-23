@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/custom-nodes/backend/node-replacement/
-title: Node replacement - ComfyUI
+title: ComfyUI Node Replacement: Migrate Deprecated Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:37.467734+00:00
+fetched_at: 2026-11-23T19:03:25.916712+00:00
 ---
 
-# Node replacement - ComfyUI
+# ComfyUI Node Replacement: Migrate Deprecated Nodes - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/backend/node-replacement/
 
 ## On this page
+
+Back to top
 
   * When to use
   * Where to register replacements
@@ -30,21 +32,17 @@ fetched_at: 2026-10-17T10:49:37.467734+00:00
 
 Migration Guides
 
-# Node replacement
+# ComfyUI Node Replacement: Migrate Deprecated Nodes
 
 Copy pageCopy page
 
-Register node replacements to help users migrate from deprecated nodes
+Register node replacements in a custom node so the frontend offers an upgrade for deprecated, renamed, or merged nodes and remaps inputs and outputs.
 
 Copy pageCopy page
 
 The Node Replacement API allows custom node developers to define migration paths from deprecated nodes to their newer equivalents. When you update or rename nodes, users can automatically upgrade their workflows.
 
-## 
-
-​
-
-When to use
+## When to use
 
   * **Changing node class names** : You changed a node’s class name (use `DISPLAY_NAME` for display name changes instead)
   * **Merging nodes** : Multiple nodes consolidated into one (e.g., `Load3DAnimation` merged into `Load3D`)
@@ -53,11 +51,7 @@ When to use
 
 
 
-## 
-
-​
-
-Where to register replacements
+## Where to register replacements
 
 Register replacements during your extension’s `on_load` lifecycle hook. Create a dedicated file (e.g., `node_replacements.py`) in your custom node package:
     
@@ -68,11 +62,7 @@ Register replacements during your extension’s `on_load` lifecycle hook. Create
     └── node_replacements.py   # Register replacements here
     
 
-## 
-
-​
-
-Complete example
+## Complete example
 
 Here’s a full example showing how to structure node replacements in a custom node package:
     
@@ -121,19 +111,11 @@ Here’s a full example showing how to structure node replacements in a custom n
         return MyExtension()
     
 
-## 
-
-​
-
-Core examples
+## Core examples
 
 ComfyUI core uses node replacements for built-in node migrations. Here are real examples from [`comfy_extras/nodes_replacements.py`](https://github.com/Comfy-Org/ComfyUI/blob/master/comfy_extras/nodes_replacements.py):
 
-### 
-
-​
-
-Simple node merge
+### Simple node merge
 
 When `Load3DAnimation` was merged into `Load3D`:
     
@@ -144,11 +126,7 @@ When `Load3DAnimation` was merged into `Load3D`:
     ))
     
 
-### 
-
-​
-
-Typo fix
+### Typo fix
 
 Correcting a typo in `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditioning`:
     
@@ -159,11 +137,7 @@ Correcting a typo in `SDV_img2vid_Conditioning` → `SVD_img2vid_Conditioning`:
     ))
     
 
-### 
-
-​
-
-Input renaming with defaults
+### Input renaming with defaults
 
 Replacing `ImageScaleBy` with `ResizeImageMaskNode`:
     
@@ -181,11 +155,7 @@ Replacing `ImageScaleBy` with `ResizeImageMaskNode`:
     ))
     
 
-### 
-
-​
-
-Autogrow input mapping
+### Autogrow input mapping
 
 For nodes using Autogrow (dynamic inputs), use dot notation:
     
@@ -200,11 +170,7 @@ For nodes using Autogrow (dynamic inputs), use dot notation:
     ))
     
 
-## 
-
-​
-
-NodeReplace parameters
+## NodeReplace parameters
 
 Parameter| Type| Description  
 ---|---|---  
@@ -214,11 +180,7 @@ Parameter| Type| Description
 `input_mapping`| list | None| How to map inputs from old to new node  
 `output_mapping`| list | None| How to map outputs from old to new node  
   
-## 
-
-​
-
-Input mapping
+## Input mapping
 
 Each input mapping entry defines how an input transfers from the old node to the new one. **Map from old input:**
     
@@ -238,11 +200,7 @@ Each input mapping entry defines how an input transfers from the old node to the
     {"new_id": "images.image0", "old_id": "image1"}
     
 
-## 
-
-​
-
-Output mapping
+## Output mapping
 
 Output mappings use index-based references:
     
@@ -251,11 +209,7 @@ Output mappings use index-based references:
     {"new_idx": 1, "old_idx": 0}  # Old output 0 -> new output 1
     
 
-## 
-
-​
-
-Widget ID binding
+## Widget ID binding
 
 The `old_widget_ids` field maps widget IDs to their positional indexes. This is required because workflow JSON stores widget values by position, not ID.
     
@@ -266,11 +220,7 @@ The `old_widget_ids` field maps widget IDs to their positional indexes. This is 
     # Widget at index 2 = "sampler"
     
 
-## 
-
-​
-
-REST API
+## REST API
 
 Retrieve all registered replacements:
     
@@ -300,11 +250,7 @@ Retrieve all registered replacements:
     }
     
 
-## 
-
-​
-
-Frontend behavior
+## Frontend behavior
 
 When a workflow contains a deprecated node, the frontend:
 
@@ -328,26 +274,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/backend/node-replacement.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/backend/node-replacement)
 
-[Context Menu Migration GuidePrevious](https://docs.comfy.org/custom-nodes/js/context-menu-migration)[Add node docs for your ComfyUI custom nodeNext](https://docs.comfy.org/custom-nodes/help_page)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[PrimeVue removal](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration)[Node docs](https://docs.comfy.org/custom-nodes/help_page)

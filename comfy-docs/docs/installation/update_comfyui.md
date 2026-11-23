@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/installation/update_comfyui/
-title: How to Update ComfyUI - ComfyUI
+title: ComfyUI Updates: Portable Scripts, Desktop, and Git Pull - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:47.212515+00:00
+fetched_at: 2026-11-23T19:03:23.758602+00:00
 ---
 
-# How to Update ComfyUI - ComfyUI
+# ComfyUI Updates: Portable Scripts, Desktop, and Git Pull - ComfyUI
 
 > Source: https://docs.comfy.org/installation/update_comfyui/
 
 ## On this page
+
+Back to top
 
   * How to Update ComfyUI?
   * ComfyUI Version Types
@@ -27,21 +29,17 @@ fetched_at: 2026-10-24T11:54:47.212515+00:00
 
 Local (Self-Hosted)
 
-# How to Update ComfyUI
+# ComfyUI Updates: Portable Scripts, Desktop, and Git Pull
 
 Copy pageCopy page
 
-Update ComfyUI on any install type: Portable update scripts, Desktop updates, and git pull for manual installs, plus fixes for common update issues.
+Update ComfyUI on Portable, Desktop, and manual installs, then fix the missing frontend, workflow templates, or node help docs an update can leave behind.
 
 Copy pageCopy page
 
 While we’ve covered ComfyUI updates across different installation methods in various sections, this comprehensive guide consolidates all update procedures to help users clearly understand how to update ComfyUI.
 
-## 
-
-​
-
-How to Update ComfyUI?
+## How to Update ComfyUI?
 
   * Portable
 
@@ -54,11 +52,7 @@ How to Update ComfyUI?
 
 ComfyUI Portable provides convenient batch scripts for easy updates.
 
-### 
-
-​
-
-Update Script Location
+### Update Script Location
 
 In the `update` folder within your portable installation directory, you’ll find the following update scripts:
     
@@ -76,14 +70,15 @@ Ensure a stable internet connection during updates.
 **⚠️ DANGER: Use`update_comfyui_and_python_dependencies.bat` with extreme caution!**This script is more thorough than regular updates and will:
 
   * ✅ Update ComfyUI code itself
-  * ✅ Update PyTorch (for NVIDIA GPU CUDA 12.9)
+  * ✅ Update PyTorch for the **standard Nvidia portable** (currently **CUDA 13.0 / cu130** , Python 3.13)
   * ✅ Reinstall ALL Python dependencies
 
-**Risks:**
+**Legacy Nvidia portable (CUDA 12.6 / cu126):** If you installed the separate portable package for Nvidia **10-series and older GPUs** , that build uses **CUDA 12.6** and Python 3.12. Do not treat cu130 as the right target for that package — reinstall or update PyTorch with the cu126 wheel index that matches that portable, or re-download the cu126 package from the [Portable install guide](https://docs.comfy.org/installation/comfyui_portable_windows).**Risks:**
 
   * May cause dependency conflicts with your existing setup
   * Can break custom nodes that rely on specific package versions
   * May overwrite manually configured packages
+  * On a cu126 (or other non-cu130) portable, blindly forcing a cu130 wheel can break GPU startup
 
 **⚠️ Only use this script when:**
 
@@ -95,7 +90,8 @@ Ensure a stable internet connection during updates.
 
   1. **Back up your entire ComfyUI installation**
   2. Document any custom package versions you’ve installed
-  3. Be prepared to reinstall custom nodes if needed
+  3. Confirm which portable package you have (cu130 standard vs cu126 legacy) — see [ComfyUI Portable for Windows](https://docs.comfy.org/installation/comfyui_portable_windows)
+  4. Be prepared to reinstall custom nodes if needed
 
 
 
@@ -103,19 +99,11 @@ To update ComfyUI, open the [Manage panel](https://docs.comfy.org/installation/d
 
 Manually installed ComfyUI requires Git commands to complete updates.
 
-### 
-
-​
-
-Pre-Update Requirements
+### Pre-Update Requirements
 
 Ensure your system has [Git](https://git-scm.com/downloads) installed and ComfyUI was installed via Git clone.
 
-### 
-
-​
-
-Update Steps
+### Update Steps
 
 1
 
@@ -167,11 +155,7 @@ After updating, restart ComfyUI:
     python main.py
     
 
-### 
-
-​
-
-Version Switching (Optional)
+### Version Switching (Optional)
 
 To switch to a specific version, use these commands:
     
@@ -188,11 +172,7 @@ To switch to a specific version, use these commands:
 
 Regular updates are recommended for the latest features and security fixes, while stable versions are recommended for system stability
 
-## 
-
-​
-
-ComfyUI Version Types
+## ComfyUI Version Types
 
 Depending on your installation method, ComfyUI offers several installation versions. The links below contain update instructions for each version.
 
@@ -243,11 +223,7 @@ Manual Installation
 
 Supports all system types and GPU types (Nvidia, AMD, Intel, Apple Silicon, Ascend NPU, Cambricon MLU)
 
-## 
-
-​
-
-What Needs to Be Updated When Updating ComfyUI?
+## What Needs to Be Updated When Updating ComfyUI?
 
 ComfyUI updates primarily consist of two components:
 
@@ -279,17 +255,9 @@ It’s important to understand the difference between development (nightly) and 
 
 Many users often find themselves on release versions or on Desktop’s default **Stable** channel during updates, but discover that needed features are only available in development / nightly builds. On **Desktop** , switch to **Latest on GitHub** in [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab). For portable or manual installs, check if your local `ComfyUI/requirements.txt` matches the [nightly version dependencies](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) to determine if all dependencies support the latest features.
 
-## 
+## Common Update Issues
 
-​
-
-Common Update Issues
-
-### 
-
-​
-
-Missing or Outdated Frontend, Workflow Templates, Node After Updates
+### Missing or Outdated Frontend, Workflow Templates, Node After Updates
 
   * Dependencies Not Properly Updated
 
@@ -322,11 +290,7 @@ Follow these troubleshooting steps:
 
 
 
-### 
-
-​
-
-How to Properly Update Core Dependencies
+### How to Properly Update Core Dependencies
 
   * Portable
 
@@ -381,11 +345,7 @@ Update ComfyUI dependencies - this step is crucial, especially for the `comfyui-
 
 
 
-### 
-
-​
-
-Core Dependency Update Troubleshooting
+### Core Dependency Update Troubleshooting
 
 If core dependency updates fail, follow these troubleshooting steps:
 
@@ -416,11 +376,7 @@ If batch installation fails, try installing packages individually. **First check
 
 It’s recommended to use the exact version numbers specified in `ComfyUI/requirements.txt`. Don’t upgrade to the latest versions independently, as this may cause compatibility issues.
 
-### 
-
-​
-
-Why Can’t I Find New Features After Updating?
+### Why Can’t I Find New Features After Updating?
 
 This is one of the most common issues:
 
@@ -429,11 +385,7 @@ This is one of the most common issues:
 
 Additionally, ensure that corresponding dependencies have been successfully updated during the update process. If issues persist after updating, refer to the Dependency Update Troubleshooting section to diagnose problems.
 
-### 
-
-​
-
-How to Switch Between Development (Nightly) and Stable (Release) Versions?
+### How to Switch Between Development (Nightly) and Stable (Release) Versions?
 
 Differences between versions:
 
@@ -494,11 +446,7 @@ Open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage
 
 Use **Switch Channel** , **Update Now** , or **Copy & Update** depending on whether the selected channel has a newer build. Details are on the [Manage Update tab](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) page.
 
-### 
-
-​
-
-What to Do When Errors Occur After Updates?
+### What to Do When Errors Occur After Updates?
 
   1. **Check Dependencies** : Run `pip install -r requirements.txt` to ensure all dependencies are updated
   2. **Check Custom Nodes** : Some custom nodes may be incompatible with new versions
@@ -510,11 +458,7 @@ If problems occur, refer to our troubleshooting page for solutions.
 
 Learn how to troubleshoot ComfyUI issues
 
-### 
-
-​
-
-How to Stay Updated on New Features?
+### How to Stay Updated on New Features?
 
   * **GitHub Releases** : Check [ComfyUI Releases](https://github.com/Comfy-Org/ComfyUI/releases) for stable version updates
   * **GitHub Commits** : View [latest commits](https://github.com/Comfy-Org/ComfyUI/commits/master) to understand development progress

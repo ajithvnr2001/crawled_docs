@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/basic-concepts/nodes/
 title: Nodos de ComfyUI: tipos, entradas y salidas - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:29.690822+00:00
+fetched_at: 2026-11-23T19:03:26.881264+00:00
 ---
 
 # Nodos de ComfyUI: tipos, entradas y salidas - ComfyUI
@@ -22,6 +22,7 @@ Volver arriba
   * Menús contextuales de nodos
     * Menú contextual del nodo
     * Modo
+    * Resolución de la vista previa de imagen
     * Menú contextual de entradas y salidas
   * Caja de herramientas de selección de nodos
   * Subgrafos
@@ -44,19 +45,11 @@ En ComfyUI, los nodos son los bloques de construcción fundamentales para ejecut
 
 ComfyUI está en desarrollo activo, por lo que algunos detalles aquí pueden estar desactualizados. Si detectas algo que ha cambiado, no dudes en [ayudarnos a actualizar la documentación](https://github.com/Comfy-Org/docs).
 
-## 
+## Los nodos realizan operaciones
 
-​
+En ciencias de la computación, un **_nodo_** es un contenedor de información, que normalmente incluye instrucciones programadas para realizar alguna tarea. Los nodos casi nunca existen de forma aislada, casi siempre están conectados a otros nodos en un gráfico de red. En ComfyUI, los nodos toman la forma visual de cajas que se conectan entre sí. Los nodos de ComfyUI suelen ser **_operadores de función_**. Esto significa que operan sobre ciertos datos para realizar una función. Una función es un proceso que acepta datos de entrada, realiza alguna operación sobre ellos y produce datos de salida. En otras palabras, los nodos hacen un trabajo y contribuyen a completar una tarea, como generar una imagen. Por eso los nodos de ComfyUI casi siempre tienen al menos una entrada o una salida, y normalmente tienen múltiples entradas y salidas.
 
-Los nodos realizan operaciones
-
-En ciencias de la computación, un _**nodo**_ es un contenedor de información, que normalmente incluye instrucciones programadas para realizar alguna tarea. Los nodos casi nunca existen de forma aislada, casi siempre están conectados a otros nodos en un gráfico de red. En ComfyUI, los nodos toman la forma visual de cajas que se conectan entre sí. Los nodos de ComfyUI suelen ser _**operadores de función**_. Esto significa que operan sobre ciertos datos para realizar una función. Una función es un proceso que acepta datos de entrada, realiza alguna operación sobre ellos y produce datos de salida. En otras palabras, los nodos hacen un trabajo y contribuyen a completar una tarea, como generar una imagen. Por eso los nodos de ComfyUI casi siempre tienen al menos una entrada o una salida, y normalmente tienen múltiples entradas y salidas.
-
-## 
-
-​
-
-Diferentes estados de los nodos
+## Diferentes estados de los nodos
 
 ![Estados de los nodos](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/status.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=150ab91575a7c9300b7ed20d8026e499) En ComfyUI, los nodos tienen múltiples estados. Estos son algunos de los estados más comunes:
 
@@ -69,11 +62,7 @@ Diferentes estados de los nodos
 
 
 
-## 
-
-​
-
-Conexiones entre nodos
+## Conexiones entre nodos
 
 En ComfyUI, los nodos se conectan mediante [enlaces](https://docs.comfy.org/es/basic-concepts/links), lo que permite que datos del mismo tipo fluyan entre distintas unidades de procesamiento para lograr el resultado final. ![Enlaces de nodos de ComfyUI](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/inpaint.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=40a62b27aa2f44cb97eae917c8c1f8da) Cada nodo recibe una entrada, la procesa a través de su módulo y la convierte en la salida correspondiente. Las conexiones entre distintos nodos deben cumplir con los requisitos del tipo de datos. En ComfyUI, usamos diferentes colores para distinguir los tipos de datos de los nodos. A continuación se muestran algunos tipos de datos básicos: ![Tipos de datos de nodos de ComfyUI](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/data_type.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=a2f5203bde87f24afff17ef3cf0bcaa5)
 
@@ -91,19 +80,11 @@ malla| verde brillante
   
 A medida que ComfyUI evoluciona, es posible que ampliemos a más tipos de datos para satisfacer las necesidades de más escenarios.
 
-### 
-
-​
-
-Conectar y desconectar nodos
+### Conectar y desconectar nodos
 
 ![Conexión de nodos de ComfyUI](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/link_nodes.gif?s=06359a20664f48e43763696313a063f9) **Conectar** : Arrastra desde el punto de salida de un nodo hasta la entrada del mismo color en otro nodo para conectarlos **Desconectar** : Haz clic en el punto de entrada y arrastra con el botón izquierdo del ratón para desconectar, o cancela la conexión mediante el menú del punto medio del enlace
 
-## 
-
-​
-
-Apariencia del nodo
+## Apariencia del nodo
 
 ![Apariencia del nodo](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/index/node.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=e7ed881cf2c91cc9c48892dd491cae7b) Te ofrecemos varias configuraciones de estilo para que personalices la apariencia de los nodos:
 
@@ -113,11 +94,7 @@ Apariencia del nodo
 
 
 
-### 
-
-​
-
-Insignias del nodo
+### Insignias del nodo
 
 ![Insignias del nodo](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/badge.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=1e22b62c50745c547e2b99c5f13df990) Ofrecemos varias funciones de visualización de insignias en los nodos, como:
 
@@ -126,11 +103,7 @@ Insignias del nodo
 
 Actualmente, los **nodos de Comfy Core** se muestran con un icono de zorro, mientras que los nodos personalizados usan sus nombres. De esta forma puedes entender rápidamente de qué paquete de nodos proviene un nodo. Puedes configurar la visualización correspondiente en el menú: ![Configuración de insignias](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/badge_setting.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=f63c9698836a1debc6a1bed84d77fdf2)
 
-## 
-
-​
-
-Menús contextuales de nodos
+## Menús contextuales de nodos
 
 Los menús contextuales de nodos se dividen principalmente en dos tipos:
 
@@ -139,11 +112,7 @@ Los menús contextuales de nodos se dividen principalmente en dos tipos:
 
 
 
-### 
-
-​
-
-Menú contextual del nodo
+### Menú contextual del nodo
 
 Al hacer clic derecho sobre un nodo, puedes expandir el menú contextual correspondiente: ![Menú contextual del nodo](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/context_menus_1.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=d7d99664537a4f2b09aaf0acc228da4f) En el menú contextual del botón derecho del nodo, puedes:
 
@@ -158,11 +127,7 @@ En este menú, además de la configuración relacionada con la apariencia, las s
 
 
 
-#### 
-
-​
-
-Modo
+#### Modo
 
 En cuanto a los modos, es posible que notes que actualmente ofrecemos cuatro: Siempre, Nunca, En evento y En disparador, pero en realidad solo **Siempre** y **Nunca** son efectivos. **En evento** y **En disparador** no son efectivos por ahora, ya que aún no hemos implementado esta función por completo. Además, puedes entender **Omitir** como un modo. A continuación se explica los modos disponibles:
 
@@ -177,19 +142,15 @@ A continuación se muestra una comparación entre los modos Nunca y Omitir: ![Co
 
 
 
-### 
+#### Resolución de la vista previa de imagen
 
-​
+En [Nodes 2.0](https://docs.comfy.org/es/interface/nodes-2), un nodo de una sola imagen muestra las imágenes de más de 1024 px como una copia reducida. Elige **Mostrar resolución completa** en el menú contextual del nodo para cargar el original, y **Mostrar vista previa reducida** para volver. La opción solo aparece con **Reducir la escala de las vistas previas de imágenes grandes** activado en los ajustes de LiteGraph (viene activado); los nodos con varias imágenes de salida no tienen la opción y siguen ese ajuste. Requiere ComfyUI frontend 1.61.3 o posterior.
 
-Menú contextual de entradas y salidas
+### Menú contextual de entradas y salidas
 
 Este menú contextual está relacionado principalmente con el tipo de dato de la entrada o salida correspondiente: ![Menú contextual de entrada y salida del nodo](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/context_menus_2.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=2daf16654cdd151a6b9ace6ef9d9e530) Cuando arrastras la entrada o la salida de un nodo, si aparece una conexión pero no te has conectado a la entrada o salida de otro nodo, al soltar el mouse aparecerá un menú contextual para esa entrada o salida, que sirve para agregar rápidamente nodos del tipo relacionado. Puedes ajustar la cantidad de sugerencias de nodos en las configuraciones: ![Cantidad de sugerencias de nodos](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/node_suggestions.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=7a063583df5825a8cc24dc13a1723761)
 
-## 
-
-​
-
-Caja de herramientas de selección de nodos
+## Caja de herramientas de selección de nodos
 
 La **Caja de herramientas de selección de nodos** es una herramienta flotante que proporciona operaciones rápidas para los nodos. Cuando seleccionas un nodo, esta aparece flotando sobre el nodo seleccionado. A través de esta caja de herramientas, puedes:
 
@@ -200,11 +161,7 @@ La **Caja de herramientas de selección de nodos** es una herramienta flotante q
 
 Por supuesto, estas funciones también se encuentran en el menú de clic derecho del nodo correspondiente. La caja de herramientas de selección de nodos solo proporciona una operación rápida. Si quieres desactivar esta función, puedes hacerlo en las configuraciones. ![Desactivar la caja de herramientas de selección de nodos](https://mintcdn.com/dripart/CGWmMjlFmU7msQ5S/images/concepts/node/setting_selection_toolbox.jpg?fit=max&auto=format&n=CGWmMjlFmU7msQ5S&q=85&s=60747b0e83640a2f7a4f1bc66e63a89c)
 
-## 
-
-​
-
-Subgrafos
+## Subgrafos
 
 Puedes contraer una selección de nodos en un único nodo de subgrafo reutilizable para ordenar gráficos complejos y reutilizar la misma estructura en distintos flujos de trabajo.
 
@@ -212,19 +169,11 @@ Puedes contraer una selección de nodos en un único nodo de subgrafo reutilizab
 
 Aprende a crear, editar, anidar y publicar planos de subgrafos en la biblioteca de nodos.
 
-## 
-
-​
-
-Nodos personalizados
+## Nodos personalizados
 
 ComfyUI incluye muchos nodos de **Comfy Core** en la instalación base. La comunidad también mantiene un amplio catálogo de [**nodos personalizados**](https://registry.comfy.org) para flujos de trabajo especializados. Para ver un resumen completo de cómo instalar nodos personalizados (ComfyUI Manager, clonación con Git, descarga de ZIP, dependencias y consejos de seguridad), consulta [Cómo instalar nodos personalizados](https://docs.comfy.org/es/installation/install_custom_node).
 
-### 
-
-​
-
-ComfyUI Manager
+### ComfyUI Manager
 
 Usa **ComfyUI Manager** para el trabajo diario con nodos personalizados: busca e instala desde el registro, actualiza o desactiva paquetes, detecta nodos faltantes en flujos de trabajo importados y administra modelos y snapshots junto con las extensiones. Las compilaciones de escritorio lo incluyen habilitado; las instalaciones portátiles y manuales pueden necesitar activarlo primero.
 

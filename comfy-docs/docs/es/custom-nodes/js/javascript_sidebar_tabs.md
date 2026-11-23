@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/
-title: Pesta\u00f1as de la barra lateral - ComfyUI
+title: Pesta\u00f1as de la barra lateral en ComfyUI: API de extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:50.170647+00:00
+fetched_at: 2026-11-23T19:03:24.780252+00:00
 ---
 
-# Pestañas de la barra lateral - ComfyUI
+# Pestañas de la barra lateral en ComfyUI: API de extensiones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/
 
@@ -24,21 +24,17 @@ Volver arriba
 
 JavaScript (UI)
 
-# Pestañas de la barra lateral
+# Pestañas de la barra lateral en ComfyUI: API de extensiones
 
 Copiar páginaCopiar página
 
-Domina la API de Comfy Extension y crea pestañas personalizadas en la barra lateral. Explora ejemplos de React y actualizaciones dinámicas. Lee la documentación.
+Añade pestañas a la barra lateral de ComfyUI con la API de pestañas: configuración, iconos de Lucide, componentes de React y contenido con estado.
 
 Copiar páginaCopiar página
 
 La API de Sidebar Tabs permite que las extensiones agreguen pestañas personalizadas a la barra lateral de la interfaz de ComfyUI. Esto es útil para agregar funciones que requieren visibilidad persistente y acceso rápido.
 
-## 
-
-​
-
-Uso básico
+## Uso básico
     
     
     app.extensionManager.registerSidebarTab({
@@ -53,11 +49,7 @@ Uso básico
     });
     
 
-## 
-
-​
-
-Configuración de pestañas
+## Configuración de pestañas
 
 Cada pestaña requiere varias propiedades:
     
@@ -74,19 +66,11 @@ Cada pestaña requiere varias propiedades:
 
 La función `render` recibe un elemento DOM donde debes insertar el contenido de tu pestaña.
 
-## 
-
-​
-
-Opciones de iconos
+## Opciones de iconos
 
 Los iconos de las pestañas de la barra lateral usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]` (por ejemplo, `icon-[lucide--compass]`). El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons (`pi pi-*`) y de Material Design Icons (`mdi mdi-*`) todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
-## 
-
-​
-
-Ejemplo de pestaña con estado
+## Ejemplo de pestaña con estado
 
 Puedes crear pestañas que conservan su estado:
     
@@ -124,11 +108,7 @@ Puedes crear pestañas que conservan su estado:
     });
     
 
-## 
-
-​
-
-Usar componentes de React
+## Usar componentes de React
 
 Puedes montar componentes de React en las pestañas de la barra lateral:
     
@@ -175,11 +155,7 @@ Puedes montar componentes de React en las pestañas de la barra lateral:
 
 Para ver un ejemplo real de una aplicación de React integrada como pestaña de la barra lateral, consulta el [proyecto ComfyUI-Copilot en GitHub](https://github.com/AIDC-AI/ComfyUI-Copilot).
 
-## 
-
-​
-
-Actualizaciones dinámicas del contenido
+## Actualizaciones dinámicas del contenido
 
 Puedes actualizar el contenido de la barra lateral en respuesta a cambios en el gráfico:
     
@@ -231,4 +207,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_sidebar_tabs.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_sidebar_tabs)
 
-[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)[Cuadro de herramientas de selección](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)
+[Pestañas inferiores](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)[Herramientas de selección](https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox)

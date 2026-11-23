@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/",
   "file": "custom-nodes/js/javascript_about_panel_badges.md",
-  "title": "About Panel Badges - ComfyUI",
+  "title": "ComfyUI About Panel Badges API - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-11-04T15:15:51.440542+00:00"
+  "fetched_at": "2026-11-23T19:03:25.658695+00:00"
 }

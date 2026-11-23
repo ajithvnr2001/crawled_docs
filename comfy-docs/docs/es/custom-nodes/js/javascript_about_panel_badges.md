@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges/
-title: Insignias del panel Acerca de - ComfyUI
+title: Insignias del panel Acerca de en ComfyUI: API de extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:50.861029+00:00
+fetched_at: 2026-11-23T19:03:25.060553+00:00
 ---
 
-# Insignias del panel Acerca de - ComfyUI
+# Insignias del panel Acerca de en ComfyUI: API de extensiones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges/
 
@@ -22,7 +22,7 @@ Volver arriba
 
 JavaScript (UI)
 
-# Insignias del panel Acerca de
+# Insignias del panel Acerca de en ComfyUI: API de extensiones
 
 Copiar páginaCopiar página
 
@@ -32,11 +32,7 @@ Copiar páginaCopiar página
 
 La API About Panel Badges permite que las extensiones agreguen insignias personalizadas a la página Acerca de de ComfyUI. Estas insignias pueden mostrar información sobre tu extensión y contener enlaces a la documentación, al código fuente u otros recursos.
 
-## 
-
-​
-
-Uso básico
+## Uso básico
     
     
     app.registerExtension({
@@ -56,11 +52,7 @@ Uso básico
     });
     
 
-## 
-
-​
-
-Configuración de las insignias
+## Configuración de las insignias
 
 Cada insignia requiere todas estas propiedades:
     
@@ -72,11 +64,7 @@ Cada insignia requiere todas estas propiedades:
     }
     
 
-## 
-
-​
-
-Opciones de iconos
+## Opciones de iconos
 
 Los iconos de las insignias usan clases de iconos de [Lucide](https://lucide.dev/icons/) con el formato `icon-[lucide--<icon-name>]`. Estos son algunos de los iconos más usados:
 
@@ -89,11 +77,7 @@ Los iconos de las insignias usan clases de iconos de [Lucide](https://lucide.dev
 
 El frontend genera estas clases al compilarse, así que solo están disponibles los iconos de Lucide que usa el propio frontend. Si un icono no se muestra, elige otro o define tu propia clase de icono en una hoja de estilos que cargue tu extensión. Las clases de PrimeIcons como `pi pi-file` todavía se muestran por ahora, pero se están retirando gradualmente. No las uses en código nuevo. Consulta la [migración por la eliminación de PrimeVue](https://docs.comfy.org/es/custom-nodes/js/primevue-removal-migration).
 
-## 
-
-​
-
-Ejemplo
+## Ejemplo
     
     
     app.registerExtension({
@@ -126,4 +110,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_about_panel_badges.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_about_panel_badges)
 
-[API de Toast](https://docs.comfy.org/es/custom-nodes/js/javascript_toast)[Pestañas del panel inferior](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)
+[API de Toast](https://docs.comfy.org/es/custom-nodes/js/javascript_toast)[Pestañas inferiores](https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs)

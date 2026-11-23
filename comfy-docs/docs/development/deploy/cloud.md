@@ -1,48 +1,62 @@
 ---
 url: https://docs.comfy.org/development/deploy/cloud/
-title: Comfy Cloud Quickstart - ComfyUI
+title: Deploy on Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:55.355734+00:00
+fetched_at: 2026-11-23T19:03:22.469121+00:00
 ---
 
-# Comfy Cloud Quickstart - ComfyUI
+# Deploy on Comfy Cloud - ComfyUI
 
 > Source: https://docs.comfy.org/development/deploy/cloud/
 
 ## On this page
 
-  * Quickstart
+Back to top
+
+  * Before you begin
+  * Run a Workflow on the standard build
+  * Run a Workflow on a custom Build
   * Next steps
 
 
 
 Comfy Cloud
 
-# Comfy Cloud Quickstart
+# Deploy on Comfy Cloud
 
 Copy pageCopy page
 
-Run an API-format workflow on Comfy Cloud with a paid subscription, API key, and the Comfy SDK.
+Run a Workflow on Comfy Cloud from your app with the Comfy SDK, on the standard build or on a custom Build with your own Custom Nodes.
 
 Copy pageCopy page
 
-Comfy Cloud is a fully managed, always-available ComfyUI environment. Build workflows in the browser or run them through the SDK. There is no Build or deployment to create.
+You can run a Workflow you built in the Comfy Cloud editor from your own application, such as a backend service or a batch script, with the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks). Comfy Cloud runs Workflows on a standard build with a default set of Custom Nodes. If a Workflow needs Custom Nodes or models the standard build doesn’t have, you create a custom Build: a package of your own Custom Nodes and models that Comfy Cloud runs for you. This page shows how to run a Workflow through the API on the standard build, and then how to point the same code at a custom Build.
 
-New to Comfy Cloud? Start with the [Comfy Cloud introduction](https://docs.comfy.org/get_started/cloud). This quickstart shows how to run workflows from an app.
+## Before you begin
 
-## 
+To call Comfy Cloud from your code, make sure you have these:
 
-​
+  * **A paid Comfy Cloud subscription**
+  * **A Workflow that runs in the Comfy Cloud editor** : test it in the editor before you run it from code. If it needs Custom Nodes or models the standard build doesn’t have, [create a custom Build](https://docs.comfy.org/development/deploy/cloud-custom-builds) first.
+  * **Python 3.10 or later, or Node 22 or later** : the SDK you install needs one of them.
 
-Quickstart
+If you haven’t used Comfy Cloud yet, start with [Comfy Cloud](https://docs.comfy.org/get_started/cloud).
 
-Requires a paid subscription, an [API key](https://docs.comfy.org/development/api-development/getting-an-api-key), and an API-format workflow. The [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks) target Cloud by default.
+## Run a Workflow on the standard build
+
+The standard build runs any Workflow that uses only the Custom Nodes Comfy Cloud supports. To run one from your code, you create an API key, install the SDK, and export the Workflow in API format.
 
 1
 
 Create an API key
 
-Create an API key at [platform.comfy.org](https://platform.comfy.org). See [Getting an API Key](https://docs.comfy.org/development/api-development/getting-an-api-key) for details.
+Your application sends the key with each request, so create a key for your application on the Developer Platform.
+
+  1. Sign in at [platform.comfy.org](https://platform.comfy.org), and then click **API Keys**.
+  2. Click **New API key** , enter a name, and then click **Generate key**.
+  3. Copy the key and store it somewhere safe. The Developer Platform shows it once.
+
+The key starts with `comfyui-`. See [Getting an API Key](https://docs.comfy.org/development/api-development/getting-an-api-key) for how to manage keys.
 
 2
 
@@ -62,13 +76,19 @@ TypeScript
 
 3
 
-Export a workflow in API format
+Export the Workflow in API format
 
-In the Cloud editor, save your tested workflow as `workflow_api.json` with `File → Export Workflow (API)`. See [Workflow API Format](https://docs.comfy.org/development/api-development/workflow-api-format).
+The SDK sends the API format of a Workflow, not the file the editor saves.
+
+  * In the Comfy Cloud editor, open the Workflow, select **File** > **Export (API)** , and save the file as `workflow_api.json`.
+
+See [Workflow API Format](https://docs.comfy.org/development/api-development/workflow-api-format) for what the file contains.
 
 4
 
-Run it
+Run the Workflow
+
+The SDK sends requests to Comfy Cloud unless you set another base URL, so pass only your API key:
 
 Python
 
@@ -77,7 +97,7 @@ TypeScript
     
     from comfy_sdk import Comfy
     
-    client = Comfy(api_key="comfyui-...")  # Comfy Cloud is the default target
+    client = Comfy(api_key="comfyui-...")
     
     wf = client.workflows.from_file("workflow_api.json")
     
@@ -89,7 +109,7 @@ TypeScript
     
     import { Comfy } from "@comfyorg/sdk";
     
-    const client = new Comfy({ apiKey: "comfyui-..." }); // Comfy Cloud is the default target
+    const client = new Comfy({ apiKey: "comfyui-..." });
     
     const wf = await client.workflows.fromFile("workflow_api.json");
     
@@ -97,19 +117,74 @@ TypeScript
     await job.getOutputs("9")[0].toFile("out.png");
     
 
-`"9"` is the output node ID. See the [SDK guide](https://docs.comfy.org/development/api-development/sdks) for inputs, progress, and error handling.
+  * Replace `"9"` with the ID of the output Node in your `workflow_api.json`.
+  * `run()` waits until the job finishes, and then the code writes the outputs to disk.
 
-The same SDK code can target [Comfy API deployments](https://docs.comfy.org/development/serverless/quickstart) and [self-hosted ComfyUI](https://docs.comfy.org/development/deploy/self-hosting). See [Running Workflows](https://docs.comfy.org/development/run-workflows/overview).
+To set inputs, follow progress, and handle errors, see the [Comfy SDKs](https://docs.comfy.org/development/api-development/sdks).
 
-## 
+## Run a Workflow on a custom Build
 
-​
+Deploying a custom Build gives you a deployment with its own URL. Your code from the previous section runs on the deployment once you change the base URL.
 
-Next steps
+A deployment costs GPU time while its workers run and storage until you delete it. When you finish testing, stop or delete it. See [Clean up](https://docs.comfy.org/development/serverless/overview#clean-up).
+
+1
+
+Create and deploy a Build
+
+Follow [Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds) to create a Build from your Workflow and deploy it.
+
+2
+
+Copy the deployment URL
+
+  1. On the Developer Platform, open the deployment’s page.
+  2. Wait until the deployment’s status reads **Ready**.
+  3. In **Run via API** , copy the **Deployment URL**.
+
+A deployment URL has the form `https://dep-<id>.run.comfy.app`.
+
+3
+
+Set the base URL
+
+Set `COMFY_BASE_URL` to the deployment URL:
+    
+    
+    export COMFY_BASE_URL="https://dep-<id>.run.comfy.app"
+    
+
+4
+
+Run the Workflow
+
+Run the code from Run a Workflow on the standard build with your API key. The SDK now sends the job to your deployment.
+
+To test the deployment from a terminal first, run:
+    
+    
+    comfy deploy run --deployment <deployment-id> --workflow workflow_api.json
+    
+
+## Next steps
+
+Once your Workflow runs from code, use these pages to handle inputs and progress, manage deployments, and check your limits.
+
+## Comfy SDKs
+
+Upload inputs, watch job progress, and retry submissions safely.
+
+## Manage Deployments
+
+Release Build versions, scale workers, and call your deployment.
 
 ## Usage and Limits
 
-Check how Cloud credits and concurrent jobs work.
+Check how Comfy Credits and concurrent jobs work on Comfy Cloud.
+
+## Running Workflows
+
+Run the same SDK code against self-hosted ComfyUI.
 
 Was this page helpful?
 
@@ -117,26 +192,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/deploy/cloud.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/deploy/cloud)
 
-[Comfy API Deployment GuidePrevious](https://docs.comfy.org/development/serverless/overview)[Usage and LimitsNext](https://docs.comfy.org/development/deploy/cloud-usage)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/development/deploy/overview)[Deploy on Comfy Cloud](https://docs.comfy.org/development/deploy/cloud)

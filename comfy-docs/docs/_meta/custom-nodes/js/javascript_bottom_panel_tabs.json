@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs/",
   "file": "custom-nodes/js/javascript_bottom_panel_tabs.md",
-  "title": "Bottom Panel Tabs - ComfyUI",
+  "title": "ComfyUI Bottom Panel Tabs API - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:49:37.891790+00:00",
-  "html_len": 461518,
-  "md_len": 5816,
-  "depth": 0
+  "fetched_at": "2026-11-23T19:03:25.803726+00:00"
 }

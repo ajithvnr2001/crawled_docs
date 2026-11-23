@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs/
-title: Pesta\u00f1as del panel inferior - ComfyUI
+title: Pesta\u00f1as del panel inferior en ComfyUI: API de extensiones - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:34.170022+00:00
+fetched_at: 2026-11-23T19:03:26.261691+00:00
 ---
 
-# Pestañas del panel inferior - ComfyUI
+# Pestañas del panel inferior en ComfyUI: API de extensiones - ComfyUI
 
 > Source: https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs/
 
@@ -23,21 +23,17 @@ Volver arriba
 
 JavaScript (UI)
 
-# Pestañas del panel inferior
+# Pestañas del panel inferior en ComfyUI: API de extensiones
 
 Copiar páginaCopiar página
 
-Añade pestañas personalizadas al panel inferior de ComfyUI con la API de pestañas del panel inferior, incluidos elementos interactivos, componentes de React y registro independiente.
+Añade pestañas personalizadas al panel inferior de ComfyUI: elementos interactivos, componentes de React y registro independiente.
 
 Copiar páginaCopiar página
 
 La API de pestañas del panel inferior permite a las extensiones añadir pestañas personalizadas al panel inferior de la interfaz de ComfyUI. Resulta útil para añadir funciones como registros, herramientas de depuración o paneles personalizados.
 
-## 
-
-​
-
-Uso básico
+## Uso básico
     
     
     app.registerExtension({
@@ -55,11 +51,7 @@ Uso básico
     });
     
 
-## 
-
-​
-
-Configuración de pestañas
+## Configuración de pestañas
 
 Cada pestaña requiere un `id`, un `title` y un `type`, además de una función de renderizado:
     
@@ -75,11 +67,7 @@ Cada pestaña requiere un `id`, un `title` y un `type`, además de una función 
 
 La función `render` recibe un elemento DOM en el que debes insertar el contenido de tu pestaña.
 
-## 
-
-​
-
-Elementos interactivos
+## Elementos interactivos
 
 Puedes añadir elementos interactivos como botones:
     
@@ -108,11 +96,7 @@ Puedes añadir elementos interactivos como botones:
     });
     
 
-## 
-
-​
-
-Uso de componentes de React
+## Uso de componentes de React
 
 Puedes montar componentes de React en las pestañas del panel inferior:
     
@@ -159,11 +143,7 @@ Puedes montar componentes de React en las pestañas del panel inferior:
     });
     
 
-## 
-
-​
-
-Registro independiente
+## Registro independiente
 
 También puedes registrar pestañas fuera de `registerExtension`:
     
@@ -184,4 +164,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_bottom_panel_tabs.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_bottom_panel_tabs)
 
-[Insignias del panel Acerca de](https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges)[Pestañas de la barra lateral](https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs)
+[Insignias de Acerca de](https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges)[Pestañas laterales](https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs)

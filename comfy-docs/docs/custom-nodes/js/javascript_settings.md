@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_settings/
-title: Settings API - ComfyUI
+title: ComfyUI Extension Settings API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:50.954219+00:00
+fetched_at: 2026-11-23T19:03:25.586622+00:00
 ---
 
-# Settings API - ComfyUI
+# ComfyUI Extension Settings API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_settings/
 
@@ -36,7 +36,7 @@ Back to top
 
 JavaScript (UI)
 
-# Settings API
+# ComfyUI Extension Settings API
 
 Copy pageCopy page
 
@@ -46,17 +46,9 @@ Copy pageCopy page
 
 You can provide a settings object to ComfyUI that will show up when the user opens the ComfyUI settings panel.
 
-## 
+## Basic operation
 
-​
-
-Basic operation
-
-### 
-
-​
-
-Add a setting
+### Add a setting
     
     
     import { app } from "../../scripts/app.js";
@@ -81,11 +73,7 @@ The `id` must be unique across all extensions and will be used to fetch values. 
 
 
 
-### 
-
-​
-
-Read a setting
+### Read a setting
     
     
     import { app } from "../../scripts/app.js";
@@ -97,11 +85,7 @@ Read a setting
     }
     
 
-### 
-
-​
-
-React to changes
+### React to changes
 
 The `onChange()` event handler will be called as soon as the user changes the setting in the settings panel. This will also be called when the extension is registered, on every page load.
     
@@ -117,11 +101,7 @@ The `onChange()` event handler will be called as soon as the user changes the se
     }
     
 
-### 
-
-​
-
-Write a setting
+### Write a setting
     
     
     import { app } from "../../scripts/app.js";
@@ -133,11 +113,7 @@ Write a setting
     }
     
 
-### 
-
-​
-
-Extra configuration
+### Extra configuration
 
 Each setting type renders a ComfyUI frontend form component. You can pass extra props to that component in an `attrs` field. The props each type supports are listed under Types. For instance, this limits a number input to a range and step:
     
@@ -160,17 +136,9 @@ Each setting type renders a ComfyUI frontend form component. You can pass extra 
 
 If your extension passed PrimeVue props such as `showButtons`, `maxFractionDigits`, `editable` or `filter`, see [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration). The settings panel no longer uses PrimeVue components, so those props have no effect.
 
-## 
+## Types
 
-​
-
-Types
-
-### 
-
-​
-
-Boolean
+### Boolean
 
 This shows an on/off toggle.
     
@@ -186,11 +154,7 @@ This shows an on/off toggle.
     }
     
 
-### 
-
-​
-
-Text
+### Text
 
 This is freeform text.
     
@@ -206,11 +170,7 @@ This is freeform text.
     }
     
 
-### 
-
-​
-
-Number
+### Number
 
 This for entering numbers. The input always shows increment and decrement buttons. Supported `attrs` are `min`, `max`, `step` and `formatOptions`. `formatOptions` takes [`Intl.NumberFormatOptions`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Intl/NumberFormat/NumberFormat#options), so `maximumFractionDigits` controls how many decimal places are shown.
     
@@ -230,11 +190,7 @@ This for entering numbers. The input always shows increment and decrement button
     }
     
 
-### 
-
-​
-
-Slider
+### Slider
 
 This lets the user enter a number directly or via a slider. Supported `attrs` are `min`, `max` and `step`. Ranges are not supported.
     
@@ -255,11 +211,7 @@ This lets the user enter a number directly or via a slider. Supported `attrs` ar
     }
     
 
-### 
-
-​
-
-Combo
+### Combo
 
 This lets the user pick from a drop-down list of values. You can provide options either as a plain string or as an object with `text` and `value` fields. If you only provide a plain string, then it will be used for both. You can let the user search the list by supplying the `searchable: true` attribute. Groups and freeform text entry are not supported.
     
@@ -282,11 +234,7 @@ This lets the user pick from a drop-down list of values. You can provide options
     }
     
 
-### 
-
-​
-
-Color
+### Color
 
 This lets the user select a color from a color picker or type in a hex reference. Note that the format requires six full hex digits (or eight, with alpha). Three digit shorthand does not work.
     
@@ -302,11 +250,7 @@ This lets the user select a color from a color picker or type in a hex reference
     }
     
 
-### 
-
-​
-
-Image
+### Image
 
 This lets the user upload an image. The setting will be saved as a [data URL](https://developer.mozilla.org/en-US/docs/Web/URI/Schemes/data).
     
@@ -321,11 +265,7 @@ This lets the user upload an image. The setting will be saved as a [data URL](ht
     }
     
 
-### 
-
-​
-
-Hidden
+### Hidden
 
 Hidden settings aren’t displayed in the settings panel, but you can read and write to them from your code.
     
@@ -337,17 +277,9 @@ Hidden settings aren’t displayed in the settings panel, but you can read and w
     }
     
 
-## 
+## Other
 
-​
-
-Other
-
-### 
-
-​
-
-Categories
+### Categories
 
 You can specify the categorisation of your setting separately to the `id`. This means you can change the categorisation and naming without changing the `id` and losing the values that have already been set by users.
     
@@ -361,11 +293,7 @@ You can specify the categorisation of your setting separately to the `id`. This 
     }
     
 
-### 
-
-​
-
-Tooltips
+### Tooltips
 
 You can add extra contextual help with the `tooltip` field. This adds a small ℹ︎ icon after the field name that will show the help text when the user hovers over it.
     
@@ -385,4 +313,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_settings.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_settings)
 
-[Comfy Objects](https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking)[Dialog API](https://docs.comfy.org/custom-nodes/js/javascript_dialog)
+[Comfy objects](https://docs.comfy.org/custom-nodes/js/javascript_objects_and_hijacking)[Dialog API](https://docs.comfy.org/custom-nodes/js/javascript_dialog)

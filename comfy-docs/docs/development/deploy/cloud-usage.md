@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-usage/
 title: Usage and Limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:10.052215+00:00
+fetched_at: 2026-11-23T19:03:22.872710+00:00
 ---
 
 # Usage and Limits - ComfyUI
@@ -16,6 +16,9 @@ Back to top
   * Credits and usage
   * Concurrency limits
   * Runtime and queue limits
+  * Deployment billing
+    * Am I charged for storing Builds that are not deployed?
+    * How are always-warm workers billed?
   * Existing v1 integrations
   * Next steps
 
@@ -27,25 +30,17 @@ Comfy Cloud
 
 Copy pageCopy page
 
-Understand Comfy Cloud credits, concurrent jobs, and the limits that apply when running workflows through the SDK.
+Comfy Cloud credits, concurrent jobs, runtime limits, and how custom Build deployments bill GPU time and model storage.
 
 Copy pageCopy page
 
 Workflows submitted through the Comfy Cloud API use the same credits and concurrency limits as other Cloud workflows.
 
-## 
-
-​
-
-Credits and usage
+## Credits and usage
 
 API requests draw from the same monthly credit allocation as the Comfy Cloud web UI. There is no separate API credit pool. Each tier’s included credits, top-up options, and per-workflow runtime caps apply to API jobs in the same way as UI jobs. See the [pricing page](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=cloud-api) for monthly credit amounts and top-up options. You can purchase top-ups from your account dashboard.
 
-## 
-
-​
-
-Concurrency limits
+## Concurrency limits
 
 You can submit multiple workflows without waiting for previous jobs to complete. Jobs run in parallel up to your subscription tier’s limit:
 
@@ -59,11 +54,7 @@ Team plans run more concurrent workflows per member than Pro. Check [platform.co
 
 Running more than one job at a time is only supported through the API. The Comfy Cloud UI runs one workflow at a time per person, and workflows queued in the editor run in order. See the [pricing plans](https://www.comfy.org/cloud/pricing?utm_source=docs&utm_campaign=cloud-api) for subscription details.
 
-## 
-
-​
-
-Runtime and queue limits
+## Runtime and queue limits
 
 Every Cloud workflow has a maximum runtime. A job that runs past the limit is cancelled automatically:
 
@@ -75,21 +66,31 @@ Pro| 1 hour
   
 You can have up to 100 workflows queued at once. To raise a Team concurrency limit, [contact support](https://support.comfy.org/).
 
-## 
+## Deployment billing
 
-​
+A [deployment](https://docs.comfy.org/development/serverless/overview) of a custom Build bills GPU time for its workers and storage for its models, from Comfy Credits.
 
-Existing v1 integrations
+### Am I charged for storing Builds that are not deployed?
+
+No. Builds and their versions are stored at no charge. Storage billing starts when you deploy:
+
+  * When you deploy a version, Comfy Cloud copies its models onto network storage that the deployment’s workers share. Comfy Cloud bills the storage per GB per month for as long as a deployment of the Build exists in that region, including while the deployment is stopped. Models a job uses from your [workspace library](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model) aren’t copied there. The worker downloads them for the job.
+  * Local disk on each worker adds no charge beyond the GPU rate.
+  * Deleting a deployment releases its compute. Billing for the network storage ends when you delete the last deployment that uses it.
+
+For storage and GPU rates, open [**Limits**](https://platform.comfy.org/settings/limits) on the Developer Platform and check **Deployment pricing**. The deploy dialog’s **Estimated cost** panel also shows the GPU time and model storage for a deployment.
+
+### How are always-warm workers billed?
+
+[Always-warm workers](https://docs.comfy.org/development/serverless/overview#scale-the-workers) (`--min` in comfy-cli) bill GPU time for as long as they run, whether or not they process jobs. Workers above that number, up to **Max workers** (`--max`), start when jobs arrive. They bill GPU time from the moment they start, through their jobs, and for the idle time after their last job before they’re released. By default, a worker stays up for 3 minutes after its last job. You can set that time, from 30 seconds to 20 minutes, in **Keep worker up after a job** when you create the deployment on the Developer Platform. With `0` always-warm workers, GPU billing stops once that idle time ends and every worker is released. The next job waits while a GPU starts. If your workspace runs out of credits, its deployments stop. For GPU rates, open [**Limits**](https://platform.comfy.org/settings/limits) on the Developer Platform and check **Deployment pricing**. Rates are per worker, for each hour it runs.
+
+## Existing v1 integrations
 
 The deprecated [v1 Cloud API](https://docs.comfy.org/development/cloud/overview) also runs against Comfy Cloud. Use it for existing integrations or Cloud capabilities not yet available in [Comfy API v2](https://docs.comfy.org/api-reference/v2/overview). Runnable examples are in the deprecated [Cloud API Reference](https://docs.comfy.org/development/cloud/api-reference).
 
-## 
+## Next steps
 
-​
-
-Next steps
-
-## Comfy Cloud Quickstart
+## Deploy on Comfy Cloud
 
 Set up the SDK and run your first Cloud workflow.
 
@@ -99,4 +100,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/deploy/cloud-usage.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/deploy/cloud-usage)
 
-[Quickstart](https://docs.comfy.org/development/deploy/cloud)[Hosting options](https://docs.comfy.org/development/deploy/self-hosting)
+[Manage Deployments](https://docs.comfy.org/development/serverless/overview)[Hosting options](https://docs.comfy.org/development/deploy/self-hosting)

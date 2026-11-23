@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/installation/install_custom_node/
-title: How to Install Custom Nodes in ComfyUI - ComfyUI
+title: ComfyUI Custom Nodes: Install With Manager, Git, or ZIP - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:07:58.060169+00:00
+fetched_at: 2026-11-23T19:03:23.367313+00:00
 ---
 
-# How to Install Custom Nodes in ComfyUI - ComfyUI
+# ComfyUI Custom Nodes: Install With Manager, Git, or ZIP - ComfyUI
 
 > Source: https://docs.comfy.org/installation/install_custom_node/
 
@@ -23,11 +23,11 @@ Back to top
 
 Install Custom Nodes
 
-# How to Install Custom Nodes in ComfyUI
+# ComfyUI Custom Nodes: Install With Manager, Git, or ZIP
 
 Copy pageCopy page
 
-Install custom nodes in ComfyUI with ComfyUI Manager, git clone, or a ZIP download, and install their Python dependencies safely.
+Add custom nodes with ComfyUI Manager, a git clone, or a ZIP download, then install the Python dependencies so the nodes load without errors.
 
 Copy pageCopy page
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/
-title: About Panel Badges - ComfyUI
+title: ComfyUI About Panel Badges API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:51.440130+00:00
+fetched_at: 2026-11-23T19:03:25.658302+00:00
 ---
 
-# About Panel Badges - ComfyUI
+# ComfyUI About Panel Badges API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/
 
@@ -22,7 +22,7 @@ Back to top
 
 JavaScript (UI)
 
-# About Panel Badges
+# ComfyUI About Panel Badges API
 
 Copy pageCopy page
 
@@ -32,11 +32,7 @@ Copy pageCopy page
 
 The About Panel Badges API allows extensions to add custom badges to the ComfyUI about page. These badges can display information about your extension and contain links to documentation, source code, or other resources.
 
-## 
-
-​
-
-Basic Usage
+## Basic Usage
     
     
     app.registerExtension({
@@ -56,11 +52,7 @@ Basic Usage
     });
     
 
-## 
-
-​
-
-Badge Configuration
+## Badge Configuration
 
 Each badge requires all of these properties:
     
@@ -72,11 +64,7 @@ Each badge requires all of these properties:
     }
     
 
-## 
-
-​
-
-Icon Options
+## Icon Options
 
 Badge icons use [Lucide](https://lucide.dev/icons/) icon classes in the form `icon-[lucide--<icon-name>]`. Here are some commonly used icons:
 
@@ -89,11 +77,7 @@ Badge icons use [Lucide](https://lucide.dev/icons/) icon classes in the form `ic
 
 The frontend generates these classes when it is built, so only the Lucide icons that the frontend itself uses are available. If an icon does not render, pick another icon, or define your own icon class in a stylesheet that your extension loads. PrimeIcons classes such as `pi pi-file` still render for now, but they are being phased out. Don’t use them in new code. See [PrimeVue removal migration](https://docs.comfy.org/custom-nodes/js/primevue-removal-migration).
 
-## 
-
-​
-
-Example
+## Example
     
     
     app.registerExtension({
@@ -126,4 +110,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_about_panel_badges.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_about_panel_badges)
 
-[Toast API](https://docs.comfy.org/custom-nodes/js/javascript_toast)[Bottom Panel Tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)
+[Toast API](https://docs.comfy.org/custom-nodes/js/javascript_toast)[Bottom panel tabs](https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs)

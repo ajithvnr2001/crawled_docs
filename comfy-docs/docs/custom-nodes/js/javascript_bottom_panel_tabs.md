@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs/
-title: Bottom Panel Tabs - ComfyUI
+title: ComfyUI Bottom Panel Tabs API - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:49:37.889341+00:00
+fetched_at: 2026-11-23T19:03:25.803345+00:00
 ---
 
-# Bottom Panel Tabs - ComfyUI
+# ComfyUI Bottom Panel Tabs API - ComfyUI
 
 > Source: https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs/
 
 ## On this page
+
+Back to top
 
   * Basic Usage
   * Tab Configuration
@@ -21,7 +23,7 @@ fetched_at: 2026-10-17T10:49:37.889341+00:00
 
 JavaScript (UI)
 
-# Bottom Panel Tabs
+# ComfyUI Bottom Panel Tabs API
 
 Copy pageCopy page
 
@@ -31,11 +33,7 @@ Copy pageCopy page
 
 The Bottom Panel Tabs API allows extensions to add custom tabs to the bottom panel of the ComfyUI interface. This is useful for adding features like logs, debugging tools, or custom panels.
 
-## 
-
-​
-
-Basic Usage
+## Basic Usage
     
     
     app.registerExtension({
@@ -53,11 +51,7 @@ Basic Usage
     });
     
 
-## 
-
-​
-
-Tab Configuration
+## Tab Configuration
 
 Each tab requires an `id`, `title`, and `type`, along with a render function:
     
@@ -73,11 +67,7 @@ Each tab requires an `id`, `title`, and `type`, along with a render function:
 
 The `render` function receives a DOM element where you should insert your tab’s content.
 
-## 
-
-​
-
-Interactive Elements
+## Interactive Elements
 
 You can add interactive elements like buttons:
     
@@ -106,11 +96,7 @@ You can add interactive elements like buttons:
     });
     
 
-## 
-
-​
-
-Using React Components
+## Using React Components
 
 You can mount React components in bottom panel tabs:
     
@@ -157,11 +143,7 @@ You can mount React components in bottom panel tabs:
     });
     
 
-## 
-
-​
-
-Standalone Registration
+## Standalone Registration
 
 You can also register tabs outside of `registerExtension`:
     
@@ -182,26 +164,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/custom-nodes/js/javascript_bottom_panel_tabs.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/custom-nodes/js/javascript_bottom_panel_tabs)
 
-[About Panel BadgesPrevious](https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges)[Sidebar TabsNext](https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[About panel badges](https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges)[Sidebar tabs](https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs)

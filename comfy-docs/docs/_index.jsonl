@@ -1182,10 +1182,10 @@
 {"url": "https://docs.comfy.org/community/contributing/", "file": "community/contributing.md", "title": "Contributing to ComfyUI: Workflows, Custom Nodes, and Docs - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/built-in-nodes/partner-node/image/luma/luma-image-to-image/", "file": "built-in-nodes/partner-node/image/luma/luma-image-to-image.md", "title": "Luma Image to Image - ComfyUI Built-in Node Documentation - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/datatypes/", "file": "custom-nodes/backend/datatypes.md", "title": "ComfyUI Custom Node Datatypes - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/community/links/", "file": "community/links.md", "title": "Community links - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/community/links/", "file": "community/links.md", "title": "ComfyUI Community Links: Discord, Forum, and Support - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/images_and_masks/", "file": "custom-nodes/backend/images_and_masks.md", "title": "Images, Latents, and Masks - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/comfy-cli/troubleshooting/", "file": "comfy-cli/troubleshooting.md", "title": "Comfy CLI Troubleshooting: Setup and Install Fixes - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/backend/expansion/", "file": "custom-nodes/backend/expansion.md", "title": "Node Expansion - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/backend/expansion/", "file": "custom-nodes/backend/expansion.md", "title": "ComfyUI Node Expansion: Return Subgraphs From a Node - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/lazy_evaluation/", "file": "custom-nodes/backend/lazy_evaluation.md", "title": "ComfyUI Lazy Evaluation for Custom Nodes - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/lifecycle/", "file": "custom-nodes/backend/lifecycle.md", "title": "ComfyUI Custom Node Lifecycle - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/lists/", "file": "custom-nodes/backend/lists.md", "title": "ComfyUI Data Lists and List Processing - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1194,10 +1194,10 @@
 {"url": "https://docs.comfy.org/custom-nodes/backend/server_overview/", "file": "custom-nodes/backend/server_overview.md", "title": "Custom Node Properties - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/backend/tensors/", "file": "custom-nodes/backend/tensors.md", "title": "torch.Tensor in ComfyUI: Shapes and Operations - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/i18n/", "file": "custom-nodes/i18n.md", "title": "ComfyUI Custom Nodes i18n Support - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/backend/node-replacement/", "file": "custom-nodes/backend/node-replacement.md", "title": "Node replacement - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/backend/node-replacement/", "file": "custom-nodes/backend/node-replacement.md", "title": "ComfyUI Node Replacement: Migrate Deprecated Nodes - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/help_page/", "file": "custom-nodes/help_page.md", "title": "ComfyUI Custom Node Docs: Markdown Help Pages - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/", "file": "custom-nodes/js/javascript_about_panel_badges.md", "title": "About Panel Badges - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs/", "file": "custom-nodes/js/javascript_bottom_panel_tabs.md", "title": "Bottom Panel Tabs - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/js/javascript_about_panel_badges/", "file": "custom-nodes/js/javascript_about_panel_badges.md", "title": "ComfyUI About Panel Badges API - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/js/javascript_bottom_panel_tabs/", "file": "custom-nodes/js/javascript_bottom_panel_tabs.md", "title": "ComfyUI Bottom Panel Tabs API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/javascript_dialog/", "file": "custom-nodes/js/javascript_dialog.md", "title": "ComfyUI Dialog API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/intro/", "file": "custom-nodes/intro.md", "title": "ComfyUI Custom Node Development: Build, Extend, and Publish - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/javascript_examples/", "file": "custom-nodes/js/javascript_examples.md", "title": "Custom Node JavaScript Examples: Menus, Events, and Hooks - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1207,8 +1207,8 @@
 {"url": "https://docs.comfy.org/custom-nodes/js/javascript_overview/", "file": "custom-nodes/js/javascript_overview.md", "title": "Javascript Extensions - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/javascript_selection_toolbox/", "file": "custom-nodes/js/javascript_selection_toolbox.md", "title": "ComfyUI Selection Toolbox API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/context-menu-migration/", "file": "custom-nodes/js/context-menu-migration.md", "title": "ComfyUI Context Menu API Migration: Canvas and Node Menus - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/", "file": "custom-nodes/js/javascript_sidebar_tabs.md", "title": "Sidebar Tabs - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/custom-nodes/js/javascript_settings/", "file": "custom-nodes/js/javascript_settings.md", "title": "Settings API - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/js/javascript_sidebar_tabs/", "file": "custom-nodes/js/javascript_sidebar_tabs.md", "title": "ComfyUI Sidebar Tabs API - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/custom-nodes/js/javascript_settings/", "file": "custom-nodes/js/javascript_settings.md", "title": "ComfyUI Extension Settings API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/javascript_toast/", "file": "custom-nodes/js/javascript_toast.md", "title": "ComfyUI Toast API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/overview/", "file": "custom-nodes/overview.md", "title": "ComfyUI Custom Node Types and Architecture - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/custom-nodes/js/subgraphs/", "file": "custom-nodes/js/subgraphs.md", "title": "ComfyUI Subgraphs - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1465,7 +1465,7 @@
 {"url": "https://docs.comfy.org/development/comfyui-server/comms_routes/", "file": "development/comfyui-server/comms_routes.md", "title": "ComfyUI Server Routes (HTTP and WebSocket API) - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/comfyui-server/execution_model_inversion_guide/", "file": "development/comfyui-server/execution_model_inversion_guide.md", "title": "Execution Model Inversion Guide - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/deploy/cloud-usage/", "file": "development/deploy/cloud-usage.md", "title": "Usage and Limits - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/development/deploy/cloud/", "file": "development/deploy/cloud.md", "title": "Comfy Cloud Quickstart - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/development/deploy/cloud/", "file": "development/deploy/cloud.md", "title": "Deploy on Comfy Cloud - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/comfyui-server/startup-flags/", "file": "development/comfyui-server/startup-flags.md", "title": "ComfyUI Startup Flags: Command-Line Reference - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/deploy/overview/", "file": "development/deploy/overview.md", "title": "Deploying ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/deploy/self-hosting/", "file": "development/deploy/self-hosting.md", "title": "Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1479,7 +1479,7 @@
 {"url": "https://docs.comfy.org/installation/comfyui_portable_windows/", "file": "installation/comfyui_portable_windows.md", "title": "ComfyUI Portable for Windows - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/faq/", "file": "installation/desktop/faq.md", "title": "Comfy Desktop FAQ - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/linux/", "file": "installation/desktop/linux.md", "title": "Comfy Desktop on Linux - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/development/serverless/overview/", "file": "development/serverless/overview.md", "title": "Comfy API Deployment: Builds, Releases, and Endpoints - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/development/serverless/overview/", "file": "development/serverless/overview.md", "title": "Manage Comfy Cloud Deployments and Build Versions - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/development/samples/overview/", "file": "development/samples/overview.md", "title": "Comfy API and Router examples - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/overview/", "file": "installation/desktop/overview.md", "title": "Comfy Desktop Overview - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/macos/", "file": "installation/desktop/macos.md", "title": "Comfy Desktop for macOS - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1493,10 +1493,10 @@
 {"url": "https://docs.comfy.org/installation/desktop/usage/settings/", "file": "installation/desktop/usage/settings.md", "title": "Comfy Desktop Settings - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds/", "file": "installation/desktop/usage/workspaces-and-builds.md", "title": "Workspaces and ComfyUI Builds in Comfy Desktop - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/desktop/windows/", "file": "installation/desktop/windows.md", "title": "Comfy Desktop for Windows - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/installation/install_custom_node/", "file": "installation/install_custom_node.md", "title": "How to Install Custom Nodes in ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/installation/install_custom_node/", "file": "installation/install_custom_node.md", "title": "ComfyUI Custom Nodes: Install With Manager, Git, or ZIP - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/manual_install/", "file": "installation/manual_install.md", "title": "Install ComfyUI Manually (Windows, macOS, Linux) - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/installation/system_requirements/", "file": "installation/system_requirements.md", "title": "ComfyUI System Requirements: OS, Python, and GPU - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/installation/update_comfyui/", "file": "installation/update_comfyui.md", "title": "How to Update ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/installation/update_comfyui/", "file": "installation/update_comfyui.md", "title": "ComfyUI Updates: Portable Scripts, Desktop, and Git Pull - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/app-mode/", "file": "interface/app-mode.md", "title": "ComfyUI APP Mode: Custom Input and Output Interfaces - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/appearance/", "file": "interface/appearance.md", "title": "ComfyUI Appearance: Themes and Custom CSS - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/apps/", "file": "interface/apps.md", "title": "Apps Sidebar - Packaged Workflow Apps - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1513,7 +1513,7 @@
 {"url": "https://docs.comfy.org/interface/help-center/", "file": "interface/help-center.md", "title": "ComfyUI Help Center: Release Notes, Support, and Feedback - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/features/template/", "file": "interface/features/template.md", "title": "Templates - ComfyUI Built-in Workflow Templates - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/model-library/", "file": "interface/model-library.md", "title": "Model Library - Browse Local Models - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/interface/overview/", "file": "interface/overview.md", "title": "Interface Overview - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/interface/overview/", "file": "interface/overview.md", "title": "ComfyUI Interface Overview: Sidebar, Canvas, and Panels - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/node-library/", "file": "interface/node-library.md", "title": "Node Library - Browse and Add Nodes - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/right-side-panel/", "file": "interface/right-side-panel.md", "title": "Right Side Panel: Node Properties and Errors - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/nodes-2/", "file": "interface/nodes-2.md", "title": "ComfyUI Nodes 2.0 - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1525,7 +1525,7 @@
 {"url": "https://docs.comfy.org/interface/settings/extension/", "file": "interface/settings/extension.md", "title": "Extension Settings - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/shortcuts/", "file": "interface/shortcuts.md", "title": "Keyboard and Mouse Shortcuts - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/settings/overview/", "file": "interface/settings/overview.md", "title": "ComfyUI Settings Overview - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/interface/user/", "file": "interface/user.md", "title": "Account Management - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/interface/user/", "file": "interface/user.md", "title": "ComfyUI Account Login: Email, Google, GitHub, and API Key - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/ja/", "file": "ja.md", "title": "ComfyUI \u516c\u5f0f\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8 - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/interface/workflows/", "file": "interface/workflows.md", "title": "Workflows Sidebar - Saved and Open Graphs - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/manager/install/", "file": "manager/install.md", "title": "ComfyUI-Manager Installation - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -1578,7 +1578,7 @@
 {"url": "https://docs.comfy.org/registry/publishing/", "file": "registry/publishing.md", "title": "Publish Custom Nodes to the Comfy Registry - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/registry/standards/", "file": "registry/standards.md", "title": "Comfy Registry Node Quality and Security Standards - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/specs/nodedef_json/", "file": "specs/nodedef_json.md", "title": "Node Definition JSON - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/registry/specifications/", "file": "registry/specifications.md", "title": "pyproject.toml - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/registry/specifications/", "file": "registry/specifications.md", "title": "ComfyUI Registry: pyproject.toml Spec for Custom Nodes - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/specs/workflow_json/", "file": "specs/workflow_json.md", "title": "Workflow JSON - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/specs/workflow_json_0.4", "file": "specs/workflow_json_0.4.md", "title": "Workflow JSON 0.4 - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/specs/nodedef_json_1_0/", "file": "specs/nodedef_json_1_0.md", "title": "Node Definition JSON 1.0 - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -2240,11 +2240,11 @@
 {"url": "https://docs.comfy.org/es/installation/desktop/usage/overview/", "file": "es/installation/desktop/usage/overview.md", "title": "C\u00f3mo usar Comfy Desktop - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/installation/desktop/usage/performance-tests/", "file": "es/installation/desktop/usage/performance-tests.md", "title": "Pruebas de rendimiento y benchmarks - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/installation/desktop/usage/snapshots/", "file": "es/installation/desktop/usage/snapshots.md", "title": "Instant\u00e1neas de Comfy Desktop - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/installation/install_custom_node/", "file": "es/installation/install_custom_node.md", "title": "C\u00f3mo instalar nodos personalizados en ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/installation/install_custom_node/", "file": "es/installation/install_custom_node.md", "title": "Nodos personalizados en ComfyUI: instalar con Manager, Git o ZIP - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/installation/desktop/windows/", "file": "es/installation/desktop/windows.md", "title": "Comfy Desktop para Windows - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/installation/manual_install/", "file": "es/installation/manual_install.md", "title": "Instalar ComfyUI manualmente (Windows, macOS, Linux) - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/manager/configuration/", "file": "es/manager/configuration.md", "title": "Configuraci\u00f3n de ComfyUI-Manager - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/installation/update_comfyui/", "file": "es/installation/update_comfyui.md", "title": "C\u00f3mo actualizar ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/installation/update_comfyui/", "file": "es/installation/update_comfyui.md", "title": "Actualizar ComfyUI: Portable, Desktop e instalaci\u00f3n manual - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/installation/system_requirements/", "file": "es/installation/system_requirements.md", "title": "Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/manager/legacy-ui/", "file": "es/manager/legacy-ui.md", "title": "Administrar nodos personalizados con ComfyUI-Manager (interfaz cl\u00e1sica) - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/manager/overview/", "file": "es/manager/overview.md", "title": "Descripci\u00f3n general de ComfyUI-Manager - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -3405,7 +3405,7 @@
 {"url": "https://docs.comfy.org/es/cloud/workspace/", "file": "es/cloud/workspace.md", "title": "Espacios de trabajo de Comfy Cloud: equipos y miembros - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/cloud/share-workflow/", "file": "es/cloud/share-workflow.md", "title": "Compartir flujos de trabajo - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/community/contributing/", "file": "es/community/contributing.md", "title": "Contribuir en ComfyUI: flujos de trabajo, nodos y documentaci\u00f3n - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/community/links/", "file": "es/community/links.md", "title": "Enlaces de la comunidad - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/community/links/", "file": "es/community/links.md", "title": "Enlaces de la comunidad de ComfyUI: Discord, foro y soporte - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/comfy-cli/troubleshooting/", "file": "es/comfy-cli/troubleshooting.md", "title": "Soluci\u00f3n de problemas de Comfy CLI: instalaci\u00f3n y entorno - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/comfy-cli/reference/", "file": "es/comfy-cli/reference.md", "title": "Referencia de comandos de Comfy CLI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/datatypes/", "file": "es/custom-nodes/backend/datatypes.md", "title": "Tipos de datos de nodos personalizados de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -3413,20 +3413,20 @@
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/lifecycle/", "file": "es/custom-nodes/backend/lifecycle.md", "title": "Ciclo de vida de los nodos personalizados de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/lists/", "file": "es/custom-nodes/backend/lists.md", "title": "Listas de datos y procesamiento de listas en ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/lazy_evaluation/", "file": "es/custom-nodes/backend/lazy_evaluation.md", "title": "Evaluaci\u00f3n diferida en nodos personalizados de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/backend/expansion/", "file": "es/custom-nodes/backend/expansion.md", "title": "Expansi\u00f3n de nodos - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/backend/expansion/", "file": "es/custom-nodes/backend/expansion.md", "title": "Expansi\u00f3n de nodos en ComfyUI: devolver subgrafos - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/intro/", "file": "es/custom-nodes/intro.md", "title": "Nodos personalizados en ComfyUI: gu\u00eda de desarrollo - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/i18n/", "file": "es/custom-nodes/i18n.md", "title": "Soporte de i18n para nodos personalizados de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/tensors/", "file": "es/custom-nodes/backend/tensors.md", "title": "torch.Tensor en ComfyUI: formas y operaciones - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/backend/node-replacement/", "file": "es/custom-nodes/backend/node-replacement.md", "title": "Reemplazo de nodos - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/backend/node-replacement/", "file": "es/custom-nodes/backend/node-replacement.md", "title": "Reemplazo de nodos en ComfyUI: migrar nodos obsoletos - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/more_on_inputs/", "file": "es/custom-nodes/backend/more_on_inputs.md", "title": "Entradas ocultas y flexibles - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges/", "file": "es/custom-nodes/js/javascript_about_panel_badges.md", "title": "Insignias del panel Acerca de - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges/", "file": "es/custom-nodes/js/javascript_about_panel_badges.md", "title": "Insignias del panel Acerca de en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_dialog/", "file": "es/custom-nodes/js/javascript_dialog.md", "title": "API de di\u00e1logos de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_commands_keybindings/", "file": "es/custom-nodes/js/javascript_commands_keybindings.md", "title": "Comandos y atajos de teclado en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_examples/", "file": "es/custom-nodes/js/javascript_examples.md", "title": "JavaScript para nodos personalizados: men\u00fas, eventos y hooks - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/context-menu-migration/", "file": "es/custom-nodes/js/context-menu-migration.md", "title": "Migrar a la API del men\u00fa contextual en ComfyUI: lienzo y nodos - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_hooks/", "file": "es/custom-nodes/js/javascript_hooks.md", "title": "Ganchos de JavaScript de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_settings/", "file": "es/custom-nodes/js/javascript_settings.md", "title": "API de configuraciones - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/", "file": "es/custom-nodes/js/javascript_sidebar_tabs.md", "title": "Pesta\u00f1as de la barra lateral - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_settings/", "file": "es/custom-nodes/js/javascript_settings.md", "title": "Configuraciones en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_sidebar_tabs/", "file": "es/custom-nodes/js/javascript_sidebar_tabs.md", "title": "Pesta\u00f1as de la barra lateral en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_objects_and_hijacking/", "file": "es/custom-nodes/js/javascript_objects_and_hijacking.md", "title": "Objetos del frontend de ComfyUI: LiteGraph, ComfyApp y ComfyNode - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_selection_toolbox/", "file": "es/custom-nodes/js/javascript_selection_toolbox.md", "title": "Cuadro de herramientas de selecci\u00f3n en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_topbar_menu/", "file": "es/custom-nodes/js/javascript_topbar_menu.md", "title": "API del men\u00fa de la barra superior de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -3718,7 +3718,7 @@
 {"url": "https://docs.comfy.org/es/interface/job-history/", "file": "es/interface/job-history.md", "title": "Historial de trabajos - Cola y ejecuciones anteriores - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/help-center/", "file": "es/interface/help-center.md", "title": "Centro de ayuda de ComfyUI: notas de la versi\u00f3n, soporte y retroalimentaci\u00f3n - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/layer-editor/", "file": "es/interface/layer-editor.md", "title": "Editor de capas (Compositor): combina im\u00e1genes como capas en ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/interface/overview/", "file": "es/interface/overview.md", "title": "Resumen de la interfaz - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/interface/overview/", "file": "es/interface/overview.md", "title": "Interfaz de ComfyUI: barra lateral, lienzo y paneles - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/settings/3d/", "file": "es/interface/settings/3d.md", "title": "Configuraciones 3D de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/right-side-panel/", "file": "es/interface/right-side-panel.md", "title": "Panel derecho: Propiedades y errores de los nodos - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/node-library/", "file": "es/interface/node-library.md", "title": "Biblioteca de nodos - Explorar y agregar nodos - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -3729,7 +3729,7 @@
 {"url": "https://docs.comfy.org/es/interface/settings/about/", "file": "es/interface/settings/about.md", "title": "P\u00e1gina Acerca de ComfyUI: insignias de versi\u00f3n e informaci\u00f3n del sistema - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/settings/lite-graph/", "file": "es/interface/settings/lite-graph.md", "title": "Configuraciones de ComfyUI LiteGraph (Lienzo) - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/shortcuts/", "file": "es/interface/shortcuts.md", "title": "Atajos de teclado y rat\u00f3n - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/interface/user/", "file": "es/interface/user.md", "title": "Gesti\u00f3n de cuenta - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/interface/user/", "file": "es/interface/user.md", "title": "Inicio de sesi\u00f3n en ComfyUI: correo, Google, GitHub y clave API - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/settings/mask-editor/", "file": "es/interface/settings/mask-editor.md", "title": "Configuraciones del Editor de M\u00e1scara de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/interface/settings/overview/", "file": "es/interface/settings/overview.md", "title": "Descripci\u00f3n general de las configuraciones de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/registry/api-reference/api-nodes/post-proxyviduextend/", "file": "es/registry/api-reference/api-nodes/post-proxyviduextend.md", "title": "Post proxyviduextend - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -3810,7 +3810,7 @@
 {"url": "https://docs.comfy.org/es/registry/overview/", "file": "es/registry/overview.md", "title": "Comfy Registry: publica y versiona nodos personalizados - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/support/contact-support/", "file": "es/support/contact-support.md", "title": "Contactar soporte de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/registry/standards/", "file": "es/registry/standards.md", "title": "Est\u00e1ndares de calidad y seguridad de nodos del Registro de Comfy - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/registry/specifications/", "file": "es/registry/specifications.md", "title": "pyproject.toml - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/registry/specifications/", "file": "es/registry/specifications.md", "title": "ComfyUI Registry: pyproject.toml para nodos personalizados - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/specs/workflow_json/", "file": "es/specs/workflow_json.md", "title": "Workflow JSON - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/support/payment/payment-history/", "file": "es/support/payment/payment-history.md", "title": "Ver el historial de pagos de Comfy Cloud - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/support/payment/invoice-information/", "file": "es/support/payment/invoice-information.md", "title": "Informaci\u00f3n de facturas de Comfy Cloud - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -4104,7 +4104,7 @@
 {"url": "https://docs.comfy.org/es/custom-nodes/help_page/", "file": "es/custom-nodes/help_page.md", "title": "Documentaci\u00f3n de nodos personalizados en ComfyUI: p\u00e1ginas Markdown - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/snippets/", "file": "es/custom-nodes/backend/snippets.md", "title": "Fragmentos de Python para nodos de ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/backend/server_overview/", "file": "es/custom-nodes/backend/server_overview.md", "title": "Propiedades de un nodo personalizado - ComfyUI", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs/", "file": "es/custom-nodes/js/javascript_bottom_panel_tabs.md", "title": "Pesta\u00f1as del panel inferior - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_bottom_panel_tabs/", "file": "es/custom-nodes/js/javascript_bottom_panel_tabs.md", "title": "Pesta\u00f1as del panel inferior en ComfyUI: API de extensiones - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/custom-nodes/js/javascript_overview/", "file": "es/custom-nodes/js/javascript_overview.md", "title": "Extensiones de JavaScript - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/specs/nodedef_json_1_0/", "file": "es/specs/nodedef_json_1_0.md", "title": "JSON de definici\u00f3n de nodo 1.0 - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/development/comfyui-server/comms_messages/", "file": "es/development/comfyui-server/comms_messages.md", "title": "Mensajes del servidor de ComfyUI (API WebSocket) - ComfyUI", "method": "scrapling+scrapegraph"}
@@ -4752,3 +4752,19 @@
 {"url": "https://docs.comfy.org/es/built-in-nodes/TripoSmartUVNode/", "file": "es/built-in-nodes/TripoSmartUVNode.md", "title": "Tripo: UV inteligente - ComfyUI Built-in Node Documentation - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/es/tutorials/utility/wevisone-vl/", "file": "es/tutorials/utility/wevisone-vl.md", "title": "WeVisOne-VL en ComfyUI: segmentaci\u00f3n y detecci\u00f3n con indicaciones de texto - ComfyUI", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.comfy.org/tutorials/utility/wevisone-vl/", "file": "tutorials/utility/wevisone-vl.md", "title": "WeVisOne-VL in ComfyUI: Text-Prompted Segmentation and Detection - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/development/comfy-router/models/meshy/relief/code/", "file": "development/comfy-router/models/meshy/relief/code.md", "title": "Use Relief with Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/development/comfy-router/models/meshy/meshy-n1/code/", "file": "development/comfy-router/models/meshy/meshy-n1/code.md", "title": "Use Meshy N1 with Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/freepik/ai-image-style-transfer/code/", "file": "es/development/comfy-router/models/freepik/ai-image-style-transfer/code.md", "title": "Usa AI Image Style Transfer con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-kling-4-0/code/", "file": "es/development/comfy-router/models/kelly/kelly-kling-4-0/code.md", "title": "Usar Kelly Kling 4.0 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/freepik/ai-image-relight/code/", "file": "es/development/comfy-router/models/freepik/ai-image-relight/code.md", "title": "Usa AI Image Relight con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-seedance-2-0/code/", "file": "es/development/comfy-router/models/kelly/kelly-seedance-2-0/code.md", "title": "Usa Kelly Seedance 2.0 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/ideogram/ideogram-4-6/code/", "file": "es/development/comfy-router/models/ideogram/ideogram-4-6/code.md", "title": "Usa Ideogram 4.6 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/google/gemini-4-neon/code/", "file": "es/development/comfy-router/models/google/gemini-4-neon/code.md", "title": "Usa Gemini 4 Neon con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code/", "file": "es/development/comfy-router/models/kelly/kelly-seedance-2-0-fast/code.md", "title": "Usa Kelly Seedance 2.0 Fast con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/elevenlabs/eleven-sfx-v3/code/", "file": "es/development/comfy-router/models/elevenlabs/eleven-sfx-v3/code.md", "title": "Usa Eleven Sfx V3 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/tutorials/basic/batch-generation/", "file": "es/tutorials/basic/batch-generation.md", "title": "Generaci\u00f3n por lotes en ComfyUI - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-seedance-2-5/code/", "file": "es/development/comfy-router/models/kelly/kelly-seedance-2-5/code.md", "title": "Usa Kelly Seedance 2.5 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/typesafe/jev-1-13-0/code/", "file": "es/development/comfy-router/models/typesafe/jev-1-13-0/code.md", "title": "Usa Jev 1.13.0 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/tutorials/partner-nodes/kling/kling-image-4-0/", "file": "tutorials/partner-nodes/kling/kling-image-4-0.md", "title": "Kling Image 4.0 in ComfyUI: Text to Image, Image Edit, and Long Image - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/development/comfy-router/models/typesafe/jev-1-14-0/code/", "file": "es/development/comfy-router/models/typesafe/jev-1-14-0/code.md", "title": "Usa Jev 1.14.0 con Comfy Router - ComfyUI", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.comfy.org/es/tutorials/partner-nodes/kling/kling-image-4-0/", "file": "es/tutorials/partner-nodes/kling/kling-image-4-0.md", "title": "Kling Image 4.0 en ComfyUI: texto a imagen, edici\u00f3n de imagen y long image - ComfyUI", "method": "scrapling+scrapegraph"}

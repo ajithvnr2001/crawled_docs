@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/overview/
 title: Comfy Registry: publish and version custom nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:09.221356+00:00
+fetched_at: 2026-11-23T19:03:22.935354+00:00
 ---
 
 # Comfy Registry: publish and version custom nodes - ComfyUI
@@ -26,7 +26,7 @@ Package & Publish
 
 Copy pageCopy page
 
-Learn what the Comfy Registry is, why it’s used for node versioning and security, and how to start publishing custom nodes to ComfyUI-Manager.
+The Comfy Registry is the public custom node index behind ComfyUI-Manager, with semantic versioning, security scanning, and publishing guides.
 
 Copy pageCopy page
 

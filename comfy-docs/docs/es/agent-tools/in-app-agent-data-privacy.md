@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/agent-tools/in-app-agent-data-privacy/
 title: Datos y privacidad de Comfy Agent - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:01:21.913626+00:00
+fetched_at: 2026-11-23T19:03:25.708131+00:00
 ---
 
 # Datos y privacidad de Comfy Agent - ComfyUI
@@ -28,23 +28,15 @@ Comfy Agent
 
 Copiar páginaCopiar página
 
-Descubre qué usa Comfy Agent para responder y en qué se diferencian el uso local y en Cloud.
+Qué envía Comfy Agent al servicio de Comfy, dónde se guarda el historial en ComfyUI local y en Comfy Cloud, y cómo solicitar la eliminación.
 
 Copiar páginaCopiar página
 
-## 
-
-​
-
-En resumen
+## En resumen
 
 Comfy Agent usa tu mensaje, el flujo de trabajo seleccionado, los nodos seleccionados y los archivos adjuntos. Cuando trabajas con una instalación local de ComfyUI, el historial de chat se guarda en esa máquina. Tu mensaje y la información necesaria para responderlo se envían a través del servicio en línea de Comfy.
 
-## 
-
-​
-
-Qué usa el Agente
+## Qué usa el Agente
 
 Datos| Cómo ayudan  
 ---|---  
@@ -57,38 +49,22 @@ Habilidad personal| Proporciona instrucciones reutilizables.
   
 La [Política de privacidad](https://www.comfy.org/privacy-policy?utm_source=docs) y los [Términos de servicio](https://www.comfy.org/terms-of-service?utm_source=docs) rigen tu uso de Comfy.
 
-## 
-
-​
-
-Flujo de datos en Cloud y en local
+## Flujo de datos en Cloud y en local
 
 Dónde usas Comfy Agent| Qué sucede  
 ---|---  
 **Comfy Cloud**|  Comfy Cloud guarda conversaciones, flujos de trabajo y recursos. Tus mensajes se procesan mediante el servicio en línea de Comfy y los flujos de trabajo se ejecutan en GPU en la nube.  
 **ComfyUI local en Desktop**|  La instalación local guarda el historial de chat, los flujos de trabajo y los archivos. Tus mensajes y la información relevante del flujo de trabajo se procesan mediante el servicio en línea de Comfy. Los nodos del flujo de trabajo local se ejecutan en tu hardware; los Nodos asociados usan sus proveedores en línea.  
   
-## 
-
-​
-
-Historial de chat y sincronización
+## Historial de chat y sincronización
 
 Las conversaciones con el Agente de Cloud se guardan en Comfy Cloud. Las conversaciones con el Agente local se guardan en la máquina que ejecuta ComfyUI. Los dos historiales no se sincronizan. Esto depende de si usas Cloud o una instalación local, no de la ventana de la aplicación en la que lo abras.
 
-## 
-
-​
-
-Habilidades y orientación
+## Habilidades y orientación
 
 Las habilidades personales contienen instrucciones que creas para el Agente. Se guardan en tu cuenta y se usan cuando tu solicitud coincide con ellas o cuando las nombras. La orientación y las habilidades integradas del Agente para agentes de programación externos son independientes de tus habilidades personales del Agente.
 
-## 
-
-​
-
-Retención y eliminación
+## Retención y eliminación
 
 Para obtener detalles sobre la retención, consulta la [Política de privacidad](https://www.comfy.org/privacy-policy?utm_source=docs) y la [Retención de datos](https://docs.comfy.org/es/support/data-retention). Para solicitudes relacionadas con la cuenta o la eliminación de datos, escribe a [support@comfy.org](mailto:support@comfy.org).
 

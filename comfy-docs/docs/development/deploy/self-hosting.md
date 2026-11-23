@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/self-hosting/
 title: Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:07.036218+00:00
+fetched_at: 2026-11-23T19:03:22.364067+00:00
 ---
 
 # Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker - ComfyUI
@@ -20,7 +20,7 @@ Back to top
 
 
 
-Self-Hosting Options
+Self-Hosting
 
 # Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker
 
@@ -58,7 +58,7 @@ On these providers you typically start from a community template or image, then 
 
 These templates are community-maintained, not published or supported by the ComfyUI team. Review what a template installs before putting credentials or private models on it.
 
-If you want a managed version of this workflow, follow the [Comfy API Quickstart](https://docs.comfy.org/development/serverless/quickstart) to build and deploy it on the Developer Platform.
+If you want a managed version of this workflow, follow [Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds) to build and deploy it on Comfy Cloud.
 
 ## Community Docker images
 
@@ -84,4 +84,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/development/deploy/self-hosting.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/development/deploy/self-hosting)
 
-[Custom Builds](https://docs.comfy.org/development/deploy/cloud-custom-builds)[Server overview](https://docs.comfy.org/development/comfyui-server/comms_overview)
+[Usage and Limits](https://docs.comfy.org/development/deploy/cloud-usage)[Hosting options](https://docs.comfy.org/development/deploy/self-hosting)

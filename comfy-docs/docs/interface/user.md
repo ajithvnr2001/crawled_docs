@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/interface/user/
-title: Account Management - ComfyUI
+title: ComfyUI Account Login: Email, Google, GitHub, and API Key - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:35.257107+00:00
+fetched_at: 2026-11-23T19:03:23.531125+00:00
 ---
 
-# Account Management - ComfyUI
+# ComfyUI Account Login: Email, Google, GitHub, and API Key - ComfyUI
 
 > Source: https://docs.comfy.org/interface/user/
 
@@ -24,7 +24,7 @@ Back to top
 
 Account & credits
 
-# Account Management
+# ComfyUI Account Login: Email, Google, GitHub, and API Key
 
 Copy pageCopy page
 
@@ -43,21 +43,13 @@ Partner Nodes and Cloud billing need a signed-in ComfyUI account. Sign in from *
 
 We will provide relevant login requirements and explanations in this document.
 
-## 
-
-​
-
-ComfyUI Version Requirements
+## ComfyUI Version Requirements
 
 You may need to use at least [ComfyUI v0.3.0](https://github.com/Comfy-Org/ComfyUI/releases/tag/v0.3.30) to use the account system. Ensure that the corresponding frontend version is at least `1.17.11`. Sometimes the frontend may fail to install and revert to an older version, so please check if the frontend version is greater than `1.17.11` in `Settings` -> `About`. In some regions, network restrictions may prevent normal access to the login API, causing timeouts or failures. Before logging in, please **ensure that your network environment does not restrict access to the corresponding API** , and make sure you can access sites like Google or Github.
 
 Since we are still in rapid iterative updates, related functions may change. If there are no special circumstances, please try to update to the latest version to get support for relevant functions.
 
-## 
-
-​
-
-Network Requirements
+## Network Requirements
 
 To login to ComfyUI account, you must be in a secure network environment:
 
@@ -69,19 +61,11 @@ To login to ComfyUI account, you must be in a secure network environment:
 
 
 
-## 
-
-​
-
-How to Log In
+## How to Log In
 
 Log in via **Settings → User** : ![ComfyUI User Interface](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/user.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=4aacfc636460e073d16ef1fdaccb0888)
 
-## 
-
-​
-
-Login Methods
+## Login Methods
 
 ![user-login](https://mintcdn.com/dripart/NmGUk_QSXQXRVtZP/images/interface/setting/user-login.jpg?fit=max&auto=format&n=NmGUk_QSXQXRVtZP&q=85&s=70d1bb2128baed57bcd3d87d0744eb46) If this is your first login, please create an account first.
 
@@ -89,19 +73,11 @@ Login Methods
 
 For non-whitelisted sites or LAN environments, you can use API Key login. See the detailed guide in the account login documentation.
 
-## 
-
-​
-
-Post-Login Status
+## Post-Login Status
 
 After logging in, the top menu shows your account control. From there you can reopen the user panel, sign out, and on Cloud open **Manage plan** (same **Plan & Credits** panel as **Settings → Workspace → Plan & Credits**). ![user-logged](https://mintcdn.com/dripart/svxMC8DHZXobTT5E/images/interface/setting/user-logged.jpg?fit=max&auto=format&n=svxMC8DHZXobTT5E&q=85&s=82fd894f75b3cdcf9c6e029bdab62b7c) ![menu-user-logged](https://mintcdn.com/dripart/svxMC8DHZXobTT5E/images/interface/setting/menu-user-logged.jpg?fit=max&auto=format&n=svxMC8DHZXobTT5E&q=85&s=949118faed113120dd12b35bb4536075)
 
-## 
-
-​
-
-Frequently Asked Questions
+## Frequently Asked Questions
 
 How do I change my display name or email?
 

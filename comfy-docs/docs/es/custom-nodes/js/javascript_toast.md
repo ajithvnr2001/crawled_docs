@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/javascript_toast/
 title: API de Toast de ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:34.438409+00:00
+fetched_at: 2026-11-23T19:03:24.856911+00:00
 ---
 
 # API de Toast de ComfyUI - ComfyUI
@@ -30,23 +30,15 @@ JavaScript (UI)
 
 Copiar páginaCopiar página
 
-Usa la API de Toast de ComfyUI para mostrar notificaciones no bloqueantes. Cubre los tipos de toast (éxito, advertencia, error), el helper alert y la referencia completa de la API.
+Muestra notificaciones no bloqueantes con la API de Toast de ComfyUI: tipos de toast (éxito, advertencia, error), el helper alert y la referencia completa.
 
 Copiar páginaCopiar página
 
 La API de Toast permite mostrar mensajes de notificación no bloqueantes a los usuarios. Resultan útiles para dar retroalimentación sin interrumpir el flujo de trabajo.
 
-## 
+## Uso básico
 
-​
-
-Uso básico
-
-### 
-
-​
-
-Toast simple
+### Toast simple
     
     
     // Mostrar un toast informativo simple
@@ -58,11 +50,7 @@ Toast simple
     });
     
 
-### 
-
-​
-
-Tipos de toast
+### Tipos de toast
     
     
     // Toast de éxito
@@ -90,28 +78,16 @@ Tipos de toast
     });
     
 
-### 
-
-​
-
-Helper de alerta
+### Helper de alerta
     
     
     // Atajo para crear un toast de alerta
     app.extensionManager.toast.addAlert("This is an important message");
     
 
-## 
+## Referencia de la API
 
-​
-
-Referencia de la API
-
-### 
-
-​
-
-Mensaje de toast
+### Mensaje de toast
     
     
     app.extensionManager.toast.add({
@@ -126,21 +102,13 @@ Mensaje de toast
     });
     
 
-### 
-
-​
-
-Helper de alerta
+### Helper de alerta
     
     
     app.extensionManager.toast.addAlert(message: string);
     
 
-### 
-
-​
-
-Métodos adicionales
+### Métodos adicionales
     
     
     // Eliminar un toast específico
@@ -156,4 +124,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/javascript_toast.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/javascript_toast)
 
-[API de diálogos](https://docs.comfy.org/es/custom-nodes/js/javascript_dialog)[Insignias del panel Acerca de](https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges)
+[API de diálogos](https://docs.comfy.org/es/custom-nodes/js/javascript_dialog)[Insignias de Acerca de](https://docs.comfy.org/es/custom-nodes/js/javascript_about_panel_badges)

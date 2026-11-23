@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/utility/face-detection/mediapipe/
 title: MediaPipe: Face Detection in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:40.193555+00:00
+fetched_at: 2026-11-23T19:03:26.360256+00:00
 ---
 
 # MediaPipe: Face Detection in ComfyUI - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:40.193555+00:00
 > Source: https://docs.comfy.org/tutorials/utility/face-detection/mediapipe/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * MediaPipe Face Detection Workflow
@@ -57,11 +59,7 @@ So, if you find any core node missing in this document, it might be because the 
 
 [MediaPipe](https://github.com/google-ai-edge/mediapipe) is Google’s open-source machine learning solution for real-time perception. In ComfyUI, MediaPipe Face Detection provides **BlazeFace** detection, **FaceMesh v2** landmark estimation, and **ARKit-52 blendshapes** , all in a single unified workflow. MediaPipe Face Detection is natively supported in ComfyUI (PR [#14009](https://github.com/Comfy-Org/ComfyUI/pull/14009)), and the model weights are available under the [Apache 2.0 License](https://github.com/google-ai-edge/mediapipe/blob/master/LICENSE). [MediaPipe GitHub](https://github.com/google-ai-edge/mediapipe) | [Comfy-Org Model Repository](https://huggingface.co/Comfy-Org/mediapipe)
 
-### 
-
-​
-
-Key capabilities
+### Key capabilities
 
   * **Fast face detection** : BlazeFace-based detector with short (~2 m) and full (~5 m) range variants
   * **478 facial landmarks** : dense FaceMesh v2 keypoints per detected face
@@ -73,17 +71,9 @@ Key capabilities
 
 > **Scope:** Face detection only: BlazeFace + FaceMesh v2 + ARKit blendshapes. This does not cover hand, pose, or holistic detection.
 
-## 
+## MediaPipe Face Detection Workflow
 
-​
-
-MediaPipe Face Detection Workflow
-
-### 
-
-​
-
-Mediapipe: Image Face Detection
+### Mediapipe: Image Face Detection
 
 Input an image and detect up to 6 facial landmarks per face, enabling ultrafast multi-face detection. ![Mediapipe image face detection workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/utility_face_detection_mediapipe-1.webp)
 
@@ -103,19 +93,11 @@ Download JSON or search “Mediapipe: Image Face Detection” in Template Librar
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/soft_neon_girl.png)
 
-### 
-
-​
-
-1\. Download the Workflow
+### 1\. Download the Workflow
 
 Update your ComfyUI to the latest version, then go to `Workflow` → `Browse Templates` and find “Mediapipe: Image Face Detection” under the Utility category.
 
-### 
-
-​
-
-2\. Download the Model
+### 2\. Download the Model
 
 The MediaPipe Face Detection model is hosted on the [Comfy-Org MediaPipe model repository](https://huggingface.co/Comfy-Org/mediapipe).
 
@@ -130,11 +112,7 @@ Place it in the following directory structure:
             └── mediapipe_face_fp32.safetensors
     
 
-### 
-
-​
-
-3\. Using the Workflow
+### 3\. Using the Workflow
 
 This workflow uses a **subgraph** node that orchestrates face detection, visualization, and mask generation. The subgraph exposes the following controls:
 
@@ -170,11 +148,7 @@ Output| Type| Description
 **bboxes**| `BOUNDING_BOX`| Face bounding boxes: compatible with `DrawBBoxes` node  
 **mask**| `MASK`| Binary mask from the enabled region toggles  
   
-### 
-
-​
-
-4\. Run the Workflow
+### 4\. Run the Workflow
 
   1. Ensure the model file is placed in `ComfyUI/models/detection/`
   2. Load an image in the `Load Image` node
@@ -184,11 +158,7 @@ Output| Type| Description
 
 
 
-## 
-
-​
-
-Community Resources
+## Community Resources
 
   * [MediaPipe GitHub](https://github.com/google-ai-edge/mediapipe): Upstream MediaPipe framework
   * [Comfy-Org/mediapipe](https://huggingface.co/Comfy-Org/mediapipe): Official ComfyUI model weights
@@ -202,26 +172,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/utility/face-detection/mediapipe.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/utility/face-detection/mediapipe)
 
-[SDPose: Pose Detection in ComfyUIPrevious](https://docs.comfy.org/tutorials/utility/pose-detection-sdpose)[SAM 3D Body: Extract 3D Human Mesh From Video in ComfyUINext](https://docs.comfy.org/tutorials/utility/sam3d-body)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[SAM 3D Body](https://docs.comfy.org/tutorials/utility/sam3d-body)[SDPose pose detection](https://docs.comfy.org/tutorials/utility/pose-detection-sdpose)

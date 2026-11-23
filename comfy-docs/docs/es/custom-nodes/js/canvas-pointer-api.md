@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/custom-nodes/js/canvas-pointer-api/
 title: API de puntero del lienzo para widgets y cursores - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:40.374567+00:00
+fetched_at: 2026-11-23T19:03:25.139088+00:00
 ---
 
 # API de puntero del lienzo para widgets y cursores - ComfyUI
@@ -26,17 +26,13 @@ JavaScript (UI)
 
 Copiar páginaCopiar página
 
-Gestiona clics, doble clics y arrastres en widgets de lienzo personalizados con onPointerDown y controla los cursores del lienzo desde una extensión del frontend de ComfyUI.
+Gestiona clics, doble clics y arrastres en widgets de lienzo con onPointerDown, y controla los cursores desde una extensión del frontend de ComfyUI.
 
 Copiar páginaCopiar página
 
 El lienzo canaliza la entrada del puntero a través de un `CanvasPointer`. Este decide si una pulsación se convierte en un clic, un doble clic o un arrastre, y ejecuta las funciones de devolución de llamada que asignas para esa pulsación. Los widgets dibujados en el lienzo lo usan mediante `onPointerDown`.
 
-## 
-
-​
-
-Comportamiento predeterminado
+## Comportamiento predeterminado
 
   * Arrastrar varios elementos seleccionados ya no requiere mantener presionada Shift. Hacer clic en un elemento mientras varios están seleccionados sigue deseleccionando los demás.
   * Hacer clic en un enlace conectado de una entrada ya no lo desconecta y lo vuelve a conectar.
@@ -45,11 +41,7 @@ Comportamiento predeterminado
 
 Los usuarios configuran la deriva del clic y el tiempo de doble clic en las configuraciones (`Comfy.Pointer.ClickDrift` y `Comfy.Pointer.DoubleClickTime`).
 
-### 
-
-​
-
-Seleccionar varios elementos
+### Seleccionar varios elementos
 
   * `Ctrl` \+ arrastrar: inicia una selección múltiple
   * `Ctrl` \+ `Shift` \+ arrastrar: agrega a la selección
@@ -58,11 +50,7 @@ Seleccionar varios elementos
 
 
 
-## 
-
-​
-
-Manejar la entrada de puntero en un widget
+## Manejar la entrada de puntero en un widget
 
 Asigna `onPointerDown` en un widget. Se ejecuta al presionar con el puntero y recibe el puntero, el nodo y el lienzo. Asigna en el puntero las devoluciones de llamada que necesites; el lienzo ejecuta las adecuadas cuando se resuelve la pulsación:
     
@@ -98,11 +86,7 @@ Asigna `onPointerDown` en un widget. Se ejecuta al presionar con el puntero y re
 
 El lienzo resuelve por ti los dobles clics y los arrastres, así que un widget ya no necesita medir ni cronometrar eventos de puntero por separado. También respeta la deriva de clic y la configuración de doble clic del usuario.
 
-## 
-
-​
-
-Controlar el cursor del lienzo
+## Controlar el cursor del lienzo
 
 `canvas.state.hoveringOver` contiene indicadores de bits para los tipos de elemento que están bajo el puntero, como un nodo, un grupo, un Reroute o una conexión. Establece `canvas.state.shouldSetCursor` en `false` para evitar que el lienzo establezca el estilo del cursor y luego establécelo tú mismo:
     
@@ -119,4 +103,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/custom-nodes/js/canvas-pointer-api.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/custom-nodes/js/canvas-pointer-api)
 
-[Subgrafos](https://docs.comfy.org/es/custom-nodes/js/subgraphs)[Ejemplos anotados](https://docs.comfy.org/es/custom-nodes/js/javascript_examples)
+[Subgrafos](https://docs.comfy.org/es/custom-nodes/js/subgraphs)[Ejemplos JavaScript](https://docs.comfy.org/es/custom-nodes/js/javascript_examples)
