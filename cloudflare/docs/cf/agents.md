@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cf/agents/
 title: Use cf with coding agents \u00b7 Cloudflare CLI docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:28.795780+00:00
+fetched_at: 2026-11-24T12:11:04.703160+00:00
 ---
 
 # Use cf with coding agents · Cloudflare CLI docs
@@ -17,9 +17,9 @@ fetched_at: 2026-11-18T09:55:28.795780+00:00
 
 # Use cf with coding agents
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSet up cf for your agentHelp your agent find commandsFind Cloudflare documentationRead command outputRun commands safelyControl usage costsWork in Wrangler projectsAuthenticate unattended agentsInspect local resourcesRelated resources
+OverviewSet up cf for your agentHelp your agent find commandsFind Cloudflare documentationSend agent feedbackRead command outputRun commands safelyControl usage costsWork in Wrangler projectsAuthenticate unattended agentsInspect local resourcesRelated resources
 
 Coding agents can use `cf` to work with your Cloudflare account. Commands return JSON and describe their own inputs, so an agent can find and run the right command without prior knowledge of `cf`.
 
@@ -122,6 +122,10 @@ Put the query in quotes. The command returns up to five ranked JSON results, eac
 
 Use `cf cli search` to find commands and `cf docs search` to find documentation. Keep both kinds of search generic: do not include account IDs, domains, email addresses, tokens, or other identifying information.
 
+## Send agent feedback
+
+Use `cf feedback` to report CLI problems your agent encounters. For JSON report examples and context settings, refer to [Agent feedback](https://developers.cloudflare.com/cf/agent-feedback/).
+
 ## Read command output
 
 Results go to standard output as JSON. Messages, such as the selected zone, and errors go to standard error. When standard output is not a terminal, it contains only the result, so an agent can parse it or filter it with `jq` without extra flags.
@@ -192,7 +196,7 @@ When `cf dev` runs inside a supported coding agent, the development server also 
 
 
 
-[PreviousConfiguration explorer](https://developers.cloudflare.com/cf/projects/config-explorer/)[NextCI and automation](https://developers.cloudflare.com/cf/ci/)
+[PreviousConfiguration explorer](https://developers.cloudflare.com/cf/projects/config-explorer/)[NextAgent feedback](https://developers.cloudflare.com/cf/agent-feedback/)
 
 Was this helpful?
 

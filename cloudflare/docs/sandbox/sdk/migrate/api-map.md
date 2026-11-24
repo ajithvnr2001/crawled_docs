@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/api-map/
 title: Sandbox SDK 0.x API map \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:53.668488+00:00
+fetched_at: 2026-11-24T12:11:03.060893+00:00
 ---
 
 # Sandbox SDK 0.x API map · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:39:53.668488+00:00
 
 # Sandbox SDK 0.x API map
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/api-map/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewClass, identity, and lifetimeCommandsProcessesSessionsFilesPorts, preview URLs, and tunnelsTerminalsOutbound network and GitBucket mountsBackupsCode interpreter and subpath packagesImagesErrors and clientsTypes
 
@@ -229,7 +229,7 @@ These APIs came from the code interpreter and the subpath exports of the package
 0.12 | Kind | Replacement | Notes  
 ---|---|---|---  
 `cloudflare/sandbox`, `-python`, `-opencode`, and `-musl` images | Removed | Your own `linux/amd64` image | Copy `sandbox-shim` into it if you use `Files`, `S3Mount`, or `DirectoryBackup`. Refer to [Requirements](https://developers.cloudflare.com/sandbox/reference/#requirements).  
-`docker:dind-rootless` with `USER root` | Pattern | `docker:dind` with `--ip-forward=false` | Refer to [Run Docker inside the sandbox](https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/#run-docker-inside-the-sandbox).  
+`docker:dind-rootless` with `USER root` | Pattern | `docker:dind` with default bridge networking | Refer to [Run Docker inside the sandbox](https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/#run-docker-inside-the-sandbox).  
   
 ## Errors and clients
 

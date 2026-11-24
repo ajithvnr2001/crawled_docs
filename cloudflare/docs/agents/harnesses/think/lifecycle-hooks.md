@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/lifecycle-hooks/
 title: Lifecycle hooks \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:20.790495+00:00
+fetched_at: 2026-11-24T12:11:01.107578+00:00
 ---
 
 # Lifecycle hooks · Cloudflare Agents docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-30T08:19:20.790495+00:00
 
 # Lifecycle hooks
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewHook summaryExecution orderbeforeTurn TurnContext TurnConfig ExamplesbeforeStepbeforeToolCallafterToolCallonStepFinishonChunkonChatResponseonChatErrorclassifyChatError Example
+OverviewHook summaryExecution orderbeforeTurn TurnContext TurnConfig ExamplesbeforeStepbeforeToolCallafterToolCallonStepEndonChunkonChatResponseonChatErrorclassifyChatError Example
 
 Think owns the `streamText` call and provides hooks at each stage of the chat turn. Hooks fire on every turn regardless of entry path — WebSocket chat, sub-agent `chat()`, `saveMessages()`, durable `submitMessages()` execution, `continueLastTurn()`, and auto-continuation after tool results.
 
@@ -33,11 +33,12 @@ Think owns the `streamText` call and provides hooks at each stage of the chat tu
 Hook | When it fires | Return | Async  
 ---|---|---|---  
 `configureSession(session)` | Once during `onStart` | `Session` | yes  
+`configureContext()` | Once during `onStart` | `ContextConfig[]` | yes  
 `beforeTurn(ctx)` | Before `streamText` | `TurnConfig` or void | yes  
 `beforeStep(ctx)` | Before each model step | `StepConfig` or void | yes  
 `beforeToolCall(ctx)` | Before a server-side tool executes | `ToolCallDecision` or void | yes  
 `afterToolCall(ctx)` | After a tool outcome is known | void | yes  
-`onStepFinish(ctx)` | After each step completes | void | yes  
+`onStepEnd(ctx)` | After each step completes | void | yes  
 `onChunk(ctx)` | Per streaming chunk | void | yes  
 `onChatResponse(result)` | After turn completes and message is persisted | void | yes  
 `onChatError(error, ctx?)` | On error during a turn | error to propagate | no  
@@ -57,7 +58,7 @@ For a turn with two tool calls:
             chunk --> btc["beforeToolCall()"]
             btc --> exec["tool executes"]
             exec --> atc["afterToolCall()"]
-            atc --> sf["onStepFinish()"]
+            atc --> sf["onStepEnd()"]
             sf -->|"more steps"| bs
         end
     
@@ -232,12 +233,12 @@ Field | Type | Description
   
 For blocked and substituted tool calls, `success` is `true` because the model receives a valid tool result. Only thrown errors from the original tool execution surface as `success: false`.
 
-## onStepFinish
+## onStepEnd
 
-Called after each step completes in the agentic loop. `StepContext` is the AI SDK's step-finish event, so it includes the full step record: generated text, reasoning, files, sources, typed tool calls and results, usage, warnings, request and response metadata, and provider metadata.
+Called after each step completes in the agentic loop. It replaces `onStepFinish`, which still works but is deprecated. `StepContext` is the AI SDK's step-finish event, so it includes the full step record: generated text, reasoning, files, sources, typed tool calls and results, usage, warnings, request and response metadata, and provider metadata.
     
     
-    onStepFinish(ctx: StepContext) {
+    onStepEnd(ctx: StepContext) {
     	console.log(
     		`Step ${ctx.stepNumber} (${ctx.finishReason}): ` +
     			`${ctx.usage.inputTokens}in/${ctx.usage.outputTokens}out`,

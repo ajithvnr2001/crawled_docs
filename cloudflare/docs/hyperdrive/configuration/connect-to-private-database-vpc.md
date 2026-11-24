@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database-vpc/
 title: Connect to a private database using Workers VPC (Recommended) \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:26.862477+00:00
+fetched_at: 2026-11-24T12:11:04.957450+00:00
 ---
 
 # Connect to a private database using Workers VPC (Recommended) · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:26.862477+00:00
 
 # Connect to a private database using Workers VPC (Recommended)
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksBefore you startPrerequisites1\. Set up a Cloudflare Tunnel2\. Create a TCP VPC Service TLS certificate verification Private CA and client certificates3\. Create a Hyperdrive configuration4\. Bind Hyperdrive to a Worker5\. Query the databaseNext steps
 
@@ -128,7 +128,17 @@ For example, to create a VPC Service for a PostgreSQL database with a self-signe
       --ipv4 <YOUR_DATABASE_IP> \
       --cert-verification-mode verify_ca
 
-To update an existing VPC Service, use `wrangler vpc service update` with the same flag.
+To change the verification mode of an existing VPC Service, use [`wrangler vpc service update`](https://developers.cloudflare.com/workers-vpc/reference/wrangler-commands/#vpc-service-update):
+    
+    
+    npx wrangler vpc service update <YOUR_SERVICE_ID> \
+      --name my-postgres-db \
+      --type tcp \
+      --tcp-port 5432 \
+      --app-protocol postgresql \
+      --tunnel-id <YOUR_TUNNEL_ID> \
+      --ipv4 <YOUR_DATABASE_IP> \
+      --cert-verification-mode verify_ca
 
 For the full list of verification modes, refer to [TLS certificate verification mode](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#tls-certificate-verification-mode).
 
@@ -287,7 +297,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-24",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -299,7 +309,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-24"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -380,7 +390,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-11-18",
+    	"compatibility_date": "2026-11-24",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -392,7 +402,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-11-18"
+    compatibility_date = "2026-11-24"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"

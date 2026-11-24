@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/concepts/
 title: Container Fundamentals \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:40.102844+00:00
+fetched_at: 2026-11-24T12:11:03.720993+00:00
 ---
 
 # Container Fundamentals · Cloudflare Containers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-20T09:50:40.102844+00:00
 
 # Container Fundamentals
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewThe Container runtimeHow requests reach a ContainerContainer lifecycleSizingPlacementStorage and connectivityStart buildingRelated resources
 
@@ -73,18 +73,11 @@ For more information, refer to [Pricing](https://developers.cloudflare.com/conta
 
 ## Placement
 
-_Place instances near users or within constraints._
+_Start instances in eligible locations._
 
-Cloudflare places Container instances across its network, helping applications serve users from suitable locations. You can constrain placement by region or jurisdiction when your workload has location or data residency requirements. You can also run multiple instances when your application needs more capacity.
+When a Durable Object starts a Container, Cloudflare selects a suitable location based on request routing, available capacity, and image availability. The Container and its Durable Object may run in different locations.
 
-Choose a location  
-to send a request
-
-Reset
-
-Send requestSend requestSend request
-
-Instances can run in different Cloudflare locations, and requests can be routed to an available instance. Placement constraints can keep instances within a region or jurisdiction when location matters to your application.
+With the `durable_object` scheduling policy, the Durable Object's jurisdiction determines eligible Container locations. Your application can start multiple Container instances when it needs more capacity.
 
 For more information, refer to [Placement](https://developers.cloudflare.com/containers/concepts/placement/).
 
@@ -121,7 +114,7 @@ Route a gRPC stream through Spectrum and Workers to a Container.
 ## Related resources
 
   * [Lifecycle of a Container](https://developers.cloudflare.com/containers/concepts/architecture/): the deep dive on deployment, routing, and shutdown.
-  * [Placement](https://developers.cloudflare.com/containers/concepts/placement/): where instances run and how to constrain them.
+  * [Placement](https://developers.cloudflare.com/containers/concepts/placement/): where instances run and how Durable Object jurisdiction affects placement.
   * [Connect to Workers and bindings](https://developers.cloudflare.com/containers/configuration/workers-connections/): reaching Cloudflare resources from a container.
   * [Bidirectional gRPC with Workers and Containers](https://developers.cloudflare.com/containers/examples/bidirectional-grpc/): routing raw TCP streams to a containerized gRPC server.
   * [Limits and instance types](https://developers.cloudflare.com/containers/platform/limits/) and [Pricing](https://developers.cloudflare.com/containers/platform/pricing/): sizes, account limits, and billing.

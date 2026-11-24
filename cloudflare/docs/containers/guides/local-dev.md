@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/guides/local-dev/
 title: Local Development \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:39.841159+00:00
+fetched_at: 2026-11-24T12:11:03.118168+00:00
 ---
 
 # Local Development · Cloudflare Containers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-20T09:50:39.841159+00:00
 
 # Local Development
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewTest TCP and gRPC locallyFUSE supportIterating on Container codeDifferences after you deploy The hostname is longer than a DNS label Other Linux users keep root capabilitiesTroubleshooting Ports Socket configuration - internal error SSL errors with the Cloudflare One Client or a VPN
+OverviewTest TCP and gRPC locallyFUSE supportIterating on Container codeDifferences after you deploy Other Linux users keep root capabilitiesTroubleshooting Ports Socket configuration - internal error SSL errors with the Cloudflare One Client or a VPN
 
 You can run both your container and your Worker locally by running [`npx wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/workers/#dev) (or `vite dev` for Vite projects using the [Cloudflare Vite plugin](https://developers.cloudflare.com/workers/vite-plugin/)) in your project's directory.
 
@@ -88,21 +88,7 @@ You may prefer to set up your own code watchers and reloading mechanisms, or mou
 
 ## Differences after you deploy
 
-Local development runs your container in Docker. A deployed container that uses the [Durable Object scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy) differs from a local container in the following ways. Code that works locally can fail after you deploy.
-
-### The hostname is longer than a DNS label
-
-The hostname of a container is the name it uses for itself, which the `hostname` command prints. Nothing routes traffic to it. In a deployed container, the hostname is 64 characters, one more than a DNS label allows. `/etc/hosts` does not list it, so it does not resolve. Locally, the hostname is the 12-character Docker container ID, and `/etc/hosts` lists it. Code that looks up its own hostname can fail after you deploy.
-
-For example, `python3 -m http.server` and other servers built on the Python `http.server` module, such as `wsgiref`, exit on startup with this error:
-    
-    
-    UnicodeEncodeError: 'idna' codec can't encode characters in position 0-63: label too long
-
-To serve files with Python, use `socketserver`, which does not look up the hostname:
-    
-    
-    python3 -c 'import http.server as h, socketserver as s; s.ThreadingTCPServer(("", 8000), h.SimpleHTTPRequestHandler).serve_forever()'
+Local development runs your container in Docker. A deployed container that uses the [Durable Object scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy) grants Linux capabilities differently from a local container. Code that works locally can fail after you deploy.
 
 ### Other Linux users keep root capabilities
 

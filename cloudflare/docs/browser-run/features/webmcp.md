@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/features/webmcp/
 title: WebMCP \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:36.388850+00:00
+fetched_at: 2026-11-24T12:11:04.835656+00:00
 ---
 
 # WebMCP · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:36.388850+00:00
 
 # WebMCP
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/features/webmcp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet started Manual testing with DevTools Using an AI AgentUse WebMCP with KitesurfLimitationsMore resourcesTroubleshooting
 
@@ -50,7 +50,7 @@ Use the new `wrangler browser` command to acquire a lab browser session:
     npm i -g wrangler@latest
     
     # create a lab browser session with 5 minute keep-alive
-    wrangler browser create --lab --keepAlive 300
+    wrangler browser create --lab --keep-alive 300
 
 It will open a live view of your browser session.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/getting-started/
 title: Getting started \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T09:24:33.549486+00:00
+fetched_at: 2026-11-24T12:11:01.852429+00:00
 ---
 
 # Getting started · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-21T09:24:33.549486+00:00
 
 # Getting started
 
-Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create a project2\. Configure wrangler3\. Define the agent4\. Connect a React client5\. Run it6\. Add persistent memory7\. Add custom tools8\. Add lifecycle hooksNext steps
 
@@ -56,7 +56,7 @@ By the end of this tutorial you will have a Think agent that:
 Install dependencies:
     
     
-    npm install @cloudflare/think @cloudflare/computer @cloudflare/ai-chat agents ai zod @ai-sdk/provider react react-dom
+    npm install @cloudflare/think @cloudflare/computer agents ai zod @ai-sdk/provider @ai-sdk/react react react-dom
     npm install -D wrangler @cloudflare/vite-plugin @cloudflare/workers-types @vitejs/plugin-react @tailwindcss/vite tailwindcss typescript vite
 
 ## 2\. Configure wrangler
@@ -206,7 +206,7 @@ Create `src/client.tsx`:
     
     import { createRoot } from "react-dom/client";
     import { useAgent } from "agents/react";
-    import { useAgentChat } from "@cloudflare/ai-chat/react";
+    import { useAgentChat } from "@cloudflare/think/react";
     
     function Chat() {
     	const agent = useAgent({ agent: "MyAgent" });
@@ -250,7 +250,7 @@ Create `src/client.tsx`:
     
     import { createRoot } from "react-dom/client";
     import { useAgent } from "agents/react";
-    import { useAgentChat } from "@cloudflare/ai-chat/react";
+    import { useAgentChat } from "@cloudflare/think/react";
     
     function Chat() {
     	const agent = useAgent({ agent: "MyAgent" });
@@ -318,7 +318,7 @@ Open the browser and send a message. The agent responds with streaming text, and
 
 ## 6\. Add persistent memory
 
-Override `configureSession` to give the model writable memory that survives restarts:
+Override `configureContext` to give the model writable memory that survives restarts:
     
     
     export class MyAgent extends Think {
@@ -328,22 +328,26 @@ Override `configureSession` to give the model writable memory that survives rest
     		);
     	}
     
-    	configureSession(session) {
-    		return session
-    			.withContext("soul", {
+    	configureContext() {
+    		return [
+    			{
+    				label: "soul",
     				provider: {
     					get: async () =>
     						"You are a helpful assistant. Remember important facts about the user.",
     				},
-    			})
-    			.withContext("memory", {
+    			},
+    			{
+    				label: "memory",
     				description: "Important facts about the user and conversation.",
     				maxTokens: 2000,
-    			})
-    			.withCachedPrompt();
+    			},
+    		];
     	}
     }
     
+    
+    import type { ContextConfig } from "agents/context";
     
     export class MyAgent extends Think<Env> {
     	getModel(): LanguageModel {
@@ -352,27 +356,29 @@ Override `configureSession` to give the model writable memory that survives rest
     		);
     	}
     
-    	configureSession(session: Session) {
-    		return session
-    			.withContext("soul", {
+    	configureContext(): ContextConfig[] {
+    		return [
+    			{
+    				label: "soul",
     				provider: {
     					get: async () =>
     						"You are a helpful assistant. Remember important facts about the user.",
     				},
-    			})
-    			.withContext("memory", {
+    			},
+    			{
+    				label: "memory",
     				description: "Important facts about the user and conversation.",
     				maxTokens: 2000,
-    			})
-    			.withCachedPrompt();
+    			},
+    		];
     	}
     }
 
-Now the model sees a `MEMORY` section in its system prompt and gets a `set_context` tool to update it. Facts written to memory persist in SQLite and survive Durable Object hibernation and restarts.
+Now the model sees a `MEMORY` section in its system prompt and gets a `set_context` tool to update it. A block declared without a `provider` is stored in the agent's SQLite database, so facts written to memory survive Durable Object hibernation and restarts.
 
-When you use `configureSession`, the system prompt is built from context blocks, with an overridden `getSystemPrompt()` at the top. The `"soul"` block in the previous example acts as the system identity — it is read-only and always appears first. The `"memory"` block is writable, and the model proactively updates it when it learns something useful.
+When you declare context blocks, the system prompt is built from those blocks rather than `getSystemPrompt()`. The `"soul"` block in the previous example acts as the system identity — it is read-only and always appears first. The `"memory"` block is writable, and the model updates it when it learns something useful.
 
-Refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) for context blocks, compaction, search, skills, and multi-session support.
+Refer to [Context](https://developers.cloudflare.com/agents/harnesses/think/context/) for context blocks, and [Sessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/) for compaction, search, and prompt caching.
 
 ## 7\. Add custom tools
 
@@ -381,12 +387,15 @@ Override `getTools()` to add your own tools alongside the built-in workspace too
     
     import { tool } from "ai";
     import { z } from "zod";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Think {
     	getModel() {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
-    	configureSession(session) {
+    	configureContext() {
     		/* ... */
     	}
     
@@ -411,12 +420,15 @@ Override `getTools()` to add your own tools alongside the built-in workspace too
     
     import { tool } from "ai";
     import { z } from "zod";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Think<Env> {
     	getModel(): LanguageModel {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
-    	configureSession(session: Session) {
+    	configureContext(): ContextConfig[] {
     		/* ... */
     	}
     
@@ -443,7 +455,7 @@ Think merges tools from multiple sources automatically. On every turn, the model
   1. **Workspace tools** — read, ls, find, grep, write, edit, delete, plus exec when the Workspace has a backend (built-in)
   2. **Your tools** — from `getTools()`
   3. **Extension tools** — from loaded extensions
-  4. **Session tools** — set_context, load_context, search_context (from `configureSession`)
+  4. **Context tools** — set_context, search_context (from `configureContext`)
   5. **Skill tools** — activate_skill, read_skill_resource, and optional run_skill_script (from `getSkills()`)
   6. **MCP tools** — from connected MCP servers (if any)
   7. **Client tools** — from the browser (if any)
@@ -455,9 +467,13 @@ Think merges tools from multiple sources automatically. On every turn, the model
 Think provides hooks that fire on every turn, regardless of entry path:
     
     
+    import { createAI } from "agents/models/ai-sdk";
+    
     export class MyAgent extends Think {
     	getModel() {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	beforeTurn(ctx) {
@@ -477,10 +493,13 @@ Think provides hooks that fire on every turn, regardless of entry path:
     	TurnConfig,
     	ChatResponseResult,
     } from "@cloudflare/think";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Think<Env> {
     	getModel(): LanguageModel {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	beforeTurn(ctx: TurnContext): TurnConfig | void {
@@ -502,11 +521,12 @@ Refer to [Lifecycle hooks](https://developers.cloudflare.com/agents/harnesses/th
   * [Tools](https://developers.cloudflare.com/agents/harnesses/think/tools/) — workspace tools, code execution, extensions
   * [Client tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/) — browser-side tools, approval flows, concurrency
   * [Sub-agent RPC and programmatic turns](https://developers.cloudflare.com/agents/harnesses/think/sub-agents/) — RPC streaming, scheduled turns, recovery
-  * [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) — context blocks, compaction, search, multi-session
+  * [Context](https://developers.cloudflare.com/agents/harnesses/think/context/) — context blocks, memory, and search
+  * [Sessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/) — compaction, storage, media eviction, and prompt caching
 
 
 
-[PreviousOverview](https://developers.cloudflare.com/agents/harnesses/think/)[NextConfiguration](https://developers.cloudflare.com/agents/harnesses/think/configuration/)
+[PreviousOverview](https://developers.cloudflare.com/agents/harnesses/think/)[NextContext](https://developers.cloudflare.com/agents/harnesses/think/context/)
 
 Was this helpful?
 

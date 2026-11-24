@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/concepts/agent-skills/
 title: Agent Skills \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:16.737276+00:00
+fetched_at: 2026-11-24T12:11:02.599872+00:00
 ---
 
 # Agent Skills · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:16.737276+00:00
 
 # Agent Skills
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy skillsProgressive disclosureAnatomy of a skill Frontmatter fields Body and resourcesScriptsWrite good skillsTrustSkills in the Agents SDKRelated
 
@@ -151,12 +151,12 @@ The SDK uses the `.agents/skills/` folder convention that several agents share, 
 
   * [Agent Skills](https://developers.cloudflare.com/agents/skills/): use skills in Think, Pi, and the AI SDK
   * [Skills tools](https://developers.cloudflare.com/agents/tools/skills/): add the skill tools to your harness
-  * [Conversation state and memory](https://developers.cloudflare.com/agents/concepts/conversation-state-and-memory/): how skills compare to other kinds of context
+  * [Sessions](https://developers.cloudflare.com/agents/concepts/sessions/): the transcript, where a loaded skill's instructions are kept
   * [Agent Skills specification ↗︎](https://agentskills.io/specification): the full format
 
 
 
-[PreviousTools](https://developers.cloudflare.com/agents/concepts/tools/)[NextCalling LLMs](https://developers.cloudflare.com/agents/concepts/calling-llms/)
+[PreviousContext](https://developers.cloudflare.com/agents/concepts/context/)[NextCalling LLMs](https://developers.cloudflare.com/agents/concepts/calling-llms/)
 
 Was this helpful?
 

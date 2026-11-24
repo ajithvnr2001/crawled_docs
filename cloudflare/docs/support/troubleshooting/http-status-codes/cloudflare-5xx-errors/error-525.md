@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/
 title: Error 525 \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:59.044589+00:00
+fetched_at: 2026-11-24T12:11:04.408593+00:00
 ---
 
 # Error 525 · Cloudflare Support docs
@@ -22,9 +22,9 @@ fetched_at: 2026-10-08T07:15:59.044589+00:00
 
 # Error 525
 
-Last updated Jun 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewError 525: SSL handshake failed Common causes Resolution Diagnose with Origin Analytics
+OverviewError 525: SSL handshake failed Common causes Resolution Diagnose with Origin Analytics Key exchange compliance requirements
 
 ## Error 525: SSL handshake failed
 
@@ -51,6 +51,7 @@ Contact your hosting provider to exclude the following common causes at your ori
   * Port `443` (or another custom secure port) is not open.
   * No SNI support.
   * The [cipher suites](https://developers.cloudflare.com/ssl/origin-configuration/cipher-suites/) used by Cloudflare do not match the cipher suites supported by the origin web server.
+  * A [key exchange compliance requirement](https://developers.cloudflare.com/ssl/origin-configuration/automatic-key-exchange/#compliance-requirements) is enabled for your zone, but the destination server does not support the required key exchange algorithm. Refer to Key exchange compliance requirements.
 
 
 
@@ -70,6 +71,30 @@ If `525` errors occur intermittently, review the origin web server error logs to
 ### Diagnose with Origin Analytics
 
 Use [Origin Analytics](https://developers.cloudflare.com/speed/origin-analytics/) to check whether SSL handshake failures are affecting specific endpoints. The **Origin status codes** chart shows when Cloudflare received no HTTP response from your origin (`originResponseStatus` of `0`), which can indicate TLS negotiation failures. Cross-reference these timestamps with your origin SSL error logs to pinpoint the cause.
+
+### Key exchange compliance requirements
+
+If your zone has a compliance requirement enabled (**SSL/TLS** > **Overview** > **Origin connection & post-quantum encryption**), Cloudflare restricts outbound TLS 1.3 connections to only the key agreements permitted by that requirement. Destination servers that do not support the required key exchange algorithm will fail the handshake and return a `525` error.
+
+For example:
+
+  * **Post-quantum hybrid** : Cloudflare only advertises post-quantum hybrid key agreements (`X25519MLKEM768`). Destinations that do not support post-quantum key exchange will return `525`.
+  * **FIPS** : Cloudflare only advertises FIPS-approved curves. Destinations that do not support FIPS-approved curves (for example, those that only support X25519) will return `525`.
+
+
+
+This setting affects:
+
+  * Connections from Cloudflare to your origin server.
+  * Outbound `fetch()` calls from [Workers](https://developers.cloudflare.com/workers/) running under that zone, including requests to third-party APIs that may not yet support post-quantum key exchange.
+
+
+
+To resolve this, go to **SSL/TLS** > **Overview** > **Origin connection & post-quantum encryption** and remove the compliance requirement. **Automatic key exchange** (the default, with no compliance requirements selected) negotiates the best mutually supported key agreement and maintains compatibility with a wide range of servers.
+
+Note
+
+Cloudflare does not recommend a specific compliance setting. The appropriate choice depends on your organization's compliance obligations. For details, refer to [Automatic key exchange](https://developers.cloudflare.com/ssl/origin-configuration/automatic-key-exchange/).
 
 [PreviousError 524](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-524/)[NextError 526](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-526/)
 

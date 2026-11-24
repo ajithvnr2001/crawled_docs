@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/configuration/
 title: Configuration \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T09:24:33.749136+00:00
+fetched_at: 2026-11-24T12:11:01.702810+00:00
 ---
 
 # Configuration · Cloudflare Agents docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-21T09:24:33.749136+00:00
 
 # Configuration
 
-Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewConfiguration overridesDynamic configurationSession integrationPackage exportsDependencies
+OverviewConfiguration overridesDynamic configurationMemory and contextPackage exportsDependencies
 
 Think is configured by overriding methods and properties on your `Think` subclass. Most agents only override `getModel()`.
 
@@ -36,13 +36,21 @@ Method / Property | Default | Description
 `getSystemPrompt()` | `"You are a helpful assistant."` | Instructions at the top of the system prompt, above context blocks. The default is used only with no context blocks  
 `getTools()` | `{}` | AI SDK `ToolSet` for the agentic loop  
 `getScheduledTasks()` | `{}` | Code-declared recurring prompts or handlers — refer to [Scheduled tasks](https://developers.cloudflare.com/agents/harnesses/think/scheduled-tasks/)  
+`getScheduledTasksScope()` | `"root"` | Which instances arm the declared tasks: `"root"` (the top-level agent only) or `"all"` (sub-agents too)  
 `getDefaultTimezone()` | `undefined` | Default timezone for wall-clock scheduled tasks  
 `getMessengers()` | `{}` | Messenger ingress and delivery declarations — refer to [Messengers](https://developers.cloudflare.com/agents/harnesses/think/messengers/)  
+`getActions()` | `{}` | Server actions with idempotency, approvals, and authorization — refer to [Actions](https://developers.cloudflare.com/agents/harnesses/think/actions/)  
+`configureChannels()` | `{}` | Per-channel policy beyond the implicit `web` channel — refer to [Channels](https://developers.cloudflare.com/agents/harnesses/think/channels/)  
 `maxSteps` | `10` | Max tool-call rounds per turn  
 `sendReasoning` | `true` | Send reasoning chunks to chat clients  
-`configureSession()` | identity | Add context blocks, compaction, search, skills — refer to [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/)  
+`configureSession()` | identity | Configure compaction and search on the conversation — refer to [Sessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/)  
+`configureContext()` | `[]` | Declare context blocks for the system prompt — refer to [Context](https://developers.cloudflare.com/agents/harnesses/think/context/)  
+`hydrationByteBudget` | 32 MiB | Byte budget for loading the transcript at startup  
+`mediaEviction` | `true` | Move aged media out of the conversation and into a workspace file. `false` keeps it in the conversation  
+`truncationStep` | `8` | Move the read-time truncation cutoff once every this many messages. `1` cuts every turn — refer to [Sessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/#prompt-caching)  
 `getSkills()` | `[]` | Return Agent Skills sources for on-demand skill activation — refer to [Agent Skills](https://developers.cloudflare.com/agents/skills/)  
 `getSkillScriptRunner()` | `null` | Enable the experimental `run_skill_script` tool — refer to [Execution](https://developers.cloudflare.com/agents/skills/execution/)  
+`fetchTools` | `false` | Turn on the allowlisted, read-only fetch tools — refer to [Fetch tool](https://developers.cloudflare.com/agents/harnesses/think/tools/#fetch-tool)  
 `messageConcurrency` | `"queue"` | How overlapping submits behave — refer to [Client tools](https://developers.cloudflare.com/agents/harnesses/think/client-tools/#message-concurrency)  
 `includeMcpTools` | `true` | Convert connected MCP tools to AI SDK tools and add them to model turns. Refer to [MCP tools](https://developers.cloudflare.com/agents/harnesses/think/tools/#mcp-tools)  
 `waitForMcpConnections` | `false` | Wait for MCP servers before inference  
@@ -85,16 +93,19 @@ Think's class generics match `Agent<Env, State, Props>`. Persisted runtime confi
 Method | Description  
 ---|---  
 `configure<T>(config: T)` | Persist a typed configuration object  
-`getConfig<T>(): T | null` | Read the persisted configuration, or null if never configured  
+`getConfig<T>()` | Read the persisted configuration as `T`, or `null` if never configured  
   
 Expose configuration to the client via `@callable`:
     
     
     import { callable } from "agents";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Think {
     	getModel() {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	@callable()
@@ -105,10 +116,13 @@ Expose configuration to the client via `@callable`:
     
     
     import { callable } from "agents";
+    import { createAI } from "agents/models/ai-sdk";
     
     export class MyAgent extends Think<Env> {
     	getModel() {
-    		/* ... */
+    		return createAI({ binding: this.env.AI })(
+    			"@cf/deepseek-ai/deepseek-v4.1-flash-1017",
+    		);
     	}
     
     	@callable()
@@ -117,66 +131,22 @@ Expose configuration to the client via `@callable`:
     	}
     }
 
-## Session integration
+## Memory and context
 
-Think stores conversations in a [Session](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/) — the storage layer that holds your messages and gives the model writable memory. Two concepts come up here: **context blocks** are labelled sections of the system prompt the model can read and update (for example, a `memory` block of facts about the user), and **compaction** summarizes older messages so long conversations stay within the model's context window. Override `configureSession` to add persistent memory, compaction, search, and skills:
-    
-    
-    import { Think, Session } from "@cloudflare/think";
-    
-    export class MyAgent extends Think {
-    	getModel() {
-    		/* ... */
-    	}
-    
-    	configureSession(session) {
-    		return session
-    			.withContext("soul", {
-    				provider: { get: async () => "You are a helpful coding assistant." },
-    			})
-    			.withContext("memory", {
-    				description: "Important facts learned during conversation.",
-    				maxTokens: 2000,
-    			})
-    			.withCachedPrompt();
-    	}
-    }
-    
-    
-    import { Think, Session } from "@cloudflare/think";
-    
-    export class MyAgent extends Think<Env> {
-    	getModel() {
-    		/* ... */
-    	}
-    
-    	configureSession(session: Session) {
-    		return session
-    			.withContext("soul", {
-    				provider: { get: async () => "You are a helpful coding assistant." },
-    			})
-    			.withContext("memory", {
-    				description: "Important facts learned during conversation.",
-    				maxTokens: 2000,
-    			})
-    			.withCachedPrompt();
-    	}
-    }
-
-When `configureSession` adds context blocks, Think builds the system prompt from an overridden `getSystemPrompt()` followed by those blocks. The default `getSystemPrompt()` is only used when there are no blocks. Think's `this.messages` getter reads directly from Session's tree-structured storage.
-
-For the full Session API — context blocks, compaction, search, skills, and multi-session support — refer to the [Sessions documentation](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/).
+Think stores the conversation and builds the system prompt for you. `configureSession()` sets compaction and search, and `configureContext()` declares the context blocks of the system prompt, such as a `memory` block the model can write to. Refer to [Sessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/) and [Context](https://developers.cloudflare.com/agents/harnesses/think/context/).
 
 ## Package exports
 
 Export | Description  
 ---|---  
 `@cloudflare/think` | `Think`, `Session`, `skills` namespace  
+`@cloudflare/think/react` | `useAgentChat` for Think agents  
+`@cloudflare/think/tools/fetch` | `createFetchTools()` — allowlisted, read-only HTTP fetches  
 `@cloudflare/think/messengers` | Messenger contracts, Chat SDK bridge, state agent, delivery  
 `@cloudflare/think/messengers/telegram` | Telegram messenger provider and delivery helpers  
 `@cloudflare/think/workflows` | `ThinkWorkflow`, `step.prompt()` — Workflow prompts  
 `@cloudflare/think/tools/execute` | `createExecuteTool()` — deprecated Code Mode execution tool  
-`@cloudflare/think/tools/browser` | `createBrowserTools()` — Chrome DevTools Protocol tools  
+`@cloudflare/think/tools/browser` | `createBrowserTools()` — deprecated browser tools  
 `@cloudflare/think/tools/extensions` | `createExtensionTools()` — LLM-driven extension loading  
 `@cloudflare/think/extensions` | `ExtensionManager`, `HostBridgeLoopback` — extension runtime  
   
@@ -187,10 +157,11 @@ Peer dependencies you provide:
 Package | Required | Notes  
 ---|---|---  
 `agents` | yes | Cloudflare Agents SDK  
-`ai` | yes | AI SDK v6  
+`ai` | yes | AI SDK v7  
 `zod` | yes | Schema validation (v4)  
-`@cloudflare/computer` | yes | Workspace and workspace tools  
+`@cloudflare/computer` | yes | Workspace and workspace tools (0.10)  
 `@chat-adapter/telegram` | optional | Required for Telegram messengers  
+`react`, `@ai-sdk/react` | optional | Required for `@cloudflare/think/react`  
   
 Bundled with `@cloudflare/think`:
 
@@ -200,7 +171,7 @@ Package | Notes
   
 The Agent Skills parser, sources, and script runner live in [`agents/skills`](https://developers.cloudflare.com/agents/skills/), so the script runner pulls `just-bash` through `agents`, not Think.
 
-[PreviousGetting started](https://developers.cloudflare.com/agents/harnesses/think/getting-started/)[NextTools](https://developers.cloudflare.com/agents/harnesses/think/tools/)
+[PreviousSessions](https://developers.cloudflare.com/agents/harnesses/think/sessions/)[NextTools](https://developers.cloudflare.com/agents/harnesses/think/tools/)
 
 Was this helpful?
 

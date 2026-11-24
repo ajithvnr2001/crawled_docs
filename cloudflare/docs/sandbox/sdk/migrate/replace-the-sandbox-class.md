@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/
 title: Replace the Sandbox class \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:50.240505+00:00
+fetched_at: 2026-11-24T12:11:02.163870+00:00
 ---
 
 # Replace the Sandbox class · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:39:50.240505+00:00
 
 # Replace the Sandbox class
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/replace-the-sandbox-class/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startReplace the classCheck the classNext steps
 
@@ -211,7 +211,7 @@ src/index.ts (1.0)ts
 
 Call `ensureRunning()` before each use of the container. It runs `startContainer()` once for each new container, and once more when a restarted Durable Object finds the container running. A deploy restarts the Durable Object and can stop setup partway, so every step after `start()` must be safe to run again. `running` is `true` as soon as `start()` returns, so requests that arrive during setup wait for the same `startContainer()` call. If a setup step throws, `startContainer()` stops the container, so no request runs commands in a container that is not set up.
 
-`start()` returns before the container is ready, and the first `exec()` waits for it. The inactivity timeout does not survive a Durable Object restart. The constructor sets it again when a restarted Durable Object finds the container running. The timeout accepts at most 6 hours. If your commands do not need the Internet, set `enableInternet` to `false`.
+`start()` returns before the container is ready. The first `exec()` waits for the container process to start. Check application readiness separately. The inactivity timeout does not survive a Durable Object restart. The constructor sets it again when a restarted Durable Object finds the container running. The timeout accepts at most 6 hours.
 
   7. Replace each class field and `getSandbox()` option that your code sets:
 
@@ -221,7 +221,7 @@ Call `ensureRunning()` before each use of the container. It runs `startContainer
 `keepAlive` | An [alarm](https://developers.cloudflare.com/durable-objects/api/alarms/) that runs more often than the inactivity timeout while work remains.  
 `envVars`, `setEnvVars()` | `env` on `start()` for the main process, and `env` on each `exec()` call. Commands do not inherit the `start()` variables, except `PATH`.  
 `entrypoint` | `entrypoint` on `start()`, or `CMD` in the image.  
-`enableInternet` | `enableInternet` on `start()`, which every call must pass. 0.12 defaulted to `true`.  
+`enableInternet` | `enableInternet` on `start()`. Defaults to `false`. Set it to `true` to preserve the 0.12 default.  
 `labels`, `setLabels()` | `labels` on `start()`.  
 `defaultPort`, `requiredPorts` | `this.container.getTcpPort(port)`. Refer to [Move preview URLs](https://developers.cloudflare.com/sandbox/sdk/migrate/preview-urls/).  
 `allowedHosts`, `deniedHosts`, `outboundByHost`, `outbound`, `interceptHttps` | Refer to [Move outbound rules](https://developers.cloudflare.com/sandbox/sdk/migrate/outbound-traffic/).  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/
 title: Move other 0.x features \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:55.010148+00:00
+fetched_at: 2026-11-24T12:11:02.050614+00:00
 ---
 
 # Move other 0.x features · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:39:55.010148+00:00
 
 # Move other 0.x features
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/other-features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startRun Docker inside the sandboxReach Workers bindings from the containerStart an OpenCode serverGive OpenAI agents a shell and an editorReplace the bridgeRemove WarmPoolRelated resources
 
@@ -45,7 +45,7 @@ Docker in a `docker:dind-rootless` image | Run Docker inside the sandbox
   
 ## Run Docker inside the sandbox
 
-The 0.x Docker setup starts from `docker:dind-rootless`, switches to `USER root`, and copies in the musl build of the 0.x server. On a 1.0 container, its Docker daemon exits with `failed to set IP forwarding '/proc/sys/net/ipv4/ip_forward' = '1': open /proc/sys/net/ipv4/ip_forward: read-only file system`.
+The 0.12 Docker setup uses `docker:dind-rootless` with `USER root` and the musl build of the sandbox server. For 1.0, use `docker:dind` with its default bridge networking.
 
   1. Replace your `Dockerfile`:
 
@@ -55,13 +55,13 @@ Dockerfiledockerfile
          
          COPY --from=docker.io/cloudflare/sandbox:1.0.1 /usr/local/bin/sandbox-shim /usr/local/bin/sandbox-shim
          
-         ENTRYPOINT ["sh", "-c", "dockerd-entrypoint.sh dockerd --iptables=false --ip6tables=false --ip-forward=false > /var/log/dockerd.log 2>&1 & exec sleep infinity"]
+         ENTRYPOINT ["sh", "-c", "dockerd-entrypoint.sh dockerd > /var/log/dockerd.log 2>&1 & exec sleep infinity"]
 
-The Docker daemon runs as `root`, with iptables and IP forwarding turned off. It logs to `/var/log`, because the `docker:dind` entrypoint mounts an empty `/tmp`. `sleep infinity` keeps the container running. Keep the `COPY` line only if your class uses `Files`, `S3Mount`, or `DirectoryBackup`. `sandbox-shim` is statically linked, so it runs on the Alpine-based `docker:dind` image.
+The Docker daemon runs as `root` and logs to `/var/log`. The `docker:dind` entrypoint can mount a new filesystem over `/tmp`. `sleep infinity` keeps the container running. Keep the `COPY` line only if your class uses `Files`, `S3Mount`, or `DirectoryBackup`. `sandbox-shim` is statically linked, so it runs on the Alpine-based `docker:dind` image.
 
   2. Keep `enableInternet: true` in `start()`, so that Docker can pull images. 0.12 allowed Internet access by default.
 
-  3. Wait for Docker, and run containers with `--network=host`:
+  3. Wait for Docker, then run a container:
 
 src/index.ts (0.12)ts
          
@@ -100,7 +100,6 @@ src/index.ts (1.0)ts
          				"docker",
          				"run",
          				"--rm",
-         				"--network=host",
          				"alpine:3.22",
          				"echo",
          				"Hello from Docker",
@@ -111,8 +110,6 @@ src/index.ts (1.0)ts
          		return new TextDecoder().decode(result.stdout);
          	}
          }
-
-Without `--network=host`, `docker run` fails with `failed to disable IPv6 on container's interface eth0`. A `docker build` step that uses the network, such as a package install, also needs `docker build --network=host`. An inner container started this way shares the network access of the sandbox.
 
   4. Call `runImage()` from your Worker. It returns `Hello from Docker`. The first call also pulls `alpine:3.22`, and Docker writes its progress to `stderr`.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/analytics/graphql-api/limits/
 title: GraphQL API - Limits \u00b7 Cloudflare Analytics docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:14.317336+00:00
+fetched_at: 2026-11-24T12:11:04.778191+00:00
 ---
 
 # GraphQL API - Limits · Cloudflare Analytics docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:05:14.317336+00:00
 
 # Limits
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/analytics/graphql-api/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGlobal limitsUser limits Account-based rate limitingNode limits and availability
+OverviewGlobal limitsUser limits Account-based rate limitingNode limits and availability Dataset availability by plan
 
 Cloudflare GraphQL API exposes more than 70 datasets representing products with different configurations and data availability for different zones and accounts plans.
 
@@ -69,6 +69,22 @@ Each data node has its limits, such as:
 Node limits are tied to requested `zoneTag` or `accountTag`. Higher plans have access to a greater selection of datasets or fields, and can query over broader historical intervals.
 
 Adaptive datasets, such as `httpRequestsAdaptiveGroups` and `firewallEventsAdaptive`, retain at least 31 days of data on every plan. Aggregated datasets, such as `httpRequests1hGroups`, keep their own per-plan limits.
+
+Some datasets are not available on every plan. For example, `firewallEventsAdaptive` and `httpRequestsAdaptiveGroups` are available on all plans, but the aggregated `firewallEventsAdaptiveGroups` dataset is only available to zones on Pro, Business, and Enterprise plans. Free zones that query it receive a `does not have access to the path` error. Refer to Dataset availability by plan.
+
+### Dataset availability by plan
+
+The following datasets are available on different plans at the zone level:
+
+Dataset | Free | Pro | Business | Enterprise  
+---|---|---|---|---  
+`httpRequestsAdaptiveGroups` | Yes | Yes | Yes | Yes  
+`firewallEventsAdaptive` | Yes | Yes | Yes | Yes  
+`firewallEventsAdaptiveGroups` | No | Yes | Yes | Yes  
+  
+At the account level, `firewallEventsAdaptiveGroups` is available to Enterprise accounts only.
+
+Entitlements assigned to your zone or account can change these defaults. This table is not a complete list of datasets. To check whether a dataset is available for a specific zone or account, query its `enabled` field in the [Settings node](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/).
 
 To get exact boundaries and availability for your zone(s) or account, please refer to [settings](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/).
 

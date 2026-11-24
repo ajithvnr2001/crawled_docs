@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/profiling-in-production/
 title: Profiling in production \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:27.685680+00:00
+fetched_at: 2026-11-24T12:11:04.284372+00:00
 ---
 
 # Profiling in production · Cloudflare Workers docs
@@ -18,11 +18,13 @@ fetched_at: 2026-11-18T09:55:27.685680+00:00
 
 # Profiling in production
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a profile typePrepare trafficEnable source mapsCapture a profile Use dashboard Use Cloudflare CLI Use APIInspect the resultsDownload the captureLimits
 
 Capture CPU and allocation profiles for deployed [Workers](https://developers.cloudflare.com/workers/) and [Durable Objects](https://developers.cloudflare.com/durable-objects/) using the Cloudflare dashboard, [Cloudflare CLI](https://developers.cloudflare.com/cf/) (command-line interface), or the Cloudflare API. Use profiles to find expensive functions and allocating code.
+
+To profile a branch before it reaches production, refer to [Profile a Preview](https://developers.cloudflare.com/workers/previews/test-and-debug/#profile-a-preview).
 
 ## Choose a profile type
 

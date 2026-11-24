@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/messengers/
 title: Messengers \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:01.688562+00:00
+fetched_at: 2026-11-24T12:11:00.991996+00:00
 ---
 
 # Messengers · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:04:01.688562+00:00
 
 # Messengers
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallTelegramRoutingConversation targetsStateDelivery and recoveryMessenger contextCustom Chat SDK adaptersAdvanced manual ingress
 
@@ -41,45 +41,39 @@ Provider adapters are exported from provider-specific subpaths so unused adapter
     
     
     import { Think } from "@cloudflare/think";
-    import {
-    	defineMessengers,
-    	ThinkMessengerStateAgent,
-    } from "@cloudflare/think/messengers";
+    import { ThinkMessengerStateAgent } from "@cloudflare/think/messengers";
     import telegramMessenger from "@cloudflare/think/messengers/telegram";
     
     export { ThinkMessengerStateAgent };
     
     export class SupportAgent extends Think {
     	getMessengers() {
-    		return defineMessengers({
+    		return {
     			telegram: telegramMessenger({
     				token: this.env.TELEGRAM_BOT_TOKEN,
     				userName: "support_bot",
     				secretToken: this.env.TELEGRAM_WEBHOOK_SECRET_TOKEN,
     			}),
-    		});
+    		};
     	}
     }
     
     
     import { Think } from "@cloudflare/think";
-    import {
-    	defineMessengers,
-    	ThinkMessengerStateAgent,
-    } from "@cloudflare/think/messengers";
+    import { ThinkMessengerStateAgent } from "@cloudflare/think/messengers";
     import telegramMessenger from "@cloudflare/think/messengers/telegram";
     
     export { ThinkMessengerStateAgent };
     
     export class SupportAgent extends Think<Env> {
     	getMessengers() {
-    		return defineMessengers({
+    		return {
     			telegram: telegramMessenger({
     				token: this.env.TELEGRAM_BOT_TOKEN,
     				userName: "support_bot",
     				secretToken: this.env.TELEGRAM_WEBHOOK_SECRET_TOKEN,
     			}),
-    		});
+    		};
     	}
     }
 
@@ -93,36 +87,44 @@ With the default `telegram` key, register the Telegram webhook at:
 If one Think agent owns multiple Telegram bots, give each provider a distinct Chat SDK adapter name:
     
     
-    defineMessengers({
-    	support: telegramMessenger({
-    		adapterName: "support-telegram",
-    		token: this.env.SUPPORT_TELEGRAM_BOT_TOKEN,
-    		userName: "support_bot",
-    		secretToken: this.env.SUPPORT_TELEGRAM_WEBHOOK_SECRET_TOKEN,
-    	}),
-    	sales: telegramMessenger({
-    		adapterName: "sales-telegram",
-    		token: this.env.SALES_TELEGRAM_BOT_TOKEN,
-    		userName: "sales_bot",
-    		secretToken: this.env.SALES_TELEGRAM_WEBHOOK_SECRET_TOKEN,
-    	}),
-    });
+    export class SupportAgent extends Think {
+    	getMessengers() {
+    		return {
+    			support: telegramMessenger({
+    				adapterName: "support-telegram",
+    				token: this.env.SUPPORT_TELEGRAM_BOT_TOKEN,
+    				userName: "support_bot",
+    				secretToken: this.env.SUPPORT_TELEGRAM_WEBHOOK_SECRET_TOKEN,
+    			}),
+    			sales: telegramMessenger({
+    				adapterName: "sales-telegram",
+    				token: this.env.SALES_TELEGRAM_BOT_TOKEN,
+    				userName: "sales_bot",
+    				secretToken: this.env.SALES_TELEGRAM_WEBHOOK_SECRET_TOKEN,
+    			}),
+    		};
+    	}
+    }
     
     
-    defineMessengers({
-    	support: telegramMessenger({
-    		adapterName: "support-telegram",
-    		token: this.env.SUPPORT_TELEGRAM_BOT_TOKEN,
-    		userName: "support_bot",
-    		secretToken: this.env.SUPPORT_TELEGRAM_WEBHOOK_SECRET_TOKEN,
-    	}),
-    	sales: telegramMessenger({
-    		adapterName: "sales-telegram",
-    		token: this.env.SALES_TELEGRAM_BOT_TOKEN,
-    		userName: "sales_bot",
-    		secretToken: this.env.SALES_TELEGRAM_WEBHOOK_SECRET_TOKEN,
-    	}),
-    });
+    export class SupportAgent extends Think<Env> {
+    	getMessengers() {
+    		return {
+    			support: telegramMessenger({
+    				adapterName: "support-telegram",
+    				token: this.env.SUPPORT_TELEGRAM_BOT_TOKEN,
+    				userName: "support_bot",
+    				secretToken: this.env.SUPPORT_TELEGRAM_WEBHOOK_SECRET_TOKEN,
+    			}),
+    			sales: telegramMessenger({
+    				adapterName: "sales-telegram",
+    				token: this.env.SALES_TELEGRAM_BOT_TOKEN,
+    				userName: "sales_bot",
+    				secretToken: this.env.SALES_TELEGRAM_WEBHOOK_SECRET_TOKEN,
+    			}),
+    		};
+    	}
+    }
 
 Duplicate adapter names fail during startup so providers cannot overwrite each other in the shared Chat SDK runtime.
 

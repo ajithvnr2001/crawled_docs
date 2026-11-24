@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/guides/execute-commands/
 title: Execute commands \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.177694+00:00
+fetched_at: 2026-11-24T12:11:03.522171+00:00
 ---
 
 # Execute commands · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:48.177694+00:00
 
 # Execute commands
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCombine standard errorStream large outputStop a processCoordinate operations
 
@@ -448,7 +448,7 @@ This example uses `sh` because it needs expansion and redirection. It also captu
     	}
     }
 
-The `user` option sets the numeric Linux user and group IDs for the process, as `uid:gid`. When omitted, the process runs as the image user. Before you rely on `user` to restrict a process, refer to [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec).
+The `user` option sets the Linux user and optional group for the process, as `user[:group]`. Each value can be a name or numeric ID. When omitted, the process runs as the image user. Before you rely on `user` to restrict a process, refer to [`exec()`](https://developers.cloudflare.com/containers/api/durable-object-container/#exec).
 
 ## Combine standard error
 
@@ -680,7 +680,7 @@ This method transfers output, not the `ExecProcess` handle. Define a separate ap
 
 ## Stop a process
 
-`exec()` has no built-in timeout. You can request termination after a delay with `kill()` and then await `exitCode`.
+Once a process starts, there is no built-in time limit. To request termination after a delay, call `kill()` and then await `exitCode`.
     
     
     import { DurableObject } from "cloudflare:workers";

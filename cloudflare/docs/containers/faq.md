@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/faq/
 title: Frequently Asked Questions \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:39.802968+00:00
+fetched_at: 2026-11-24T12:11:03.198644+00:00
 ---
 
 # Frequently Asked Questions · Cloudflare Containers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-20T09:50:39.802968+00:00
 
 # Frequently Asked Questions
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow do Container logs work?How are container instance locations selected?How do container updates and rollouts work?How do Workers Builds work with Containers?How does scaling work? Is built-in autoscaling for stateless applications available?Can a Container receive inbound TCP or gRPC traffic?What are cold starts? How fast are they?How do I use an existing container image?Is disk persistent? What happens to my disk when my container sleeps?What happens if I run out of memory?How long can instances run for? What happens when a host server is shut down?How can I pass secrets to my container?Can I run Docker inside a container (Docker-in-Docker)?How do I allow or disallow egress from my container?
 
@@ -71,22 +71,9 @@ You can export container logs via [Logpush](https://developers.cloudflare.com/lo
 
 ## How are container instance locations selected?
 
-When initially deploying a Container, Cloudflare will select various locations across our network to deploy instances to. These locations will span multiple regions.
+With the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), Cloudflare selects a suitable location when your Durable Object calls `this.ctx.container.start()`. Placement takes into account the Durable Object's jurisdiction, available capacity, and cached images.
 
-When a Container instance is requested with `this.ctx.container.start`, the nearest free container instance will be selected from the pre-initialized locations. This will likely be in the same region as the external request, but may not be. Once the container instance is running, any future requests will be routed to the initial location.
-
-An Example:
-
-  * A user deploys a Container. Cloudflare automatically readies instances across its Network.
-  * A request is made from a client in Bariloche, Argentina. It reaches the Worker in Cloudflare's location in Neuquen, Argentina.
-  * This Worker request calls `MY_CONTAINER.get("session-1337")` which brings up a Durable Object, which then calls `this.ctx.container.start`.
-  * This requests the nearest free Container instance.
-  * Cloudflare recognizes that an instance is free in Buenos Aires, Argentina, and starts it there.
-  * A different user needs to route to the same container. This user's request reaches the Worker running in Cloudflare's location in San Diego.
-  * The Worker again calls `MY_CONTAINER.get("session-1337")`.
-  * If the initial container instance is still running, the request is routed to the location in Buenos Aires. If the initial container has gone to sleep, Cloudflare will once again try to find the nearest "free" instance of the Container, likely one in North America, and start an instance there.
-
-
+While the container is running, requests through its Durable Object reach that same instance. After it stops, a later start may select a different location. For more information, refer to [Placement](https://developers.cloudflare.com/containers/concepts/placement/).
 
 ## How do container updates and rollouts work?
 
@@ -138,7 +125,7 @@ You can also use [FUSE](https://developers.cloudflare.com/containers/examples/r2
 
 ## What happens if I run out of memory?
 
-If you run out of memory, your instance will throw an Out of Memory (OOM) error and will be restarted.
+If an out-of-memory (OOM) condition stops an instance that uses the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), its Durable Object must start it again.
 
 Containers do not use swap memory.
 
@@ -148,17 +135,7 @@ Cloudflare does not stop a container instance after a fixed maximum runtime. Cal
 
 Another platform event can stop an active container. For example, a host server restart happens on an irregular cadence. Cloudflare does not guarantee that any container instance will run for a set period.
 
-When the platform is about to stop a container instance (including before a host moves work off a server), it:
-
-  1. Sends `SIGTERM` to the main process in the container.
-  2. Waits up to 15 minutes for that process to exit.
-  3. Sends `SIGKILL` if the process is still running.
-
-
-
-Handle `SIGTERM` in your image if you need cleanup before exit. After a host stop, a new container instance may start on a different server when traffic needs it again.
-
-Image updates during a deploy use the same stop sequence. Refer to [Rollouts](https://developers.cloudflare.com/containers/configuration/rollouts/).
+After a host stop, a new container instance may start on a different server. For cleanup guidance, refer to [Container shutdown](https://developers.cloudflare.com/containers/concepts/architecture/#container-shutdown).
 
 ## How can I pass secrets to my container?
 
@@ -168,21 +145,19 @@ For implementation details, refer to [Environment variables and secrets](https:/
 
 ## Can I run Docker inside a container (Docker-in-Docker)?
 
-Yes. Use the `docker:dind` image, and start the Docker daemon with iptables and IP forwarding turned off:
+Yes. With the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), Docker can use bridge networking, iptables, and IP forwarding. Use the `docker:dind` image:
 
 Dockerfiledockerfile
     
     
     FROM docker:dind
     
-    # Start dockerd with iptables and IP forwarding turned off, then run your app
-    ENTRYPOINT ["sh", "-c", "dockerd-entrypoint.sh dockerd --iptables=false --ip6tables=false --ip-forward=false & exec /path/to/your-app"]
+    # Start dockerd, then run your app
+    ENTRYPOINT ["sh", "-c", "dockerd-entrypoint.sh dockerd & exec /path/to/your-app"]
 
-This Dockerfile works with both [scheduling policies](https://developers.cloudflare.com/containers/configuration/scheduling-policy/). Containers that use the `durable_object` policy cannot turn on IP forwarding. In those containers, the Docker daemon exits on startup unless you pass `--ip-forward=false`.
+Run the Docker daemon as `root` for this setup.
 
-Run the Docker daemon as `root`. Rootless Docker does not start in Containers.
-
-If your application needs to wait for dockerd to become ready before using Docker, use an entrypoint script instead of the inline command above:
+If your application uses Docker or writes to `/tmp` during startup, wait for the daemon before starting the application. The `docker:dind` entrypoint can mount a new filesystem over `/tmp` during startup. Use an entrypoint script that waits for Docker:
 
 entrypoint.shsh
     
@@ -190,22 +165,14 @@ entrypoint.shsh
     #!/bin/sh
     set -eu
     
+    dockerd-entrypoint.sh dockerd &
+    
     # Wait for dockerd to be ready
     until docker version >/dev/null 2>&1; do
       sleep 0.2
     done
     
     exec /path/to/your-app
-
-Working with disabled iptables
-
-Cloudflare Containers do not support iptables manipulation. The `--iptables=false` and `--ip6tables=false` flags prevent Docker from attempting to configure network rules, which would otherwise fail.
-
-To send or receive traffic from a container running within Docker-in-Docker, use the `--network=host` flag with `docker run`. A `docker build` step that uses the network, such as a package install, also needs `docker build --network=host`.
-
-This allows you to connect to the container, but it means each inner container has access to your outer container's network stack. Ensure you understand the security implications of this setup before proceeding.
-
-For a complete working example, refer to the [Docker-in-Docker Containers example ↗︎](https://github.com/th0m/containers-dind). The example uses the `default` scheduling policy. To run it with `scheduling_policy: "durable_object"`, add `--ip-forward=false` to its `dockerd` flags.
 
 ## How do I allow or disallow egress from my container?
 

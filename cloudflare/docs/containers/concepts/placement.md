@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/concepts/placement/
 title: Placement \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T10:23:32.976291+00:00
+fetched_at: 2026-11-24T12:11:03.245377+00:00
 ---
 
 # Placement · Cloudflare Containers docs
@@ -18,13 +18,35 @@ fetched_at: 2026-11-17T10:23:32.976291+00:00
 
 # Placement
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewRegional constraintsJurisdictional constraintsConfigure placement
+OverviewPlacement and routingJurisdictionPlacement constraints for the default policy Regional constraints Jurisdictional constraints Configure placement
 
-By default, containers run in the location nearest to the incoming request with a pre-fetched image. Use placement constraints to restrict where your containers run for data residency, compliance, or latency requirements.
+With the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), your Durable Object starts a Container instance on demand through `ctx.container.start()`. Cloudflare selects a suitable location based on request routing, available capacity, and image availability.
 
-## Regional constraints
+## Placement and routing
+
+A Container and its associated Durable Object are not guaranteed to run in the same location. Placement balances request routing with startup speed, so the Container may start in another eligible location.
+
+Requests to a running Container continue to reach that instance, regardless of where the requests originate. After the Container stops, its next start may use a different location.
+
+## Jurisdiction
+
+Container placement uses the jurisdiction of its associated Durable Object to determine eligible locations. Configure the Durable Object namespace's jurisdiction using the [Durable Objects data location API](https://developers.cloudflare.com/durable-objects/reference/data-location/#restrict-durable-objects-to-a-jurisdiction).
+
+The `durable_object` policy does not support application-level regional constraints or application-level EU and US jurisdiction settings. Set jurisdiction through the Durable Object namespace.
+
+Image and snapshot storage
+
+Jurisdiction controls where Container instances run. It does not determine where Container images or [snapshots](https://developers.cloudflare.com/containers/guides/snapshots/) are stored. If storage location is part of your requirement, confirm the supported image workflow with your account team before you deploy.
+
+For Data Localization Suite support, refer to [Product compatibility](https://developers.cloudflare.com/data-localization/compatibility/#developer-platform).
+
+## Placement constraints for the default policy
+
+Applications that use the [`default` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-default-scheduling-policy) can set application-level placement constraints in their Wrangler configuration.
+
+### Regional constraints
 
 Use the `regions` constraint to limit container placement to specific geographic areas:
 
@@ -42,7 +64,7 @@ Region | Description | Notes
   
 Limited capacity regions (ME, OC, AFR) cannot be used exclusively. Include at least one other region, or contact support for dedicated access.
 
-## Jurisdictional constraints
+### Jurisdictional constraints
 
 Use the `jurisdiction` constraint to restrict containers to compliance boundaries:
 
@@ -54,15 +76,7 @@ Jurisdiction | Regions | Use case
   
 When you specify both `jurisdiction` and `regions`, the regions must be valid for that jurisdiction. For example, specifying `jurisdiction: "eu"` with `regions: ["ENAM"]` is invalid.
 
-Jurisdiction controls where containers run, not where images are stored
-
-The `jurisdiction` constraint controls where Container instances run. It does not determine where Container images or [snapshots](https://developers.cloudflare.com/containers/guides/snapshots/) are stored. If storage location is part of your requirement, confirm the supported image workflow with your account team before you deploy.
-
-The `jurisdiction` constraint in Wrangler configuration applies to applications that use the [`default` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/). With the [`durable_object` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/#use-the-durable-object-scheduling-policy), a Container runs where its Durable Object runs. To restrict that location, create the Durable Object in a [jurisdiction](https://developers.cloudflare.com/durable-objects/reference/data-location/#restrict-durable-objects-to-a-jurisdiction).
-
-For Data Localization Suite support, refer to [Product compatibility](https://developers.cloudflare.com/data-localization/compatibility/#developer-platform).
-
-## Configure placement
+### Configure placement
 
 Set placement constraints in your Wrangler configuration:
     
@@ -71,7 +85,7 @@ Set placement constraints in your Wrangler configuration:
       "$schema": "./node_modules/wrangler/config-schema.json",
       "containers": [
         {
-          "name": "my-container",
+          "class_name": "MyContainer",
           "image": "docker.io/my-org/my-image:latest",
           "constraints": {
             "regions": [
@@ -86,7 +100,7 @@ Set placement constraints in your Wrangler configuration:
     
     
     [[containers]]
-    name = "my-container"
+    class_name = "MyContainer"
     image = "docker.io/my-org/my-image:latest"
     
     [containers.constraints]

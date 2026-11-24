@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/
 title: Move background processes \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:53.270386+00:00
+fetched_at: 2026-11-24T12:11:02.709745+00:00
 ---
 
 # Move background processes · Cloudflare Sandboxes docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-23T16:39:53.270386+00:00
 
 # Move background processes
 
-Last updated Oct 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/sdk/migrate/background-processes/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startAdd the process methodsStart processesCheck and list processesRead logsWait for output or exitStop processesReplace callbacksStart processes again after the switchCheck the processesRelated resources
 
@@ -113,8 +113,6 @@ src/index.ts (1.0)ts
 Each process needs an ID. Where 0.12 generated one, such as `proc_1790379992394_6snsuw`, use `crypto.randomUUID()`. The ID becomes a directory name, so use only characters that are safe in a path.
 
 `startProcess()` returns `false` when a process already uses the ID. 0.12 replaced the record instead, and the first process kept running without one. An ended process keeps its directory, so `startProcess()` also returns `false` for its ID. To start that ID again, delete the directory first, as Stop processes describes.
-
-`python3 -m http.server`, which 0.12 ran as a preview server, exits on startup in a 1.0 container. For the cause and a replacement, refer to [The hostname is longer than a DNS label](https://developers.cloudflare.com/containers/guides/local-dev/#the-hostname-is-longer-than-a-dns-label).
 
 Remove the `timeout` option, which did not stop a background process in 0.12. To limit how long a process runs, start it with the `timeout` command, such as `["timeout", "300", "npm", "test"]`. The command exits with code `124` when the time passes, or `137` with `--kill-after` when the process ignores `SIGTERM`.
 

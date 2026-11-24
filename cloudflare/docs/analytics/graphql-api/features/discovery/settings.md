@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/
 title: Settings node \u00b7 Cloudflare Analytics docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:12.420646+00:00
+fetched_at: 2026-11-24T12:11:05.010298+00:00
 ---
 
 # Settings node · Cloudflare Analytics docs
@@ -22,13 +22,15 @@ fetched_at: 2026-10-08T07:05:12.420646+00:00
 
 # Settings node
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/settings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFormatA sample query
 
 Cloudflare GraphQL API exposes more than 70 datasets to its customers. These datasets represent different Cloudflare products with very different data shapes; thus, each has its configuration of [limits](https://developers.cloudflare.com/analytics/graphql-api/limits/).
 
 Although we allow access to ALL plans for the essential datasets (like `httpRequestsAdaptiveGroups`, `firewallEventsAdaptive`, etc), users on larger plans benefit from an extended set of datasets and wider query limits.
+
+Not every dataset with a similar name is open to all plans. For example, `firewallEventsAdaptive` is available on all plans, but the aggregated `firewallEventsAdaptiveGroups` dataset is not available to Free zones. Refer to [Dataset availability by plan](https://developers.cloudflare.com/analytics/graphql-api/limits/#dataset-availability-by-plan).
 
 In addition to [introspection](https://developers.cloudflare.com/analytics/graphql-api/features/discovery/introspection/), users can use the Settings node that is available for both zones and accounts scopes.
 

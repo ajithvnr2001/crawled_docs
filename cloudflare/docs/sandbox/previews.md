@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/previews/
 title: Preview a web application \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:55.608787+00:00
+fetched_at: 2026-11-24T12:11:02.926326+00:00
 ---
 
 # Preview a web application · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-23T16:39:55.608787+00:00
 
 # Preview a web application
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/previews/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesForward requests to the serverKeep WebSocket connections openUse hot reloading with a development serverShare a preview with a linkStop a previewRelated resources
 
@@ -68,8 +68,6 @@ src/index.tsts
          `;
 
 The server must listen on `0.0.0.0`, because `getTcpPort()` cannot reach a server that listens only on `127.0.0.1`. Many development servers listen on `localhost` by default and provide an option to change the address. The server runs as the main process. When it exits, for example after a crash, the instance stops, and its files end with it. If commands in the sandbox change files that you need, start the server as described in [Run a server in the background](https://developers.cloudflare.com/sandbox/commands/run-a-server-in-the-background/) instead.
-
-After you deploy, servers built on the Python `http.server` module, such as `python3 -m http.server`, exit on startup, because they look up the container hostname. For a Python command that serves files, refer to [Differences after you deploy](https://developers.cloudflare.com/containers/guides/local-dev/#the-hostname-is-longer-than-a-dns-label).
 
   2. Add an inactivity timeout to your Durable Object. The constructor sets the timeout again when a restarted Durable Object finds the container running:
 

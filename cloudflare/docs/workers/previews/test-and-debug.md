@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/test-and-debug/
 title: Test and debug \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:23.849268+00:00
+fetched_at: 2026-11-24T12:11:04.640507+00:00
 ---
 
 # Test and debug · Cloudflare Workers docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-10T14:39:23.849268+00:00
 
 # Test and debug
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewLogs and tracesTail WorkersMetricsBrowser evidenceExporting dataCurrent limitations
+OverviewLogs and tracesTail WorkersMetricsProfile a Preview Use dashboard Use Cloudflare CLI Use APIBrowser evidenceExporting dataCurrent limitations
 
-Previews support the same [Workers Observability](https://developers.cloudflare.com/workers/observability/) features as production — [logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/), [traces](https://developers.cloudflare.com/workers/observability/traces/), [metrics](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/), and [Tail Workers](https://developers.cloudflare.com/workers/observability/logs/tail-workers/) — configured independently so your Preview telemetry stays separate.
+Previews support the same [Workers Observability](https://developers.cloudflare.com/workers/observability/) features as production — [logs](https://developers.cloudflare.com/workers/observability/logs/workers-logs/), [traces](https://developers.cloudflare.com/workers/observability/traces/), [metrics](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/), [profiles](https://developers.cloudflare.com/workers/observability/profiling-in-production/), and [Tail Workers](https://developers.cloudflare.com/workers/observability/logs/tail-workers/) — configured independently so your Preview telemetry stays separate.
 
 ## Logs and traces
 
@@ -135,6 +135,78 @@ Useful fields include `scriptName` (Worker name), `previewSlug` (Preview name), 
 Per-Preview metrics are also visible in the dashboard under the Preview's **Metrics** tab.
 
 You can also query Preview observability data using the [Cloudflare API MCP server](https://developers.cloudflare.com/agents/model-context-protocol/cloudflare/servers-for-cloudflare/#cloudflare-api-mcp-server).
+
+## Profile a Preview
+
+Capture CPU and heap profiles from a Preview to find expensive functions and allocating code before your change reaches production. You can profile a Preview's Worker or a [Durable Object](https://developers.cloudflare.com/durable-objects/) instance running on the Preview.
+
+Profiling a Preview works the same way as [profiling in production](https://developers.cloudflare.com/workers/observability/profiling-in-production/). Before you capture a profile:
+
+  * [Enable source maps](https://developers.cloudflare.com/workers/observability/profiling-in-production/#enable-source-maps) so the flamegraph shows readable function names.
+  * Send traffic to the Preview URL before and during the capture. Capturing a profile does not invoke your code for you.
+
+
+
+### Use dashboard
+
+  1. In the Cloudflare dashboard, go to **Workers & Pages** and select your Worker:
+
+[ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
+  2. Select **Previews** , then select your Preview.
+
+  3. Select **Observability**. In the view dropdown, select _Flamegraph_.
+
+  4. In **Profile type** , select _CPU_ or _Heap_.
+
+  5. In **Duration (ms)** , enter a capture duration from 1000 to 50000 milliseconds. The default is 10000 milliseconds.
+
+  6. In **Deployment** , select the Preview deployment to profile.
+
+  7. Select **Capture profile**.
+
+![Flamegraph view for a Preview with Profile type, Duration, and Deployment fields and the Capture profile button](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1929,height=713,format=webp/_astro/profile-capture.BJPUyeRg.png)
+
+
+
+When capture completes, the dashboard displays the profile as a flamegraph. Switch to **Table** to sort functions by self or total value, which is CPU time for CPU profiles and allocated memory for Heap profiles. Select **Download profile** to download the raw pprof profile.
+
+![Flamegraph of a Preview CPU profile with the Download profile button and Flamegraph and Table toggle](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=1929,height=904,format=webp/_astro/profile-flamegraph.CljVEwJ4.png)
+
+To profile a Durable Object instance on the Preview, go to **Durable Objects** , select the Preview's namespace, select **Observability** , and switch the view to _Flamegraph_. Enter the 64-character object ID in **Instance ID** before you capture.
+
+### Use Cloudflare CLI
+
+[Install `cf` and sign in](https://developers.cloudflare.com/cf/get-started/), then capture a CPU profile for 5 seconds from a Preview deployment. Pass `latest` or a specific deployment ID:
+    
+    
+    cf previews deployments profile "$DEPLOYMENT_ID" \
+      --worker my-worker \
+      --preview my-preview \
+      --duration-ms 5000 \
+      --profile-type cpu > preview-cpu.pprof
+
+To profile a Durable Object instance on the Preview, also pass `--namespace-id` and `--actor-id`.
+
+### Use API
+
+Send a `POST` request to the Preview deployment's `profile` endpoint. Use an API token with the same permissions as the [production profiling API](https://developers.cloudflare.com/workers/observability/profiling-in-production/#use-api): **Workers Scripts Read** or the **Content Read-Only** [Workers role](https://developers.cloudflare.com/workers/authorization/workers/).
+
+Set `$DEPLOYMENT_ID` to `latest` to profile the newest deployment of the Preview. To profile a specific deployment, copy its ID from the Preview's **Deployments** tab.
+
+The request body accepts the same fields as the production profiling API: `duration_ms`, `profile_type`, and, for a Durable Object, `namespace_id` and `actor_id`.
+    
+    
+    curl --fail --silent --show-error --request POST \
+      "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/workers/workers/$WORKER_ID/previews/$PREVIEW_ID/deployments/$DEPLOYMENT_ID/profile" \
+      --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "duration_ms": 10000,
+        "profile_type": "cpu"
+      }' \
+      --output preview-cpu.pprof.gz
+
+To read the results, refer to [Inspect the results](https://developers.cloudflare.com/workers/observability/profiling-in-production/#inspect-the-results). For pprof tools, rate limits, and error messages, refer to [Download the capture](https://developers.cloudflare.com/workers/observability/profiling-in-production/#download-the-capture) and [Limits](https://developers.cloudflare.com/workers/observability/profiling-in-production/#limits).
 
 ## Browser evidence
 

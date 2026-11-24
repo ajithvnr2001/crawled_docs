@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-to-origin/
 title: Post-quantum between Cloudflare and origin servers \u00b7 Cloudflare SSL/TLS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:44.868643+00:00
+fetched_at: 2026-11-24T12:11:04.480663+00:00
 ---
 
 # Post-quantum between Cloudflare and origin servers · Cloudflare SSL/TLS docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:44.868643+00:00
 
 # Post-quantum between Cloudflare and origin servers
 
-Last updated Aug 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ssl/post-quantum-cryptography/pqc-to-origin/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPost-quantum key agreement ClientHello from Cloudflare Set upPost-quantum signatures Requirements Generate an ML-DSA certificate authority and leaf certificate Set up Authenticated Origin Pulls with an ML-DSA client certificate Set up Custom Origin Trust Store with an ML-DSA CA Verify end-to-end Avoid downgrades
 
@@ -49,6 +49,10 @@ Cloudflare continues to advertise other allowed key agreements. If an origin req
 Use **Automatic key exchange** to control scanning and preferred key share selection. Compliance requirements apply only to TLS 1.3 connections.
 
 The [Origin Post-Quantum Encryption API](https://developers.cloudflare.com/api/resources/origin_post_quantum_encryption/methods/update/) remains available. Requests to this API are no-ops and do not change a zone's post-quantum key agreement behavior. Cloudflare plans to deprecate this API, but a deprecation date has not been established.
+
+Note
+
+If you set the **Post-quantum hybrid** compliance requirement and a destination server does not support post-quantum key exchange, Cloudflare returns a [`525` error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/). This also applies to outbound `fetch()` calls from [Workers](https://developers.cloudflare.com/workers/) running under that zone. Use **Automatic key exchange** (the default) to retain compatibility with servers that do not yet support post-quantum key exchange.
 
 #### Origin server
 

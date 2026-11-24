@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/scheduled-tasks/
 title: Scheduled tasks \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:13.499592+00:00
+fetched_at: 2026-11-24T12:11:01.409472+00:00
 ---
 
 # Scheduled tasks · Cloudflare Agents docs
@@ -22,14 +22,14 @@ fetched_at: 2026-10-08T07:04:13.499592+00:00
 
 # Scheduled tasks
 
-Last updated Jun 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/agents/harnesses/think/scheduled-tasks/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use a workflow instead
 
 Use `getScheduledTasks()` when code should create recurring Think turns or deterministic scheduled handlers. Think reconciles the declarations on startup, stores a durable one-shot schedule for the next occurrence, and re-arms the next occurrence after each run.
     
     
-    import { Think, defineScheduledTasks } from "@cloudflare/think";
+    import { Think } from "@cloudflare/think";
     
     export class DigestAgent extends Think {
     	getDefaultTimezone() {
@@ -37,7 +37,7 @@ Use `getScheduledTasks()` when code should create recurring Think turns or deter
     	}
     
     	getScheduledTasks() {
-    		return defineScheduledTasks({
+    		return {
     			weeklyCommitReport: {
     				schedule: "every week on monday at 09:00",
     				prompt:
@@ -64,20 +64,20 @@ Use `getScheduledTasks()` when code should create recurring Think turns or deter
     					});
     				},
     			},
-    		});
+    		};
     	}
     }
     
     
-    import { Think, defineScheduledTasks } from "@cloudflare/think";
+    import { Think, type ThinkScheduledTasks } from "@cloudflare/think";
     
     export class DigestAgent extends Think<Env> {
     	getDefaultTimezone() {
     		return "Europe/London";
     	}
     
-    	getScheduledTasks() {
-    		return defineScheduledTasks({
+    	getScheduledTasks(): ThinkScheduledTasks {
+    		return {
     			weeklyCommitReport: {
     				schedule: "every week on monday at 09:00",
     				prompt:
@@ -104,7 +104,7 @@ Use `getScheduledTasks()` when code should create recurring Think turns or deter
     					});
     				},
     			},
-    		});
+    		};
     	}
     }
 

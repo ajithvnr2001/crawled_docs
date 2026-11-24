@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/workers-api/
 title: Workers API \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:40.977987+00:00
+fetched_at: 2026-11-24T12:11:03.998953+00:00
 ---
 
 # Workers API · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-20T09:50:40.977987+00:00
 
 # Workers API
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkflowEntrypoint runWorkflowEventWorkflowStep stepWorkflowStepConfigRollback optionsWorkflowStepContextWorkflow step limitsWorkflow concurrency limitsDefault instance retentionWorkflow jurisdictionDeclare Workflows in exports Call a Workflow through ctx.exportsNonRetryableErrorCall Workflows from Workers Bind from Pages Cross-script callsWorkflow create createBatch deleteBatch getWorkflowInstanceCreateOptionsWorkflowInstance id status pause resume restart terminate delete sendEvent subscribe InstanceStatus
 
@@ -479,7 +479,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-20",
+    	"compatibility_date": "2026-11-24",
     	"exports": {
     		"MyWorkflow": {
     			"type": "workflow",
@@ -495,7 +495,7 @@ Key each entry by the name of the class that extends `WorkflowEntrypoint`. Set `
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-20"
+    compatibility_date = "2026-11-24"
     
     [exports.MyWorkflow]
     type = "workflow"
@@ -621,7 +621,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-20",
+    	"compatibility_date": "2026-11-24",
     	"workflows": [
     		{
     			// name of your workflow
@@ -640,7 +640,7 @@ For example, to bind to a Workflow called `workflows-starter` and to make it ava
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-20"
+    compatibility_date = "2026-11-24"
     
     [[workflows]]
     name = "workflows-starter"
@@ -666,7 +666,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-11-20",
+    	"compatibility_date": "2026-11-24",
     	"workflows": [
     		{
     			// name of your workflow
@@ -688,7 +688,7 @@ For example, if your Workflow is defined in a Worker script named `billing-worke
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-20"
+    compatibility_date = "2026-11-24"
     
     [[workflows]]
     name = "billing-workflow"
@@ -892,15 +892,20 @@ The operation returns the created instances and per-instance errors:
     	}[];
     };
 
-`created` contains a `WorkflowInstance` for each created instance, in input order. `errors` contains the entries that were not created. Each error includes the position of the entry in the input (`index`), its `id` if one was provided, and an error code and message.
+`created` contains a `WorkflowInstance` for each created instance, in input order. `errors` contains the entries that were not created. Each error includes the position of the entry in the input (`index`), its `id`, and an error code and message. If you did not provide an `id` for the entry, the error includes the ID that was generated for it.
 
-Unlike [`create`](https://developers.cloudflare.com/workflows/build/workers-api/#create), `createBatch` does not throw when an ID is already in use. Instead, it reports the entry in `errors` with one of the following codes:
+Unlike [`create`](https://developers.cloudflare.com/workflows/build/workers-api/#create), `createBatch` does not throw when it cannot create an entry for one of the following reasons. Instead, it reports the entry in `errors` with the matching code:
 
 Code | Description  
 ---|---  
+`10002` | The `params` for the entry contain a value that Workflows cannot store, such as a function.  
 `10405` | An instance with this ID already exists.  
-`10415` | An earlier entry in the same batch uses this ID. Only the first entry with the ID is created.  
+`10415` | An earlier entry in the same batch uses this ID. Only the first entry with the ID can be created.  
   
+If more than one of these reasons applies to an entry, it is reported with `10405` or `10415`, not `10002`. In the `count` form, all instances share the same `params`, so if they contain a value that Workflows cannot store, every instance is reported with `10002` and no instances are created.
+
+Entries can also fail for other reasons, such as an internal error, and are reported with a different code.
+
 If any entry has invalid options, such as an invalid ID or retention duration, the call throws an error before it creates any instances.
 
 #### Migrate from the array form
@@ -913,7 +918,7 @@ Passing an array to `createBatch` is deprecated. Use the `instances` option inst
 
 
 
-The array form returns an array of `WorkflowInstance`. It skips IDs that already exist or repeat within the batch, and excludes them from the returned array without reporting an error.
+The array form returns an array of `WorkflowInstance`. It skips entries whose ID already exists or repeats within the batch, or whose `params` contain a value that cannot be stored, and excludes them from the returned array without reporting an error.
 
 To migrate, pass the array as `instances` and read the instances from `created`:
     

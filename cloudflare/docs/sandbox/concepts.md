@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/concepts/
 title: Choose a sandbox environment \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:39:57.651251+00:00
+fetched_at: 2026-11-24T12:11:02.777124+00:00
 ---
 
 # Choose a sandbox environment · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-23T16:39:57.651251+00:00
 
 # Choose a sandbox environment
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/concepts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat the code can useUse a Container when the code expects LinuxUse a Dynamic Worker when the code calls known methodsHow each environment isolates codeWhat you maintainUse both in one application
 
@@ -51,7 +51,7 @@ For example, your Worker can pass a `listPullRequests()` method that works for o
 
 ## How each environment isolates code
 
-A Container runs in a [Firecracker](https://developers.cloudflare.com/containers/concepts/architecture/#container-runtime) microVM with its own kernel and network, which no other workload shares. Your image runs as a Linux container inside that VM.
+A Container runs in a [microVM](https://developers.cloudflare.com/containers/concepts/architecture/#container-runtime) with its own kernel and network, which no other workload shares. Your image runs as a Linux container inside that VM.
 
 V8, the JavaScript engine in Chrome, runs each Dynamic Worker in a sandbox that cannot read memory outside itself. The Workers runtime adds a process-level sandbox around it. For more information, refer to the [Workers security model](https://developers.cloudflare.com/workers/reference/security-model/).
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/configuration/scheduling-policy/
 title: Scheduling Policies \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:09.080133+00:00
+fetched_at: 2026-11-24T12:11:03.333911+00:00
 ---
 
 # Scheduling Policies · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:09.080133+00:00
 
 # Scheduling Policies
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse the default scheduling policyUse the Durable Object scheduling policy Use the Cloudflare-managed image Configure named images Choose an instance size at runtime Start from an image or snapshot Manage updates from application code Configure SSHRelated resources
 
@@ -211,6 +211,7 @@ The image map is uploaded with the Worker version. Updating the map does not res
 Set `instance` in `ctx.container.start()` to one of the following [named instance types](https://developers.cloudflare.com/containers/platform/limits/#instance-types):
 
   * `lite`
+  * `basic`
   * `standard-1`
   * `standard-2`
   * `standard-3`
@@ -218,7 +219,7 @@ Set `instance` in `ctx.container.start()` to one of the following [named instanc
 
 
 
-The runtime does not accept `basic` or the legacy `dev` and `standard` aliases.
+The runtime does not accept the legacy `dev` and `standard` aliases.
 
 If you omit `instance`, the Container uses `lite`. You can also supply a custom instance object that meets the [custom instance type constraints](https://developers.cloudflare.com/containers/platform/limits/#custom-instance-types):
 

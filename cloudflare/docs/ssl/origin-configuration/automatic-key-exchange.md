@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ssl/origin-configuration/automatic-key-exchange/
 title: Automatic key exchange to origins \u00b7 Cloudflare SSL/TLS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:43.702047+00:00
+fetched_at: 2026-11-24T12:11:04.357735+00:00
 ---
 
 # Automatic key exchange to origins · Cloudflare SSL/TLS docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:43.702047+00:00
 
 # Automatic key exchange to origins
 
-Last updated Jul 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ssl/origin-configuration/automatic-key-exchange/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequirements and scopeHow automatic selection worksConfiguration options Automatic key exchange Compliance requirementsOrigin Post-Quantum Encryption API
 
@@ -106,6 +106,16 @@ Federal Information Processing Standards (FIPS) | `["fips"]` | Allows only key a
 Post-quantum hybrid and FIPS | `["pqh", "fips"]` | Allows only key agreements that satisfy both requirements.  
   
 Cloudflare rejects a combination if the selected requirements have no key agreement in common. Changing a compliance requirement stops any active rollout. A later scan selects from the new allowed set.
+
+Caution
+
+When a compliance requirement is set, Cloudflare restricts outbound TLS 1.3 connections to only the key agreements permitted by that requirement. Destination servers that do not support the required key exchange algorithm will fail the TLS handshake and return a [`525` error](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-5xx-errors/error-525/).
+
+For example, **Post-quantum hybrid** causes Cloudflare to advertise only `X25519MLKEM768`. **FIPS** causes Cloudflare to advertise only FIPS-approved curves. In both cases, destinations that do not support the required algorithm will return `525`.
+
+This restriction applies to all TLS 1.3 connections made in the context of the zone, including outbound `fetch()` calls from [Workers](https://developers.cloudflare.com/workers/) running under that zone.
+
+If any service your origin or Workers connect to does not support the required key exchange algorithm, do not set a compliance requirement. Use **Automatic key exchange** (the default) to negotiate the best mutually supported key agreement.
 
 ## Origin Post-Quantum Encryption API
 

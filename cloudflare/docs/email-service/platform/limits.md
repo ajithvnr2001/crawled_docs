@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/platform/limits/
 title: Limits \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:22.937360+00:00
+fetched_at: 2026-11-24T12:11:05.063126+00:00
 ---
 
 # Limits · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-31T08:10:22.937360+00:00
 
 Email sending quotas, rate limits, and how to request higher limits for production use
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDaily sending limitsVerified destination addressesEmail content limitsSuppression list limitsZone limitsEmail Routing limits Routing to Workers on the Workers Free plan Emails sent from WorkersCompliance
 
@@ -30,6 +30,14 @@ Cloudflare Email Service has the following limits to ensure optimal performance 
 
 New accounts start with a conservative daily quota and scale up over time based on your sending behavior, deliverability rates, and account standing. Limits are applied per account and may be adjusted automatically as your reputation improves.
 
+When an account reaches its daily sending limit, further sends are rejected until the limit allows more:
+
+Interface | Response  
+---|---  
+[SMTP](https://developers.cloudflare.com/email-service/api/send-emails/smtp/#response-codes) | `451 4.7.1` at the end of `DATA` (temporary failure)  
+[Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) | `E_DAILY_LIMIT_EXCEEDED`  
+[REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/) | HTTP `429`  
+  
 If you need higher sending limits sooner than automatic adjustment provides, refer to "Need a higher limit?" at the bottom of this page to request an increase.
 
 ## Verified destination addresses

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/containers/api/durable-object-container/
 title: Durable Object Container API \u00b7 Cloudflare Containers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:40.200849+00:00
+fetched_at: 2026-11-24T12:11:04.172745+00:00
 ---
 
 # Durable Object Container API · Cloudflare Containers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-20T09:50:40.200849+00:00
 
 # Durable Object Container API
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAttributes images  runningMethods start inspect exec snapshotContainer  destroy signal setInactivityTimeout getTcpPort monitor interceptOutboundHttp interceptAllOutboundHttp interceptOutboundHttpsRelated resources
 
@@ -140,9 +140,9 @@ The required options depend on the application's scheduling policy.
   * `options` (`object`, conditionally required): Startup options. Required for applications that use the `durable_object` scheduling policy and optional for applications that use the `default` scheduling policy. 
     * `env` (`Record<string, string>`, optional): Environment variables to pass to the container. Processes started with `exec()` do not receive these variables, except `PATH`.
     * `entrypoint` (`string[]`, optional): Command and arguments to run in the container.
-    * `enableInternet` (`boolean`, required): Whether to allow outbound Internet access. Required when you pass `options`.
+    * `enableInternet` (`boolean`, optional): Whether to allow outbound Internet access. Defaults to `false`.
     * `image` (`string`, conditionally required) durable_object policy only: Image reference to start. Required unless you pass `containerSnapshot`. Pass the [`cloudflare/debian-trixie` managed image](https://developers.cloudflare.com/containers/guides/image-management/#use-the-cloudflare-managed-image) or a value from `ctx.container.images`.
-    * `instance` (`string | object`, optional) durable_object policy only: Instance size. Pass `"lite"`, `"standard-1"`, `"standard-2"`, `"standard-3"`, `"standard-4"`, or a custom object with `vcpu`, `memoryMib`, and `diskMb` properties. `memoryMib` is in mebibytes and `diskMb` is in megabytes. Both must be positive integers. Defaults to `"lite"`.
+    * `instance` (`string | object`, optional) durable_object policy only: Instance size. Pass `"lite"`, `"basic"`, `"standard-1"`, `"standard-2"`, `"standard-3"`, `"standard-4"`, or a custom object with `vcpu`, `memoryMib`, and `diskMb` properties. `memoryMib` is in mebibytes and `diskMb` is in megabytes. Both must be positive integers. Defaults to `"lite"`.
     * `containerSnapshot` (`ContainerSnapshotRestoreParams`, optional) durable_object policy only: Snapshot handle to restore before startup. Pass the `ContainerSnapshot` returned by `snapshotContainer()`, or an object containing its `id`. You cannot pass both `containerSnapshot` and `image`.
     * `labels` (`Record<string, string>`, optional): Up to 10 labels that `inspect()` returns. Label names must contain 1 to 16 bytes. Label values can contain up to 64 bytes. Names and values cannot contain control characters.
 
@@ -259,7 +259,7 @@ The following RPC method checks that the container is running before executing a
     * `stderr` (`"pipe" | "ignore" | "combined"`, optional, default `"pipe"`): Captures, discards, or merges standard error into standard output. The `"combined"` value requires `stdout: "pipe"`. Combined output does not guarantee ordering between its source streams.
     * `cwd` (`string`, optional): Working directory for the process.
     * `env` (`Record<string, string>`, optional): Environment variables for the process. Other variables from `start()` or the image are not inherited, except for `PATH`. Unless overridden here, `PATH` uses the container's startup value, including any override passed to `start()`.
-    * `user` (`string`, optional): Numeric Linux user and group IDs for the process, as `uid:gid`. When omitted, the process runs as the image user.
+    * `user` (`string`, optional): Linux user and optional group for the process, as `user[:group]`. Each value can be a name or numeric ID. When omitted, the process runs as the image user.
     * `signal` (`AbortSignal`, optional): Aborting the signal sends `SIGKILL` to the process. An already-aborted signal makes `exec()` throw an `AbortError`.
     * `pty` (`boolean | { cols?: number; rows?: number }`, optional): Runs the process attached to a pseudo-terminal. `true` uses 80 columns and 24 rows.
 
@@ -273,8 +273,6 @@ The following call runs a command as user `1000` and group `1000`. The file it c
     });
 
 Caution
-
-Pass both IDs in `user`. A user ID without a group ID runs the process as `root`, and a user or group name makes `exec()` reject with an internal error.
 
 `user` does not restrict a process in a deployed container with the `durable_object` scheduling policy. Every process has the same Linux capabilities as `root`, regardless of user. File permissions do not stop the process, and it can switch back to `root`. The IDs set the owner of files that the process creates. In containers with the [`default` scheduling policy](https://developers.cloudflare.com/containers/configuration/scheduling-policy/), other users have no capabilities, and file permissions apply.
 
@@ -310,13 +308,15 @@ The Workers TypeScript types declare `stdin`, `stdout`, and `stderr` as `| null`
 
 #### Process lifetime
 
-`exec()` has no built-in timeout. Use `kill()` to request termination, then observe completion through `exitCode`. A process can handle or ignore a signal, so this does not enforce a hard deadline. Do not infer a specific exit code from the signal.
+`exec()` rejects if the process does not start before the startup deadline. Once the process starts, there is no built-in time limit. Use `kill()` to request termination, then observe completion through `exitCode`. A process can handle or ignore a signal, so this does not enforce a hard deadline. Do not infer a specific exit code from the signal.
+
+Calling `kill()` or aborting `signal` after the process exits has no effect.
 
 `kill()` and `signal` reach only the process that `exec()` started. Processes that this process starts, such as the commands in a `bash -c` script, keep running. `output()` waits until they exit. To stop them too, refer to [Stop the processes a command starts](https://developers.cloudflare.com/containers/guides/execute-commands/#stop-the-processes-a-command-starts).
 
 Canceling the request that started a process does not stop the process. If the client retries, a second copy of the command runs.
 
-To stop the process when the client disconnects, turn on the [`enable_request_signal`](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#enable-requestsignal-for-incoming-requests) compatibility flag in the Worker that defines the Durable Object, and call the Durable Object through `fetch()` on its stub. Then abort the `exec()` signal when `request.signal` aborts. RPC methods do not receive a request signal.
+To stop the process when the client disconnects, turn on the [`enable_request_signal`](https://developers.cloudflare.com/workers/configuration/compatibility-flags/#enable-requestsignal-for-incoming-requests) compatibility flag in the Worker that defines the Durable Object, and call the Durable Object through `fetch()` on its stub. Pass `request.signal` to `exec()`. RPC methods do not receive a request signal.
     
     
     export class MyContainer extends DurableObject {
@@ -326,21 +326,9 @@ To stop the process when the client disconnects, turn on the [`enable_request_si
     			return new Response("The container is not running", { status: 503 });
     		}
     
-    		const controller = new AbortController();
-    		const abort = () => controller.abort();
-    		if (request.signal.aborted) {
-    			abort();
-    		} else {
-    			request.signal.addEventListener("abort", abort, { once: true });
-    		}
-    
     		const process = await container.exec(["sleep", "60"], {
-    			signal: controller.signal,
+    			signal: request.signal,
     		});
-    		// Stop forwarding the abort once the process exits.
-    		void process.exitCode.then(() =>
-    			request.signal.removeEventListener("abort", abort),
-    		);
     
     		const output = await process.output();
     		return new Response(`Exit code: ${output.exitCode}`);
@@ -355,32 +343,14 @@ To stop the process when the client disconnects, turn on the [`enable_request_si
     			return new Response("The container is not running", { status: 503 });
     		}
     
-    		const controller = new AbortController();
-    		const abort = () => controller.abort();
-    		if (request.signal.aborted) {
-    			abort();
-    		} else {
-    			request.signal.addEventListener("abort", abort, { once: true });
-    		}
-    
     		const process = await container.exec(["sleep", "60"], {
-    			signal: controller.signal,
+    			signal: request.signal,
     		});
-    		// Stop forwarding the abort once the process exits.
-    		void process.exitCode.then(() =>
-    			request.signal.removeEventListener("abort", abort),
-    		);
     
     		const output = await process.output();
     		return new Response(`Exit code: ${output.exitCode}`);
     	}
     }
-
-Caution
-
-Signal only a process that is still running. Aborting `signal` or calling `kill()` after the process exits raises an uncaught `internal error` in the Durable Object.
-
-Do not pass `AbortSignal.timeout()` or `request.signal` to `exec()` directly, because either can fire after the process exits. Pass the signal of an `AbortController` instead. Once `exitCode` resolves, stop anything that calls `abort()`, for example by clearing the timer or removing the `abort` listener from `request.signal`.
 
 #### Exceptions
 
@@ -411,7 +381,7 @@ The Worker API has no method to list snapshots. Store the returned `id`, for exa
 
 #### Parameters
 
-  * `options` (`ContainerSnapshotOptions`): Snapshot configuration. Pass `{}` when you do not set a name: 
+  * `options` (`ContainerSnapshotOptions`, optional): Snapshot configuration: 
     * `name` (`string`, optional): Human-readable name for the snapshot.
 
 
@@ -430,7 +400,6 @@ Container snapshots are immutable. Snapshot handles have an implicit 30-day time
 #### Exceptions
 
   * `snapshotContainer()` throws an `Error` when the container is not running.
-  * `snapshotContainer()` throws a `TypeError` when `options` is omitted.
 
 
 

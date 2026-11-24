@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/harnesses/think/recovery/
 title: Durable recovery \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:24.381896+00:00
+fetched_at: 2026-11-24T12:11:01.562644+00:00
 ---
 
 # Durable recovery · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-30T08:19:24.381896+00:00
 
 # Durable recovery
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBounded recoveryonChatRecovery ChatRecoveryContext ChatRecoveryOptions Recovery budgets and limitsRepairing interrupted tool callsContext-window overflow recoveryStability detection hasPendingInteraction waitUntilStable
 
@@ -253,7 +253,7 @@ This runs during transcript repair — before the repaired transcript is persist
 
 ## Context-window overflow recovery
 
-[Compaction](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/#compaction) is checked **between turns** — `compactAfter()` runs after each `appendMessage()`. But a single long, tool-heavy turn grows the prompt step by step inside one `streamText` loop and can exceed the model context window **mid-turn** , before the next pre-turn check. The provider then rejects the request (`"prompt is too long"`, `context_length_exceeded`), and the turn would otherwise die terminally.
+[Compaction](https://developers.cloudflare.com/agents/harnesses/think/sessions/#compact-long-conversations) is checked **between turns** — `compactAfter()` runs after each `appendMessage()`. But a single long, tool-heavy turn grows the prompt step by step inside one `streamText` loop and can exceed the model context window **mid-turn** , before the next pre-turn check. The provider then rejects the request (`"prompt is too long"`, `context_length_exceeded`), and the turn would otherwise die terminally.
 
 Think recovers from this with two opt-in, provider-agnostic layers, both configured through the `contextOverflow` property. Both are off by default, so existing behavior is unchanged. Both reuse your session's compaction function, so they require a `configureSession()` with `onCompaction()` configured. Both require [`classifyChatError`](https://developers.cloudflare.com/agents/harnesses/think/lifecycle-hooks/#classifychaterror) to tell Think which errors are overflows — Think ships no provider-specific matching in core.
 
@@ -313,7 +313,7 @@ Use either layer alone, or both together: the proactive guard avoids most overfl
 
 Note
 
-A no-op compaction cannot rescue an over-budget turn, so recovery is only as effective as your compaction configuration. For tool-heavy histories, configure a `tokenCounter` on `compactAfter()` (refer to [Sessions](https://developers.cloudflare.com/agents/runtime/capabilities/sessions/#compaction)).
+A no-op compaction cannot rescue an over-budget turn, so recovery is only as effective as your compaction configuration. For tool-heavy histories, configure a `tokenCounter` on `compactAfter()` (refer to [Memory and context](https://developers.cloudflare.com/agents/harnesses/think/sessions/#compact-long-conversations)).
 
 For a runnable demo against a real Workers AI model, refer to the [`context-overflow-recovery` example ↗︎](https://github.com/cloudflare/agents/tree/main/examples/context-overflow-recovery).
 
@@ -356,7 +356,7 @@ Returns a promise that resolves to `true` when the agent reaches a stable state,
     	]);
     }
 
-[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextOverview](https://developers.cloudflare.com/agents/runtime/)
+[PreviousProgrammatic submissions](https://developers.cloudflare.com/agents/harnesses/think/programmatic-submissions/)[NextCodex](https://developers.cloudflare.com/agents/harnesses/codex/)
 
 Was this helpful?
 
