@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number to Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:40.316616+00:00
+fetched_at: 2026-11-24T19:00:07.426088+00:00
 ---
 
 # Bring Your Own Number to Voice Agents - Fish Audio
@@ -243,7 +243,7 @@ The `X-Fish-Session-Id` header is only sent through your own trunk. Calls from p
       "event": "phone_call.dial_finished",
       "dial_status": "answered",
       "session": {
-        "id": "5f3e…",
+        "session_id": "sess_5f3e…",
         "caller_number": "+15551234567",
         "dialed_number": "+14155550100",
         "sip_call_id": "7f3a9c@sbc.example.com",

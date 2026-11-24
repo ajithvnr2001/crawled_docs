@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/outbound-calls/
 title: Outbound Calls with Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:40.153150+00:00
+fetched_at: 2026-11-24T19:00:07.555314+00:00
 ---
 
 # Outbound Calls with Voice Agents - Fish Audio
@@ -17,6 +17,7 @@ Back to top
     * Request fields
     * Per-call SIP headers
     * Retry safely with an Idempotency-Key
+  * Automated phone menus
   * The dial outcome
   * Allowed destinations
   * Errors
@@ -117,6 +118,10 @@ They follow the same rules as the number’s [`termination_headers`](https://doc
 ### Retry safely with an Idempotency-Key
 
 Outbound dials spend money and ring real phones, so put an `Idempotency-Key` header on every create. For 24 hours, repeating the same key with the same body returns the call already placed instead of dialing again. The same key with a **different** body is refused with `422 idempotency_key_reuse`, and a retry that races an in-flight first attempt gets `409 idempotency_key_conflict`; back off and retry the same request. If the create fails with an ambiguous network error, retry with the same key: you get the placed session back if the first attempt went through.
+
+## Automated phone menus
+
+A number you dial may be answered by an automated phone menu. With **Press keys** on, the agent can press keys to get through the menu and stay silent while it plays. See [Press keys](https://docs.fish.audio/agents/build/system-tools#press-keys) for the setting and how to prompt for it.
 
 ## The dial outcome
 

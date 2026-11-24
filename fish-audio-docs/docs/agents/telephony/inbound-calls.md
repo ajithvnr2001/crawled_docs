@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/inbound-calls/
 title: Inbound Calls with Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:40.232769+00:00
+fetched_at: 2026-11-24T19:00:07.491880+00:00
 ---
 
 # Inbound Calls with Voice Agents - Fish Audio
@@ -116,9 +116,9 @@ List calls with the standard sessions endpoint. The `caller_number` filter is an
           "caller_number": "+15551234567",
           "caller_id_withheld": false,
           "dialed_number": "+14155550100",
-          "created_at": "2026-07-23T09:14:01Z",
-          "started_at": "2026-07-23T09:14:02Z",
-          "ended_at": "2026-07-23T09:16:45Z",
+          "created_at": "2026-07-23T09:14:01+00:00",
+          "started_at": "2026-07-23T09:14:02+00:00",
+          "ended_at": "2026-07-23T09:16:45+00:00",
           "duration_seconds": 163,
           "metadata": {}
         }

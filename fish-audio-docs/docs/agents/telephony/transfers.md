@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/transfers/
 title: Voice Agent Call Transfers - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:39.960248+00:00
+fetched_at: 2026-11-24T19:00:07.658565+00:00
 ---
 
 # Voice Agent Call Transfers - Fish Audio
@@ -26,6 +26,7 @@ Back to top
   * Warm transfer settings
     * Timeouts
     * Waiting for a person to answer
+    * Pressing keys on a transfer
   * Caller ID on transfers
   * Transfer results
     * Outcomes
@@ -146,6 +147,7 @@ Field| Description
 `warm_ring_timeout_seconds`| Warm only: how long the human’s phone rings before the transfer counts as unanswered, in whole seconds from 5 to 120. Default 30. See Timeouts.  
 `warm_confirm_timeout_seconds`| Warm `confirm` and `briefing` only: how long the agent waits after the human answers before giving up, in whole seconds from 10 to 300. Default 60. See Timeouts.  
 `warm_human_detection`| Warm `confirm` and `briefing` only: `true` makes the agent wait for the other side to speak and stop the transfer when voicemail or a phone menu answers. Default `false`. See Waiting for a person to answer.  
+`warm_press_keys`| Warm `confirm` and `briefing` only, Beta. An object with `enabled` and `instructions`. When `enabled` is `true`, the agent can press phone keys on the call to this destination to get through a phone menu. Off when absent. See Pressing keys on a transfer.  
   
 A literal destination number must be E.164 and is limited to a set of supported countries. A number outside the list is rejected with `422 Unprocessable Entity` and an error naming the allowed country codes. The transfer card in the console shows the current list. For a number that contains variables, see Choosing the number per call. A missing label, or two labels that differ only in case, is rejected the same way. There is no cap on the number of destinations, but every description is part of the agent’s tool instructions on every turn, so keep the list to what a receptionist could hold in their head.
 
@@ -382,7 +384,7 @@ A hold queue, or nobody speaking| The agent keeps waiting until the confirm time
 Only a name, then a pause| The agent treats it as a person waiting for a reply and starts the briefing.  
   
   * It is off by default, and available for `confirm` and `briefing`. `direct` connects as soon as the human answers, so there is nothing to wait for.
-  * Leave it off for lines where people can only be reached through a phone menu, because the menu stops the transfer.
+  * Leave it off for lines where people can only be reached through a phone menu, because the menu stops the transfer. To have the agent get through the menu, see Pressing keys on a transfer.
   * The agent goes by what is said, not by the voicemail beep. A greeting that opens like a live person (“Hi, this is Amy.”) and then pauses can still get the briefing. With `confirm`, the confirm timeout still brings the caller back. With `briefing`, the caller is connected once the briefing ends.
   * Pair it with a short confirm timeout, such as 20 seconds, so a pickup where nobody speaks comes back quickly.
 
@@ -413,6 +415,64 @@ Request
 
 Since the destination list is replaced as a whole on every write, send every destination you want to keep.
 
+### Pressing keys on a transfer
+
+Pressing keys on a transfer is in Beta. The instructions the agent gets for it, and when exactly a key goes out, may still be tuned.
+
+Some destinations are answered by an automated phone menu before a person picks up, such as a company’s main line. With **Press keys** on for a destination, the agent can get through that menu on the consult call, then brief the person it reaches. It presses keys with the `_press_keys` tool and stays silent with `_skip_turn` while the menu or a hold message plays, the same two tools as [Press keys](https://docs.fish.audio/agents/build/system-tools#press-keys) on outbound calls. The caller is on hold meanwhile and hears none of it. The setting belongs to the destination and does not depend on the agent’s own **Press keys** switch. It works the same on inbound and outbound calls. It is available for `confirm` and `briefing`. A `direct` or cold transfer has no agent on the call to the destination, so no keys are pressed. Turn it on only for a destination that a phone menu answers. On a line where a person picks up directly it adds nothing.
+
+  * Console
+
+  * API
+
+
+
+
+On the destination card, turn on **Press keys**. A text box appears below it for how to get through this number’s menu, for example “Press 2 for billing, then enter extension 204.” It is optional. Without it, the agent picks keys from the destination’s name and description and from what the caller asked for.
+
+Set `warm_press_keys` on the destination.
+
+Field| Description  
+---|---  
+`warm_press_keys.enabled`| `true` lets the agent press keys on the call to this destination. Default `false`.  
+`warm_press_keys.instructions`| Optional. How to get through this number’s menu, at most 500 characters. [Dynamic variables](https://docs.fish.audio/agents/build/dynamic-variables) are filled in per call. It is kept while `enabled` is `false`.  
+  
+Request
+    
+    
+    curl --request PATCH "https://api.fish.audio/v1/agent/agents/$AGENT_ID/config" \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --data '{
+        "conversation": {
+          "transfer_destinations": [
+            {
+              "label": "Billing",
+              "description": "Invoices, payments and refunds",
+              "phone_number": "+14155550100",
+              "mode": "warm",
+              "warm_connect": "confirm",
+              "warm_confirm_timeout_seconds": 120,
+              "warm_press_keys": {
+                "enabled": true,
+                "instructions": "Press 2 for billing. When it asks for an extension, enter {{billing_extension}}."
+              }
+            }
+          ]
+        }
+      }'
+    
+
+A destination read back without `warm_press_keys` has it off.
+
+Three other settings of the destination decide how well this works.
+
+Setting| What to do| Why  
+---|---|---  
+**Wait for a person to answer**|  Turn it off.| While it is on, the agent presses no keys on this destination, and a phone menu ends the transfer.  
+**Confirm timeout**|  Raise it, to 120 seconds or more.| The time spent in the menu and on hold counts toward it. The default of 60 seconds is often too short.  
+`warm_connect`| Use `confirm`.| Nothing checks what answered. With `briefing`, the caller is connected as soon as the agent has briefed whatever it took for a person.  
+  
 ## Caller ID on transfers
 
 When the agent transfers a call, your team member’s phone shows a caller ID. You choose which number it shows:

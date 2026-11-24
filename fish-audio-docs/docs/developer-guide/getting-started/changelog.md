@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/changelog/
 title: Changelog - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.067844+00:00
+fetched_at: 2026-11-24T19:00:08.011216+00:00
 ---
 
 # Changelog - Fish Audio
@@ -11,7 +11,7 @@ fetched_at: 2026-11-13T15:33:42.067844+00:00
 
 FiltersClear
 
-Fish SpeechFish Audio
+Fish AudioFish Speech
 
 Get Started
 
@@ -23,6 +23,46 @@ Complete release history and version updates for all Fish Audio products
 
 Copy pageCopy page
 
+Voice Agents React Native SDK and widget
+
+Fish Audio
+
+November 21, 2026
+
+## Voice Agents React Native SDK and widget
+
+`@fishaudio/agent-react-native` adds live voice agent calls to iOS and Android apps built with Expo or bare React Native, handling microphone permissions, platform audio routing, background calls, and an Expo config plugin on top of the same `useConversation` hook API as the React SDK.`@fishaudio/agent-widget-react-native` provides a drop-in floating call button and call panel with live transcripts, text input, mute controls, inline tool activity, an optional consent step, and a minimized in-call pill.[React Native SDK](https://docs.fish.audio/agents/deploy/react-native) | [React Native Widget](https://docs.fish.audio/agents/deploy/react-native-widget)
+
+Background sound and voice effects for Voice Agents
+
+Fish Audio
+
+November 19, 2026
+
+## Background sound and voice effects for Voice Agents
+
+Voice agents now support looping background ambience (`voice.background_sound`) across web, phone, and WhatsApp calls, with seven built-in presets (`office`, `call_center`, `restaurant`, `cafe`, `city_street`, `phone_line`, `phone_line_digital`), configurable volume, and custom audio uploads via `/v1/agent/background-sounds`.Web calls also support voice effects (`voice.effect`) to simulate a `phone` line or an `intercom` speaker when previewing or demoing agents in the browser or mobile apps.[Background sound & voice effect](https://docs.fish.audio/agents/build/background-sound-voice-effect) | [Background Sounds API](https://docs.fish.audio/api-reference/endpoint/agent/list-background-sounds)
+
+Voice Agents
+
+Fish Audio
+
+November 18, 2026
+
+## Voice Agents
+
+Voice Agents, our hosted platform for real-time voice agents, is now generally available. Build and publish agents in the Builder console or through the `/v1/agent/*` REST API with draft and versioned workflows, knowledge bases, webhook/client/system tools, custom LLMs and fallback models, simulation tests, post-call analysis, and webhooks.Deploy agents through the embeddable widget and client SDKs, or connect telephony via purchased phone numbers, BYO SIP trunks, and WhatsApp Business Calling with inbound/outbound calls, warm and cold transfers, and keypad menus. Every account starts with a $5 trial balance; conversations are billed at a promotional rate of $0.035 per minute through December 31, 2026 (standard rate $0.07 per minute).[Voice Agents Overview](https://docs.fish.audio/agents/overview) | [Quickstart](https://docs.fish.audio/agents/quickstart) | [Pricing & Limits](https://docs.fish.audio/agents/pricing)
+
+Drama 3 audio infill
+
+Fish Audio
+
+November 18, 2026
+
+## Drama 3 audio infill
+
+Edit part of an existing recording without re-recording it using `POST /v1/audio/infill` with `model: drama-3`. Send the original audio, the full revised `transcript`, and the span to replace in seconds (`prefix_seconds`, `suffix_seconds`) or frames (`prefix_frames`, `suffix_frames`), and Drama 3 regenerates only that span in the speaker’s voice taken from the surrounding audio.You can also join or continue separate recordings with `prefix_audio` and optional `suffix_audio`. Requests accept `multipart/form-data` or `application/msgpack`, and sending `Accept: text/event-stream` streams the output along with the regenerated span’s timestamps.[Audio Infill](https://docs.fish.audio/features/text-to-speech/audio-infill) | [Audio Infill API](https://docs.fish.audio/api-reference/endpoint/openapi-v1/audio-infill)
+
 Swedish and Malay normalization
 
 Fish Audio
@@ -33,6 +73,36 @@ November 13, 2026
 
 Text normalization now has rules for Swedish (`sv`) and Malay (`ms`). Without `language`, Swedish text is detected. Malay is detected only when the detection is confident, so set `language` to `ms` for text entirely in Malay.[Supported normalization languages](https://docs.fish.audio/features/text-to-speech#supported-normalization-languages)
 
+Exposed API key revocation
+
+Fish Audio
+
+November 13, 2026
+
+## Exposed API key revocation
+
+Revoke exposed Fish Audio API keys without signing in using `POST /apikey/revoke`. Built for secret scanners, partners, security researchers, and key owners, each request accepts up to 1,000 keys in `credentials`, permanently deletes any matching keys, notifies the key creator (and team owner for team keys) by email, and always returns an empty `202` response.[Revoke Exposed API Keys](https://docs.fish.audio/api-reference/endpoint/apikey/revoke-api-keys)
+
+Live 3 full-duplex model
+
+Fish Audio
+
+November 10, 2026
+
+## Live 3 full-duplex model
+
+Live 3 is our full-duplex speech model for Voice Agents (`voice.engine: "live3"`). Instead of waiting for a caller to finish before generating speech, a single model listens while it speaks and decides when to backchannel, wait, respond, or stop on real interruptions and mid-turn corrections.New agents start on Live 3 by default for English sessions. Choose from eight built-in Live 3 voices (`clara`, `nora`, `harper`, `patricia`, `owen`, `marco`, `milo`, `jonah`) or any Voice Library voice, and tune turn-taking with situation prompts (`P2` phone support, `DT` drive-thru, or `AIR` airline). Sessions in other languages automatically use the agent’s cascade text-to-speech model.[Live 3 (full duplex)](https://docs.fish.audio/agents/build/voice-language#live-3-full-duplex) | [Cascade vs. full duplex](https://docs.fish.audio/agents/concepts#cascade-vs-full-duplex)
+
+Pronunciation dictionaries API, alias rules, and IPA on Drama 3
+
+Fish Audio
+
+November 6, 2026
+
+## Pronunciation dictionaries API, alias rules, and IPA on Drama 3
+
+Manage versioned pronunciation dictionaries programmatically through `/v1/pronunciation-dictionaries` alongside the web app, with endpoints to create, update, version, compare, and delete dictionaries using your API key.Dictionary rules now support `type: "alias"` for plain-text replacements (such as expanding `km/h` to `kilometers per hour`) in addition to `phoneme` rules, and `drama-3` now accepts IPA phonemes in both pronunciation dictionaries and inline phoneme tags.[Pronunciation Dictionaries](https://docs.fish.audio/developer-guide/core-features/fine-grained-control/pronunciation-dictionaries) | [Pronunciation Dictionaries API](https://docs.fish.audio/api-reference/endpoint/pronunciation-dictionary/list-dictionaries)
+
 transcribe-1 retirement
 
 Fish Audio
@@ -42,6 +112,16 @@ October 29, 2026
 ## transcribe-1 retirement
 
 `transcribe-1` is deprecated and will be retired on December 31, 2026, together with S1. After that date, the requests it serves are served by `transcribe-1-pro` and billed as `transcribe-1-pro`, at the same price. This includes requests with no `model` header, or one that does not match exactly, and requests through the OpenAI-, Groq-, OpenRouter-, and ElevenLabs-compatible endpoints.To migrate, send the `model: transcribe-1-pro` header on `POST /v1/asr`. For plain transcripts without speaker markers or event cues, also send `diarize=false` and `tag_audio_events=false`.[Migrate from transcribe-1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1) | [Model deprecations](https://docs.fish.audio/developer-guide/models-pricing/deprecations)
+
+Realtime Speech to Text (transcribe-stream-1)
+
+Fish Audio
+
+October 20, 2026
+
+## Realtime Speech to Text (`transcribe-stream-1`)
+
+Stream live 16-bit PCM audio over `wss://api.fish.audio/v1/asr/realtime` for turn-by-turn transcription powered by `transcribe-stream-1`. Beyond live `draft` transcripts with `settled_text`, Smart Turn Detection (`auto`, `vad`, and `manual` modes) handles eager end-of-turn signals, backchannel detection, and background awareness, alongside conversation context (`context.terms`, `context_add`, `context.history`), speaker diarization, and optional sound event tags (`results.tag_audio_events`).Sessions run up to 60 minutes. `transcribe-stream-1` is also available as a speech recognition model in Voice Agents (`fish_audio:transcribe-stream-1`).[Realtime Speech to Text](https://docs.fish.audio/features/speech-to-text/realtime) | [WebSocket reference](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime)
 
 More normalization languages
 
