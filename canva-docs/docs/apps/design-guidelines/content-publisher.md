@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/design-guidelines/content-publisher/
 title: Content Publisher - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:55:35.424801+00:00
+fetched_at: 2026-11-24T20:23:49.402300+00:00
 ---
 
 # Content Publisher - Apps inside Canva - Canva Developers SDK Documentation
@@ -108,6 +108,8 @@ Copy page
 This guide helps you design apps that use the [Content Publisher intent](https://www.canva.dev/docs/apps/intents/content-publisher/) to publish Canva designs to external platforms.
 
 [](https://www.canva.dev/assets/apps/canva-apps-sdk-design-publisher-intent.zip)
+
+![Figma template](https://www.canva.dev/_next/static/media/figma-template.b2e5fee2.webp)
 
 Use our Figma template to jumpstart your design
 

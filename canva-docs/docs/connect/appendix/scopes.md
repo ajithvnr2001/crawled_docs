@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/appendix/scopes/
 title: Scopes - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T16:59:00.322055+00:00
+fetched_at: 2026-11-24T20:24:09.284188+00:00
 ---
 
 # Scopes - Canva Developers SDK Documentation
@@ -73,6 +73,7 @@ Scope| Description
 `design:content:read`| View the contents of the user's designs.  
 `design:content:write`| Create designs on the user's behalf.  
 `design:meta:read`| View the metadata of the user's designs.  
+`design:meta:write`| Update the metadata of the user's designs.  
 `email`| Read user email address through OIDC.  
 `folder:permission:write`| Set, update, or remove permissions assigned to the user's folders.  
 `folder:read`| View the metadata and contents of the user's folders, including their **Projects** folder.  

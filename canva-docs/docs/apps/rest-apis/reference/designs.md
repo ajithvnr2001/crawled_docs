@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/designs/
 title: Designs - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-17T18:48:19.966050+00:00
+fetched_at: 2026-11-24T20:23:36.792635+00:00
 ---
 
 # Designs - Canva REST API reference - Canva Developers SDK Documentation
@@ -39,7 +39,7 @@ Comments
 
 Designs
 
-[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/designs/)[Create design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/create-design/)[List designs](https://www.canva.dev/docs/apps/rest-apis/reference/designs/list-designs/)[Get design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design/)[Get design pages](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-pages/)[Get design export formats](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-export-formats/)[Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/)
+[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/designs/)[Create design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/create-design/)[List designs](https://www.canva.dev/docs/apps/rest-apis/reference/designs/list-designs/)[Get design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design/)[Get design pages](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-pages/)[Get design export formats](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-export-formats/)[Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/)[Update design review](https://www.canva.dev/docs/apps/rest-apis/reference/designs/update-design-review/)
 
 Design imports
 
@@ -69,6 +69,10 @@ Resizes
 
 [Overview](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/)[Create design resize job](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/create-design-resize-job/)[Get design resize job](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/get-design-resize-job/)
 
+Reviews
+
+[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/reviews/)[List design reviews](https://www.canva.dev/docs/apps/rest-apis/reference/reviews/list-design-reviews/)
+
 Users
 
 [Overview](https://www.canva.dev/docs/apps/rest-apis/reference/users/)[Get current user](https://www.canva.dev/docs/apps/rest-apis/reference/users/users-me/)[Get current user profile](https://www.canva.dev/docs/apps/rest-apis/reference/users/users-profile/)[Get user capabilities](https://www.canva.dev/docs/apps/rest-apis/reference/users/get-user-capabilities/)
@@ -89,6 +93,7 @@ The `designs` endpoint lets you interact with the designs present in a user's co
   * [Get design pages](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-pages/): Get the metadata for pages in a design.
   * [Get design export formats](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-export-formats/): Get the export formats available for a design.
   * [Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/): Check if you can autofill a design and what information you can autofill.
+  * [Update design review](https://www.canva.dev/docs/apps/rest-apis/reference/designs/update-design-review/): Approve a design or request changes as an assigned reviewer.
 
 
 

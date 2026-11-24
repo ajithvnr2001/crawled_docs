@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/admin/api-reference/openapi-description/
 title: Admin APIs OpenAPI description - Canva Admin API Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:54:33.502796+00:00
+fetched_at: 2026-11-24T20:23:49.861121+00:00
 ---
 
 # Admin APIs OpenAPI description - Canva Admin API Documentation
@@ -19,17 +19,7 @@ Fundamentals
 
 API reference
 
-Authentication
-
-Organizations
-
-Teams
-
-Groups
-
-Users
-
-Audit events
+[Authentication](https://www.canva.dev/docs/admin/api-reference/oauth/)[Organizations](https://www.canva.dev/docs/admin/api-reference/organizations/)[Teams](https://www.canva.dev/docs/admin/api-reference/teams/)[Groups](https://www.canva.dev/docs/admin/api-reference/groups/)[Users](https://www.canva.dev/docs/admin/api-reference/users/)[Audit events](https://www.canva.dev/docs/admin/api-reference/audit-events/)
 
 Appendix
 

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/brand-templates/
 title: Brand templates - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T14:20:39.347817+00:00
+fetched_at: 2026-11-24T20:24:09.436474+00:00
 ---
 
 # Brand templates - Canva REST API reference - Canva Developers SDK Documentation
@@ -39,7 +39,7 @@ Comments
 
 Designs
 
-[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/designs/)[Create design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/create-design/)[List designs](https://www.canva.dev/docs/apps/rest-apis/reference/designs/list-designs/)[Get design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design/)[Get design pages](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-pages/)[Get design export formats](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-export-formats/)[Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/)
+[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/designs/)[Create design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/create-design/)[List designs](https://www.canva.dev/docs/apps/rest-apis/reference/designs/list-designs/)[Get design](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design/)[Get design pages](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-pages/)[Get design export formats](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-export-formats/)[Get design dataset](https://www.canva.dev/docs/apps/rest-apis/reference/designs/get-design-dataset/)[Update design review](https://www.canva.dev/docs/apps/rest-apis/reference/designs/update-design-review/)
 
 Design imports
 
@@ -68,6 +68,10 @@ Merges
 Resizes
 
 [Overview](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/)[Create design resize job](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/create-design-resize-job/)[Get design resize job](https://www.canva.dev/docs/apps/rest-apis/reference/resizes/get-design-resize-job/)
+
+Reviews
+
+[Overview](https://www.canva.dev/docs/apps/rest-apis/reference/reviews/)[List design reviews](https://www.canva.dev/docs/apps/rest-apis/reference/reviews/list-design-reviews/)
 
 Users
 
