@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCoAgentStateRender/
 title: useCoAgentStateRender
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:20.621193+00:00
+fetched_at: 2026-11-24T13:30:48.757230+00:00
 ---
 
 # useCoAgentStateRender

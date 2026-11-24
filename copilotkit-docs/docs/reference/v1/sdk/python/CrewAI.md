@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/python/CrewAI/
 title: CrewAI SDK
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:19.906159+00:00
+fetched_at: 2026-11-24T13:30:47.615307+00:00
 ---
 
 # CrewAI SDK

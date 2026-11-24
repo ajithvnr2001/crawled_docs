@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/GenerativeUIProvider/
 title: GenerativeUIProvider
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:22.578864+00:00
+fetched_at: 2026-11-24T13:30:51.511549+00:00
 ---
 
 # GenerativeUIProvider

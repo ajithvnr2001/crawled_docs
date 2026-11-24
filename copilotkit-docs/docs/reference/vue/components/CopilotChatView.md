@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/components/CopilotChatView/
 title: CopilotChatView
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:19.331792+00:00
+fetched_at: 2026-11-24T13:30:47.154995+00:00
 ---
 
 # CopilotChatView

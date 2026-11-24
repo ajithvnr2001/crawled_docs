@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/components/CopilotKitProvider/
 title: CopilotKitProvider
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:19.199979+00:00
+fetched_at: 2026-11-24T13:30:46.971130+00:00
 ---
 
 # CopilotKitProvider

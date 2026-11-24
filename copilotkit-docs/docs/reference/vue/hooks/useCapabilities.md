@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useCapabilities/
 title: useCapabilities
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:18.802029+00:00
+fetched_at: 2026-11-24T13:30:45.711384+00:00
 ---
 
 # useCapabilities

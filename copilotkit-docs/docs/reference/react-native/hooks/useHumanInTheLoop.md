@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useHumanInTheLoop/
 title: useHumanInTheLoop
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:22.118701+00:00
+fetched_at: 2026-11-24T13:30:50.572816+00:00
 ---
 
 # useHumanInTheLoop

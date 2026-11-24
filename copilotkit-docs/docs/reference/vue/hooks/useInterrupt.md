@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useInterrupt/
 title: useInterrupt
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:17.987877+00:00
+fetched_at: 2026-11-24T13:30:44.723826+00:00
 ---
 
 # useInterrupt

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/js/LangGraph/
 title: LangGraph SDK
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:20.020607+00:00
+fetched_at: 2026-11-24T13:30:48.017352+00:00
 ---
 
 # LangGraph SDK

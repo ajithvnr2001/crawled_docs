@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useSuggestions/
 title: useSuggestions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:23.494457+00:00
+fetched_at: 2026-11-24T13:30:52.039961+00:00
 ---
 
 # useSuggestions

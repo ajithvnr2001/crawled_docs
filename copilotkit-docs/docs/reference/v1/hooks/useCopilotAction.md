@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCopilotAction/
 title: useCopilotAction
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:20.581372+00:00
+fetched_at: 2026-11-24T13:30:48.803284+00:00
 ---
 
 # useCopilotAction

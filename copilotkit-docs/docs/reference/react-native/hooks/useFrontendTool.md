@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useFrontendTool/
 title: useFrontendTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:21.843330+00:00
+fetched_at: 2026-11-24T13:30:50.864107+00:00
 ---
 
 # useFrontendTool

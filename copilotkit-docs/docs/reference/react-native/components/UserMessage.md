@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/components/UserMessage/
 title: UserMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:22.486385+00:00
+fetched_at: 2026-11-24T13:30:51.238400+00:00
 ---
 
 # UserMessage

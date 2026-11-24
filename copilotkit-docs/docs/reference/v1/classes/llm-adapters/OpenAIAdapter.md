@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/OpenAIAdapter/
 title: OpenAIAdapter
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:21.245388+00:00
+fetched_at: 2026-11-24T13:30:49.679242+00:00
 ---
 
 # OpenAIAdapter

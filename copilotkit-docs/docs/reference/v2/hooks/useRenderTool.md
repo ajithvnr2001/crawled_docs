@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useRenderTool/
 title: useRenderTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:23.368760+00:00
+fetched_at: 2026-11-24T13:30:51.871165+00:00
 ---
 
 # useRenderTool

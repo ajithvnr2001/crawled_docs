@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useInterrupt/
 title: useInterrupt
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:23.554359+00:00
+fetched_at: 2026-11-24T13:30:52.201605+00:00
 ---
 
 # useInterrupt

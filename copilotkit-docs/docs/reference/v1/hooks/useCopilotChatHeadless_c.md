@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatHeadless_c/
 title: useCopilotChatHeadless_c
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:20.308853+00:00
+fetched_at: 2026-11-24T13:30:48.500889+00:00
 ---
 
 # useCopilotChatHeadless_c

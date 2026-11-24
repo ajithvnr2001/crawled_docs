@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/classes/CopilotRuntime/
 title: CopilotRuntime
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:21.613364+00:00
+fetched_at: 2026-11-24T13:30:50.061347+00:00
 ---
 
 # CopilotRuntime
