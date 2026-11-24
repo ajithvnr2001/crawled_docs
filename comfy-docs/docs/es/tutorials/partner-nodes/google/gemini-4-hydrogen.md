@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/google/gemini-4-hydrogen/
 title: Gemini 4 Hydrogen: imagen a prompt en ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:57.587649+00:00
+fetched_at: 2026-11-24T18:44:39.081392+00:00
 ---
 
 # Gemini 4 Hydrogen: imagen a prompt en ComfyUI - ComfyUI
@@ -92,7 +92,7 @@ Nodo `LoadImage` · `blue_poppies_field.png`
 
 Configuración| Qué hace  
 ---|---  
-`model`| Elige **Gemini 4 Hydrogen**. El mismo menú desplegable también incluye Gemini 4 Argon, Gemini 4 Carbon, Gemini 3.8 Flash y modelos de texto Gemini más antiguos  
+`model`| Elige **Gemini 4 Hydrogen**. El mismo menú desplegable también incluye Gemini 4 Neon, Gemini 4 Argon, Gemini 4 Carbon, Gemini 3.8 Flash y modelos de texto Gemini más antiguos  
 `thinking_level`| Cuánto razona el modelo antes de responder. Hydrogen acepta `LOW`, `MEDIUM`, `HIGH` y `XHIGH`, y usa `HIGH` de forma predeterminada. Los niveles más altos cuestan más tokens de razonamiento y tardan más  
 `max_output_tokens`| Límite de tokens generados, incluido el razonamiento. El valor predeterminado es 65536. Si las respuestas llegan vacías o cortadas con un nivel de razonamiento alto, auméntalo  
 `images`, `audio`, `video`| Contexto multimodal opcional. Hasta 16 imágenes, un clip de audio y un clip de video por solicitud  
@@ -104,15 +104,16 @@ Hydrogen no tiene widget de `temperature` ni de `top_p`. La variación de la sal
 
 ## Familia de modelos Gemini 4
 
-El nodo `Google Gemini` expone tres modelos de texto Gemini 4. Comparten un mismo conjunto de entradas y se diferencian en cuánto razonan y en la longitud de respuesta que pueden devolver:
+El nodo `Google Gemini` expone cuatro modelos de texto Gemini 4. Comparten un mismo conjunto de entradas y se diferencian en cuánto razonan y en la longitud de respuesta que pueden devolver:
 
 Modelo| Niveles de razonamiento| Predeterminado| Tokens de salida máximos  
 ---|---|---|---  
+Gemini 4 Neon| `LOW`, `MEDIUM`, `HIGH`, `XHIGH`| `HIGH`| 65536  
 Gemini 4 Hydrogen| `LOW`, `MEDIUM`, `HIGH`, `XHIGH`| `HIGH`| 65536  
 Gemini 4 Argon| `LOW`, `MEDIUM`, `HIGH`| `MEDIUM`| 32768  
 Gemini 4 Carbon| `LOW`, `MEDIUM`, `HIGH`| `MEDIUM`| 32768  
   
-Por ahora, solo Hydrogen incluye una plantilla. Para probar Argon o Carbon, duplica el flujo de trabajo de Hydrogen y cambia el menú desplegable `model`; el resto del gráfico permanece igual.
+Por ahora, solo Hydrogen incluye una plantilla. Para probar Neon, Argon o Carbon, duplica el flujo de trabajo de Hydrogen y cambia el menú desplegable `model`; el resto del gráfico permanece igual.
 
 ## Notas
 

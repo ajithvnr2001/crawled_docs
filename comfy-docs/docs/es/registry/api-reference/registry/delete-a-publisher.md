@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/delete-a-publisher/
 title: Delete a publisher - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:30.116902+00:00
+fetched_at: 2026-11-24T18:44:43.261600+00:00
 ---
 
 # Delete a publisher - ComfyUI

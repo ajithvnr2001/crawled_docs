@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/basic-concepts/models/
 title: ComfyUI Models: Files, Folders, and Loader Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:38:42.924108+00:00
+fetched_at: 2026-11-24T18:44:33.540763+00:00
 ---
 
 # ComfyUI Models: Files, Folders, and Loader Nodes - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-23T16:38:42.924108+00:00
 > Source: https://docs.comfy.org/basic-concepts/models/
 
 ## On this page
+
+Back to top
 
   * Models in plain terms
     * Supported models in ComfyUI
@@ -36,19 +38,11 @@ How model files fit into ComfyUI workflows: where they go, how to load them, and
 
 Copy pageCopy page
 
-## 
-
-​
-
-Models in plain terms
+## Models in plain terms
 
 In ComfyUI, **models** are the weight files that actually run your workflow. They include **checkpoints** , **VAEs** , **LoRAs** , **ControlNets** , and upscalers. The app install is small. These files are **not** included by default. You usually **download them from the web** , place them under `ComfyUI/models/` (or follow a template’s prompts), then choose the file in the right **loader node** (on the canvas, these often appear as nodes whose names start with **Load**).
 
-### 
-
-​
-
-Supported models in ComfyUI
+### Supported models in ComfyUI
 
   * **Built-in / first-party coverage is intentionally limited** but grows over time as ComfyUI and the open-source ecosystem evolve. When a model gains first-class support, you will **usually see a new entry in the[workflow template library](https://docs.comfy.org/interface/features/template)** that shows the expected graph and model pairing.
   * **Not every checkpoint or weights file works out of the box.** For **natively supported models and their common companion weights** , keep ComfyUI **[up to date](https://docs.comfy.org/installation/update_comfyui)** and confirm the matching workflow exists in the **[template library](https://docs.comfy.org/interface/features/template)** before assuming your files are in the wrong place.
@@ -56,11 +50,7 @@ Supported models in ComfyUI
 
 
 
-## 
-
-​
-
-Use models in ComfyUI
+## Use models in ComfyUI
 
   1. **Get the files into the right place.** Download from community sites such as [Hugging Face](https://huggingface.co), [Civitai](https://civitai.green), or a project’s page on [GitHub](https://github.com), then put them under `ComfyUI/models/` in the subfolder for that type (for example `checkpoints`, `loras`, `vae`).
   2. **Add the matching loader node.** Pick the loader for that model type (checkpoint, LoRA, VAE, etc.). In the node list, titles often begin with **Load**.
@@ -69,19 +59,11 @@ Use models in ComfyUI
 
 
 
-### 
-
-​
-
-Expect large downloads
+### Expect large downloads
 
 A single generative model is often **many gigabytes**. Budget disk space and time when downloading or syncing.
 
-## 
-
-​
-
-Beyond the main checkpoint
+## Beyond the main checkpoint
 
 The main diffusion checkpoint does a lot, but many workflows add **smaller helper models** , for example:
 
@@ -91,19 +73,11 @@ The main diffusion checkpoint does a lot, but many workflows add **smaller helpe
 
 ![auxiliary models](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/concepts/core-concepts_auxiliary-model.png?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=0f49a29f61c23ccd32ec5a15207b8f9c)
 
-## 
-
-​
-
-Uninstalling models
+## Uninstalling models
 
 There is no “uninstall” button in the UI yet. To remove a model, **delete its file** (or files) from the folder under `ComfyUI/models/` where you put it.
 
-## 
-
-​
-
-Adding Extra Model Paths
+## Adding Extra Model Paths
 
 If you want to manage your model files outside of `ComfyUI/models`, you may have the following reasons:
 
@@ -113,11 +87,7 @@ If you want to manage your model files outside of `ComfyUI/models`, you may have
 
 We provide a way to add extra model search paths via the `extra_model_paths.yaml` configuration file
 
-### 
-
-​
-
-Open Config File
+### Open Config File
 
   * Portable/Manual Install
 
@@ -134,7 +104,7 @@ For the ComfyUI version such as [portable](https://docs.comfy.org/installation/c
 
 Copy and rename it to `extra_model_paths.yaml` for use. Keep it in ComfyUI’s root directory at `ComfyUI/extra_model_paths.yaml`. You can also find the config example file [here](https://github.com/Comfy-Org/ComfyUI/blob/master/extra_model_paths.yaml.example)
 
-If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/windows) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
+If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
 
   * Windows
 
@@ -155,11 +125,7 @@ You should keep the file in the same directory, should not move these files to o
 
 If the file does not exist, you can create it yourself with any text editor.
 
-### 
-
-​
-
-Example Structure
+### Example Structure
 
 Suppose you want to add the following model paths to ComfyUI:
     
@@ -273,11 +239,7 @@ For example, if your WebUI is located at `D:\stable-diffusion-webui\`, you can m
         controlnet: models/ControlNet
     
 
-### 
-
-​
-
-Add Extra Custom Nodes Path
+### Add Extra Custom Nodes Path
 
 Besides adding external models, you can also add custom nodes paths that are not in the default path of ComfyUI
 
@@ -290,11 +252,7 @@ Below is a simple configuration example (MacOS), please modify it according to y
       custom_nodes: /Users/your_username/Documents/extra_custom_nodes
     
 
-## 
-
-​
-
-Common issues
+## Common issues
 
 Does ComfyUI support GGUF format models?
 
@@ -314,11 +272,7 @@ If you’ve installed a model but can’t find it in ComfyUI, try these steps:
 
 
 
-## 
-
-​
-
-Want a bit more background?
+## Want a bit more background?
 
 What does “model” mean here?
 

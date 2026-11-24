@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:07:58.173102+00:00
+fetched_at: 2026-11-24T18:44:37.580965+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -56,7 +56,7 @@ Send large media inline| The request body is capped, and base64-encoded media co
   
 ## Queued submission
 
-The synchronous route holds the connection while the model runs; for asynchronous providers, Router submits the job and polls internally. Queued delivery (submit, get a `request_id`, poll, collect) is the alternative: see [Queued delivery](https://docs.comfy.org/development/comfy-router/queue). It is scoped to the workspace behind the credential, so it needs a key created in your Comfy workspace. A legacy key with no workspace, a bring-your-own-key request, or a model the queue cannot run answers `403` with `not_enabled` on the submit route. Neither mode offers a callback or webhook. If your request cannot stay open long enough, queue it. Use a partner proxy when you need the provider’s own submit-and-poll controls. Five models are synchronous-only for now and are refused with `403` / `not_enabled` if you submit them to the queue: `elevenlabs/eleven_sfx_v2`, `elevenlabs/eleven_sfx_v3`, `elevenlabs/eleven_v3`, `elevenlabs/eleven_v4` and `elevenlabs/eleven_v4_turbo`. They answer raw audio bytes rather than a JSON result document, which queued delivery has nowhere to store. Run them on the synchronous route, which returns those bytes normally. Four models are queued-only and are refused with `403` / `not_enabled` on the synchronous route: `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe` and `ltx/ltx-video-upscale`. Their jobs can outlast the time a synchronous call is held. Submit the same body to `POST /v2/models/ltx/{model}/requests` and collect the result from the queue. The LTX v1 text-to-video and image-to-video operations answer raw video bytes for the same reason, and queued delivery cannot store them either — but they are reachable only through the partner proxy at `/proxy/ltx/v1/…`, not through a Router model id: every `ltx/*` catalog model resolves to the queueable v2 submit-and-poll operation.
+The synchronous route holds the connection while the model runs; for asynchronous providers, Router submits the job and polls internally. Queued delivery (submit, get a `request_id`, poll, collect) is the alternative: see [Queued delivery](https://docs.comfy.org/development/comfy-router/queue). It is scoped to the workspace behind the credential, so it needs a key created in your Comfy workspace. A legacy key with no workspace, a bring-your-own-key request, or a model the queue cannot run answers `403` with `not_enabled` on the submit route. Neither mode offers a callback or webhook. If your request cannot stay open long enough, queue it. Use a partner proxy when you need the provider’s own submit-and-poll controls. Five models are synchronous-only for now and are refused with `403` / `not_enabled` if you submit them to the queue: `elevenlabs/eleven_sfx_v2`, `elevenlabs/eleven_sfx_v3`, `elevenlabs/eleven_v3`, `elevenlabs/eleven_v4` and `elevenlabs/eleven_v4_turbo`. They answer raw audio bytes rather than a JSON result document, which queued delivery has nowhere to store. Run them on the synchronous route, which returns those bytes normally. Six models are queued-only and are refused with `403` / `not_enabled` on the synchronous route: `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe`, `ltx/ltx-video-upscale`, `pruna/p-video-2-pro-avatar` and `pruna/p-video-2-pro-reference`. Their jobs can outlast the time a synchronous call is held. Submit the same body to `POST /v2/models/{provider}/{model}/requests` and collect the result from the queue. The LTX v1 text-to-video and image-to-video operations answer raw video bytes for the same reason, and queued delivery cannot store them either — but they are reachable only through the partner proxy at `/proxy/ltx/v1/…`, not through a Router model id: every `ltx/*` catalog model resolves to the queueable v2 submit-and-poll operation.
 
 ## Calls are cut off at a server deadline
 
@@ -92,6 +92,7 @@ The response can contain provider usage or cost fields. They do not represent a 
 Router cannot yet reliably price a call to the models below before it runs, so expect `/estimate` and a queued submit’s `estimate` to answer `source: unknown` for them, though some may return a figure for a particular body. `unknown` means no figure was given, not that the run is free. The Comfy charges and usage rules still apply: a run on your own provider key is not billed by Comfy, and `X-Comfy-Credits-Used` is optional, so a missing header means the cost was not reported. A model not listed here can still answer `unknown` for a particular body, so read `source` on every estimate. This list shrinks as estimate coverage grows. It is generated from Router’s own pricing code, and models that are not publicly available are never listed.
 
   * **bfl** : `bfl/erase-v1`, `bfl/video-edit-v1`, `bfl/video-upscale-v1`, `bfl/vto-v1`
+  * **byteplusomnihuman** : `byteplusomnihuman/omnihuman-2.0`
   * **fal** : `fal/fal-seedance-2.0`, `fal/fal-seedance-2.5`
   * **freepik** : `freepik/ai-image-relight`, `freepik/ai-image-style-transfer`
   * **heygen** : `heygen/starfish`
@@ -99,15 +100,20 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **kelly** : `kelly/kelly-kling-4.0`, `kelly/kelly-seedance-2.0`, `kelly/kelly-seedance-2.0-fast`, `kelly/kelly-seedance-2.5`
   * **kling** : `kling/kling-4.0`, `kling/kling-image-4.0`, `kling/kling-long-image-4.0`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`
   * **ltx** : `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe`, `ltx/ltx-video-upscale`
+  * **meshy** : `meshy/meshy-n1`
   * **minimax** : `minimax/minimax-gpt-image-2`, `minimax/minimax-gpt-image-2.5-flare`, `minimax/minimax-gpt-image-2.5-sunburst`, `minimax/minimax-gpt-image-2.6-flare`, `minimax/minimax-gpt-image-2.6-sunburst`, `minimax/minimax-h3-image`, `minimax/minimax-h3-image-highspeed`
   * **openai** : `openai/gpt-image-1.5`
+  * **openrouter** : `openrouter/images`
   * **pika** : `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`
   * **pixverse** : `pixverse/v3.5`, `pixverse/v6`, `pixverse/v6-max`
+  * **pruna** : `pruna/p-video-2-pro-avatar`, `pruna/p-video-2-pro-reference`
   * **quiver** : `quiver/arrow-2`, `quiver/arrow-2-telos`
   * **runware** : `runware/runware-gpt-image-2`, `runware/runware-gpt-image-2.5-flare`, `runware/runware-gpt-image-2.5-sunburst`, `runware/runware-nano-banana-2`, `runware/runware-nano-banana-pro`, `runware/runware-seedance-2.0`, `runware/runware-seedance-2.5`
   * **synclabs** : `synclabs/sync-3`
+  * **tripo** : `tripo/p1-20260311-image-to-model`, `tripo/p1-20260311-multiview-to-model`, `tripo/p1-20260311-text-to-model`, `tripo/p2-20260801-image-to-model`, `tripo/p2-20260801-multiview-to-model`, `tripo/p2-20260801-text-to-model`, `tripo/v3.0-20250812-image-to-model`, `tripo/v3.0-20250812-multiview-to-model`, `tripo/v3.0-20250812-text-to-model`, `tripo/v3.1-20260211-image-to-model`, `tripo/v3.1-20260211-multiview-to-model`, `tripo/v3.1-20260211-text-to-model`
   * **typesafe** : `typesafe/jev-1.13.0`, `typesafe/jev-1.14.0`
   * **veed** : `veed/video-background-removal`, `veed/video-background-removal-fast`, `veed/video-background-removal-green-screen`
+  * **viggle** : `viggle/jst-2-scene`, `viggle/jst-2-scene-view`, `viggle/motion-capture`, `viggle/text-to-motion`, `viggle/video-remix`
   * **wavespeed** : `wavespeed/wavespeed-gpt-image-2`, `wavespeed/wavespeed-gpt-image-2.5-flare`, `wavespeed/wavespeed-gpt-image-2.5-sunburst`
 
 Edits on `openai/gpt-image-2`, `openai/gpt-image-2.5-flare`, `openai/gpt-image-2.5-sunburst`, `openai/gpt-image-2.6-flare`, and `openai/gpt-image-2.6-sunburst` also have no pre-flight estimate. An edit call to one of these models, or a generation call that carries an input image, answers `source: unknown`. A text-only generation call to them is estimated, which is why they are not in the list above.

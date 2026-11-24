@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/desktop/faq/
 title: Comfy Desktop FAQ - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:56.956551+00:00
+fetched_at: 2026-11-24T18:44:36.670379+00:00
 ---
 
 # Comfy Desktop FAQ - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:56.956551+00:00
 > Source: https://docs.comfy.org/installation/desktop/faq/
 
 ## On this page
+
+Back to top
 
   * General Questions
   * Installation & Setup
@@ -29,11 +31,7 @@ Common questions and troubleshooting tips for Comfy Desktop
 
 Copy pageCopy page
 
-## 
-
-​
-
-General Questions
+## General Questions
 
 What is the difference between Comfy Desktop and Legacy Desktop?
 
@@ -52,15 +50,11 @@ Can I turn off update checks?
 No. Comfy Desktop checks for a new version shortly after it launches and then every 10 minutes, and that check has no off switch. The only update setting is **Automatically install Desktop updates** in **Desktop Settings → Updates** , and it is on by default.
 
   * **On** : a new version downloads in the background and installs without asking. The title bar shows **Downloading update…** while it downloads, then **Desktop Update Ready** when the update is ready to apply.
-  * **Off** : Comfy Desktop still checks and still tells you, but it stops downloading on its own. The title bar shows a **Desktop Update** pill instead, and clicking it downloads the update and offers to restart.
+  * **Off** : the title bar shows **Desktop Update** and the Updates card shows **Update … available**. The update still downloads in the background, but nothing installs on its own — it does not apply on quit or at the next launch. When it is ready, click the **Desktop Update Ready** pill and choose **Restart & Update**.
 
 The ComfyUI version inside an instance is updated separately. Use the instance’s **Update** tab and pick the **Stable** or **Latest on GitHub** channel there.On Linux, the in-app updater does not apply to `.deb` installs. Download the new package with the [universal download link](https://dl.todesktop.com/241130tqe9q3y) and install it with `sudo apt install ./*.deb`.
 
-## 
-
-​
-
-Installation & Setup
+## Installation & Setup
 
 What are the system requirements?
 
@@ -80,17 +74,13 @@ On **Windows** , the standalone installation does not require admin rights. On *
 
 How do I download Comfy Desktop?
 
-Download the latest Windows or macOS build from the official [ComfyUI Download page](https://comfy.org/download). On Linux, download the `.deb` or AppImage with the [universal download link](https://dl.todesktop.com/241130tqe9q3y) from the [Comfy Desktop repository](https://github.com/Comfy-Org/Comfy-Desktop). To run from source instead, see the [Linux install guide](https://docs.comfy.org/installation/desktop/linux).
+Download the latest Windows or macOS build from the official [ComfyUI Download page](https://comfy.org/download). On Linux, download the `.deb` or AppImage with the [universal download link](https://dl.todesktop.com/241130tqe9q3y) from the [Comfy Desktop repository](https://github.com/Comfy-Org/Comfy-Desktop). To run from source instead, see the [Linux install guide](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os).
 
 Can I have both Legacy Desktop and Comfy Desktop installed?
 
 Yes, they can coexist. However, we recommend migrating your installations to the new Comfy Desktop and eventually uninstalling Legacy Desktop. See the [Migration Guide](https://docs.comfy.org/installation/desktop/usage/migrate).
 
-## 
-
-​
-
-Usage
+## Usage
 
 How do I add a new ComfyUI installation?
 
@@ -117,13 +107,9 @@ Models are shared across instances by default. Configure shared folders in [Desk
 
 How do snapshots work?
 
-Comfy Desktop creates snapshots automatically on key events: every boot and restart, before and after an update, and after a restore. A snapshot records the instance’s ComfyUI version, custom nodes with their versions, and all pip packages in the environment. Model files, inputs, and outputs are not part of a snapshot.You can browse, restore, export, and share snapshots from the instance’s **Snapshots** tab. See [Snapshots](https://docs.comfy.org/installation/desktop/usage/snapshots).
+Comfy Desktop creates snapshots automatically on key events: every boot and restart, before and after an update, and after a restore. A snapshot records the instance’s ComfyUI version, custom nodes with their versions, and all pip packages in the environment. Model files, inputs, and outputs are not part of a snapshot.You can browse, restore, export, and share snapshots from the instance’s **Snapshots** tab. See [Save and restore snapshots](https://docs.comfy.org/installation/desktop/usage/instance-management#save-and-restore-snapshots).
 
-### 
-
-​
-
-How to Stop/Exit Comfy Desktop
+### How to Stop/Exit Comfy Desktop
 
 To stop a running ComfyUI instance (stop the Python backend while keeping the app open):
 
@@ -133,17 +119,13 @@ To stop a running ComfyUI instance (stop the Python backend while keeping the ap
 
 This stops the ComfyUI Python process but leaves the desktop app window open so you can relaunch anytime. To fully quit the desktop app, open the **☰ menu** in the top-left corner and select **Quit Desktop** (or use the equivalent OS quit command). Closing the last window returns to the Dashboard unless you quit the app.
 
-## 
-
-​
-
-Troubleshooting
+## Troubleshooting
 
 The app won't start after installation
 
   1. **Windows:** Try running as administrator once
   2. **macOS:** If you see a security warning, go to **System Settings → Privacy & Security** and click **Open Anyway**
-  3. **Linux:** Make sure FUSE 2 is installed (`sudo apt install libfuse2`)
+  3. **Linux:** Install FUSE 2: `libfuse2t64` on Ubuntu 24.04 and later, `libfuse2` on 22.04
   4. Check the [Downloads page](https://comfy.org/download) for the latest version
 
 
@@ -174,9 +156,19 @@ An installation fails to update
 
 
 
+Install or update shows Operation failed
+
+The progress screen stays open with **Operation failed** , the error, and (when available) an auto-opened **View logs** panel.
+
+  * **Reboot** retries the same operation (**Restart ComfyUI** if a launch failed).
+  * **Back** returns to the dashboard with no prompt and leaves a failed install on disk.
+  * Leaving while steps are still running cancels: **Return to Dashboard** asks **Cancel current operation?** Cancelling an install tries to delete the half-built folder (files can remain if delete fails).
+
+If it keeps failing, check the network, then collect `app.log` (and any `app.log_*.log`) from **Desktop Settings → Logs → Diagnostics → Open logs folder**. On a first install the menu may only offer **Skip Onboarding** — choose **Back** first, then open Settings from the dashboard. See also How do I check Comfy Desktop startup logs?.
+
 I see Low Disk Space or Not Enough Space for Template Models
 
-During **New Instance** , Comfy Desktop checks free space on the install drive. **Low Disk Space** is a warning — select **Continue Anyway** to proceed, or choose another path. **Not Enough Space for Template Models** blocks that template; pick a lighter workflow or free space. Very small disks may skip the template step. See [Creating a New Instance](https://docs.comfy.org/installation/desktop/usage/instance-management#creating-a-new-instance).
+During **New Instance** , Comfy Desktop checks free space on the install drive. **Low Disk Space** is a warning — select **Continue Anyway** to proceed, or choose another path. **Not Enough Space for Template Models** blocks that template; pick a lighter workflow or free space. Very small disks may skip the template step. See [Creating a New Instance](https://docs.comfy.org/installation/desktop/usage/instance-management#install-a-new-build).
 
 How do I check Comfy Desktop startup logs?
 
@@ -186,7 +178,7 @@ The Desktop app writes a rotating `app.log` file. The fastest way to find it is 
   * **macOS:** `~/Library/Logs/Comfy Desktop`
   * **Linux:** `~/.config/Comfy Desktop/logs`
 
-Look for `app.log`. Previous sessions rotate to timestamped `app.log_*.log` files.For ComfyUI process output (not the Desktop app itself), open the instance **Manage** panel and use the **Terminal** tab. See [Manage](https://docs.comfy.org/installation/desktop/usage/manage).
+Look for `app.log`. Previous sessions rotate to timestamped `app.log_*.log` files.For ComfyUI process output (not the Desktop app itself), open the instance **Manage** panel and use the **Terminal** tab. See [Manage](https://docs.comfy.org/installation/desktop/usage/instance-management#manage-builds).
 
 Can I use Ollama with ComfyUI?
 
@@ -199,7 +191,7 @@ Comfy Desktop and its installations are separate on disk. To uninstall the app a
   1. **Delete the installations** from within the app (right-click → Remove) or delete the installation folders manually
   2. **Uninstall the app** using your system’s standard method (Add/Remove Programs on Windows, drag to Trash on macOS, package manager on Linux)
 
-That does not delete app settings, logs, shared models, or outputs. For leftover folders and a complete cleanup, see [Windows](https://docs.comfy.org/installation/desktop/windows#what-uninstalling-the-app-does-not-remove), [macOS](https://docs.comfy.org/installation/desktop/macos#what-uninstalling-the-app-does-not-remove), or [Linux](https://docs.comfy.org/installation/desktop/linux#removing-leftover-data).
+That does not delete app settings, logs, shared models, or outputs. For leftover folders and a complete cleanup, see [Windows](https://docs.comfy.org/installation/desktop/overview#uninstall-comfy-desktop), [macOS](https://docs.comfy.org/installation/desktop/overview#uninstall-comfy-desktop), or [Linux](https://docs.comfy.org/installation/desktop/overview#uninstall-comfy-desktop).
 
 Can I run Comfy Desktop in headless or server mode?
 
@@ -211,26 +203,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/faq.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/faq)
 
-[Migrate from Legacy DesktopPrevious](https://docs.comfy.org/installation/desktop/usage/migrate)[ComfyUI Portable for WindowsNext](https://docs.comfy.org/installation/comfyui_portable_windows)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Migrate](https://docs.comfy.org/installation/desktop/usage/migrate)[Comfy Cloud](https://docs.comfy.org/get_started/cloud)

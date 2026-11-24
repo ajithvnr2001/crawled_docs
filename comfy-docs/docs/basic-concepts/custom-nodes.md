@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/basic-concepts/custom-nodes/
 title: Custom Nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:17.876147+00:00
+fetched_at: 2026-11-24T18:44:33.649082+00:00
 ---
 
 # Custom Nodes - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:47:17.876147+00:00
 > Source: https://docs.comfy.org/basic-concepts/custom-nodes/
 
 ## On this page
+
+Back to top
 
   * About Custom Nodes
   * Custom Node Management
@@ -36,11 +38,7 @@ Custom nodes in ComfyUI: how they differ from Comfy Core nodes, plus installing,
 
 Copy pageCopy page
 
-## 
-
-​
-
-About Custom Nodes
+## About Custom Nodes
 
 After installing ComfyUI, you’ll discover that it includes many built-in nodes. These native nodes are called **Comfy Core** nodes, which are officially maintained by ComfyUI. Additionally, there are numerous [**custom nodes**](https://registry.comfy.org) created by various authors from the ComfyUI community. These custom nodes bring extensive functionality to ComfyUI, greatly expanding its capabilities and feature boundaries. In this guide, we’ll cover various operations related to custom nodes, including installation, updates, disabling, uninstalling, and dependency installation. Anyone can develop their own custom extensions for ComfyUI and share them with others. You can find many community custom nodes [here](https://registry.comfy.org). If you want to develop your own custom nodes, visit the section below to get started:
 
@@ -48,11 +46,7 @@ After installing ComfyUI, you’ll discover that it includes many built-in nodes
 
 Learn how to start developing a custom node
 
-## 
-
-​
-
-Custom Node Management
+## Custom Node Management
 
 In this section we will cover:
 
@@ -65,11 +59,7 @@ In this section we will cover:
 
 
 
-### 
-
-​
-
-1\. Installing Custom Nodes
+### 1\. Installing Custom Nodes
 
 Currently, ComfyUI supports installing custom nodes through multiple methods, including:
 
@@ -168,11 +158,7 @@ Install Dependencies
 
 Please refer to the instructions in the Installing Node Dependencies section for dependency installation.
 
-### 
-
-​
-
-2\. Installing Node Dependencies
+### 2\. Installing Node Dependencies
 
 Custom nodes all require the installation of related dependencies. For example, for ComfyUI-Manager, you can visit the [requirements.txt](https://github.com/Comfy-Org/ComfyUI-Manager/blob/main/requirements.txt) file to view the dependency package requirements. In the previous steps, we only cloned the custom node code locally and did not install the corresponding dependencies, so next we need to install the corresponding dependencies.
 
@@ -209,11 +195,7 @@ As shown below, this is the dependency installation for ComfyUI-Hunyuan3Dwrapper
 
 For users with custom Python environments, we recommend using `pip install -r requirements.txt` to complete the dependency installation.
 
-### 
-
-​
-
-Custom Node Version Control
+### Custom Node Version Control
 
 Custom node version control is actually based on Git version control. You can manage node versions through Git, but ComfyUI Manager has already integrated this version management functionality very well. Many thanks to [@Dr.Lt.Data](https://github.com/ltdrdata) for bringing us such a convenient tool. In this section, we will still explain these two different plugin version management methods for you, but if you use ZIP packages for manual installation, the corresponding git version history information will be lost, making it impossible to perform version management.
 
@@ -296,45 +278,25 @@ Install Dependencies
 
 Since the dependencies of the corresponding custom node package may change after version switching, you need to reinstall the dependencies for the corresponding node. Please refer to the instructions in the Installing Node Dependencies section to enter the corresponding environment for installation.
 
-### 
-
-​
-
-Uninstalling Custom Nodes
+### Uninstalling Custom Nodes
 
 To be updated
 
-### 
-
-​
-
-Temporarily Disabling Custom Nodes
+### Temporarily Disabling Custom Nodes
 
 To be updated
 
-### 
-
-​
-
-Custom Node Dependency Conflicts
+### Custom Node Dependency Conflicts
 
 To be updated
 
-## 
+## ComfyUI Manager
 
-​
-
-ComfyUI Manager
-
-![ComfyUI Manager Interface](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/concepts/core-concepts_nodes_manager.png?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=cea0de500828224b23b64cef84a31936) This tool is currently included by default in the [Desktop version](https://docs.comfy.org/installation/desktop/windows), while in the [Portable version](https://docs.comfy.org/installation/comfyui_portable_windows), you need to refer to the installation instructions in the Install Manager section of this document.
+![ComfyUI Manager Interface](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/concepts/core-concepts_nodes_manager.png?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=cea0de500828224b23b64cef84a31936) This tool is currently included by default in the [Desktop version](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os), while in the [Portable version](https://docs.comfy.org/installation/comfyui_portable_windows), you need to refer to the installation instructions in the Install Manager section of this document.
 
 As ComfyUI continues to develop, ComfyUI Manager plays an increasingly important role in ComfyUI. Currently, ComfyUI-Manager has officially joined the Comfy Org organization, officially becoming part of ComfyUI’s core dependencies, and continues to be maintained by the original author [Dr.Lt.Data](https://github.com/ltdrdata). You can read [this blog post](https://blog.comfy.org/p/comfyui-manager-joins-comfy-org) for more information. In future iterations, we will greatly optimize the use of ComfyUI Manager, so the interface shown in this documentation may differ from the latest version of ComfyUI Manager.
 
-### 
-
-​
-
-Installing the Manager
+### Installing the Manager
 
 If you are running the ComfyUI server application, you need to install the manager. If ComfyUI is running, please close it before continuing. The first step is to install Git, which is a command-line application for software version control. Git will download the ComfyUI manager from [github.com](https://github.com). Download and install Git from [git-scm.com](https://git-scm.com/). After installing Git, navigate to the ComfyUI server program directory and enter the folder labeled **custom_nodes**. Open a command window or terminal. Make sure the command line shows the current directory path as **custom_nodes**. Run the following command to clone the ComfyUI-Manager repository:
     
@@ -344,19 +306,11 @@ If you are running the ComfyUI server application, you need to install the manag
 
 This will download the manager. Technically, this is called _cloning a Git repository_.
 
-### 
-
-​
-
-Detecting Missing Nodes
+### Detecting Missing Nodes
 
 After installing the manager, you can detect missing nodes in the manager. ![ComfyUI Manager Interface](https://mintcdn.com/dripart/Rig0_LOInmwVbVSB/images/concepts/core-concepts_nodes_manager.png?fit=max&auto=format&n=Rig0_LOInmwVbVSB&q=85&s=cea0de500828224b23b64cef84a31936)
 
-## 
-
-​
-
-Developing a Custom Node
+## Developing a Custom Node
 
 If you have some development capabilities, please start with the documentation below to learn how to begin developing a custom node.
 
@@ -370,26 +324,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/basic-concepts/custom-nodes.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/basic-concepts/custom-nodes)
 
-[ComfyUI Nodes: Types, Inputs, and OutputsPrevious](https://docs.comfy.org/basic-concepts/nodes)[ComfyUI Properties: Widgets, Inputs, and Data TypesNext](https://docs.comfy.org/basic-concepts/properties)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Nodes](https://docs.comfy.org/basic-concepts/nodes)[Properties](https://docs.comfy.org/basic-concepts/properties)

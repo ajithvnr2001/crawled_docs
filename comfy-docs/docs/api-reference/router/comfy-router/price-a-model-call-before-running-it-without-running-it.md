@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/price-a-model-call-before-running-it-without-running-it/
 title: Price a model call before running it, without running it. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:51.767574+00:00
+fetched_at: 2026-11-24T18:44:32.813336+00:00
 ---
 
 # Price a model call before running it, without running it. - ComfyUI

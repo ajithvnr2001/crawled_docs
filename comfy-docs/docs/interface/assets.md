@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/assets/
 title: Assets - ComfyUI Media Asset Library - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T16:18:18.173590+00:00
+fetched_at: 2026-11-24T18:44:34.738422+00:00
 ---
 
 # Assets - ComfyUI Media Asset Library - ComfyUI
@@ -37,7 +37,7 @@ Find, preview, and manage the images, videos, audio, and 3D files that ComfyUI g
 
 Copy pageCopy page
 
-The **Assets** panel is ComfyUI’s library for the media your workflows produce and consume. It collects every file a run saves and every file you import, so you can search it, preview it, reuse it in another workflow, download it, or delete it without leaving the graph. The panel opens from the **Assets** entry in the left sidebar and carries the title **Media Assets**. Availability differs by version:
+The **Assets** panel is ComfyUI’s library for the media your workflows produce and consume. It collects every file a run saves and every file you import, so you can search it, preview it, reuse it in another workflow, download it, or delete it without leaving the graph. The panel opens from the **Assets** entry in the left sidebar and carries the title **Media Assets**. In Comfy Desktop, the **Assets** entry in the app’s own sidebar opens a separate page that browses outputs across your builds and Comfy Cloud: see [Comfy Desktop Assets](https://docs.comfy.org/installation/desktop/usage/assets). Availability differs by version:
 
   * **Comfy Cloud** : the Assets panel is enabled by default.
   * **Self-hosted ComfyUI** : start the server with [`--enable-assets`](https://docs.comfy.org/development/comfyui-server/startup-flags) to turn on the assets system. The flag requires a working database connection, so keep the default database location or pass `--database-url`. Without the flag the panel still opens, but it lists files from the local history and output folders instead of the asset library.

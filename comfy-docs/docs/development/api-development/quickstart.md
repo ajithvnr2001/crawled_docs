@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/api-development/quickstart/
 title: Run your first workflow - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:22.544208+00:00
+fetched_at: 2026-11-24T18:44:37.950213+00:00
 ---
 
 # Run your first workflow - ComfyUI

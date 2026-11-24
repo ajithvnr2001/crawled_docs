@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/canvas-controls/
 title: Controles del lienzo - Minimapa, zoom y modo de enfoque - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T15:16:29.633728+00:00
+fetched_at: 2026-11-24T18:44:33.429329+00:00
 ---
 
 # Controles del lienzo - Minimapa, zoom y modo de enfoque - ComfyUI
@@ -15,11 +15,13 @@ Volver arriba
 
   * Barra de herramientas del lienzo
   * Menú Ver
-  * Modo de enfoque
+  * Modo de Enfoque
   * Opciones del minimapa
-  * Enlaces y globales del lienzo
+  * Enlaces y ajustes globales del lienzo
+    * Visibilidad de enlaces
     * Seleccionar enlaces
-    * Hacer clic en una entrada o salida para actuar sobre sus enlaces
+    * Hacer clic en una entrada o salida de nodo para actuar sobre sus enlaces
+    * Ocultar un enlace y etiquetar su insignia
   * Páginas relacionadas
 
 
@@ -34,15 +36,15 @@ Usa los controles del lienzo y el menú Ver: minimapa, visibilidad de enlaces, i
 
 Copiar páginaCopiar página
 
-La barra de herramientas del lienzo de la esquina inferior derecha y el menú **Ver** controlan cómo te mueves por el gráfico. Los comandos principales del menú Ver incluyen Alternar panel inferior, Explorar plantillas, **Modo de enfoque** , información de rendimiento del lienzo, minimapa, visibilidad de enlaces, acercar/alejar y ajustar vista. ![La barra de herramientas del lienzo de la esquina inferior derecha con el minimapa abierto](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/canvas-controls/canvas_toolbar.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=cd8c2ef1bdec81bd8c730b3a3c0159a4) ![Modo de enfoque activado: el marco del espacio de trabajo está oculto y se muestra un control de menú hamburguesa](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/canvas-controls/canvas_focus_mode.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=fe9f3b0f77c39731e2d77a5147c16b2d) ![Visibilidad de enlaces activada: los nodos conectados se unen mediante cables](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/canvas-controls/canvas_links_visible.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=4e20906792a1924523e3da25bdd920ac) ![Visibilidad de enlaces desactivada: los nodos permanecen en el lienzo pero los cables de conexión están ocultos](https://mintcdn.com/dripart/cWths51SAUr51YVL/images/interface/canvas-controls/canvas_links_hidden.png?fit=max&auto=format&n=cWths51SAUr51YVL&q=85&s=2fb86dd45ba7907910bfdc0cfcf4e3b9)
+La barra de herramientas del lienzo, en la esquina inferior derecha, y el menú **Ver** controlan cómo te mueves por el gráfico. Los comandos principales del menú Ver incluyen Alternar panel inferior, Explorar plantillas, **Modo de Enfoque** , información de rendimiento del lienzo, minimapa, visibilidad de enlaces, acercar/alejar y ajustar vista.
 
-## 
-
-​
-
-Barra de herramientas del lienzo
+## Barra de herramientas del lienzo
 
 Cuando **Mostrar menú del lienzo del gráfico** (`Comfy.Graph.CanvasMenu`) está activado (predeterminado), una barra de herramientas flotante se ubica en la esquina inferior derecha del lienzo:
+
+![La barra de herramientas del lienzo con los botones de modo lienzo, ajustar vista, zoom, minimapa y visibilidad de enlaces, y el panel del minimapa abierto encima.](https://mintcdn.com/dripart/hDQnJc6BWZawtCxJ/images/interface/canvas-controls/canvas_toolbar.png?fit=max&auto=format&n=hDQnJc6BWZawtCxJ&q=85&s=29f02d35b5abc3eb5bd3369e7a627a41)
+
+La barra de herramientas del lienzo en la esquina inferior derecha, con el panel del minimapa abierto encima.
 
 Control| Qué hace  
 ---|---  
@@ -54,69 +56,55 @@ Control| Qué hace
   
 Puedes ocultar toda la barra de herramientas con **Mostrar menú del lienzo del gráfico** en las configuraciones de Lite Graph / Lienzo.
 
-## 
-
-​
-
-Menú Ver
+## Menú Ver
 
 El menú **Ver** registra los mismos comandos de navegación para que puedas ejecutarlos desde la barra de menú o la paleta de comandos:
 
-  * Alternar panel inferior
+  * Panel inferior
   * Explorar plantillas
-  * Modo de enfoque
+  * Modo de Enfoque
   * Rendimiento del Lienzo (`Comfy.ToggleCanvasInfo`, alterna `Comfy.Graph.CanvasInfo`)
-  * Alternar minimapa
-  * Alternar visibilidad de enlace
-  * Acercar / Alejar / Ajustar vista
+  * Minimapa
+  * Enlaces de nodos (`Comfy.Canvas.ToggleLinkVisibility`)
+  * Acercar / Alejar / Ajustar zoom
 
 
 
-## 
+## Modo de Enfoque
 
-​
+El **Modo de Enfoque** (`Workspace.ToggleFocusMode`) oculta los elementos del espacio de trabajo para que puedas concentrarte en el gráfico. Mientras está activado:
 
-Modo de enfoque
+  * La sección del menú superior está oculta (menú nuevo).
+  * Los paneles laterales izquierdo y derecho y el panel inferior no se muestran en el diseño dividido.
+  * Aparece un control de hamburguesa para que puedas salir del Modo de Enfoque (**Mostrar menú**).
 
-El **Modo de enfoque** (`Workspace.ToggleFocusMode`) oculta los elementos del espacio de trabajo para que puedas concentrarte en el gráfico. Mientras está activado:
+Alterna el Modo de Enfoque de nuevo, o usa el control de hamburguesa, para restaurar el espacio de trabajo completo.
 
-  * La sección del menú superior queda oculta (menú nuevo).
-  * Los paneles de la barra lateral izquierda y derecha, y el panel inferior, no se renderizan en el diseño dividido.
-  * Aparece un control de tipo hamburguesa para que puedas salir del modo de enfoque (**Mostrar menú**).
-
-Alterna el modo de enfoque de nuevo, o usa el control de hamburguesa, para restaurar el espacio de trabajo completo.
-
-## 
-
-​
-
-Opciones del minimapa
+## Opciones del minimapa
 
 Además de mostrar u ocultar, las Configuraciones de Minimapa controlan lo que dibuja el minimapa (colores de nodos, conexiones, grupos, estado de omisión, estado de error). Consulta [Configuraciones de Lite Graph](https://docs.comfy.org/es/interface/settings/lite-graph) y las entradas relacionadas de Apariencia cuando estén presentes.
 
-## 
+## Enlaces y ajustes globales del lienzo
 
-​
+La forma del enlace y si se muestran los enlaces conectados también están disponibles como alternancias rápidas en **Configuración global** del [Right Side Panel](https://docs.comfy.org/es/interface/right-side-panel) cuando no hay nada seleccionado, y de forma completa en la configuración de Lite Graph (`Comfy.LinkRenderMode` y opciones relacionadas). El espaciado de la cuadrícula y el ajuste a la cuadrícula se encuentran en las mismas áreas de Configuración global / Lite Graph.
 
-Enlaces y globales del lienzo
+### Visibilidad de enlaces
 
-La forma del enlace y si se muestran los enlaces conectados también están disponibles como alternancias rápidas en **Configuración global** del [Panel derecho](https://docs.comfy.org/es/interface/right-side-panel) cuando no hay nada seleccionado, y de forma completa en la configuración de Lite Graph (`Comfy.LinkRenderMode` y opciones relacionadas). El espaciado de la cuadrícula y el ajuste a la cuadrícula se encuentran en las mismas áreas de Configuración global / Lite Graph.
+**Visibilidad de enlaces** oculta todos los cables del lienzo a la vez. Usa el botón de enlace tachado en el extremo derecho de la barra de herramientas del lienzo, o **Ver** > **Enlaces de nodos**. No se elimina ningún enlace y el gráfico sigue ejecutándose: los conectores conservan sus puntos y solo los cables dejan de dibujarse, lo que ayuda en un gráfico demasiado denso para leer. El comando (`Comfy.Canvas.ToggleLinkVisibility`) establece `Comfy.LinkRenderMode` en **Hidden** y restaura el modo anterior (Straight, Linear o Spline) la próxima vez que lo uses.
 
-### 
+![Los mismos dos nodos dos veces: arriba, cables dibujados entre los conectores; abajo, solo los puntos de los conectores.](https://mintcdn.com/dripart/hDQnJc6BWZawtCxJ/images/interface/canvas-controls/canvas_links_visibility.png?fit=max&auto=format&n=hDQnJc6BWZawtCxJ&q=85&s=110501d72995c66e21fc96b7bc9904ef)
 
-​
+Visibilidad de enlaces activada (arriba) y desactivada (abajo). Solo cambian los cables; los conectores conservan sus puntos.
 
-Seleccionar enlaces
+El resto de esta sección trata sobre cómo ocultar enlaces individuales. Eso mantiene una insignia en el conector para que puedas etiquetar la conexión y restaurarla por separado.
 
-Requiere ComfyUI frontend 1.58.0 o posterior. Seleccionar enlaces con un marco es el comportamiento predeterminado del lienzo en el Modo de selección (no es una opción de configuración). Arrastra un marco sobre los cables de conexión en los que quieras actuar. Un marco que no capture nodos, grupos ni redireccionamientos selecciona todos los enlaces visibles que cruza, y la caja de herramientas de selección reemplaza sus botones de nodo por dos acciones de enlace: **Ocultar** , que mantiene la conexión y oculta el cable, y **Eliminar** , que quita el enlace del gráfico. Cada acción es un paso de deshacer, y `Delete` o `Backspace` también eliminan una selección de enlaces. Los marcos con `Shift` y `Alt` seleccionan solo nodos y grupos, y el Modo lienzo Mano nunca selecciona enlaces.
+### Seleccionar enlaces
 
-### 
+Requiere ComfyUI frontend 1.59.0 o posterior. Seleccionar enlaces con un marco es el comportamiento predeterminado del lienzo en el Modo de selección (no es una opción de configuración). Arrastra un marco sobre los cables de conexión en los que quieras actuar. Un marco que no capture nodos, grupos ni nodos Reroute selecciona todos los enlaces visibles que cruza, y la caja de herramientas de selección reemplaza sus botones de nodo por dos acciones de enlace: **Ocultar** , que mantiene la conexión y oculta el cable, y **Eliminar** , que quita el enlace del gráfico. Cada acción es un paso de deshacer, y `Delete` o `Backspace` también eliminan una selección de enlaces. Los marcos con `Shift` y `Alt` seleccionan solo nodos y grupos, y el modo lienzo Mano nunca selecciona enlaces.
 
-​
+### Hacer clic en una entrada o salida de nodo para actuar sobre sus enlaces
 
-Hacer clic en una entrada o salida para actuar sobre sus enlaces
-
-Requiere ComfyUI frontend 1.60.0 o posterior. Haz clic en una entrada o salida del nodo en lugar de arrastrar desde ella. El lienzo selecciona todos los enlaces unidos a ese punto, que es un enlace en una entrada y todos sus enlaces en una salida, y la caja de herramientas de selección ofrece **Ocultar** y **Eliminar** , las mismas acciones que usa una selección con marco.
+Requiere ComfyUI frontend 1.59.1 o posterior. Haz clic en el punto de entrada o salida de un nodo en lugar de arrastrar desde él. El lienzo selecciona todos los enlaces unidos a ese punto, que es un enlace en una entrada y todos los enlaces en una salida, y la caja de herramientas de selección ofrece **Ocultar** y **Eliminar** , las mismas acciones que usa una selección con marco.
 
   * Si todos los enlaces seleccionados ya están ocultos, la caja de herramientas muestra **Mostrar** en lugar de **Ocultar**.
   * **Ocultar** actúa solo sobre los enlaces visibles y **Mostrar** solo sobre los ocultos, así que ninguno añade un paso de deshacer vacío.
@@ -127,11 +115,16 @@ Requiere ComfyUI frontend 1.60.0 o posterior. Haz clic en una entrada o salida d
 
 
 
-## 
+### Ocultar un enlace y etiquetar su insignia
 
-​
+Hay dos maneras de ocultar un enlace:
 
-Páginas relacionadas
+  * Selecciona los enlaces primero y luego haz clic en el ojo tachado (**Ocultar**) de la caja de herramientas de selección.
+  * Haz clic derecho en el centro de un cable y elige **Ocultar enlace**.
+
+En cualquier caso, el cable deja de dibujarse y cada conector muestra una insignia con el tipo de dato del enlace o su etiqueta. Haz clic derecho en la insignia y elige **Renombrar**. El frontend 1.59.1 y versiones posteriores agrupan las etiquetas de un mismo conector en una sola insignia, como `IMAGE ×3`; las versiones anteriores dibujan una insignia por enlace. Para volver a dibujar un cable oculto, haz clic derecho en su insignia y elige **Mostrar enlace**. Una insignia agrupada ofrece **Mostrar Enlaces** y restaura todos los enlaces que representa. La grabación siguiente oculta los tres enlaces que alimentan los nodos de vista previa, renombra sus insignias y luego vuelve a mostrar los enlaces:
+
+## Páginas relacionadas
 
   * [Resumen de la interfaz](https://docs.comfy.org/es/interface/overview)
   * [Atajos](https://docs.comfy.org/es/interface/shortcuts)

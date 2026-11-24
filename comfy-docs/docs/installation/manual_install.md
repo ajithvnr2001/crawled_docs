@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/manual_install/
 title: Install ComfyUI Manually (Windows, macOS, Linux) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:59.240380+00:00
+fetched_at: 2026-11-24T18:44:35.492949+00:00
 ---
 
 # Install ComfyUI Manually (Windows, macOS, Linux) - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:50:59.240380+00:00
 > Source: https://docs.comfy.org/installation/manual_install/
 
 ## On this page
+
+Back to top
 
   * Create a virtual environment
   * Clone the ComfyUI code repository
@@ -24,7 +26,7 @@ fetched_at: 2026-10-17T10:50:59.240380+00:00
 
 
 
-Local (Self-Hosted)
+Portable (Self-Hosted)
 
 # Install ComfyUI Manually (Windows, macOS, Linux)
 
@@ -43,11 +45,7 @@ For the installation of ComfyUI, it is mainly divided into several steps:
 
 You can also refer to [ComfyUI CLI](https://docs.comfy.org/comfy-cli/getting-started) to install ComfyUI, it is a command line tool that can easily install ComfyUI and manage its dependencies.
 
-## 
-
-​
-
-Create a virtual environment
+## Create a virtual environment
 
 Independent virtual environments are necessary because ComfyUI’s dependencies may conflict with other dependencies on the system, and it can also avoid polluting the system-level Python environment.
 
@@ -58,11 +56,7 @@ Independent virtual environments are necessary because ComfyUI’s dependencies 
     conda activate comfyenv
     
 
-## 
-
-​
-
-Clone the ComfyUI code repository
+## Clone the ComfyUI code repository
 
 You need to ensure that you have installed [Git](https://git-scm.com/downloads) on your system. First, you need to open the terminal (command line), then clone the code repository.
 
@@ -85,11 +79,7 @@ Open [Terminal application](https://support.apple.com/guide/terminal/open-or-qui
     git clone https://github.com/Comfy-Org/ComfyUI.git
     
 
-## 
-
-​
-
-Install GPU and ComfyUI dependencies
+## Install GPU and ComfyUI dependencies
 
 1
 
@@ -188,11 +178,7 @@ Run `python main.py --help` for built-in help, or see the [Startup Flags referen
 
 For advanced server configuration (custom port, LAN access, VRAM modes, and more), see the [Startup Flags reference](https://docs.comfy.org/development/comfyui-server/startup-flags).
 
-## 
-
-​
-
-How to update ComfyUI
+## How to update ComfyUI
 
 1
 
@@ -217,11 +203,7 @@ You need to ensure that the current Python environment is the ComfyUI virtual en
         pip install -r requirements.txt
     
 
-## 
-
-​
-
-Adding Extra Model Paths
+## Adding Extra Model Paths
 
 If you want to manage your model files outside of `ComfyUI/models`, you may have the following reasons:
 
@@ -231,11 +213,7 @@ If you want to manage your model files outside of `ComfyUI/models`, you may have
 
 We provide a way to add extra model search paths via the `extra_model_paths.yaml` configuration file
 
-### 
-
-​
-
-Open Config File
+### Open Config File
 
   * Portable/Manual Install
 
@@ -252,7 +230,7 @@ For the ComfyUI version such as [portable](https://docs.comfy.org/installation/c
 
 Copy and rename it to `extra_model_paths.yaml` for use. Keep it in ComfyUI’s root directory at `ComfyUI/extra_model_paths.yaml`. You can also find the config example file [here](https://github.com/Comfy-Org/ComfyUI/blob/master/extra_model_paths.yaml.example)
 
-If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/windows) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
+If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
 
   * Windows
 
@@ -273,11 +251,7 @@ You should keep the file in the same directory, should not move these files to o
 
 If the file does not exist, you can create it yourself with any text editor.
 
-### 
-
-​
-
-Example Structure
+### Example Structure
 
 Suppose you want to add the following model paths to ComfyUI:
     
@@ -391,11 +365,7 @@ For example, if your WebUI is located at `D:\stable-diffusion-webui\`, you can m
         controlnet: models/ControlNet
     
 
-### 
-
-​
-
-Add Extra Custom Nodes Path
+### Add Extra Custom Nodes Path
 
 Besides adding external models, you can also add custom nodes paths that are not in the default path of ComfyUI
 
@@ -408,19 +378,11 @@ Below is a simple configuration example (MacOS), please modify it according to y
       custom_nodes: /Users/your_username/Documents/extra_custom_nodes
     
 
-## 
-
-​
-
-FAQ
+## FAQ
 
 **Docker:** ComfyUI does not provide an official Docker image. If you want to run ComfyUI in a container, you can use community-maintained images from [Docker Hub](https://hub.docker.com/search?q=comfyui). These images are **not officially maintained by Comfy-Org** and are not supported by the ComfyUI team. Use them at your own risk.
 
-### 
-
-​
-
-How to Stop/Exit ComfyUI
+### How to Stop/Exit ComfyUI
 
 Press **Ctrl+C** in the terminal window where ComfyUI is running, or simply close the terminal window.
 
@@ -430,26 +392,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/manual_install.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/manual_install)
 
-[ComfyUI Portable for WindowsPrevious](https://docs.comfy.org/installation/comfyui_portable_windows)[How to Update ComfyUINext](https://docs.comfy.org/installation/update_comfyui)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[System Requirements](https://docs.comfy.org/installation/system_requirements)[Update ComfyUI](https://docs.comfy.org/installation/update_comfyui)

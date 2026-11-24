@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/system_requirements/
 title: Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:06.441286+00:00
+fetched_at: 2026-11-24T18:44:34.014279+00:00
 ---
 
 # Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI
@@ -54,28 +54,9 @@ Comfy Desktop permite la instalación independiente en **Windows** , **macOS (Ap
 
 Las instalaciones de Desktop siguen por defecto la versión **estable** de ComfyUI. Si quieres cada última confirmación (commit), usa la versión portable o una instalación manual con git, o cambia el canal de actualización de la instancia a **Latest on GitHub**.
 
-A continuación puedes elegir la instalación adecuada para tu sistema y hardware
+## Guía de instalación de Comfy Desktop
 
-  * Windows
-
-  * macOS (Apple Silicon)
-
-  * Linux
-
-
-
-
-## Guía de instalación de Comfy Desktop (Windows)
-
-Adecuada para **Windows** 10 o posterior. Se recomienda GPU NVIDIA o AMD.
-
-## Guía de instalación de Comfy Desktop (macOS)
-
-Adecuada para macOS con **Apple Silicon**
-
-## Guía de instalación de Comfy Desktop (Linux)
-
-Instala el AppImage o el `.deb`, o compila y ejecuta desde el código fuente.
+Windows 10 o posterior, macOS en Apple silicon o Linux. La guía tiene una pestaña para cada sistema.
 
 ComfyUI Portable (Windows)
 

@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/installation/desktop/usage/settings/
-title: Comfy Desktop Settings - ComfyUI
+title: Comfy Desktop settings - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:07.445545+00:00
+fetched_at: 2026-11-24T18:44:35.768395+00:00
 ---
 
-# Comfy Desktop Settings - ComfyUI
+# Comfy Desktop settings - ComfyUI
 
 > Source: https://docs.comfy.org/installation/desktop/usage/settings/
 
@@ -13,168 +13,147 @@ fetched_at: 2026-11-16T16:52:07.445545+00:00
 
 Back to top
 
-  * Preferences
-    * App Behavior
-    * Privacy
-    * Community
-  * Updates
-  * Storage
-  * Advanced
-    * Download Cache
-  * Logs
-  * Data Locations
-  * Keyboard Shortcuts
-  * Feedback and Issues
+  * Open Desktop settings
+  * Set your preferences
+    * Turn on beta features
+  * Update Comfy Desktop
+    * Let updates install on their own
+    * Update from the sidebar
+    * Check for updates yourself
+  * Choose shared folders and the install location
+  * Set mirrors and hardware acceleration
+    * Keep the download cache
+  * Find the app log
 
 
 
 Usage Guide
 
-# Comfy Desktop Settings
+# Comfy Desktop settings
 
 Copy pageCopy page
 
-Global settings, proxy/mirror configuration, and data locations
+Change Comfy Desktop settings: update the app, choose shared folders and the install location, set mirrors and the download cache, and find the app log.
 
 Copy pageCopy page
 
-Click the ☰ menu (1) in the top-left corner and select **Desktop Settings** (2) to open the global settings panel. ![Comfy Desktop dashboard with the ☰ menu open and Desktop Settings in the menu](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=c159ee0f220f359169a739852ff90fea) The settings panel is organized into five tabs. Click a tab in the sidebar to switch views.
+Comfy Desktop runs your ComfyUI builds, and **Desktop settings** holds the options that apply to all of them at once, such as the folders every build shares for models or the mirror that package downloads use. Settings for a single build, such as its own folders or startup arguments, live on that build’s page instead. Use **Desktop settings** to update Comfy Desktop, choose shared folders and the default install location, set mirrors and the download cache, turn on beta features, and find the app log.
 
-## Preferences
+## Open Desktop settings
 
-![Preferences: language, app behavior, telemetry, and Opt-in to beta features](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=2f708f5b4699204effebaac74780fd58) The Preferences tab opens with a **Language** picker, then groups the rest of its controls into three sections.
+  * At the bottom of the **sidebar** , click **Desktop settings**. In a window that runs ComfyUI, you can also open the **title bar** **Menu** and select **Desktop settings**. See [Get around Comfy Desktop](https://docs.comfy.org/installation/desktop/usage/overview#find-your-way-around-the-sidebar) for the **sidebar** and **title bar**.
 
-  * **Language** : Choose the display language. **English** and **简体中文** are available.
+![The Builds page with the Desktop settings row outlined at the bottom of the sidebar](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=fe218501a37ba11b0fa56252ca4882a7) The **Desktop settings** window has five tabs on its left: **Preferences** , **Updates** , **Folders** , **Advanced** , and **Logs**. Click a tab to switch to it.
 
+## Set your preferences
 
+The **Preferences** tab sets the app language and how Comfy Desktop behaves when you close windows or start builds. ![Preferences tab: Language set to English, the App behavior switches, Share anonymous usage telemetry and Opt in to beta features under Privacy, and the Comfy Desktop card under Community](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=c7b8602a403358ba90b70d8d55a827f9)
 
-### App Behavior
+  * **Language** : the language of Comfy Desktop. Select **English** or **简体中文**.
 
-  * **Auto-launch on startup** : Pick which instance to start when Comfy Desktop opens. **None (show dashboard)** is the default. You can also choose **Last used instance** , or a specific install.
-  * **Confirm before closing a window** : Ask for confirmation before closing a window that is running a local install.
-  * **Warn before running multiple instances** : Show a warning before launching another local ComfyUI instance while one is already running or starting.
-  * **Hide Cloud from the Instance Picker** : Hide the Cloud row from the Dashboard. Cloud still works if you re-enable this later.
+Under **App behavior** :
 
-
-
-### Privacy
-
-  * **Share anonymous usage telemetry** : Send anonymous usage data to help improve Comfy Desktop.
-  * **Opt-in to beta features** : Let Comfy Desktop turn on early Core features for your instances. The switch stays disabled until you confirm data sharing with **Share anonymous usage telemetry** , even when telemetry is already on.
-
-Beta features arrive as extra startup arguments, added in front of the ones you set yourself. Your own arguments keep their order and are never rewritten, and Desktop drops only a `--` flag the installed ComfyUI does not list. When it cannot read that list, it launches with your arguments exactly as they are and adds no beta arguments. When a beta feature turns on for an instance, a card headed **A beta feature is on** appears in the title bar. **Got it** dismisses it, and **Settings** opens this panel on the opt-in switch. You can see which arguments a beta feature added in the instance’s Startup Args tab, behind the **+N beta** pill next to **Startup Arguments**.
-
-### Community
-
-  * **Comfy Desktop** : A card linking to the [Comfy Desktop GitHub repository](https://github.com/Comfy-Org/Comfy-Desktop), with a star count.
-
-
-
-## Updates
-
-![Updates tab: installed version, Check for updates, Automatically install Desktop updates](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=715b9ed65225064b76935e2415dcc593)
-
-  * **Status** : Shows whether Comfy Desktop is up to date and which version is installed. Once a check has run, it also shows when Comfy Desktop last checked.
-  * **Check for updates** : Manually check for a new version. When an update is available the button changes to **Download** , then to **Restart & Update** once the download finishes.
-  * **Automatically install Desktop updates** : Auto-download and install updates in the background.
-
-
-
-## Storage
-
-The Storage tab is where you configure where Comfy Desktop finds and stores files. The key concept is **sharing** : instead of each instance having its own isolated models, inputs, and outputs, you set up shared directories accessible to all instances. ![Storage tab: Shared Models, Shared Input, and Shared Output paths](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=0d907789b20aecac354099423ff37814)
-
-  * **Shared Models** : Each directory listed here is scanned for models by every instance. New models download to the directory marked with the **DOWNLOADS** badge. ![Directory ⋯ menu with Use for Model Downloads](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03-2_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=dde71f37e5c437ac15dfa865b5d68f05)
-    * Click the directory path to open it in your file manager.
-    * The **⋯** menu (1) appears on every shared directory except the one that already receives downloads. Select **Use for Model Downloads** (2) to make that directory the download target, or **Remove** to drop it from the list. Removing a directory keeps its files.
-    * Click **\+ Add Shared Directory** to add more model directories.
-  * **Shared Input** : A shared path where all instances look for input files (images, videos, etc.).
-  * **Shared Output** : A shared path where all instances save generated outputs. Customizing this lets you keep all results in one place.
-  * Click the folder icon to browse and select a new path. **?** tooltips provide additional details.
-
-Per-instance overrides (include shared dirs, split input/output, extra model folders) live in the instance [Manage](https://docs.comfy.org/installation/desktop/usage/manage#storage-tab) Storage tab.
-
-## Advanced
-
-![Advanced tab: default install location, mirrors, and hardware acceleration](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=5ecf350b2a261d990cfe555a03a952ba)
-
-  * **Default Install Location** : Where new standalone instances are created. Click the folder icon to change it.
-  * **PyPI Mirror URL** : Custom pip mirror (e.g. `https://mirrors.aliyun.com/pypi/simple/`).
-  * **Use Chinese Mirrors (Git & PyPI)**: Use Chinese mirror servers for Git and PyPI. Helpful in mainland China. When the app language is Chinese, this switch sits under **App Behavior** on the Preferences tab instead.
-  * **Use hardware acceleration** : Use the GPU to render Comfy Desktop. Restart Comfy Desktop for changes to take effect.
-  * **Cache Directory** : Where Comfy Desktop stores temporary and cached data. Click the folder icon to change it.
-
-
-
-### Download Cache
-
-Standalone installs download a ComfyUI bundle into the **Cache Directory** (defaults end in `download-cache`). A later install of the same bundle skips the download and shows **Using cached download** , so it finishes much faster. Keep **Cache Directory** dedicated to this cache: when a download finishes, older subfolders inside it are pruned, so anything else you store there can be deleted. Deleting a dedicated cache folder only forces a re-download on the next install; models, inputs, outputs, and installations live elsewhere.
-
-## Logs
-
-  * **Diagnostics** : **Open logs folder** reveals the Desktop app log directory (`app.log`). See [How do I check Comfy Desktop startup logs?](https://docs.comfy.org/installation/desktop/faq#how-do-i-check-comfy-desktop-startup-logs).
-
-
-
-## Data Locations
-
-Comfy Desktop stores data in platform-specific directories.
-
-  * Windows
-
-  * macOS
-
-  * Linux
-
-
-
-    
-    
-    App data:     %APPDATA%\Comfy Desktop
-    Logs:         %APPDATA%\Comfy Desktop\logs
-    Installs:     %LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs
-    Shared data:  %LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared
-    
-
-New installs put large data (installs, shared models, cache) under `%LOCALAPPDATA%\Comfy-Desktop`. If you already had `ComfyUI-Installs` or `ComfyUI-Shared` in your user profile before upgrading, those home-root folders are kept. If you installed the app to another drive, large data lives in `<drive>\Comfy-Desktop\` instead.
-    
-    
-    App data:     ~/Library/Application Support/Comfy Desktop
-    Logs:         ~/Library/Logs/Comfy Desktop
-    Installs:     ~/ComfyUI-Installs
-    Shared data:  ~/ComfyUI-Shared
-    
-    
-    
-    Config:       ~/.config/comfyui-desktop-2
-    Data:         ~/.local/share/comfyui-desktop-2
-    Cache:        ~/.cache/comfyui-desktop-2
-    State:        ~/.local/state/comfyui-desktop-2
-    Logs:         ~/.config/Comfy Desktop/logs
-    Installs:     ~/ComfyUI-Installs
-    Shared data:  ~/ComfyUI-Shared
-    
-
-On Linux, Comfy Desktop keeps its settings, cache, data and state under `comfyui-desktop-2`, while Electron keeps the app profile and its logs under the display name `Comfy Desktop`. A source checkout uses `comfyui-desktop-2` for both. These are the default locations: `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME` and `XDG_STATE_HOME` move them, and the logs follow `XDG_CONFIG_HOME`.
-
-## Keyboard Shortcuts
-
-Shortcut| Action  
----|---  
-`Ctrl+R` / `Cmd+R`| Reload the current ComfyUI view  
-`Ctrl`/`Cmd` \+ `+` / `-` / `0`| Zoom the ComfyUI view in, out, or back to 100%  
-`Escape`| Close a dialog or popup  
+Setting| Default| What it does  
+---|---|---  
+**Confirm before closing a window**|  Off| Asks before closing a window when that stops ComfyUI or quits Comfy Desktop.  
+**Warn before running multiple builds**|  On| Shows a warning before you start another local ComfyUI build while one is running or starting.  
+**Hide Cloud from the build picker**|  Off| Hides the Comfy Cloud row from **Home**. Comfy Cloud keeps working, and you can turn the switch off again any time.  
   
-Comfy Desktop does not bind `Ctrl+W` / `Cmd+W`, so a stray keystroke cannot close a window with a running instance. Close a window from the ☰ menu’s **Close Window** instead.
+Under **Privacy** :
 
-## Feedback and Issues
+  * **Share anonymous usage telemetry** : sends anonymous usage data. The switch shows on until you turn it off.
+  * **Opt in to beta features** : lets Comfy Desktop turn on early ComfyUI features in your builds. See Turn on beta features.
 
-Found a bug or have a suggestion? Comfy Desktop is open source. You can report issues and check planned features here:
+Under **Community** , the **Comfy Desktop** card opens the [Comfy Desktop GitHub repository](https://github.com/Comfy-Org/Comfy-Desktop).
 
-  * **Comfy Desktop issues** : [github.com/Comfy-Org/Comfy-Desktop/issues](https://github.com/Comfy-Org/Comfy-Desktop/issues)
-  * **Documentation issues** : [github.com/Comfy-Org/docs/issues](https://github.com/Comfy-Org/docs/issues)
+### Turn on beta features
 
-For general questions about ComfyUI, visit the [ComfyUI GitHub Discussions](https://github.com/Comfy-Org/ComfyUI/discussions) or join the [ComfyUI Discord](https://www.comfy.org/discord).
+With **Opt in to beta features** on, you help test ComfyUI features before they ship. When the switch is on, Comfy Desktop can add one of these startup arguments when it starts a build on this computer: `--enable-asset-hashing`, `--disable-assets`, or `--enable-agent`. It adds an argument only when the build’s ComfyUI version supports it. If you already set that argument or its opposite in the build’s startup arguments, Comfy Desktop leaves yours as it is. If you never changed the switch, it follows your answer to **Help improve Comfy by sharing anonymous usage data.** in setup. To turn it on:
+
+  1. On the **Preferences** tab, turn on **Opt in to beta features**.
+  2. If the switch doesn’t turn on, confirm data sharing first: turn **Share anonymous usage telemetry** off, then on again. Then turn on **Opt in to beta features**.
+
+When a build starts with a beta feature, a notice in its **title bar** reads **A beta feature is on** or **The beta is on**. Click **Got it** to close it, or **Settings** to open this tab at the beta switch. When a beta feature is turned off for a build, the notice reads **A beta feature is off** or **The beta is off**. To see which arguments a beta feature added, open the build’s [**Startup arguments** tab](https://docs.comfy.org/installation/desktop/usage/instance-management#set-startup-arguments) and click the **+N beta** pill. It lists the arguments under **Added for this session** or **Eligible for next launch** , and **Manage beta features** opens this tab at the beta switch.
+
+## Update Comfy Desktop
+
+Comfy Desktop checks for updates to itself 2 seconds after it starts and then every 10 minutes. Comfy Desktop has no update channel to choose. The update channel on a build’s page is for ComfyUI in that build: see [Update ComfyUI](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui).
+
+On Linux, how Comfy Desktop updates depends on whether you installed the `.deb` package, the AppImage, or a source checkout. See [Updating on Linux](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os).
+
+### Let updates install on their own
+
+**Automatically install Desktop updates** on the **Updates** tab is on by default. When a check finds an update, Comfy Desktop downloads it and installs it:
+
+  * On macOS and Linux, when you quit Comfy Desktop.
+  * On Windows, the next time you start Comfy Desktop.
+
+When the switch is off, an update installs only when you click **Restart & update**.
+
+### Update from the sidebar
+
+When an update is available, an entry at the bottom of the **sidebar** shows its state:
+
+Entry reads| Click it to  
+---|---  
+**Desktop update**|  Open the **Desktop update available** dialog. Click **Download**.  
+**Downloading update…**|  Open **Desktop settings** at the **Updates** tab, where the download progress shows.  
+**Desktop update ready**|  Open the **Desktop update ready** dialog. Click **Restart & update** to restart into the update.  
+  
+### Check for updates yourself
+
+  1. Open **Desktop settings** and click the **Updates** tab.
+  2. Click **Check for updates**.
+  3. If the tab reads **Update available** , click **Download**.
+  4. When the tab reads **Update ready to install** , click **Restart & update**.
+
+Comfy Desktop restarts into the update. The update worked when the **Updates** tab reads **Comfy Desktop is up to date** and **Installed** shows the version you downloaded. ![Updates tab reading Comfy Desktop is up to date, with the installed version, the Check for updates button, and the Automatically install Desktop updates switch](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=9ede3287ce6d57b57b80142f13bb69bd)
+
+## Choose shared folders and the install location
+
+Shared folders let every build use the same models, inputs, and outputs, so you download a model once instead of once per build. The **Folders** tab sets these folders and the folder where Comfy Desktop suggests putting the builds you create. ![Folders tab: Default install location with its path, the Shared folders list with Models, Input, and Output rows, the Downloads tag, Use for downloads, and Add models folder, then Remove Comfy Desktop data](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=c1c1c1e9f85f3343d0cdaf2f544137ff) On each folder row, click the path to open the folder, or click the folder icon to pick another folder.
+
+  * **Default install location** : the parent folder Comfy Desktop suggests when you create a build. Changing it doesn’t move existing builds.
+  * **Shared folders** : one list of **Models** , **Input** , and **Output** folders. Every build uses them by default. To change that for one build, see [Choose which folders the build uses](https://docs.comfy.org/installation/desktop/usage/instance-management#choose-which-folders-the-build-uses).
+
+To manage the shared model folders:
+
+  * **Add a models folder** : click **Add models folder** and pick the folder.
+  * **Choose where models download** : on a **Models** row, click **Use for downloads**. That row then carries the **Downloads** tag. A build can pick its own download folder instead. See [Where downloads are saved](https://docs.comfy.org/installation/desktop/usage/downloads#where-downloads-are-saved).
+  * **Remove a models folder** : click the **⋯** menu on the row, select **Remove** , and confirm. The files stay on disk. The folder tagged **Downloads** has no **⋯** menu, so pick another download folder first. The **Input** and **Output** rows can’t be removed.
+
+By default, the folders are:
+
+Folder| macOS and Linux| Windows  
+---|---|---  
+**Default install location**| `~/ComfyUI-Installs`| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs`  
+Shared **Models** , **Input** , **Output**| `~/ComfyUI-Shared/models`, `input`, `output`| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models`, `input`, `output`  
+  
+On Windows, if your user folder already had `ComfyUI-Installs` or `ComfyUI-Shared`, Comfy Desktop keeps using those. If you installed Comfy Desktop on a drive other than the system drive, the folders are under `<drive>:\Comfy-Desktop` instead.
+
+On macOS and Linux, the **Folders** tab also has **Remove Comfy Desktop data** , which removes the app’s logs, caches, and temporary files before you uninstall it. See [uninstall Comfy Desktop on macOS](https://docs.comfy.org/installation/desktop/overview#uninstall-comfy-desktop) or [remove leftover data on Linux](https://docs.comfy.org/installation/desktop/overview#uninstall-comfy-desktop).
+
+## Set mirrors and hardware acceleration
+
+If downloads from pypi.org or github.com are slow where you are, point Comfy Desktop at a mirror on the **Advanced** tab. ![Advanced tab: PyPI mirror URL, Use Chinese mirrors \(Git & PyPI\), Use hardware acceleration, and the Cache section with the cache directory](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=a8a0dffff51604ac3d52282a4ed1deaf)
+
+  * **PyPI mirror URL** : a Python package index, such as `https://mirrors.aliyun.com/pypi/simple/`. Comfy Desktop installs Python packages from this index and uses pypi.org as an extra index. Empty by default.
+  * **Use Chinese mirrors (Git & PyPI)**: off by default. When it’s on, Git repositories clone from gitcode.com instead of github.com, and Python packages come from mirrors.aliyun.com and mirrors.cloud.tencent.com instead of pypi.org. When the app language is Chinese, this switch is on the **Preferences** tab under **App behavior** instead. When your system language is Chinese, setup also asks **Enable Chinese mirrors?**.
+  * **Use hardware acceleration** : on by default. Uses the GPU to render Comfy Desktop. Restart Comfy Desktop for a change to take effect.
+
+
+
+### Keep the download cache
+
+When you install a Standalone build, Comfy Desktop downloads a ComfyUI bundle into the cache folder shown under **Cache** on the **Advanced** tab. By default, the folder is named `download-cache`. If you install the same bundle again, the install shows **Using cached download** and skips the download. Comfy Desktop keeps only the most recent bundle in this folder. When a download finishes, it deletes the other subfolders inside the cache folder, so don’t store anything else there. Click the folder icon to pick another folder.
+
+## Find the app log
+
+The app log records what Comfy Desktop does, including the output when a build installs or starts. Attach it when you report a problem on the [Comfy Desktop issue tracker](https://github.com/Comfy-Org/Comfy-Desktop/issues). ![Logs tab with the Diagnostics section and the Open logs folder button](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_05_logs.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=1bbd4ef749d3b545631ef195bcf3c143)
+
+  * On the **Logs** tab, under **Diagnostics** , click **Open logs folder**.
+
+The folder holds `app.log` for the current session. At each start, and when `app.log` passes 5 MB, Comfy Desktop renames the old file to `app.log_<timestamp>.log` and keeps up to 50 of them. Pick the file from the session where the problem happened.
 
 Was this page helpful?
 
@@ -182,4 +161,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/settings.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/settings)
 
-[Manage](https://docs.comfy.org/installation/desktop/usage/manage)[Performance Tests](https://docs.comfy.org/installation/desktop/usage/performance-tests)
+[Downloads](https://docs.comfy.org/installation/desktop/usage/downloads)[Performance tests](https://docs.comfy.org/installation/desktop/usage/performance-tests)

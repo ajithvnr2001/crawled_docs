@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview/
 title: Image & Video Enhancement with HitPaw - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.964550+00:00
+fetched_at: 2026-11-24T18:44:38.199466+00:00
 ---
 
 # Image & Video Enhancement with HitPaw - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:49.964550+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -22,17 +24,13 @@ HitPaw
 
 Copy pageCopy page
 
-Enhance and upscale images and video using HitPaw’s AI models within ComfyUI — covering general image enhancement and video enhancement workflows.
+Enhance and upscale images and video with HitPaw’s AI models in ComfyUI: general image enhancement and video enhancement workflows.
 
 Copy pageCopy page
 
 HitPaw brings production-grade AI image and video enhancement to ComfyUI as native nodes. Its **image enhancement** and **video enhancement** models handle upscaling, denoising, and restoration with minimal configuration, all powered by ComfyCloud with no local GPU needed.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **General image enhancement** — Multi-purpose AI upscaling and restoration that handles noise, blur, artifacts, and low resolution across photographs, renders, and AI-generated images.
   * **Video enhancement** — Frame-by-frame video upscaling and denoising with temporal consistency, suitable for compressed footage, screen recordings, and archival video.
@@ -68,11 +66,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 HitPaw offers two AI enhancement workflows in ComfyUI — one for images and one for video. Both are designed as simple drop-in nodes with minimal configuration, suitable for integration into any pipeline.
 

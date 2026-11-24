@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/troubleshooting/overview/
 title: How to Troubleshoot and Solve ComfyUI Issues - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:15.667038+00:00
+fetched_at: 2026-11-24T18:44:34.369636+00:00
 ---
 
 # How to Troubleshoot and Solve ComfyUI Issues - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:15.667038+00:00
 > Source: https://docs.comfy.org/troubleshooting/overview/
 
 ## On this page
+
+Back to top
 
   * Common Issues & Quick Fixes
     * ComfyUI Won’t Start
@@ -59,19 +61,11 @@ We receive a lot of feedback issues, and we find that most of the issues submitt
 
 Check how to troubleshoot issues caused by custom nodes.
 
-## 
-
-​
-
-Common Issues & Quick Fixes
+## Common Issues & Quick Fixes
 
 Before diving into detailed troubleshooting, try these common solutions:
 
-### 
-
-​
-
-ComfyUI Won’t Start
+### ComfyUI Won’t Start
 
 **Symptoms:** Application crashes on startup, black screen, or fails to load **Quick fixes:**
 
@@ -80,11 +74,7 @@ ComfyUI Won’t Start
 
 
 
-### 
-
-​
-
-Generation Fails or Produces Errors
+### Generation Fails or Produces Errors
 
 **Symptoms:** “Prompt execution failed” dialog with “Show report” button, workflow stops executing **Quick fixes:**
 
@@ -95,11 +85,7 @@ Generation Fails or Produces Errors
 
 
 
-### 
-
-​
-
-Slow Performance
+### Slow Performance
 
 **Symptoms:** Very slow generation times, system freezing, out of memory errors **Quick fixes:**
 
@@ -147,19 +133,11 @@ For memory management:
     python main.py --cache-classic   # Use the old style (aggressive) caching. 
     
 
-## 
+## Installation-Specific Issues
 
-​
+### Desktop App Issues
 
-Installation-Specific Issues
-
-### 
-
-​
-
-Desktop App Issues
-
-For comprehensive desktop installation troubleshooting, see the [Desktop Installation Guide](https://docs.comfy.org/installation/desktop/windows).
+For comprehensive desktop installation troubleshooting, see the [Desktop Installation Guide](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os).
 
   * Windows
 
@@ -188,11 +166,7 @@ For comprehensive desktop installation troubleshooting, see the [Desktop Install
 
 
 
-### 
-
-​
-
-Manual Installation Issues
+### Manual Installation Issues
 
 The documentation may be slightly out of date. If an issue occurs, please manually verify whether a newer stable version of pytorch or any of the listed libraries exists. Refer to resources like the [pytorch installation matrix](https://pytorch.org/get-started/locally/) or the [ROCm website](https://rocm.docs.amd.com/projects/install-on-linux/en/develop/install/3rd-party/pytorch-install.html#using-a-wheels-package).
 
@@ -224,11 +198,7 @@ The documentation may be slightly out of date. If an issue occurs, please manual
     pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/rocm7.2
     
 
-### 
-
-​
-
-Linux-Specific Issues
+### Linux-Specific Issues
 
 **LD_LIBRARY_PATH errors:** Common symptoms:
 
@@ -312,25 +282,13 @@ Linux-Specific Issues
     python -c "import torch; print('CUDA available:', torch.cuda.is_available()); print('CUDA version:', torch.version.cuda)"
     
 
-## 
-
-​
-
-Model-Related Issues
+## Model-Related Issues
 
 For comprehensive model troubleshooting including architecture mismatches, missing models, and loading errors, see the dedicated [Model Issues](https://docs.comfy.org/troubleshooting/model-issues) page.
 
-## 
+## Network & API Issues
 
-​
-
-Network & API Issues
-
-### 
-
-​
-
-Partner Nodes Not Working
+### Partner Nodes Not Working
 
 **Symptoms:** API calls fail, timeout errors, quota exceeded **Solutions:**
 
@@ -341,11 +299,7 @@ Partner Nodes Not Working
 
 
 
-### 
-
-​
-
-Connection Issues
+### Connection Issues
 
 **Symptoms:** “Failed to connect to server”, timeout errors **Solutions:**
 
@@ -356,11 +310,7 @@ Connection Issues
 
 
 
-### 
-
-​
-
-Frontend Issues
+### Frontend Issues
 
 **“Frontend or Templates Package Not Updated”:**
     
@@ -386,17 +336,9 @@ Frontend Issues
 
 
 
-## 
+## Hardware-Specific Issues
 
-​
-
-Hardware-Specific Issues
-
-### 
-
-​
-
-NVIDIA GPU Issues
+### NVIDIA GPU Issues
 
 **“Torch not compiled with CUDA enabled” error:**
     
@@ -444,11 +386,7 @@ Disabling the cuDNN SDPA backend programmatically before startup — for example
 
 _This entry was added in[PR #1491](https://github.com/Comfy-Org/docs/pull/1491)._
 
-### 
-
-​
-
-AMD GPU Issues
+### AMD GPU Issues
 
 **ROCm support (Linux only):**
     
@@ -480,13 +418,9 @@ AMD GPU Issues
     PYTORCH_TUNABLEOP_ENABLED=1 python main.py
     
 
-### 
+### Apple Silicon (M1/M2/M3) Issues
 
-​
-
-Apple Silicon (M1/M2/M3) Issues
-
-The steps in this section apply to a manual or source install, where ComfyUI runs in a Python environment you set up yourself. See [System Requirements](https://docs.comfy.org/installation/system_requirements) for the supported Python versions and [Manual Installation](https://docs.comfy.org/installation/manual_install) for the setup steps.**Comfy Desktop** on Apple silicon does not need a separate Python install: the app manages its own Python environment for each instance. See [Comfy Desktop for macOS](https://docs.comfy.org/installation/desktop/macos).
+The steps in this section apply to a manual or source install, where ComfyUI runs in a Python environment you set up yourself. See [System Requirements](https://docs.comfy.org/installation/system_requirements) for the supported Python versions and [Manual Installation](https://docs.comfy.org/installation/manual_install) for the setup steps.**Comfy Desktop** on Apple silicon does not need a separate Python install: the app manages its own Python environment for each instance. See [Comfy Desktop for macOS](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os).
 
 **MPS backend setup:**
     
@@ -511,11 +445,7 @@ The steps in this section apply to a manual or source install, where ComfyUI run
     python main.py --force-fp16 --cpu
     
 
-### 
-
-​
-
-Intel GPU Issues
+### Intel GPU Issues
 
 **“Torch not compiled with CUDA enabled” error:** On Intel GPUs this error means ComfyUI tried to use CUDA because the XPU backend was not available. Do not follow the NVIDIA CUDA reinstallation steps above. Intel GPUs use XPU, not CUDA. Check whether PyTorch can see the Intel GPU:
     
@@ -550,33 +480,17 @@ If this prints `True`, ComfyUI uses the XPU backend automatically. If it prints 
     pip install torch==2.3.1.post0+cxx11.abi torchvision==0.18.1.post0+cxx11.abi torchaudio==2.3.1.post0+cxx11.abi intel-extension-for-pytorch==2.3.110.post0+xpu --extra-index-url https://pytorch-extension.intel.com/release-whl/stable/xpu/us/
     
 
-## 
+## Frequently Asked Questions
 
-​
-
-Frequently Asked Questions
-
-### 
-
-​
-
-How do I run ComfyUI with Docker?
+### How do I run ComfyUI with Docker?
 
 **Docker:** ComfyUI does not provide an official Docker image. If you want to run ComfyUI in a container, you can use community-maintained images from [Docker Hub](https://hub.docker.com/search?q=comfyui). These images are **not officially maintained by Comfy-Org** and are not supported by the ComfyUI team. Use them at your own risk.
 
 For local installation on Linux, follow the [Manual Installation Guide](https://docs.comfy.org/installation/manual_install). For cloud usage, see [Comfy Cloud](https://docs.comfy.org/get_started/cloud).
 
-## 
+## Getting Help & Reporting Bugs
 
-​
-
-Getting Help & Reporting Bugs
-
-### 
-
-​
-
-Before Reporting a Bug
+### Before Reporting a Bug
 
   1. **Check if it’s a known issue:**
      * Search [GitHub Issues](https://github.com/Comfy-Org/ComfyUI/issues)
@@ -590,49 +504,25 @@ Before Reporting a Bug
 
 
 
-### 
+### How to Report Bugs Effectively
 
-​
-
-How to Report Bugs Effectively
-
-#### 
-
-​
-
-For ComfyUI Core Issues
+#### For ComfyUI Core Issues
 
 **Where to report:** [GitHub Issues](https://github.com/Comfy-Org/ComfyUI/issues)
 
-#### 
-
-​
-
-For Desktop App Issues
+#### For Desktop App Issues
 
 **Where to report:** [Desktop GitHub Issues](https://github.com/Comfy-Org/Comfy-Desktop/issues)
 
-#### 
-
-​
-
-For Frontend Issues
+#### For Frontend Issues
 
 **Where to report:** [Frontend GitHub Issues](https://github.com/Comfy-Org/ComfyUI_frontend/issues)
 
-#### 
-
-​
-
-For Custom Node Issues
+#### For Custom Node Issues
 
 **Where to report:** Contact the specific custom node developer
 
-### 
-
-​
-
-Required Information
+### Required Information
 
 When reporting any issue, include:
 
@@ -733,11 +623,7 @@ Additional Context
 
 
 
-## 
-
-​
-
-Community Resources
+## Community Resources
 
   * **Official Forum:** [forum.comfy.org](https://forum.comfy.org/)
   * **Discord:** [ComfyUI Discord Server](https://discord.com/invite/comfyorg)
@@ -752,26 +638,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/troubleshooting/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/troubleshooting/overview)
 
-[Comfy Cloud invoice informationPrevious](https://docs.comfy.org/support/payment/invoice-information)[How to Troubleshoot and Solve ComfyUI Model IssuesNext](https://docs.comfy.org/troubleshooting/model-issues)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Invoice info](https://docs.comfy.org/support/payment/invoice-information)[Model Issues](https://docs.comfy.org/troubleshooting/model-issues)

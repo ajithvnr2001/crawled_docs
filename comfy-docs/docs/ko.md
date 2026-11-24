@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/ko/
 title: ComfyUI \uacf5\uc2dd \ubb38\uc11c - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:09.645282+00:00
+fetched_at: 2026-11-24T18:44:38.280760+00:00
 ---
 
 # ComfyUI 공식 문서 - ComfyUI
@@ -15,13 +15,13 @@ fetched_at: 2026-10-26T14:04:09.645282+00:00
 
 [](https://github.com/Comfy-Org/ComfyUI/)[](https://x.com/ComfyUI)[](https://discord.com/invite/comfyorg)[](https://www.youtube.com/@comfyorg)
 
-생성형 AI를 위한 가장 강력한 오픈소스 노드 기반 애플리케이션
+비주얼 AI를 위한 가장 강력한 오픈소스 애플리케이션
 
 ## ComfyUI란 무엇이며, 첫 워크플로는 어떻게 만드나요?
 
 ## 다운로드 및 설치
 
-Windows, macOS, 또는 Linux에서 ComfyUI 설치하기
+Windows, macOS 또는 Linux에서 ComfyUI 설치하기
 
 ## 첫 번째 생성
 
@@ -29,45 +29,59 @@ Windows, macOS, 또는 Linux에서 ComfyUI 설치하기
 
 ## 기본 개념
 
-워크플로우, 노드, 링크 이해하기
+워크플로, 노드, 연결 이해하기
 
-## Comfy 워크플로우
+## Comfy 워크플로
 
-최고의 크리에이터들이 만든 커뮤니티 워크플로우와 템플릿 살펴보기
+최고의 크리에이터들이 만든 커뮤니티 워크플로와 템플릿 살펴보기
 
-## AI 에이전트 및 MCP
-
-## 에이전트 도구 개요
-
-이미지, 비디오, 오디오 및 3D 생성을 위해 MCP를 통해 AI 에이전트 연결하기
-
-## 클라우드 MCP 서버
-
-cloud.comfy.org에서 호스팅하는 MCP: 클라우드 GPU에서 워크플로우 실행하기
-
-## Comfy CLI
-
-터미널에서 comfy generate(베타)로 파트너 모델 호출하기
-
-## Comfy Router
+## Comfy Router로 모든 프론티어 모델을 위한 단일 API 제공
 
 ## 빠른 시작
 
 단일 키로 하나의 API 엔드포인트를 통해 파트너 모델 호출하기
 
-## 워크플로우 실행
+## Comfy Router 모델
 
-애플리케이션에서 ComfyUI 배포 환경으로 워크플로우 실행하기
+Comfy Router를 통해 사용할 수 있는 모델 찾아보기
 
 ## API 레퍼런스
 
-Router 엔드포인트, 헤더, 제한 사항의 전체 레퍼런스
+Router 엔드포인트, 헤더, 제한 사항에 대한 전체 레퍼런스
+
+## 에이전트 및 MCP를 통해 Comfy 설정하기
+
+## 에이전트 도구 개요
+
+이미지, 비디오, 오디오, 3D 생성을 위해 MCP를 통해 AI 에이전트 연결하기
+
+## Comfy MCP 서버
+
+Comfy Cloud와 로컬을 위한 호스팅 MCP
+
+## Comfy CLI
+
+터미널에서 comfy generate(베타)로 파트너 모델 호출하기
+
+## 인프라에 Comfy 배포하기
+
+## ComfyUI 배포
+
+로컬, 서버 또는 클라우드에서 ComfyUI 실행하기
+
+## 워크플로 실행
+
+애플리케이션에서 배포 환경을 대상으로 워크플로 실행하기
+
+## 기여하기
+
+ComfyUI 개발에 기여하기
 
 ## 학습 및 튜토리얼
 
 ## 인터페이스 가이드
 
-ComfyUI 인터페이스 탐색하기
+ComfyUI 인터페이스 살펴보기
 
 ## 튜토리얼
 
@@ -76,20 +90,6 @@ ComfyUI 인터페이스 탐색하기
 ## 내장 노드
 
 ComfyUI의 각 노드 알아보기
-
-## 개발자
-
-## ComfyUI 배포하기
-
-로컬, 서버 또는 클라우드에서 ComfyUI 실행하기
-
-## 워크플로우 실행
-
-애플리케이션에서 배포 환경으로 워크플로우 실행하기
-
-## 기여하기
-
-ComfyUI 개발에 기여하기
 
 ## 커스텀 노드 빌드
 
@@ -111,7 +111,7 @@ ComfyUI 개발에 기여하기
 
 계정 생성, 로그인, 관리하기
 
-## 청구 지원
+## 결제 지원
 
 구독 및 결제 관리하기
 
@@ -127,8 +127,14 @@ ComfyUI 커뮤니티 참여하기
 
 [comfyanonymous](https://github.com/comfyanonymous) 및 기타 [기여자들](https://github.com/Comfy-Org/ComfyUI/graphs/contributors)이 작성했습니다.
 
-  * **ComfyUI** 는 생성형 AI를 위한 노드 기반 인터페이스 및 추론 엔진입니다
-  * 사용자는 다양한 AI 모델과 연산을 노드를 통해 조합해 매우 맞춤화되고 제어 가능한 콘텐츠 생성을 실현할 수 있습니다
-  * ComfyUI는 완전히 오픈소스이며 사용자의 로컬 디바이스에서도 실행 가능합니다
+**ComfyUI** 는 비주얼 AI를 위한 오픈소스 노드 기반 인터페이스이자 추론 엔진입니다. 워크플로에서 모델과 연산을 노드로 연결하여 이미지, 비디오, 오디오, 3D 생성의 모든 단계를 제어합니다. Comfy는 이를 기반으로 다음 제품들을 만듭니다:
+
+  * [ComfyUI](https://github.com/Comfy-Org/ComfyUI): 오픈소스 엔진 및 인터페이스입니다. 자체 컴퓨터나 서버에서 무료로 실행하세요.
+  * [Comfy Desktop](https://docs.comfy.org/ko/installation/desktop/overview): Windows, macOS, Linux용 앱으로, ComfyUI를 설치하고 컴퓨터 또는 Comfy Cloud에서 실행합니다.
+  * [Comfy Cloud](https://docs.comfy.org/ko/get_started/cloud): 클라우드 GPU에서 실행되는 ComfyUI로, 설치할 것이 없습니다.
+  * [Comfy Router](https://docs.comfy.org/ko/development/comfy-router/quickstart): 프론티어 이미지, 비디오, 오디오 모델을 위한 하나의 API와 하나의 키.
+  * [Comfy API](https://docs.comfy.org/ko/development/deploy/overview): 워크플로를 배포하고 자체 애플리케이션에서 실행합니다.
+  * [Comfy MCP 및 Comfy CLI](https://docs.comfy.org/ko/agent-tools): 로컬 또는 Comfy Cloud에서 AI 에이전트와 스크립트를 ComfyUI에 연결합니다.
+  * [Comfy Registry](https://docs.comfy.org/ko/registry/overview): ComfyUI를 확장하는 커스텀 노드의 공개 인덱스입니다.
 
 

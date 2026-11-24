@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/features/subgraph/
 title: Subgrafo - Simplifica tu flujo de trabajo - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:28.865372+00:00
+fetched_at: 2026-11-24T18:44:38.553577+00:00
 ---
 
 # Subgrafo - Simplifica tu flujo de trabajo - ComfyUI
@@ -17,6 +17,7 @@ Volver arriba
   * Trabajar con subgrafos
     * Operaciones básicas
     * Editar subgrafos
+    * Reordenar los puertos de entrada y salida
     * Panel de parámetros
     * Subgrafos anidados
     * Salir del subgrafo
@@ -53,11 +54,7 @@ Un subgrafo es una potente función de ComfyUI que te permite empaquetar flujos 
 
 
 
-## 
-
-​
-
-Crear un subgrafo
+## Crear un subgrafo
 
 1
 
@@ -83,17 +80,9 @@ Personaliza tu subgrafo
 
 Consulta Editar subgrafos; puedes editar y organizar el subgrafo para crear un nodo totalmente funcional![Flujo de trabajo usando un subgrafo](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/interface/features/subgraph/subgraph_after_edited.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=091d4223d6fb2cd2d44009cfee191bab)
 
-## 
+## Trabajar con subgrafos
 
-​
-
-Trabajar con subgrafos
-
-### 
-
-​
-
-Operaciones básicas
+### Operaciones básicas
 
 Los subgrafos funcionan igual que los nodos normales. Puedes:
 
@@ -103,11 +92,7 @@ Los subgrafos funcionan igual que los nodos normales. Puedes:
 
 
 
-### 
-
-​
-
-Editar subgrafos
+### Editar subgrafos
 
 **Para entrar en modo de edición:**
 
@@ -131,11 +116,11 @@ Editar subgrafos
 
 > Nota: Las conexiones de las ranuras siguen las reglas estándar de validación de tipos de datos
 
-### 
+### Reordenar los puertos de entrada y salida
 
-​
+Cada fila de entrada y salida dentro de un subgrafo tiene un asa de arrastre. Arrastra el asa, o enfócala y pulsa **Alt + flecha arriba/abajo** , para mover el puerto. El orden se guarda en el propio subgrafo, así que todas sus instancias lo siguen, y los enlaces permanecen conectados a su puerto. Deshacer restaura el orden anterior.
 
-Panel de parámetros
+### Panel de parámetros
 
 Con ComfyUI v0.3.66 o posterior, puedes editar los parámetros del subgrafo directamente desde el panel de parámetros sin entrar al subgrafo. Puedes seleccionar cualquier subgrafo y usar el botón “Editar Widgets de Subgrafo” para abrir el panel de parámetros. ![Abrir panel de parámetros](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/parameters_panel_open.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=30157b83417245ba715cb58e8b68717a) Después de abrirlo, puedes editar el orden y la visibilidad de los widgets del subgrafo directamente en el panel de parámetros. ![Abrir panel de parámetros](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/parameters_panel_edit.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=710bcf6bced65bab02112c3ac699c086)
 
@@ -144,19 +129,11 @@ Con ComfyUI v0.3.66 o posterior, puedes editar los parámetros del subgrafo dire
 
 
 
-### 
-
-​
-
-Subgrafos anidados
+### Subgrafos anidados
 
 Crea flujos de trabajo aún más complejos anidando subgrafos dentro de subgrafos. ![Subgrafo anidado](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/interface/features/subgraph/subgraph_nested.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=7e92ac585c91b067ab2527da1b5c521c) La barra de navegación muestra tu nivel actual y te permite moverte fácilmente entre subgrafos anidados. ![Navegación de subgrafos anidados](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_navigation.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=bad6ce874c9e68e4f537f657fd44d564)
 
-### 
-
-​
-
-Salir del subgrafo
+### Salir del subgrafo
 
 Para salir de un subgrafo y volver al nivel superior:
 
@@ -165,11 +142,7 @@ Para salir de un subgrafo y volver al nivel superior:
 
 ![Modo de edición de subgrafos](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/editing_subgraph.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=da969844db24259fc6af4e58abe047df) Haz clic en la barra de navegación o presiona Esc para salir del subgrafo actual y volver al flujo de trabajo principal.
 
-## 
-
-​
-
-Desempaquetar subgrafos en nodos
+## Desempaquetar subgrafos en nodos
 
 Cuando termines de crear un subgrafo, puedes volver a convertirlo en nodos si lo necesitas. ![De subgrafo a nodo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_to_nodes.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=fa9b87c2b097d3131d065829b0c09864)
 
@@ -178,19 +151,11 @@ Cuando termines de crear un subgrafo, puedes volver a convertirlo en nodos si lo
 
 
 
-## 
-
-​
-
-Plano de subgrafo
+## Plano de subgrafo
 
 Con la versión 1.27.7 o posterior del frontend de ComfyUI, puedes publicar tu subgrafo en la biblioteca de nodos. Esta función te permite convertir un subgrafo en un nodo `Subgraph Blueprints`, lo que significa que es un nodo de subgrafo reutilizable.
 
-### 
-
-​
-
-Publicar subgrafo en la biblioteca de nodos
+### Publicar subgrafo en la biblioteca de nodos
 
 ![Publicar subgrafo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_publishing.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=8a94ff214584859eb09e7149fa313f4a) Actualmente, tienes dos formas de publicar un subgrafo en la biblioteca de nodos, ambas en la caja de herramientas de selección:
 
@@ -199,11 +164,7 @@ Publicar subgrafo en la biblioteca de nodos
 
 Después de hacer clic en el icono `book(publish)` o en el menú `Add Subgraph to Library`, verás el siguiente diálogo: ![Nombrado del subgrafo](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/features/subgraph/subgraph_naming.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=0578432c55fd791c59c483e768fe02f3) De forma predeterminada, el subgrafo usará el nombre del nodo de subgrafo como nombre del plano de subgrafo. Después de publicarlo, verás el nodo de plano de subgrafo en la biblioteca de nodos. ![Nodo de plano de subgrafo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_blueprints.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=e5c08a91ace167af1d100833c04f5768) Ahora puedes arrastrar o buscar el subgrafo igual que un nodo normal. El nuevo nodo de subgrafo que se ha agregado desde Planos de subgrafos sigue siendo aislado, lo que significa que, después de agregarlo al flujo de trabajo, se puede editar de forma independiente, sin que se afecten entre sí.
 
-### 
-
-​
-
-Editar plano de subgrafo
+### Editar plano de subgrafo
 
 Si quieres editar el plano de subgrafo, puedes hacer clic en el botón de edición como en la imagen a continuación; también puedes eliminarlo. ![Editar plano de subgrafo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/edit_subgraph_blueprints.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=e89a0e1bbf452688543d960bbef02288) Esto habilitará el modo de edición de subgrafo ![Modo de edición de subgrafo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_editing_mode.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=5d7ef14271c50660175ea05d33392458) Después de editar el plano de subgrafo, puedes ir al nivel principal para previsualizar el subgrafo. ![Actualizar plano de subgrafo](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/save_updated_subgraph.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=5b7d2d527099a7b065acd7e16cde9a7f) Si quieres guardar el plano de subgrafo actualizado, puedes hacer clic en el botón de guardar o usar el atajo de teclado Ctrl + S.
 

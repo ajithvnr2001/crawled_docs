@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/system_requirements/
 title: ComfyUI System Requirements: OS, Python, and GPU - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T16:26:06.002224+00:00
+fetched_at: 2026-11-24T18:44:35.226263+00:00
 ---
 
 # ComfyUI System Requirements: OS, Python, and GPU - ComfyUI
@@ -22,7 +22,7 @@ Back to top
 
 
 
-Local (Self-Hosted)
+Portable (Self-Hosted)
 
 # ComfyUI System Requirements: OS, Python, and GPU
 
@@ -52,30 +52,11 @@ Comfy Desktop supports standalone installation on **Windows** , **macOS (Apple S
 
 
 
-Desktop installs track the **stable** ComfyUI release by default. If you want every latest commit, use the portable version or a manual git install, or switch the instance update channel to **Latest on GitHub**.
+Desktop installs track the **stable** ComfyUI release by default. If you want every latest commit, use the portable version or a manual git install, or switch a build’s update channel to **Latest on GitHub**.
 
-You can choose the appropriate installation for your system and hardware below
+## Comfy Desktop Installation Guide
 
-  * Windows
-
-  * macOS (Apple Silicon)
-
-  * Linux
-
-
-
-
-## Comfy Desktop (Windows) Installation Guide
-
-Suitable for **Windows** 10 or later. NVIDIA or AMD GPU recommended.
-
-## Comfy Desktop (macOS) Installation Guide
-
-Suitable for macOS with **Apple Silicon**
-
-## Comfy Desktop (Linux) Installation Guide
-
-Install the AppImage or `.deb`, or build and run from source.
+Windows 10 or later, macOS on Apple silicon, or Linux. The guide has a tab for each system.
 
 ComfyUI Portable (Windows)
 
@@ -148,4 +129,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/system_requirements.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/system_requirements)
 
-[Comfy Cloud](https://docs.comfy.org/get_started/cloud)[Overview](https://docs.comfy.org/installation/desktop/overview)
+[Portable (Local)](https://docs.comfy.org/installation/comfyui_portable_windows)[Manual (Local)](https://docs.comfy.org/installation/manual_install)

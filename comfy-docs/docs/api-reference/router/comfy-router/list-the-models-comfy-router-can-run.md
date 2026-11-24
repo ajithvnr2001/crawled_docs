@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/api-reference/router/comfy-router/list-the-models-comfy-router-can-run/
 title: List the models Comfy Router can run. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:52.071779+00:00
+fetched_at: 2026-11-24T18:44:33.230969+00:00
 ---
 
 # List the models Comfy Router can run. - ComfyUI

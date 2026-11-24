@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-kling-4-0/code/
 title: Usar Kelly Kling 4.0 con Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:20.794672+00:00
+fetched_at: 2026-11-24T18:44:34.545476+00:00
 ---
 
 # Usar Kelly Kling 4.0 con Comfy Router - ComfyUI
@@ -31,7 +31,7 @@ Llama a kelly/kelly-kling-4.0 mediante Comfy Router: endpoint, forma de la solic
 
 Copiar páginaCopiar página
 
-Referencia de API de `kelly/kelly-kling-4.0`, servido por Comfy Router desde Kelly. **Entrada:** Texto · **Salida:** Video
+Referencia de API de `kelly/kelly-kling-4.0`, servido por Comfy Router desde Kelly. **Entrada:** Texto, Imagen, Video · **Salida:** Video
 
 ## Configuración de la solicitud
 

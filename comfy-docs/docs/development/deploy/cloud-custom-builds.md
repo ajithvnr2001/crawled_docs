@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-custom-builds/
 title: Adding Custom Builds to Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:22.812849+00:00
+fetched_at: 2026-11-24T18:44:37.273850+00:00
 ---
 
 # Adding Custom Builds to Comfy Cloud - ComfyUI

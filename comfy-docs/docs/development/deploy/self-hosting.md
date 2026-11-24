@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/self-hosting/
 title: Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:22.364067+00:00
+fetched_at: 2026-11-24T18:44:37.014593+00:00
 ---
 
 # Self-Hosting ComfyUI: Bare Metal, GPU Cloud, and Docker - ComfyUI

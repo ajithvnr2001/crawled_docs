@@ -1,165 +1,346 @@
 ---
 url: https://docs.comfy.org/installation/desktop/overview/
-title: Comfy Desktop Overview - ComfyUI
+title: Comfy Desktop: Run ComfyUI on Your Computer or on Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-24T11:54:47.605353+00:00
+fetched_at: 2026-11-24T18:44:36.167262+00:00
 ---
 
-# Comfy Desktop Overview - ComfyUI
+# Comfy Desktop: Run ComfyUI on Your Computer or on Comfy Cloud - ComfyUI
 
 > Source: https://docs.comfy.org/installation/desktop/overview/
 
 ## On this page
 
-  * Get Started
-  * First Launch
-    * Cloud or Local
-    * Terms and data sharing
-    * Express Install
-    * Migrating an existing install
-    * Chinese mirrors
-    * After setup
-  * Usage Guide
-  * Migrate from Legacy Desktop
-  * Open Source
+Back to top
+
+  * Choose where ComfyUI runs
+  * Download Comfy Desktop
+  * Install Comfy Desktop for your OS
+  * Confirm the setup screen
+    * Keep existing builds or migrate
+  * Watch the install on Home
+  * Open Comfy Cloud in Comfy Desktop
+    * Skip local install and go to Home
+    * Log in and open Comfy Cloud
+  * Open ComfyUI
+  * Uninstall Comfy Desktop
+  * Troubleshoot
+  * View the source code
 
 
 
 Comfy Desktop
 
-# Comfy Desktop Overview
+# Comfy Desktop: Run ComfyUI on Your Computer or on Comfy Cloud
 
 Copy pageCopy page
 
-Comfy Desktop overview: a desktop app that installs, manages, and launches multiple instances of ComfyUI, the node-based engine for generative AI.
+Download Comfy Desktop, finish the setup screen on first launch, and open ComfyUI in a local build on your computer or on Comfy Cloud.
 
 Copy pageCopy page
 
-**Comfy Desktop** is a desktop application that lets you install, manage, and launch multiple ComfyUI instances from a single launcher. To put it simply: **Comfy Desktop** is the app that manages and launches **ComfyUI** , the node-based engine for generative AI. You don’t install ComfyUI separately — Comfy Desktop handles the installation, Python environment, and dependencies for you. Each ComfyUI instance runs independently with its own version, custom nodes, and settings. ![Comfy Desktop dashboard with instance cards](https://mintcdn.com/dripart/WYfylXoCKnX5Ph8a/images/desktop/usage/01-homepage.png?fit=max&auto=format&n=WYfylXoCKnX5Ph8a&q=85&s=31c2d1e320e37dad01de4ca0236f2c2a) Comfy Desktop runs on **Windows 10+** , **macOS 13+ (Apple Silicon)** , and **Linux** (official `.deb` and AppImage packages). Each standalone installation requires at least **4.85 GB** of disk space and **8 GB RAM (16 GB recommended)**. Check the platform-specific pages for full details.
+Comfy Desktop is the app you use to run ComfyUI, either as a copy installed on this computer (a local build) or on Comfy Cloud, which runs on GPUs in the cloud and works on any computer. It downloads and sets up everything ComfyUI needs, so Comfy Desktop is the only app you install. On this page, you download Comfy Desktop, confirm the setup screen it opens on first launch, and open ComfyUI. ![Comfy Desktop Home with the sidebar on the left, the welcome heading, a row of Apps, the Open ComfyUI button at the top right, and the Builds row with the Comfy Cloud card and the New build tile](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-landing-page.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=330ba0827d4982aa26b46d23be200b14)
 
-## 
+Comfy Desktop calls each copy of ComfyUI a build. If you used an earlier version of Comfy Desktop, your instances appear as builds, with the same models and settings.
 
-​
+## Choose where ComfyUI runs
 
-Get Started
+Comfy Desktop runs ComfyUI in two places: on this computer as a local build, or on [Comfy Cloud](https://comfy.org/cloud). Pick the one you want before you start, because the setup screen on first launch installs a local build.
 
-Choose your platform to begin:
+| Local build| Comfy Cloud  
+---|---|---  
+Runs on| This computer| GPUs in the cloud, so it works on any computer  
+Setup| The setup screen installs it on first launch| None. **Home** shows a **Comfy Cloud** card  
+Cost| Free| Comfy Credits, spent only while the GPU runs  
+Needs| Free disk space for the install (the setup screen shows the amount)| A Comfy account  
+  
+To use only Comfy Cloud, skip the install when the setup screen opens. Open Comfy Cloud in Comfy Desktop shows how.
 
-## Windows
+## Download Comfy Desktop
 
-Step-by-step installation guide for Windows 10 or later.
+The download page offers an installer for Windows, macOS, and Linux.
 
-## macOS
-
-Step-by-step installation guide for macOS 13+ (Apple Silicon).
-
-## Linux
-
-Install the official `.deb` or AppImage, or build from source.
-
-## 
-
-​
-
-First Launch
-
-The first time you open Comfy Desktop, a full-screen setup asks **How do you want to run Comfy?** and collects the choices it needs before anything is installed. The window stays in this setup until you finish it: if you close the app partway through, the same screen comes back on the next launch.
-
-### 
-
-​
-
-Cloud or Local
-
-![First-run setup asking Cloud or Local](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/first_run_cloud_local.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=5209bcecf72c91605d695662cef60a2d) Two cards cover the two ways to run ComfyUI:
-
-  * **Cloud** runs ComfyUI on Comfy Cloud GPUs. Nothing is installed on your machine and there is nothing to download. The card carries a **TRY FREE** pill while free Cloud runs are available.
-  * **Local** installs ComfyUI on this machine. You control the ComfyUI version, custom nodes, and startup arguments, and it runs offline.
-
-If Comfy Desktop detects that this machine’s GPU is not powerful enough for most workflows, the Cloud card carries a **Recommended for your hardware** badge and neither card is preselected, so the choice is deliberate rather than a default. **Continue** stays disabled until a card is selected.
-
-### 
-
-​
-
-Terms and data sharing
-
-Three checkboxes sit below the cards:
-
-  * **I agree to the EULA and Terms of Service** : required. The links open the EULA, the Terms of Service, and the Privacy Policy. **Continue** does not proceed until this box is ticked, every time the setup runs.
-  * **Help improve Comfy by sharing anonymous usage data** : optional and ticked by default. Comfy Desktop sends anonymous usage data and never collects workflow contents, prompts, generated media, or personal information. You can change this later in [Desktop Settings](https://docs.comfy.org/installation/desktop/usage/settings).
-  * **Opt in to beta features and help test what ships next** : optional and ticked by default, and available only while data sharing is on. Clearing data sharing also clears this box.
+  1. Go to [comfy.org/download](https://comfy.org/download).
+  2. Click **DOWNLOAD DESKTOP**. The button downloads the installer for the operating system the page detects. The installer’s name appears under the button text.
+  3. To pick another installer, click the arrow (**All installers**) next to the button, and then select an installer. The list offers **Windows x64** , **Windows ARM64 (NVIDIA only)** , **macOS (Apple Silicon)** , and **Linux x64 (AppImage)**. ![DOWNLOAD DESKTOP button with macOS \(Apple Silicon\) under the button text, and the All installers list open below it with Windows x64, Windows ARM64 \(NVIDIA only\), macOS \(Apple Silicon\), and Linux x64 \(AppImage\)](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-install.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=7ab11e63e89bf6a5055b9ad8f983d4e0)
 
 
 
-### 
+## Install Comfy Desktop for your OS
 
-​
+Pick your operating system’s tab, check its requirements, and install the file you downloaded.
 
-Express Install
+  * Windows
 
-![First-run setup with Local selected](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/first_run_local_selected.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=4a81a4b22722b83833eb4b121643d968) When **Local** is selected, an **Express Install with recommended settings** checkbox appears. It is cleared by default, so the install wizard shows the ComfyUI version, install location, and startup options before anything is written to disk. Tick it to skip that step and install a Standalone instance with the recommended settings. Comfy Desktop then names the hardware it detected under the checkbox, so you can clear it if the detected GPU is not the one you want to use.
+  * macOS
 
-### 
+  * Linux
 
-​
 
-Migrating an existing install
 
-If Comfy Desktop finds a Legacy Desktop installation on the machine, a **Migrate existing instance** checkbox appears next to Express Install, ticked by default. Leave it ticked to bring your workflows, models, and settings over when you continue, see [Migrate from Legacy Desktop](https://docs.comfy.org/installation/desktop/usage/migrate) for what moves. Clear it to install a fresh instance instead. With both checkboxes cleared, Comfy Desktop asks once more before the install starts: select **Migrate** to bring the Legacy Desktop install over, or **Start Fresh** to install a clean instance and leave the existing projects in place.
 
-### 
+**System requirements**
 
-​
+  * Windows 10 or later, on x64 or ARM64.
+  * A dedicated NVIDIA or AMD GPU is recommended, but not required. On ARM64, local builds need an NVIDIA GPU.
+  * At least 4.85 GB of free disk space for each build.
 
-Chinese mirrors
+**Install**
 
-When the app runs in Chinese, the setup adds one question after **Continue** : **Enable Chinese Mirrors?** Select **Enable Mirrors** to clone Git repositories from `gitcode.com` and fetch PyPI packages from Aliyun and Tencent mirrors instead of `github.com` and `pypi.org`, which is faster in mainland China. Select **Not now** to keep the defaults. Either answer is stored as the **Use Chinese Mirrors (Git & PyPI)** setting, so you can change it later.
+  1. Run the `.exe` installer you downloaded, and follow its prompts.
+  2. Open Comfy Desktop from the **Start** menu or the desktop shortcut. ![Comfy Desktop installer running on Windows](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/installation/windows_1_install.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=2f32d2b272b240371c7b2290343cf400)
 
-### 
 
-​
 
-After setup
+**System requirements**
 
-**Continue** saves your choices and shows a short **Preparing your install…** step.
+  * macOS 13 (Ventura) or later.
+  * A Mac with Apple silicon (M1 or later).
+  * At least 4.85 GB of free disk space for each build.
 
-  * **Cloud** : Comfy Desktop closes the setup and launches Comfy Cloud.
-  * **Local** : the install wizard runs unless Express Install is on, the install shows its progress, and the finished instance appears on the dashboard.
+**Install**
 
-If Comfy Desktop already has a standalone, tracked, or remote installation, it skips the Cloud or Local choice and takes you straight to the dashboard once the terms are accepted. Consenting is required every time the setup runs. The setup is a full-screen takeover: the title bar is locked while it is open, and once you leave the consent step the app menu (☰) is reduced to a single **Skip Onboarding** item, which closes the setup and drops you on the dashboard without installing anything.
+  1. Open the `.dmg` file you downloaded.
+  2. Drag **Comfy Desktop** into the **Applications** folder.
+  3. Open Comfy Desktop from Launchpad or Spotlight. ![Comfy Desktop disk image on macOS, with the app icon and the Applications folder](https://mintcdn.com/dripart/gG5z6ITsBp8xzLix/images/desktop/installation/mac_1_install.png?fit=max&auto=format&n=gG5z6ITsBp8xzLix&q=85&s=32a354755add8f6d72a0787b9ad42b67)
 
-## 
+If macOS shows a security warning the first time you open it, go to **System Settings** > **Privacy & Security**, and click **Open Anyway**.
 
-​
+**System requirements**
 
-Usage Guide
+  * Linux on x64. Ubuntu 22.04 or later is recommended.
+  * A dedicated NVIDIA or AMD GPU is recommended, but not required.
+  * At least 4.85 GB of free disk space for each build.
 
-Once installed, learn how to use Comfy Desktop:
+The download page offers the AppImage. A `.deb` package for Debian and Ubuntu is also available from the [universal download link](https://dl.todesktop.com/241130tqe9q3y), which detects your platform.**Install the .deb package**
+    
+    
+     sudo apt install ./*.deb
+    
 
-## Comfy Desktop Usage Guide
+The package installs Comfy Desktop in `/opt/Comfy Desktop` and adds an APT source, so new releases arrive with your normal system updates (`sudo apt update` and `sudo apt upgrade`). On Ubuntu 24.04 and later, it also installs an AppArmor profile so Electron’s sandbox works. If you installed the package on Ubuntu 22.04 and then upgraded to 24.04, run `sudo apt reinstall comfyui-desktop-2` to add the profile.**Run the AppImage**
 
-Dashboard overview, instance management, settings, snapshots, and more.
+  1. Install FUSE 2, which the AppImage needs. On Ubuntu 24.04 and later, run `sudo apt install libfuse2t64`. On Ubuntu 22.04, run `sudo apt install libfuse2`.
+  2. Make the file executable and run it:
+         
+         chmod +x ./*.AppImage
+         ./*.AppImage
+         
 
-## 
 
-​
+The AppImage updates itself by replacing the file you launched, so keep it in a folder your user account can write to. If it fails to start because your distribution blocks Electron’s sandbox, run it with `--no-sandbox`. That flag turns off the sandbox for every process, so use it only when the normal launch fails.
 
-Migrate from Legacy Desktop
+Build and run from source
 
-If you’re still using the older Legacy Desktop version (single-install desktop app), you can migrate your custom nodes, workflows, and models to the new Comfy Desktop. Your existing data is preserved — no manual migration needed.
+For development, run Comfy Desktop from its [repository](https://github.com/Comfy-Org/Comfy-Desktop#development). You need Node.js 24, pnpm 10 through Corepack, `build-essential`, and `git`.
+    
+    
+    sudo apt install build-essential git
+    nvm install 24 && nvm use 24
+    corepack enable
+    git clone https://github.com/Comfy-Org/Comfy-Desktop.git
+    cd Comfy-Desktop
+    pnpm run init
+    ./linux-dev.sh
+    
 
-## Migration Guide
+A source checkout doesn’t update itself. To update, run `git pull` and `pnpm run init`, and then start `./linux-dev.sh` again.
 
-Step-by-step guide to migrate from Legacy Desktop to Comfy Desktop.
+Then open Comfy Desktop. On first launch, it opens the setup screen.
 
-## 
+The Chinese download page, [comfy.org/zh-CN/download](https://comfy.org/zh-CN/download), offers the same installers. Its button reads **下载桌面版**. To download ComfyUI’s files from mirrors in China, see Confirm the setup screen.
 
-​
+## Confirm the setup screen
 
-Open Source
+On first launch, Comfy Desktop opens the setup screen. Its title is **Install ComfyUI on this Mac** on macOS, **Install ComfyUI on this PC** on Windows, and **Install ComfyUI on this computer** on Linux. Nothing downloads until you click **Install**. ![Setup screen titled Install ComfyUI on this Mac, with the Detected panel for an Apple M5 Pro and its Change button, the Hardware, Location, and Version rows, the three agreement checkboxes with the terms box empty, and the download size next to the Install button](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-first-time.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=1a890066ccd5331926e9c7e5262968a1) Comfy Desktop picks the settings for your computer. Check them before you install:
 
-Comfy Desktop source is on [GitHub](https://github.com/Comfy-Org/Comfy-Desktop). It is dual-licensed: AGPL-3.0-or-later, or a commercial license from Comfy Org.
+  * **Detected** : the panel at the top shows the GPU or processor Comfy Desktop found, and its memory.
+  * **Hardware** : the hardware the build is made for. **No GPU acceleration** means ComfyUI runs on your processor.
+  * **Version** : the ComfyUI version and its release channel, such as **Stable**.
+  * **Location** : the folder the build installs into, and the free space on that drive.
+
+Next to **Install** , the setup screen shows the download size. Point to the info icon next to it to see how much disk space the install needs. To pick other settings, click **Change** , edit them on the **Change setup** screen, and click **Save changes**.
+
+For your first install, keep the settings Comfy Desktop picked. [Builds](https://docs.comfy.org/installation/desktop/usage/instance-management) explains every setting you can change.
+
+To install:
+
+  1. Tick **I agree to the EULA and Terms of Service.** Click **EULA** or **Terms of Service** to read either one.
+  2. Click **Install**.
+
+If you click **Install** before you tick the terms box, **Agree to install.** appears next to it.
+
+If Comfy Desktop runs in Chinese, it asks **Enable Chinese mirrors?** after you click **Install**. **Enable mirrors** downloads from `gitcode.com`, `mirrors.aliyun.com`, and `mirrors.cloud.tencent.com`. **Not now** keeps `github.com` and `pypi.org`.
+
+### Keep existing builds or migrate
+
+  * **Use my builds** : appears next to **Install** when this computer already has a local build other than Legacy Desktop. Tick the terms box and click it to skip the install. **Home** opens with your builds.
+  * **Migrate** : replaces **Install** when Comfy Desktop finds a Legacy Desktop install. [Migrate from Legacy Desktop](https://docs.comfy.org/installation/desktop/usage/migrate) lists what moves.
+
+
+
+## Watch the install on Home
+
+The setup screen closes and **Home** opens. Your build’s card in the Builds row shows the progress, such as **Installing ComfyUI · 60%** , then **Starting ComfyUI**. ![Build card in the Builds row on Home showing Installing ComfyUI · 60%, the build name ComfyUI, and a progress bar along the bottom of the card](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-installing-build.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=98803f813470756dd1effac55bc69c5b) While the install runs, the card can show an older ComfyUI version. The last install step updates the build to the version the setup screen showed. By default, ComfyUI opens in its own window when it’s ready, and the card shows **Running**. If the install or the start fails, see Troubleshoot.
+
+## Open Comfy Cloud in Comfy Desktop
+
+**Home** shows a **Comfy Cloud** card in the Builds row, next to any local build. ![The Builds row on Home with a local ComfyUI build card showing Running, and the Comfy Cloud card](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-cloud-build.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=17cb663995faa281ea055742b7fafb7b)
+
+### Skip local install and go to Home
+
+The setup screen has no skip button unless you already have builds. To reach **Home** and use only Comfy Cloud:
+
+  1. On the setup screen, tick the terms box.
+  2. In the **Detected** panel, click **Change**.
+  3. In the **title bar** , click **Menu** , and then select **Skip onboarding**.
+
+**Home** opens with the **Comfy Cloud** card in the Builds row.
+
+### Log in and open Comfy Cloud
+
+Until you log in, the **Comfy Cloud** card shows **Log in to use**.
+
+Comfy Cloud spends Comfy Credits while its GPU runs. Check your **Credits** balance before you open it.
+
+  1. In the **sidebar** , on the **Log in to Comfy** card, click **Log in**. The card shows **Continue in your browser**. ![Comfy Desktop sidebar with Home, Apps, Assets, and Comfy Cloud under Builds, and the Log in to Comfy card with its Log in button at the bottom](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-sign-in-sidebar.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=360d08aaddfb8f365f03d3976e7ea8fa)
+  2. Finish logging in in your browser. The **sidebar** shows your **Credits** balance, which confirms that your account works.
+  3. On **Home** , click the **Comfy Cloud** card.
+
+Comfy Cloud opens in its own window.
+
+To use Comfy Cloud in your browser instead, open [cloud.comfy.org](https://cloud.comfy.org/).
+
+## Open ComfyUI
+
+After the first install, you start a build and open ComfyUI from **Home** :
+
+  * Click **Open ComfyUI** at the top right. It opens your most recent build. To open another build, click the arrow on the right side of the button (**Choose the build to open**), and then select the build.
+  * Or click a build’s card in the Builds row.
+
+You can also click a build’s tile on the **Builds** page, or **Start** on the build’s page. Clicking a build in the **sidebar** opens its page and doesn’t start it. While ComfyUI starts, the build reads **Starting…**. When it’s ready, ComfyUI opens in its own window, the build reads **Running** , and it has a green dot in the **sidebar**. To bring the window back later, click the running build again. If ComfyUI doesn’t start, see [Fix a build that fails](https://docs.comfy.org/installation/desktop/usage/instance-management#fix-a-build-that-fails). To learn the rest of **Home** and the **sidebar** , see [Get around Comfy Desktop](https://docs.comfy.org/installation/desktop/usage/overview). To generate your first image, follow [Your first image in ComfyUI](https://docs.comfy.org/get_started/first_generation).
+
+## Uninstall Comfy Desktop
+
+Uninstalling Comfy Desktop removes the app only. Your builds, shared models and outputs, settings, and logs stay on your computer until you delete them. To remove one build instead, see [Remove a build](https://docs.comfy.org/installation/desktop/usage/instance-management#remove-a-build).
+
+The folders below hold your own data: builds, models, outputs, and settings. Deleting them can’t be undone.
+
+On macOS and Linux, you can first clear the app’s logs, caches, and temporary files with **Remove Comfy Desktop data** in [Desktop settings](https://docs.comfy.org/installation/desktop/usage/settings#storage).
+
+  * Windows
+
+  * macOS
+
+  * Linux
+
+
+
+
+  1. Go to **Settings** > **Apps** > **Installed apps**.
+  2. Find **Comfy Desktop** , and click **Uninstall**. ![Comfy Desktop in the Windows Installed apps list with its Uninstall option](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/installation/windows_2_uninstall.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=53de7983e9318d6aecad6e76a25c5efe)
+
+
+
+Data| Default location  
+---|---  
+Builds| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs` (older builds: `%USERPROFILE%\ComfyUI-Installs`), plus any folder you chose  
+Shared models, inputs, and outputs| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared` (older: `%USERPROFILE%\ComfyUI-Shared`)  
+Settings and the list of builds| `%APPDATA%\Comfy Desktop`  
+Logs| `%APPDATA%\Comfy Desktop\logs`  
+  
+To remove everything, delete those folders. Delete the shared folder only if you no longer need its models and outputs.
+
+  1. Open the **Applications** folder in Finder.
+  2. Right-click **Comfy Desktop** , and select **Move to Trash**. ![Comfy Desktop in the macOS Applications folder with Move to Trash in its menu](https://mintcdn.com/dripart/gG5z6ITsBp8xzLix/images/desktop/installation/mac_2_uninstall.png?fit=max&auto=format&n=gG5z6ITsBp8xzLix&q=85&s=2b2704e427cfefa46b1a545ed55c498d)
+
+
+
+Data| Default location  
+---|---  
+Builds| `~/ComfyUI-Installs`, plus any folder you chose  
+Shared models, inputs, and outputs| `~/ComfyUI-Shared`  
+Settings and the list of builds| `~/Library/Application Support/Comfy Desktop`  
+Logs| `~/Library/Logs/Comfy Desktop`  
+  
+To remove everything, delete those folders. Delete the shared folder only if you no longer need its models and outputs.
+
+  * **.deb** : run `sudo apt remove comfyui-desktop-2`. It also removes the AppArmor profile. Use `sudo apt purge comfyui-desktop-2` to remove the APT source too.
+  * **AppImage** : delete the `.AppImage` file.
+
+
+
+Data| Default location  
+---|---  
+Builds| `~/ComfyUI-Installs`, plus any folder you chose  
+Shared models, inputs, and outputs| `~/ComfyUI-Shared`  
+Settings| `~/.config/comfyui-desktop-2`  
+App data, including the list of builds| `~/.local/share/comfyui-desktop-2`  
+Cache| `~/.cache/comfyui-desktop-2`  
+State| `~/.local/state/comfyui-desktop-2`  
+Logs| `~/.config/Comfy Desktop/logs`  
+  
+To remove everything, delete those folders, or run the repository’s [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) script, which clears the app’s folders and leaves `~/ComfyUI-Installs` and `~/ComfyUI-Shared` alone. Delete the shared folder only if you no longer need its models and outputs.
+
+## Troubleshoot
+
+Use these entries when the setup screen or the install doesn’t go as expected.
+
+Fix an Install button that does nothing
+
+  * **Not supported** in the **Hardware** row: use Comfy Cloud. Skip local install and go to Home, and then log in and open Comfy Cloud.
+  * **Couldn’t reach the ComfyUI download server** : check your internet connection, and then click **Try again**.
+  * **Agree to install.** next to the terms box: see Confirm the setup screen.
+
+
+
+Free up disk space
+
+The **Location** row shows **Only … free, about … needed to install** when the drive is too full. Change the location to a drive with more space, or free space on this one.
+
+Fix a build that didn't install
+
+When an install doesn’t finish, the build card on **Home** shows **Install failed**.
+
+Uninstalling permanently removes the build and all its files. Other builds aren’t affected. Copy anything you want to keep out of the build’s folder first.
+
+  1. Click the build card. The build’s page opens.
+  2. Click **More** , and then select **Uninstall**. Confirm with **Uninstall**.
+  3. On **Home** , click **New build** to install a new build.
+
+
+
+Recover after closing setup
+
+If you close Comfy Desktop during setup, it asks **Quit setup?**. Click **Quit setup** and Comfy Desktop doesn’t save your choices. The setup screen opens again the next time you launch Comfy Desktop.
+
+Fix a build that didn't start
+
+When ComfyUI doesn’t start, the build card on **Home** shows **Didn’t start**.
+
+  1. Click the build card. A dialog titled **ComfyUI didn’t start** opens.
+  2. Click **View logs** to read what went wrong.
+  3. Click **Try again**.
+
+
+
+Comfy Desktop starts up broken on macOS
+
+After a manual update, Comfy Desktop can open with no styling, missing text, or buttons that do nothing. A profile or cached update from the previous version usually causes it.
+
+  1. Copy `app.log` out of `~/Library/Logs/Comfy Desktop` if you may report the problem, because the reset deletes that folder.
+  2. Quit Comfy Desktop.
+  3. Run the [reset script](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-mac.sh). It lists every path it will delete and asks before deleting anything:
+         
+         curl -fsSLO https://raw.githubusercontent.com/Comfy-Org/Comfy-Desktop/main/scripts/reset-mac.sh && bash reset-mac.sh
+         
+
+
+Your builds in `~/ComfyUI-Installs` and models in `~/ComfyUI-Shared` stay, but the list of builds is deleted. Add them back with [Add existing build](https://docs.comfy.org/installation/desktop/usage/instance-management#add-a-comfyui-you-already-have). To report the problem, attach `app.log` on the [Comfy Desktop issue tracker](https://github.com/Comfy-Org/Comfy-Desktop/issues).
+
+## View the source code
+
+Comfy Desktop source code is on [GitHub](https://github.com/Comfy-Org/Comfy-Desktop). It’s dual-licensed: AGPL-3.0-or-later, or a commercial license from Comfy Org.
 
 Was this page helpful?
 
@@ -167,4 +348,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/overview)
 
-[System Requirements](https://docs.comfy.org/installation/system_requirements)[Windows](https://docs.comfy.org/installation/desktop/windows)
+[Home](https://docs.comfy.org/)[Overview](https://docs.comfy.org/installation/desktop/overview)

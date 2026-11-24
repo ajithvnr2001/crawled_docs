@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/ja/
 title: ComfyUI \u516c\u5f0f\u30c9\u30ad\u30e5\u30e1\u30f3\u30c8 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:09.407124+00:00
+fetched_at: 2026-11-24T18:44:35.085958+00:00
 ---
 
 # ComfyUI 公式ドキュメント - ComfyUI
@@ -15,7 +15,7 @@ fetched_at: 2026-10-26T14:04:09.407124+00:00
 
 [](https://github.com/Comfy-Org/ComfyUI/)[](https://x.com/ComfyUI)[](https://discord.com/invite/comfyorg)[](https://www.youtube.com/@comfyorg)
 
-生成 AI 向けの、最も強力なオープンソースのノードベースアプリケーション
+ビジュアル AI のための、最も強力なオープンソースアプリケーション
 
 ## ComfyUI とは何か、最初のワークフローはどう作る？
 
@@ -35,33 +35,47 @@ Windows、macOS、または Linux に ComfyUI をインストール
 
 トップクリエイターによるコミュニティのワークフローとテンプレートを探索する
 
-## AI エージェントと MCP
-
-## エージェントツール概要
-
-画像・動画・オーディオ・3D 生成のために MCP 経由で AI エージェントを接続する
-
-## Cloud MCP サーバー
-
-cloud.comfy.org のホスト型 MCP。Cloud GPU でワークフローを実行
-
-## Comfy CLI
-
-ターミナルから comfy generate（ベータ）でパートナーモデルを呼び出す
-
-## Comfy Router
+## Comfy Router で、あらゆるフロンティアモデルを単一の API で
 
 ## クイックスタート
 
 1 つのキーで単一の API エンドポイントを通じてパートナーモデルを呼び出す
 
-## ワークフローを実行
+## Comfy Router のモデル
 
-アプリケーションから ComfyUI のデプロイメントに対してワークフローを実行する
+Comfy Router で利用できるモデルをブラウズする
 
 ## API リファレンス
 
 Router のエンドポイント、ヘッダー、制限の完全なリファレンス
+
+## エージェントと MCP で Comfy をセットアップ
+
+## エージェントツール概要
+
+画像・動画・オーディオ・3D 生成のために MCP 経由で AI エージェントを接続する
+
+## Comfy MCP サーバー
+
+Comfy Cloud とローカル向けのホスト型 MCP
+
+## Comfy CLI
+
+ターミナルから comfy generate（ベータ）でパートナーモデルを呼び出す
+
+## Comfy をお使いのインフラにデプロイ
+
+## ComfyUI をデプロイ
+
+ComfyUI をローカル、サーバー、またはクラウドで実行する
+
+## ワークフローを実行
+
+アプリケーションからデプロイメントに対してワークフローを実行する
+
+## コントリビュート
+
+ComfyUI の開発に貢献する
 
 ## 学習とチュートリアル
 
@@ -76,20 +90,6 @@ ComfyUI インターフェースを操作する
 ## 内蔵ノード
 
 ComfyUI の各ノードについて学ぶ
-
-## 開発者
-
-## ComfyUI をデプロイ
-
-ComfyUI をローカル、サーバー、またはクラウドで実行する
-
-## ワークフローを実行
-
-アプリケーションからデプロイメントに対してワークフローを実行する
-
-## コントリビュート
-
-ComfyUI の開発に貢献する
 
 ## カスタムノードの構築
 
@@ -127,8 +127,14 @@ ComfyUI コミュニティに参加
 
 [comfyanonymous](https://github.com/comfyanonymous) および他の[コントリビューター](https://github.com/Comfy-Org/ComfyUI/graphs/contributors)によって執筆。
 
-  * **ComfyUI** は生成 AI 向けのノードベースインターフェースおよび推論エンジンです
-  * ユーザーはノードを介してさまざまな AI モデルと操作を組み合わせ、高度にカスタマイズ可能で制御可能なコンテンツ生成を実現できます
-  * ComfyUI は完全にオープンソースであり、ローカルデバイスで実行できます
+**ComfyUI** は、ビジュアル AI 向けのオープンソースのノードベースインターフェース兼推論エンジンです。モデルと操作をワークフロー内のノードとして接続し、画像・動画・オーディオ・3D 生成のあらゆるステップを制御できます。Comfy はこれを中心に以下の製品を展開しています。
+
+  * [ComfyUI](https://github.com/Comfy-Org/ComfyUI)：オープンソースのエンジンとインターフェース。自分のコンピューターまたはサーバーで無料で実行できます。
+  * [Comfy Desktop](https://docs.comfy.org/ja/installation/desktop/overview)：Windows、macOS、Linux 向けのアプリで、ComfyUI をインストールし、お使いのコンピューターまたは Comfy Cloud で開けます。
+  * [Comfy Cloud](https://docs.comfy.org/ja/get_started/cloud)：クラウド GPU 上で動作する ComfyUI。インストールは不要です。
+  * [Comfy Router](https://docs.comfy.org/ja/development/comfy-router/quickstart)：フロンティアの画像・動画・オーディオモデルを、1 つの API と 1 つのキーで利用できます。
+  * [Comfy API](https://docs.comfy.org/ja/development/deploy/overview)：ワークフローをデプロイし、自分のアプリケーションから実行できます。
+  * [Comfy MCP と Comfy CLI](https://docs.comfy.org/ja/agent-tools)：AI エージェントやスクリプトを、ローカルまたは Comfy Cloud 上の ComfyUI に接続します。
+  * [Comfy Registry](https://docs.comfy.org/ja/registry/overview)：ComfyUI を拡張するカスタムノードの公開インデックス。
 
 

@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/scribe-v2/
-title: ElevenLabs Speech-to-Text \u2014 Scribe v2 - ComfyUI
+title: ElevenLabs Scribe v2: Speech-to-Text - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.347193+00:00
+fetched_at: 2026-11-24T18:44:38.468410+00:00
 ---
 
-# ElevenLabs Speech-to-Text — Scribe v2 - ComfyUI
+# ElevenLabs Scribe v2: Speech-to-Text - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/scribe-v2/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -18,7 +20,7 @@ fetched_at: 2026-10-25T12:24:49.347193+00:00
 
 ElevenLabs
 
-# ElevenLabs Speech-to-Text — Scribe v2
+# ElevenLabs Scribe v2: Speech-to-Text
 
 Copy pageCopy page
 
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 Transcribe audio to text using **Scribe v2** , ElevenLabs’ advanced speech-to-text model. It supports over 90 languages with speaker diarization for up to 32 speakers, entity detection, and keyword boosting for domain-specific terminology.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **90+ language support** — Broad multilingual transcription coverage
   * **Speaker diarization** — Up to 32 speakers identified and labeled
@@ -66,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Run on Cloud
 
@@ -86,4 +80,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/elevenlabs/scribe-v2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/elevenlabs/scribe-v2)
 
-[Eleven Multilingual v2 / v3](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)[Speech to Speech](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/speech-to-speech)
+[ElevenLabs TTS](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)[Speech to Speech](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/speech-to-speech)

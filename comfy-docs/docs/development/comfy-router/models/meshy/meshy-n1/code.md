@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/meshy-n1/code/
 title: Use Meshy N1 with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:20.265671+00:00
+fetched_at: 2026-11-24T18:44:37.874992+00:00
 ---
 
 # Use Meshy N1 with Comfy Router - ComfyUI

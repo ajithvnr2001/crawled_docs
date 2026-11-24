@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/read-one-partner-models-catalog-entry-by-canonical-model-id/
 title: Read one partner model's catalog entry by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:51.407279+00:00
+fetched_at: 2026-11-24T18:44:32.248795+00:00
 ---
 
 # Read one partner model's catalog entry by canonical model ID. - ComfyUI

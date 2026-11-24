@@ -1,158 +1,168 @@
 ---
 url: https://docs.comfy.org/installation/desktop/usage/overview/
-title: Using Comfy Desktop - ComfyUI
+title: Get around Comfy Desktop: Home, sidebar, and title bar - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:50:58.237560+00:00
+fetched_at: 2026-11-24T18:44:35.845429+00:00
 ---
 
-# Using Comfy Desktop - ComfyUI
+# Get around Comfy Desktop: Home, sidebar, and title bar - ComfyUI
 
 > Source: https://docs.comfy.org/installation/desktop/usage/overview/
 
 ## On this page
 
-  * Key Features
-  * Dashboard Overview
-    * App Menu
-    * Instance Switcher
-    * Trailing Buttons
-    * Search
-    * Chooser (Instance List)
-  * Feedback and Issues
+Back to top
+
+  * Start from Home
+  * Take the guided tour
+    * Replay the tour
+  * Find your way around the sidebar
+  * Use the title bar
+  * Use your workspace menu
+  * Check your Credits
+  * Go further
+  * Troubleshoot
 
 
 
 Usage Guide
 
-# Using Comfy Desktop
+# Get around Comfy Desktop: Home, sidebar, and title bar
 
 Copy pageCopy page
 
-Overview of Comfy Desktop — creating new installations, managing instances, and more
+Find your way around Comfy Desktop after first launch: Home, the sidebar, the guided tour, the title bar menu, your workspace, and Credits.
 
 Copy pageCopy page
 
-Comfy Desktop is the official desktop application for **ComfyUI**. It manages everything for you — installing ComfyUI, keeping it updated, and letting you run multiple independent setups side by side. To understand the relationship: **Comfy Desktop** is the app that manages and launches **ComfyUI** instances. You don’t install ComfyUI separately — Comfy Desktop handles the installation, Python environment, and dependencies for each instance automatically.
+This page shows the screens you use in Comfy Desktop after first launch: **Home** , the guided tour, the **sidebar** , the **title bar** , your workspace, and **Credits**. To install Comfy Desktop and your first build, see [Comfy Desktop](https://docs.comfy.org/installation/desktop/overview).
 
-### 
+## Start from Home
 
-​
+**Home** is the page Comfy Desktop opens on. From **Home** , you open ComfyUI in one click. **Home** shows, from top to bottom:
 
-Key Features
+  * **Open ComfyUI** : the button in the top-right corner. It opens ComfyUI in the build named in its tooltip. When you have more than one build, click the arrow next to it to choose the build to open.
+  * **[Apps](https://docs.comfy.org/installation/desktop/usage/apps)** : a row of ready-made tools, when **Apps** are turned on. Click **See all apps** to open the **Apps** page.
+  * **Example workflows** : when **Apps** aren’t turned on, the row shows example Workflows instead. Click the card in the middle to open its page on comfy.org in your browser.
+  * **[Builds](https://docs.comfy.org/installation/desktop/usage/instance-management)** : up to three of your builds, each as a card. Click a card to start the build, or to open the build when it’s running. Click **All builds** to see all your builds. If you don’t have a local build yet, the row ends with a **New build** tile. Click it to start one.
 
-  * **[Multi-instance management](https://docs.comfy.org/installation/desktop/usage/instance-management)** : run multiple ComfyUI instances side by side, each with its own version, custom nodes, and configuration
-  * **[Snapshots](https://docs.comfy.org/installation/desktop/usage/manage#snapshots-tab)** : save and restore the full state of an instance (ComfyUI version, custom nodes, Python packages), making it easy to roll back or reproduce an environment
-  * **[Shared storage](https://docs.comfy.org/installation/desktop/usage/settings#storage)** : models are shared across all instances by default, saving disk space. You can also add external model folders
-  * **Automatic updates** : the title-bar **Desktop Update** control updates Comfy Desktop. Use the Manage panel [Update tab](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) to update each ComfyUI instance.
-  * **Cloud integration** : launch or connect to Comfy Cloud instances directly from the Chooser view
-  * **[Track existing installations](https://docs.comfy.org/installation/desktop/usage/instance-management#tracking-an-existing-installation)** : add your existing portable or git-cloned ComfyUI installations to Comfy Desktop for unified management
+A Comfy Cloud card shows **Log in to use** until you [log in](https://docs.comfy.org/installation/desktop/overview#log-in-and-open-comfy-cloud). ![Comfy Desktop Home with the welcome title, the Open ComfyUI button in the top-right corner, a row of Apps with See all apps below it, and the Builds row with the Comfy Cloud card and the New build tile](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-landing-page.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=330ba0827d4982aa26b46d23be200b14) You’re on **Home** when the page title reads **Welcome. Let’s create!**
 
-This guide covers how to use these features.
+## Take the guided tour
 
-## 
+The first time **Home** opens, a short tour points at the parts of the page and the **sidebar**. It explains what a build is, the Comfy Cloud and local build cards, where to see all your builds and start a new one, and **Assets**. If you used Comfy Desktop before, the tour opens with **Instances are now builds**.
 
-​
+  * Click **Next** to go to the next step, **Back** to go to the previous one, or **Skip** to close the tour. Press `Esc` to skip it too.
 
-Dashboard Overview
+The tour shows its position, such as **1 of 6** , and skips any part that isn’t on screen. The last step has only **Back** and **Done**. Click **Done** to close the tour. ![Guided tour on Comfy Desktop Home with its first step pointing at the Builds row, showing the step title, its text, the 1 of N count, and the Skip and Next buttons](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-guided-tour.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=49c972492d3705de471d1c634c6bdea1)
 
-Comfy Desktop window is divided into several key areas. The image below labels the main parts of the Dashboard: ![Comfy Desktop Dashboard with New Instance, local instance card, and Comfy Cloud](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/interface/interface_desktop_dashboard.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=dfa65d60903d534faa4805ea7266fc4a)
+### Replay the tour
 
-### 
+To see the tour again:
 
-​
+  1. In the **title bar** , click the bell (**What’s new**).
+  2. Select **Take the tour**.
 
-App Menu
+**Home** opens, and the tour starts again.
 
-The hamburger menu (☰) in the top-left corner opens the application menu, which holds every app-level action: ![App menu open from the title bar, including Performance Tests, Benchmarks, and Desktop Settings](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/comfy_desktop_app_menu.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=9d7299fff5dc05a214fcadf5f46870ef)
+## Find your way around the sidebar
 
-  * **Open Dashboard** : opens the Dashboard in a new window. Instances that are running keep running.
-  * **New Instance** and **Add Existing Instance** : create a new instance, or track a ComfyUI installation you already have.
-  * **Load Snapshot** : create an instance from a snapshot file someone shared with you.
-  * **Log in** : sign in to your Comfy account. This entry only appears while you are signed out.
-  * **Performance Tests** : run timed workflows against an instance. See [Performance Tests and Benchmarks](https://docs.comfy.org/installation/desktop/usage/performance-tests).
-  * **Benchmarks** : compare saved performance test results across hardware, workflows, and instances.
-  * **Desktop Settings** : global settings for auto-updates, proxy/mirror, shared storage, and data locations.
-  * **Send Feedback** : open the feedback panel.
-  * **Close Window** and **Quit Desktop** : close the current window, or quit the app. Closing an instance window stops the ComfyUI instance it runs, and closing the last window quits Comfy Desktop.
+The **sidebar** on the left of the **Home** window is how you move between pages. ![Top of the Comfy Desktop sidebar with Home, Apps, and Assets, and the Builds list with a ComfyUI build marked by a green dot, and Comfy Cloud](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-builds-sidebar.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=812941a7dc8597b4971afd9166f74dba) Each entry opens a page:
 
-Two entries appear only in context: **Reset Zoom (N%)** once the ComfyUI view is zoomed, and **Skip Onboarding** during the first-run setup. While the first-run setup is on screen, **Skip Onboarding** is the only entry in the menu. On macOS the app also keeps a system menu bar with the standard app, Edit, and Window menus. Windows and Linux builds have no system menu bar.
+Entry| Opens  
+---|---  
+**Home**| **Home**. When the **sidebar** is expanded, clicking the Comfy logo at the top opens it too.  
+**Apps**|  The [**Apps**](https://docs.comfy.org/installation/desktop/usage/apps) page, where you search for an app with **Search apps** and open it. This entry appears only when **Apps** are turned on.  
+**Assets**| [**Assets**](https://docs.comfy.org/installation/desktop/usage/assets), where you browse what your builds and Comfy Cloud generated.  
+**Builds**|  All your builds.  
+  
+Below **Builds** , the **sidebar** lists each build:
+
+  * Click a build to open its build page.
+  * Right-click a build for a menu of actions.
+  * To start a new build, hold the pointer over **Builds** and click the plus (**+**) button (**New build**).
+
+A green dot on a build means it’s running. A red dot means it crashed or didn’t start. Hover over the build to see why. At the bottom of the **sidebar** : ![Bottom of the Comfy Desktop sidebar when logged in: Desktop settings, the Credits balance, and the Personal workspace with its menu button](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/installation/comfy-desktop-signed-in-sidebar.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=a947cfd9be8f5c2dbba67ed96165a737)
+
+  * **Desktop update** : appears when an update to Comfy Desktop is available. Click it, and then click **Download**. When it reads **Desktop update ready** , click it, and then click **Restart & update**.
+  * **Desktop settings** : opens the settings for Comfy Desktop. See [Comfy Desktop settings](https://docs.comfy.org/installation/desktop/usage/settings).
+  * **Credits** : your balance, once you log in. See Check your Credits.
+  * **Log in to Comfy** : the card you use to log in. Once you log in, your workspace takes its place. See [Log in and open Comfy Cloud](https://docs.comfy.org/installation/desktop/overview#log-in-and-open-comfy-cloud).
+
+To make room, click **Collapse sidebar** at the top of the sidebar. The entries keep only their icons, and the **Log in to Comfy** card becomes a **Log in** icon. To open a page in a window of its own, right-click its entry and select **Open in new window**.
+
+## Use the title bar
+
+The **title bar** runs along the top of every Comfy Desktop window. ![Right end of the Comfy Desktop title bar: the What's new bell, Downloads, and Menu](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-title-bar.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=b0454ba202322e56c0d2bc650d5a8e2a) Its buttons on the right are:
+
+  * **What’s new** (the bell): opens a menu with **Take the tour**. See Replay the tour.
+  * **Downloads** : opens the downloads tray. A badge counts downloads in progress, failed downloads, and finished downloads you haven’t seen.
+  * **Menu** : opens the title bar menu.
+
+On **Home** , **Menu** holds **Performance tests** and **Benchmarks**. In a window that runs ComfyUI, **Menu** also holds:
+
+  * **Desktop settings** : opens the settings for Comfy Desktop.
+  * **Reset zoom (N%)** : appears when you zoom in or out of ComfyUI. Select it to return to 100%.
+  * **Close window** : closes this window.
+  * **Quit Desktop** : quits Comfy Desktop.
+
+A window that runs ComfyUI also has a **Home** button on the left of the **title bar**. Click it to go back to **Home**. During the setup on first launch, **Menu** holds only **Skip onboarding**.
+
+## Use your workspace menu
+
+Logging in lets you use Comfy Cloud and shows your Credits. To log in, follow [Log in and open Comfy Cloud](https://docs.comfy.org/installation/desktop/overview#log-in-and-open-comfy-cloud). Once you’re logged in, your workspace replaces the **Log in to Comfy** card at the bottom of the **sidebar**. Click it for a menu:
+
+  * Click the workspace name at the top to switch to another workspace. **Home** and the **sidebar** then list that workspace’s builds.
+  * **Workspace settings** and **Manage plan & credits** open in your browser.
+  * The menu also shows your email and **Log out**.
+
+
+
+## Check your Credits
+
+**Credits** at the bottom of the **sidebar** , above your workspace, shows your balance. Hold the pointer over **Credits** to refresh the balance.
+
+  * To add Credits or change your plan, click **Credits**. The **Manage plan & credits** page for your workspace opens in your browser.
+
+
+
+## Go further
+
+These pages cover builds, apps, assets, and settings.
+
+## Builds
+
+Install, start, update, and configure builds, and save snapshots.
+
+## Apps
+
+Run ready-made tools on Comfy Cloud or your own GPU.
+
+## Assets
+
+Browse what your builds and Comfy Cloud generated.
 
 ## Settings
 
-Global settings: auto-updates, proxy/mirror, shared storage, and data locations.
+Change updates, storage, and other settings for Comfy Desktop.
 
-## Performance Tests
+## Troubleshoot
 
-Measure workflow speed on an instance, then compare runs across hardware.
+Use these entries when a part of **Home** or the **sidebar** doesn’t load.
 
-### 
+Example Workflows don't load
 
-​
+**Home** shows **Example workflows couldn’t be loaded. Check your connection and try again.** Check your internet connection, and then click **Try again**.
 
-Instance Switcher
+Apps don't load
 
-The center pill shows the name of your active ComfyUI instance. Click it to open the **Instance Picker** , a popover that lists every installed instance, shows their running status, and lets you switch between them or launch a new one. When a new ComfyUI version is available for that instance, the pill also carries an **Update** chip; click the chip to update the instance without opening the picker.
+**Home** shows **Apps couldn’t be loaded. Check your connection and try again.** Check your internet connection, and then click **Try again**.
 
-## Managing Installations
+Credits shows Unable to load balance
 
-Launch, update, snapshot, and configure your installations through the Manage panel.
+Comfy Desktop can’t read your balance. Hold the pointer over **Credits** to load it again.
 
-### 
-
-​
-
-Trailing Buttons
-
-![Title bar trailing controls: What's new \(bell\), Feedback, and Downloads](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/title_bar_trailing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c6f57d6e2cf179a5ee7952395e3b59a5) The controls grouped on the right side of the title bar provide quick access to:
-
-  * **Desktop Update** : when a new version of Comfy Desktop is available, a pill appears here. Click to download and apply the update.
-  * **Reset Zoom** : a pill showing the current zoom percentage appears while the ComfyUI view is zoomed away from 100%. Click it to return to 100%.
-  * **What’s new** : opens the announcements panel. Announcements cover new ComfyUI features and Comfy product launches, with a short video, highlights, and links out for details. The bell shows a dot while there is an announcement you have not opened, and the dot clears once you open the panel.
-  * **Feedback** : send feedback to the Comfy Desktop team.
-  * **Downloads** : opens the downloads tray. The badge shows how many downloads are running, and flags failed and unopened downloads. The tray lets you retry a failed download or cancel one that is running; select **View All Downloads** for the full list, where downloads can also be paused and resumed.
-
-
-
-### 
-
-​
-
-Search
-
-The search box lets you filter your installed instances by name, making it easy to find a specific setup when you have many.
-
-### 
-
-​
-
-Chooser (Instance List)
-
-The main area of the Dashboard, called the **Chooser** , displays all your ComfyUI instances as cards. **Click any instance card to launch or switch to that instance.** From here you can:
-
-  * **＋ New Instance** ：create a new standalone ComfyUI instance.
-  * **Comfy Cloud** : connect to or launch a cloud instance. The card may show a **TRY FREE** pill when free Cloud runs are available.
-  * **Account chip** (top-right): sign in with your Comfy account. Once signed in, the chip shows your avatar and email, and a workspace switcher appears above the grid.
-  * **Workspace Builds** : when signed in, ComfyUI Builds published to the selected workspace can be installed from the New Instance flow. See [Workspaces and ComfyUI Builds](https://docs.comfy.org/installation/desktop/usage/workspaces-and-builds).
-  * **Existing instance cards** ：each card shows the instance name, status, and type. Right-click (or click the ⋮ icon) to manage, update, snapshot, or delete the instance.
-
-
-
-## Instance Management
-
-Create, rename, edit, and delete ComfyUI instances.
-
-## 
-
-​
-
-Feedback and Issues
-
-Found a bug or have a suggestion? Comfy Desktop is open source. You can report issues and check planned features here:
-
-  * **Comfy Desktop issues** : [github.com/Comfy-Org/Comfy-Desktop/issues](https://github.com/Comfy-Org/Comfy-Desktop/issues)
-  * **Documentation issues** : [github.com/Comfy-Org/docs/issues](https://github.com/Comfy-Org/docs/issues)
-
-For general questions about ComfyUI, visit the [ComfyUI GitHub Discussions](https://github.com/Comfy-Org/ComfyUI/discussions) or join the [ComfyUI Discord](https://www.comfy.org/discord).
+Report a problem with Comfy Desktop on [GitHub](https://github.com/Comfy-Org/Comfy-Desktop/issues). Report a problem with this documentation in the [docs repository](https://github.com/Comfy-Org/docs/issues).
 
 Was this page helpful?
 
@@ -160,26 +170,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/desktop/usage/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/desktop/usage/overview)
 
-[Comfy Desktop on LinuxPrevious](https://docs.comfy.org/installation/desktop/linux)[Instance ManagementNext](https://docs.comfy.org/installation/desktop/usage/instance-management)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Overview](https://docs.comfy.org/installation/desktop/overview)[Builds](https://docs.comfy.org/installation/desktop/usage/instance-management)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/update_comfyui/
 title: ComfyUI Updates: Portable Scripts, Desktop, and Git Pull - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:23.758602+00:00
+fetched_at: 2026-11-24T18:44:35.374091+00:00
 ---
 
 # ComfyUI Updates: Portable Scripts, Desktop, and Git Pull - ComfyUI
@@ -27,7 +27,7 @@ Back to top
 
 
 
-Local (Self-Hosted)
+Portable (Self-Hosted)
 
 # ComfyUI Updates: Portable Scripts, Desktop, and Git Pull
 
@@ -95,7 +95,7 @@ Ensure a stable internet connection during updates.
 
 
 
-To update ComfyUI, open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) and use the Update tab. You can choose between **Stable** (default) and **Latest on GitHub** update channels.The Desktop app itself updates automatically and is separate from ComfyUI instance updates.
+To update ComfyUI, open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui) and use the Update tab. You can choose between **Stable** (default) and **Latest on GitHub** update channels.The Desktop app itself updates automatically and is separate from ComfyUI instance updates.
 
 Manually installed ComfyUI requires Git commands to complete updates.
 
@@ -184,30 +184,11 @@ Comfy Desktop supports standalone installation on **Windows** , **macOS (Apple S
 
 
 
-Desktop installs track the **stable** ComfyUI release by default. If you want every latest commit, use the portable version or a manual git install, or switch the instance update channel to **Latest on GitHub**.
+Desktop installs track the **stable** ComfyUI release by default. If you want every latest commit, use the portable version or a manual git install, or switch a build’s update channel to **Latest on GitHub**.
 
-You can choose the appropriate installation for your system and hardware below
+## Comfy Desktop Installation Guide
 
-  * Windows
-
-  * macOS (Apple Silicon)
-
-  * Linux
-
-
-
-
-## Comfy Desktop (Windows) Installation Guide
-
-Suitable for **Windows** 10 or later. NVIDIA or AMD GPU recommended.
-
-## Comfy Desktop (macOS) Installation Guide
-
-Suitable for macOS with **Apple Silicon**
-
-## Comfy Desktop (Linux) Installation Guide
-
-Install the AppImage or `.deb`, or build and run from source.
+Windows 10 or later, macOS on Apple silicon, or Linux. The guide has a tab for each system.
 
 ComfyUI Portable (Windows)
 
@@ -253,7 +234,7 @@ It’s important to understand the difference between development (nightly) and 
   * **Development version (nightly)** : Latest commit code, giving you access to the newest features, but may contain potential issues
   * **Stable version (release)** : Built on stable releases, usually lags behind development versions but offers higher stability. We support stable versions after features are tested and stabilized
 
-Many users often find themselves on release versions or on Desktop’s default **Stable** channel during updates, but discover that needed features are only available in development / nightly builds. On **Desktop** , switch to **Latest on GitHub** in [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab). For portable or manual installs, check if your local `ComfyUI/requirements.txt` matches the [nightly version dependencies](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) to determine if all dependencies support the latest features.
+Many users often find themselves on release versions or on Desktop’s default **Stable** channel during updates, but discover that needed features are only available in development / nightly builds. On **Desktop** , switch to **Latest on GitHub** in [Manage → Update](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui). For portable or manual installs, check if your local `ComfyUI/requirements.txt` matches the [nightly version dependencies](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt) to determine if all dependencies support the latest features.
 
 ## Common Update Issues
 
@@ -339,7 +320,7 @@ Update ComfyUI dependencies - this step is crucial, especially for the `comfyui-
     pip install -r requirements.txt
     
 
-  * **ComfyUI instance + Python deps:** use [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) (**Stable** or **Latest on GitHub**). Dependency updates are normally applied as part of that flow.
+  * **ComfyUI instance + Python deps:** use [Manage → Update](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui) (**Stable** or **Latest on GitHub**). Dependency updates are normally applied as part of that flow.
   * **Desktop app itself:** use the app menu **Check for Updates** (separate from the ComfyUI update channel).
   * Reinstall Desktop only as a last resort.
 
@@ -380,7 +361,7 @@ It’s recommended to use the exact version numbers specified in `ComfyUI/requir
 
 This is one of the most common issues:
 
-  * If you’re using **Desktop** on the **Stable** update channel, features may lag behind newer GitHub commits. Switch the channel to **Latest on GitHub** in the [Manage → Update](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) tab when you need newer features (Latest may be less stable).
+  * If you’re using **Desktop** on the **Stable** update channel, features may lag behind newer GitHub commits. Switch the channel to **Latest on GitHub** in the [Manage → Update](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui) tab when you need newer features (Latest may be less stable).
   * For Portable or manual installs, ensure you’re on the **development version (nightly)** , not the **stable version (release)** , when you need the newest commits.
 
 Additionally, ensure that corresponding dependencies have been successfully updated during the update process. If issues persist after updating, refer to the Dependency Update Troubleshooting section to diagnose problems.
@@ -439,12 +420,12 @@ Use `update_comfyui.bat` instead of `update_comfyui_stable.bat`:
     git checkout $(git describe --tags `git rev-list --tags --max-count=1`)
     
 
-Open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) and use the Update tab to switch channels:
+Open the [Manage panel](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui) and use the Update tab to switch channels:
 
   * **Stable** (default): tested releases, may lag behind newer GitHub commits
   * **Latest on GitHub** : tracks newer commits on GitHub; may be less stable
 
-Use **Switch Channel** , **Update Now** , or **Copy & Update** depending on whether the selected channel has a newer build. Details are on the [Manage Update tab](https://docs.comfy.org/installation/desktop/usage/manage#update-tab) page.
+Use **Switch Channel** , **Update Now** , or **Copy & Update** depending on whether the selected channel has a newer build. Details are on the [Manage Update tab](https://docs.comfy.org/installation/desktop/usage/instance-management#update-comfyui) page.
 
 ### What to Do When Errors Occur After Updates?
 
@@ -472,4 +453,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/update_comfyui.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/update_comfyui)
 
-[Manual (Local)](https://docs.comfy.org/installation/manual_install)[Custom nodes](https://docs.comfy.org/installation/install_custom_node)
+[Manual (Local)](https://docs.comfy.org/installation/manual_install)[First Generation](https://docs.comfy.org/get_started/first_generation)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/meshy/relief/code/
 title: Use Relief with Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:20.137238+00:00
+fetched_at: 2026-11-24T18:44:37.405623+00:00
 ---
 
 # Use Relief with Comfy Router - ComfyUI

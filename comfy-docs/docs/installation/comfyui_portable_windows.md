@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/installation/comfyui_portable_windows/
 title: ComfyUI Portable for Windows - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T17:17:41.624402+00:00
+fetched_at: 2026-11-24T18:44:36.811766+00:00
 ---
 
 # ComfyUI Portable for Windows - ComfyUI
@@ -26,7 +26,7 @@ Back to top
 
 
 
-Local (Self-Hosted)
+Portable (Self-Hosted)
 
 # ComfyUI Portable for Windows
 
@@ -38,11 +38,7 @@ Copy pageCopy page
 
 **ComfyUI Portable** is a standalone packaged complete ComfyUI Windows version that has integrated an independent **Python (python_embeded)** required for ComfyUI to run. You only need to extract it to use it. This guide section will walk you through installing ComfyUI Portable.
 
-## 
-
-​
-
-Download ComfyUI Portable
+## Download ComfyUI Portable
 
 Choose the download package that matches your GPU type. ComfyUI Portable provides separate packages for different GPU hardware.
 
@@ -55,11 +51,7 @@ Choose the download package that matches your GPU type. ComfyUI Portable provide
 
 
 
-### 
-
-​
-
-Standard portable for Nvidia GPUs
+### Standard portable for Nvidia GPUs
 
 ## Nvidia GPU (CUDA 13.0, Python 3.13)
 
@@ -87,11 +79,7 @@ Download the file and extract it with [7-ZIP](https://7-zip.org/). The extracted
 
 Double click `run_nvidia_gpu.bat` to launch ComfyUI.
 
-### 
-
-​
-
-Portable for AMD GPUs
+### Portable for AMD GPUs
 
 ## AMD GPU
 
@@ -111,11 +99,7 @@ Download the file and extract it with [7-ZIP](https://7-zip.org/). The extracted
 
 Double click `run_amd_gpu.bat` to launch ComfyUI.
 
-### 
-
-​
-
-Portable for Intel GPUs
+### Portable for Intel GPUs
 
 ## Intel GPU
 
@@ -143,11 +127,7 @@ At this point, your ComfyUI service has started. Normally, ComfyUI will automati
 
 During use, please do not close the corresponding command line window, otherwise ComfyUI will stop running
 
-## 
-
-​
-
-Adding Extra Model Paths
+## Adding Extra Model Paths
 
 If you want to manage your model files outside of `ComfyUI/models`, you may have the following reasons:
 
@@ -157,11 +137,7 @@ If you want to manage your model files outside of `ComfyUI/models`, you may have
 
 We provide a way to add extra model search paths via the `extra_model_paths.yaml` configuration file
 
-### 
-
-​
-
-Open Config File
+### Open Config File
 
   * Portable/Manual Install
 
@@ -178,7 +154,7 @@ For the ComfyUI version such as [portable](https://docs.comfy.org/installation/c
 
 Copy and rename it to `extra_model_paths.yaml` for use. Keep it in ComfyUI’s root directory at `ComfyUI/extra_model_paths.yaml`. You can also find the config example file [here](https://github.com/Comfy-Org/ComfyUI/blob/master/extra_model_paths.yaml.example)
 
-If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/windows) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
+If you are using the [Comfy Desktop](https://docs.comfy.org/installation/desktop/overview#install-comfy-desktop-for-your-os) application, click the capsule menu at the top of the desktop app, then open the **Storage** tab and add your model directories there. The capsule only exists in the desktop app, not when ComfyUI runs in a browser.![Comfy Desktop capsule menu: Storage tab showing model directory settings](https://mintcdn.com/dripart/p_8CHAm1Eb5_A3Ke/images/concepts/models_desktop_storage_tab.png?fit=max&auto=format&n=p_8CHAm1Eb5_A3Ke&q=85&s=423692fae08989a704da0a4c2143ef3b)Or open it directly at:
 
   * Windows
 
@@ -199,11 +175,7 @@ You should keep the file in the same directory, should not move these files to o
 
 If the file does not exist, you can create it yourself with any text editor.
 
-### 
-
-​
-
-Example Structure
+### Example Structure
 
 Suppose you want to add the following model paths to ComfyUI:
     
@@ -317,11 +289,7 @@ For example, if your WebUI is located at `D:\stable-diffusion-webui\`, you can m
         controlnet: models/ControlNet
     
 
-### 
-
-​
-
-Add Extra Custom Nodes Path
+### Add Extra Custom Nodes Path
 
 Besides adding external models, you can also add custom nodes paths that are not in the default path of ComfyUI
 
@@ -334,11 +302,7 @@ Below is a simple configuration example (MacOS), please modify it according to y
       custom_nodes: /Users/your_username/Documents/extra_custom_nodes
     
 
-## 
-
-​
-
-First Image Generation
+## First Image Generation
 
 After successful installation, you can refer to the section below to start your ComfyUI journey~
 
@@ -346,17 +310,9 @@ After successful installation, you can refer to the section below to start your 
 
 This tutorial will guide you through your first model installation and text-to-image generation
 
-## 
+## Additional ComfyUI Portable Instructions
 
-​
-
-Additional ComfyUI Portable Instructions
-
-### 
-
-​
-
-1\. Upgrading ComfyUI Portable
+### 1\. Upgrading ComfyUI Portable
 
 You can use the batch commands in the update folder to upgrade your ComfyUI Portable version
     
@@ -369,11 +325,7 @@ You can use the batch commands in the update folder to upgrade your ComfyUI Port
        └── update_comfyui_stable.bat                   // Update ComfyUI to the latest stable version
     
 
-### 
-
-​
-
-2\. Setting Up LAN Access for ComfyUI Portable
+### 2\. Setting Up LAN Access for ComfyUI Portable
 
 If your ComfyUI is running on a local network and you want other devices to access ComfyUI, you can modify the corresponding `.bat` file (e.g. `run_nvidia_gpu.bat`, `run_amd_gpu.bat`, or `run_cpu.bat`, which sits in `advanced\` on new NVIDIA packages and in the package root on older ones) using Notepad to complete the configuration. This is mainly done by adding `--listen` to specify the listening address. Below is an example of the `run_nvidia_gpu.bat` file command with the `--listen` parameter added
     
@@ -393,11 +345,7 @@ After enabling ComfyUI, you will notice the final running address will become
 
 You can press `WIN + R` and type `cmd` to open the command prompt, then enter `ipconfig` to view your local IP address. Other devices can then access ComfyUI by entering `http://your-local-IP:8188` in their browser.
 
-### 
-
-​
-
-3\. Installing Additional Python Packages
+### 3\. Installing Additional Python Packages
 
 The portable version ships with an embedded Python environment (`python_embeded`). To install additional Python packages (such as attention optimizations, custom node dependencies, or other tools), use the embedded Python’s pip from the command line:
     
@@ -423,4 +371,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/installation/comfyui_portable_windows.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/installation/comfyui_portable_windows)
 
-[FAQ](https://docs.comfy.org/installation/desktop/faq)[Manual (Local)](https://docs.comfy.org/installation/manual_install)
+[Comfy Cloud](https://docs.comfy.org/get_started/cloud)[Portable (Local)](https://docs.comfy.org/installation/comfyui_portable_windows)

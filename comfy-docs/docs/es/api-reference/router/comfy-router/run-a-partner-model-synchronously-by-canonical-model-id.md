@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/api-reference/router/comfy-router/run-a-partner-model-synchronously-by-canonical-model-id/
 title: Run a partner model synchronously by canonical model ID. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T15:58:51.223545+00:00
+fetched_at: 2026-11-24T18:44:31.217874+00:00
 ---
 
 # Run a partner model synchronously by canonical model ID. - ComfyUI
@@ -136,6 +136,8 @@ cURL
 
 200
 
+202
+
 400
 
 401
@@ -162,6 +164,31 @@ cURL
     
     
     {}
+    
+    
+    {
+      "status_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/status",
+      "response_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
+      "cancel_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/cancel",
+      "request_id": "6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
+      "status": "IN_QUEUE",
+      "queue_position": 3,
+      "estimate": {
+        "source": "<string>",
+        "currency": "<string>",
+        "provider": "<string>",
+        "model": "bfl/flux-2-pro",
+        "pricing_as_of": "2023-11-07T05:31:56Z",
+        "amount": "<string>",
+        "min_amount": "<string>",
+        "max_amount": "<string>",
+        "amount_cents": 123,
+        "min_amount_cents": 123,
+        "max_amount_cents": 123,
+        "credits": 123,
+        "reason": "<string>"
+      }
+    }
     
     
     {
@@ -500,6 +527,8 @@ cURL
 
 200
 
+202
+
 400
 
 401
@@ -526,6 +555,31 @@ cURL
     
     
     {}
+    
+    
+    {
+      "status_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/status",
+      "response_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
+      "cancel_url": "https://api.comfy.org/v2/models/bfl/flux-pro-1.1/requests/6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21/cancel",
+      "request_id": "6f1a1a6e-6a53-4a5f-9d3a-2b3b0a1f9c21",
+      "status": "IN_QUEUE",
+      "queue_position": 3,
+      "estimate": {
+        "source": "<string>",
+        "currency": "<string>",
+        "provider": "<string>",
+        "model": "bfl/flux-2-pro",
+        "pricing_as_of": "2023-11-07T05:31:56Z",
+        "amount": "<string>",
+        "min_amount": "<string>",
+        "max_amount": "<string>",
+        "amount_cents": 123,
+        "min_amount_cents": 123,
+        "max_amount_cents": 123,
+        "credits": 123,
+        "reason": "<string>"
+      }
+    }
     
     
     {

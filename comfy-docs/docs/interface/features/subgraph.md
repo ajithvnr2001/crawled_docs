@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/features/subgraph/
 title: Subgraph - Simplify your workflow - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:01.060529+00:00
+fetched_at: 2026-11-24T18:44:38.402301+00:00
 ---
 
 # Subgraph - Simplify your workflow - ComfyUI
@@ -11,10 +11,13 @@ fetched_at: 2026-10-17T10:51:01.060529+00:00
 
 ## On this page
 
+Back to top
+
   * Creating a Subgraph
   * Working with Subgraphs
     * Basic Operations
     * Editing Subgraphs
+    * Reorder input and output ports
     * Parameters Panel
     * Nested Subgraphs
     * Exit subgraph
@@ -38,7 +41,6 @@ Copy pageCopy page
 The subgraph feature requires ComfyUI frontend version 1.24.3 or later. If you don’t see this feature, please refer to: [How to Update ComfyUI](https://docs.comfy.org/installation/update_comfyui)
 
   * Images in this document are made with nightly version frontend, please refer to the actual interface
-  * Some features like converting subgraph back to nodes will be supported in the future
 
 
 
@@ -52,11 +54,7 @@ A subgraph is a powerful ComfyUI feature that lets you package complex workflows
 
 
 
-## 
-
-​
-
-Creating a Subgraph
+## Creating a Subgraph
 
 1
 
@@ -82,17 +80,9 @@ Customize your subgraph
 
 Refer to Editing Subgraphs, you can edit and organize the subgraph to create a fully functional node![Workflow using subgraph](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/interface/features/subgraph/subgraph_after_edited.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=091d4223d6fb2cd2d44009cfee191bab)
 
-## 
+## Working with Subgraphs
 
-​
-
-Working with Subgraphs
-
-### 
-
-​
-
-Basic Operations
+### Basic Operations
 
 Subgraphs work just like regular nodes. You can:
 
@@ -102,11 +92,7 @@ Subgraphs work just like regular nodes. You can:
 
 
 
-### 
-
-​
-
-Editing Subgraphs
+### Editing Subgraphs
 
 **To enter edit mode:**
 
@@ -130,11 +116,11 @@ Editing Subgraphs
 
 > Note: Slot connections follow standard data type validation rules
 
-### 
+### Reorder input and output ports
 
-​
+Each input and output row inside a subgraph has a grip handle. Drag the handle, or focus it and press **Alt + Up/Down** , to move the port. The order is saved on the subgraph itself, so every instance of it follows, and links stay attached to their ports. Undo restores the previous order.
 
-Parameters Panel
+### Parameters Panel
 
 With ComfyUI v0.3.66 or later, you can edit the subgraph parameters directly from the parameters panel without entering the subgraph. You can select any subgraph and use the “Edit Subgraph Widgets” button to open the parameters panel. ![Open Parameters Panel](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/parameters_panel_open.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=30157b83417245ba715cb58e8b68717a) After it is opened, you can edit the order and visibility of the subgraph widgets directly in the parameters panel. ![Open Parameters Panel](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/parameters_panel_edit.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=710bcf6bced65bab02112c3ac699c086)
 
@@ -143,19 +129,11 @@ With ComfyUI v0.3.66 or later, you can edit the subgraph parameters directly fro
 
 
 
-### 
-
-​
-
-Nested Subgraphs
+### Nested Subgraphs
 
 Create even more complex workflows by nesting subgraphs within subgraphs. ![Nested subgraph](https://mintcdn.com/dripart/EgZuQyCGLVUEw53Z/images/interface/features/subgraph/subgraph_nested.jpg?fit=max&auto=format&n=EgZuQyCGLVUEw53Z&q=85&s=7e92ac585c91b067ab2527da1b5c521c) The navigation bar shows your current level and lets you easily move between nested subgraphs. ![Nested subgraph navigation](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_navigation.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=bad6ce874c9e68e4f537f657fd44d564)
 
-### 
-
-​
-
-Exit subgraph
+### Exit subgraph
 
 To exit a subgraph and return to the parent level:
 
@@ -164,11 +142,7 @@ To exit a subgraph and return to the parent level:
 
 ![Subgraph editing mode](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/editing_subgraph.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=da969844db24259fc6af4e58abe047df) Click on the navigation bar or press Esc to exit the current subgraph and return to the parent workflow.
 
-## 
-
-​
-
-Unpack Subgraphs to Nodes
+## Unpack Subgraphs to Nodes
 
 When you’re done creating a subgraph, you can convert it back to nodes if you need to. ![Subgraph to node](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_to_nodes.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=fa9b87c2b097d3131d065829b0c09864)
 
@@ -177,19 +151,11 @@ When you’re done creating a subgraph, you can convert it back to nodes if you 
 
 
 
-## 
-
-​
-
-Subgraph Blueprint
+## Subgraph Blueprint
 
 With ComfyUI frontend version 1.27.7 or later, you can publish your subgraph to the node library. This feature allows you to convert a subgraph to a `Subgraph Blueprints` node, which means it’s a reusable subgraph node.
 
-### 
-
-​
-
-Publish Subgraph to Node Library
+### Publish Subgraph to Node Library
 
 ![Publish Subgraph](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_publishing.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=8a94ff214584859eb09e7149fa313f4a) Currently, you have two ways to publish subgraph to node library, both are in the selection toolbox:
 
@@ -198,11 +164,7 @@ Publish Subgraph to Node Library
 
 After you click on the `book(publish)` icon or `Add Subgraph to Library` menu, you will see the following dialog: ![Subgraph naming](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/features/subgraph/subgraph_naming.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=0578432c55fd791c59c483e768fe02f3) By default, the subgraph will use the name of the subgraph node as the name of the subgraph blueprint. After publishing, you will see the subgraph blueprint node in the node library. ![Subgraph blueprint node](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_blueprints.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=e5c08a91ace167af1d100833c04f5768) Now, you can drag or search the subgraph just like a normal node. The new subgraph node that has been added from Subgraph Blueprints is still isolated, which means after adding it to the workflow, it can be edited independently, they will not affect each other.
 
-### 
-
-​
-
-Edit Subgraph Blueprint
+### Edit Subgraph Blueprint
 
 If you want to edit the subgraph blueprint, you can click the edit button just like the image below, you can delete it as well. ![Edit Subgraph Blueprint](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/edit_subgraph_blueprints.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=e89a0e1bbf452688543d960bbef02288) This will enable the subgraph editing mode ![Subgraph editing mode](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/subgraph_editing_mode.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=5d7ef14271c50660175ea05d33392458) After editing the subgraph blueprint, you can go to the parent level to preview the subgraph. ![Update Subgraph Blueprint](https://mintcdn.com/dripart/jFNtIXZORf-YQyR0/images/interface/features/subgraph/save_updated_subgraph.jpg?fit=max&auto=format&n=jFNtIXZORf-YQyR0&q=85&s=5b7d2d527099a7b065acd7e16cde9a7f) If you want to save the updated subgraph blueprint, you can click the save button or use the shortcut key Ctrl + S.
 
@@ -212,26 +174,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/interface/features/subgraph.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/interface/features/subgraph)
 
-[ComfyUI APP mode guidePrevious](https://docs.comfy.org/interface/app-mode)[Partial Execution - Run Only Part of Your Workflow in ComfyUINext](https://docs.comfy.org/interface/features/partial-execution)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[APP mode](https://docs.comfy.org/interface/app-mode)[Partial Execution](https://docs.comfy.org/interface/features/partial-execution)

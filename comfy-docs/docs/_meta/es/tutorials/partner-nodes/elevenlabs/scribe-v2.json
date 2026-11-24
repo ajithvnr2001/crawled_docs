@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/es/tutorials/partner-nodes/elevenlabs/scribe-v2/",
   "file": "es/tutorials/partner-nodes/elevenlabs/scribe-v2.md",
-  "title": "ElevenLabs Speech-to-Text: Scribe v2 - ComfyUI",
+  "title": "ElevenLabs Scribe v2: voz a texto - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-26T14:03:48.423299+00:00"
+  "fetched_at": "2026-11-24T18:44:39.518381+00:00"
 }

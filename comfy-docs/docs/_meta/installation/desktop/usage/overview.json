@@ -1,10 +1,7 @@
 {
   "url": "https://docs.comfy.org/installation/desktop/usage/overview/",
   "file": "installation/desktop/usage/overview.md",
-  "title": "Using Comfy Desktop - ComfyUI",
+  "title": "Get around Comfy Desktop: Home, sidebar, and title bar - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:50:58.237874+00:00",
-  "html_len": 518405,
-  "md_len": 10287,
-  "depth": 0
+  "fetched_at": "2026-11-24T18:44:35.845716+00:00"
 }

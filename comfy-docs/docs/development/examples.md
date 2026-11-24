@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/examples/
 title: Comfy API Examples: Router Calls, Deployments, and Apps - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:21.971978+00:00
+fetched_at: 2026-11-24T18:44:36.553569+00:00
 ---
 
 # Comfy API Examples: Router Calls, Deployments, and Apps - ComfyUI

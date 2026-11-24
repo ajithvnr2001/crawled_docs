@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/wavespeed-upscale/
 title: WaveSpeed Upscale - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.045959+00:00
+fetched_at: 2026-11-24T18:44:38.022879+00:00
 ---
 
 # WaveSpeed Upscale - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:51.045959+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/wavespeed-upscale/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -24,17 +26,13 @@ WaveSpeed
 
 Copy pageCopy page
 
-Upscale images and restore old photos using WaveSpeed AI — general image upscaling and SeedVR2 AI image restoration in ComfyUI.
+Upscale images and restore old photos with WaveSpeed AI: general image upscaling and SeedVR2 image restoration in ComfyUI.
 
 Copy pageCopy page
 
 WaveSpeed Upscale covers two image enhancement workflows: **general image upscaling** for multi-purpose enlargement and quality improvement, and **SeedVR2 AI image fix** for diffusion-based restoration of damaged, degraded, or low-quality photos.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **General image upscaling** — Multi-purpose image enlargement and quality improvement for photographs, digital art, renders, and screenshots.
   * **SeedVR2 AI image fix** — Diffusion-based restoration for recovering damaged, degraded, or low-quality images, including old photo repair and artifact removal.
@@ -68,17 +66,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Image Upscaling
+### Image Upscaling
 
 General-purpose AI image upscaling for photographs, renders, and digital artwork. Enlarges and enhances while preserving natural detail.
 
@@ -90,11 +80,7 @@ Launch the image upscale workflow on ComfyCloud
 
 Download the workflow JSON for local ComfyUI
 
-### 
-
-​
-
-SeedVR2 AI Image Fix
+### SeedVR2 AI Image Fix
 
 Restore damaged, degraded, or low-quality images using WaveSpeed’s diffusion-based restoration model. Repairs noise, artifacts, color degradation, and missing facial details.
 
