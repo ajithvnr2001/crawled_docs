@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/injectCopilotKitConfig/
 title: injectCopilotKitConfig
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:25.483861+00:00
+fetched_at: 2026-11-25T12:31:17.016403+00:00
 ---
 
 # injectCopilotKitConfig

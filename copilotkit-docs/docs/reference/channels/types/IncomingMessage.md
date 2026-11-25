@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/IncomingMessage/
 title: IncomingMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:22.598446+00:00
+fetched_at: 2026-11-25T12:31:13.349545+00:00
 ---
 
 # IncomingMessage

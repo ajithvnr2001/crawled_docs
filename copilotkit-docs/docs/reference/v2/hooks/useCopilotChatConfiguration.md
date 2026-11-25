@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useCopilotChatConfiguration/
 title: useCopilotChatConfiguration
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:20.493281+00:00
+fetched_at: 2026-11-25T12:31:10.914309+00:00
 ---
 
 # useCopilotChatConfiguration

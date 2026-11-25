@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Image/
 title: Image
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:23.640904+00:00
+fetched_at: 2026-11-25T12:31:14.056290+00:00
 ---
 
 # Image

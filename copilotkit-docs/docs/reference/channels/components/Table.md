@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Table/
 title: Table, Row, and Cell
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:23.383304+00:00
+fetched_at: 2026-11-25T12:31:13.799764+00:00
 ---
 
 # Table, Row, and Cell

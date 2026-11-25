@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Button/
 title: Button
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:23.957268+00:00
+fetched_at: 2026-11-25T12:31:14.413626+00:00
 ---
 
 # Button

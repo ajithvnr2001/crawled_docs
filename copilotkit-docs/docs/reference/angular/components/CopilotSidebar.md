@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/components/CopilotSidebar/
 title: CopilotSidebar
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:26.799670+00:00
+fetched_at: 2026-11-25T12:31:17.623641+00:00
 ---
 
 # CopilotSidebar

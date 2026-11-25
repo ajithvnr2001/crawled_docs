@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/provideMCPApps/
 title: provideMCPApps
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:25.058048+00:00
+fetched_at: 2026-11-25T12:31:14.945236+00:00
 ---
 
 # provideMCPApps

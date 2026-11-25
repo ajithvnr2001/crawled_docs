@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/shared-state/rendering-in-app/
 title: Render agent state in your app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:43.977197+00:00
+fetched_at: 2026-11-25T12:31:17.373035+00:00
 ---
 
 # Render agent state in your app

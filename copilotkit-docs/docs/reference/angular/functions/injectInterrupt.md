@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/injectInterrupt/
 title: injectInterrupt
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:25.408130+00:00
+fetched_at: 2026-11-25T12:31:15.256334+00:00
 ---
 
 # injectInterrupt

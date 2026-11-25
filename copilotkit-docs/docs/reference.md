@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/
 title: Reference
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T11:00:23.398130+00:00
+fetched_at: 2026-11-25T12:31:10.951439+00:00
 ---
 
 # Reference

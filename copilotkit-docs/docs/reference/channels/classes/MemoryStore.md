@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/classes/MemoryStore/
 title: MemoryStore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:24.453177+00:00
+fetched_at: 2026-11-25T12:31:14.540311+00:00
 ---
 
 # MemoryStore

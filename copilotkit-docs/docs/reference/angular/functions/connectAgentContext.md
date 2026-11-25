@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/connectAgentContext/
 title: connectAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:26.767114+00:00
+fetched_at: 2026-11-25T12:31:17.481005+00:00
 ---
 
 # connectAgentContext

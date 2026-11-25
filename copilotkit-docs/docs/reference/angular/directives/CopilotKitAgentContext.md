@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/directives/CopilotKitAgentContext/
 title: CopilotKitAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:26.839976+00:00
+fetched_at: 2026-11-25T12:31:17.522023+00:00
 ---
 
 # CopilotKitAgentContext

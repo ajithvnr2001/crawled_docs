@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/MessageRef/
 title: MessageRef
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:22.384196+00:00
+fetched_at: 2026-11-25T12:31:13.040816+00:00
 ---
 
 # MessageRef

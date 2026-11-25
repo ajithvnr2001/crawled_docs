@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/injectAgentStore/
 title: injectAgentStore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:26.480166+00:00
+fetched_at: 2026-11-25T12:31:15.740124+00:00
 ---
 
 # injectAgentStore

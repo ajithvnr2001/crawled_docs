@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/InteractionContext/
 title: InteractionContext
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:22.634864+00:00
+fetched_at: 2026-11-25T12:31:13.247629+00:00
 ---
 
 # InteractionContext
