@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/reference/data-location/
 title: Data location \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:41.692507+00:00
+fetched_at: 2026-11-25T10:59:49.890945+00:00
 ---
 
 # Data location · Cloudflare Workers KV docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:41.692507+00:00
 
 # Data location
 
-Last updated Oct 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/reference/data-location/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewStandard (default)Restrict a namespace to a jurisdiction Supported jurisdictions Use Wrangler Use REST API
+OverviewStandard (default)Restrict a namespace to a jurisdiction Supported jurisdictions Use the CLI Use REST API
 
 Learn how the location of data stored in Workers KV is determined, including how you can restrict a namespace to a specific jurisdiction.
 
@@ -46,12 +46,31 @@ eu | European Union
 fedramp | FedRAMP-compliant data centers  
 us | United States of America  
   
-### Use Wrangler
+### Use the CLI
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+To create a namespace restricted to a jurisdiction, pass the `--jurisdiction` flag to [`cf kv namespaces create`](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-namespace-create):
+    
+    
+    cf kv namespaces create --title <NAMESPACE_NAME> --jurisdiction eu
+
+Wrangler
 
 To create a namespace restricted to a jurisdiction, pass the `--jurisdiction` flag to [`wrangler kv namespace create`](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-namespace-create):
+
+npmyarnpnpm
     
     
     npx wrangler@latest kv namespace create <NAMESPACE_NAME> --jurisdiction=eu
+    
+    
+    yarn wrangler@latest kv namespace create <NAMESPACE_NAME> --jurisdiction=eu
+    
+    
+    pnpm wrangler@latest kv namespace create <NAMESPACE_NAME> --jurisdiction=eu
 
 ### Use REST API
 

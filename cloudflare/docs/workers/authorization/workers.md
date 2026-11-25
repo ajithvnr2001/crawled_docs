@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/authorization/workers/
 title: Workers roles and permissions \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:09.422600+00:00
+fetched_at: 2026-11-25T10:59:48.875610+00:00
 ---
 
 # Workers roles and permissions · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:09.422600+00:00
 
 # Workers roles and permissions
 
-Last updated Sep 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/authorization/workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers rolesGrant access to all or selected WorkersCombine product-level and per-Worker accessMembers, User Groups, and API tokensRoutes and Custom DomainsWranglerLegacy Workers permissionsCloudflare PagesBindingsLimitationsRelated resources
 
@@ -145,6 +145,7 @@ Permissions on bound resources are only required if you need to access those res
 
   * [Roles and permissions overview](https://developers.cloudflare.com/workers/authorization/)
   * [Durable Objects roles and permissions](https://developers.cloudflare.com/workers/authorization/durable-objects/)
+  * [Workers for Platforms roles and permissions](https://developers.cloudflare.com/workers/authorization/workers-for-platforms/)
   * [R2 roles and permissions](https://developers.cloudflare.com/r2/api/tokens/#permissions)
   * [Roles](https://developers.cloudflare.com/fundamentals/manage-members/roles/)
   * [Role scopes](https://developers.cloudflare.com/fundamentals/manage-members/scope/)

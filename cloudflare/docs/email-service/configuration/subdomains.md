@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/subdomains/
 title: Configure subdomains \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.051300+00:00
+fetched_at: 2026-11-25T10:59:49.311575+00:00
 ---
 
 # Configure subdomains · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:31.051300+00:00
 
 # Configure subdomains
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdd a subdomain to Email RoutingAdd a subdomain to Email SendingNext steps
 
@@ -63,12 +63,12 @@ Once verified, you can send emails from addresses on the subdomain (for example,
 ## Next steps
 
   * [Domain configuration](https://developers.cloudflare.com/email-service/configuration/domains/) — manage DNS records for sending and routing.
-  * [Routing rules and addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/) — create routing rules on subdomains.
+  * [Routing rules](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/) — create routing rules on subdomains.
   * [Deliverability](https://developers.cloudflare.com/email-service/concepts/deliverability/) — separate subdomains for different email types.
 
 
 
-[PreviousEmail routing rules and addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/)[NextConfigure MTA-STS](https://developers.cloudflare.com/email-service/configuration/mta-sts/)
+[PreviousEmail routing rules](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/)[NextConfigure MTA-STS](https://developers.cloudflare.com/email-service/configuration/mta-sts/)
 
 Was this helpful?
 

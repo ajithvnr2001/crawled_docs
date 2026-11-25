@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/api/write-key-value-pairs/
 title: Write key-value pairs \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:40.089389+00:00
+fetched_at: 2026-11-25T10:59:50.319458+00:00
 ---
 
 # Write key-value pairs · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:40.089389+00:00
 
 # Write key-value pairs
 
-Last updated Jun 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/api/write-key-value-pairs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReference put() methodGuidance Concurrent writes to the same key Write data in bulk Expiring keys Metadata Limits to KV writes to the same keyOther methods to access KV
 
@@ -109,7 +109,7 @@ The put() method returns a Promise that you should `await` on to verify a succes
 
 ### Concurrent writes to the same key
 
-Due to the eventually consistent nature of KV, concurrent writes to the same key can end up overwriting one another. It is a common pattern to write data from a single process with Wrangler, Durable Objects, or the API. This avoids competing concurrent writes because of the single stream. All data is still readily available within all Workers bound to the namespace.
+Due to the eventually consistent nature of KV, concurrent writes to the same key can end up overwriting one another. It is a common pattern to write data from a single process with the Cloudflare CLI (`cf`), Wrangler, Durable Objects, or the API. This avoids competing concurrent writes because of the single stream. All data is still readily available within all Workers bound to the namespace.
 
 If concurrent writes are made to the same key, the last write will take precedence.
 
@@ -119,7 +119,7 @@ Refer to [How KV works](https://developers.cloudflare.com/kv/concepts/how-kv-wor
 
 ### Write data in bulk
 
-Write more than one key-value pair at a time with Wrangler or [via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/bulk_update/).
+Write more than one key-value pair at a time with the [Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-bulk), or [via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/bulk_update/).
 
 The bulk API can accept up to 10,000 KV pairs at once.
 
@@ -393,7 +393,7 @@ To handle these errors, we recommend implementing a retry logic, with exponentia
 
 ## Other methods to access KV
 
-You can also [write key-value pairs from the command line with Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-namespace-create) and [write data via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/update/).
+You can also [write key-value pairs from the command line with the Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-key-put) and [write data via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/update/).
 
 [PreviousRead key-value pairs](https://developers.cloudflare.com/kv/api/read-key-value-pairs/)[NextDelete key-value pairs](https://developers.cloudflare.com/kv/api/delete-key-value-pairs/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/observability/metrics-analytics/
 title: Metrics and analytics \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:30.462696+00:00
+fetched_at: 2026-11-25T10:59:49.279683+00:00
 ---
 
 # Metrics and analytics · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:30.462696+00:00
 
 # Metrics and analytics
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMetricsView metrics in the dashboardQuery via the GraphQL API Email Sending dimensions Email Routing dimensions Email complaints dimensions ExamplesNext steps
 
@@ -98,6 +98,7 @@ Dimension | Type | Description
 `isSpam` | uint8 | Whether the email was flagged as spam  
 `isNDR` | uint8 | Whether the email is a non-delivery report  
 `isLastEvent` | uint8 | Whether this is the last event for this email  
+`isVerifiedRecipient` | uint8 | Whether the recipient is a verified destination address of the account  
   
 The `emailSendingAdaptive` dataset includes all of the above plus per-event fields: `from`, `to`, `subject`, `messageId`, `sessionId`, `errorDetail`.
 

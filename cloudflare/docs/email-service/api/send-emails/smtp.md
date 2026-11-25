@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/smtp/
 title: SMTP \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T12:11:05.131476+00:00
+fetched_at: 2026-11-25T10:59:49.629087+00:00
 ---
 
 # SMTP · Cloudflare Email Service docs
@@ -22,9 +22,9 @@ API
 
 # SMTP
 
-Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewEndpointPrerequisitesQuickstartAuthentication Construct an AUTH PLAIN payload Raw SMTP transcriptExamplesLimitsResponse codesSuppressed recipientsTroubleshooting 535 5.7.8 Authentication failed 550 5.7.1 Sender denied 552 5.3.4 Message too big TLS handshake failuresRelated resources
+OverviewEndpointPrerequisitesQuickstartAuthentication Construct an AUTH PLAIN payload Raw SMTP transcriptExamplesLimitsResponse codesSuppressed recipientsTroubleshooting 535 5.7.8 Authentication failed 550 5.7.1 Sender denied 550 5.7.1 at RCPT TO 552 5.3.4 Message too big TLS handshake failuresRelated resources
 
 Cloudflare Email Service exposes an authenticated SMTP submission endpoint so you can send emails from any application, framework, or off-the-shelf mail client that speaks SMTP. Use SMTP when the [REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/) and the [Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/) are not a good fit — for example, when integrating an existing application that already speaks SMTP, or a language-native SMTP library (Nodemailer, `smtplib`, PHPMailer, JavaMail).
 
@@ -168,9 +168,9 @@ Code | Meaning
 `503` | Bad sequence of commands (for example, `MAIL FROM` before `AUTH`).  
 `530 5.7.0` | Authentication required.  
 `535 5.7.8` | Authentication failed. Refer to Troubleshooting.  
-`550 5.7.1` | Sender or relay denied — usually the `MAIL FROM` domain is not onboarded.  
+`550 5.7.1` | Sender or recipient denied. Refer to Troubleshooting.  
 `552 5.3.4` | Message exceeds the 25 MiB `SIZE` limit.  
-`554` | Transaction failed — content rejected by policy.  
+`554` | Transaction failed — content rejected by policy, or `DATA` sent after a refused recipient.  
   
 ## Suppressed recipients
 
@@ -202,6 +202,12 @@ Possible causes:
 ### `550 5.7.1 Sender denied`
 
 The address in `MAIL FROM` is on a domain that is not onboarded for Email Sending under the account that owns the API token. Onboard the domain under **Email Service > Email Sending** in the dashboard, or change the sender address.
+
+### `550 5.7.1` at `RCPT TO`
+
+On the Workers Free plan, SMTP accepts only [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) in your account as recipients. It refuses any other `RCPT TO` address with `550 5.7.1`. If the client sends `DATA` after a refused recipient, SMTP refuses the whole message with `554 5.7.1` before it reads the body. No recipient receives the message.
+
+To send to that recipient, [add and verify](https://developers.cloudflare.com/email-service/configuration/destination-addresses/#add-a-destination-address) it as a destination address, or upgrade to the [Workers Paid plan](https://developers.cloudflare.com/workers/platform/pricing/).
 
 ### `552 5.3.4 Message too big`
 

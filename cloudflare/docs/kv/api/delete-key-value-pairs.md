@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/api/delete-key-value-pairs/
 title: Delete key-value pairs \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:39.611755+00:00
+fetched_at: 2026-11-25T10:59:50.476600+00:00
 ---
 
 # Delete key-value pairs · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:39.611755+00:00
 
 # Delete key-value pairs
 
-Last updated Jun 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/api/delete-key-value-pairs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReference delete() methodGuidance Delete data in bulkOther methods to access KV
 
@@ -103,13 +103,13 @@ Calling the `delete()` method will remove the key and value from your KV namespa
 
 ### Delete data in bulk
 
-Delete more than one key-value pair at a time with Wrangler or [via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/bulk_delete/).
+Delete more than one key-value pair at a time with the [Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-bulk), or [via the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/bulk_delete/).
 
 The bulk REST API can accept up to 10,000 KV pairs at once. Bulk writes are not supported using the [KV binding](https://developers.cloudflare.com/kv/concepts/kv-bindings/).
 
 ## Other methods to access KV
 
-You can also [delete key-value pairs from the command line with Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-namespace-delete) or [with the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/delete/).
+You can also [delete key-value pairs from the command line with the Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-key-delete) or [with the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/delete/).
 
 [PreviousWrite key-value pairs](https://developers.cloudflare.com/kv/api/write-key-value-pairs/)[NextList keys](https://developers.cloudflare.com/kv/api/list-keys/)
 

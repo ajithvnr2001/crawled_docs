@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/mta-sts/
 title: Configure MTA-STS \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:12.871943+00:00
+fetched_at: 2026-11-25T10:59:49.334866+00:00
 ---
 
 # Configure MTA-STS · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:12.871943+00:00
 
 # Configure MTA-STS
 
-Last updated Jun 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/configuration/mta-sts/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAdd the _mta-sts DNS recordServe the policy fileNext steps
 
@@ -90,7 +90,7 @@ Email Service also supports MTA-STS upstream, which greatly improves security wh
 
 
 
-[PreviousSubdomains](https://developers.cloudflare.com/email-service/configuration/subdomains/)[NextConfigure send bindings](https://developers.cloudflare.com/email-service/configuration/send-bindings/)
+[PreviousConfigure subdomains](https://developers.cloudflare.com/email-service/configuration/subdomains/)[NextSend bindings](https://developers.cloudflare.com/email-service/configuration/send-bindings/)
 
 Was this helpful?
 

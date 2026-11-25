@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/get-started/route-emails/
 title: Route emails \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.365695+00:00
+fetched_at: 2026-11-25T10:59:49.368063+00:00
 ---
 
 # Route emails · Cloudflare Email Service docs
@@ -11,7 +11,7 @@ fetched_at: 2026-10-08T07:11:14.365695+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Email Service](https://developers.cloudflare.com/email-service/)
-  3. /Getting started
+  3. /Get started
   4. /Route emails
 
 
@@ -20,7 +20,7 @@ fetched_at: 2026-10-08T07:11:14.365695+00:00
 
 Set up email routing to forward incoming emails to existing mailboxes or process them with Workers.
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/get-started/route-emails/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up your domainRoute your first email Add a destination address Create a routing rule Test your routing rule Create an email processing Worker Configure routing to Worker Test your email routingNext steps
 
@@ -75,7 +75,7 @@ Before you can create a routing rule, add and verify the destination address tha
 
 
 
-For full details, refer to [Add a destination address](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#add-a-destination-address).
+For full details, refer to [Add a destination address](https://developers.cloudflare.com/email-service/configuration/destination-addresses/#add-a-destination-address).
 
 ### Create a routing rule
 

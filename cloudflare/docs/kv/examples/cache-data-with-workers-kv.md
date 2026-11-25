@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/examples/cache-data-with-workers-kv/
 title: Cache data with Workers KV \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:31.053352+00:00
+fetched_at: 2026-11-25T10:59:50.356533+00:00
 ---
 
 # Cache data with Workers KV · Cloudflare Workers KV docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-13T08:48:31.053352+00:00
 
 Cache data or API responses in Workers KV to improve application performance
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCache data in Workers KV from your Worker applicationRelated resources
 
@@ -40,7 +40,81 @@ With Workers KV, the data is persisted by default to [central stores](https://de
 
 In the following `index.ts` file, the Worker fetches data from an external server and caches the response in Workers KV. If the data is already cached in Workers KV, the Worker reads the cached data from Workers KV instead of calling the external API.
 
-index.tsjs
+src/index.jsjs
+    
+    
+    export default {
+    	async fetch(request, env, ctx) {
+    		const EXPIRATION_TTL = 30; // Cache expiration in seconds
+    		const url = "https://example.com";
+    		const cacheKey = "cache-json-example";
+    
+    		// Try to get data from KV cache first
+    		let data = await env.CACHE_KV.get(cacheKey, { type: "json" });
+    		let fromCache = true;
+    
+    		// If data is not in cache, fetch it from example.com
+    		if (!data) {
+    			console.log("Cache miss. Fetching fresh data from example.com");
+    			fromCache = false;
+    
+    			// In this example, we are fetching HTML content but it can also be API responses or any other data
+    			const response = await fetch(url);
+    			const htmlData = await response.text();
+    
+    			// In this example, we are converting HTML to JSON to demonstrate caching JSON data with Workers KV
+    			// You could cache any type of data, or even cache the HTML data directly
+    			data = helperConvertToJSON(htmlData);
+    			// The expirationTtl option is used to set the expiration time for the cache entry (in seconds), otherwise it will be stored indefinitely
+    			await env.CACHE_KV.put(cacheKey, JSON.stringify(data), {
+    				expirationTtl: EXPIRATION_TTL,
+    			});
+    		}
+    
+    		// Return the appropriate response format
+    		return new Response(
+    			JSON.stringify({
+    				data,
+    				fromCache,
+    			}),
+    			{
+    				headers: { "Content-Type": "application/json" },
+    			},
+    		);
+    	},
+    };
+    
+    // Helper function to convert HTML to JSON
+    function helperConvertToJSON(html) {
+    	// Parse HTML and extract relevant data
+    	const title = helperExtractTitle(html);
+    	const content = helperExtractContent(html);
+    	const lastUpdated = new Date().toISOString();
+    
+    	return { title, content, lastUpdated };
+    }
+    
+    // Helper function to extract title from HTML
+    function helperExtractTitle(html) {
+    	const titleMatch = html.match(/<title>(.\*?)<\/title>/i);
+    	return titleMatch ? titleMatch[1] : "No title found";
+    }
+    
+    // Helper function to extract content from HTML
+    function helperExtractContent(html) {
+    	const bodyMatch = html.match(/<body>(.\*?)<\/body>/is);
+    	if (!bodyMatch) return "No content found";
+    
+    	// Strip HTML tags for a simple text representation
+    	const textContent = bodyMatch[1]
+    		.replace(/<[^>]*>/g, " ")
+    		.replace(/\s+/g, " ")
+    		.trim();
+    
+    	return textContent;
+    }
+
+src/index.tsts
     
     
     interface Env {
@@ -115,6 +189,33 @@ index.tsjs
         return textContent;
     
     }
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+      worker: {
+      	name: "<ENTER_WORKER_NAME>",
+      	entrypoint,
+      	// Set this to today's date
+      	compatibilityDate: "2026-11-25",
+      	observability: {
+      		enabled: true,
+      	},
+      	env: {
+      		CACHE_KV: bindings.kv({ id: "<YOUR_BINDING_ID>" }),
+      	},
+      },
+    });
+
+Wrangler
     
     
     {
@@ -122,7 +223,8 @@ index.tsjs
     	"name": "<ENTER_WORKER_NAME>",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
-    	"compatibility_date": "2025-03-03",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-25",
     	"observability": {
     		"enabled": true
     	},
@@ -133,6 +235,21 @@ index.tsjs
     		}
     	]
     }
+    
+    
+    "$schema" = "node_modules/wrangler/config-schema.json"
+    name = "<ENTER_WORKER_NAME>"
+    main = "src/index.ts"
+    upload_source_maps = true
+    # Set this to today's date
+    compatibility_date = "2026-11-25"
+    
+    [observability]
+    enabled = true
+    
+    [[kv_namespaces]]
+    binding = "CACHE_KV"
+    id = "<YOUR_BINDING_ID>"
 
 This code snippet demonstrates how to read and update cached data in Workers KV from your Worker. If the data is not in the Workers KV cache, the Worker fetches the data from an external server and caches it in Workers KV.
 

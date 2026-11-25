@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/reference/data-security/
 title: Data security \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:41.828380+00:00
+fetched_at: 2026-11-25T10:59:49.853052+00:00
 ---
 
 # Data security · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:41.828380+00:00
 
 # Data security
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/reference/data-security/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEncryption at RestEncryption in TransitCompliance
 
@@ -44,7 +44,7 @@ Objects are encrypted using [AES-256 ↗︎](https://www.cloudflare.com/learning
 
 Data transfer between a Cloudflare Worker, and/or between nodes within the Cloudflare network and KV is secured using the same [Transport Layer Security ↗︎](https://www.cloudflare.com/learning/ssl/transport-layer-security-tls/) (TLS/SSL).
 
-API access via the HTTP API or using the [wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/) command-line interface is also over TLS/SSL (HTTPS).
+API access via the HTTP API, the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/), or [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/) is also over TLS/SSL (HTTPS).
 
 ## Compliance
 

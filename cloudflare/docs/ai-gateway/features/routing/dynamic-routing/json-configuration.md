@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/features/routing/dynamic-routing/json-configuration/
 title: JSON Configuration \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:38.247957+00:00
+fetched_at: 2026-11-25T10:59:48.707910+00:00
 ---
 
 # JSON Configuration · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-20T09:50:38.247957+00:00
 
 # JSON Configuration
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRequest metadataSupported elements Start Element Conditional Element (If/Else) Percentage Split Rate/Budget Limit Model End element
 
@@ -82,7 +82,7 @@ Evaluates a condition against the request metadata and routes the request accord
 
 
 
-`conditions` supports MongoDB-like operators such as `$eq`, `$ne`, `$in`, `$and`, and `$or`. If the request does not include a metadata key, the condition evaluates the key as missing. For example, `$eq` evaluates to false and `$ne` evaluates to true.
+`conditions` supports MongoDB-like operators such as `$eq`, `$ne`, `$in`, `$and`, and `$or`, plus `$contains` to match one entry in a list. If the request does not include a metadata key, the condition evaluates the key as missing. For example, `$eq` evaluates to false and `$ne` evaluates to true.
     
     
     {
@@ -98,6 +98,21 @@ Evaluates a condition against the request metadata and routes the request accord
     		"false": { "elementId": "<id>" }
     	}
     }
+
+#### Match one entry in a list
+
+Metadata values cannot be arrays. To send a list, such as the groups a user belongs to, send it as one comma-separated string and use `$contains` to check for one entry. This uses one [custom metadata](https://developers.cloudflare.com/ai-gateway/observability/custom-metadata/) key for the whole list.
+
+For example, if you send `cf-aig-metadata: {"groups": "engineering,finance"}`, the following condition evaluates to true:
+    
+    
+    {
+    	"conditions": {
+    		"metadata.groups": { "$contains": "finance" }
+    	}
+    }
+
+`$contains` splits the value on commas, trims spaces around each entry and around the operand, and matches an entry that equals the operand exactly. It is case-sensitive and matches whole entries only, so `finance` does not match `finance-readonly`. It evaluates to false when the key is missing or its value is not a string. You can combine it with `$and`, `$or`, and `$not`.
 
 ### Percentage Split
 

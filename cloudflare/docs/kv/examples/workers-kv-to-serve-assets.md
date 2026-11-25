@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/examples/workers-kv-to-serve-assets/
 title: Store and retrieve static assets \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:31.026375+00:00
+fetched_at: 2026-11-25T10:59:50.023158+00:00
 ---
 
 # Store and retrieve static assets · Cloudflare Workers KV docs
@@ -20,9 +20,9 @@ fetched_at: 2026-10-13T08:48:31.026375+00:00
 
 Store static assets in Workers KV and serve them from a Worker application with low-latency and high-throughput
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWrite static assets to Workers KV using WranglerServe static assets from KV from your Worker applicationGenerate dynamic responses from your key-value pairsRelated resources
+OverviewWrite static assets to Workers KV using the CLIServe static assets from KV from your Worker applicationGenerate dynamic responses from your key-value pairsRelated resources
 
 By storing static assets in Workers KV, you can retrieve these assets globally with low-latency and high throughput. You can then serve these assets directly, or use them to dynamically generate responses. This can be useful when serving files such as custom scripts, small images that fit within [KV limits](https://developers.cloudflare.com/kv/platform/limits/), or when generating dynamic HTML responses from static assets such as translations.
 
@@ -32,9 +32,9 @@ If you need to **host a front-end or full-stack web application** , **use[Cloudf
 
 [Workers KV](https://developers.cloudflare.com/kv/) provides a more flexible API which allows you to access, edit, and store assets directly from your [Worker](https://developers.cloudflare.com/workers/) without requiring deployments. This can be helpful for serving custom assets that are not included in your deployment bundle, such as uploaded media assets or custom scripts and files generated at runtime.
 
-## Write static assets to Workers KV using Wrangler
+## Write static assets to Workers KV using the CLI
 
-To store static assets in Workers KV, you can use the [Wrangler CLI](https://developers.cloudflare.com/workers/wrangler/) (commonly used during development), the [Workers KV binding](https://developers.cloudflare.com/kv/concepts/kv-bindings/) from a Workers application, or the [Workers KV REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/methods/list/) (commonly used to access Workers KV from an external application). We will demonstrate how to use the Wrangler CLI.
+To store static assets in Workers KV, you can use the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/) or [Wrangler](https://developers.cloudflare.com/workers/wrangler/) (commonly used during development), the [Workers KV binding](https://developers.cloudflare.com/kv/concepts/kv-bindings/) from a Workers application, or the [Workers KV REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/methods/list/) (commonly used to access Workers KV from an external application).
 
 For this scenario, we will store a sample HTML file within our Workers KV store.
 
@@ -45,16 +45,87 @@ index.htmlhtml
     
     Hello World!
 
-We can then use the following Wrangler commands to create a KV pair for this file within our production and preview namespaces:
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+Run the following `cf` command to create a KV pair with the filename as the key and the file content as the value:
+    
+    
+    cf kv keys put index.html --file index.html --namespace-id <ENTER_NAMESPACE_ID_HERE>
+
+By default, `cf` writes to your remote KV namespace. Add `--local` to write to local development state instead.
+
+Wrangler
+
+Run the following Wrangler command to create a KV pair with the filename as the key and the file content as the value:
+
+npmyarnpnpm
     
     
     npx wrangler kv key put index.html --path index.html --namespace-id=<ENTER_NAMESPACE_ID_HERE>
+    
+    
+    yarn wrangler kv key put index.html --path index.html --namespace-id=<ENTER_NAMESPACE_ID_HERE>
+    
+    
+    pnpm wrangler kv key put index.html --path index.html --namespace-id=<ENTER_NAMESPACE_ID_HERE>
 
-This will create a KV pair with the filename as key and the file content as value, within the our production and preview namespaces specified by your binding in your Wrangler file.
+By default, Wrangler writes to local storage. Add `--remote` to write to your remote KV namespace.
 
 ## Serve static assets from KV from your Worker application
 
 In this example, our Workers application will accept any key name as the path of the HTTP request and return the value stored in the KV store for that key.
+
+src/index.jsjs
+    
+    
+    import mime from "mime";
+    
+    export default {
+    	async fetch(request, env, ctx) {
+    		// Return error if not a get request
+    		if (request.method !== "GET") {
+    			return new Response("Method Not Allowed", {
+    				status: 405,
+    			});
+    		}
+    
+    		// Get the key from the url & return error if key missing
+    		const parsedUrl = new URL(request.url);
+    		const key = parsedUrl.pathname.replace(/^\/+/, ""); // Strip any preceding /'s
+    		if (!key) {
+    			return new Response("Missing path in URL", {
+    				status: 400,
+    			});
+    		}
+    
+    		// Get the mimetype from the key path
+    		const extension = key.split(".").pop();
+    		let mimeType = mime.getType(extension) || "text/plain";
+    		if (mimeType.startsWith("text") || mimeType === "application/javascript") {
+    			mimeType += "; charset=utf-8";
+    		}
+    
+    		// Get the value from the Workers KV store and return it if found
+    		const value = await env.assets.get(key, "arrayBuffer");
+    		if (!value) {
+    			return new Response("Not found", {
+    				status: 404,
+    			});
+    		}
+    
+    		// Return the response from the Workers application with the value from the KV store
+    		return new Response(value, {
+    			status: 200,
+    			headers: new Headers({
+    				"Content-Type": mimeType,
+    			}),
+    		});
+    	},
+    };
+
+src/index.tsts
     
     
     import mime from "mime";
@@ -106,6 +177,33 @@ In this example, our Workers application will accept any key name as the path of
         },
     
     } satisfies ExportedHandler<Env>;
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+      worker: {
+      	name: "<ENTER_WORKER_NAME>",
+      	entrypoint,
+      	// Set this to today's date
+      	compatibilityDate: "2026-11-25",
+      	observability: {
+      		enabled: true,
+      	},
+      	env: {
+      		assets: bindings.kv({ id: "<YOUR_BINDING_ID>" }),
+      	},
+      },
+    });
+
+Wrangler
     
     
     {
@@ -113,7 +211,8 @@ In this example, our Workers application will accept any key name as the path of
     	"name": "<ENTER_WORKER_NAME>",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
-    	"compatibility_date": "2025-03-03",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-25",
     	"observability": {
     		"enabled": true
     	},
@@ -124,6 +223,21 @@ In this example, our Workers application will accept any key name as the path of
     		}
     	]
     }
+    
+    
+    "$schema" = "node_modules/wrangler/config-schema.json"
+    name = "<ENTER_WORKER_NAME>"
+    main = "src/index.ts"
+    upload_source_maps = true
+    # Set this to today's date
+    compatibility_date = "2026-11-25"
+    
+    [observability]
+    enabled = true
+    
+    [[kv_namespaces]]
+    binding = "assets"
+    id = "<YOUR_BINDING_ID>"
 
 This code parses the key name for the key-value pair to fetch from the HTTP request. Then, it determines the proper MIME type for the response to inform the browser how to handle the response. To retrieve the value from the KV store, this code uses `arrayBuffer` to properly handle binary data such as images, documents, and video/audio files.
 
@@ -178,13 +292,125 @@ hello-world.jsonjson
   2. Open a terminal and enter the following KV command to create a KV entry for the translations file:
 
 
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+    
+    
+    cf kv keys put hello-world.json --file hello-world.json --namespace-id <ENTER_NAMESPACE_ID_HERE>
+
+Wrangler
+
+npmyarnpnpm
     
     
     npx wrangler kv key put hello-world.json --path hello-world.json --namespace-id=<ENTER_NAMESPACE_ID_HERE>
+    
+    
+    yarn wrangler kv key put hello-world.json --path hello-world.json --namespace-id=<ENTER_NAMESPACE_ID_HERE>
+    
+    
+    pnpm wrangler kv key put hello-world.json --path hello-world.json --namespace-id=<ENTER_NAMESPACE_ID_HERE>
 
   3. Update your Workers code to add logic to serve a translated HTML file based on the language of the Accept-Language header of the request:
 
 
+
+src/index.jsjs
+    
+    
+    import mime from "mime";
+    import parser from "accept-language-parser";
+    
+    export default {
+    	async fetch(request, env, ctx) {
+    		// Return error if not a get request
+    		if (request.method !== "GET") {
+    			return new Response("Method Not Allowed", {
+    				status: 405,
+    			});
+    		}
+    
+    		// Get the key from the url & return error if key missing
+    		const parsedUrl = new URL(request.url);
+    		const key = parsedUrl.pathname.replace(/^\/+/, ""); // Strip any preceding /'s
+    		if (!key) {
+    			return new Response("Missing path in URL", {
+    				status: 400,
+    			});
+    		}
+    
+    		// Add handler for translation path (with early return)
+    		if (key === "hello-world") {
+    			// Retrieve the language header from the request and the translations from Workers KV
+    			const languageHeader = request.headers.get("Accept-Language") || "en"; // Default to English
+    			const translations =
+    				(await env.assets.get("hello-world.json", "json")) || [];
+    
+    			// Extract the requested language
+    			const supportedLanguageCodes = translations.map(
+    				(item) => item.language_code,
+    			);
+    			const languageCode = parser.pick(supportedLanguageCodes, languageHeader, {
+    				loose: true,
+    			});
+    
+    			// Get the message for the selected language
+    			let selectedTranslation = translations.find(
+    				(item) => item.language_code === languageCode,
+    			);
+    			if (!selectedTranslation)
+    				selectedTranslation = translations.find(
+    					(item) => item.language_code === "en",
+    				);
+    			const helloWorldTranslated = selectedTranslation["message"];
+    
+    			// Generate and return the translated html
+    			const html = `<!DOCTYPE html>
+        		<html>
+        			<head>
+        				<title>Hello World translation</title>
+        			</head>
+        			<body>
+        				<h1>${helloWorldTranslated}</h1>
+        			</body>
+        		</html>
+        		`;
+    			return new Response(html, {
+    				status: 200,
+    				headers: {
+    					"Content-Type": "text/html; charset=utf-8",
+    				},
+    			});
+    		}
+    
+    		// Get the mimetype from the key path
+    		const extension = key.split(".").pop();
+    		let mimeType = mime.getType(extension) || "text/plain";
+    		if (mimeType.startsWith("text") || mimeType === "application/javascript") {
+    			mimeType += "; charset=utf-8";
+    		}
+    
+    		// Get the value from the Workers KV store and return it if found
+    		const value = await env.assets.get(key, "arrayBuffer");
+    		if (!value) {
+    			return new Response("Not found", {
+    				status: 404,
+    			});
+    		}
+    
+    		// Return the response from the Workers application with the value from the KV store
+    		return new Response(value, {
+    			status: 200,
+    			headers: new Headers({
+    				"Content-Type": mimeType,
+    			}),
+    		});
+    	},
+    };
+
+src/index.tsts
     
     
     import mime from 'mime';
@@ -276,6 +502,33 @@ hello-world.jsonjson
     
     },
     } satisfies ExportedHandler<Env>;
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+      worker: {
+      	name: "<ENTER_WORKER_NAME>",
+      	entrypoint,
+      	// Set this to today's date
+      	compatibilityDate: "2026-11-25",
+      	observability: {
+      		enabled: true,
+      	},
+      	env: {
+      		assets: bindings.kv({ id: "<YOUR_BINDING_ID>" }),
+      	},
+      },
+    });
+
+Wrangler
     
     
     {
@@ -283,7 +536,8 @@ hello-world.jsonjson
     	"name": "<ENTER_WORKER_NAME>",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
-    	"compatibility_date": "2025-03-03",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-25",
     	"observability": {
     		"enabled": true
     	},
@@ -294,6 +548,21 @@ hello-world.jsonjson
     		}
     	]
     }
+    
+    
+    "$schema" = "node_modules/wrangler/config-schema.json"
+    name = "<ENTER_WORKER_NAME>"
+    main = "src/index.ts"
+    upload_source_maps = true
+    # Set this to today's date
+    compatibility_date = "2026-11-25"
+    
+    [observability]
+    enabled = true
+    
+    [[kv_namespaces]]
+    binding = "assets"
+    id = "<YOUR_BINDING_ID>"
 
 This new code provides a specific endpoint, `/hello-world`, which will provide translated responses. When this URL is accessed, our Worker code will first retrieve the language that is requested by the client in the `Accept-Language` request header and the translations from our KV store for the `hello-world.json` key. It then gets the translated message and returns the generated HTML.
 

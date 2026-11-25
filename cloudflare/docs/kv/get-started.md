@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/get-started/
 title: Getting started \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:26.054139+00:00
+fetched_at: 2026-11-25T10:59:50.156799+00:00
 ---
 
 # Getting started · Cloudflare Workers KV docs
@@ -19,7 +19,7 @@ fetched_at: 2026-11-12T09:30:26.054139+00:00
 
 Create a basic key-value store which stores the notification configuration of all users in an application, where each user may have `enabled` or `disabled` notifications.
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewQuick startPrerequisites1\. Create a Worker project2\. Create a KV namespace KV Instant namespaces3\. Bind your Worker to your KV namespace4\. Interact with your KV namespace 4.1. Write a value 4.2. Get a value5\. Access your KV namespace from your Worker6\. Deploy your WorkerSummaryNext steps
 
@@ -33,7 +33,7 @@ This guide instructs you through:
 
 
 
-You can perform these tasks through the Wrangler CLI or through the Cloudflare dashboard.
+You can perform these tasks through the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/), [Wrangler](https://developers.cloudflare.com/workers/wrangler/), or the Cloudflare dashboard.
 
 ## Quick start
 
@@ -66,6 +66,43 @@ Refer to [How Workers works](https://developers.cloudflare.com/workers/reference
 
 Create a new Worker to read and write to your KV namespace.
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+  1. Create a new project named `kv-tutorial` by running:
+         
+         cf init kv-tutorial
+
+`cf init` prompts for your package manager, creates the project in `kv-tutorial`, installs dependencies, and generates types for your bindings.
+
+     * kv-tutorial/ 
+       * .cloudflare/ 
+         * types/ 
+           * index.d.ts
+       * src/ 
+         * **index.ts**
+       * test/ 
+         * index.test.ts
+       * **cloudflare.config.ts**
+       * package.json
+       * tsconfig.json
+       * vite.config.ts
+       * vitest.config.ts
+
+Your new `kv-tutorial` directory includes:
+
+     * A starter [Worker](https://developers.cloudflare.com/cf/get-started/first-worker/) in `src/index.ts`.
+     * A [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/) configuration file, which declares how your `kv-tutorial` Worker accesses your KV namespace.
+  2. Change into the directory you just created for your Worker project:
+         
+         cd kv-tutorial
+
+
+
+
+Wrangler
+
   1. Create a new project named `kv-tutorial` by running:
 
 npmyarnpnpm
@@ -85,7 +122,7 @@ For setup, select the following options:
      * For _Do you want to add an AGENTS.md file to help AI coding tools understand Cloudflare APIs?_ , choose `Yes`.
      * For _Do you want to deploy your application?_ , choose `No` (we will be making some changes before deploying).
 
-This creates a new `kv-tutorial` directory, illustrated below.
+This creates a new `kv-tutorial` directory:
 
      * kv-tutorial/ 
        * node_modules/
@@ -102,14 +139,14 @@ This creates a new `kv-tutorial` directory, illustrated below.
 Your new `kv-tutorial` directory includes:
 
      * A `"Hello World"` [Worker](https://developers.cloudflare.com/workers/get-started/guide/#3-write-code) in `index.ts`.
-     * A [`wrangler.jsonc`](https://developers.cloudflare.com/workers/wrangler/configuration/) configuration file. `wrangler.jsonc` is how your `kv-tutorial` Worker accesses your kv database.
+     * A [`wrangler.jsonc`](https://developers.cloudflare.com/workers/wrangler/configuration/) configuration file. `wrangler.jsonc` is how your `kv-tutorial` Worker accesses your KV namespace.
   2. Change into the directory you just created for your Worker project:
          
          cd kv-tutorial
 
 Note
 
-If you are familiar with Cloudflare Workers, or initializing projects in a Continuous Integration (CI) environment, initialize a new project non-interactively by setting `CI=true` as an [environmental variable](https://developers.cloudflare.com/workers/configuration/environment-variables/) when running `create cloudflare@latest`.
+If you are familiar with Cloudflare Workers, or initializing projects in a Continuous Integration (CI) environment, initialize a new project non-interactively by setting `CI=true` as an [environment variable](https://developers.cloudflare.com/workers/configuration/environment-variables/) when running `create cloudflare@latest`.
 
 For example: `CI=true npm create cloudflare@latest kv-tutorial --type=simple --git --ts --deploy=false` creates a basic "Hello World" project ready to build on.
 
@@ -240,26 +277,7 @@ npmyarnpnpm
     
     pnpm wrangler@latest kv namespace create APP_CONFIG --experimental-mode instant
 
-Alternatively, create it through the API with `mode: "instant"`:
-
-Required API token permissions
-
-At least one of the following [token permissions](https://developers.cloudflare.com/fundamentals/api/reference/permissions/) is required:
-
-  * `Workers KV Storage Write`
-
-Create a namespacebash
-    
-    
-    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/storage/kv/namespaces" \
-    	--request POST \
-    	--header "Authorization: Bearer $CLOUDFLARE_API_TOKEN" \
-    	--json '{
-    		"title": "APP_CONFIG",
-    		"mode": "instant"
-    	}'
-
-KV Instance namespaces have additional limitations compared to classic namespaces. Refer to [KV Instant limits](https://developers.cloudflare.com/kv/platform/limits/#kv-instant) before choosing this mode.
+KV Instant namespaces have additional limitations compared to classic namespaces. Refer to [KV Instant limits](https://developers.cloudflare.com/kv/platform/limits/#kv-instant) before choosing this mode.
 
 ## 3\. Bind your Worker to your KV namespace
 
@@ -267,13 +285,49 @@ You must create a binding to connect your Worker with your KV namespace. [Bindin
 
 Bindings
 
-A binding is how your Worker interacts with external resources such as [KV namespaces](https://developers.cloudflare.com/kv/concepts/kv-namespaces/). A binding is a runtime variable that the Workers runtime provides to your code. You can declare a variable name in your Wrangler file that binds to these resources at runtime, and interact with them through this variable. Every binding's variable name and behavior is determined by you when deploying the Worker.
+A binding is how your Worker interacts with external resources such as [KV namespaces](https://developers.cloudflare.com/kv/concepts/kv-namespaces/). A binding is a runtime variable that the Workers runtime provides to your code. You can declare a variable name in your Worker configuration file (`cloudflare.config.ts` or your Wrangler configuration file) that binds to these resources at runtime, and interact with them through this variable. Every binding's variable name and behavior is determined by you when deploying the Worker.
 
 Refer to [Environment](https://developers.cloudflare.com/kv/reference/environments/) for more information.
 
 To bind your KV namespace to your Worker:
 
-  1. In your Wrangler file, add the following with the values generated in your terminal from [step 2](https://developers.cloudflare.com/kv/get-started/#2-create-a-kv-namespace):
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+  1. In `cloudflare.config.ts`, add `USERS_NOTIFICATION_CONFIG` under `worker.env` using `bindings.kv()` with the namespace `id` returned in [step 2](https://developers.cloudflare.com/kv/get-started/#2-create-a-kv-namespace):
+
+cloudflare.config.tsts
+         
+         import { bindings, defineConfig } from "cf/config";
+         import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+         
+         export default defineConfig({
+         	worker: {
+         		name: "kv-tutorial",
+         		entrypoint,
+         		compatibilityDate: "<COMPATIBILITY_DATE>",
+         		env: {
+         			USERS_NOTIFICATION_CONFIG: bindings.kv({ id: "<BINDING_ID>" }),
+         		},
+         	},
+         });
+
+Binding names do not need to match the namespace title. Specifically:
+
+     * Each property key under `worker.env` is the binding name used to reference this KV namespace in your Worker. For this tutorial, use `USERS_NOTIFICATION_CONFIG`.
+     * The binding name must be [a valid JavaScript variable name ↗︎](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#variables), such as `MY_KV` or `routingConfig`.
+     * Your binding is available in your Worker at `env.USERS_NOTIFICATION_CONFIG`.
+  2. Regenerate your TypeScript binding types (this writes `.cloudflare/types/index.d.ts`, which `cf dev` and `cf build` also update automatically):
+         
+         cf workers types
+
+
+
+
+Wrangler
+
+  1. In your Wrangler configuration file, add the following with the values generated in your terminal from [step 2](https://developers.cloudflare.com/kv/get-started/#2-create-a-kv-namespace):
          
          {
          	"kv_namespaces": [
@@ -314,9 +368,35 @@ Binding names do not need to correspond to the namespace you created. Binding na
 
 ## 4\. Interact with your KV namespace
 
-You can interact with your KV namespace via [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/) or directly from your [Workers](https://developers.cloudflare.com/workers/) application.
+You can interact with your KV namespace via the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/), [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/), or directly from your [Workers](https://developers.cloudflare.com/workers/) application.
 
 ### 4.1. Write a value
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+To write a value to your KV namespace using `cf`:
+
+  1. Run `cf kv keys put` with the namespace `id` from [step 2](https://developers.cloudflare.com/kv/get-started/#2-create-a-kv-namespace), your key, and `--body`:
+         
+         cf kv keys put "<KEY>" --namespace-id <BINDING_ID> --body "<VALUE>"
+
+In this tutorial, add a key `user_1` with value `enabled`:
+         
+         cf kv keys put "user_1" --namespace-id <BINDING_ID> --body "enabled"
+
+
+
+
+Remote by default
+
+`cf kv keys` commands act on your remote Cloudflare KV namespace by default and require `--namespace-id`. To write to local development KV state instead, pass `--local`:
+    
+    
+    cf kv keys put "user_1" --namespace-id <BINDING_ID> --body "enabled" --local
+
+Wrangler
 
 To write a value to your empty KV namespace using Wrangler:
 
@@ -368,6 +448,29 @@ By default, the values are written locally. To create a key and a value in your 
 
 ### 4.2. Get a value
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+To read the value from your KV namespace using `cf`:
+
+  1. Run `cf kv keys get` with `--namespace-id` and your key. Pass `--text` to decode the response as UTF-8 text in the terminal:
+         
+         cf kv keys get "<KEY>" --namespace-id <BINDING_ID> --text
+
+In this tutorial, read the value of `user_1`:
+         
+         cf kv keys get "user_1" --namespace-id <BINDING_ID> --text
+
+Add `--local` if you wrote the key to local development state.
+
+
+
+
+Refer to the [KV CLI commands documentation](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-bulk) to write or read multiple key-value pairs in bulk.
+
+Wrangler
+
 To access the value from your KV namespace using Wrangler:
 
   1. Run the `wrangler kv key get` subcommand in your terminal, and input your key value:
@@ -407,11 +510,23 @@ You can view key-value pairs directly from the dashboard.
 
 ## 5\. Access your KV namespace from your Worker
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
 Note
 
-When using [`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev) to develop locally, Wrangler defaults to using a local version of KV to avoid interfering with any of your live production data in KV. This means that reading keys that you have not written locally returns null.
+When using `cf dev` to develop locally, `cf` defaults to using a local simulation of KV to avoid interfering with any of your live production data in KV. This means that reading keys that you have not written locally returns `null`.
 
-To have `wrangler dev` connect to your Workers KV namespace running on Cloudflare's global network, you can set `"remote" : true` in the KV binding configuration. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) for more information.
+To have `cf dev` connect to your Workers KV namespace running on Cloudflare's global network, set `dev: { remote: true }` on `bindings.kv()` in `cloudflare.config.ts`. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) and [KV bindings](https://developers.cloudflare.com/kv/concepts/kv-bindings/#use-kv-bindings-when-developing-locally) for more information.
+
+Wrangler
+
+Note
+
+When using [`wrangler dev`](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev) to develop locally, Wrangler defaults to using a local version of KV to avoid interfering with any of your live production data in KV. This means that reading keys that you have not written locally returns `null`.
+
+To have `wrangler dev` connect to your Workers KV namespace running on Cloudflare's global network, set `"remote": true` in the KV binding configuration. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) for more information.
 
 Also refer to [KV binding docs](https://developers.cloudflare.com/kv/concepts/kv-bindings/#use-kv-bindings-when-developing-locally).
 
@@ -573,7 +688,15 @@ The browser should simply return the `VALUE` corresponding to the `KEY` you have
 
 Deploy your Worker to Cloudflare's global network.
 
-  1. Run the following command to deploy KV to Cloudflare's global network:
+  1. Run the following command to deploy your Worker to Cloudflare's global network:
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+         
+         cf deploy
+
+Wrangler
          
          npm run deploy
 
@@ -616,7 +739,7 @@ If you have any feature requests or notice any bugs, share your feedback directl
 
   * Learn more about the [KV API](https://developers.cloudflare.com/kv/api/).
   * Understand how to use [Environments](https://developers.cloudflare.com/kv/reference/environments/) with Workers KV.
-  * Read the Wrangler [`kv` command documentation](https://developers.cloudflare.com/kv/reference/kv-commands/).
+  * Read the [KV CLI command documentation](https://developers.cloudflare.com/kv/reference/kv-commands/).
 
 
 

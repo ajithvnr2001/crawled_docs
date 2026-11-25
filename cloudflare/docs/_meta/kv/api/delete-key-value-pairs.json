@@ -3,8 +3,5 @@
   "file": "kv/api/delete-key-value-pairs.md",
   "title": "Delete key-value pairs \u00b7 Cloudflare Workers KV docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:11:39.611983+00:00",
-  "html_len": 118417,
-  "md_len": 3843,
-  "depth": 0
+  "fetched_at": "2026-11-25T10:59:50.476830+00:00"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/concepts/vary/
 title: Vary \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:41.794546+00:00
+fetched_at: 2026-11-25T10:59:48.737721+00:00
 ---
 
 # Vary · Cloudflare Cache (CDN) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:41.794546+00:00
 
 # Vary
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/concepts/vary/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityHow Vary affects cache keysActions Normalize Passthrough BypassNormalization behavior Origin request headers Accept Accept-Language Accept-Encoding Other headersPurge behavior
 
@@ -181,6 +181,8 @@ You can provide an optional `languages` list. If provided, any language not in t
 ### Accept-Encoding
 
 By default, Cloudflare's CDN overrides the `Accept-Encoding` header based on the enabled compression encodings. If Brotli compression is enabled, the `Accept-Encoding` forwarded to the origin is `gzip, br`. If Brotli compression is not enabled, the `Accept-Encoding` forwarded to the origin is `gzip`. Cloudflare can then recompress cached assets based on the visitor's `Accept-Encoding`. For details, refer to [ETag headers](https://developers.cloudflare.com/cache/reference/etag-headers/).
+
+`GET` range requests that Cloudflare does not cache are an exception on HTTPS. For those, Cloudflare forwards the visitor's raw `Accept-Encoding` header instead of Cloudflare's override or a Vary-normalized value. For details, refer to [Uncached range requests](https://developers.cloudflare.com/cache/reference/range-requests/#uncached-range-requests).
 
 This behavior can be turned off by enabling [Respect Strong ETags](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/#respect-strong-etags). With Respect Strong ETags enabled, the visitor's `Accept-Encoding` is forwarded to the origin instead of Cloudflare's compression override. If Vary normalization is enabled for `Accept-Encoding`, the normalized value is used both to select the cached version and as the value forwarded to the origin.
 

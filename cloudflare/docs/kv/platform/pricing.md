@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/platform/pricing/
 title: Pricing \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:20.309488+00:00
+fetched_at: 2026-11-25T10:59:49.954864+00:00
 ---
 
 # Pricing · Cloudflare Workers KV docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-31T08:10:20.309488+00:00
 
 # Pricing
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPricing FAQ How much do additional namespaces cost? When writing via KV's REST API, how are writes charged? Do queries I issue from the dashboard or wrangler (the CLI) count as billable usage? Does Workers KV charge for data transfer / egress? What operations incur operations charges?
+OverviewPricing FAQ How much do additional namespaces cost? When writing via KV's REST API, how are writes charged? Do queries I issue from the dashboard or CLI count as billable usage? Does Workers KV charge for data transfer / egress? What operations incur operations charges?
 
 Workers KV is included in both the Free and Paid [Workers plans](https://developers.cloudflare.com/workers/platform/pricing/).
 
@@ -53,9 +53,9 @@ For example, 1,050 namespaces existing for a full billing month cost `(1,050 - 1
 
 Each key-value pair in the `PUT` request is counted as a single write, identical to how each call to `PUT` in the Workers API counts as a write. Writing 5,000 keys via the REST API incurs the same write costs as making 5,000 `PUT` calls in a Worker.
 
-### Do queries I issue from the dashboard or wrangler (the CLI) count as billable usage?
+### Do queries I issue from the dashboard or CLI count as billable usage?
 
-Yes, any operations via the Cloudflare dashboard or wrangler, including updating (writing) keys, deleting keys, and listing the keys in a namespace count as billable KV usage.
+Yes, any operations via the Cloudflare dashboard, the Cloudflare CLI (`cf`), or Wrangler, including updating (writing) keys, deleting keys, and listing the keys in a namespace, count as billable KV usage.
 
 ### Does Workers KV charge for data transfer / egress?
 

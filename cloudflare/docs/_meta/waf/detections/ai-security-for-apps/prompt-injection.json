@@ -3,8 +3,5 @@
   "file": "waf/detections/ai-security-for-apps/prompt-injection.md",
   "title": "Prompt injection detection \u00b7 Cloudflare Web Application Firewall (WAF) docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:16:40.390026+00:00",
-  "html_len": 150069,
-  "md_len": 5828,
-  "depth": 0
+  "fetched_at": "2026-11-25T10:59:50.649118+00:00"
 }

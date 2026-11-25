@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/examples/distributed-configuration-with-workers-kv/
 title: Build a distributed configuration store \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:30.956186+00:00
+fetched_at: 2026-11-25T10:59:50.235409+00:00
 ---
 
 # Build a distributed configuration store · Cloudflare Workers KV docs
@@ -20,7 +20,7 @@ fetched_at: 2026-10-13T08:48:30.956186+00:00
 
 Use Workers KV to as a geo-distributed, low-latency configuration store for your Workers application
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWrite your configuration from your external application to Workers KVOptimize performance for configurationRelated resources
 
@@ -132,7 +132,77 @@ In this code snippet, the Node.js application reads user data from a Postgres da
 
 With the configuration data now in the Workers KV namespace, we can use it in our Workers application to personalize the application for each user.
 
-index.tsjs
+src/index.jsjs
+    
+    
+    // Example configuration data stored in Workers KV:
+    // Key: "user-id-abc" | Value: {"preview_features_enabled": false}
+    // Key: "user-id-def" | Value: {"preview_features_enabled": true}
+    
+    export default {
+    	async fetch(request, env) {
+    		// Get user ID from query parameter
+    		const url = new URL(request.url);
+    		const userId = url.searchParams.get("userId");
+    
+    		if (!userId) {
+    			return new Response("Please provide a userId query parameter", {
+    				status: 400,
+    				headers: { "Content-Type": "text/plain" },
+    			});
+    		}
+    
+    		const userConfiguration = await env.USER_CONFIGURATION.get(userId, {
+    			type: "json",
+    		});
+    
+    		console.log(userConfiguration);
+    
+    		// Build HTML response
+    		const html = `
+          <!DOCTYPE html>
+          <html>
+            <head>
+              <title>My App</title>
+              <style>
+                body {
+                  font-family: Arial, sans-serif;
+                  max-width: 800px;
+                  margin: 0 auto;
+                  padding: 20px;
+                }
+                .preview-banner {
+                  background-color: #ffeb3b;
+                  padding: 10px;
+                  text-align: center;
+                  margin-bottom: 20px;
+                  border-radius: 4px;
+                }
+              </style>
+            </head>
+            <body>
+              ${
+    						userConfiguration?.preview_features_enabled
+    							? `
+                <div class="preview-banner">
+                  🎉 You have early access to preview features! 🎉
+                </div>
+              `
+    							: ""
+    					}
+              <h1>Welcome to My App</h1>
+              <p>This is the regular content everyone sees.</p>
+            </body>
+          </html>
+        `;
+    
+    		return new Response(html, {
+    			headers: { "Content-Type": "text/html; charset=utf-8" },
+    		});
+    	},
+    };
+
+src/index.tsts
     
     
     // Example configuration data stored in Workers KV:
@@ -202,6 +272,33 @@ index.tsjs
         });
       }
     } satisfies ExportedHandler<Env>;
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+    worker: {
+    	name: "<ENTER_WORKER_NAME>",
+    	entrypoint,
+    	// Set this to today's date
+    	compatibilityDate: "2026-11-25",
+    	observability: {
+    		enabled: true,
+    	},
+    	env: {
+    		USER_CONFIGURATION: bindings.kv({ id: "<YOUR_BINDING_ID>" }),
+    	},
+    },
+    });
+
+Wrangler
     
     
     {
@@ -209,7 +306,8 @@ index.tsjs
     	"name": "<ENTER_WORKER_NAME>",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
-    	"compatibility_date": "2025-03-03",
+    	// Set this to today's date
+    	"compatibility_date": "2026-11-25",
     	"observability": {
     		"enabled": true
     	},
@@ -220,6 +318,21 @@ index.tsjs
     		}
     	]
     }
+    
+    
+    "$schema" = "node_modules/wrangler/config-schema.json"
+    name = "<ENTER_WORKER_NAME>"
+    main = "src/index.ts"
+    upload_source_maps = true
+    # Set this to today's date
+    compatibility_date = "2026-11-25"
+    
+    [observability]
+    enabled = true
+    
+    [[kv_namespaces]]
+    binding = "USER_CONFIGURATION"
+    id = "<YOUR_BINDING_ID>"
 
 This code will use the path within the URL and find the file associated to the path within the KV store. It also sets the proper MIME type in the response to inform the browser how to handle the response. To retrieve the value from the KV store, this code uses `arrayBuffer` to properly handle binary data such as images, documents, and video/audio files.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/suppressions/
 title: Manage suppressions \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.103060+00:00
+fetched_at: 2026-11-25T10:59:49.418210+00:00
 ---
 
 # Manage suppressions · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:14.103060+00:00
 
 # Manage suppressions
 
-Last updated Sep 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/configuration/suppressions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewView suppressionsAdd a suppressionImport suppressionsRemove a suppressionUse the API Add a suppression for one sending domain List suppressions by scope Change the scope of an entryLimits
 
@@ -133,7 +133,7 @@ Deleting a hard-bounce or complaint suppression permits delivery attempts to an 
 
 Each address can have one active `account` suppression and one active `sending_domain` suppression for each sending domain. For page size, import, and rate limits, refer to [Suppression list limits](https://developers.cloudflare.com/email-service/platform/limits/#suppression-list-limits).
 
-[PreviousConfigure send bindings](https://developers.cloudflare.com/email-service/configuration/send-bindings/)[NextWorkers API](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/)
+[PreviousSend bindings](https://developers.cloudflare.com/email-service/configuration/send-bindings/)[NextPostmaster](https://developers.cloudflare.com/email-service/reference/postmaster/)
 
 Was this helpful?
 

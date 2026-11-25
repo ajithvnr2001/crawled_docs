@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/optimization/content/compression/
 title: Content compression \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:34.398001+00:00
+fetched_at: 2026-11-25T10:59:48.582161+00:00
 ---
 
 # Content compression · Cloudflare Speed docs
@@ -22,7 +22,7 @@ Settings
 
 # Content compression
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/speed/optimization/content/compression/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCompression between Cloudflare and website visitors Content-Length header handlingContent compression from origin servers to the Cloudflare networkNotes about end-to-end compression Content recompression due to dynamic transformations Content-Length headerCompression methods by plan Between visitors and Cloudflare Between Cloudflare and the origin server
 
@@ -155,6 +155,8 @@ Caution
 
 Cloudflare will take into consideration the `accept-encoding` header value in website visitors' requests when sending responses to those visitors. However, when requesting content from your origin server, Cloudflare will send a different `Accept-Encoding` header, supporting Brotli and Gzip compression.
 
+`GET` range requests over HTTPS that Cloudflare does not cache are an exception. For those, Cloudflare forwards the visitor's own `Accept-Encoding` header. For details, refer to [Uncached range requests](https://developers.cloudflare.com/cache/reference/range-requests/#uncached-range-requests).
+
 * * *
 
 ## Notes about end-to-end compression
@@ -168,7 +170,7 @@ Even when using the same compression algorithm end to end (between your origin s
   * [Email Address Obfuscation](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/)
   * [Polish](https://developers.cloudflare.com/images/polish/)
   * [Rocket Loader](https://developers.cloudflare.com/speed/optimization/content/rocket-loader/)
-  * [JavaScript detections](https://developers.cloudflare.com/bots/additional-configurations/javascript-detections/)
+  * [JavaScript detections](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/)
   * [RUM](https://developers.cloudflare.com/speed/observatory/run-speed-test/#enable-real-user-monitoring-rum)
 
 

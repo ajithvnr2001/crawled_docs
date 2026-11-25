@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/
 title: AI Security for Apps \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:39.760376+00:00
+fetched_at: 2026-11-25T10:59:50.542686+00:00
 ---
 
 # AI Security for Apps · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:39.760376+00:00
 
 # AI Security for Apps
 
-Last updated Sep 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAvailabilityMore resources
 
@@ -34,9 +34,10 @@ AI Security for Apps (formerly Firewall for AI) complements your existing WAF ru
 
 When enabled, AI Security for Apps scans incoming requests to [endpoints labeled `cf-llm`](https://developers.cloudflare.com/api-shield/management-and-monitoring/endpoint-labels/) for LLM prompts that may contain threats. Currently, the detection only handles requests with a JSON content type (`application/json`).
 
-Based on scan results, Cloudflare populates [AI detection fields](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/fields/) — fields you can use in WAF rule expressions. You can use these fields in two ways:
+Based on scan results, Cloudflare populates [AI detection fields](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/fields/) — fields you can use in WAF rule expressions. You can use these fields in the following ways:
 
   * **Monitor:** Filter by the `cf-llm` label in [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/) to review detection results across your traffic.
+  * **Log prompt content:** Use the fields in custom rules and [configure payload logging](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/#7-optional-log-prompts-for-matching-rules) to store prompt content for matching requests.
   * **Mitigate:** Use the fields in [custom rules](https://developers.cloudflare.com/waf/custom-rules/) or [rate limiting rules](https://developers.cloudflare.com/waf/rate-limiting-rules/) to block or challenge requests based on detection results.
 
 
@@ -48,10 +49,9 @@ AI Security for Apps capabilities vary by Cloudflare plan:
 Capability | Free | Pro | Business | Enterprise  
 ---|---|---|---|---  
 **LLM endpoint discovery** — Automatically identify AI-powered endpoints across your web properties | Yes | Yes | Yes | Yes  
-**AI Security Log Mode Ruleset** — Pre-built ruleset that logs the full request body alongside detection results | No | No | No | Paid add-on  
 **AI detection fields** — PII detection, prompt injection scoring, unsafe topic detection, custom topics | No | No | No | Paid add-on  
   
-To get access to the [AI Security Log Mode Ruleset](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/log-mode-vs-production-mode/#log-mode) and enable [AI detection fields](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/fields/), contact your account team.
+To enable [AI detection fields](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/fields/), contact your account team. [Payload logging](https://developers.cloudflare.com/waf/payload-logging/) is only available to Enterprise customers.
 
 AI Security for Apps is built into the Cloudflare [Web Application Firewall (WAF)](https://developers.cloudflare.com/waf/) — the WAF must be enabled on your zone before detection fields can be populated and used in rule expressions.
 

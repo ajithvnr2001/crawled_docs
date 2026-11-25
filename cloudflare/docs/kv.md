@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/
 title: Cloudflare Workers KV \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:31.363817+00:00
+fetched_at: 2026-11-25T10:59:50.506941+00:00
 ---
 
 # Cloudflare Workers KV · Cloudflare Workers KV docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-13T08:48:31.363817+00:00
 
 # Cloudflare Workers KV
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated products More resources
 
@@ -35,6 +35,8 @@ For example, you can use Workers KV for:
 
 
 Access your Workers KV namespace from Cloudflare Workers using [Workers Bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) or from your external application using the REST API:
+
+src/index.tsts
     
     
     export default {
@@ -59,8 +61,35 @@ Access your Workers KV namespace from Cloudflare Workers using [Workers Bindings
     			}),
     		);
     	},
-    
     } satisfies ExportedHandler<{ KV: KVNamespace }>;
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+    	worker: {
+    		name: "<ENTER_WORKER_NAME>",
+    		entrypoint,
+    		compatibilityDate: "<COMPATIBILITY_DATE>",
+    		observability: {
+    			enabled: true,
+    		},
+    		env: {
+    			KV: bindings.kv({ id: "<YOUR_BINDING_ID>" }),
+    		},
+    	},
+    });
+
+Wrangler
+
+wrangler.jsoncjsonc
     
     
     {
@@ -68,11 +97,10 @@ Access your Workers KV namespace from Cloudflare Workers using [Workers Bindings
     	"name": "<ENTER_WORKER_NAME>",
     	"main": "src/index.ts",
     	"upload_source_maps": true,
-    	"compatibility_date": "2025-02-04",
+    	"compatibility_date": "<COMPATIBILITY_DATE>",
     	"observability": {
     		"enabled": true
     	},
-    
     	"kv_namespaces": [
     		{
     			"binding": "KV",
@@ -81,7 +109,7 @@ Access your Workers KV namespace from Cloudflare Workers using [Workers Bindings
     	]
     }
 
-See the full [Workers KV binding API reference](https://developers.cloudflare.com/kv/api/read-key-value-pairs/).
+For the full binding reference, refer to [Workers KV binding API](https://developers.cloudflare.com/kv/api/read-key-value-pairs/).
     
     
     curl https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/storage/kv/namespaces/$NAMESPACE_ID/values/$KEY_NAME \
@@ -135,9 +163,21 @@ Learn how Workers KV stores and retrieves data.
 
 Use Key-value storage
 
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+[Cloudflare CLI (cf)](https://developers.cloudflare.com/cf/)
+
+The Cloudflare CLI (`cf`) allows you to [create](https://developers.cloudflare.com/cf/get-started/first-worker/), develop, and deploy your Workers projects and manage KV namespaces from the terminal.
+
+Use Cloudflare CLI (cf)
+
+Wrangler
+
 [Wrangler](https://developers.cloudflare.com/workers/wrangler/install-and-update/)
 
-The Workers command-line interface, Wrangler, allows you to [create](https://developers.cloudflare.com/workers/wrangler/commands/general/#init), [test](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev), and [deploy](https://developers.cloudflare.com/workers/wrangler/commands/pages/#pages-deploy) your Workers projects.
+The Workers command-line interface, Wrangler, allows you to [create](https://developers.cloudflare.com/workers/wrangler/commands/general/#init), [test](https://developers.cloudflare.com/workers/wrangler/commands/general/#dev), and [deploy](https://developers.cloudflare.com/workers/wrangler/commands/general/#deploy) your Workers projects.
 
 Use Wrangler
 

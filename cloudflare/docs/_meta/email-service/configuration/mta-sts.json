@@ -3,8 +3,5 @@
   "file": "email-service/configuration/mta-sts.md",
   "title": "Configure MTA-STS \u00b7 Cloudflare Email Service docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:11:12.872188+00:00",
-  "html_len": 113560,
-  "md_len": 4900,
-  "depth": 0
+  "fetched_at": "2026-11-25T10:59:49.335112+00:00"
 }

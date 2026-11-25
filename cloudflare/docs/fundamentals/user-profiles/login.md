@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/user-profiles/login/
 title: Log in to Cloudflare \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:28.188318+00:00
+fetched_at: 2026-11-25T10:59:48.827300+00:00
 ---
 
 # Log in to Cloudflare · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:28.188318+00:00
 
 # Log in to Cloudflare
 
-Last updated Apr 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/fundamentals/user-profiles/login/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSign-in options Email and password Single Sign-On (SSO) Social login
 
@@ -48,7 +48,7 @@ If you log in to your Cloudflare user account with Single Sign-On (SSO), you wil
 
 Caution
 
-If you use social login to sign in, your user profile will not have a password associated with it at first. Some operations, such as enabling 2-Factor Authentication or creating API tokens, require setting a password.
+If you use social login to sign in, your user profile will not have a password associated with it at first. Some operations, such as creating API tokens, require setting a password. You do not need a password to set up [two-factor authentication](https://developers.cloudflare.com/fundamentals/user-profiles/2fa/). Cloudflare verifies your identity with a code sent to your email address instead.
 
 To set a password, go to [Forgot Password ↗︎](https://dash.cloudflare.com/forgot-password) in the Cloudflare dashboard, paste your email address, and click **Send**. You will receive an email with instructions to set your password. Once created, use your email and the new password to log in.
 

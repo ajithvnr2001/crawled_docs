@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/platform/limits/
 title: Limits \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T12:11:05.063126+00:00
+fetched_at: 2026-11-25T10:59:49.227853+00:00
 ---
 
 # Limits · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-11-24T12:11:05.063126+00:00
 
 Email sending quotas, rate limits, and how to request higher limits for production use
 
-Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDaily sending limitsVerified destination addressesEmail content limitsSuppression list limitsZone limitsEmail Routing limits Routing to Workers on the Workers Free plan Emails sent from WorkersCompliance
 
@@ -42,9 +42,14 @@ If you need higher sending limits sooner than automatic adjustment provides, ref
 
 ## Verified destination addresses
 
-Before you onboard a sending domain, you can send emails only to [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) in your account. After you onboard a sending domain, you can send to any recipient immediately.
+The recipients you can send to depend on your plan and on whether you have onboarded a [sending domain](https://developers.cloudflare.com/email-service/configuration/domains/):
 
-Sends to verified destination addresses are always free: they do not count toward your monthly [quota](https://developers.cloudflare.com/email-service/platform/pricing/) or your daily sending limits, on any plan, including when only Email Routing is configured. You can only send from your routing domains.
+  * **Workers Paid plan, with a sending domain** : Any recipient.
+  * **Workers Free plan, with a sending domain** : Only [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) in your account.
+
+
+
+Domains with only Email Routing configured can also send to verified destination addresses from their routing domains. This is a legacy path: we recommend that you onboard a sending domain and send through Email Sending instead.
 
 ## Email content limits
 

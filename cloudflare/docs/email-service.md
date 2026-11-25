@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/
 title: Cloudflare Email Service \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.422691+00:00
+fetched_at: 2026-11-25T10:59:49.653568+00:00
 ---
 
 # Cloudflare Email Service · Cloudflare Email Service docs
@@ -16,17 +16,17 @@ fetched_at: 2026-10-16T06:38:31.422691+00:00
 
 # Cloudflare Email Service
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
-Send transactional email and route incoming email with Cloudflare Email Service. Arbitrary-recipient sending requires Workers Paid, while routing supports Workers Free and Paid.
+Send transactional email and route incoming email with Cloudflare Email Service. Both are available on the Workers Free and Workers Paid plans.
 
 Cloudflare Email Service sends transactional email and handles incoming email.
 
   * **Email Sending** Beta sends outbound transactional emails. 
 
-Available on Workers Paid plan
+Available on Free and Paid plans
 
   * **Email Routing** processes incoming emails with Workers or forwards them to destination addresses. 
 
@@ -37,7 +37,7 @@ Available on Free and Paid plans
 
 Note
 
-Sending to [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) in your account is free on Workers Free and Paid plans, even when only Email Routing is configured.
+On the Workers Free plan, Email Sending sends only to [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) in your account. Sending to any other recipient requires the Workers Paid plan. Sends to verified destination addresses are free on both plans, even when only Email Routing is configured.
 
 Use Email Sending for account emails, order confirmations, and alerts. Use Email Routing to process or forward incoming messages.
 

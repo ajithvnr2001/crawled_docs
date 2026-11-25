@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/reference/faq/
 title: FAQ \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:42.109214+00:00
+fetched_at: 2026-11-25T10:59:49.833683+00:00
 ---
 
 # FAQ · Cloudflare Workers KV docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:11:42.109214+00:00
 
 # FAQ
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/reference/faq/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewGeneral Can I use Workers KV without using Workers? What are the key considerations when choosing how to access KV? Why can I not immediately see the updated value of a key-value pair? Is Workers KV eventually consistent or strongly consistent? If a Worker makes a bulk request to Workers KV, would each individual key get counted against the Worker subrequest limit (of 1000)? What is the rate limit of Workers KV?Pricing When writing via Workers KV's REST API, how are writes charged? Do queries I issue from the dashboard or wrangler (the CLI) count as billable usage? Does Workers KV charge for data transfer / egress? Are key expirations billed as delete operations?
+OverviewGeneral Can I use Workers KV without using Workers? What are the key considerations when choosing how to access KV? Why can I not immediately see the updated value of a key-value pair? Is Workers KV eventually consistent or strongly consistent? If a Worker makes a bulk request to Workers KV, would each individual key get counted against the Worker subrequest limit (of 1000)? What is the rate limit of Workers KV?Pricing When writing via Workers KV's REST API, how are writes charged? Do queries I issue from the dashboard or CLI count as billable usage? Does Workers KV charge for data transfer / egress? Are key expirations billed as delete operations?
 
 Frequently asked questions regarding Workers KV.
 
@@ -69,9 +69,9 @@ When writing to Workers KV via the [Workers Binding API](https://developers.clou
 
 Each key-value pair in the `PUT` request is counted as a single write, identical to how each call to `PUT` in the Workers API counts as a write. Writing 5,000 keys via the REST API incurs the same write costs as making 5,000 `PUT` calls in a Worker.
 
-### Do queries I issue from the dashboard or wrangler (the CLI) count as billable usage?
+### Do queries I issue from the dashboard or CLI count as billable usage?
 
-Yes, any operations via the Cloudflare dashboard or wrangler, including updating (writing) keys, deleting keys, and listing the keys in a namespace count as billable Workers KV usage.
+Yes, any operations via the Cloudflare dashboard, the Cloudflare CLI (`cf`), or Wrangler, including updating (writing) keys, deleting keys, and listing the keys in a namespace, count as billable Workers KV usage.
 
 ### Does Workers KV charge for data transfer / egress?
 

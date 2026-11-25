@@ -1,26 +1,26 @@
 ---
 url: https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/
-title: Email routing rules and addresses \u00b7 Cloudflare Email Service docs
+title: Email routing rules \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:31.077256+00:00
+fetched_at: 2026-11-25T10:59:49.480547+00:00
 ---
 
-# Email routing rules and addresses · Cloudflare Email Service docs
+# Email routing rules · Cloudflare Email Service docs
 
 > Source: https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Email Service](https://developers.cloudflare.com/email-service/)
   3. /Configuration
-  4. /Email routing rules and addresses
+  4. /Email routing rules
 
 
 
-# Email routing rules and addresses
+# Email routing rules
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewDestination addresses Add a destination address Manage destination addressesRouting rules Routing rule actions Disable a routing rule Edit a routing rule Delete a routing rule Catch-all rule SubaddressingConfigure rules with WranglerNext steps
+OverviewDestination addressesRouting rules Routing rule actions Disable a routing rule Edit a routing rule Delete a routing rule Catch-all rule SubaddressingConfigure rules with WranglerNext steps
 
 In Email Routing, a routing rule pairs an email pattern with a destination — either a verified email address or a Worker. You can route emails to either:
 
@@ -33,35 +33,7 @@ This allows you to route emails to your preferred inbox, or apply logic with Wor
 
 ## Destination addresses
 
-A destination address is the verified email address that Email Routing forwards messages to. Before you can create a routing rule, you must add and verify at least one destination address.
-
-Destination addresses are shared at the account level and can be reused with any other domain in your account.
-
-You can also send to verified destination addresses directly through the [REST API](https://developers.cloudflare.com/email-service/api/send-emails/rest-api/) or the [Workers binding](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/), free of charge on any plan — including when only Email Routing is configured. Sends to verified destination addresses do not count toward your monthly quota or daily sending limits. Refer to [Pricing](https://developers.cloudflare.com/email-service/platform/pricing/) for details.
-
-### Add a destination address
-
-  1. Log in to the [Cloudflare dashboard ↗︎](https://dash.cloudflare.com/) and select your account.
-
-  2. Go to **Compute** > **Email Service** > **Email Routing** > **Destination Addresses**.
-
-[ Go to **Email Routing** ↗ ](https://dash.cloudflare.com/?to=/:account/email-service/routing)
-  3. Under **Destination addresses** , enter the email address you want to use as a destination in the inline form and submit it.
-
-  4. Cloudflare sends a verification email to that address. Open the email and select **Verify email address** to activate it.
-
-
-
-
-Until a destination address is verified, any routing rule that points to it stays disabled.
-
-### Manage destination addresses
-
-The **Destination Addresses** page lists every address on your account, including those pending verification. From this page you can resend a verification email or delete a destination address.
-
-Note
-
-Deleting a destination address automatically disables all routing rules that use that address as a destination.
+Routing rules forward email to verified destination addresses. Before you create a routing rule, add and verify at least one destination address. Refer to [Destination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/).
 
 ## Routing rules
 
@@ -187,7 +159,7 @@ This feature requires Wrangler 4.113.0 or later.
       "main": "src/index.ts",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-10-16",
+      "compatibility_date": "2026-11-25",
       "addresses": [
         "support@example.com",
         "*@example.com"
@@ -199,7 +171,7 @@ This feature requires Wrangler 4.113.0 or later.
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-16"
+    compatibility_date = "2026-11-25"
     addresses = ["support@example.com", "*@example.com"]
 
 Each entry is either a literal recipient address (for example, `support@example.com`), which creates a routing rule for that address, or a `*@domain` catch-all (for example, `*@example.com`), which configures the catch-all rule for that domain. Catch-all entries support apex domains only. To route mail sent to an Email Routing subdomain, list each literal recipient address, such as `support@mail.example.com`.
@@ -227,7 +199,7 @@ Rules created from `addresses` are managed by your Wrangler configuration file. 
 
 
 
-[PreviousDomain configuration](https://developers.cloudflare.com/email-service/configuration/domains/)[NextConfigure subdomains](https://developers.cloudflare.com/email-service/configuration/subdomains/)
+[PreviousDestination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/)[NextConfigure subdomains](https://developers.cloudflare.com/email-service/configuration/subdomains/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/api/send-emails/workers-api/
 title: Email Sending Workers API \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:30.721421+00:00
+fetched_at: 2026-11-25T10:59:49.596508+00:00
 ---
 
 # Email Sending Workers API · Cloudflare Email Service docs
@@ -22,7 +22,7 @@ API
 
 # Email Sending Workers API
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewEmail bindingsend() method Interface Basic usage AttachmentsError handlingError codesLegacy EmailMessage APINext steps
 
@@ -217,7 +217,7 @@ Error code | Description | Common causes
 `E_SENDER_DOMAIN_NOT_CONFIGURED` | Domain not configured for sending | The account or zone of the sender domain has no Email Sending configuration  
 `E_EMAIL_SENDING_NOT_READY` | Email Sending setup in progress | Domain onboarding has not finished. Retry the send later  
 `E_RECIPIENT_NOT_ALLOWED` | Recipient not allowed | Recipient not allowed by the binding's `destination_address` or `allowed_destination_addresses`, or an unverified recipient when the sender domain is not onboarded to Email Sending  
-`E_RECIPIENT_PLAN_RESTRICTED` | Recipient not allowed by plan | Recipient is not a [verified destination address](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) and the account [plan](https://developers.cloudflare.com/email-service/platform/pricing/) allows sending only to verified destination addresses  
+`E_RECIPIENT_PLAN_RESTRICTED` | Recipient not allowed by plan | Recipient is not a [verified destination address](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) and the account [plan](https://developers.cloudflare.com/email-service/platform/pricing/) allows sending only to verified destination addresses  
 `E_RECIPIENT_SUPPRESSED` | Suppressed address while dropping is off | At least one recipient is suppressed and **Drop suppressed recipients** is off, or the sender address is suppressed  
 `E_ACCOUNT_SUSPENDED` | Email Sending is paused for the account | Account paused because of poor sending reputation  
 `E_CONTENT_TOO_LARGE` | Email content exceeds size limit | Total message size exceeds the maximum  

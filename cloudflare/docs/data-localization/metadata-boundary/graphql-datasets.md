@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/data-localization/metadata-boundary/graphql-datasets/
 title: GraphQL datasets \u00b7 Cloudflare Data Localization Suite docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:43.493048+00:00
+fetched_at: 2026-11-25T10:59:48.555383+00:00
 ---
 
 # GraphQL datasets · Cloudflare Data Localization Suite docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:43.493048+00:00
 
 # GraphQL datasets
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/data-localization/metadata-boundary/graphql-datasets/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 The [GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/) allows you to programmatically query your Cloudflare analytics data (such as request counts, security events, and performance metrics). When Customer Metadata Boundary (CMB) is enabled, not all analytics data fields are available in every region.
 
@@ -40,13 +40,15 @@ Cache Reserve |  | US and EU
 DNS |  | US and EU   
 `dnsAnalyticsAdaptive`   
 `dnsAnalyticsAdaptiveGroups`  
-Image Resizing |  | US only   
+Image Resizing |  | US and EU   
+`imagesUniqueTransformations`   
+US only   
 `imageResizingRequests1mGroups`   
-`imagesRequestsAdaptiveGroups`   
-`imagesUniqueTransformations`  
-Load Balancing |  | US only   
+`imagesRequestsAdaptiveGroups`  
+Load Balancing |  | US and EU   
 [`loadBalancingRequestsAdaptive`](https://developers.cloudflare.com/load-balancing/reference/load-balancing-analytics/#graphql-analytics)   
 [`loadBalancingRequestsAdaptiveGroups`](https://developers.cloudflare.com/load-balancing/reference/load-balancing-analytics/#graphql-analytics)   
+US only   
 `healthCheckEventsAdaptive`   
 `healthCheckEventsAdaptiveGroups`  
 Stream Delivery | Same as Caching/CDN |   
@@ -56,7 +58,7 @@ Secondary DNS | Same as DNS |
 Waiting Room |  | US and EU   
 [`waitingRoomAnalyticsAdaptive`](https://developers.cloudflare.com/waiting-room/waiting-room-analytics/#graphql-analytics)   
 [`waitingRoomAnalyticsAdaptiveGroups`](https://developers.cloudflare.com/waiting-room/waiting-room-analytics/#graphql-analytics)  
-Web Analytics / Real User Monitoring (RUM) |  | US only   
+Web Analytics / Real User Monitoring (RUM) |  | US and EU   
 `rumWebVitalsEventsAdaptive`   
 `rumWebVitalsEventsAdaptiveGroups`   
 `rumPerformanceEventsAdaptiveGroups`   
@@ -106,11 +108,12 @@ Developer Platform | Cloudflare Images | US only
 Cloudflare Pages |  | US only   
 `pagesFunctionsInvocationsAdaptiveGroups`   
   
-Durable Objects |  | US only   
+Durable Objects |  | US and EU   
 [`durableObjectsInvocationsAdaptiveGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)   
 [`durableObjectsPeriodicGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)   
-[`durableObjectsStorageGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)   
-[`durableObjectsSubrequestsAdaptiveGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)  
+[`durableObjectsSubrequestsAdaptiveGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)   
+US only   
+[`durableObjectsStorageGroups`](https://developers.cloudflare.com/durable-objects/observability/metrics-and-analytics/)  
 Email Routing |  | US and EU   
 `emailRoutingAdaptive`   
 `emailRoutingAdaptiveGroups`  
@@ -125,15 +128,15 @@ Stream |  | US only
 Workers (deployed on a Zone) |  | US and EU   
 `workerPlacementAdaptiveGroups`   
 `workersAnalyticsEngineAdaptiveGroups`   
+`workersOverviewDataAdaptiveGroups`   
+`workersInvocationsScheduled`   
 US only   
 `workersZoneInvocationsAdaptiveGroups`   
 `workersZoneSubrequestsAdaptiveGroups`   
 `workersOverviewRequestsAdaptiveGroups`   
-`workersOverviewDataAdaptiveGroups`   
 [`workersInvocationsAdaptive`](https://developers.cloudflare.com/analytics/graphql-api/tutorials/querying-workers-metrics/)   
-`workersInvocationsScheduled`   
 `workersSubrequestsAdaptiveGroups`  
-Network Services | Network Error Logging (NEL) / Edge Reachability / Last Mile Insights | US only   
+Network Services | Network Error Logging (NEL) / Edge Reachability / Last Mile Insights | US and EU   
 `nelReportsAdaptiveGroups`  
 Cloudflare Network Firewall |  | US and EU   
 [`magicFirewallSamplesAdaptiveGroups`](https://developers.cloudflare.com/cloudflare-network-firewall/tutorials/graphql-analytics/)   

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/
 title: Get started with AI Security for Apps \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:10.600807+00:00
+fetched_at: 2026-11-25T10:59:50.576573+00:00
 ---
 
 # Get started with AI Security for Apps · Cloudflare Web Application Firewall (WAF) docs
@@ -22,9 +22,9 @@ fetched_at: 2026-11-13T09:17:10.600807+00:00
 
 # Get started with AI Security for Apps
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview1\. Turn on AI Security for Apps2\. Review or add an LLM-related operation3\. Add cf-llm label to endpoint4\. (Optional) Configure custom prompt extraction5\. (Optional) Generate API traffic6\. Review labeled traffic and detection behavior7\. Mitigate harmful requests
+Overview1\. Turn on AI Security for Apps2\. Review or add an LLM-related operation3\. Add cf-llm label to endpoint4\. (Optional) Configure custom prompt extraction5\. (Optional) Generate API traffic6\. Review labeled traffic and detection behavior7\. (Optional) Log prompts for matching rules8\. Mitigate harmful requests
 
 ## 1\. Turn on AI Security for Apps
 
@@ -159,9 +159,17 @@ The displayed logs now refer to incoming requests where personally identifiable 
 
 
 
-Alternatively, you can also create a custom rule with a _Log_ action (only available on Enterprise plans) to check for potentially harmful traffic related to LLM prompts. This rule will generate [security events](https://developers.cloudflare.com/waf/analytics/security-events/) that will allow you to validate your AI Security for Apps configuration.
+## 7\. (Optional) Log prompts for matching rules
 
-## 7\. Mitigate harmful requests
+To store prompt content for matching requests, configure [payload logging via API](https://developers.cloudflare.com/waf/payload-logging/configure-api/) at the account or zone level. Payload logging applies to any matching custom rule that uses a field with the `cf.llm.prompt` prefix.
+
+When AI Security for Apps extracts a prompt, payload logging stores the extracted prompt. If no prompt is extracted and analysis falls back to the full request body, payload logging stores the full request body.
+
+The stored content is encrypted with your public key. You need the corresponding private key to [view the payload content](https://developers.cloudflare.com/waf/payload-logging/view/).
+
+You can use the _Log_ action to validate your AI Security for Apps configuration without mitigating requests. The _Log_ action is only available on Enterprise plans.
+
+## 8\. Mitigate harmful requests
 
 [Create a custom rule](https://developers.cloudflare.com/waf/custom-rules/create-dashboard/) that blocks requests where Cloudflare detected personally identifiable information (PII) in the incoming request (as part of an LLM prompt), returning a custom JSON body:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/polish/no-avif/
 title: AVIF may be skipped \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:17.104807+00:00
+fetched_at: 2026-11-25T10:59:48.996962+00:00
 ---
 
 # AVIF may be skipped · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:17.104807+00:00
 
 # AVIF may be skipped
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPolish never makes files largerAVIF requires a minimum image sizeAVIF does not support animated imagesAVIF conversion may be temporarily unavailableAVIF compression efficiency may vary under high demand
 
@@ -44,7 +44,7 @@ AVIF compression is more computationally intensive than Polish's other compressi
 
 To maintain fast response times, Polish may use faster, less exhaustive compression settings for AVIF during periods of high demand. This can result in a larger AVIF file than Polish would otherwise produce, though Polish still only serves AVIF when it is smaller than the original image.
 
-[PreviousCf-Polished statuses](https://developers.cloudflare.com/images/polish/cf-polished-statuses/)[NextWebP may be skipped](https://developers.cloudflare.com/images/polish/no-webp/)
+[PreviousTroubleshooting](https://developers.cloudflare.com/images/polish/troubleshooting-polish/)[NextWebP may be skipped](https://developers.cloudflare.com/images/polish/no-webp/)
 
 Was this helpful?
 

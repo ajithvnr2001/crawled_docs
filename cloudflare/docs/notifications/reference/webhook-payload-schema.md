@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/notifications/reference/webhook-payload-schema/
 title: Webhook payload schema \u00b7 Cloudflare Notifications docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:31.038827+00:00
+fetched_at: 2026-11-25T10:59:49.807827+00:00
 ---
 
 # Webhook payload schema · Cloudflare Notifications docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:31.038827+00:00
 
 # Webhook payload schema
 
-Last updated Oct 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPayload structure Field descriptionsExample payloadsValidate webhook payloadsRelated resources
 
@@ -176,20 +176,17 @@ Origin health check
     	"alert_event": "ALERT_STATE_EVENT_START",
     	"alert_type": "health_check_status_notification",
     	"data": {
-    		"account_name": "string",
-    		"account_tag": "string",
-    		"failing_regions": "string",
+    		"actual_code": 0,
+    		"expected_codes": "string",
     		"health_check_id": "string",
-    		"health_check_name": "string",
-    		"new_health_status": "string",
-    		"new_status": "string",
-    		"old_status": "string",
-    		"origin_ip": "string",
+    		"name": "string",
+    		"preview": false,
     		"reason": "string",
-    		"status_change_time": "2006-01-02T15:04:05Z",
-    		"time_since_last_failure": "string",
-    		"zone_name": "string",
-    		"zone_tag": "string"
+    		"severity": "string",
+    		"state_correlation_id": "string",
+    		"state_event": "string",
+    		"status": "string",
+    		"time": "string"
     	},
     	"name": "Example Cloudflare Notification",
     	"policy_id": "749b911ea5d04344a58e45edd099b328",

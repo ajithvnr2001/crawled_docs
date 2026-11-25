@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/configuration-rules/settings/
 title: Configuration Rules settings \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:48.101787+00:00
+fetched_at: 2026-11-25T10:59:49.093192+00:00
 ---
 
 # Configuration Rules settings · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:48.101787+00:00
 
 # Configuration Rules settings
 
-Last updated Oct 7, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/configuration-rules/settings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAutomatic HTTPS RewritesBrowser Integrity CheckDisable Real User Monitoring (RUM)Disable ZarazEmail ObfuscationFontsHotlink ProtectionI'm Under AttackMarkdown for AgentsOpportunistic EncryptionPolishRequest Body BufferingResponse Body BufferingRocket LoaderSSL
 
@@ -233,7 +233,7 @@ Use this setting to configure Polish for matching requests:
 
 
 
-Refer to [Compression options](https://developers.cloudflare.com/images/polish/compression/#compression-options) for more information on these values.
+Refer to [Configure Polish](https://developers.cloudflare.com/images/polish/configure-polish/#choose-compression-and-formats) for more information on these values.
 
 API information
 

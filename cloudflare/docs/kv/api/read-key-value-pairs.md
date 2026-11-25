@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/api/read-key-value-pairs/
 title: Read key-value pairs \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:39.868991+00:00
+fetched_at: 2026-11-25T10:59:50.419688+00:00
 ---
 
 # Read key-value pairs · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:39.868991+00:00
 
 # Read key-value pairs
 
-Last updated Jun 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/api/read-key-value-pairs/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReference get() method getWithMetadata() methodGuidance Type parameter CacheTtl parameter Requesting more keys per Worker invocation with bulk requests Reducing cardinality by coalescing keysOther methods to access KV
 
@@ -354,7 +354,7 @@ This works best if you are not expecting the need to update the values independe
 
 ## Other methods to access KV
 
-You can [read key-value pairs from the command line with Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-key-get) and [from the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/get/).
+You can [read key-value pairs from the command line with the Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-key-get) and [from the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/values/methods/get/).
 
 [PreviousKV namespaces](https://developers.cloudflare.com/kv/concepts/kv-namespaces/)[NextWrite key-value pairs](https://developers.cloudflare.com/kv/api/write-key-value-pairs/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/get-started/send-emails/
 title: Send emails \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:14.753146+00:00
+fetched_at: 2026-11-25T10:59:49.447977+00:00
 ---
 
 # Send emails · Cloudflare Email Service docs
@@ -11,7 +11,7 @@ fetched_at: 2026-10-08T07:11:14.753146+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Email Service](https://developers.cloudflare.com/email-service/)
-  3. /Getting started
+  3. /Get started
   4. /Send emails
 
 
@@ -20,7 +20,7 @@ fetched_at: 2026-10-08T07:11:14.753146+00:00
 
 Send your first email using the Workers binding, the REST API, or SMTP.
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/email-service/get-started/send-emails/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up your domainSend your first emailNext steps
 
@@ -59,6 +59,10 @@ Once your domain is onboarded, you can start sending emails.
 ## Send your first email
 
 You can send your first email using the Workers binding, the REST API, or SMTP.
+
+Note
+
+On the Workers Free plan, you can send only to [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/destination-addresses/) in your account. Before you send a test email, [add and verify](https://developers.cloudflare.com/email-service/configuration/destination-addresses/#add-a-destination-address) the address that receives it.
 
 If you are building on Cloudflare Workers, you can use the Workers binding for native email sending. Start by creating a new Worker project.
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-network-firewall/tutorials/graphql-analytics/
 title: GraphQL Analytics \u00b7 Cloudflare Network Firewall docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:08.941279+00:00
+fetched_at: 2026-11-25T10:59:49.054229+00:00
 ---
 
 # GraphQL Analytics · Cloudflare Network Firewall docs
@@ -18,13 +18,15 @@ fetched_at: 2026-10-08T07:08:08.941279+00:00
 
 # GraphQL Analytics
 
-Last updated Apr 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-network-firewall/tutorials/graphql-analytics/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewObtain Cloudflare Account ID Obtain your Cloudflare Account ID Obtain the rule ID for a firewall ruleExplore GraphQL schema with Cloudflare Network Firewall query exampleExample queries for Cloudflare Network Firewall Obtain analytics for a specific rule Obtain IDS analytics
+OverviewObtain Cloudflare Account ID Obtain your Cloudflare Account ID Obtain the rule ID for a firewall ruleExplore GraphQL schema with Cloudflare Network Firewall query exampleExample queries for Cloudflare Network Firewall Obtain analytics for a specific rule Obtain IDS analytics Obtain rate limiting analytics
 
 Use the GraphQL Analytics API to review data for Cloudflare Network Firewall (formerly Magic Firewall) network traffic related to rules matching your traffic. This contains both rules you configured in the Network Firewall dashboard, and the rules managed by Cloudflare as a part of [Network Firewall Managed rules](https://developers.cloudflare.com/cloudflare-network-firewall/how-to/enable-managed-rulesets/) and [Network Firewall IDS](https://developers.cloudflare.com/cloudflare-network-firewall/about/ids/) features.
 
 Before you begin, you must have an [API token](https://developers.cloudflare.com/analytics/graphql-api/getting-started/authentication/). For additional help getting started with GraphQL Analytics, refer to [GraphQL Analytics API](https://developers.cloudflare.com/analytics/graphql-api/).
+
+For GraphQL nodes by ruleset phase, refer to [Network Firewall analytics](https://developers.cloudflare.com/cloudflare-network-firewall/about/analytics/#graphql-nodes-by-phase).
 
 ## Obtain Cloudflare Account ID
 
@@ -128,7 +130,7 @@ For each stream, display the:
 
 Use the example below to display the total number of packets and bits for the top 10 traffic streams that Network Firewall IDS has detected in the last hour.
 
-By setting `verdict` to `drop` and `outcome` as `pass`, we are filtering for traffic that was marked as a detection (i.e. verdict was drop) but was not dropped (for example, outcome was `pass`). This is because currently, Network Firewall IDS only detects malicious traffic but does not drop the traffic.
+By setting `verdict` to `drop` and `outcome` as `pass`, we are filtering for traffic that was marked as a detection (that is, verdict was drop) but was not dropped (for example, outcome was `pass`). This is because currently, Network Firewall IDS only detects malicious traffic but does not drop the traffic.
 
 For each stream, display the:
 
@@ -146,8 +148,8 @@ For each stream, display the:
     				filter: {
     					datetime_geq: $start
     					datetime_leq: $end
-    					verdict: drop
-    					outcome: pass
+    					verdict: "drop"
+    					outcome: "pass"
     				}
     				limit: 10
     				orderBy: [avg_packetRateFiveMinutes_DESC]
@@ -186,6 +188,41 @@ Alternatively, to inspect all traffic that was analyzed, but grouped into malici
     					ipDestinationAddress
     					ipSourceAddress
     					verdict
+    				}
+    			}
+    		}
+    	}
+    }
+
+### Obtain rate limiting analytics
+
+Note
+
+For Cloudflare Advanced Network Firewall customers, rate limiting (beta) is available by request through the account team.
+
+Use this query to estimate packets that pass rate limiting per data center. It uses default samples to avoid double counting and returns up to 10 data centers, ordered by packet count.
+
+In GraphiQL, provide your account ID as `accountTag` and the time range as `start` and `end` in the query variables.
+    
+    
+    query MagicFirewallRateLimit($accountTag: string!, $start: Time, $end: Time) {
+    	viewer {
+    		accounts(filter: { accountTag: $accountTag }) {
+    			magicFirewallRateLimitNetworkAnalyticsAdaptiveGroups(
+    				filter: {
+    					datetime_geq: $start
+    					datetime_leq: $end
+    					outcome: "pass"
+    					ruleId: ""
+    				}
+    				limit: 10
+    				orderBy: [sum_packets_DESC]
+    			) {
+    				sum {
+    					packets
+    				}
+    				dimensions {
+    					coloName
     				}
     			}
     		}

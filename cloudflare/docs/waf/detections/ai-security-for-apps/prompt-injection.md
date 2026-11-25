@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/detections/ai-security-for-apps/prompt-injection/
 title: Prompt injection detection \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:40.389832+00:00
+fetched_at: 2026-11-25T10:59:50.648764+00:00
 ---
 
 # Prompt injection detection · Cloudflare Web Application Firewall (WAF) docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:16:40.389832+00:00
 
 # Prompt injection detection
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/prompt-injection/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewScoring system Why a score instead of a boolean?Example rules Block high-confidence prompt injection attempts Challenge moderate-risk prompts instead of blockingThreshold tuning
 
@@ -119,14 +119,14 @@ This targets prompts that look like injection attempts and are also trying to ex
 To find the right threshold for your traffic:
 
   1. Start with a _Log_ action at a moderate threshold (for example, less than `40`).
-  2. Review the logged events in [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/) — examine the prompts that triggered the rule and their scores.
+  2. Review the logged events in [Security Analytics](https://developers.cloudflare.com/waf/analytics/security-analytics/) — examine the scores and, if payload logging is configured, the prompts that triggered the rule.
   3. If you find false positives (legitimate prompts being flagged), lower the threshold (for example, less than `25`).
   4. If you find attacks getting through, raise the threshold (for example, less than `50`).
   5. Once confident, change the action to _Block_.
 
 
 
-You can also use [log mode](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/log-mode-vs-production-mode/#log-mode) with payload logging during this tuning phase to see the actual prompt content alongside scores.
+To view the prompt content alongside scores, [configure payload logging for matching custom rules](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/get-started/#7-optional-log-prompts-for-matching-rules) during threshold tuning.
 
 [PreviousUnsafe and custom topic detection](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/unsafe-topics/)[NextToken counting](https://developers.cloudflare.com/waf/detections/ai-security-for-apps/token-counting/)
 

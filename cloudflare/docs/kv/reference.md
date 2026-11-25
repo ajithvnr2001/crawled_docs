@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/reference/
 title: Reference \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:41.566952+00:00
+fetched_at: 2026-11-25T10:59:49.870064+00:00
 ---
 
 # Reference · Cloudflare Workers KV docs
@@ -10,16 +10,17 @@ fetched_at: 2026-10-08T07:11:41.566952+00:00
 > Source: https://developers.cloudflare.com/kv/reference/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Kv](https://developers.cloudflare.com/kv/)
-  3. /Reference
+  2. /[KV](https://developers.cloudflare.com/kv/)
+  3. /[KV](https://developers.cloudflare.com/kv/)
+  4. /Reference
 
 
 
 # Reference
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-  * [Wrangler KV commands](https://developers.cloudflare.com/kv/reference/kv-commands/)
+  * [KV CLI commands](https://developers.cloudflare.com/kv/reference/kv-commands/)
   * [Environments](https://developers.cloudflare.com/kv/reference/environments/)
   * [Data location](https://developers.cloudflare.com/kv/reference/data-location/)
   * [Data security](https://developers.cloudflare.com/kv/reference/data-security/)

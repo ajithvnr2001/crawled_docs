@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/api/list-keys/
 title: List keys \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:39.799041+00:00
+fetched_at: 2026-11-25T10:59:50.453663+00:00
 ---
 
 # List keys · Cloudflare Workers KV docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:39.799041+00:00
 
 # List keys
 
-Last updated Jun 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/api/list-keys/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReference list() methodGuidance List by prefix Ordering Pagination Optimizing storage with metadata for list() operationsOther methods to access KV
 
@@ -204,7 +204,7 @@ Consider storing your values in metadata if your values fit in the [metadata-siz
 
 ## Other methods to access KV
 
-You can also [list keys on the command line with Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-namespace-list) or [with the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/list/).
+You can also [list keys on the command line with the Cloudflare CLI (`cf`) or Wrangler](https://developers.cloudflare.com/kv/reference/kv-commands/#kv-key-list) or [with the REST API](https://developers.cloudflare.com/api/resources/kv/subresources/namespaces/subresources/keys/methods/list/).
 
 [PreviousDelete key-value pairs](https://developers.cloudflare.com/kv/api/delete-key-value-pairs/)[NextStore and retrieve static assets](https://developers.cloudflare.com/kv/examples/workers-kv-to-serve-assets/)
 

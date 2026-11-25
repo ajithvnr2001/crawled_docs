@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/configuration/send-bindings/
 title: Send bindings \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:30.767042+00:00
+fetched_at: 2026-11-25T10:59:49.391971+00:00
 ---
 
 # Send bindings · Cloudflare Email Service docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:30.767042+00:00
 
 # Send bindings
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBinding typesNext steps
 
@@ -28,7 +28,7 @@ When you add a `send_email` binding to a Worker, you can restrict its sender and
 
 Each `send_email` entry supports a different restriction choice. The sender address must belong to an onboarded Email Service domain.
 
-  * **No restriction attribute** : The binding can send to any recipient once you onboard a sending domain. Before that, it can only send to [verified destination addresses](https://developers.cloudflare.com/email-service/configuration/email-routing-addresses/#destination-addresses) in your account. Refer to [Limits](https://developers.cloudflare.com/email-service/platform/limits/#verified-destination-addresses).
+  * **No restriction attribute** : The binding can send to any recipient.
   * **`destination_address`** : The binding can only send to the single destination address configured here. If you call `send()` with a raw [`EmailMessage`](https://developers.cloudflare.com/email-service/api/send-emails/workers-api/#legacy-emailmessage-api) whose recipient is empty, the configured address is used. A structured `send()` call must still set `to`, `cc`, or `bcc`.
   * **`allowed_destination_addresses`** : The binding can only send to addresses listed in this allowlist.
   * **`allowed_sender_addresses`** : The binding can only send from the addresses listed in this allowlist.
@@ -40,7 +40,7 @@ A send to a recipient outside `destination_address` or `allowed_destination_addr
     
     {
     	"send_email": [
-    		// Send to any recipient
+    		// No restriction
     		{ "name": "EMAIL" },
     		// Send only to a single fixed destination
     		{

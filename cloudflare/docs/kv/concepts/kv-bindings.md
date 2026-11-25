@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/kv/concepts/kv-bindings/
 title: KV bindings \u00b7 Cloudflare Workers KV docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:40.143680+00:00
+fetched_at: 2026-11-25T10:59:50.268398+00:00
 ---
 
 # KV bindings · Cloudflare Workers KV docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-08T07:11:40.143680+00:00
 
 # KV bindings
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/kv/concepts/kv-bindings/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccess KV from WorkersUse KV bindings when developing locallyAccess KV from Durable Objects and Workers using ES modules format
 
 KV [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) allow for communication between a Worker and a KV namespace.
 
-Configure KV bindings in the [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/).
+Configure KV bindings in your Worker configuration file ([`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/) or your [Wrangler configuration file](https://developers.cloudflare.com/workers/wrangler/configuration/)).
 
 ## Access KV from Workers
 
@@ -38,7 +38,31 @@ A KV namespace will have a name you choose (for example, `My tasks`), and an ass
 
 To execute your Worker, define the binding.
 
-In the following example, the binding is called `TODO`. In the `kv_namespaces` portion of your Wrangler configuration file, add:
+In the following example, the binding is called `TODO`. Add the KV binding to your Worker configuration file:
+
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
+
+Cloudflare CLI
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+    worker: {
+    	name: "worker",
+    	entrypoint,
+    	// Set this to today's date
+    	compatibilityDate: "2026-11-25",
+    	env: {
+    		TODO: bindings.kv({ id: "06779da6940b431db6e566b4846d64db" }),
+    	},
+    },
+    });
+
+Wrangler
     
     
     {
@@ -77,9 +101,39 @@ With this, the deployed Worker will have a `TODO` field in their environment obj
 
 ## Use KV bindings when developing locally
 
-When you use Wrangler to develop locally with the `wrangler dev` command, Wrangler will default to using a local version of KV to avoid interfering with any of your live production data in KV. This means that reading keys that you have not written locally will return `null`.
+The following content appears twice: first for the Cloudflare CLI (`cf`), then for Wrangler. Use `cf` for new projects. In an existing project, use the CLI that the project already uses.
 
-To have `wrangler dev` connect to your Workers KV namespace running on Cloudflare's global network, set `"remote" : true` in the KV binding configuration. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) for more information.
+Cloudflare CLI
+
+When you use the [Cloudflare CLI (`cf`)](https://developers.cloudflare.com/cf/) to develop locally with `cf dev`, `cf` defaults to using a local simulation of KV to avoid interfering with any of your live production data. This means that reading keys that you have not written locally returns `null`.
+
+To have `cf dev` connect to your Workers KV namespace running on Cloudflare's global network, set `dev: { remote: true }` on your KV binding in `cloudflare.config.ts`. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) for more information.
+
+cloudflare.config.tsts
+    
+    
+    import { bindings, defineConfig } from "cf/config";
+    import * as entrypoint from "./src/index.ts" with { type: "cf-worker" };
+    
+    export default defineConfig({
+    	worker: {
+    		name: "worker",
+    		entrypoint,
+    		compatibilityDate: "<COMPATIBILITY_DATE>",
+    		env: {
+    			TODO: bindings.kv({
+    				id: "06779da6940b431db6e566b4846d64db",
+    				dev: { remote: true },
+    			}),
+    		},
+    	},
+    });
+
+Wrangler
+
+When you use Wrangler to develop locally with the `wrangler dev` command, Wrangler defaults to using a local version of KV to avoid interfering with any of your live production data in KV. This means that reading keys that you have not written locally returns `null`.
+
+To have `wrangler dev` connect to your Workers KV namespace running on Cloudflare's global network, set `"remote": true` in the KV binding configuration. Refer to the [remote bindings documentation](https://developers.cloudflare.com/workers/local-development/#remote-bindings) for more information.
     
     
     {
@@ -89,7 +143,8 @@ To have `wrangler dev` connect to your Workers KV namespace running on Cloudflar
     	"kv_namespaces": [
     		{
     			"binding": "TODO",
-    			"id": "06779da6940b431db6e566b4846d64db"
+    			"id": "06779da6940b431db6e566b4846d64db",
+    			"remote": true
     		}
     	]
     }
@@ -101,6 +156,7 @@ To have `wrangler dev` connect to your Workers KV namespace running on Cloudflar
     [[kv_namespaces]]
     binding = "TODO"
     id = "06779da6940b431db6e566b4846d64db"
+    remote = true
 
 ## Access KV from Durable Objects and Workers using ES modules format
 

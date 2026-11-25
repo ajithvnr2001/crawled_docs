@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/polish/no-webp/
 title: WebP may be skipped \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:36.370626+00:00
+fetched_at: 2026-11-25T10:59:49.134766+00:00
 ---
 
 # WebP may be skipped · Cloudflare Images docs
@@ -18,19 +18,19 @@ fetched_at: 2026-10-08T07:11:36.370626+00:00
 
 # WebP may be skipped
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/polish/no-webp/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIn the lossless mode, it is not feasible to convert JPEG to WebPLow-quality JPEG images do not convert well to WebPFor some images conversion to WebP can degrade quality too muchSometimes older formats are better than WebPBeware of compression that is not better, only more of the same
 
 Polish avoids converting images to the WebP format when such conversion would increase the file size, or significantly degrade image quality. Polish also optimizes JPEG images, and the WebP format is not always better than a well-optimized JPEG.
 
-To enhance the use of WebP in Polish, enable the [Lossy option](https://developers.cloudflare.com/images/polish/compression/#lossy). When you create new JPEG images, save them with a slightly higher quality than usually necessary. We recommend JPEG quality settings between 85 and 95, but not higher. This gives Polish enough headroom for lossy conversion to WebP and optimized JPEG.
+To enhance the use of WebP in Polish, enable the [Lossy option](https://developers.cloudflare.com/images/polish/configure-polish/#lossy). When you create new JPEG images, save them with a slightly higher quality than usually necessary. We recommend JPEG quality settings between 85 and 95, but not higher. This gives Polish enough headroom for lossy conversion to WebP and optimized JPEG.
 
 ## In the **lossless** mode, it is not feasible to convert JPEG to WebP
 
 WebP is actually a name for two quite different image formats: WebP-lossless (similar to PNG) and WebP-VP8 (similar to JPEG).
 
-When the [Lossless option](https://developers.cloudflare.com/images/polish/compression/#lossless) is enabled, Polish will not perform any optimizations that change image pixels. This allows Polish to convert only between lossless image formats, such as PNG, GIF, and WebP-lossless. JPEG images will not be converted though, because the WebP-VP8 format does not support the conversion from JPEG without quality loss, and the WebP-lossless format does not compress images as heavily as JPEG.
+When the [Lossless option](https://developers.cloudflare.com/images/polish/configure-polish/#lossless) is enabled, Polish will not perform any optimizations that change image pixels. This allows Polish to convert only between lossless image formats, such as PNG, GIF, and WebP-lossless. JPEG images will not be converted though, because the WebP-VP8 format does not support the conversion from JPEG without quality loss, and the WebP-lossless format does not compress images as heavily as JPEG.
 
 In the lossless mode, Polish can still apply lossless optimizations to JPEG images. This is a unique feature of the JPEG format that does not have an equivalent in WebP.
 
@@ -64,7 +64,7 @@ Avoid applying multiple lossy optimization tools to images, before or after Poli
 
 For this reason Polish will not create the smallest possible file sizes. Instead, Polish aims to maximize the quality to file size ratio, to create the smallest possible files while preserving good quality. The quality level we stop at is carefully chosen to minimize visual distortion, while still having a high compression ratio.
 
-[PreviousCf-Polished statuses](https://developers.cloudflare.com/images/polish/cf-polished-statuses/)[NextTroubleshooting](https://developers.cloudflare.com/images/reference/troubleshooting/)
+[PreviousAVIF may be skipped](https://developers.cloudflare.com/images/polish/no-avif/)[NextTroubleshooting](https://developers.cloudflare.com/images/reference/troubleshooting/)
 
 Was this helpful?
 
