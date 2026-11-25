@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/tutorials/partner-nodes/elevenlabs/overview/
-title: Texto a voz, voz a texto, efectos de sonido y herramientas de voz de ElevenLabs - ComfyUI
+title: ElevenLabs en ComfyUI: voz, herramientas de voz y efectos de sonido - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:48.238941+00:00
+fetched_at: 2026-11-25T17:52:27.397495+00:00
 ---
 
-# Texto a voz, voz a texto, efectos de sonido y herramientas de voz de ElevenLabs - ComfyUI
+# ElevenLabs en ComfyUI: voz, herramientas de voz y efectos de sonido - ComfyUI
 
 > Source: https://docs.comfy.org/es/tutorials/partner-nodes/elevenlabs/overview/
 
@@ -20,7 +20,7 @@ Volver arriba
 
 ElevenLabs
 
-# Texto a voz, voz a texto, efectos de sonido y herramientas de voz de ElevenLabs
+# ElevenLabs en ComfyUI: voz, herramientas de voz y efectos de sonido
 
 Copiar páginaCopiar página
 
@@ -30,11 +30,7 @@ Copiar páginaCopiar página
 
 ElevenLabs lleva a ComfyUI IA de voz de primer nivel: texto a voz, voz a texto, efectos de sonido, aislamiento de voz y transformación de voz. Sus modelos **Eleven v3** y **Multilingual v2** ofrecen voz con gran expresividad emocional en 29 idiomas, mientras que **Scribe v2** proporciona transcripción rápida y precisa con diarización de hablantes y detección de entidades.
 
-## 
-
-​
-
-Capacidades principales
+## Capacidades principales
 
   * **Text to Speech** : genera audio realista a partir de texto con tres niveles de modelo (Eleven v3, Multilingual v2, Flash v2.5)
   * **Speech to Speech** : transforma un clip de audio de origen a otra voz manteniendo la entonación y el ritmo originales
@@ -70,11 +66,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Modelos
+## Modelos
 
 ElevenLabs ofrece una suite de modelos de IA de voz especializados, cada uno optimizado para una tarea distinta. Desde la generación de voz de alta fidelidad hasta la transcripción en tiempo real y la edición de audio, los siguientes modelos están disponibles como nodos basados en flujos de trabajo en ComfyUI.
 
@@ -108,4 +100,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/elevenlabs/overview.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/elevenlabs/overview)
 
-[Descripción general](https://docs.comfy.org/es/tutorials/partner-nodes/audio/overview)[Eleven Multilingual v2 / v3](https://docs.comfy.org/es/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)
+[Breeze TTS 2](https://docs.comfy.org/es/tutorials/partner-nodes/breeze/breeze-tts-2)[ElevenLabs TTS](https://docs.comfy.org/es/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)

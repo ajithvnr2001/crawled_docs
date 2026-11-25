@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/upscale-an-image-with-magnific/
 title: Upscale an image with Magnific - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:33.611853+00:00
+fetched_at: 2026-11-25T17:52:31.794822+00:00
 ---
 
 # Upscale an image with Magnific - ComfyUI

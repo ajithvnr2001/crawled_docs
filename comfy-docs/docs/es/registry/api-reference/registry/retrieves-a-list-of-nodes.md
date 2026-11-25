@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/registry/retrieves-a-list-of-nodes/
 title: Retrieves a list of nodes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:38.732864+00:00
+fetched_at: 2026-11-25T17:52:32.758574+00:00
 ---
 
 # Retrieves a list of nodes - ComfyUI

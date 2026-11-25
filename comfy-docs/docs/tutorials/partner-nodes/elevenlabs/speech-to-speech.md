@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/speech-to-speech/
 title: ElevenLabs Speech to Speech - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.653124+00:00
+fetched_at: 2026-11-25T17:52:27.438025+00:00
 ---
 
 # ElevenLabs Speech to Speech - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:49.653124+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/speech-to-speech/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 Take an existing audio recording and transform it into a different voice or style while preserving the spoken content and delivery. Speech to Speech retains the original intonation, pacing, and emotional delivery while applying a new voice identity.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Preserve delivery** — Retain original intonation, pacing, and emotional expression
   * **Voice transformation** — Apply a different voice identity to existing audio
@@ -65,11 +63,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Run on Cloud
 

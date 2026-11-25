@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:30.774363+00:00
+fetched_at: 2026-11-25T17:52:25.382143+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -59,6 +59,7 @@ Back to top
     * RouterQueueSubmitFields
     * RouterQueueSubmitResponse
     * RouterQueueUrls
+    * RouterSpendBudgetDetail
     * RouterValidationErrorContext
     * RouterValidationErrorDetail
     * RouterValidationErrorInput
@@ -278,7 +279,7 @@ OK - without `model_provider`, or with `model_provider` and `strict_mode=false` 
 
 RouterQueueSubmitResponse
 
-Accepted - the run was handed to the queue instead of being run on this connection.Body: `RouterQueueSubmitResponse` — Headers: `X-Comfy-Request-Id`, `Idempotent-Replayed`, `X-Comfy-Router-Dropped-Params`, `Preference-Applied`
+Accepted - the run was handed to the queue instead of being run on this connection.Body: `RouterQueueSubmitResponse` — Headers: `X-Comfy-Request-Id`, `Idempotent-Replayed`, `X-Comfy-Router-Dropped-Params`, `X-Comfy-Router-Provider`, `Preference-Applied`
 
 400
 
@@ -909,6 +910,7 @@ Raised for a request Router accepted and then could not complete.
 `provider_error`| The partner provider reported a failure of its own, or returned a response Router could not interpret as a result.  
 `provider_timeout`| The partner provider did not answer within its deadline.  
 `insufficient_credits`| The calling workspace does not have enough credits to run the model.  
+`budget_exceeded`| A hard spend cap has been reached.  
 `model_not_found`| The `{provider}/{model}` ID names no model Router can run: an unknown provider, an unenrolled id, one the catalog has retired past its sunset date, or a catalogued ID the provider does not currently serve for Comfy.  
 `byok_credential_rejected`| The provider rejected the key supplied for this call.  
   
@@ -918,6 +920,7 @@ Raised by Router itself, before or around the call to the model.
 
 `error_type`| Meaning  
 ---|---  
+`budget_check_unavailable`| A hard spend cap could not be checked.  
 `unauthorized`| The request carried no usable credential.  
 `forbidden`| The credential is valid but is not entitled to this model or this operation.  
 `concurrency_limit_exceeded`| The workspace already has as many calls in flight as it is allowed; retry once one of them finishes.  
@@ -1295,7 +1298,7 @@ RouterErrorType
 
 required
 
-Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty-one values: the six request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`, plus the request-level `byok_credential_rejected`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
+Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty-three values: the seven request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits`, `budget_exceeded` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `budget_check_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`, plus the request-level `byok_credential_rejected`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
 
 upstream_detail
 
@@ -1308,6 +1311,18 @@ refusal_subject
 string
 
 Which input or output a content-policy refusal was about, as a Router-level closed vocabulary: `input`, `output`, `input_text`, `input_image`, `input_video`, `input_audio`, `output_text`, `output_image`, `output_video`, `output_audio`. The bare `input` / `output` values name the side when the provider did not name a modality. Present only when `error_type` is `content_policy_violation` and the provider named the refused subject with a machine-readable code; absent otherwise. Never provider text. Named today for BytePlus, Runway, BFL, Gemini, Veo, Vertex, xAI and Wan refusals, and for the MiniMax Router’s Nano Banana legs’ Gemini refusals; a provider whose refusal does not say which side it was about leaves it absent. It mirrors the `X-Comfy-Refusal-Subject` header.
+
+budget
+
+RouterSpendBudgetDetail
+
+The exhausted budget. Identifiers, mode and amounts are visible to workspace Owners.Type: `RouterSpendBudgetDetail`
+
+blocking_budgets
+
+array of RouterSpendBudgetDetail
+
+All exhausted hard budgets, visible to the workspace Owner.Type: array of `RouterSpendBudgetDetail`
 
 denied_reason
 
@@ -1662,6 +1677,66 @@ string
 required
 
 Absolute URL a cancellation is asked for at.URI
+
+### RouterSpendBudgetDetail
+
+The exhausted budget. Identifiers, mode and amounts are visible to workspace Owners. **Fields**
+
+scope_kind
+
+string
+
+required
+
+resets_at
+
+string
+
+required
+
+date-time
+
+set_by
+
+string
+
+required
+
+id
+
+string
+
+scope_id
+
+string
+
+mode
+
+string
+
+limit_micro_usd
+
+integer
+
+int64
+
+spent_micro_usd
+
+integer
+
+int64
+
+limit_credits
+
+integer
+
+int64
+
+spent_credits
+
+integer
+
+int64
 
 ### RouterValidationErrorContext
 

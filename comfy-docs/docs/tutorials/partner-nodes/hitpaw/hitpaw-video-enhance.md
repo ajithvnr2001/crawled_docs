@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance/
 title: HitPaw Video Enhance in ComfyUI: AI Upscaling and Denoising - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:56.217442+00:00
+fetched_at: 2026-11-25T17:52:27.297554+00:00
 ---
 
 # HitPaw Video Enhance in ComfyUI: AI Upscaling and Denoising - ComfyUI
@@ -80,4 +80,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/hitpaw/hitpaw-video-enhance)
 
-[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Kling 4.0](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-4-0)
+[HitPaw](https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview)[Kling Image 4.0](https://docs.comfy.org/tutorials/partner-nodes/kling/kling-image-4-0)

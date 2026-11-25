@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/interface/appearance/
 title: ComfyUI Appearance: Themes and Custom CSS - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:46.337578+00:00
+fetched_at: 2026-11-25T17:52:25.714971+00:00
 ---
 
 # ComfyUI Appearance: Themes and Custom CSS - ComfyUI
@@ -14,6 +14,7 @@ fetched_at: 2026-11-08T14:09:46.337578+00:00
 Back to top
 
   * Color Palette System
+    * Built-in themes
     * How to Customize Color Themes
   * Canvas
     * Background Image
@@ -53,11 +54,7 @@ The settings described on this page are located in the **ComfyUI in-app settings
 
 ComfyUI offers flexible appearance customization options that allow you to personalize the interface to your preferences.
 
-## 
-
-​
-
-Color Palette System
+## Color Palette System
 
 The primary way to customize ComfyUI’s appearance is through the built-in color palette system. ![Color Palette](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/color-palette.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=206dbb5bcf19ba1923bd722e20ba868e) This allows you to:
 
@@ -70,11 +67,23 @@ The primary way to customize ComfyUI’s appearance is through the built-in colo
 
 For appearance needs that cannot be satisfied by the color palette, you can perform advanced appearance customization through the user.css file
 
-### 
+### Built-in themes
 
-​
+The theme selector lists every installed theme. ComfyUI ships with nine:
 
-How to Customize Color Themes
+  * **Dark** : the default theme
+  * **Light**
+  * **Classic**
+  * **Solarized**
+  * **Arc**
+  * **Nord**
+  * **Github**
+  * **Fennec Girl**
+  * **Morning Class** : walnut chrome, green chalkboard nodes, and chalk-colored links
+
+Any built-in theme can be exported as JSON and used as the starting point for a custom theme.
+
+### How to Customize Color Themes
 
 The color palette allows you to modify many specific properties. Here are some of the most commonly customized elements, with colors represented in hexadecimal format:
 
@@ -158,34 +167,18 @@ The color palette allows you to modify many specific properties. Here are some o
     }
     
 
-## 
+## Canvas
 
-​
-
-Canvas
-
-### 
-
-​
-
-Background Image
+### Background Image
 
   * **Requirements** : ComfyUI frontend version 1.20.5 or newer
   * **Function** : Set a custom background image for the canvas to provide a more personalized workspace. You can upload images or use web images to set the background for the canvas.
 
 ![Set Background Image](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/set-as-bg.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=f393d494dfdc8b7b84997d58735d2f86)
 
-## 
+## General
 
-​
-
-General
-
-### 
-
-​
-
-Tab Bar Layout
+### Tab Bar Layout
 
   * **Default Value** : Default
   * **Options** : Default, Legacy
@@ -193,44 +186,24 @@ Tab Bar Layout
 
 
 
-### 
-
-​
-
-Disable animations
+### Disable animations
 
   * **Default Value** : Follows the reduced motion setting of your operating system
   * **Function** : Turns off most CSS animations and transitions in the interface. This can also speed up inference when the display GPU is also used for generation.
 
 
 
-## 
+## Node
 
-​
-
-Node
-
-### 
-
-​
-
-Node Opacity
+### Node Opacity
 
   * **Function** : Set the opacity of nodes, where 0 represents completely transparent and 1 represents completely opaque.
 
 ![Node Opacity](https://mintcdn.com/dripart/EeFKEryMLH5667kk/images/interface/setting/appearance/node-opacity.jpg?fit=max&auto=format&n=EeFKEryMLH5667kk&q=85&s=3e19ea90315d2111d63bafcb830c9959)
 
-## 
+## Node Widget
 
-​
-
-Node Widget
-
-### 
-
-​
-
-Textarea Widget Font Size
+### Textarea Widget Font Size
 
   * **Default Value** : 10
   * **Range** : 8 - 24
@@ -238,48 +211,28 @@ Textarea Widget Font Size
 
 ![Textarea Widget Font Size](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/appearance/textarea-font-size.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=3ccfe4281cdf094edda96d3384210c1c)
 
-## 
+## Sidebar
 
-​
-
-Sidebar
-
-### 
-
-​
-
-Unified Sidebar Width
+### Unified Sidebar Width
 
   * **Default Value** : Enabled
   * **Function** : When enabled, the sidebar width will be unified to a consistent width when switching between different sidebars. If disabled, different sidebars can maintain their custom widths when switching.
 
 
 
-### 
-
-​
-
-Sidebar Size
+### Sidebar Size
 
   * **Function** : Control the size of the sidebar, can be set to normal or small.
 
 
 
-### 
-
-​
-
-Sidebar Location
+### Sidebar Location
 
   * **Function** : Control whether the sidebar is displayed on the left or right side of the interface, allowing users to adjust the sidebar position according to their usage habits.
 
 
 
-### 
-
-​
-
-Sidebar Style
+### Sidebar Style
 
   * **Function** : Control the visual style of the sidebar. Options include: 
     * **Connected** : The sidebar appears connected to the edge of the interface.
@@ -287,46 +240,26 @@ Sidebar Style
 
 ![Sidebar Style](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/sidbar_style.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=b7721acb769d606bf9692c399200d1f6)
 
-## 
+## Tree Explorer
 
-​
-
-Tree Explorer
-
-### 
-
-​
-
-Tree Explorer Item Padding
+### Tree Explorer Item Padding
 
   * **Default Value** : 8
   * **Function** : Set the padding of items in the tree explorer (sidebar panel), adjusting the spacing between items in the tree structure.
 
 ![Tree Explorer Item Padding](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/padding.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=2e5f2411060f8524eddbeebc60afbaa8)
 
-## 
-
-​
-
-Advanced Customization with user.css
+## Advanced Customization with user.css
 
 For cases where the color palette doesn’t provide enough control, you can use custom CSS via a user.css file. This method is recommended for advanced users who need to customize elements that aren’t available in the color palette system.
 
-### 
-
-​
-
-Requirements
+### Requirements
 
   * ComfyUI frontend version 1.20.5 or newer
 
 
 
-### 
-
-​
-
-Setting Up user.css
+### Setting Up user.css
 
   1. Create a file named `user.css` in your ComfyUI user directory (same location as your workflows and settings - see location details below)
   2. Add your custom CSS rules to this file
@@ -334,11 +267,7 @@ Setting Up user.css
 
 
 
-### 
-
-​
-
-User Directory Location
+### User Directory Location
 
 The ComfyUI user directory is where your personal settings, workflows, and customizations are stored. The location depends on your installation type:
 
@@ -389,11 +318,7 @@ ComfyUI supports multiple users per installation. If you haven’t configured a 
 
 This location contains your workflows, settings, and other user-specific files. After finding the above folder location, please copy the corresponding CSS file to the corresponding user directory, such as the default user folder being `ComfyUI/user/default`, then restart ComfyUI or refresh the page to apply changes.
 
-### 
-
-​
-
-user.css Examples and Related Instructions
+### user.css Examples and Related Instructions
 
 The `user.css` file is loaded early in the application startup process. So you may need to use `!important` in your CSS rules to ensure they override the default styles. **user.css Customization Examples**
     

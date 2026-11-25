@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/hitpaw-image-enhance/
 title: HitPaw Image Enhance in ComfyUI: AI Upscaling and Restoration - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-15T14:35:55.973233+00:00
+fetched_at: 2026-11-25T17:52:27.582423+00:00
 ---
 
 # HitPaw Image Enhance in ComfyUI: AI Upscaling and Restoration - ComfyUI

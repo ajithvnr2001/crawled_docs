@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/comfy-router/read-the-queue-state-of-one-submitted-request/
 title: Read the queue state of one submitted request. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:39.259793+00:00
+fetched_at: 2026-11-25T17:52:27.659566+00:00
 ---
 
 # Read the queue state of one submitted request. - ComfyUI
@@ -148,20 +148,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -178,20 +189,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -208,20 +230,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -237,6 +270,155 @@ default
         "type": "<string>",
         "id": "<string>",
         "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -425,20 +607,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -455,20 +648,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -485,20 +689,31 @@ default
         "id": "<string>",
         "rail": "<string>"
       },
-      "credential_kind": "<string>",
-      "denied_reason": "<string>",
-      "refusal_subject": "<string>",
-      "upstream_detail": "<string>"
-    }
-    
-    
-    {
-      "detail": "<string>",
-      "error_type": "invalid_input",
-      "billed_workspace": {
-        "type": "<string>",
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
         "id": "<string>",
-        "rail": "<string>"
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",
@@ -514,6 +729,155 @@ default
         "type": "<string>",
         "id": "<string>",
         "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
+      },
+      "credential_kind": "<string>",
+      "denied_reason": "<string>",
+      "refusal_subject": "<string>",
+      "upstream_detail": "<string>"
+    }
+    
+    
+    {
+      "detail": "<string>",
+      "error_type": "invalid_input",
+      "billed_workspace": {
+        "type": "<string>",
+        "id": "<string>",
+        "rail": "<string>"
+      },
+      "blocking_budgets": [
+        {
+          "resets_at": "2023-11-07T05:31:56Z",
+          "scope_kind": "<string>",
+          "set_by": "<string>",
+          "id": "<string>",
+          "limit_credits": 123,
+          "limit_micro_usd": 123,
+          "mode": "<string>",
+          "scope_id": "<string>",
+          "spent_credits": 123,
+          "spent_micro_usd": 123
+        }
+      ],
+      "budget": {
+        "resets_at": "2023-11-07T05:31:56Z",
+        "scope_kind": "<string>",
+        "set_by": "<string>",
+        "id": "<string>",
+        "limit_credits": 123,
+        "limit_micro_usd": 123,
+        "mode": "<string>",
+        "scope_id": "<string>",
+        "spent_credits": 123,
+        "spent_micro_usd": 123
       },
       "credential_kind": "<string>",
       "denied_reason": "<string>",

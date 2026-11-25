@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/minimax/minimax-h3-image/
 title: MiniMax-H3-Image: 16 MP text to image and image editing in ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:07:57.395754+00:00
+fetched_at: 2026-11-25T17:52:25.442356+00:00
 ---
 
 # MiniMax-H3-Image: 16 MP text to image and image editing in ComfyUI - ComfyUI
@@ -17,6 +17,7 @@ Back to top
   * Templates
     * MiniMax-H3-Image Text to Image
     * MiniMax-H3-Image Image Edit
+    * MiniMax-H3-Image Character Swap
   * Model downloads
   * Sampling and canvas size
   * Reference images in image editing
@@ -47,7 +48,7 @@ Copy pageCopy page
 
 ## Key features
 
-  * **Text to image and editing in one checkpoint** : no separate edit model or adapter to load
+  * **Text to image and editing in one checkpoint** : no separate edit model to load
   * **6-step sampling** : guidance is fixed at 1, so there is no CFG pass and no negative prompt
   * **About 16 MP natively** : 4096 x 4096 up to 6272 x 2688 without an upscale pass
   * **Multiple references** : up to 16 input images, addressed as `<Picture 1>` upwards in the prompt
@@ -81,7 +82,7 @@ So, if you find any core node missing in this document, it might be because the 
 
 ## Templates
 
-Two template Workflows ship with the model. Both need ComfyUI **0.45.0+** and template pack **0.11.104+**.
+Three template Workflows ship with the model. All need ComfyUI **0.45.0+**. The text-to-image and image edit templates need template pack **0.11.104+** ; character swap needs **0.11.115+**.
 
 ### MiniMax-H3-Image Text to Image
 
@@ -105,9 +106,27 @@ Download JSON or search “MiniMax-H3-Image: Image Edit” in Template Library
 
 Source image the template edits
 
+### MiniMax-H3-Image Character Swap
+
+Replace the person in a photo with a character from a reference image. The template reads the photo as `<Picture 1>` and the character as `<Picture 2>`, keeps the pose, framing, and lighting of the shot, and carries over the reference character’s face, costume, and materials. It runs on the same checkpoint plus the character-swap adapter at strength 1.0. ![MiniMax-H3-Image character swap, source photo and swapped result](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_minimax_h3_image_character_swap-1.webp)
+
+## Download Workflow
+
+Download JSON or search “MiniMax-H3-Image: Character Swap” in Template Library
+
+Two things differ from the other templates. The source photo is scaled to 1 MP, 864 x 1152 with the example images, and that becomes the output size. There is also no prompt expander: the adapter was trained on short editing instructions, so write the instruction yourself and name the references, for example “Swap the person in `<Picture 1>` with the character in `<Picture 2>`, keep the scene, framing, and the target’s pose.” **Input materials** The template ships with a source photo and a reference character.
+
+## h3_char_swap_source.png
+
+Photo to edit, read as the first picture
+
+## h3_char_swap_reference.png
+
+Character to carry over, read as the second picture
+
 ## Model downloads
 
-Four files go under `ComfyUI/models`. All of them come from Comfy-Org mirror repositories.
+The text-to-image and image edit templates load these four files, all from Comfy-Org mirror repositories. The character-swap template skips the prompt expander and needs one more file, an adapter published by its author.
 
 ## Diffusion model: minimax_h3_image_pruned_int8_convrot.safetensors
 
@@ -119,11 +138,15 @@ Qwen3-VL-32B, INT8, 25.28 GB. Place in `ComfyUI/models/text_encoders/`
 
 ## Prompt expander: qwen3.5_9b_w4a8_gptq.safetensors
 
-Qwen3.5 9B W4A8, 7.34 GB. Place in `ComfyUI/models/text_encoders/`
+Qwen3.5 9B W4A8, 7.34 GB. Place in `ComfyUI/models/text_encoders/`. Text-to-image and image edit only
 
 ## VAE: minimax_h3_image_vae_fp16.safetensors
 
 Image VAE, FP16, 1.17 GB. Place in `ComfyUI/models/vae/`
+
+## Character swap adapter: h3_image_character_swap_v1.safetensors
+
+Rank-16 LoRA, 155 MB, from the adapter’s original repo. Place in `ComfyUI/models/loras/`
 
 **Model Storage Location**
     
@@ -132,6 +155,8 @@ Image VAE, FP16, 1.17 GB. Place in `ComfyUI/models/vae/`
     ├── 📂 models/
     │   ├── 📂 diffusion_models/
     │   │   └── minimax_h3_image_pruned_int8_convrot.safetensors
+    │   ├── 📂 loras/
+    │   │   └── h3_image_character_swap_v1.safetensors
     │   ├── 📂 text_encoders/
     │   │   ├── qwen3vl_32b_minimax_h3_int8_convrot.safetensors
     │   │   └── qwen3.5_9b_w4a8_gptq.safetensors
@@ -139,9 +164,11 @@ Image VAE, FP16, 1.17 GB. Place in `ComfyUI/models/vae/`
     │       └── minimax_h3_image_vae_fp16.safetensors
     
 
+The adapter is [akatz-ai/MiniMax-H3-Image-Character-Swap-LoRA](https://huggingface.co/akatz-ai/MiniMax-H3-Image-Character-Swap-LoRA), trained on 140 paired edits and evaluated on the INT8 checkpoint above. Adapter use follows the MiniMax H3 Image Community License Agreement.
+
 ## Sampling and canvas size
 
-Both templates ship the distilled schedule:
+Every template ships the distilled schedule:
 
 Setting| Value  
 ---|---  
@@ -172,7 +199,7 @@ The image editing template sends the source image to the model as `<Picture 1>`.
 
 ## Prompt expander
 
-Both templates hold a text generation step in front of the sampler. In the text-to-image template it rewrites the prompt into a detailed English caption. In the image editing template it turns a short instruction into a reference-aware description of the finished image. The official expander for MiniMax-H3-Image is a Qwen3.8-27B FP4 model, published as [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). The templates use a lighter Qwen3.5 9B W4A8 build instead, so the expander fits beside the 21 GB diffusion model on one GPU. Both templates ship with the expander switched on, so your prompt is rewritten before sampling. Switch it off to send your prompt to the model exactly as typed.
+The text-to-image and image editing templates hold a text generation step in front of the sampler. In the text-to-image template it rewrites the prompt into a detailed English caption. In the image editing template it turns a short instruction into a reference-aware description of the finished image. The official expander for MiniMax-H3-Image is a Qwen3.8-27B FP4 model, published as [MiniMaxAI/MiniMax-H3-Image-PE](https://huggingface.co/MiniMaxAI/MiniMax-H3-Image-PE). The templates use a lighter Qwen3.5 9B W4A8 build instead, so the expander fits beside the 21 GB diffusion model on one GPU. The text-to-image and image editing templates ship with the expander switched on, so your prompt is rewritten before sampling. Switch it off to send your prompt to the model exactly as typed.
 
 Was this page helpful?
 

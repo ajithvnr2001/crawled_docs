@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/overview/
-title: ElevenLabs Text-to-Speech, Speech-to-Text, Sound Effects & Voice Tools - ComfyUI
+title: ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:49.452629+00:00
+fetched_at: 2026-11-25T17:52:27.341756+00:00
 ---
 
-# ElevenLabs Text-to-Speech, Speech-to-Text, Sound Effects & Voice Tools - ComfyUI
+# ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,7 +20,7 @@ fetched_at: 2026-10-25T12:24:49.452629+00:00
 
 ElevenLabs
 
-# ElevenLabs Text-to-Speech, Speech-to-Text, Sound Effects & Voice Tools
+# ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects
 
 Copy pageCopy page
 
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 ElevenLabs brings world-class voice AI to ComfyUI, covering text-to-speech, speech-to-text, sound effects, voice isolation, and voice transformation. Its **Eleven v3** and **Multilingual v2** models deliver emotionally expressive speech across 29 languages, while **Scribe v2** provides fast, accurate transcription with speaker diarization and entity detection.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Text to Speech** — Generate lifelike audio from text with three model tiers (Eleven v3, Multilingual v2, Flash v2.5)
   * **Speech to Speech** — Transform a source audio clip into a different voice while keeping the original intonation and pacing
@@ -68,11 +66,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 ElevenLabs offers a suite of specialized voice AI models, each optimized for a distinct task. From high-fidelity speech generation to real-time transcription and audio editing, the following models are available as workflow-powered nodes in ComfyUI.
 
@@ -106,4 +100,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/elevenlabs/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/elevenlabs/overview)
 
-[Overview](https://docs.comfy.org/tutorials/partner-nodes/audio/overview)[Eleven Multilingual v2 / v3](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)
+[Breeze TTS 2](https://docs.comfy.org/tutorials/partner-nodes/breeze/breeze-tts-2)[ElevenLabs TTS](https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2)

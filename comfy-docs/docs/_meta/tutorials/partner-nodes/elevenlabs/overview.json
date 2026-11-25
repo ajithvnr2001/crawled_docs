@@ -1,7 +1,7 @@
 {
   "url": "https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/overview/",
   "file": "tutorials/partner-nodes/elevenlabs/overview.md",
-  "title": "ElevenLabs Text-to-Speech, Speech-to-Text, Sound Effects & Voice Tools - ComfyUI",
+  "title": "ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-25T12:24:49.452840+00:00"
+  "fetched_at": "2026-11-25T17:52:27.342103+00:00"
 }

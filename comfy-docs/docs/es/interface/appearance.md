@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/interface/appearance/
 title: Apariencia de ComfyUI: temas y CSS personalizado - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:44.360895+00:00
+fetched_at: 2026-11-25T17:52:25.576464+00:00
 ---
 
 # Apariencia de ComfyUI: temas y CSS personalizado - ComfyUI
@@ -14,6 +14,7 @@ fetched_at: 2026-11-08T14:09:44.360895+00:00
 Volver arriba
 
   * Sistema de paleta de colores
+    * Temas integrados
     * Cómo personalizar los temas de color
   * Lienzo
     * Imagen de fondo
@@ -53,11 +54,7 @@ Las configuraciones descritas en esta página se encuentran en el **menú de con
 
 ComfyUI ofrece opciones flexibles de personalización de la apariencia que te permiten adaptar la interfaz a tus preferencias.
 
-## 
-
-​
-
-Sistema de paleta de colores
+## Sistema de paleta de colores
 
 La forma principal de personalizar la apariencia de ComfyUI es el sistema de paleta de colores integrado. ![Paleta de colores](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/color-palette.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=206dbb5bcf19ba1923bd722e20ba868e) Esto te permite:
 
@@ -70,11 +67,23 @@ La forma principal de personalizar la apariencia de ComfyUI es el sistema de pal
 
 Si la paleta de colores no cubre lo que necesitas en materia de apariencia, puedes hacer una personalización avanzada mediante el archivo user.css
 
-### 
+### Temas integrados
 
-​
+El selector de temas muestra todos los temas instalados. ComfyUI incluye nueve:
 
-Cómo personalizar los temas de color
+  * **Dark** : el tema predeterminado
+  * **Light**
+  * **Classic**
+  * **Solarized**
+  * **Arc**
+  * **Nord**
+  * **Github**
+  * **Fennec Girl**
+  * **Morning Class** : marco de nogal, nodos de pizarra verde y enlaces color tiza
+
+Cualquier tema integrado se puede exportar como JSON y usar como punto de partida para un tema personalizado.
+
+### Cómo personalizar los temas de color
 
 La paleta de colores te permite modificar muchas propiedades concretas. Estos son algunos de los elementos que más se personalizan, con los colores representados en formato hexadecimal:
 
@@ -158,34 +167,18 @@ La paleta de colores te permite modificar muchas propiedades concretas. Estos so
     }
     
 
-## 
+## Lienzo
 
-​
-
-Lienzo
-
-### 
-
-​
-
-Imagen de fondo
+### Imagen de fondo
 
   * **Requisitos** : Versión del frontend de ComfyUI 1.20.5 o superior
   * **Función** : Establece una imagen de fondo personalizada para el lienzo y así ofrecer un espacio de trabajo más personalizado. Puedes subir imágenes o usar imágenes de la web para establecer el fondo del lienzo.
 
 ![Establecer imagen de fondo](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/setting/appearance/set-as-bg.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=f393d494dfdc8b7b84997d58735d2f86)
 
-## 
+## General
 
-​
-
-General
-
-### 
-
-​
-
-Diseño de barra de pestañas
+### Diseño de barra de pestañas
 
   * **Valor predeterminado** : Predeterminado
   * **Opciones** : Predeterminado, Clásico
@@ -193,44 +186,24 @@ Diseño de barra de pestañas
 
 
 
-### 
-
-​
-
-Desactivar animaciones
+### Desactivar animaciones
 
   * **Valor predeterminado** : sigue la configuración de movimiento reducido de tu sistema operativo
   * **Función** : desactiva la mayoría de las animaciones y transiciones CSS de la interfaz. También puede acelerar la inferencia cuando la GPU de visualización también se usa para la generación.
 
 
 
-## 
+## Nodo
 
-​
-
-Nodo
-
-### 
-
-​
-
-Opacidad del nodo
+### Opacidad del nodo
 
   * **Función** : Establece la opacidad de los nodos, donde 0 representa completamente transparente y 1 representa completamente opaco.
 
 ![Opacidad del nodo](https://mintcdn.com/dripart/EeFKEryMLH5667kk/images/interface/setting/appearance/node-opacity.jpg?fit=max&auto=format&n=EeFKEryMLH5667kk&q=85&s=3e19ea90315d2111d63bafcb830c9959)
 
-## 
+## Widget de nodo
 
-​
-
-Widget de nodo
-
-### 
-
-​
-
-Tamaño de fuente del widget de área de texto
+### Tamaño de fuente del widget de área de texto
 
   * **Valor predeterminado** : 10
   * **Rango** : 8 - 24
@@ -238,48 +211,28 @@ Tamaño de fuente del widget de área de texto
 
 ![Tamaño de fuente del widget de área de texto](https://mintcdn.com/dripart/kl0baiKht4v1pyjS/images/interface/setting/appearance/textarea-font-size.jpg?fit=max&auto=format&n=kl0baiKht4v1pyjS&q=85&s=3ccfe4281cdf094edda96d3384210c1c)
 
-## 
+## Barra lateral
 
-​
-
-Barra lateral
-
-### 
-
-​
-
-Ancho unificado de la barra lateral
+### Ancho unificado de la barra lateral
 
   * **Valor predeterminado** : Habilitado
   * **Función** : Cuando está habilitado, el ancho de la barra lateral se unifica a un ancho consistente al cambiar entre distintas barras laterales. Si está deshabilitado, las diferentes barras laterales conservan sus anchos personalizados al cambiar.
 
 
 
-### 
-
-​
-
-Tamaño de la barra lateral
+### Tamaño de la barra lateral
 
   * **Función** : Controla el tamaño de la barra lateral; se puede establecer en normal o pequeño.
 
 
 
-### 
-
-​
-
-Ubicación de la barra lateral
+### Ubicación de la barra lateral
 
   * **Función** : Controla si la barra lateral se muestra en el lado izquierdo o derecho de la interfaz, lo que permite ajustar la posición de la barra lateral según tus hábitos de uso.
 
 
 
-### 
-
-​
-
-Estilo de la barra lateral
+### Estilo de la barra lateral
 
   * **Función** : Controla el estilo visual de la barra lateral. Las opciones incluyen: 
     * **Conectada** : La barra lateral aparece conectada al borde de la interfaz.
@@ -287,46 +240,26 @@ Estilo de la barra lateral
 
 ![Estilo de la barra lateral](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/sidbar_style.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=b7721acb769d606bf9692c399200d1f6)
 
-## 
+## Explorador de árbol
 
-​
-
-Explorador de árbol
-
-### 
-
-​
-
-Relleno del elemento del explorador de árboles
+### Relleno del elemento del explorador de árboles
 
   * **Valor predeterminado** : 8
   * **Función** : Establece el relleno de los elementos del explorador de árboles (panel de la barra lateral), ajustando el espaciado entre los elementos de la estructura de árbol.
 
 ![Relleno del elemento del explorador de árboles](https://mintcdn.com/dripart/7xbDXwziA_DEy9eI/images/interface/setting/appearance/padding.jpg?fit=max&auto=format&n=7xbDXwziA_DEy9eI&q=85&s=2e5f2411060f8524eddbeebc60afbaa8)
 
-## 
-
-​
-
-Personalización avanzada con user.css
+## Personalización avanzada con user.css
 
 Cuando la paleta de colores no da suficiente control, puedes usar CSS personalizado mediante un archivo user.css. Este método está pensado para usuarios avanzados que necesitan personalizar elementos que el sistema de paleta de colores no cubre.
 
-### 
-
-​
-
-Requisitos
+### Requisitos
 
   * Versión 1.20.5 o superior del frontend de ComfyUI
 
 
 
-### 
-
-​
-
-Configurar user.css
+### Configurar user.css
 
   1. Crea un archivo llamado `user.css` en tu directorio de usuario de ComfyUI (la misma ubicación que tus flujos de trabajo y ajustes; consulta los detalles abajo)
   2. Agrega tus reglas CSS a ese archivo
@@ -334,11 +267,7 @@ Configurar user.css
 
 
 
-### 
-
-​
-
-Ubicación del directorio de usuario
+### Ubicación del directorio de usuario
 
 El directorio de usuario de ComfyUI es donde se almacenan tus configuraciones personales, flujos de trabajo y personalizaciones. La ubicación depende de tu tipo de instalación:
 
@@ -389,11 +318,7 @@ ComfyUI admite varios usuarios por instalación. Si no configuraste un nombre de
 
 Esta ubicación contiene tus flujos de trabajo, configuraciones y otros archivos específicos de cada usuario. Después de localizar la carpeta anterior, copia el archivo CSS correspondiente a tu directorio de usuario (por ejemplo, la carpeta de usuario predeterminada es `ComfyUI/user/default`) y reinicia ComfyUI o actualiza la página para aplicar los cambios.
 
-### 
-
-​
-
-Ejemplos de user.css e instrucciones relacionadas
+### Ejemplos de user.css e instrucciones relacionadas
 
 El archivo `user.css` se carga al principio del arranque de la aplicación. Por eso puede que necesites usar `!important` en tus reglas CSS para asegurarte de que sobrescriban los estilos predeterminados. **Ejemplos de personalización con user.css**
     

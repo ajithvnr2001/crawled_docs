@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/releases/get-release-notes/
 title: Get release notes - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:40.764334+00:00
+fetched_at: 2026-11-25T17:52:28.553245+00:00
 ---
 
 # Get release notes - ComfyUI

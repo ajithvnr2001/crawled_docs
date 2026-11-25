@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/hitpaw/overview/
 title: Image & Video Enhancement with HitPaw - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:38.199466+00:00
+fetched_at: 2026-11-25T17:52:27.535390+00:00
 ---
 
 # Image & Video Enhancement with HitPaw - ComfyUI
