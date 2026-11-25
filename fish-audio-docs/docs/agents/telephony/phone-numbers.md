@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/phone-numbers/
 title: Phone Numbers for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:39.632591+00:00
+fetched_at: 2026-11-25T18:05:12.516778+00:00
 ---
 
 # Phone Numbers for Voice Agents - Fish Audio
@@ -85,7 +85,7 @@ Field| Description
 `label`| Optional free-form label, up to 120 characters.  
 `agent_id`| Optional: bind an agent so the number answers inbound calls right away.  
   
-A `409` means the number is already on the platform; a `502` means the provider refused the purchase; the number stays visible with status `error` and is safe to release. A `403` with the reason `phone_number_limit_reached` means your team holds as many numbers as it may. A free account holds one, see [Limits](https://docs.fish.audio/agents/pricing#phone-numbers).
+A `409` means the number is already on the platform. A `502` means the provider refused the purchase. Nothing is charged and no number is added, so you can pick another one. If the provider did not answer, the number can stay with status `error`. Release it. A `403` with the reason `phone_number_limit_reached` means your team holds as many numbers as it may. A free account holds one, see [Limits](https://docs.fish.audio/agents/pricing#phone-numbers).
 
 Already have a number at your own carrier? The same endpoint imports it with `provider: "sip"` instead of buying one: no rental fee, no telephony charges. See [Bring your own number](https://docs.fish.audio/agents/telephony/byo-sip).
 
@@ -128,6 +128,7 @@ Field| Description
 `label`| Free-form label you assign  
 `agent_id`| The agent that answers calls to this number; `null` when unbound  
 `status`| `provisioning`, `active`, or `error`  
+`status_reason`| Why the number is in `error`, `null` in any other status. `out_of_credit` means your API credit could not pay the number’s daily fee, so it refuses calls until you top up and is released after 30 unpaid days. `provisioning_failed` means a purchase or import did not finish. Release the number and add it again.  
   
 ## Get a single number
 

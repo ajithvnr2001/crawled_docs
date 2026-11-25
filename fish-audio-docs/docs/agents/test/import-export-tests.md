@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/import-export-tests/
 title: Import and Export Agent Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:39.835266+00:00
+fetched_at: 2026-11-25T18:05:11.920070+00:00
 ---
 
 # Import and Export Agent Tests - Fish Audio
@@ -47,7 +47,7 @@ Field| On import
 `test_id`, `workspace_id`, `created_at`, `updated_at`| Ignored. The import gets its own values.  
 `agent_ids`| The agents the test was attached to. The import attaches to them again, so change it to target others.  
   
-Tools appear as `{"id", "name", "type"}` wherever a test references them: `referenced_tool`, `simulation.assertions`, `simulation.tool_mocks.tools`, and `simulation.tool_mocks.real_tools`. Webhook and client tool ids belong to your team. Integration tool ids, such as `google_calendar:create_event`, are the same in every team. Every call to Create Test creates a new test, so importing the same file twice gives you two copies.
+Tools appear as `{"id", "name", "type"}` wherever a test references them: `referenced_tool`, `simulation.assertions`, `simulation.tool_mocks.tools`, and `simulation.tool_mocks.real_tools`. Webhook and client tool ids belong to your team. Integration tool ids, such as `google_calendar:create_event`, and system tool ids, such as `_end_call`, are the same in every team. Every call to Create Test creates a new test, so importing the same file twice gives you two copies.
 
 ## Export tests to files
 
@@ -127,7 +127,7 @@ import-into-team.sh
     auth="Authorization: Bearer $FISH_API_KEY"
     
     tools=$(curl -sf "$api/agents/$AGENT_ID/test-tools" -H "$auth" |
-      jq '[.tools[] | select(.type != "integration") | {(.name): .id}] | add // {}')
+      jq '[.tools[] | select(.type == "webhook" or .type == "client") | {(.name): .id}] | add // {}')
     
     for file in tests/*.json; do
       jq --argjson tools "$tools" --arg agent "$AGENT_ID" '

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/overview/
 title: Deploy Your Voice Agent - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:41.445825+00:00
+fetched_at: 2026-11-25T18:05:12.301398+00:00
 ---
 
 # Deploy Your Voice Agent - Fish Audio
@@ -89,6 +89,7 @@ Voice calls inside a web app with signed-in users| [Web SDK](https://docs.fish.a
 A React or Next.js frontend| [React SDK](https://docs.fish.audio/agents/deploy/react-sdk)  
 An iOS or Android app built with React Native| [React Native SDK](https://docs.fish.audio/agents/deploy/react-native) with [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions)  
 A ready-made call button in a React Native app| [React Native widget](https://docs.fish.audio/agents/deploy/react-native-widget)  
+A native Android app in Kotlin| [Android SDK](https://docs.fish.audio/agents/deploy/android) with [authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions)  
 A phone line callers dial in to| [Phone numbers](https://docs.fish.audio/agents/telephony/phone-numbers) and [transfers](https://docs.fish.audio/agents/telephony/transfers)  
 Server-side session creation and history retrieval| [Authenticated sessions](https://docs.fish.audio/agents/deploy/authenticated-sessions) and [conversation history](https://docs.fish.audio/agents/monitor/conversation-history)  
 A client on a stack the SDKs don’t cover| [Wire protocol](https://docs.fish.audio/agents/deploy/protocol)  

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/test/agent-tests/
 title: Agent Tests - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T16:17:52.286298+00:00
+fetched_at: 2026-11-25T18:05:12.192083+00:00
 ---
 
 # Agent Tests - Fish Audio
@@ -16,9 +16,9 @@ Back to top
   * Test types
   * Create a test
   * Single Turn tests
-    * Single Turn over the API
+    * Create a Single Turn test
   * Tool tests
-    * Tool over the API
+    * Create a Tool test
   * Simulation tests
     * Write the scenario
     * Channel
@@ -27,7 +27,7 @@ Back to top
     * Assertions
     * Current date and time
     * Repeat count
-    * Simulation over the API
+    * Create a Simulation test
   * Attach tests to agents
   * Run a single test
   * Run every test for an agent
@@ -59,13 +59,20 @@ Type| What it checks| Use it for
 **Tool**|  Whether the next reply calls a given tool (or no tool at all), optionally with matching parameters.| Routing decisions and argument extraction.  
 **Simulation**|  A whole conversation driven by a simulated user, scored by the judge against your success conditions, plus deterministic checks on what happened.| Flows that only show up over several exchanges, such as taking an order.  
   
-Over the API, the type is the `test_type` field: `next_reply` for Single Turn, `tool`, or `simulation`. Each type’s section below ends with its request body for [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test).
+Over the API, the type is the `test_type` field: `next_reply` for Single Turn, `tool`, or `simulation`. Each type’s section below ends with its request body for [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test), under the **API** tab.
 
 Tests run as text (no audio is synthesized), but the agent uses its full draft configuration: the [knowledge base](https://docs.fish.audio/agents/build/knowledge-base) is consulted, and the agent can invoke its attached tools. In Single Turn and Tool tests, [webhook tools](https://docs.fish.audio/agents/build/webhook-tools) send real HTTP requests, so point them at a staging endpoint. Simulation tests mock tools by default. For end-to-end verification with voice, use [preview calls](https://docs.fish.audio/agents/test/preview-calls).
 
 ## Create a test
 
 Tests are workspace-level resources, managed under **Library → Tests** in the console and shareable across every agent in your workspace.
+
+  * Console
+
+  * API
+
+
+
 
 1
 
@@ -85,7 +92,9 @@ Save
 
 Click **Create Test**. The test is now in your library, ready to attach to agents.
 
-To create tests from your own systems, send the same fields to [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test) with an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key). For a complete Simulation test built step by step, follow the [rescheduling tutorial](https://docs.fish.audio/agents/test/simulation-tutorial).
+Send the fields of the test’s type to [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test) with an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key). The sections below give the request body for Single Turn, Tool, and Simulation.
+
+For a complete Simulation test built step by step, follow the [rescheduling tutorial](https://docs.fish.audio/agents/test/simulation-tutorial).
 
 ## Single Turn tests
 
@@ -95,15 +104,25 @@ A Single Turn test hands your agent a scripted conversation and asks it to produ
   2. The agent generates the next reply using its current **draft** configuration and the same language model that answers in live conversations.
   3. An LLM judge scores the reply against your **Expectation** , optionally calibrated by success and failure examples, and returns a verdict with its reasoning.
 
-Under **Conversation** , click **Add message** to build the history the agent sees. Each message is either an **Agent** or **User** turn, and at least one must be a user turn. Under **Judging** , write the **Expectation** : what a correct reply must do. Optionally click **Add example** to provide success and failure examples. They calibrate the judge but aren’t required.
+The conversation is the history the agent sees. Each message is an agent or a user turn, and at least one must be a user turn. The expectation says what a correct reply must do. Success and failure examples calibrate the judge but aren’t required. **Channel** sets the kind of call the test plays, **Web voice** (the default), **Phone inbound** or **Phone outbound**. The agent speaks in that channel’s register and has the tools it has there in production. Client tools are only on Web voice, transfers only on the phone channels, and key presses only on Phone outbound. `{{system.channel}}` in the agent’s prompt takes the same value. No real call is placed. Tool tests have the same setting.
 
-### Single Turn over the API
+### Create a Single Turn test
+
+  * Console
+
+  * API
+
+
+
+
+Under **Conversation** , click **Add message** to build the history, and set each message to **Agent** or **User**. Under **Judging** , write the **Expectation** , and optionally click **Add example** to provide success and failure examples. Set **Channel** to the kind of call the test plays.
 
 Console| API field  
 ---|---  
 Conversation| `conversation`: messages with `role` (`agent` or `user`) and `text`  
 Expectation| `expectation`, required  
 Success and failure examples| `success_examples` and `failure_examples`, lists of strings  
+Channel| `channel`: `web_voice`, `phone_inbound`, or `phone_outbound`. Omit it for Web voice  
       
     
     {
@@ -130,18 +149,37 @@ Success and failure examples| `success_examples` and `failure_examples`, lists o
 
 ## Tool tests
 
-A Tool test scripts the conversation the same way, but instead of judging the reply it checks which tool the agent called while producing it. Under **Require tool execution** , pick a tool from the library and choose **Should have been called** or **Should not be called**. Leave the tool empty to check that the agent called no tool at all. Integration tools, such as calendar tools, can only be checked in a Simulation test. Under **Tool parameters** , optionally add the parameter values the call must carry, typed as string, number, or boolean. The result names the tool the agent actually called.
+A Tool test scripts the conversation the same way, but instead of judging the reply it checks which tool the agent called while producing it. A test names one tool and whether the agent should or should not have called it. A test without a tool checks that the agent called no tool at all. It can also give the parameter values the call must carry, typed as string, number, or boolean. The result names the tool the agent actually called. A Tool test can check the agent’s [system tools](https://docs.fish.audio/agents/build/system-tools) as well as its webhook and client tools. So a test can check that the agent hangs up, transfers to the right destination, or presses the right key on a phone menu (see [Test key presses](https://docs.fish.audio/agents/build/system-tools#test-key-presses)). Which tools a test can check depends on its **Channel**.
 
-### Tool over the API
+Tool| Channels that have it  
+---|---  
+Webhook tools and `_end_call`| Every channel  
+Client tools| Web voice  
+`_transfer_call`| Phone inbound and Phone outbound  
+`_press_keys` and `_skip_turn`| Phone outbound  
+  
+A test cannot check a tool its channel does not have. Integration tools, such as calendar tools, can only be checked in a Simulation test.
+
+### Create a Tool test
+
+  * Console
+
+  * API
+
+
+
+
+Under **Require tool execution** , pick a tool from the library and choose **Should have been called** or **Should not be called**. Leave the tool empty to check that the agent called no tool at all. Under **Tool parameters** , optionally add the parameter values the call must carry. A tool the test’s **Channel** does not have is listed with the channels that have it, and cannot be chosen until you change the channel.
 
 Console| API field  
 ---|---  
 Conversation| `conversation`, as in Single Turn  
-Tool| `referenced_tool`: `id`, `name`, and `type` (`webhook` or `client`). Omit it to check that no tool is called  
+Tool| `referenced_tool`: `id`, `name`, and `type` (`webhook`, `client`, or `system`). Omit it to check that no tool is called  
 Should have been called / Should not be called| `verify_absence`: `false` or `true`  
 Tool parameters| `tool_parameters`: `name`, `value`, and `type` (`string`, `number`, or `boolean`)  
+Channel| `channel`, as in Single Turn. The request is refused when the channel does not have the referenced tool  
   
-[List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns the tool ids an agent’s tests can reference.
+[List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns the tool ids an agent’s tests can reference. A system tool has the type `system` and its tool name as `id`, for example `{"id": "_end_call", "type": "system"}`, and needs no `name`.
     
     
     {
@@ -172,7 +210,7 @@ A Simulation test does not script the user. Instead, a simulated user plays a ro
 
 ### Write the scenario
 
-The scenario is the simulated user’s brief. Click **Insert template** to start from the four sections the simulator expects:
+The scenario is the simulated user’s brief, written in the four sections the simulator expects:
 
 Section| What to write  
 ---|---  
@@ -183,13 +221,46 @@ Section| What to write
   
 Two rules make scenarios reliable. Reveal one fact at a time, so the agent has to ask for what it needs instead of receiving everything in the first message. And give an explicit ending, otherwise the conversation runs until the turn limit and the judge has to guess whether the user was done. **Max turns** caps how many user turns the simulation runs. A **Conversation** script is optional here. Any messages you add are replayed first, then the simulated user takes over from the last message.
 
+  * Console
+
+  * API
+
+
+
+
+Write the **Scenario** , or click **Insert template** to start from the four sections. Set **Max turns**. To replay a script first, add messages under **Conversation**.
+
+Set `simulation.scenario` and `simulation.max_turns`, 1 to 50, default 10. An optional `conversation`, up to 50 messages, is replayed before the simulated user takes over.
+
 ### Channel
 
-**Channel** sets the register the agent speaks in during the simulation, the same one it uses on that channel in production: **Web voice** , **Phone inbound** , or **Phone outbound**. On a phone channel, for example, the agent repeats important numbers back in small groups. Phone outbound speaks in the same phone register as Phone inbound and only `{{system.channel}}` differs, so if the agent should open an outbound call differently, branch on `{{system.channel}}` in its prompt. **Auto** , the default, uses Phone inbound when a phone number is assigned to the agent and Web voice otherwise, so pick Phone outbound yourself for an agent that only places calls. As in production, client tools are not available on phone channels, and transfers only happen on phone channels. `{{system.channel}}` in the agent’s prompt and in the scenario takes the same value. No real call is placed, so `{{system.caller_number}}` and `{{system.dialed_number}}` are empty on every channel.
+**Channel** sets the register the agent speaks in during the simulation, the same one it uses on that channel in production: **Web voice** , **Phone inbound** , or **Phone outbound**. On a phone channel, for example, the agent repeats important numbers back in small groups. Phone outbound speaks in the same phone register as Phone inbound and only `{{system.channel}}` differs, so if the agent should open an outbound call differently, branch on `{{system.channel}}` in its prompt. **Auto** , the default, uses Phone inbound when a phone number is assigned to the agent and Web voice otherwise, so set Phone outbound yourself for an agent that only places calls. As in production, client tools are not available on phone channels, transfers only happen on phone channels, and the agent presses keys only on Phone outbound. `{{system.channel}}` in the agent’s prompt and in the scenario takes the same value. No real call is placed, so `{{system.caller_number}}` and `{{system.dialed_number}}` are empty on every channel.
+
+  * Console
+
+  * API
+
+
+
+
+Set **Channel** in the test form. **Auto** is the default.
+
+Set `simulation.channel` to `web_voice`, `phone_inbound`, or `phone_outbound`. Omit it for **Auto**.
 
 ### Success conditions
 
-Add one to ten **Success conditions** , each a plain sentence describing something that must happen in the conversation, for example `The agent confirms the refund amount before closing`. Give each a short name, or leave it blank and the first words of the description become the name. The judge reads the whole transcript and marks every condition **Success** , **Failure** , or **Unknown**. A run passes only when every condition succeeds. An **Unknown** verdict means the transcript did not contain enough evidence either way, and the run is flagged **Needs review** so you read the transcript before trusting the result. Success and failure examples, when you add them, calibrate the judge across all conditions.
+A simulation has one to ten success conditions, each a plain sentence describing something that must happen in the conversation, for example `The agent confirms the refund amount before closing`. Each has a short name. When the name is left blank, the first words of the description become the name. The judge reads the whole transcript and marks every condition **Success** , **Failure** , or **Unknown**. A run passes only when every condition succeeds. An **Unknown** verdict means the transcript did not contain enough evidence either way, and the run is flagged **Needs review** so you read the transcript before trusting the result. Success and failure examples, when you add them, calibrate the judge across all conditions.
+
+  * Console
+
+  * API
+
+
+
+
+Under **Success conditions** , click **Add condition** for each one.
+
+Set `simulation.success_conditions`, a list of `name` and `description`.
 
 ### Tool mocks
 
@@ -201,11 +272,24 @@ Strategy| Behaviour
 **Mock selected**|  Only the tools you list answer from a mock. Choose whether the rest return an error or call their real endpoint.  
 **Mock none**|  Every tool with a real endpoint calls it. Webhooks may create real side effects, so reserve this for a safe test environment.  
   
-A mock entry is the tool, the result it returns (JSON or plain text), an optional HTTP status for webhook tools, and optional parameter conditions so the mock only applies when the agent calls the tool with matching arguments (exact match, regular expression, or any value). Turn on **Return an error** to make the tool fail with that result instead, for example to test how the agent handles an outage. A webhook tool set to hide errors shows the agent only that the call failed, as in production. When a tool has several entries, the ones with conditions are checked first, in order, and an entry without conditions is the fallback that answers only when none of them match, wherever it sits in the list. Regular expressions, in mock conditions and in required tool call parameters alike, use JavaScript syntax without Unicode mode. Python forms such as `(?i)` or `(?P<name>...)` are refused when you save. Write a named group as `(?<name>...)`, and ignore case with `(?i:...)` around the part it applies to. Forms that JavaScript reads as literal text without Unicode mode are refused too: Unicode escapes such as `\p{L}` or `\u{1F600}` (list the characters in a class instead, for example `[A-Za-zÀ-ÿ]`) and Python escapes such as `\A`, `\z` or `\N{...}` (write `\A` as `^` and `\z` as `$`). The platform checks required tool call parameters itself, so there back-references, emoji and other characters outside the Basic Multilingual Plane, non-ASCII characters under `(?i:...)`, `\S` inside a class without `\s` (`[\s\S]` is fine) and `\c` are refused as well. Under **Mock all** , a tool without an entry in the test answers with its own first mock response. A tool with neither fails, and the agent gets the same error it would get if the tool were unavailable in production. Tools whose result the agent never waits for, client tools that don’t wait for an answer and webhook tools in fire and forget mode, need no mock: as in production, the agent only ever hears their acknowledgement, whether the call ran for real, answered from a mock, or was skipped. Such a client tool can’t be mocked at all. A simulation has no client, so a client tool that waits for an answer always answers from its mock entries, under every strategy including **Mock none** , and needs one. The test form lists the agent’s tools that would fail this way. To let specific tools reach their real endpoint while everything else stays mocked, add them under **Call the real endpoint**. Only webhook tools and read-only integration tools can go there. Every other tool still needs a mock, so a tool you attach to the agent later fails instead of reaching its endpoint until you mock it. A tool there can still have mock entries: a matching entry answers, and any other call reaches the endpoint. Integration tools, such as calendar tools, are mocked like any other tool. An integration that writes only after the caller confirms, such as creating a calendar event, answers the first call with a confirmation request and commits through its **Confirm write** tool. Mock both, the way production answers them. If you mock only the write tool and the model then calls Confirm write, that call goes unanswered and the run needs review. A run in which a tool call went unanswered never passes: the tool had no mock, or none of its entries matched and neither the tool’s own mock response nor **Call the real endpoint** could answer. The run fails with **Needs review** and **No mock** badges and lists the unanswered calls, even when the judge and every assertion passed, because the conversation left the path it would take in production. A call with no matching entry means either the agent passed arguments you didn’t expect or the entry’s conditions are too narrow. Calls to a tool the test forbids are not listed, they are the agent’s failure and the assertion reports them. The judge is told the call failed because the test prepared no answer for it, and judges the agent as usual without treating the call as having run. Add or widen the mock and run the test again. If you are used to tools without a mock calling their real endpoint, your first runs will show **No mock** on those calls. Add a mock for each tool the test form lists, or add read-only tools to **Call the real endpoint**. Mocks and assertions apply to the tools attached to the agent under test. A tool the agent does not have is never mocked and counts as never called: a required call on it fails with _This tool is not on the agent_ , while a forbidden tool or a maximum-only check passes. Client tools on a phone channel are treated the same way. This keeps a shared guard such as “never call issue_refund” passing on agents that cannot call the tool.
+A mock entry is the tool, the result it returns (JSON or plain text), an optional HTTP status for webhook tools, and optional parameter conditions so the mock only applies when the agent calls the tool with matching arguments (exact match, regular expression, or any value). An entry can return an error, which makes the tool fail with that result instead, for example to test how the agent handles an outage. A webhook tool set to hide errors shows the agent only that the call failed, as in production. When a tool has several entries, the ones with conditions are checked first, in order, and an entry without conditions is the fallback that answers only when none of them match, wherever it sits in the list. Regular expressions, in mock conditions and in required tool call parameters alike, use JavaScript syntax without Unicode mode. Python forms such as `(?i)` or `(?P<name>...)` are refused when you save. Write a named group as `(?<name>...)`, and ignore case with `(?i:...)` around the part it applies to. Forms that JavaScript reads as literal text without Unicode mode are refused too: Unicode escapes such as `\p{L}` or `\u{1F600}` (list the characters in a class instead, for example `[A-Za-zÀ-ÿ]`) and Python escapes such as `\A`, `\z` or `\N{...}` (write `\A` as `^` and `\z` as `$`). The platform checks required tool call parameters itself, so there back-references, emoji and other characters outside the Basic Multilingual Plane, non-ASCII characters under `(?i:...)`, `\S` inside a class without `\s` (`[\s\S]` is fine) and `\c` are refused as well. Under **Mock all** , a tool without an entry in the test answers with its own first mock response. A tool with neither fails, and the agent gets the same error it would get if the tool were unavailable in production. Tools whose result the agent never waits for, client tools that don’t wait for an answer and webhook tools in fire and forget mode, need no mock: as in production, the agent only ever hears their acknowledgement, whether the call ran for real, answered from a mock, or was skipped. Such a client tool can’t be mocked at all. A simulation has no client, so a client tool that waits for an answer always answers from its mock entries, under every strategy including **Mock none** , and needs one. To let specific tools reach their real endpoint while everything else stays mocked, list them under **Call the real endpoint**. Only webhook tools and read-only integration tools can go there. Every other tool still needs a mock, so a tool you attach to the agent later fails instead of reaching its endpoint until you mock it. A tool there can still have mock entries: a matching entry answers, and any other call reaches the endpoint. System tools need no mock and cannot have one, because the simulation plays hanging up, transfers and key presses itself. Integration tools, such as calendar tools, are mocked like any other tool. An integration that writes only after the caller confirms, such as creating a calendar event, answers the first call with a confirmation request and commits through its **Confirm write** tool. Mock both, the way production answers them. If you mock only the write tool and the model then calls Confirm write, that call goes unanswered and the run needs review.
+
+  * Console
+
+  * API
+
+
+
+
+Under **Tool mocks** , choose **Mock all** , **Mock selected** , or **Mock none**. With **Mock selected** , set **Tools without a mock** to **Return an error** or **Call the real endpoint**. Under **Mock responses** , click **Add mock** for each entry and fill in its **Mock result** , and optionally its **HTTP status** and **Only when parameters match**. Turn on **Return an error** on an entry to make it fail the call. With **Mock all** , add the tools that should run for real under **Call the real endpoint**. The form lists the agent’s tools that would fail for lack of a mock.
+
+Set `simulation.tool_mocks.strategy` to `all`, `selected`, or `none`. With `selected`, `tool_mocks.fallback` is `error` or `real`. Each entry of `tool_mocks.tools` has `tool` and `result`, and optionally `status`, `when`, and `error: true`. `tool_mocks.real_tools` lists the tools that call their real endpoint.
+
+A run in which a tool call went unanswered never passes: the tool had no mock, or none of its entries matched and neither the tool’s own mock response nor **Call the real endpoint** could answer. The run fails with **Needs review** and **No mock** badges and lists the unanswered calls, even when the judge and every assertion passed, because the conversation left the path it would take in production. A call with no matching entry means either the agent passed arguments you didn’t expect or the entry’s conditions are too narrow. Calls to a tool the test forbids are not listed, they are the agent’s failure and the assertion reports them. The judge is told the call failed because the test prepared no answer for it, and judges the agent as usual without treating the call as having run. Add or widen the mock and run the test again. If you are used to tools without a mock calling their real endpoint, your first runs will show **No mock** on those calls. Add a mock for each of those tools, or add read-only tools to **Call the real endpoint**. Mocks and assertions apply to the tools attached to the agent under test. A tool the agent does not have is never mocked and counts as never called: a required call on it fails with _This tool is not on the agent_ , while a forbidden tool or a maximum-only check passes. Client tools on a phone channel are treated the same way, and so is a system tool that is off on the agent or that the simulation’s channel does not have. This keeps a shared guard such as “never call issue_refund” passing on agents that cannot call the tool.
 
 ### Assertions
 
-Under **Advanced** , add deterministic checks that run alongside the judge:
+Assertions are deterministic checks that run alongside the judge:
 
   * **Required tool calls** : the agent must call the tool, optionally with parameters that match, between a minimum and a maximum number of matching calls. The default is at least once. Set the maximum to 1 to catch a duplicate booking, or set both the minimum and the maximum to 0 to forbid calls with those arguments.
   * **Forbidden tools** : the agent must not call the tool.
@@ -213,15 +297,57 @@ Under **Advanced** , add deterministic checks that run alongside the judge:
 
 A failed assertion fails the run regardless of the judge’s verdict. Each assertion shows **Passed** or **Failed** with a short detail in the result.
 
+  * Console
+
+  * API
+
+
+
+
+Open **Advanced**. Under **Required tool calls** and **Forbidden tools** , click **Add tool**. For a required call, set **At least** and **At most** , and optionally add the parameters it must carry. Set **Ended by**.
+
+Each entry of `simulation.assertions.tool_calls` has `tool`, and optionally `params`, `min_calls`, and `max_calls`. `assertions.forbidden_tools` is a list of tools. `assertions.ended_by` is `agent`, `user`, `transfer`, or `any`.
+
 ### Current date and time
 
-In a live session the agent knows today’s date and the current time (see [Time & timezone](https://docs.fish.audio/agents/build/time-timezone)). A simulation leaves them out by default, so the agent goes by the date in its prompt, if it has one. With them in, a prompt that fixes its own date, for example `Today is July 1, 2026`, would disagree with the day the test runs. A simulated caller asking for “the eighth” may then get a booking in the wrong month, and the result changes from one day to the next. `{{system.today}}` still renders the day the test runs. To give the agent the date and time of the day the test runs, as in a live session, turn on **Current date and time** under **Advanced**. Do this when the scenario relies on the real date. Tests created before this setting existed have it on.
+In a live session the agent knows today’s date and the current time (see [Time & timezone](https://docs.fish.audio/agents/build/time-timezone)). A simulation leaves them out by default, so the agent goes by the date in its prompt, if it has one. With them in, a prompt that fixes its own date, for example `Today is July 1, 2026`, would disagree with the day the test runs. A simulated caller asking for “the eighth” may then get a booking in the wrong month, and the result changes from one day to the next. `{{system.today}}` still renders the day the test runs. To give the agent the date and time of the day the test runs, as in a live session, turn on **Current date and time**. Do this when the scenario relies on the real date. Tests created before this setting existed have it on.
+
+  * Console
+
+  * API
+
+
+
+
+Open **Advanced** and turn on **Current date and time**.
+
+Set `simulation.context.current_time` to `true`. The default is `false`.
 
 ### Repeat count
 
-Set **Repeat** to run the same scenario up to 20 times in a batch. Simulated conversations vary from run to run, so repeats surface flaky behaviour that a single run would miss. The agent’s Tests page shows how many repeats passed out of those that reached a verdict, for example `2 / 3 passed`, or `2 / 2 passed · 1 error` when one repeat ended in **Error**. While repeats are still running, the row counts them instead, for example `1 passed · 2 running`. Opening the test from that page lets you switch between the finished repeats of the latest batch to read each conversation. The test opens on the first failed repeat. Repeats only apply to **Run all**. Running the test from its **Run** tab, or re-running one test from the row menu, runs the conversation once.
+A simulation can run the same scenario up to 20 times in a batch. Simulated conversations vary from run to run, so repeats surface flaky behaviour that a single run would miss. The agent’s Tests page shows how many repeats passed out of those that reached a verdict, for example `2 / 3 passed`, or `2 / 2 passed · 1 error` when one repeat ended in **Error**. While repeats are still running, the row counts them instead, for example `1 passed · 2 running`. Opening the test from that page lets you switch between the finished repeats of the latest batch to read each conversation. The test opens on the first failed repeat. Repeats only apply to **Run all**. Running the test from its **Run** tab, or re-running one test from the row menu, runs the conversation once.
 
-### Simulation over the API
+  * Console
+
+  * API
+
+
+
+
+Set **Repeat** in the test form.
+
+Set `simulation.repeat_count`, 1 to 20.
+
+### Create a Simulation test
+
+  * Console
+
+  * API
+
+
+
+
+Pick the **Simulation** type and fill in the fields described above.
 
 Every Simulation field lives under `simulation`. An optional `conversation`, up to 50 messages, is replayed before the simulated user takes over.
 
@@ -241,7 +367,7 @@ Ended by| `assertions.ended_by`: `agent`, `user`, `transfer`, or `any`
 Current date and time| `context.current_time`: `true` or `false`, default `false`  
 Repeat| `repeat_count`, 1 to 20  
   
-Tools are referenced by `id`, `name`, and `type`, as in Tool tests, and integration tools use the `<provider_key>:<tool_name>` ids that [List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns. Parameter conditions (`when` on a mock entry, `params` on a required call) map a parameter name to `{"type": "exact" | "regex" | "any", "value": "..."}`.
+Tools are referenced by `id`, `name`, and `type`, as in Tool tests, and integration tools use the `<provider_key>:<tool_name>` ids that [List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns. Assertions can name system tools, a mock entry and `real_tools` cannot. Parameter conditions (`when` on a mock entry, `params` on a required call) map a parameter name to `{"type": "exact" | "regex" | "any", "value": "..."}`.
     
     
     {
@@ -292,16 +418,40 @@ The [rescheduling tutorial](https://docs.fish.audio/agents/test/simulation-tutor
 
 ## Attach tests to agents
 
-A test only runs against agents it’s attached to. Attach from either side:
+A test only runs against agents it’s attached to. One test can be attached to many agents, and each agent keeps its own last result. Detaching a test removes it from that agent only. Deleting a test removes it from all agents.
+
+  * Console
+
+  * API
+
+
+
+
+Attach from either side:
 
   * **From the library** : open the test’s **Access** tab and toggle it on for each agent.
   * **From the Builder** : on the agent’s **Tests** page, click **Add tests** and pick from the library.
 
-One test can be attached to many agents, and each agent keeps its own last result. **Remove from agent** detaches the test from that agent only. **Delete** in the library removes the test from all agents.
+**Remove from agent** detaches the test, and **Delete** in the library deletes it.
+
+Pass `agent_ids` when you create a test, or attach it later with [Attach Test](https://docs.fish.audio/api-reference/endpoint/agent/attach-test). [Detach Test](https://docs.fish.audio/api-reference/endpoint/agent/detach-test) removes it from one agent, and [Delete Test](https://docs.fish.audio/api-reference/endpoint/agent/delete-test) deletes it.
 
 ## Run a single test
 
-Open the test and switch to its **Run** tab. Pick an agent that has access, then click **Run test**. Single Turn and Tool tests answer within seconds. A Simulation test runs in the background, shows **Queued** and then **Running** , and can take a few minutes. The verdict card shows **Pass** or **Fail** with the time the run took, followed by details for the test type:
+Single Turn and Tool tests answer within seconds. A Simulation test runs in the background and can take a few minutes.
+
+  * Console
+
+  * API
+
+
+
+
+Open the test and switch to its **Run** tab. Pick an agent that has access, then click **Run test**. A Simulation test shows **Queued** and then **Running**.
+
+Pass the test’s id in `test_ids` to [Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests), then wait for the batch as described under Run every test for an agent. A Simulation test runs once per repeat. Pass `repeat_count: 1` to run it once.
+
+The result shows **Pass** or **Fail** with the time the run took, followed by details for the test type:
 
 Type| What you see  
 ---|---  
@@ -309,11 +459,22 @@ Type| What you see
 **Tool**|  Which tool the agent called, if any, against what the test expected.  
 **Simulation**|  The judge’s summary, every success condition with its verdict and rationale, every assertion with its outcome, who ended the conversation, after how many turns and on which channel, what the run was charged and whether the trial balance paid it, and the full transcript with each tool call marked by where its answer came from: **Mock** for an entry in the test, **Tool mock** for the tool’s own mock response, **Real** when it reached the real endpoint, **No mock** or **No matching mock** when it failed for lack of one.  
   
-A Simulation run with an **Unknown** condition fails and carries a **Needs review** badge. If a run can’t complete, the card shows **Error** with a message that says whether the agent caused it, for example its custom LLM endpoint stopped responding, or the platform did, for example our language model did not answer. A conversation that broke off or hit its time limit is never judged, so it can’t pass by accident. The transcript is still shown below the error, as it is when the conversation finished but could not be judged.
+A Simulation run with an **Unknown** condition fails and carries a **Needs review** badge. If a run can’t complete, the result shows **Error** with a message that says whether the agent caused it, for example its custom LLM endpoint stopped responding, or the platform did, for example our language model did not answer. A conversation that broke off or hit its time limit is never judged, so it can’t pass by accident. The transcript is still shown below the error, as it is when the conversation finished but could not be judged.
 
 ## Run every test for an agent
 
-On the agent’s **Tests** page in the Builder, click **Run all**. Each row moves through **queued → running → Pass/Fail** (or **Error** if a run can’t complete). Simulation tests run once per repeat and the row shows how many repeats passed. The page header summarizes the latest batch, for example `4 passed, 1 failed on last run`, with the batch **pass rate** : green at 100%, amber from 80%, red below. The pass rate counts passed runs out of passed and failed ones, so a run that ended in **Error** does not lower it. Use the row menu to re-run a single test, edit it, or remove it from the agent.
+A batch runs every test attached to the agent, and Simulation tests run once per repeat. The batch’s pass rate counts passed runs out of passed and failed ones, so a run that ended in **Error** does not lower it.
+
+  * Console
+
+  * API
+
+
+
+
+On the agent’s **Tests** page in the Builder, click **Run all**. Each row moves through **queued → running → Pass/Fail** (or **Error** if a run can’t complete), and a Simulation row shows how many repeats passed. The page header summarizes the latest batch, for example `4 passed, 1 failed on last run`, with the batch **pass rate** : green at 100%, amber from 80%, red below. Use the row menu to re-run a single test, edit it, or remove it from the agent.
+
+[Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests) starts a batch with every attached test, or only the `test_ids` you pass, and `repeat_count` overrides each test’s repeat count for that batch. Poll [Get Test Batch](https://docs.fish.audio/api-reference/endpoint/agent/get-test-batch) until `completed` is `true`, then check `passed`, `failed`, `errors`, and `pass_rate`. `pass_rate` leaves out runs that ended in **Error** , so decide in your pipeline whether an error should fail the build or be retried.[List Test Batches](https://docs.fish.audio/api-reference/endpoint/agent/list-test-batches) and [List Test Runs](https://docs.fish.audio/api-reference/endpoint/agent/list-test-runs) return past results, filterable by test, batch, and status.
 
 ## Tests run against the draft
 
@@ -339,14 +500,7 @@ Once results look right, [publish the draft](https://docs.fish.audio/agents/depl
 
 ## Run tests from the API and CI
 
-Everything on this page is also available over the REST API with an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key), so you can keep tests next to your agent configuration and gate releases on them. See the [Tests API reference](https://docs.fish.audio/api-reference/endpoint/agent/list-tests) for every endpoint.
-
-  * **Export and import.** [Get Test](https://docs.fish.audio/api-reference/endpoint/agent/get-test) returns a test’s full definition. Post that body to [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test) as is to recreate it, for example from JSON files kept in your repository. Read-only fields such as `test_id` and `created_at` are ignored. Tool references use your workspace’s tool ids, so an export imports as is within the same team. [List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns the ids a test can reference for an agent, including integration tools. [Import and export tests](https://docs.fish.audio/agents/test/import-export-tests) has scripts for saving tests to files and for moving them to another team.
-  * **Attach.** Pass `agent_ids` when you create a test, or attach it later with [Attach Test](https://docs.fish.audio/api-reference/endpoint/agent/attach-test).
-  * **Run and wait.** [Run Tests](https://docs.fish.audio/api-reference/endpoint/agent/run-tests) starts a batch with every attached test, or only the `test_ids` you pass, and `repeat_count` overrides each test’s repeat count for that batch. Poll [Get Test Batch](https://docs.fish.audio/api-reference/endpoint/agent/get-test-batch) until `completed` is `true`, then check `passed`, `failed`, `errors`, and `pass_rate`. `pass_rate` leaves out runs that ended in **Error** , so decide in your pipeline whether an error should fail the build or be retried.
-  * **History.** [List Test Batches](https://docs.fish.audio/api-reference/endpoint/agent/list-test-batches) and [List Test Runs](https://docs.fish.audio/api-reference/endpoint/agent/list-test-runs) return past results, filterable by test, batch, and status.
-
-Runs always use the agent’s current draft. A pipeline that changes the agent should update the draft first ([Configure through the API](https://docs.fish.audio/agents/build/configuration#configure-through-the-api)), run the tests, and publish only when they pass. This GitHub Actions workflow runs every test attached to an agent and fails the build if any run fails or errors:
+Everything on this page is also available over the REST API with an [API key](https://docs.fish.audio/developer-guide/getting-started/api-key), so you can keep tests next to your agent configuration and gate releases on them. Each section above has its calls under the **API** tab, and the [Tests API reference](https://docs.fish.audio/api-reference/endpoint/agent/list-tests) lists every endpoint. **Export and import.** [Get Test](https://docs.fish.audio/api-reference/endpoint/agent/get-test) returns a test’s full definition. Post that body to [Create Test](https://docs.fish.audio/api-reference/endpoint/agent/create-test) as is to recreate it, for example from JSON files kept in your repository. Read-only fields such as `test_id` and `created_at` are ignored. Tool references use your workspace’s tool ids, so an export imports as is within the same team. [List Test Tools](https://docs.fish.audio/api-reference/endpoint/agent/list-test-tools) returns the ids a test can reference for an agent, including integration tools. [Import and export tests](https://docs.fish.audio/agents/test/import-export-tests) has scripts for saving tests to files and for moving them to another team. Runs always use the agent’s current draft. A pipeline that changes the agent should update the draft first ([Configure through the API](https://docs.fish.audio/agents/build/configuration#configure-through-the-api)), run the tests, and publish only when they pass. This GitHub Actions workflow runs every test attached to an agent and fails the build if any run fails or errors:
 
 .github/workflows/agent-tests.yml
     

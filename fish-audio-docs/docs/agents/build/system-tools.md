@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/system-tools/
 title: System Tools for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:07.951852+00:00
+fetched_at: 2026-11-25T18:05:11.510305+00:00
 ---
 
 # System Tools for Voice Agents - Fish Audio
@@ -20,6 +20,7 @@ Back to top
   * Press keys
     * Turn it on
     * Tell the agent where to go
+    * Test key presses
     * Limitations
   * Transfer call
   * Going further
@@ -229,10 +230,48 @@ The agent picks keys from the menu it hears and from its system prompt. Say in t
     If you reach voicemail, leave a short message with the callback number.
     
 
+### Test key presses
+
+[Agent tests](https://docs.fish.audio/agents/test/agent-tests) on the **Phone outbound** channel give the agent the two tools, so you can check what it presses before it places a call. A test sends no tones. It checks the keys the same way a call does and shows each press as a `_press_keys` tool call.
+
+Test type| What it checks  
+---|---  
+Tool| The phone system’s line is the user’s message, for example `For sales, press 1. For support, press 2.` The test checks `_press_keys` with the parameter `keys`, here `2`. Spaces and dashes the agent writes into a number are ignored, so `1-800 555` matches `1800555`. A test on `_skip_turn` checks that the agent stays silent through a hold message.  
+Simulation| The scenario describes the phone system, with the menu it reads, where each key leads and who answers in the end. The simulated user is told which keys the agent pressed and answers as that system would. A required tool call on `_press_keys` checks the keys you expect.  
+  
+  * Console
+
+  * API
+
+
+
+
+In the test, set **Channel** to **Phone outbound**. For a Tool test, write the menu line as the **User** message, pick `_press_keys` under **Require tool execution** and add the parameter `keys` under **Tool parameters**. For a Simulation test, write the phone system into the **Scenario** , then open **Advanced** and add `_press_keys` under **Required tool calls**.
+
+A Tool test sets `channel` to `phone_outbound` and references the tool by its name with the type `system`.
+    
+    
+    {
+      "name": "Presses 2 for support",
+      "test_type": "tool",
+      "agent_ids": ["<agent-id>"],
+      "channel": "phone_outbound",
+      "conversation": [
+        { "role": "user", "text": "For sales, press 1. For support, press 2." }
+      ],
+      "referenced_tool": { "id": "_press_keys", "type": "system" },
+      "tool_parameters": [{ "name": "keys", "value": "2", "type": "string" }]
+    }
+    
+
+A Simulation test sets `simulation.channel` to `phone_outbound` and adds the same tool to `simulation.assertions.tool_calls`, with the keys under `params`. [Agent tests](https://docs.fish.audio/agents/test/agent-tests) lists every field.
+
+A test on any other channel does not include the two tools, as a real call there does not. A Single Turn test on Phone outbound has them as well, so a reply to a menu line can be empty.
+
 ### Limitations
 
   * **Imported SIP numbers.** Keys are sent as telephone events (RFC 4733). On an [imported SIP number](https://docs.fish.audio/agents/telephony/byo-sip) they reach the other side only when your SIP provider carries them. Place a test call to a menu to confirm.
-  * **Tests.** [Agent tests](https://docs.fish.audio/agents/test/agent-tests), simulations and [preview calls](https://docs.fish.audio/agents/test/preview-calls) do not include the two tools. Test with a real outbound call.
+  * **Preview calls.** [Preview calls](https://docs.fish.audio/agents/test/preview-calls) are web sessions and do not include the two tools.
 
 
 

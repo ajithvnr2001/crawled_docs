@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/dynamic-variables/
 title: Dynamic Variables for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:08.081696+00:00
+fetched_at: 2026-11-25T18:05:11.754797+00:00
 ---
 
 # Dynamic Variables for Voice Agents - Fish Audio
@@ -192,7 +192,7 @@ The platform fills a handful of `{{system.*}}` placeholders itself, on every ses
 
 Variable| Value| Notes  
 ---|---|---  
-`system.channel`| `phone_inbound`, `phone_outbound`, or `web_voice`| Web SDK, API, preview, and Single Turn and Tool test sessions are `web_voice`. A Simulation test uses its [channel](https://docs.fish.audio/agents/test/agent-tests#channel).  
+`system.channel`| `phone_inbound`, `phone_outbound`, or `web_voice`| Web SDK, API, and preview sessions are `web_voice`. A test uses its own channel, see [Agent tests](https://docs.fish.audio/agents/test/agent-tests).  
 `system.timezone`| The session’s resolved IANA timezone, for example `Asia/Tokyo`| `UTC` when nothing resolves. Always equals the session’s `timezone` field; see [which timezone a session uses](https://docs.fish.audio/agents/build/time-timezone#which-timezone-a-session-uses).  
 `system.today`| Today’s date in that timezone, ISO 8601 `YYYY-MM-DD`| The calendar date at session creation. There is no `system.now`; see Current date and time.  
 `system.language`| The session language code, one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)| The `language` [override](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides) when the request carries one, otherwise the agent’s [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language).  

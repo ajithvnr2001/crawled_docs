@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number to Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:07.426088+00:00
+fetched_at: 2026-11-25T18:05:12.624392+00:00
 ---
 
 # Bring Your Own Number to Voice Agents - Fish Audio
@@ -116,7 +116,7 @@ Field| Description
 `termination_auth_password`| The matching digest password.  
 `termination_headers`| Optional: custom `X-` headers for every call through the termination, up to 20; see Custom SIP headers.  
   
-At least one inbound factor (digest credentials and/or allowed addresses) is required; a `422` reports what is missing. A `409` means the number is already on the platform. A `502` means trunk provisioning failed; the number stays visible with status `error` and is safe to release and retry.
+At least one inbound factor (digest credentials and/or allowed addresses) is required; a `422` reports what is missing. A `409` means the number is already on the platform. A `502` means trunk provisioning failed. The number is not added, so correct the settings and import it again.
 
 Digest passwords are stored only in the underlying trunk objects and are never echoed back by the API.
 
