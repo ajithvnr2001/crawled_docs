@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/design-guidelines/content-publisher/
 title: Content Publisher - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T20:23:49.402300+00:00
+fetched_at: 2026-11-25T19:38:50.259440+00:00
 ---
 
 # Content Publisher - Apps inside Canva - Canva Developers SDK Documentation
@@ -282,6 +282,14 @@ Scheduled content| Where the scheduled item can be viewed or managed
 External library| The asset in the library or collection  
 Enterprise system| The campaign, project, or workflow where the content appears  
   
+#### Post-publish messages
+
+If the content was published but there's something the user should know about, your app can return up to 3 messages for Canva to display to the user.
+
+Canva displays those messages here in the post-publish dialog.
+
+Refer to [Post-publish warning messages](https://www.canva.dev/docs/apps/design-guidelines/content-publisher/#post-publish-warning-messages) for guidelines and [Report warnings on a successful publish](https://www.canva.dev/docs/apps/intents/content-publisher/implementation-guide/#report-warnings-on-a-successful-publish) for implementation details.
+
 ## Design patterns
 
 These patterns address common publishing scenarios and provide guidance for creating streamlined user experiences in your app.
@@ -330,6 +338,29 @@ If authentication fails, you should show a clear error message and guide the use
 ![Content publisher app UI showing an alert message above the 'Connect to app.co' primary button. The message states "We couldn't connect to co.app. Try again in a few moments"](https://www.canva.dev/_next/static/media/authentication-error-handling.364aa9ae.png)
 
 At minimum, you must provide messaging for server errors as well as a catch-all fallback. Refer to [Authentication](https://www.canva.dev/docs/apps/design-guidelines/authentication/#error-handling) for written content and best practices.
+
+### Post-publish warning messages
+
+If the content was published, but there's information the user should know about it, you can supply post-publish warning messages that Canva will show in the [post-publish dialog](https://www.canva.dev/docs/apps/design-guidelines/content-publisher/#post-publish-dialog).
+
+For implementation details, see [Report warnings on a successful publish](https://www.canva.dev/docs/apps/intents/content-publisher/implementation-guide/#report-warnings-on-a-successful-publish).
+
+When writing these messages:
+
+#### Do
+
+  * **Do use warnings for information the user needs to act on or be aware of** , such as a failed cross-post or audio that the platform muted because of a copyright claim.
+  * **Do order warnings by importance** , because users might not read them all.
+
+
+
+#### Don't
+
+  * **Don't say that the content was published.** Canva already tells the user that the publish succeeded.
+  * **Don't use warnings for failed publishes.** If the content wasn't published, return an error instead.
+  * **Don't use messages for general information that isn't about this publish** , including advertising or promotions.
+
+
 
 ### Instant publish vs. scheduling
 

@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/intents/content-publisher/implementation-guide/
 title: Content Publisher intent implementation guide - Apps inside Canva - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:56:03.428361+00:00
+fetched_at: 2026-11-25T19:38:50.693120+00:00
 ---
 
 # Content Publisher intent implementation guide - Apps inside Canva - Canva Developers SDK Documentation
@@ -1375,6 +1375,8 @@ TYPESCRIPT
 
 Copy
 
+If the publish succeeds but there's something the user needs to know about the result, you can also return warnings with the completed response. For more information, see [Report warnings on a successful publish](https://www.canva.dev/docs/apps/intents/content-publisher/implementation-guide/#report-warnings-on-a-successful-publish).
+
 ## Initiating OAuth inside intents
 
 If your app requires OAuth with a third-party identity provider, initiate the OAuth flow from inside the intent action that requires authentication.
@@ -1763,5 +1765,128 @@ Errors are cleared when the user clicks the publish button again.
     };
 
 TSX
+
+Copy
+
+## Report warnings on a successful publish
+
+Sometimes the content has been published, but there are issues the user should know about. For example:
+
+  * The platform limited or altered the content, such as muting audio because of a copyright claim or restricting the content in certain regions.
+  * A non-critical post-publish action failed, such as sponsoring/elevating or cross-posting.
+
+
+
+In these cases:
+
+  * Return a `completed` response (since the content was published), not an `app_error` response.
+  * In the `completed` response, include a `messages` array. Canva displays these messages to the user. Currently, only `warning` messages are supported.
+
+
+
+Follow the [design guidelines](https://www.canva.dev/docs/apps/design-guidelines/content-publisher/#post-publish-warning-messages) for post-publish warning messages.
+
+Use messages only when the user genuinely needs to know something about the publish.
+
+### Define localized warning messages
+
+Like custom error messages, warnings are displayed using a localized message from your uploaded messages bundle. Define the messages using the `defineMessages` API. For example:
+    
+    
+    // warning.messages.ts
+    
+    import { defineMessages } from "react-intl";
+    
+    
+    
+    
+    export const WarningMessages = defineMessages({
+    
+      copyright_audio_muted: {
+    
+        id: "copyright_audio_muted",
+    
+        defaultMessage: "The audio was muted in some countries because of a copyright claim",
+    
+        description: "A warning displayed when the platform muted the audio of a published video",
+    
+      },
+    
+      cross_post_failed: {
+    
+        id: "cross_post_failed",
+    
+        defaultMessage: "We couldn't share your post to your linked accounts",
+    
+        description: "A warning displayed when a post was published but cross-posting failed",
+    
+      },
+    
+    });
+
+TS
+
+Copy
+
+Upload your messages bundle to the Developer Portal. If the `localizedMessageId` isn't in your uploaded bundle, Canva doesn't display the warning.
+
+### Return warnings with the completed response
+
+Each message has the following properties:
+
+  * `type`: The type of message. The only supported value is `warning`.
+  * `message`: A short, non-localized message for logging and diagnostics. It isn't displayed to the user. Include technical details such as status codes or platform error codes, but don't include personally identifiable information (PII) or raw response bodies (that may contain such information).
+  * `localizedMessageId`: The message ID from `defineMessages`, which must exist in your uploaded bundle.
+
+
+
+You can return up to 3 messages, and Canva ignores any additional messages.
+
+Order them by importance, because users might not read them all.
+    
+    
+    import { WarningMessages } from "./warning.messages";
+    
+    
+    
+    
+    async function publishContent(params: PublishContentRequest): Promise<PublishContentResponse> {
+    
+      const post = await createPostOnYourPlatform(params);
+    
+    
+    
+    
+      return {
+    
+        status: "completed",
+    
+        externalId: post.id,
+    
+        externalUrl: post.url,
+    
+        messages: post.audioMuted
+    
+          ? [
+    
+              {
+    
+                type: "warning",
+    
+                message: "Platform muted audio due to COPYRIGHT_CLAIM in regions [US, AU]",
+    
+                localizedMessageId: WarningMessages.copyright_audio_muted.id,
+    
+              },
+    
+            ]
+    
+          : undefined,
+    
+      };
+    
+    }
+
+TS
 
 Copy

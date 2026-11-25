@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/connect/api-reference/brand-templates/list-brand-templates/
 title: List brand templates - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T20:24:11.032095+00:00
+fetched_at: 2026-11-25T19:39:13.272930+00:00
 ---
 
 # List brand templates - Canva REST API reference - Canva Developers SDK Documentation
@@ -541,6 +541,12 @@ When the brand template was created, as a Unix timestamp (in seconds since the U
 
 When the brand template was last updated, as a Unix timestamp (in seconds since the Unix Epoch).
 
+`description``string`
+
+Optional
+
+The brand template description, as shown in the Canva UI.
+
 `thumbnail``Thumbnail`
 
 Optional
@@ -581,6 +587,8 @@ If the success response contains a continuation token, the user has access to mo
           "id": "DEMzWSwy3BI",
     
           "title": "Advertisement Template",
+    
+          "description": "A template for social media advertisements.",
     
           "view_url": "https://www.canva.com/design/DAE35hE8FA4/view",
     

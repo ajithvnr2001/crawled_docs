@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/canva-cli/
 title: Canva CLI - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-09T20:12:20.638687+00:00
+fetched_at: 2026-11-25T19:38:45.221364+00:00
 ---
 
 # Canva CLI - Canva Developers SDK Documentation
@@ -621,11 +621,25 @@ Copy
 Use `canva apps list --print` in scripts or other non-interactive environments. Add `--all` to list every app without pagination.
 
   * **Flags** : 
-    * `--app-id`: Specifies an App ID to select.
     * `--all`, `-a`: Lists all apps at once without pagination.
     * `--print`, `-p`: Prints the list of apps to the console without interactivity.
 
 
+
+##### info
+
+Show a Canva app's name, ID, distribution, latest version, status, and Developer Portal URL.
+    
+    
+    canva apps info
+    
+    canva apps info --app-id AAPP_DEMO --profile work
+
+SHELL
+
+Copy
+
+By default, the command reads `CANVA_APP_ID` from the current directory's `.env` file. Pass `--app-id <id>` to inspect a specific app from any directory.
 
 ##### preview
 
