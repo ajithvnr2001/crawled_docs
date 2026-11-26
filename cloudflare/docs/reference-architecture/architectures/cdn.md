@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/reference-architecture/architectures/cdn/
 title: Content Delivery Network (CDN) Reference Architecture \u00b7 Cloudflare Reference Architecture docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:38.568385+00:00
+fetched_at: 2026-11-26T10:37:16.306263+00:00
 ---
 
 # Content Delivery Network (CDN) Reference Architecture · Cloudflare Reference Architecture docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:38.568385+00:00
 
 # Content Delivery Network (CDN) Reference Architecture
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/reference-architecture/architectures/cdn/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroduction Who is this document for and what will you learn?Traditional challenges deploying web applicationsHow a CDN tackles web application challenges Impacts Routing requests to CDN nodesIntroducing the Cloudflare CDNCloudflare CDN architecture and design Tiered Cache Traffic flow: Tiered Cache, Smart Tiered Cache topology Regional Tiered Cache Argo Smart Routing Cache Reserve Traffic flow: Cache Reserve topology China Network & Global Acceleration for clients in ChinaSummary
 
@@ -261,7 +261,7 @@ When combined with Tiered Caching and Argo Smart Routing, Cache Reserve can be a
 
 Note
 
-Using [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/) with Cache Reserve will not result in resized images being stored in Cache Reserve since Image Resizing takes place after reading from Cache Reserve. Resized images will be cached in other available tiers when they are served after resizing.
+Using [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/) with Cache Reserve will not result in resized images being stored in Cache Reserve since Image Resizing takes place after reading from Cache Reserve. Resized images will be cached in other available tiers when they are served after resizing.
 
 ### Traffic flow: Cache Reserve topology
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/use-cases/media-streaming/
 title: Media and streaming \u00b7 Use cases \u00b7 Cloudflare use cases
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:10.696531+00:00
+fetched_at: 2026-11-26T10:37:15.513704+00:00
 ---
 
 # Media and streaming · Use cases · Cloudflare use cases
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:16:10.696531+00:00
 
 # Media and streaming
 
-Last updated Apr 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/use-cases/media-streaming/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewArchitecture patterns Video platform Image optimization pipeline User-generated contentPrerequisites Create a new application Use an existing applicationRelated resources
 
@@ -70,7 +70,7 @@ Handle media uploads from users at scale:
 ### Create a new application
 
   * A [Cloudflare account ↗︎](https://dash.cloudflare.com/sign-up). Stream and R2 are account-level offerings. You do not need a domain added to Cloudflare to upload, encode, or store media.
-  * For Image Transformations: enable the feature per domain from the [Transformations page ↗︎](https://dash.cloudflare.com/?to=/:account/images/transformations) in the dashboard. Refer to [Image Transformations](https://developers.cloudflare.com/images/optimization/transformations/overview/).
+  * For Image Transformations: enable the feature per domain from the [Transformations page ↗︎](https://dash.cloudflare.com/?to=/:account/images/transformations) in the dashboard. Refer to [Image Transformations](https://developers.cloudflare.com/images/optimization/transformations/url/).
 
 
 
@@ -78,7 +78,7 @@ Handle media uploads from users at scale:
 
   * A [Cloudflare account ↗︎](https://dash.cloudflare.com/sign-up).
   * A domain [added to Cloudflare](https://developers.cloudflare.com/fundamentals/manage-domains/add-site/) with DNS records proxied through Cloudflare. This is required for CDN caching, image optimization (Polish), and cache rules.
-  * For Image Transformations on an existing domain: enable the feature from the [Transformations page ↗︎](https://dash.cloudflare.com/?to=/:account/images/transformations) in the dashboard. Refer to [Image Transformations](https://developers.cloudflare.com/images/optimization/transformations/overview/).
+  * For Image Transformations on an existing domain: enable the feature from the [Transformations page ↗︎](https://dash.cloudflare.com/?to=/:account/images/transformations) in the dashboard. Refer to [Image Transformations](https://developers.cloudflare.com/images/optimization/transformations/url/).
 
 
 

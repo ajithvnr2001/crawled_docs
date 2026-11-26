@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/request/
 title: Request \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:21.333571+00:00
+fetched_at: 2026-11-26T10:37:15.817576+00:00
 ---
 
 # Request · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-18T09:55:21.333571+00:00
 
 # Request
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundConstructor ParametersProperties IncomingRequestCfPropertiesMethods Instance methodsThe Request context When passing a promise to fetch event .respondWith() Errors when attempting to access an inactive Request context Set the Content-Length headerDifferences The cf property The headers property ImmutabilityRelated resources
 
@@ -128,7 +128,7 @@ Invalid or incorrectly-named keys in the `cf` object will be silently ignored. C
     * Controls how Cloudflare caches origin responses with a `Vary` header for a single `fetch()` request. If both `cf.vary` and [Cache Rules Vary](https://developers.cloudflare.com/cache/how-to/cache-rules/settings/#vary) apply, `cf.vary` takes precedence for this subrequest.
   * `image` Object | null optional
 
-    * Enables [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/) for this request. The possible values are described in [Transform images via Workers](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/) documentation.
+    * Enables [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/) for this request. The possible values are described in [Transform images via Workers](https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/) documentation.
   * `polish` `string` optional
 
     * Sets [Polish ↗︎](https://blog.cloudflare.com/introducing-polish-automatic-image-optimizati/) mode. The possible values are `lossy`, `lossless` or `off`.

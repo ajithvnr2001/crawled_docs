@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/find-expensive-queries/
 title: Find slow and expensive queries \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:59.248917+00:00
+fetched_at: 2026-11-26T10:37:17.652191+00:00
 ---
 
 # Find slow and expensive queries · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-07T08:31:59.248917+00:00
 
 # Find slow and expensive queries
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFind the most expensive databasesFind queries that need an indexFind queries to cacheFind queries to batch
 
@@ -64,6 +64,8 @@ To find the databases that write the most rows, change `ORDER BY` to `totalRowsW
 To get the name of a database, run `npx cf d1 get <database_id>` or `npx wrangler d1 info <database_id>`. To find out how rows read and rows written affect your bill, refer to [Pricing](https://developers.cloudflare.com/d1/platform/pricing/).
 
 ## Find queries that need an index
+
+D1 Insights can recommend indexes for you. For more information, refer to [Index recommendations](https://developers.cloudflare.com/d1/observability/metrics-analytics/index-recommendations/). To find queries that need an index yourself:
 
   1. Find the queries that read the most rows in your account during the last 7 days:
          

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/polish/troubleshooting-polish/
 title: Troubleshooting Polish \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T10:59:48.419444+00:00
+fetched_at: 2026-11-26T10:37:16.239726+00:00
 ---
 
 # Troubleshooting Polish · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-25T10:59:48.419444+00:00
 
 # Troubleshooting Polish
 
-Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewDiagnose PolishCf-Polished status
 
@@ -53,7 +53,7 @@ Status | What it means | Recommended action
 `avif_overloaded` | Polish could not create an AVIF version because AVIF capacity was temporarily unavailable. The status appears on the JPEG or PNG response. | Retry the request. If the problem continues, refer to [AVIF may be skipped](https://developers.cloudflare.com/images/polish/no-avif/).  
 `cannot_optimize` or `internal_error` | The input image is corrupted or incomplete at the origin. | Upload a new version of the image to the origin.  
 `format_not_supported` | The input format is unsupported, such as BMP or TIFF, or origin optimization software is incompatible with Polish. | Convert the image to PNG or JPEG, disable the additional origin optimization software, or both.  
-`vary_header_present` | The origin returned a `Vary` header with a value other than `accept-encoding`. | Polish works when `accept-encoding` is the only value in the `Vary` header. If the origin converts images to WebP, disable that conversion and let Polish perform it. Polish skips URLs processed by [Images](https://developers.cloudflare.com/images/optimization/transformations/overview/).  
+`vary_header_present` | The origin returned a `Vary` header with a value other than `accept-encoding`. | Polish works when `accept-encoding` is the only value in the `Vary` header. If the origin converts images to WebP, disable that conversion and let Polish perform it. Polish skips URLs processed by [Images](https://developers.cloudflare.com/images/optimization/transformations/url/).  
   
 [PreviousConfigure Polish](https://developers.cloudflare.com/images/polish/configure-polish/)[NextAVIF may be skipped](https://developers.cloudflare.com/images/polish/no-avif/)
 

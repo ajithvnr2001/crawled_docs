@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/tenant/reference/subscriptions/
 title: Available subscriptions \u00b7 Cloudflare Tenant docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:10.263527+00:00
+fetched_at: 2026-11-26T10:37:15.889365+00:00
 ---
 
 # Available subscriptions · Cloudflare Tenant docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:10.263527+00:00
 
 # Available subscriptions
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewZone plansOther subscriptions Zero Trust subscriptions Developer subscriptions Application performance and security Network servicesGetting new subscriptions
 
@@ -59,7 +59,7 @@ The following table lists sample values for various Developer platform subscript
 Feature | Subscription IDs  
 ---|---  
 [Images](https://developers.cloudflare.com/images/) | `IMAGES_ENT`,`IMAGES_BASIC`  
-[Image transformations](https://developers.cloudflare.com/images/optimization/transformations/overview/) | `IMAGE_RESIZING_ENT`, `IMAGE_RESIZING_BASIC`  
+[Image transformations](https://developers.cloudflare.com/images/optimization/transformations/url/) | `IMAGE_RESIZING_ENT`, `IMAGE_RESIZING_BASIC`  
 [Stream](https://developers.cloudflare.com/stream/) | `PARTNERS_STREAM_ENT`, `PARTNERS_STREAM_BASIC`, `STREAM_BASIC`  
 [Workers](https://developers.cloudflare.com/workers) | `PARTNERS_WORKERS_ENT`, `WORKERS_PAID`, `PARTNERS_WORKERS_SS`, `PARTNERS_WORKERS_BASIC`  
   

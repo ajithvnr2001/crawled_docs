@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/zone-level/
 title: Zone-level authenticated origin pulls \u00b7 Cloudflare SSL/TLS docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:43.638106+00:00
+fetched_at: 2026-11-26T10:37:14.255975+00:00
 ---
 
 # Zone-level authenticated origin pulls · Cloudflare SSL/TLS docs
@@ -22,13 +22,19 @@ Origin server[Authenticated Origin Pulls (mTLS)](https://developers.cloudflare.c
 
 # Zone-level
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/zone-level/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewBefore you begin1\. Upload your certificate to Cloudflare2\. Upload the CA certificate to your origin3\. Configure origin to accept client certificates4\. Enable zone-level Authenticated Origin Pulls5\. Enforce validation check on your origin6\. (Optional) Set up expiration alertsFurther options
+OverviewDurable Object requestsBefore you begin1\. Upload your certificate to Cloudflare2\. Upload the CA certificate to your origin3\. Configure origin to accept client certificates4\. Enable zone-level Authenticated Origin Pulls5\. Enforce validation check on your origin6\. (Optional) Set up expiration alertsFurther options
 
 When you enable zone-level Authenticated Origin Pulls (AOP), all proxied traffic to your zone is authenticated at the origin web server using a certificate that you upload. Unlike [global AOP](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/global/), which uses a Cloudflare-provided certificate shared across all accounts, zone-level AOP uses your own certificate for stricter security.
 
 [Global](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/global/), zone-level, and [per-hostname](https://developers.cloudflare.com/ssl/origin-configuration/authenticated-origin-pull/set-up/per-hostname/) AOP are independent configurations. Enabling or disabling one does not affect the others.
+
+## Durable Object requests
+
+Zone-level AOP does not apply to requests originating from Durable Objects. This includes requests that continue through service bindings.
+
+To present a client certificate for supported origin destinations, configure and use a [Workers mTLS certificate binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/mtls/).
 
 ## Before you begin
 

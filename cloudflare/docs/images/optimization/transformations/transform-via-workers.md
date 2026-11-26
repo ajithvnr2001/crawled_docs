@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/transformations/transform-via-workers/
 title: Transform via fetch \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:24.464982+00:00
+fetched_at: 2026-11-26T10:37:16.600325+00:00
 ---
 
 # Transform via fetch · Cloudflare Images docs
@@ -22,13 +22,13 @@ Optimization
 
 # Transform via fetch
 
-Last updated Nov 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksConfigure a Worker Prevent request loopsLack of preview in the dashboardLocal developmentError handlingAn example workerUnsupported fetch options resolveOverrideWarning about cacheKey
 
 Workers lets you optimize images with a custom URL scheme.
 
-You can set image optimization parameters on a `fetch()` subrequest in a Worker using the `cf.image` property. This is the same underlying mechanism as the [URL interface](https://developers.cloudflare.com/images/optimization/transformations/overview/#url-interface), but gives you programmatic control over every image request.
+You can set image optimization parameters on a `fetch()` subrequest in a Worker using the `cf.image` property. This is the same underlying mechanism as the [URL interface](https://developers.cloudflare.com/images/optimization/transformations/url/), but gives you programmatic control over every image request.
 
 To work with image bytes directly instead of URLs, use the [Images binding](https://developers.cloudflare.com/images/optimization/binding/).
 

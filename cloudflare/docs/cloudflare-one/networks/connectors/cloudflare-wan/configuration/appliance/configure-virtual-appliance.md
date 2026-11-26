@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/configure-virtual-appliance/
 title: Configure Virtual Appliance \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T09:55:29.448777+00:00
+fetched_at: 2026-11-26T10:37:18.899472+00:00
 ---
 
 # Configure Virtual Appliance · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Configure Virtual Appliance
 
-Last updated Nov 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesBefore you begin Determine the need for a high availability configuration Decide on DHCP vs static IP connectionsConfigure a virtual machineSet up Cloudflare dashboard Create a new profile Create a WAN Create a LAN Add your Virtual Appliance to a siteActivate applianceBoot your Virtual Appliance Default password to access Virtual ApplianceWAN with a static IP addressAbout high availability configurations Create a high availability configurationIPsec tunnels and static routesNext steps
 
@@ -311,10 +311,11 @@ This is not the same as a high availability (HA) configuration. HA configuration
   4. In **VLAN ID** , enter a number between `0` and `4094` to specify a [VLAN ID](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/reference/#vlan-id).
   5. In **Priority** , choose the priority for your WAN. Lower numbers have higher priority. For details on how Cloudflare calculates priorities, refer to [Traffic steering](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/reference/traffic-steering/).
   6. In **Health check rate** configure the health check frequency for your site. Options are `low`, `mid`, and `high`. For details, refer to [Update tunnel health checks frequency](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/common-settings/update-tunnel-health-checks-frequency/).
-  7. **Addressing** : Select **DHCP**. This is needed the first time you set up your Virtual Appliance to successfully download all settings to the machine and activate it. If you need a static IP address in your network environment: 
+  7. (Optional) In **Provisioned upload bandwidth (Mbps)** and **Provisioned download bandwidth (Mbps)** , enter the upload and download speeds of the WAN circuit. The appliance uses the upload value to shape upload traffic so that [prioritized traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/) takes effect when the circuit is congested. Download traffic is not currently shaped. For details, refer to [Set the provisioned upload bandwidth](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/#set-the-provisioned-upload-bandwidth).
+  8. **Addressing** : Select **DHCP**. This is needed the first time you set up your Virtual Appliance to successfully download all settings to the machine and activate it. If you need a static IP address in your network environment: 
      1. Continue the set up flow to activate your Virtual Appliance.
      2. Refer to WAN with a static IP address. If you choose a static IP, you also need to specify the static IP and gateway addresses.
-  8. Select **Save** when you are finished.
+  9. Select **Save** when you are finished.
 
 
 
@@ -325,6 +326,8 @@ You will need your [account ID](https://developers.cloudflare.com/fundamentals/a
 Make a `POST` request [using the API](https://developers.cloudflare.com/api/resources/magic_transit/subresources/sites/subresources/wans/methods/create/) to create a WAN.
 
 The `static_addressing` object is optional. Omit it if you are using DHCP. If you are using static addressing, add the `secondary_address` parameter when your site is in high availability (HA) mode. If the secondary appliance uses a different default gateway than the primary appliance (for example, because each appliance connects to a different ISP), also add the `secondary_gateway_address` parameter. If you omit `secondary_gateway_address`, the secondary appliance uses `gateway_address`. You can only use `secondary_gateway_address` on sites in HA mode.
+
+To shape upload traffic for [prioritized traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/), add the optional `provisioned_upload_kbps` parameter with the circuit's upload speed in kilobits per second. You can also add `provisioned_download_kbps` to record the circuit's download speed. Download traffic is not currently shaped.
 
 Example:
     
@@ -355,8 +358,12 @@ Example:
      * **Next hop** : The address of the L3 router to which the Virtual Appliance should forward packets for this subnet.
      * **Static NAT prefix** : Optional setting. If you want to enable NAT for a routed subnet, supply an "external" prefix for the overlay-facing side of the NAT to use. It must be the same size as **Prefix**.   
 For details, refer to [Routed subnets](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/routed-subnets/).
-  8. Select **Save**.
-  9. Select **Done** to finish your configuration. Tunnels and static routes will be automatically created for your Virtual Appliance, once it boots up.
+  8. (Optional) To reach a remote subnet through Cloudflare using a different local prefix, select **Add DNAT translation** under **DNAT translations** : 
+     * **Pre-NAT prefix** : The prefix that hosts on the LAN send traffic to. It cannot overlap the LAN's static address or routed subnets.
+     * **Post-NAT prefix** : The real prefix of the remote subnet, reachable through Cloudflare. It must be the same size as **Pre-NAT prefix**.   
+For details, refer to [DNAT translations](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dnat-translations/).
+  9. Select **Save**.
+  10. Select **Done** to finish your configuration. Tunnels and static routes will be automatically created for your Virtual Appliance, once it boots up.
 
 
 

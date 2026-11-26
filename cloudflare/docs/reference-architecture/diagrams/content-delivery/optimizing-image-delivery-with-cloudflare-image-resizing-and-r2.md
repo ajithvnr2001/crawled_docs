@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/reference-architecture/diagrams/content-delivery/optimizing-image-delivery-with-cloudflare-image-resizing-and-r2/
 title: Optimizing image delivery with Cloudflare image resizing and R2 \u00b7 Cloudflare Reference Architecture docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:41.151555+00:00
+fetched_at: 2026-11-26T10:37:16.042695+00:00
 ---
 
 # Optimizing image delivery with Cloudflare image resizing and R2 · Cloudflare Reference Architecture docs
@@ -22,7 +22,7 @@ Reference Architecture Diagrams
 
 # Optimizing image delivery with Cloudflare image resizing and R2
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/reference-architecture/diagrams/content-delivery/optimizing-image-delivery-with-cloudflare-image-resizing-and-r2/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewIntroductionImage Delivery with Cloudflare Image Resizing and R2Image Resizing URL Syntax ReferenceRelated Resources
 
@@ -67,7 +67,7 @@ The final URL used in the request would look like this:
 
 ## Related Resources
 
-  * [Image Resizing Documentation](https://developers.cloudflare.com/images/optimization/transformations/overview/)
+  * [Image Resizing Documentation](https://developers.cloudflare.com/images/optimization/transformations/url/)
   * [Cloudflare R2 Developer Docs](https://developers.cloudflare.com/r2/)
   * [URL Rewrite Rules](https://developers.cloudflare.com/rules/transform/url-rewrite/)
   * [Serverless image content management platform](https://developers.cloudflare.com/reference-architecture/diagrams/serverless/serverless-image-content-management/)

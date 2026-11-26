@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/limits/
 title: Limits \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:40.415856+00:00
+fetched_at: 2026-11-26T10:37:15.677895+00:00
 ---
 
 # Limits · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-20T09:50:40.415856+00:00
 
 # Limits
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSpending limitsAccount plan limitsRequest and response limitsCPU timeMemoryDuration Runtime updatesDaily requestsSubrequests Worker-to-Worker subrequestsSimultaneous open connectionsEnvironment variablesWorker sizeWorker startup timeNumber of WorkersVersionsRoutes and domains Routes with wrangler dev --remoteCache API limitsLog sizeImage Resizing with WorkersStatic AssetsUnbound and Bundled plan limitsWall time limits by invocation typeRelated resources
 
@@ -418,7 +418,7 @@ Refer to the [Workers Trace Event Logpush documentation](https://developers.clou
 
 ## Image Resizing with Workers
 
-Refer to the [Image Resizing documentation](https://developers.cloudflare.com/images/optimization/transformations/overview/) for limits that apply when using Image Resizing with Workers.
+Refer to the [Image Resizing documentation](https://developers.cloudflare.com/images/optimization/transformations/url/) for limits that apply when using Image Resizing with Workers.
 
 * * *
 

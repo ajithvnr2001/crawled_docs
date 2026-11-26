@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/binding/
 title: Optimize with Workers \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:05.959957+00:00
+fetched_at: 2026-11-26T10:37:16.392222+00:00
 ---
 
 # Optimize with Workers · Cloudflare Images docs
@@ -18,13 +18,13 @@ fetched_at: 2026-11-19T10:02:05.959957+00:00
 
 # Optimize with Workers
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetupMethods .input(stream) .text(content, options) .transform(options) .draw(image, options) .output(options) .info(stream)Interact with your Images binding locally
 
 A [binding](https://developers.cloudflare.com/workers/runtime-apis/bindings/) connects your [Worker](https://developers.cloudflare.com/workers/) to external resources on the Developer Platform, like [Images](https://developers.cloudflare.com/images/), [R2 buckets](https://developers.cloudflare.com/r2/buckets/), or [KV namespaces](https://developers.cloudflare.com/kv/concepts/kv-namespaces/).
 
-The Images binding lets you optimize and manipulate images directly in a Worker. Unlike the [URL interface](https://developers.cloudflare.com/images/optimization/transformations/overview/), which requires images to be accessible through a URL, the binding works with raw image bytes. You can pass images from any source, including [Images](https://developers.cloudflare.com/images/storage/upload-images/methods/), [R2](https://developers.cloudflare.com/r2/), a `fetch()` response, or a request body.
+The Images binding lets you optimize and manipulate images directly in a Worker. Unlike the [URL interface](https://developers.cloudflare.com/images/optimization/transformations/url/), which requires images to be accessible through a URL, the binding works with raw image bytes. You can pass images from any source, including [Images](https://developers.cloudflare.com/images/storage/upload-images/methods/), [R2](https://developers.cloudflare.com/r2/), a `fetch()` response, or a request body.
 
 With the Images binding, you can:
 

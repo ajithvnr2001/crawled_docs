@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/d1/observability/metrics-analytics/
 title: Metrics and analytics \u00b7 Cloudflare D1 docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:58.577677+00:00
+fetched_at: 2026-11-26T10:37:17.548758+00:00
 ---
 
 # Metrics and analytics · Cloudflare D1 docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-07T08:31:58.577677+00:00
 
 # Metrics and analytics
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewMetrics Row countsView metrics in the dashboardQuery via the GraphQL API ExamplesQuery insights
 
@@ -180,6 +180,8 @@ Note
 Run `wrangler d1 insights --help` to view current options.
 
 `wrangler d1 insights` reads data from the GraphQL Analytics API. If you use an API token, the token must have the **Account Analytics Read** permission.
+
+`wrangler d1 insights` does not return index recommendations. To list them, use `cf d1 insights recommendations`. For more information, refer to [Index recommendations](https://developers.cloudflare.com/d1/observability/metrics-analytics/index-recommendations/).
 
 Pass a database name, binding, or ID to get the top queries for that database. Leave it out to run account-wide and get the top queries across every D1 database in your account:
     
@@ -353,10 +355,10 @@ Generally, you should try to get `queryEfficiency` as close to `1` as possible. 
 
 To find the databases and queries that cost the most in your account, and to learn how to fix them, refer to [Find slow and expensive queries](https://developers.cloudflare.com/d1/observability/find-expensive-queries/).
 
-[PreviousDebug D1](https://developers.cloudflare.com/d1/observability/debug-d1/)[NextBilling](https://developers.cloudflare.com/d1/observability/billing/)
+[PreviousDebug D1](https://developers.cloudflare.com/d1/observability/debug-d1/)[NextIndex recommendations](https://developers.cloudflare.com/d1/observability/metrics-analytics/index-recommendations/)
 
 Was this helpful?
 
 YesNo
 
-[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/d1/observability/metrics-analytics.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)
+[Edit page](https://github.com/cloudflare/cloudflare-docs/edit/production/src/content/docs/d1/observability/metrics-analytics/index.mdx)[Report issue](https://github.com/cloudflare/cloudflare-docs/issues/new/choose)

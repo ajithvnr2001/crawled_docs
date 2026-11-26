@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/markdown-for-agents/
 title: Markdown for Agents \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.943949+00:00
+fetched_at: 2026-11-26T10:37:19.282796+00:00
 ---
 
 # Markdown for Agents · Cloudflare Fundamentals docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-10T09:28:48.943949+00:00
 
 # Markdown for Agents
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewWhat is Markdown for AgentsHow to use Response headers Content Signals PolicyOutput format YAML frontmatter JSON-LDHow to enable Enable for specific subdomains or paths Enable for specific subdomains or paths Enable for all custom hostnames Enable for specific custom hostnamesAnalytics Dashboard GraphQL Analytics API Interpret analyticsCloudflare TracesAvailability and PricingTry it with CloudflareLimitationsOther Markdown conversion APIs
+OverviewWhat is Markdown for AgentsHow to use Response headers Content Signals PolicyOutput format YAML frontmatter JSON-LDCombine with Search for AgentsHow to enable Enable for specific subdomains or paths Enable for specific subdomains or paths Enable for all custom hostnames Enable for specific custom hostnamesAnalytics Dashboard GraphQL Analytics API Interpret analyticsCloudflare TracesAvailability and PricingTry it with CloudflareLimitationsOther Markdown conversion APIs
 
 ## What is Markdown for Agents
 
@@ -165,6 +165,12 @@ Example output:
     	"author": { "@type": "Person", "name": "Jane Doe" }
     }
     ```
+
+## Combine with Search for Agents
+
+[Search for Agents](https://developers.cloudflare.com/ai-search/how-to/search-for-agents/) lets agents search your site's indexed content through an endpoint on your domain. It complements Markdown for Agents, which converts individual pages to Markdown on request.
+
+When both features are on, Markdown responses include search discovery metadata in YAML front matter. Agents can use this metadata to find relevant content instead of crawling individual pages. For the metadata format and request examples, refer to [Discover the search endpoint](https://developers.cloudflare.com/ai-search/how-to/search-for-agents/#discover-the-search-endpoint).
 
 ## How to enable
 

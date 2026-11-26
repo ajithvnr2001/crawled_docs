@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/tutorials/generate-youtube-thumbnails-with-workers-and-images/
 title: Generate YouTube thumbnails with Workers and Cloudflare Image Resizing \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:36.300718+00:00
+fetched_at: 2026-11-26T10:37:14.728718+00:00
 ---
 
 # Generate YouTube thumbnails with Workers and Cloudflare Image Resizing · Cloudflare Workers docs
@@ -12,19 +12,19 @@ fetched_at: 2026-10-13T08:48:36.300718+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
   3. /[Tutorials](https://developers.cloudflare.com/workers/tutorials/)
-  4. /Generate Youtube Thumbnails With Workers And Images
+  4. /Generate YouTube thumbnails with Workers and Cloudflare Image Resizing
 
 
 
 # Generate YouTube thumbnails with Workers and Cloudflare Image Resizing
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you startLearning goalsUpload your image Upload with the dashboard Upload with the APICreate a Worker to transform text to imageCreate a Worker to display the original imageAdd custom text on your imageRelated resources
 
 In this tutorial, you will learn how to programmatically generate a custom YouTube thumbnail using Cloudflare Workers and Cloudflare Image Resizing. You may want to generate a custom YouTube thumbnail to customize the thumbnail's design, call-to-actions and images used to encourage more viewers to watch your video.
 
-This tutorial will help you understand how to work with [Images](https://developers.cloudflare.com/images/),[Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/) and [Cloudflare Workers](https://developers.cloudflare.com/workers/).
+This tutorial will help you understand how to work with [Images](https://developers.cloudflare.com/images/),[Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/) and [Cloudflare Workers](https://developers.cloudflare.com/workers/).
 
 ## Before you start
 
@@ -430,7 +430,7 @@ Run your Worker and go to the `/original-image` route to review your image.
 
 ## Add custom text on your image
 
-You will now use [Cloudflare image transformations](https://developers.cloudflare.com/images/optimization/transformations/overview/), with the `fetch` method, to add your dynamic text image as an overlay on top of your background image. Start by displaying the resulting image on a different route. Call the new route `/thumbnail`.
+You will now use [Cloudflare image transformations](https://developers.cloudflare.com/images/optimization/transformations/url/), with the `fetch` method, to add your dynamic text image as an overlay on top of your background image. Start by displaying the resulting image on a different route. Call the new route `/thumbnail`.
     
     
     export default {

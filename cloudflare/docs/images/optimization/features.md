@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/optimization/features/
 title: Features \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:06.088312+00:00
+fetched_at: 2026-11-26T10:37:17.008765+00:00
 ---
 
 # Features · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:06.088312+00:00
 
 # Features
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow to apply optimization URL interface WorkersParameters anim background blur border brightness compression contrast dpr draw fit flip format | f gamma gravity | g height | h metadata onerror quality | q rotate saturation segment sharpen trim width | w zoomRecommended image sizesCaching
 
@@ -37,7 +37,7 @@ Use Cloudflare's image optimization capabilities through:
 
 ### URL interface
 
-Cloudflare uses a different URL structure depending on whether you are optimizing a [remote](https://developers.cloudflare.com/images/optimization/transformations/overview/) or a [hosted](https://developers.cloudflare.com/images/optimization/hosted-images/serve-uploaded-images/) image:
+Cloudflare uses a different URL structure depending on whether you are optimizing a [remote](https://developers.cloudflare.com/images/optimization/transformations/url/) or a [hosted](https://developers.cloudflare.com/images/optimization/hosted-images/serve-uploaded-images/) image:
 
 When optimizing images outside of Images, the default transformation URL uses the following structure:
     
@@ -662,35 +662,58 @@ When `height` is set, the exact behavior depends on the `fit` parameter.
 
 ### `metadata`
 
-Controls the amount of invisible metadata (EXIF and XMP) that should be preserved in the output image. Support for extracting metadata from the source image (decode) and writing it to the output image (encode) varies by format:
+Controls how Images handles EXIF, XMP, and IPTC-IIM metadata in re-encoded output images.
 
-Format | Decode EXIF | Decode XMP | Encode EXIF | Encode XMP  
----|---|---|---|---  
-JPEG | Yes | Yes | Yes | Yes  
-PNG | Yes | Yes | Yes | Yes  
-WebP | Yes | Yes | Yes | Yes  
-AVIF | Yes | Yes | Yes | No  
-HEIC | Yes | Yes | N/A | N/A  
-GIF | No | No | No | Yes  
-TIFF | No | No | N/A | N/A  
-  
-HEIC and TIFF are supported as input formats, but not as output formats.
-
-Each of EXIF and XMP is capped at 64 KB after `metadata` mode filtering is applied. If the filtered metadata still exceeds this limit, it is dropped entirely rather than truncated.
-
-Color profiles and EXIF rotation are applied to the image even if the metadata is discarded.
-
-Note
-
-If [Polish](https://developers.cloudflare.com/images/polish/) is enabled, then all metadata may already be removed and this option will have no effect.
+Supports [Content Credentials ↗︎](https://contentcredentials.org/) (or C2PA) when the [**Preserve Content Credentials** setting](https://developers.cloudflare.com/images/optimization/preserve-content-credentials/) is enabled.
 
 Accepts the following values:
 
-  * `copyright` (default) — Discards all metadata except EXIF copyright tag.
-  * `keep` — Preserves most of EXIF metadata, including GPS location, if present.
-  * `none` — Discards all invisible EXIF metadata.
+  * `copyright` (default) — Preserves C2PA metadata and the EXIF copyright tag, and discards all other EXIF, XMP, and IPTC-IIM metadata.
+  * `keep` — Preserves C2PA metadata, supported EXIF metadata except orientation, and supported XMP metadata. For JPEG sources, it also preserves supported IPTC-IIM metadata.
+  * `none` — Discards all C2PA, EXIF, XMP, and IPTC-IIM metadata.
 
 
+
+The following rules apply:
+
+  * The `metadata` parameter is available through the URL interface, `cf.image` subrequests, and preset variants. The Images binding does not expose this parameter.
+  * When Images returns the source file unchanged, all embedded metadata, including Content Credentials, remains intact.
+  * Cloudflare does not create Content Credentials for sources that do not already contain them.
+  * Each of EXIF and XMP is capped at 64 KB after `metadata` mode filtering is applied. If the filtered metadata still exceeds this limit, it is dropped entirely rather than truncated.
+  * When supported by the source format, Cloudflare applies embedded color information and orientation before filtering output metadata.
+  * If [Polish](https://developers.cloudflare.com/images/polish/) is enabled, then all metadata may already be removed and this option will have no effect.
+
+
+
+Support for extracting metadata from the source image (decode) and writing it to the output image (encode) varies by format:
+
+Format | Read from source | Write to output  
+---|---|---  
+JPEG | C2PA, EXIF, XMP, IPTC-IIM | C2PA, EXIF, XMP, IPTC-IIM  
+PNG | C2PA, EXIF, XMP | C2PA, EXIF, XMP  
+WebP | C2PA, EXIF, XMP | C2PA, EXIF, XMP  
+AVIF | C2PA, EXIF, XMP | C2PA, EXIF  
+HEIC | C2PA, EXIF, XMP | Not an output format  
+GIF | C2PA | C2PA, XMP  
+TIFF | C2PA | Not an output format  
+  
+#### IPTC-IIM
+
+The Information Interchange Model (IIM) is a legacy metadata standard developed by the International Press Telecommunications Council (IPTC). It stores attribution and rights information in JPEG images, including creator names, credits, sources, copyright notices, and special instructions.
+
+With `metadata=keep`, Images preserves the original IPTC-IIM metadata in JPEG output. When Images converts a JPEG to PNG, WebP, or GIF, it maps supported IPTC-IIM fields to XMP:
+
+IPTC-IIM field | XMP destination  
+---|---  
+Copyright Notice | `dc:rights`  
+By-line | `dc:creator`  
+Credit | `photoshop:Credit`  
+Source | `photoshop:Source`  
+Special Instructions | `photoshop:Instructions`  
+  
+Invalid UTF-8 and other IPTC-IIM fields are not mapped. If the source already contains XMP, Images preserves that XMP without merging the IPTC-IIM fields. AVIF output does not preserve these mapped fields.
+
+The default `metadata=copyright` value does not preserve IPTC-IIM Copyright Notice. Use `metadata=keep` to retain supported IPTC-IIM metadata.
     
     
     metadata=none
@@ -1062,7 +1085,7 @@ Optimized images follow the same caching rules as the original image they were r
 
 Cloudflare does not support purging optimized images individually. URLs starting with `/cdn-cgi/` cannot be purged. However, purging of the original image's URL will also purge all of its optimized versions.
 
-[PreviousLimits and formats](https://developers.cloudflare.com/images/get-started/limits/)[NextOverview](https://developers.cloudflare.com/images/optimization/transformations/overview/)
+[PreviousLimits and formats](https://developers.cloudflare.com/images/get-started/limits/)[NextTransform via URL](https://developers.cloudflare.com/images/optimization/transformations/url/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/
 title: Overview \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:33.464835+00:00
+fetched_at: 2026-11-26T10:37:17.370979+00:00
 ---
 
 # Overview · Cloudflare Images docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:11:33.464835+00:00
 
 # Images
 
-Last updated Sep 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewGet startedFeaturesMore resources
 
@@ -34,7 +34,7 @@ With Images, you can dynamically resize, optimize, and manipulate images at Clou
 
 Cloudflare offers two integration paths for Images:
 
-### [Bring your own storage](https://developers.cloudflare.com/images/optimization/transformations/overview/)
+### [Bring your own storage](https://developers.cloudflare.com/images/optimization/transformations/url/)
 
 Transform and deliver images that are stored on any origin, including S3-compatible buckets like R2.
 

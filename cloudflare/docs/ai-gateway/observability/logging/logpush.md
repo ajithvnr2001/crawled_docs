@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-gateway/observability/logging/logpush/
 title: Logpush \u00b7 Cloudflare AI Gateway docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:38.967750+00:00
+fetched_at: 2026-11-26T10:37:18.109242+00:00
 ---
 
 # Logpush · Cloudflare AI Gateway docs
@@ -22,7 +22,7 @@ Observability
 
 # Logpush
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow logs are encryptedConfigure Logpush1\. Generate an RSA key pair locally2\. Upload public key to gateway settings3\. Set up Logpush4\. Receive encrypted logs5\. Decrypt logs
 
@@ -34,7 +34,7 @@ Logpush supports four jobs per account. Each exported log can be up to 1 MB.
 
 Note
 
-Logpush exports logs whether or not logs are turned on for the gateway. The `cf-aig-collect-log` and `cf-aig-collect-log-payload` headers do not change what Logpush exports.
+Logpush exports logs whether or not logs are turned on for the gateway. The `cf-aig-collect-log` and `cf-aig-collect-log-payload` headers do not change what Logpush exports. Exported logs include the encrypted request and response bodies, even when payload collection is turned off.
 
 Need a higher limit?
 

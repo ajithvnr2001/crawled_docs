@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/reference/cdn-cgi-endpoint/
 title: /cdn-cgi/ endpoint \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:04:04.720460+00:00
+fetched_at: 2026-11-26T10:37:17.279437+00:00
 ---
 
 # /cdn-cgi/ endpoint · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-28T08:04:04.720460+00:00
 
 # /cdn-cgi/ endpoint
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRecommended exclusions Exclude from security scanners Disallow using robots.txt
 
@@ -34,7 +34,7 @@ A few examples include (but are not limited to):
 
   * [Identify the Cloudflare data center serving your request](https://developers.cloudflare.com/support/troubleshooting/general-troubleshooting/gathering-information-for-troubleshooting-sites/#identify-the-cloudflare-data-center-serving-your-request), which is helpful for troubleshooting (`https://<YOUR_DOMAIN>/cdn-cgi/trace`).
   * [JavaScript detection](https://developers.cloudflare.com/cloudflare-challenges/challenge-types/javascript-detections/) used by Cloudflare bot products (`example.com/cdn-cgi/challenge-platform/`)
-  * [Image transformations](https://developers.cloudflare.com/images/optimization/transformations/overview/) in the new URLs you would use for images (`example.com/cdn-cgi/image/`)
+  * [Image transformations](https://developers.cloudflare.com/images/optimization/transformations/url/) in the new URLs you would use for images (`example.com/cdn-cgi/image/`)
   * [Email address obfuscation](https://developers.cloudflare.com/waf/tools/scrape-shield/email-address-obfuscation/) used to hide email addresses from malicious bots (`example.com/cdn-cgi/l/email-protection`)
   * [Web analytics](https://developers.cloudflare.com/web-analytics/get-started/#sites-proxied-through-cloudflare) for a website proxied through Cloudflare (`example.com/cdn-cgi/rum`). This endpoint returns a `204` HTTP status code.
   * [Speed Brain](https://developers.cloudflare.com/speed/optimization/content/speed-brain/) adds an HTTP header called `Speculation-Rules` to web page responses. This header contains a URL that hosts an opinionated Speculation-Rules configuration, which instructs the browser to initiate prefetch requests for anticipated future navigations.
@@ -61,7 +61,7 @@ As a best practice, update your `robots.txt` file to include `Disallow: /cdn-cgi
 
 Note
 
-If you serve transformations through [Images](https://developers.cloudflare.com/images/optimization/transformations/overview/), a blanket `Disallow: /cdn-cgi/` prevents search engines from indexing your transformed images served from `/cdn-cgi/image/`. To allow crawlers to discover these images, add an `Allow` rule before the `Disallow`:
+If you serve transformations through [Images](https://developers.cloudflare.com/images/optimization/transformations/url/), a blanket `Disallow: /cdn-cgi/` prevents search engines from indexing your transformed images served from `/cdn-cgi/image/`. To allow crawlers to discover these images, add an `Allow` rule before the `Disallow`:
     
     
     Allow: /cdn-cgi/image/

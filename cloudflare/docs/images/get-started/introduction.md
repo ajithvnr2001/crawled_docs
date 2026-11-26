@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/images/get-started/introduction/
 title: Introduction \u00b7 Cloudflare Images docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:34.076966+00:00
+fetched_at: 2026-11-26T10:37:17.324796+00:00
 ---
 
 # Introduction · Cloudflare Images docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:34.076966+00:00
 
 # Introduction
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/images/get-started/introduction/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy optimize images?How do I get started with Images? Optimize remote images Upload and deliver with ImagesShould I store with Images or R2?
 
@@ -57,7 +57,7 @@ Keep your images on your own origin, in [R2](https://developers.cloudflare.com/r
 
 You can define an [origin allowlist](https://developers.cloudflare.com/images/optimization/transformations/sources/) to control which source images can be transformed on your zone.
 
-To start, [enable transformations on your zone](https://developers.cloudflare.com/images/optimization/transformations/overview/).
+To start, [enable transformations on your zone](https://developers.cloudflare.com/images/optimization/transformations/url/).
 
 ### Upload and deliver with Images
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security/security-insights/review-insights/
 title: Review Security Insights \u00b7 Security dashboard docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:30.524753+00:00
+fetched_at: 2026-11-26T10:37:17.851961+00:00
 ---
 
 # Review Security Insights · Security dashboard docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:30.524753+00:00
 
 # Review Security Insights
 
-Last updated Jun 2, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/security/security-insights/review-insights/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewResolve an insightExport insightsArchive insightsEnable alerts
 
@@ -50,9 +50,6 @@ The following insights follow a different yet straightforward workflow to be res
   * **Domains without "Always use HTTPS"** : To resolve this insight: 
     * Go to **SSL/TLS** > **Edge Certificates**.
     * Select **Always Use HTTPS**.
-  * **Turn on JavaScript Detections** : To resolve this insight: 
-    * Go to **Security** > **Bots** > Select **Configure Bot Management**.
-    * Select **JavaScript Detections**.
 
 
 

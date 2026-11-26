@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/
 title: Custom certificates \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:08:02.517424+00:00
+fetched_at: 2026-11-26T10:37:14.305810+00:00
 ---
 
 # Custom certificates · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:08:02.517424+00:00
 
 # Custom certificates
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse casesLimitations
 
@@ -42,15 +42,15 @@ This situation commonly occurs when your customers use Extended Validation (EV) 
 
 If you use custom certificates, you are responsible for the entire certificate lifecycle (initial upload, renewal, subsequent upload).
 
-Cloudflare also only accepts publicly trusted certificates of these types:
+Cloudflare accepts publicly trusted certificates with the following signature algorithms:
 
-  * `SHA256WithRSA`
-  * `SHA1WithRSA`
-  * `ECDSAWithSHA256`
+  * RSA with SHA-256, SHA-384, or SHA-512
+  * ECDSA with SHA-256, SHA-384, or SHA-512
+  * RSA with SHA-1
 
 
 
-If you attempt to upload another type of certificate or a certificate that has been self-signed, it will be rejected.
+Cloudflare rejects self-signed certificates and certificates with unsupported signature algorithms.
 
 [PreviousTLS Management](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/enforce-mtls/)[NextManage custom certificates](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/security/certificate-management/custom-certificates/uploading-certificates/)
 

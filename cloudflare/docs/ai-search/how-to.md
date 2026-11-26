@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ai-search/how-to/
 title: How to \u00b7 Cloudflare AI Search docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:04:41.388749+00:00
+fetched_at: 2026-11-26T10:37:19.653620+00:00
 ---
 
 # How to · Cloudflare AI Search docs
@@ -10,20 +10,22 @@ fetched_at: 2026-10-08T07:04:41.388749+00:00
 > Source: https://developers.cloudflare.com/ai-search/how-to/
 
   1. [Home](https://developers.cloudflare.com/)
-  2. /[Ai Search](https://developers.cloudflare.com/ai-search/)
-  3. /How To
+  2. /[AI Search](https://developers.cloudflare.com/ai-search/)
+  3. /[AI Search](https://developers.cloudflare.com/ai-search/)
+  4. /How to
 
 
 
 # How to
 
-Last updated Jul 8, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ai-search/how-to/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 These guides walk through common AI Search use cases, from no-code setups to full agent applications. Use the difficulty column to find the right place to start.
 
 Guide | Difficulty | What you build  
 ---|---|---  
 [Add search to your website](https://developers.cloudflare.com/ai-search/how-to/add-search-to-your-website/) | Beginner | Add a search bar, chat bubble, and search modal to a site with the prebuilt UI snippets.  
+[Search for Agents](https://developers.cloudflare.com/ai-search/how-to/search-for-agents/) | Beginner | Make your website searchable by AI agents with automatic indexing and a discoverable search endpoint.  
 [Connect your AI Search to an MCP client](https://developers.cloudflare.com/ai-search/how-to/connect-mcp-client/) | Beginner | Expose your indexed content as a search tool for any MCP client or AI assistant, with no code.  
 [Create a simple search engine](https://developers.cloudflare.com/ai-search/how-to/simple-search-engine/) | Beginner | Query an instance from a Worker using the search binding.  
 [Multitenancy](https://developers.cloudflare.com/ai-search/how-to/per-tenant-search/) | Intermediate | Keep each tenant's data separate with a per-tenant instance or a shared instance and metadata filtering.  

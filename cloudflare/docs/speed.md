@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/
 title: Speed \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:33.677578+00:00
+fetched_at: 2026-11-26T10:37:16.075596+00:00
 ---
 
 # Speed · Cloudflare Speed docs
@@ -16,7 +16,7 @@ fetched_at: 2026-10-08T07:15:33.677578+00:00
 
 # Speed
 
-Last updated Jun 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/speed/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
@@ -66,7 +66,7 @@ Customize the cache properties of your HTTP requests.
 
 Understand the performance of your webpages as experienced by your site visitors.
 
-[Cloudflare Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/)
+[Cloudflare Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/)
 
 Transform images on Cloudflare's edge platform: resize, adjust quality, and convert images to WebP or AVIF format on demand.
 

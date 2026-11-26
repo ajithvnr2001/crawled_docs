@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/
 title: Product compatibility \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T08:48:18.890876+00:00
+fetched_at: 2026-11-26T10:37:17.196417+00:00
 ---
 
 # Product compatibility · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-04T08:48:18.890876+00:00
 
 # Product compatibility
 
-Last updated Nov 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 As a general rule, settings on the customer zone will override settings on the SaaS zone. In addition, [O2O](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/) does not permit traffic directed to a custom hostname zone into another custom hostname zone.
 
@@ -52,7 +52,7 @@ Tiered Cache continues to apply to non-O2O traffic on the customer zone.
   
 Otherwise, your traffic will begin routing away from your SaaS provider.  
 [HTTP/2 prioritization ↗︎](https://blog.cloudflare.com/better-http-2-prioritization-for-a-faster-web/) | Yes | Yes* | This feature must be enabled on the customer zone to function.  
-[Image resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/) | Yes | Yes |   
+[Image resizing](https://developers.cloudflare.com/images/optimization/transformations/url/) | Yes | Yes |   
 IPv6 | Yes | Yes |   
 [IPv6 Compatibility](https://developers.cloudflare.com/network/ipv6-compatibility/) | Yes | Yes* | If the customer zone has **IPv6 Compatibility** enabled, generally the SaaS zone should as well.  
   

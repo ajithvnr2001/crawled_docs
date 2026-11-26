@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/nat-subnet/
 title: Enable NAT for a subnet \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:09:29.278792+00:00
+fetched_at: 2026-11-26T10:37:18.746206+00:00
 ---
 
 # Enable NAT for a subnet · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Enable NAT for a subnet
 
-Last updated Aug 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/nat-subnet/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewHow subnet NAT works in Cloudflare WANAddressing rulesExampleConfigure NAT for subnets
 
@@ -69,6 +69,8 @@ To avoid overlapping addresses in the overlay, Cloudflare WAN enforces the follo
 
 These rules allow you to reuse local space at multiple sites, as long as each subnet in the Cloudflare WAN overlay has a unique overlay-facing prefix.
 
+Subnet NAT translates the source addresses of your own subnets. To reach a remote subnet whose addresses overlap your local addresses, also use [DNAT translations](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dnat-translations/), which translate destination addresses.
+
 ## Example
 
 Consider a subnet that uses the following prefixes:
@@ -101,7 +103,7 @@ For step-by-step instructions to configure a LAN and supply a static NAT prefix,
 
 
 
-[PreviousDHCP static address reservation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dhcp/dhcp-static-address-reservation/)[NextNetwork segmentation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/network-segmentation/)
+[PreviousDNAT translations](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dnat-translations/)[NextNetwork segmentation](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/network-segmentation/)
 
 Was this helpful?
 

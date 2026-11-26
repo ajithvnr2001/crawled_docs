@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/speed/optimization/images/mirage/
 title: Cloudflare Mirage (deprecated) \u00b7 Cloudflare Speed docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:35.280766+00:00
+fetched_at: 2026-11-26T10:37:15.920370+00:00
 ---
 
 # Cloudflare Mirage (deprecated) · Cloudflare Speed docs
@@ -22,7 +22,7 @@ Settings
 
 # Cloudflare Mirage (deprecated)
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/speed/optimization/images/mirage/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhat was Mirage?Why was it deprecated?Migration path
 
@@ -59,7 +59,7 @@ Modern web standards and browser capabilities have evolved to provide native sup
 Instead of Mirage, use:
 
   * **[Polish](https://developers.cloudflare.com/images/polish/)** \- Seamlessly optimizes images for all browsers, not only mobile, and keeps images at full resolution.
-  * **[Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/)** \- Combined with `loading="lazy"` and `srcset` HTML attributes, provides modern responsive image delivery.
+  * **[Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/)** \- Combined with `loading="lazy"` and `srcset` HTML attributes, provides modern responsive image delivery.
   * **[Lazy loading guide](https://developers.cloudflare.com/images/tutorials/optimize-mobile-viewing/)** \- Learn how to implement native lazy loading.
   * **[Responsive images guide](https://developers.cloudflare.com/images/optimization/make-responsive-images/)** \- Create images that adapt to different devices.
 

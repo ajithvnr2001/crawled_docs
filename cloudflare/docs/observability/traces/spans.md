@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/observability/traces/spans/
 title: Spans \u00b7 Cloudflare Observability docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-10T09:28:48.683843+00:00
+fetched_at: 2026-11-26T10:37:14.473283+00:00
 ---
 
 # Spans · Cloudflare Observability docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-10T09:28:48.683843+00:00
 
 # Spans
 
-Last updated Nov 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSpan referenceRuleset phase spansWorkers runtime spansFeatures without spans
 
@@ -64,13 +64,11 @@ Span | Ruleset phase covered
   
 ## Workers runtime spans
 
-Cloudflare Traces include spans for supported Workers runtime operations, including handler invocations, fetch calls, and binding operations.
+With [Workers tracing](https://developers.cloudflare.com/workers/observability/traces/) enabled, Cloudflare Traces include spans for supported Workers runtime operations, such as handler invocations, fetch calls, and binding operations.
+
+If your Worker uses [static assets](https://developers.cloudflare.com/workers/static-assets/) or [Smart Placement](https://developers.cloudflare.com/workers/configuration/placement/), its spans appear in a separate trace from the Cloudflare Trace for the same request. To find both traces, filter by their shared Ray ID (`cloudflare.ray_id`).
 
 Refer to [Workers spans and attributes](https://developers.cloudflare.com/workers/observability/traces/spans-and-attributes/) for the complete runtime reference. You can also [create custom spans](https://developers.cloudflare.com/workers/observability/traces/custom-spans/) for application-specific operations.
-
-Note
-
-[Workers tracing](https://developers.cloudflare.com/workers/observability/traces/) needs to be enabled to see Workers spans in a Cloudflare Trace.
 
 ## Features without spans
 

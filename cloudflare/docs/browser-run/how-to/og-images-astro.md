@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/how-to/og-images-astro/
 title: Generate OG images for Astro sites \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:36.668830+00:00
+fetched_at: 2026-11-26T10:37:17.811167+00:00
 ---
 
 # Generate OG images for Astro sites · Cloudflare Browser Run docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:05:36.668830+00:00
 
 # Generate OG images for Astro sites
 
-Last updated Sep 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/browser-run/how-to/og-images-astro/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisites1\. Create the OG image template2\. Generate OG images at build time3\. Add OG meta tags to your pages4\. Test your OG imagesCustomize the template Add a background image Use custom fonts Add Tailwind CSSPerformance considerations Image optimizationNext stepsRelated resources
 
@@ -411,7 +411,7 @@ From here, you can:
 
   * Customize your template with custom fonts, Tailwind CSS, or background images.
   * Add cache invalidation logic to regenerate images when post content changes.
-  * Use [Cloudflare Images](https://developers.cloudflare.com/images/) or [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/overview/) for additional optimization.
+  * Use [Cloudflare Images](https://developers.cloudflare.com/images/) or [Image Resizing](https://developers.cloudflare.com/images/optimization/transformations/url/) for additional optimization.
 
 
 

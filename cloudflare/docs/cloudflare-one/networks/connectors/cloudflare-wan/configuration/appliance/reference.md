@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/reference/
 title: Reference \u00b7 Cloudflare One docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:20.122404+00:00
+fetched_at: 2026-11-26T10:37:19.065771+00:00
 ---
 
 # Reference · Cloudflare One docs
@@ -22,7 +22,7 @@ NetworksConnectors[Cloudflare WAN](https://developers.cloudflare.com/cloudflare-
 
 # Reference
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSecurity and other informationICMP trafficVLAN IDHigh availability configurations Terminology High availability Active/Standby Election Configuration Failure detection and failoverWAN settings High-capacity use cases Configure multiple tunnels in the same WAN profile WAN settingsLAN settings Restrict traffic to your premises
 
@@ -127,6 +127,7 @@ If you are using Virtual Appliance, this needs to correspond to the virtual netw
   * **Priority** : Assigns a priority to the WAN interface. Lower numbers have higher priority. For details on how Cloudflare calculates priorities, refer to [Traffic steering](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/reference/traffic-steering/).
   * **Health check rate:** Configures the health check frequency for your WAN. Options are low, mid, and high. For details, refer to [Update tunnel health checks frequency](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/common-settings/update-tunnel-health-checks-frequency/).
   * **Addressing:** Configures the Cloudflare One Appliance to work in a DHCP or static IP environment.
+  * **Provisioned upload bandwidth** and **Provisioned download bandwidth** : Optional. The upload and download speeds of the WAN circuit, in Mbps in the dashboard or kbps in the API. When you set the upload value, the appliance shapes upload traffic on the WAN to 95% of it, so that [prioritized traffic](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/application-based-policies/prioritized-traffic/) takes effect when the circuit is congested. Download traffic is not currently shaped.
 
 
 
@@ -138,6 +139,7 @@ If you are using the Virtual Appliance, this needs to correspond to the virtual 
   * **Static addressing:** Configures the type of IP addressing for your Appliance. Depending on your use case, this is where you configure your LAN interface IP address, or enable DHCP server or DHCP relay. For details, refer to [DHCP options](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dhcp/).
   * **Static NAT prefix** : Enable NAT (network address translation). This is an optional setting.
   * **Routed subnets:** Configures additional subnets behind a layer 3 router. For details, refer to [Routed subnets](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/routed-subnets/).
+  * **DNAT translations:** Maps a local pre-NAT prefix to a remote subnet reachable through Cloudflare (destination NAT). This is an optional setting. For details, refer to [DNAT translations](https://developers.cloudflare.com/cloudflare-one/networks/connectors/cloudflare-wan/configuration/appliance/network-options/dnat-translations/).
 
 
 
