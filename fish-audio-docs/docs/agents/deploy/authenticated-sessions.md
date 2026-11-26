@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/deploy/authenticated-sessions/
 title: Authenticated Sessions for Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T18:05:12.423039+00:00
+fetched_at: 2026-11-26T17:49:33.362919+00:00
 ---
 
 # Authenticated Sessions for Voice Agents - Fish Audio
@@ -176,7 +176,7 @@ Field| Type| Effect for this session
 `first_message_start`| `agent_first` or `wait_for_caller`| When the first message starts for this session, in place of the agent’s `prompt.first_message_start`. See [When the first message starts](https://docs.fish.audio/agents/build/configuration#when-the-first-message-starts).  
 `first_message_max_wait_ms`| integer, 1000–5000| How long the agent waits for the caller before speaking anyway, in place of the agent’s `prompt.first_message_max_wait_ms`. Only applies with `wait_for_caller`.  
 `first_message_interruptible`| boolean or `null`| Whether the caller can interrupt the first message in this session, in place of the agent’s `prompt.first_message_interruptible`. `true` or `false` changes it for this session, and `false` plays it to the end. Omitted or `null` keeps the agent’s own setting. See [Interrupting the first message](https://docs.fish.audio/agents/build/configuration#interrupting-the-first-message).  
-`system_prompt`| string, up to 32,000 tokens| Replaces the configured system prompt entirely, under the same token budget. `{{placeholders}}` render inside it.  
+`system_prompt`| string, up to 64,000 tokens (32,000 on `google/gemma-4-26b-a4b-it`)| Replaces the configured system prompt entirely, under the cap of the agent’s model. `{{placeholders}}` render inside it.  
 `voice_id`| string| The voice the agent speaks with: any [voice model id](https://docs.fish.audio/agents/build/voice-language#use-any-voice-model) from the Voice Library. Voices bias pronunciation toward their own language, so pair it with `language`.  
 `language`| the code of one of the [52 supported languages](https://docs.fish.audio/agents/build/voice-language#speaking-language)| Pins  
 the conversation language, taking precedence over the configured [speaking language](https://docs.fish.audio/agents/build/voice-language#speaking-language).| |   

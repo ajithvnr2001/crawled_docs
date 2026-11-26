@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/agent-errors/
 title: Voice Agents API Errors - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:39.441209+00:00
+fetched_at: 2026-11-26T17:49:32.947740+00:00
 ---
 
 # Voice Agents API Errors - Fish Audio
@@ -48,8 +48,8 @@ The exceptions to that shape:
           {
             "type": "value_error",
             "loc": ["body", "prompt", "system_prompt"],
-            "msg": "Value error, system_prompt exceeds 32000 tokens (got 33001)",
-            "ctx": { "error": "system_prompt exceeds 32000 tokens (got 33001)" }
+            "msg": "Value error, system_prompt exceeds 64000 tokens (got 65001)",
+            "ctx": { "error": "system_prompt exceeds 64000 tokens (got 65001)" }
           }
         ]
         

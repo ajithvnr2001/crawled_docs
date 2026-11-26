@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/observability/
 title: Tracing & Performance Analysis - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:47:23.299014+00:00
+fetched_at: 2026-11-26T17:49:34.805992+00:00
 ---
 
 # Tracing & Performance Analysis - Fish Audio
@@ -11,11 +11,15 @@ fetched_at: 2026-10-17T10:47:23.299014+00:00
 
 ## On this page
 
+Back to top
+
   * Header Format
   * Bind Business and Inference Traces
   * REST Example
   * OpenTelemetry Examples
+  * SDK Examples
   * WebSocket Tracing
+  * Trace ID in Responses
   * Speech-to-Text Request IDs
   * Enterprise Performance Analysis
 
@@ -37,14 +41,11 @@ Fish Audio inference APIs accept the standard W3C Trace Context `traceparent` he
   * `POST /v1/tts/stream/with-timestamp`
   * `POST /v1/asr`
   * `wss://api.fish.audio/v1/tts/live`
+  * `wss://api.fish.audio/v1/asr/realtime`
 
 If `traceparent` is omitted or invalid, Fish Audio starts a new trace for the request. Tracing does not change authentication, rate limits, billing, request priority, or generated output.
 
-## 
-
-​
-
-Header Format
+## Header Format
 
 Use the W3C `traceparent` format:
     
@@ -62,11 +63,7 @@ In this example, `4bf92f3577b34da6a3ce929d0e0e4736` is the trace ID. Fish Audio 
 
 Prefer letting your tracing SDK inject `traceparent` instead of hand-building it. For each Fish Audio request, create a child span in your business service and inject that span context into the outgoing HTTP or WebSocket headers.
 
-## 
-
-​
-
-Bind Business and Inference Traces
+## Bind Business and Inference Traces
 
 To bind your business-side trace to Fish Audio’s inference-side trace:
 
@@ -78,11 +75,7 @@ To bind your business-side trace to Fish Audio’s inference-side trace:
 
 For multiple Fish Audio calls in one workflow, keep the same trace ID by using the same parent trace, but let your tracing SDK create a fresh parent/span ID for each outgoing request.
 
-## 
-
-​
-
-REST Example
+## REST Example
     
     
     TRACEPARENT="00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01"
@@ -100,11 +93,7 @@ REST Example
       --output out.mp3
     
 
-## 
-
-​
-
-OpenTelemetry Examples
+## OpenTelemetry Examples
 
   * Python
 
@@ -177,11 +166,214 @@ OpenTelemetry Examples
     }
     
 
-## 
+## SDK Examples
 
-​
+The official SDKs send `traceparent` in two ways: OpenTelemetry instruments the HTTP library the SDK uses, or you pass the header yourself. These examples assume that your application already configures an OpenTelemetry tracer provider and exporter.
 
-WebSocket Tracing
+  * Python
+
+  * TypeScript
+
+  * Go
+
+
+
+
+**OpenTelemetry auto-instrumentation.** The SDK sends every request through `httpx`, including the WebSocket upgrades of `tts.stream_websocket` and `asr.stream_websocket`. Install `opentelemetry-instrumentation-httpx` and instrument `httpx` once at startup. Each Fish Audio request then gets its own child span and `traceparent`.
+    
+    
+    from fishaudio import FishAudio
+    from opentelemetry import trace
+    from opentelemetry.instrumentation.httpx import HTTPXClientInstrumentor
+    
+    HTTPXClientInstrumentor().instrument()
+    
+    tracer = trace.get_tracer("my-service")
+    client = FishAudio()
+    
+    with tracer.start_as_current_span("fish_audio.tts"):
+        audio = client.tts.convert(text="Hello from a traced request.")
+    
+
+**By hand.** Inject the current span context into `additional_headers`:
+    
+    
+    from fishaudio import FishAudio
+    from fishaudio.core import RequestOptions
+    from opentelemetry import trace
+    from opentelemetry.propagate import inject
+    
+    tracer = trace.get_tracer("my-service")
+    client = FishAudio()
+    
+    with tracer.start_as_current_span("fish_audio.tts"):
+        headers = {}
+        inject(headers)
+        audio = client.tts.convert(
+            text="Hello from a traced request.",
+            request_options=RequestOptions(additional_headers=headers),
+        )
+    
+
+`tts.stream_websocket` and `asr.stream_websocket` do not take `request_options`. To add the header there without auto-instrumentation, pass your own `httpx` client with a request hook. A client you pass in does not get the SDK’s `base_url` or `timeout`, so set both on it.
+    
+    
+    import httpx
+    from fishaudio import FishAudio
+    from opentelemetry import trace
+    from opentelemetry.propagate import inject
+    
+    tracer = trace.get_tracer("my-service")
+    http_client = httpx.Client(
+        base_url="https://api.fish.audio",
+        timeout=240.0,
+        event_hooks={"request": [lambda request: inject(request.headers)]},
+    )
+    client = FishAudio(httpx_client=http_client)
+    
+    with tracer.start_as_current_span("fish_audio.tts_stream"):
+        audio = b"".join(
+            client.tts.stream_websocket(iter(["Hello from ", "a traced stream."]))
+        )
+    
+
+**OpenTelemetry auto-instrumentation.** The SDK makes HTTP requests with the global `fetch`, which `@opentelemetry/instrumentation-undici` covers. `textToSpeech.convertRealtime` opens its WebSocket through `node:http`, which `@opentelemetry/instrumentation-http` covers. `@opentelemetry/auto-instrumentations-node` includes both. Start OpenTelemetry before your application loads, for example with `node --import ./instrumentation.js app.js`:
+
+instrumentation.ts
+    
+    
+    import { NodeSDK } from "@opentelemetry/sdk-node";
+    import { getNodeAutoInstrumentations } from "@opentelemetry/auto-instrumentations-node";
+    
+    const sdk = new NodeSDK({
+      // Configure traceExporter or the OTEL_* environment variables here.
+      instrumentations: [getNodeAutoInstrumentations()],
+    });
+    sdk.start();
+    
+
+app.ts
+    
+    
+    import { trace } from "@opentelemetry/api";
+    import { FishAudioClient } from "fish-audio";
+    
+    const tracer = trace.getTracer("my-service");
+    const client = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
+    
+    await tracer.startActiveSpan("fish_audio.tts", async span => {
+      try {
+        const stream = await client.textToSpeech.convert({
+          text: "Hello from a traced request.",
+        });
+        for await (const chunk of stream) {
+          // write or play the audio chunk
+        }
+      } finally {
+        span.end();
+      }
+    });
+    
+
+**By hand.** A client header can be a function. The SDK calls it for every HTTP request and when `speechToText.convertRealtime` connects, so each request carries the span that is active at that moment:
+    
+    
+    import { context, propagation, trace } from "@opentelemetry/api";
+    import { FishAudioClient } from "fish-audio";
+    
+    const tracer = trace.getTracer("my-service");
+    const client = new FishAudioClient({
+      apiKey: process.env.FISH_API_KEY,
+      headers: {
+        traceparent: () => {
+          const carrier: Record<string, string> = {};
+          propagation.inject(context.active(), carrier);
+          return carrier.traceparent;
+        },
+      },
+    });
+    
+    await tracer.startActiveSpan("fish_audio.tts", async span => {
+      try {
+        const stream = await client.textToSpeech.convert({
+          text: "Hello from a traced request.",
+        });
+        for await (const chunk of stream) {
+          // write or play the audio chunk
+        }
+      } finally {
+        span.end();
+      }
+    });
+    
+
+You can also pass `{ headers: { traceparent } }` as the request options argument of a single call.
+
+**OpenTelemetry instrumentation.** Requests use the `context.Context` you pass in. To trace them, give the client an `http.Client` whose transport is wrapped with `otelhttp`, and register the W3C propagator. Go’s global propagator does nothing until you set one.
+    
+    
+    package main
+    
+    import (
+    	"context"
+    	"log"
+    	"net/http"
+    
+    	fishaudio "github.com/fishaudio/fish-audio-go"
+    	"go.opentelemetry.io/contrib/instrumentation/net/http/otelhttp"
+    	"go.opentelemetry.io/otel"
+    	"go.opentelemetry.io/otel/propagation"
+    )
+    
+    func main() {
+    	otel.SetTextMapPropagator(propagation.TraceContext{})
+    
+    	client := fishaudio.NewClient(
+    		fishaudio.WithHTTPClient(&http.Client{
+    			Transport: otelhttp.NewTransport(http.DefaultTransport),
+    		}),
+    	)
+    
+    	ctx, span := otel.Tracer("my-service").Start(context.Background(), "fish_audio.tts")
+    	defer span.End()
+    
+    	audio, err := client.TTS.Convert(ctx, &fishaudio.ConvertParams{
+    		Text: "Hello from a traced request.",
+    	})
+    	if err != nil {
+    		log.Fatal(err)
+    	}
+    	log.Printf("received %d bytes", len(audio))
+    }
+    
+
+**By hand.** The Go SDK methods do not take per-request headers. Without `otelhttp`, add the header in your own `http.RoundTripper`. Register the W3C propagator first, as in the example above:
+    
+    
+    type traceparentTransport struct{ base http.RoundTripper }
+    
+    func (t traceparentTransport) RoundTrip(req *http.Request) (*http.Response, error) {
+    	req = req.Clone(req.Context())
+    	otel.GetTextMapPropagator().Inject(req.Context(), propagation.HeaderCarrier(req.Header))
+    	return t.base.RoundTrip(req)
+    }
+    
+    client := fishaudio.NewClient(
+    	fishaudio.WithHTTPClient(&http.Client{
+    		Transport: traceparentTransport{base: http.DefaultTransport},
+    	}),
+    )
+    
+
+Some SDK calls cannot carry `traceparent` yet:
+
+  * **TypeScript** `textToSpeech.convertRealtime` (`/v1/tts/live`) does not send headers you set on the client. It carries `traceparent` only when `@opentelemetry/instrumentation-http` is active.
+  * **Go** `TTS.StreamWebSocket` (`/v1/tts/live`) cannot send `traceparent`.
+  * **Go** `TTS.Convert`, `TTS.Stream` and `ASR.Transcribe` do not take per-request headers. Use a custom transport as shown above.
+
+For these calls, use the raw WebSocket example or the REST example.
+
+## WebSocket Tracing
 
 Pass `traceparent` on the WebSocket upgrade request:
     
@@ -199,19 +391,29 @@ Pass `traceparent` on the WebSocket upgrade request:
 
 Browser WebSocket APIs do not allow custom headers. For browser clients, inject `traceparent` from a trusted server-side proxy or use REST endpoints where your frontend can send the header through `fetch`.
 
-## 
+## Trace ID in Responses
 
-​
+Inference responses include an `x-fish-trace-id` header with the trace ID Fish Audio used for the request. This applies to the inference endpoints listed above, including the WebSocket upgrade response. When you send a valid `traceparent`, the value is your trace ID. When you omit `traceparent` or send an invalid one, it is the new trace ID Fish Audio started. Include it when you contact support about a request.
+    
+    
+    curl --request POST https://api.fish.audio/v1/tts \
+      --header "Authorization: Bearer $FISH_API_KEY" \
+      --header "Content-Type: application/json" \
+      --header "traceparent: 00-4bf92f3577b34da6a3ce929d0e0e4736-00f067aa0ba902b7-01" \
+      --data '{ "text": "Hello from a traced request.", "format": "mp3" }' \
+      --dump-header - \
+      --output out.mp3
+    
+    
+    
+    x-fish-trace-id: 4bf92f3577b34da6a3ce929d0e0e4736
+    
 
-Speech-to-Text Request IDs
+## Speech-to-Text Request IDs
 
 `transcribe-1-pro` responses from `POST /v1/asr` include a `request_id` field in the JSON body, on success and on its own error responses, and the same value in the `x-request-id` response header. Platform errors, such as authentication, credit, and concurrency errors, and errors from the network edge do not carry it. Include it when you contact support about a transcription request. See [Speech to Text](https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text#read-the-response).
 
-## 
-
-​
-
-Enterprise Performance Analysis
+## Enterprise Performance Analysis
 
 Fish Audio supports trace-based performance analysis for enterprise customers with a signed enterprise agreement. When this support is enabled, share the W3C trace ID with Fish Audio support so we can correlate your business span with Fish Audio edge routing, backend inference, reference-audio encoding, TTFT, response-time, alignment, and upstream ASR spans.
 

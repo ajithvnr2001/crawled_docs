@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-stream-with-timestamps/
 title: Text to Speech Stream with Timestamps - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.281601+00:00
+fetched_at: 2026-11-26T17:49:34.575138+00:00
 ---
 
 # Text to Speech Stream with Timestamps - Fish Audio
@@ -59,7 +59,7 @@ cURL
         "sample_rate": 123,
         "mp3_bitrate": 128,
         "opus_bitrate": -1000,
-        "latency": "normal",
+        "latency": "balanced",
         "max_new_tokens": 1024,
         "repetition_penalty": 1.2,
         "min_chunk_length": 50,
@@ -100,7 +100,7 @@ cURL
         sample_rate: 123,
         mp3_bitrate: 128,
         opus_bitrate: -1000,
-        latency: 'normal',
+        latency: 'balanced',
         max_new_tokens: 1024,
         repetition_penalty: 1.2,
         min_chunk_length: 50,
@@ -152,7 +152,7 @@ cURL
         'sample_rate' => 123,
         'mp3_bitrate' => 128,
         'opus_bitrate' => -1000,
-        'latency' => 'normal',
+        'latency' => 'balanced',
         'max_new_tokens' => 1024,
         'repetition_penalty' => 1.2,
         'min_chunk_length' => 50,
@@ -199,7 +199,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/tts/stream/with-timestamp"
     
-    	payload := strings.NewReader("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
+    	payload := strings.NewReader("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -219,7 +219,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/tts/stream/with-timestamp")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
+      .body("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
       .asString();
     
     
@@ -234,14 +234,14 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}"
+    request.body = "{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}"
     
     response = http.request(request)
     puts response.read_body
 
 200
 
-first_event
+First text chunk event with alignment
 
 data: {"audio_base64": "SUQzBAAAAAAA...", "content": "I can’t believe it’s been this long. It feels like forever since we last really talked. I’ve missed hearing your voice, your stories, even the little things you used to say. How have you been? I’ve thought about calling you so many times, but I never knew where to start.", "alignment": {"segments": [{"text": "I", "start": 0.0, "end": 0.16}, {"text": "can't", "start": 0.16, "end": 0.48}, {"text": "believe", "start": 0.48, "end": 0.8}, {"text": "its", "start": 0.8, "end": 1.12}, {"text": "been", "start": 1.2, "end": 1.44}, {"text": "this", "start": 1.44, "end": 1.76}, {"text": "long", "start": 1.76, "end": 2.48}, {"text": "It", "start": 2.56, "end": 2.64}, {"text": "feels", "start": 2.72, "end": 3.04}, {"text": "like", "start": 3.12, "end": 3.28}, {"text": "forever", "start": 3.36, "end": 4.0}, {"text": "since", "start": 4.0, "end": 4.32}, {"text": "we", "start": 4.32, "end": 4.48}, {"text": "last", "start": 4.48, "end": 4.96}, {"text": "really", "start": 4.96, "end": 5.28}, {"text": "talked", "start": 5.28, "end": 5.84}, {"text": "Ive", "start": 6.0, "end": 6.24}, {"text": "missed", "start": 6.24, "end": 6.64}, {"text": "hearing", "start": 6.64, "end": 6.96}, {"text": "your", "start": 6.96, "end": 7.2}, {"text": "voice", "start": 7.2, "end": 7.76}, {"text": "your", "start": 7.76, "end": 7.92}, {"text": "stories", "start": 7.92, "end": 8.48}, {"text": "even", "start": 8.48, "end": 8.72}, {"text": "the", "start": 8.72, "end": 8.8}, {"text": "little", "start": 8.8, "end": 9.2}, {"text": "things", "start": 9.2, "end": 9.52}, {"text": "you", "start": 9.52, "end": 9.68}, {"text": "used", "start": 9.68, "end": 10.0}, {"text": "to", "start": 10.0, "end": 10.08}, {"text": "say", "start": 10.08, "end": 10.64}, {"text": "How", "start": 10.64, "end": 10.96}, {"text": "have", "start": 10.96, "end": 11.12}, {"text": "you", "start": 11.12, "end": 11.36}, {"text": "been", "start": 11.36, "end": 11.92}, {"text": "Ive", "start": 12.0, "end": 12.24}, {"text": "thought", "start": 12.24, "end": 12.48}, {"text": "about", "start": 12.48, "end": 12.8}, {"text": "calling", "start": 12.8, "end": 13.2}, {"text": "you", "start": 13.2, "end": 13.36}, {"text": "so", "start": 13.36, "end": 13.68}, {"text": "many", "start": 13.68, "end": 13.92}, {"text": "times", "start": 13.92, "end": 14.56}, {"text": "but", "start": 14.56, "end": 14.72}, {"text": "I", "start": 14.72, "end": 14.88}, {"text": "never", "start": 14.88, "end": 15.2}, {"text": "knew", "start": 15.2, "end": 15.36}, {"text": "where", "start": 15.36, "end": 15.6}, {"text": "to", "start": 15.6, "end": 15.6}, {"text": "start", "start": 15.68, "end": 16.24}], "audio_duration": 16.24}, "chunk_seq": 0, "chunk_audio_offset_sec": 0.0} 
 
@@ -325,7 +325,7 @@ cURL
         "sample_rate": 123,
         "mp3_bitrate": 128,
         "opus_bitrate": -1000,
-        "latency": "normal",
+        "latency": "balanced",
         "max_new_tokens": 1024,
         "repetition_penalty": 1.2,
         "min_chunk_length": 50,
@@ -366,7 +366,7 @@ cURL
         sample_rate: 123,
         mp3_bitrate: 128,
         opus_bitrate: -1000,
-        latency: 'normal',
+        latency: 'balanced',
         max_new_tokens: 1024,
         repetition_penalty: 1.2,
         min_chunk_length: 50,
@@ -418,7 +418,7 @@ cURL
         'sample_rate' => 123,
         'mp3_bitrate' => 128,
         'opus_bitrate' => -1000,
-        'latency' => 'normal',
+        'latency' => 'balanced',
         'max_new_tokens' => 1024,
         'repetition_penalty' => 1.2,
         'min_chunk_length' => 50,
@@ -465,7 +465,7 @@ cURL
     
     	url := "https://api.fish.audio/v1/tts/stream/with-timestamp"
     
-    	payload := strings.NewReader("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
+    	payload := strings.NewReader("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
     
     	req, _ := http.NewRequest("POST", url, payload)
     
@@ -485,7 +485,7 @@ cURL
     HttpResponse<String> response = Unirest.post("https://api.fish.audio/v1/tts/stream/with-timestamp")
       .header("Authorization", "Bearer <token>")
       .header("Content-Type", "application/json")
-      .body("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
+      .body("{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}")
       .asString();
     
     
@@ -500,20 +500,22 @@ cURL
     request = Net::HTTP::Post.new(url)
     request["Authorization"] = 'Bearer <token>'
     request["Content-Type"] = 'application/json'
-    request.body = "{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"normal\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}"
+    request.body = "{\n  \"text\": \"<string>\",\n  \"temperature\": 0.7,\n  \"top_p\": 0.7,\n  \"references\": [\n    {\n      \"audio\": \"<string>\",\n      \"text\": \"<string>\"\n    }\n  ],\n  \"reference_id\": \"<string>\",\n  \"prosody\": {\n    \"speed\": 1,\n    \"volume\": 0,\n    \"normalize_loudness\": true\n  },\n  \"chunk_length\": 300,\n  \"normalize\": true,\n  \"language\": \"en\",\n  \"format\": \"mp3\",\n  \"sample_rate\": 123,\n  \"mp3_bitrate\": 128,\n  \"opus_bitrate\": -1000,\n  \"latency\": \"balanced\",\n  \"max_new_tokens\": 1024,\n  \"repetition_penalty\": 1.2,\n  \"min_chunk_length\": 50,\n  \"condition_on_previous_chunks\": true,\n  \"early_stop_threshold\": 1,\n  \"features\": [],\n  \"pronunciation_dictionary\": [\n    {\n      \"id\": \"<string>\",\n      \"version\": \"<string>\"\n    }\n  ]\n}"
     
     response = http.request(request)
     puts response.read_body
 
 200
 
-first_event
+First text chunk event with alignment
 
 data: {"audio_base64": "SUQzBAAAAAAA...", "content": "I can’t believe it’s been this long. It feels like forever since we last really talked. I’ve missed hearing your voice, your stories, even the little things you used to say. How have you been? I’ve thought about calling you so many times, but I never knew where to start.", "alignment": {"segments": [{"text": "I", "start": 0.0, "end": 0.16}, {"text": "can't", "start": 0.16, "end": 0.48}, {"text": "believe", "start": 0.48, "end": 0.8}, {"text": "its", "start": 0.8, "end": 1.12}, {"text": "been", "start": 1.2, "end": 1.44}, {"text": "this", "start": 1.44, "end": 1.76}, {"text": "long", "start": 1.76, "end": 2.48}, {"text": "It", "start": 2.56, "end": 2.64}, {"text": "feels", "start": 2.72, "end": 3.04}, {"text": "like", "start": 3.12, "end": 3.28}, {"text": "forever", "start": 3.36, "end": 4.0}, {"text": "since", "start": 4.0, "end": 4.32}, {"text": "we", "start": 4.32, "end": 4.48}, {"text": "last", "start": 4.48, "end": 4.96}, {"text": "really", "start": 4.96, "end": 5.28}, {"text": "talked", "start": 5.28, "end": 5.84}, {"text": "Ive", "start": 6.0, "end": 6.24}, {"text": "missed", "start": 6.24, "end": 6.64}, {"text": "hearing", "start": 6.64, "end": 6.96}, {"text": "your", "start": 6.96, "end": 7.2}, {"text": "voice", "start": 7.2, "end": 7.76}, {"text": "your", "start": 7.76, "end": 7.92}, {"text": "stories", "start": 7.92, "end": 8.48}, {"text": "even", "start": 8.48, "end": 8.72}, {"text": "the", "start": 8.72, "end": 8.8}, {"text": "little", "start": 8.8, "end": 9.2}, {"text": "things", "start": 9.2, "end": 9.52}, {"text": "you", "start": 9.52, "end": 9.68}, {"text": "used", "start": 9.68, "end": 10.0}, {"text": "to", "start": 10.0, "end": 10.08}, {"text": "say", "start": 10.08, "end": 10.64}, {"text": "How", "start": 10.64, "end": 10.96}, {"text": "have", "start": 10.96, "end": 11.12}, {"text": "you", "start": 11.12, "end": 11.36}, {"text": "been", "start": 11.36, "end": 11.92}, {"text": "Ive", "start": 12.0, "end": 12.24}, {"text": "thought", "start": 12.24, "end": 12.48}, {"text": "about", "start": 12.48, "end": 12.8}, {"text": "calling", "start": 12.8, "end": 13.2}, {"text": "you", "start": 13.2, "end": 13.36}, {"text": "so", "start": 13.36, "end": 13.68}, {"text": "many", "start": 13.68, "end": 13.92}, {"text": "times", "start": 13.92, "end": 14.56}, {"text": "but", "start": 14.56, "end": 14.72}, {"text": "I", "start": 14.72, "end": 14.88}, {"text": "never", "start": 14.88, "end": 15.2}, {"text": "knew", "start": 15.2, "end": 15.36}, {"text": "where", "start": 15.36, "end": 15.6}, {"text": "to", "start": 15.6, "end": 15.6}, {"text": "start", "start": 15.68, "end": 16.24}], "audio_duration": 16.24}, "chunk_seq": 0, "chunk_audio_offset_sec": 0.0} 
 
 This endpoint returns `text/event-stream`. Each SSE `message` event contains one JSON payload with a base64-encoded audio chunk.
 
 Use this endpoint when you need both progressive audio delivery and text-to-audio alignment data, such as karaoke-style highlighting, word or phrase progress indicators, captions synchronized to generated speech, or timeline editing.
+
+The Python SDK (`fish-audio-sdk` 1.6.0 or later) parses this stream for you: `client.tts.convert_with_timestamps()` and `client.tts.stream_with_timestamps()` return the audio with every segment already on the complete audio timeline. See [Word timestamps](https://docs.fish.audio/features/text-to-speech#word-timestamps).
 
 ## How the Stream Works
 
@@ -782,7 +784,9 @@ Available options:
 
 `s2.1-pro-free`, 
 
-`drama-3`
+`drama-3`, 
+
+`s3-pro`
 
 #### Body
 
@@ -936,7 +940,7 @@ latency
 
 enum<string>
 
-default:normal
+default:balanced
 
 Latency-quality trade-off. normal: best quality, balanced: reduced latency, low: lowest latency.
 

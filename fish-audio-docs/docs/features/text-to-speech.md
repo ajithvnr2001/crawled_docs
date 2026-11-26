@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/
 title: Text to Speech - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.350546+00:00
+fetched_at: 2026-11-26T17:49:33.767803+00:00
 ---
 
 # Text to Speech - Fish Audio
@@ -21,6 +21,7 @@ Back to top
     * Output formats
     * Speed & prosody
     * Generation methods (Python)
+    * Word timestamps
     * Instant voice cloning (reference audio)
     * Format & bitrate
     * Latency & chunk length
@@ -158,7 +159,7 @@ API (curl)
   * **`s2-pro`** : previous-generation S2 model with multi-speaker and natural-language expression control.
   * **`s1`** : previous generation, `(parenthesis)` emotion tags. S1 is deprecated and will be retired on December 31, 2026. After that date, requests that specify `s1` are served by `s2.1-pro`. See [Migrate from S1](https://docs.fish.audio/developer-guide/models-pricing/migrate-from-s1).
 
-In the API, select with the `model` request header; requests without it use `s2.1-pro`. The Python SDK always sends a model and defaults to `model="s2-pro"`. See [Choosing a Model](https://docs.fish.audio/developer-guide/models-pricing/choosing-a-model).
+In the API, select with the `model` request header; requests without it use `s2.1-pro`. The Python SDK always sends a model and defaults to `model="s2.1-pro"` (`fish-audio-sdk` 1.4.0 and later; earlier versions default to `s2-pro`). The JavaScript SDK defaults to `s2.1-pro` (`fish-audio` 0.2.0 and later). See [Choosing a Model](https://docs.fish.audio/developer-guide/models-pricing/choosing-a-model).
 
 ### Output formats
 
@@ -209,13 +210,14 @@ API (curl)
 
 ### Generation methods (Python)
 
-The Python SDK exposes three ways to generate, depending on whether you have the full text upfront and how you want to consume the audio:
+The Python SDK exposes these ways to generate, depending on whether you have the full text upfront, how you want to consume the audio, and whether you need word timings:
 
 Method| Returns| Use it for  
 ---|---|---  
 `tts.convert()`| complete audio `bytes`| most cases: you have the text, you want the file  
 `tts.stream()`| `AudioStream` (iterate chunks, or `.collect()`)| memory-efficient transfer of large audio; write chunks to disk as they arrive  
 `tts.stream_websocket()`| iterator of audio `bytes`| text arriving in real time (LLM tokens, live captions)  
+`tts.convert_with_timestamps()` / `tts.stream_with_timestamps()`| audio with word timings| captions and word highlighting; see Word timestamps  
       
     
     # Memory-efficient: write each chunk as it arrives instead of buffering
@@ -226,6 +228,56 @@ Method| Returns| Use it for
     
 
 For real-time text streaming with `stream_websocket()`, see [Realtime Streaming](https://docs.fish.audio/features/realtime-streaming).
+
+### Word timestamps
+
+`tts.convert_with_timestamps()` returns the audio together with the time each word is spoken, for captions, highlighting words during playback, or editing on a timeline. It needs `fish-audio-sdk` 1.6.0 or later (`pip install -U fish-audio-sdk`), takes the same arguments as `convert()`, and calls [`POST /v1/tts/stream/with-timestamp`](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-stream-with-timestamps).
+    
+    
+    from fishaudio import FishAudio
+    from fishaudio.utils import save
+    
+    client = FishAudio()
+    result = client.tts.convert_with_timestamps(text="Hello! Welcome to Fish Audio.")
+    save(result.audio, "hello.mp3")
+    
+    for segment in result.segments:
+        print(f"{segment.start:.2f}-{segment.end:.2f}  {segment.text}")
+    if result.duration is not None:
+        print(f"{result.duration:.2f} seconds")
+    
+    
+    
+    0.00-0.56  Hello
+    0.96-1.44  Welcome
+    1.44-1.60  to
+    1.60-1.92  Fish
+    1.92-2.56  Audio
+    2.69 seconds
+    
+
+  * `start` and `end` are seconds from the start of `result.audio`, also for long text that is generated in several chunks.
+  * A segment is usually one word without punctuation. Text written without spaces, such as Chinese, comes back one character per segment, and numbers follow the spoken reading after normalization: `$42.50` gives the segments `42` and `50`. Don’t expect segments to match your input text.
+  * When the API can’t time the text, for example text that is only punctuation or a sound tag such as `[sigh]`, the audio is still complete, but `segments` is `[]` and `duration` is `None`. In a long text, only some parts can lack timings: `segments` then has the timed words, and `duration` is `None` if the end of the audio has no timings. `duration` is the length the API reports, not one measured from the audio.
+
+To use audio and timings while they arrive, call `tts.stream_with_timestamps()`. Each event carries the next piece of audio in `event.audio`, which can be empty, and `stream.segments` holds the timings received so far on the timeline of the complete audio:
+    
+    
+    with client.tts.stream_with_timestamps(text="A long passage...", format="opus") as stream:
+        with open("out.opus", "wb") as f:
+            for event in stream:
+                f.write(event.audio)
+                if stream.segments:
+                    latest = stream.segments[-1]
+                    print(f"timed up to {latest.end:.2f}s: {latest.text}")
+    
+
+  * Read `stream.segments` again after each event instead of keeping an earlier copy: later events can still correct the last entries.
+  * Leaving the `with` block closes the connection, so you can stop early with `break`. Without `with`, call `stream.close()`.
+  * `stream.collect()` returns the same result as `convert_with_timestamps()`. Call it instead of iterating, not after: once iteration has started it raises `RuntimeError`.
+  * With `AsyncFishAudio`, await both methods and iterate with `async with await client.tts.stream_with_timestamps(...) as stream:` and `async for event in stream:`.
+
+`stream_websocket()` doesn’t return timestamps; for timestamps over a WebSocket, use the [WebSocket endpoint](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-live-with-timestamps) directly. To write captions from the segments, see [Generate speech with SRT/VTT captions](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/speech-with-captions).
 
 ### Instant voice cloning (reference audio)
 

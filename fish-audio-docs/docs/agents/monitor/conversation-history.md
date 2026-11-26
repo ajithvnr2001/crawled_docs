@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/monitor/conversation-history/
 title: Voice Agent Conversation History - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:08.172434+00:00
+fetched_at: 2026-11-26T17:49:33.847566+00:00
 ---
 
 # Voice Agent Conversation History - Fish Audio
@@ -122,7 +122,7 @@ Each row carries the session facts:
 `llm_endpoint_failure`| `completed`| A [custom LLM](https://docs.fish.audio/agents/build/custom-llm) failed repeatedly and the agent hung up  
 `room_join_timeout`| `failed`| The caller never connected before the join deadline  
 `cancelled`| `failed`| The session was ended before anyone connected  
-`dial_failed`| `failed`| An outbound call was not answered; `dial_status` has the detail  
+`dial_failed`| `failed`| An outbound call was not answered. `dial_status`, `dial_sip_status` and `dial_sip_reason` have the detail  
   
 The same values appear on the [`call.ended` webhook](https://docs.fish.audio/agents/monitor/webhooks) and in the dashboard, so the three surfaces never disagree about a session.
 

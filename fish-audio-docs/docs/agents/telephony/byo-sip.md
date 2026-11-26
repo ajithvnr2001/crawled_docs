@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/byo-sip/
 title: Bring Your Own Number to Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T18:05:12.624392+00:00
+fetched_at: 2026-11-26T17:49:33.465098+00:00
 ---
 
 # Bring Your Own Number to Voice Agents - Fish Audio
@@ -188,7 +188,7 @@ What an imported number can do depends on whether you configured a termination:
 **Warm transfers**|  No| Yes; the consult leg dials through your trunk  
 **Outbound calls**|  No| Yes; caller ID is the imported number  
   
-The number object reports this as `supports_outbound`. Place calls with the same API as purchased numbers; see [Outbound calls](https://docs.fish.audio/agents/telephony/outbound-calls).
+The number object reports this as `supports_outbound`. Place calls with the same API as purchased numbers; see [Outbound calls](https://docs.fish.audio/agents/telephony/outbound-calls). When an outbound call does not connect, the session’s `dial_sip_status` and `dial_sip_reason` are the SIP response your trunk returned, such as `503` when the trunk is over its calls-per-second limit. See [Why a call did not connect](https://docs.fish.audio/agents/telephony/outbound-calls#why-a-call-did-not-connect).
 
 ### Caller ID on transfers
 

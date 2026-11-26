@@ -231,3 +231,6 @@
 {"url": "https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models/", "file": "api-reference/endpoint/agent/list-llm-models.md", "title": "List Voice Agent LLM Models - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/developer-guide/integrations/hermes-agent/", "file": "developer-guide/integrations/hermes-agent.md", "title": "Hermes Agent - Fish Audio", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.fish.audio/agents/deploy/android/", "file": "agents/deploy/android.md", "title": "Voice Agents Android SDK - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/update-test-settings/", "file": "api-reference/endpoint/agent/update-test-settings.md", "title": "Update Voice Agent Test Settings - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/developer-guide/sdk-guide/cookbook/speech-with-captions/", "file": "developer-guide/sdk-guide/cookbook/speech-with-captions.md", "title": "Generate speech with SRT/VTT captions - Fish Audio", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.fish.audio/api-reference/endpoint/agent/get-test-settings/", "file": "api-reference/endpoint/agent/get-test-settings.md", "title": "Get Voice Agent Test Settings - Fish Audio", "method": "scrapling+scrapegraph"}

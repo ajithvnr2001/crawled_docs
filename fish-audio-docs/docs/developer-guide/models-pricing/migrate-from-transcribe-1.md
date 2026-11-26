@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/models-pricing/migrate-from-transcribe-1/
 title: Migrate from transcribe-1 - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:54.411358+00:00
+fetched_at: 2026-11-26T17:49:34.190580+00:00
 ---
 
 # Migrate from transcribe-1 - Fish Audio
@@ -44,19 +44,11 @@ This guide is for you if your speech-to-text requests are served by `transcribe-
 
 
 
-## 
-
-​
-
-What is changing
+## What is changing
 
 `transcribe-1` is deprecated and will be retired on December 31, 2026. After that date, every request that `transcribe-1` serves today is served by `transcribe-1-pro`. Requests keep working, and no error is returned. We recommend that you switch to `transcribe-1-pro` before then, so you can test your transcripts on your own schedule.
 
-## 
-
-​
-
-What happens if you do nothing
+## What happens if you do nothing
 
 After December 31, 2026, your requests are served by `transcribe-1-pro` and billed as `transcribe-1-pro`. Both models cost $0.36 / audio hour, so your cost does not change. See [Pricing & Rate Limits](https://docs.fish.audio/developer-guide/models-pricing/pricing-and-rate-limits). Your transcripts can still change, because `transcribe-1-pro` returns more than `transcribe-1` by default:
 
@@ -67,17 +59,9 @@ After December 31, 2026, your requests are served by `transcribe-1-pro` and bill
 
 The steps below cover each of these changes.
 
-## 
+## Migrate to transcribe-1-pro
 
-​
-
-Migrate to transcribe-1-pro
-
-### 
-
-​
-
-Send the `model` header
+### Send the `model` header
 
 Select the model with the `model` HTTP header, and send `model: transcribe-1-pro`, in lowercase, with every request. `model` is not a form or body field.
 
@@ -117,18 +101,15 @@ JavaScript
     
     const client = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
-    const result = await client.speechToText.convert(
-      { audio: new File([await readFile("speech.wav")], "speech.wav") },
-      { headers: { model: "transcribe-1-pro" } }
-    );
+    // model requires fish-audio 0.2.0 or later
+    const result = await client.speechToText.convert({
+      audio: new File([await readFile("speech.wav")], "speech.wav"),
+      model: "transcribe-1-pro",
+    });
     console.log(result.text);
     
 
-### 
-
-​
-
-Keep plain transcripts, if you need them
+### Keep plain transcripts, if you need them
 
 If your code expects `text` without speaker markers or event cues, send `diarize=false` and `tag_audio_events=false`:
     
@@ -143,27 +124,15 @@ If your code expects `text` without speaker markers or event cues, send `diarize
 
 The Python and JavaScript SDKs can’t send `diarize` or `tag_audio_events`. If you need plain transcripts, call `POST /v1/asr` directly, as above, or remove the markers and cues from `text` in your code. To use the speaker markers instead, see [Multi-speaker conversations](https://docs.fish.audio/features/speech-to-text#multi-speaker-conversations) and [Emotion and vocal-event cues](https://docs.fish.audio/features/speech-to-text#emotion-and-vocal-event-cues).
 
-### 
-
-​
-
-If you use a compatible endpoint
+### If you use a compatible endpoint
 
 The OpenAI-, Groq-, OpenRouter-, and ElevenLabs-compatible endpoints, and OpenAI Realtime-compatible transcription sessions, keep working after December 31, 2026, and their requests are served by `transcribe-1-pro`. You don’t need to change the model name you send. These endpoints don’t accept `diarize` or `tag_audio_events`. If your application needs plain transcripts, or you want to control speaker markers and event cues, move to the native [Speech to Text API](https://docs.fish.audio/features/speech-to-text) with `model: transcribe-1-pro`, and test before December 31, 2026.
 
-### 
-
-​
-
-Check your error handling
+### Check your error handling
 
 `transcribe-1-pro` errors are JSON with `status`, `message`, `code`, and `request_id`. Code that reads only `status` and `message` keeps working; to branch on the cause, use `code`. See [Errors](https://docs.fish.audio/features/speech-to-text#errors).
 
-## 
-
-​
-
-Support
+## Support
 
 Need help? Check out these resources:
 

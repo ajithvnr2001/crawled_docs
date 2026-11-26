@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/telephony/outbound-calls/
 title: Outbound Calls with Voice Agents - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:07.555314+00:00
+fetched_at: 2026-11-26T17:49:33.412082+00:00
 ---
 
 # Outbound Calls with Voice Agents - Fish Audio
@@ -19,6 +19,7 @@ Back to top
     * Retry safely with an Idempotency-Key
   * Automated phone menus
   * The dial outcome
+    * Why a call did not connect
   * Allowed destinations
   * Errors
   * Going further
@@ -137,14 +138,36 @@ Ringing is never billed; metering starts when the callee answers. A call that is
       --header "Authorization: Bearer $FISH_API_KEY"
     
 
-Two session fields carry the outcome:
+Four session fields carry the outcome:
 
 Field| Values  
 ---|---  
 `dial_status`| `answered`, `busy`, `no_answer`, or `failed`. `null` while the call is still ringing, and on inbound calls.  
+`dial_sip_status`| The final SIP response code of a call that did not connect, for example `486` or `503`. `null` on answered calls and when the carrier gave no response. See Why a call did not connect.  
+`dial_sip_reason`| The reason text sent with that code, verbatim from the carrier or your trunk, for example `Busy here`. `null` when none was sent.  
 `answered_by`| Deprecated. Answering-machine detection has been removed, so new calls report `unknown` once answered (`null` before). Older sessions may still carry `human` or `voicemail`.  
   
-Once answered, `sip_call_id` holds the SIP `Call-ID` of the leg the platform placed. It is `null` while ringing and on unanswered dials. See [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records). On outbound sessions the attribution fields are person-centric: `caller_number` is the human you dialed and `dialed_number` is your workspace number. The same values reach the agent as `{{system.caller_number}}` and `{{system.dialed_number}}`, so a CRM lookup tool can use `https://crm.example.com/contacts?phone={{system.caller_number}}` without a per-call variable; see [System variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables). Everything else about the session (transcript, recording, [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis), `call.ended` and `call.analyzed` webhooks, hang-up via `POST /v1/agent/sessions/{session_id}/end`) works exactly as for [inbound calls](https://docs.fish.audio/agents/telephony/inbound-calls).
+Once answered, `sip_call_id` holds the SIP `Call-ID` of the leg the platform placed. It is `null` while ringing and on unanswered dials. See [Match calls with your SIP records](https://docs.fish.audio/agents/telephony/byo-sip#match-calls-with-your-sip-records).
+
+### Why a call did not connect
+
+`dial_status` groups the carrier’s answer. `dial_sip_status` and `dial_sip_reason` are that answer as received, the code and the text sent with it:
+
+`dial_status`| Meaning| SIP responses  
+---|---|---  
+`busy`| The line was busy, or the person rejected the call| `486`, `600`, `603`  
+`no_answer`| Nobody answered| `408`, `480`, `487`, or no response within the time limit  
+`failed`| Any other failure| Every other code  
+  
+A call from an [imported BYO number](https://docs.fish.audio/agents/telephony/byo-sip) dials out through your own trunk, so the code is what your trunk or its carrier returned, and your carrier’s logs have the full story for that call. Codes worth recognizing on a `failed` call:
+
+`dial_sip_status`| What it usually means  
+---|---  
+`403`| The trunk refused the call: the termination credentials or source addresses are not accepted, the trunk does not accept the caller ID, or the trunk is not allowed to call that destination.  
+`404`, `484`| The number does not exist or is incomplete.  
+`503`| The trunk had no capacity for the call. A common cause is starting calls faster than the trunk’s calls-per-second limit. Start calls at a steadier rate or have your carrier raise the limit.  
+  
+Different refusals can share one code. A trunk may answer `403` with a reason about the caller ID on one call and about credentials on another, and `dial_sip_reason` tells them apart. The text is the carrier’s own wording and can change, so branch on `dial_sip_status` in code and read `dial_sip_reason` when diagnosing. The console shows the code and the reason next to the dial outcome on the conversation’s page, and the code in its call lists. Hover the code for what it usually means. On outbound sessions the attribution fields are person-centric: `caller_number` is the human you dialed and `dialed_number` is your workspace number. The same values reach the agent as `{{system.caller_number}}` and `{{system.dialed_number}}`, so a CRM lookup tool can use `https://crm.example.com/contacts?phone={{system.caller_number}}` without a per-call variable; see [System variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables). Everything else about the session (transcript, recording, [post-call analysis](https://docs.fish.audio/agents/monitor/post-call-analysis), `call.ended` and `call.analyzed` webhooks, hang-up via `POST /v1/agent/sessions/{session_id}/end`) works exactly as for [inbound calls](https://docs.fish.audio/agents/telephony/inbound-calls).
 
 ## Allowed destinations
 

@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/build/configuration/
 title: Voice Agent Configuration - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T18:05:11.632967+00:00
+fetched_at: 2026-11-26T17:49:33.261942+00:00
 ---
 
 # Voice Agent Configuration - Fish Audio
@@ -51,7 +51,7 @@ Configuration is the Builder’s home tab: define how your agent behaves, how it
 
 ## System prompt
 
-The system prompt sets the personality, goals, and guardrails that steer every reply. It is capped at **32,000 tokens**. The API rejects longer prompts with `422 Unprocessable Entity`. Keeping it under **2,000 tokens** is recommended: shorter prompts cut latency and cost, and hold the model’s attention better. It can also be replaced for a single session by sending `overrides.system_prompt` when [creating the session](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides). To personalize the prompt per session without replacing it, write `{{placeholders}}`: [custom variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables) such as `{{customer_name}}` take the values you pass when creating the session, and [system variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables) such as `{{system.caller_number}}` or `{{system.today}}` are filled in by the platform.
+The system prompt sets the personality, goals, and guardrails that steer every reply. It is capped at **64,000 tokens** , or **32,000 tokens** when the agent runs `google/gemma-4-26b-a4b-it`. The API rejects a longer prompt with `422 Unprocessable Entity`, and also a model change that would leave the prompt over the new model’s cap. [`GET /v1/agent/llm-models`](https://docs.fish.audio/api-reference/endpoint/agent/list-llm-models) returns each model’s cap as `max_system_prompt_tokens`. Keeping it under **2,000 tokens** is recommended: shorter prompts cut latency and cost, and hold the model’s attention better. It can also be replaced for a single session by sending `overrides.system_prompt` when [creating the session](https://docs.fish.audio/agents/deploy/authenticated-sessions#overrides). To personalize the prompt per session without replacing it, write `{{placeholders}}`: [custom variables](https://docs.fish.audio/agents/build/dynamic-variables#custom-variables) such as `{{customer_name}}` take the values you pass when creating the session, and [system variables](https://docs.fish.audio/agents/build/dynamic-variables#system-variables) such as `{{system.caller_number}}` or `{{system.today}}` are filled in by the platform.
 
 Keep the prompt focused:
 
@@ -281,7 +281,7 @@ The response also includes the `tools`, `knowledge_base`, `analysis`, and `webho
       }'
     
 
-The response includes the draft’s new `config_hash`. Values outside the documented limits (a system prompt over 32,000 tokens, `max_duration_seconds` outside 60–3600) are rejected with `422 Unprocessable Entity` and the draft is left unchanged.
+The response includes the draft’s new `config_hash`. Values outside the documented limits (a system prompt over its model’s cap, `max_duration_seconds` outside 60–3600) are rejected with `422 Unprocessable Entity` and the draft is left unchanged.
 
 ### Config sections
 

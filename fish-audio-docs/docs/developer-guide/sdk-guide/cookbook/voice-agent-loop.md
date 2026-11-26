@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/voice-agent-loop/
 title: Build a voice agent loop: speech in, reply, speech out - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:55.877251+00:00
+fetched_at: 2026-11-26T17:49:33.916032+00:00
 ---
 
 # Build a voice agent loop: speech in, reply, speech out - Fish Audio
@@ -30,11 +30,7 @@ Transcribe an utterance, generate a reply with your own LLM, and stream that rep
 
 Copy pageCopy page
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -58,11 +54,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 A voice agent is three stages chained together: [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) turns the caller’s audio into text, your own LLM turns that text into a reply, and [`tts.stream()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream) turns the reply back into speech. The transcript and the reply are just strings, so the only Fish Audio-specific parts are the first and last calls. Streaming the reply lets you start writing (or forwarding) audio before the whole sentence is synthesized. The recipe transcribes with `transcribe-1-pro`. Every tab selects it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -160,13 +152,11 @@ JavaScript
     }
     
     async function voiceAgentTurn(audioPath, outPath) {
-      const heard = await client.speechToText.convert(
-        {
-          audio: new File([await readFile(audioPath)], audioPath),
-          language: "en",
-        },
-        { headers: { model: "transcribe-1-pro" } }
-      );
+      const heard = await client.speechToText.convert({
+        audio: new File([await readFile(audioPath)], audioPath),
+        language: "en",
+        model: "transcribe-1-pro", // requires fish-audio 0.2.0 or later
+      });
     
       // Drop speaker markers such as <|speaker:0|>; keep cues such as [laughter].
       const said = heard.text.replace(/\s*<\|speaker:\d+\|>\s*/g, " ").trim();
@@ -190,21 +180,13 @@ JavaScript
 
 For the lowest latency, feed your LLM’s token stream straight into [`stream_websocket()`](https://docs.fish.audio/api-reference/sdk/python/resources#stream_websocket) instead of waiting for the full reply string. See [Realtime: LLM tokens → speech](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-llm-to-speech).
 
-## 
-
-​
-
-Reply in the caller’s voice
+## Reply in the caller’s voice
 
 `reference_id` points the reply at a saved voice. Drop it to use the default voice, or clone the caller’s voice from the same clip you just transcribed by passing `references` instead. See [Instant voice cloning](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/instant-voice-cloning).
 
 This recipe handles one recorded utterance at a time. To listen to a live conversation, with turn detection, interruptions and backchannels, see [Build a realtime voice agent](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-voice-agent).
 
-## 
-
-​
-
-Related
+## Related
 
   * [Speech-to-Text guide](https://docs.fish.audio/features/speech-to-text)
   * [Build a realtime voice agent](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-voice-agent)

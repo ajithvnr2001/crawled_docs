@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/getting-started/changelog/
 title: Changelog - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T19:00:08.011216+00:00
+fetched_at: 2026-11-26T17:49:34.241712+00:00
 ---
 
 # Changelog - Fish Audio
@@ -22,6 +22,26 @@ Copy pageCopy page
 Complete release history and version updates for all Fish Audio products
 
 Copy pageCopy page
+
+Python SDK 1.6.0: word timestamps
+
+Fish Audio
+
+November 25, 2026
+
+## Python SDK 1.6.0: word timestamps
+
+`fish-audio-sdk` 1.6.0 adds text to speech with word-level timestamps. `client.tts.convert_with_timestamps()` returns the audio with the start and end time of each word, and `client.tts.stream_with_timestamps()` yields audio and timings as they arrive, in both the sync and async clients. Timings are already on the timeline of the complete audio, also for long text generated in several chunks.[Word timestamps](https://docs.fish.audio/features/text-to-speech#word-timestamps) | [Generate speech with captions](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/speech-with-captions) | [Release notes](https://github.com/fishaudio/fish-audio-python/releases/tag/fish-audio-sdk-v1.6.0)
+
+JavaScript SDK 0.2.0
+
+Fish Audio
+
+November 25, 2026
+
+## JavaScript SDK 0.2.0
+
+`fish-audio` 0.2.0 on npm adds realtime speech to text with `transcribe-stream-1` (`speechToText.convertRealtime()`, Node.js only), a `model` option for `speechToText.convert()`, the `s2.1-pro`, `s2.1-pro-free` and `drama-3` models in the `Backends` type, multi-speaker text to speech, and more TTS request fields. `require("fish-audio")` works again.Upgrade notes: the default TTS model is now `s2.1-pro` (0.1.0 sent the deprecated `s1`), `opus_bitrate` is in bits per second, reference audio must be a `File`, and Node.js 20 or later is required.[JavaScript SDK reference](https://docs.fish.audio/api-reference/sdk/javascript/api-reference#upgrade-notes) | [Release notes](https://github.com/fishaudio/fish-audio-typescript/releases/tag/v0.2.0)
 
 Voice Agents React Native SDK and widget
 

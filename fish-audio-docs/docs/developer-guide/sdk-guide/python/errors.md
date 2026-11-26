@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/python/errors/
 title: Errors & Retries - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:43.014722+00:00
+fetched_at: 2026-11-26T17:49:34.394587+00:00
 ---
 
 # Errors & Retries - Fish Audio
@@ -172,7 +172,7 @@ Override headers or timeout for a single request with `request_options`:
     )
     
 
-If you inject your own `httpx_client`, the client-level `timeout`, `base_url`, and `Authorization` header are **not** applied to it. Configure those on the client you pass in.
+If you inject your own `httpx_client`, the client-level `timeout` and `base_url` are **not** applied to it. Configure those on the client you pass in. The SDK still adds the `Authorization` header to every request.
 
 ## Related
 

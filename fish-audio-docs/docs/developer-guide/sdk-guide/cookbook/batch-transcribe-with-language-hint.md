@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/batch-transcribe-with-language-hint/
 title: Batch-transcribe files with a language hint - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:55.433363+00:00
+fetched_at: 2026-11-26T17:49:34.049060+00:00
 ---
 
 # Batch-transcribe files with a language hint - Fish Audio
@@ -29,11 +29,7 @@ Loop over local audio files and transcribe each with an explicit language, colle
 
 Copy pageCopy page
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -57,11 +53,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 This recipe uses `transcribe-1-pro`, which handles recordings up to 60 minutes long. Every tab selects it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Read each file’s bytes from disk and pass them to [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) with `language` set to a lowercase ISO 639-1 code such as `en`, `zh`, or `ja`. Other forms, such as `en-US` or `English`, may be rejected with 400. Pass `language` when you know the source language. Detection still runs, and the hint does not force the transcript into that language; the hint is reported as `language_code` when the language cannot be determined. See [Language](https://docs.fish.audio/features/speech-to-text#language) for details. Collect one result row per file as you go. If a file cannot be read, its request fails with a network error such as a timeout, or the API returns an error for it, record the error in that file’s row and move on to the next file. Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -178,17 +170,15 @@ JavaScript
     
     const paths = ["speech.wav"]; // add more file paths here
     const language = "en";
-    const options = {
-      headers: { model: "transcribe-1-pro" },
-      timeoutInSeconds: 900, // long recordings can take several minutes
-    };
+    const options = { timeoutInSeconds: 900 }; // long recordings can take several minutes
     
     const results = [];
     for (const path of paths) {
       try {
         const audio = new File([await readFile(path)], path);
         const transcript = await client.speechToText.convert(
-          { audio, language },
+          // model requires fish-audio 0.2.0 or later
+          { audio, language, model: "transcribe-1-pro" },
           options
         );
         results.push({
@@ -227,11 +217,7 @@ In Node.js, the built-in `fetch` that the JavaScript SDK uses stops waiting for 
 
 Use one `language` per batch; split mixed-language files into separate lists.
 
-## 
-
-​
-
-Related
+## Related
 
   * [Speech-to-Text guide](https://docs.fish.audio/features/speech-to-text)
   * [Instant voice cloning](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/instant-voice-cloning)

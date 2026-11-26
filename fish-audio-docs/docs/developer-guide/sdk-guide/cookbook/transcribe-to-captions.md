@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/transcribe-to-captions/
 title: Transcribe audio to SRT/VTT captions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:56.355413+00:00
+fetched_at: 2026-11-26T17:49:33.988790+00:00
 ---
 
 # Transcribe audio to SRT/VTT captions - Fish Audio
@@ -29,11 +29,7 @@ Transcribe audio with word-level timestamps, group the words into caption cues, 
 
 Copy pageCopy page
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -57,11 +53,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 This recipe uses `transcribe-1-pro`, which handles recordings up to 60 minutes long. Both tabs select it with the `model` request header; without that header, the request is served and billed as `transcribe-1`. Call [`asr.transcribe()`](https://docs.fish.audio/api-reference/sdk/python/resources#transcribe) with `include_timestamps=True` (in JavaScript, `ignore_timestamps: false`) to get timed segments ([`ASRSegment`](https://docs.fish.audio/api-reference/sdk/python/types#asrsegment-objects)). Segments are word-level (one character, or a few, in Chinese and Japanese) and carry no punctuation, so group consecutive segments into caption-sized cues before you format them. Segment `start` / `end` are in **seconds** ; SRT wants `HH:MM:SS,mmm` (comma), WebVTT wants `HH:MM:SS.mmm` (dot). The recipe starts a new cue after a pause longer than 0.6 seconds, or when the cue would grow past 42 characters or 6 seconds. It joins words with a space, except between Chinese or Japanese characters, which are written without spaces. A segment can have `start` equal to `end`, so a cue with no duration gets a short one that ends no later than the next cue starts. Every cue therefore ends after it starts, as SRT and WebVTT players expect. Install the Python SDK first: `pip install fish-audio-sdk`.
 
@@ -232,11 +224,9 @@ JavaScript
       {
         audio: new File([await readFile("speech.wav")], "speech.wav"),
         ignore_timestamps: false,
+        model: "transcribe-1-pro", // requires fish-audio 0.2.0 or later
       },
-      {
-        headers: { model: "transcribe-1-pro" },
-        timeoutInSeconds: 900, // long recordings can take several minutes
-      }
+      { timeoutInSeconds: 900 } // long recordings can take several minutes
     );
     
     const cues = groupCues(result.segments);
@@ -262,11 +252,7 @@ In Node.js, the built-in `fetch` that the JavaScript SDK uses stops waiting for 
 
 Captions built from `segments` have no punctuation. Because this recipe requests timestamps from `transcribe-1-pro`, the response also includes `speaker_turns`, with each turn’s punctuated text and its start and end time. To keep speakers in separate cues, start a new cue at each turn boundary. In JavaScript, read `result.speaker_turns`; it is not in the SDK’s TypeScript type. The Python SDK does not return `speaker_turns`; to read it from the API, see [Speaker turns](https://docs.fish.audio/features/speech-to-text#speaker-turns).
 
-## 
-
-​
-
-Related
+## Related
 
   * [Speech-to-Text guide](https://docs.fish.audio/features/speech-to-text)
   * [ASR Types Reference](https://docs.fish.audio/api-reference/sdk/python/types#fishaudio.types.asr)
@@ -279,4 +265,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/developer-guide/sdk-guide/cookbook/transcribe-to-captions.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/developer-guide/sdk-guide/cookbook/transcribe-to-captions)
 
-[Telephony-grade audio (8 kHz) for IVR and phone](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/telephony-8khz-audio)[Batch-transcribe files with a language hint](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/batch-transcribe-with-language-hint)
+[Generate speech with SRT/VTT captions](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/speech-with-captions)[Batch-transcribe files with a language hint](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/batch-transcribe-with-language-hint)

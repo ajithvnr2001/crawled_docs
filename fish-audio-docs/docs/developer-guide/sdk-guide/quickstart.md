@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/quickstart/
 title: SDK Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-29T14:32:55.635083+00:00
+fetched_at: 2026-11-26T17:49:33.652693+00:00
 ---
 
 # SDK Quickstart - Fish Audio
@@ -32,13 +32,9 @@ Copy pageCopy page
 
 The fastest path from zero to playable audio with the official Fish Audio SDKs. By the end you’ll have a script that turns text into an MP3.
 
-The Python SDK is the recommended starting point and is fully covered below. The JavaScript SDK is in early release. See the [JavaScript SDK guide](https://docs.fish.audio/api-reference/sdk/javascript/api-reference) for its current surface.
+The JavaScript SDK (`fish-audio` on npm) requires Node.js 20 or later and works with both `import` and `require`. See the [JavaScript SDK reference](https://docs.fish.audio/api-reference/sdk/javascript/api-reference) for its full surface.
 
-## 
-
-​
-
-1\. Install
+## 1\. Install
 
 Python
 
@@ -55,11 +51,7 @@ JavaScript
     npm install fish-audio
     
 
-## 
-
-​
-
-2\. Authenticate
+## 2\. Authenticate
 
 Create a Fish Audio account
 
@@ -89,11 +81,7 @@ Both SDKs read your key from the `FISH_API_KEY` environment variable:
     export FISH_API_KEY=your_api_key_here
     
 
-## 
-
-​
-
-3\. Generate your first audio
+## 3\. Generate your first audio
 
 Python
 
@@ -121,11 +109,7 @@ Run it, and you’ll have `output.mp3` (Python) or local playback (JavaScript).
 
 Want async in Python? Every method mirrors onto `AsyncFishAudio`: `async with AsyncFishAudio() as client: audio = await client.tts.convert(text="...", model="s2.1-pro-free")`.
 
-## 
-
-​
-
-Next steps
+## Next steps
 
 ## Text-to-Speech
 

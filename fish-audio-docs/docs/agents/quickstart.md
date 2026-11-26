@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/agents/quickstart/
 title: Voice Agents Quickstart - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-22T15:30:40.553962+00:00
+fetched_at: 2026-11-26T17:49:33.062428+00:00
 ---
 
 # Voice Agents Quickstart - Fish Audio
@@ -75,7 +75,7 @@ Go to [Agents](https://fish.audio/app/agents) and click **New agent**. Give it a
 
 Write the system prompt
 
-On the **Configuration** page, write the system prompt that defines who your agent is and how it should behave (up to 32,000 tokens). Optionally set a **First message** so the agent opens the conversation.Edits save automatically as a draft.
+On the **Configuration** page, write the system prompt that defines who your agent is and how it should behave (up to 64,000 tokens, 32,000 on gemma-4-26b-a4b-it). Optionally set a **First message** so the agent opens the conversation.Edits save automatically as a draft.
 
 3
 
@@ -159,7 +159,7 @@ Save the agent ID
     export AGENT_ID="the agent_id from the response"
     
 
-`system_prompt` is limited to 32,000 tokens; longer prompts return `422`. Keeping it under 2,000 tokens is recommended for latency and cost.
+`system_prompt` is limited to 64,000 tokens (32,000 on `google/gemma-4-26b-a4b-it`), and longer prompts return `422`. Keeping it under 2,000 tokens is recommended for latency and cost.
 
 3
 
