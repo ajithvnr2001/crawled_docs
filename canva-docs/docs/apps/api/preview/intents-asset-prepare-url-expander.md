@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/intents-asset-prepare-url-expander/
 title: prepareUrlExpander - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T13:58:16.392752+00:00
+fetched_at: 2026-11-26T19:19:49.231166+00:00
 ---
 
 # prepareUrlExpander - Beta API reference - Canva Developers SDK Documentation
@@ -141,9 +141,19 @@ RequiredView type definition
 
 Response from URL expansion operation. This is a `Promise` that resolves with the following object:
 
-CompletedCompleted
+ExpandUrlCompletedResponse
 
-Not foundNot found
+ExpandUrlCompletedResponse
+
+ExpandUrlNotFoundResponse
+
+ExpandUrlNotFoundResponse
+
+ExpandUrlError
+
+ExpandUrlError
+
+Completed response from URL expansion operation.
 
 `status``string`
 
@@ -189,11 +199,43 @@ OptionalView type definition
 
 OptionalView type definition
 
+Not found response from URL expansion operation.
+
+Return this only when the content doesn't exist or the user doesn't have permission to view it.
+
 `status``string`
 
 View type definition
 
 The only valid value is `"not_found"`.
+
+Error response from URL expansion operation.
+
+Return this when expansion fails for a reason other than the content being unavailable. For example, the platform returned a rate limit or server error, the URL isn't a format the app supports, or the user's connection failed. Return `not_found` only when the content doesn't exist or the user doesn't have permission to view it.
+
+`status``string`
+
+View type definition
+
+The only valid value is `"app_error"`.
+
+`message``string`
+
+View type definition
+
+(required) The non-localized message, for logging purposes. It will not display in the UI.
+
+Do not include personally identifiable information (PII) or user content in this message, such as names, emails, the URL, file IDs or file names.
+
+This should typically be a short developer-oriented message that can be clustered to provide aggregated diagnostics. Do include technical information such as HTTP status codes or generalised system codes / enums. Do not include raw response bodies which may include user PII or be unexpectedly large.
+
+For example:
+
+  * "Files API returned HTTP 429 RATE_LIMIT_EXCEEDED"
+  * "Unsupported URL format"
+  * "OAuth token refresh failed with invalid_grant"
+
+
 
 `getContent``function`
 

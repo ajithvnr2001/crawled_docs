@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/api/preview/intents-changelog/
 title: Changelog for @canva/intents@preview - Beta API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T17:47:20.897583+00:00
+fetched_at: 2026-11-26T19:19:43.424531+00:00
 ---
 
 # Changelog for @canva/intents@preview - Beta API reference - Canva Developers SDK Documentation
@@ -90,6 +90,31 @@ Error: Test
 The latest changes for the Canva Apps SDK @canva/intents@preview package.
 
 Copy page
+
+## 2.8.1-beta.3 - 2026-11-25
+
+### Added
+
+  * Added `ExpandUrlCompletedResponse` and `ExpandUrlNotFoundResponse`. `ExpandUrlResponse` now refers to them by name, alongside `ExpandUrlError`. The response shapes are unchanged.
+
+
+
+## 2.8.1-beta.2 - 2026-11-23
+
+### Added
+
+  * Added optional `durationMs` to `VideoOutputFile`, so an app can read the duration of a video being published in `publishContent`, consistent with `durationMs` on video previews.
+  * Added optional `sizeBytes` to `BaseOutputFile`, so an app can read the file size in bytes of each file being published in `publishContent`.
+
+
+
+## 2.8.1-beta.1 - 2026-11-13
+
+### Added
+
+  * Added `ExpandUrlError` to `ExpandUrlResponse`, so `expandUrl` can return `app_error` with a diagnostic `message` when expansion fails. Return `not_found` only when the content doesn't exist or the user doesn't have permission to view it.
+
+
 
 ## 2.8.1-beta.0 - 2026-11-03
 
