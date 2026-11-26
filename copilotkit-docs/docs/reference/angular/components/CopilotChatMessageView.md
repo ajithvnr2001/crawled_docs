@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/components/CopilotChatMessageView/
 title: CopilotChatMessageView
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:27.092588+00:00
+fetched_at: 2026-11-26T12:11:20.837564+00:00
 ---
 
 # CopilotChatMessageView

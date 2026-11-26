@@ -3,8 +3,5 @@
   "file": "ms-agent-dotnet/prebuilt-components/chat.md",
   "title": "CopilotChat",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:18:59.803217+00:00",
-  "html_len": 248034,
-  "md_len": 43281,
-  "depth": 0
+  "fetched_at": "2026-11-26T12:11:44.069773+00:00"
 }

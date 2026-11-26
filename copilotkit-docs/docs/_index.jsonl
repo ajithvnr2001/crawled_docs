@@ -2945,7 +2945,7 @@
 {"url": "https://docs.copilotkit.ai/react-native/using-these-docs/", "file": "react-native/using-these-docs.md", "title": "React Native: Docs status", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/reference/", "file": "reference.md", "title": "Reference", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/quickstart/", "file": "quickstart.md", "title": "Quickstart", "method": "scrapling+scrapegraph"}
-{"url": "https://docs.copilotkit.ai/react-spa/", "file": "react-spa.md", "title": "React SPA quickstart", "method": "scrapling+scrapegraph"}
+{"url": "https://docs.copilotkit.ai/react-spa/", "file": "react-spa.md", "title": "React SPA", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/react-native/", "file": "react-native.md", "title": "React Native quickstart", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/reference/angular/components/CopilotActivity/", "file": "reference/angular/components/CopilotActivity.md", "title": "CopilotActivity", "method": "scrapling+scrapegraph"}
 {"url": "https://docs.copilotkit.ai/reference/angular/components/CopilotChatAssistantMessage/", "file": "reference/angular/components/CopilotChatAssistantMessage.md", "title": "CopilotChatAssistantMessage", "method": "scrapling+scrapegraph"}

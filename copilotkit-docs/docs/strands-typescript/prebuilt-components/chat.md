@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands-typescript/prebuilt-components/chat/
 title: CopilotChat
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:44.181580+00:00
+fetched_at: 2026-11-26T12:11:33.654491+00:00
 ---
 
 # CopilotChat

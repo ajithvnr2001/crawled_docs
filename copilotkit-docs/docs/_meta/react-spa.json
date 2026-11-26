@@ -1,10 +1,7 @@
 {
   "url": "https://docs.copilotkit.ai/react-spa/",
   "file": "react-spa.md",
-  "title": "React SPA quickstart",
+  "title": "React SPA",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:24:50.624547+00:00",
-  "html_len": 322650,
-  "md_len": 15136,
-  "depth": 0
+  "fetched_at": "2026-11-26T12:11:33.759153+00:00"
 }

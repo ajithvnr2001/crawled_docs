@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/prebuilt-components/popup/
 title: CopilotPopup
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:42.408824+00:00
+fetched_at: 2026-11-26T12:11:32.806498+00:00
 ---
 
 # CopilotPopup

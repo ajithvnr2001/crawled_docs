@@ -2,127 +2,34 @@
 url: https://docs.copilotkit.ai/prebuilt-components/popup/
 title: CopilotPopup
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:23:08.616996+00:00
+fetched_at: 2026-11-26T12:11:35.087192+00:00
 ---
 
 # CopilotPopup
 
 > Source: https://docs.copilotkit.ai/prebuilt-components/popup/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-On this page
-
-[CopilotKit's Built-in Agent](https://docs.copilotkit.ai/)[Prebuilt Components](https://docs.copilotkit.ai/prebuilt-components)
+Chat/Prebuilt Components
 
 # CopilotPopup
 
 Floating chat bubble that toggles open an overlay chat window.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Pre-Built: Popup
 
 DemoCode
 
-page.tsx
+[](https://showcase-built-in-agent-production.up.railway.app/demos/prebuilt-popup "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/built-in-agent/src/app/demos/prebuilt-popup "View the code on GitHub")
 
-tanstack-factory.ts
+Waking up the demo
 
-route.ts
-    
-    
-    "use client";import React from "react";import { CopilotKit, CopilotPopup } from "@copilotkit/react-core/v2";import { MainContent } from "./main-content";import { Suggestions } from "./suggestions-mount";export default function PrebuiltPopupDemo() {  return (    <CopilotKit runtimeUrl="/api/copilotkit" agent="prebuilt-popup">      <MainContent />      <CopilotPopup        agentId="prebuilt-popup"        defaultOpen={true}        labels={{          chatInputPlaceholder: "Ask the popup anything...",        }}      />      <Suggestions />    </CopilotKit>  );}
+## What is this?Copy Anchor Link
 
-## What is this?#
+`<CopilotPopup>` is a prebuilt floating launcher that opens an overlay chat window on top of your page content. It adds a copilot to an existing app without changing your page layout. Drop it in once and a bubble appears in the corner ready to chat.
 
-`<CopilotPopup>` is a prebuilt floating launcher that opens an overlay chat window on top of your page content. It's the lightest-weight way to add a copilot to an existing app. Drop it in once and a bubble appears in the corner ready to chat.
-
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
 Use the popup when you want:
 
@@ -134,37 +41,56 @@ Use the popup when you want:
 
 If you need chat to live alongside your content rather than on top of it, use [CopilotSidebar](https://docs.copilotkit.ai/prebuilt-components/sidebar). For a fully embedded chat pane, use [`<CopilotChat>`](https://docs.copilotkit.ai/prebuilt-components/chat) directly.
 
-## Basic setup#
+## Basic setupCopy Anchor Link
 
 Wrap your app in `<CopilotKit>` once (the provider wires the runtime, session, and agent registry) and render `<CopilotPopup>` as a sibling of your main content. The example below opens the popup by default and customizes the input placeholder via `labels`:
+
+Copy Text
     
     
     import { CopilotKit, CopilotPopup } from "@copilotkit/react-core/v2";
     import "@copilotkit/react-core/v2/styles.css";
 
-`@copilotkit/react-ui` also exports a component named `CopilotPopup`. That one is the [deprecated v1 popup](https://docs.copilotkit.ai/migrate/v2). This page documents the v2 popup, which you import from `@copilotkit/react-core/v2`.
+Import from `@copilotkit/react-core/v2`. The `CopilotPopup` in `@copilotkit/react-ui` is the [deprecated v1 popup](https://docs.copilotkit.ai/migrate/v2).
 
 page.tsx
-    
-    
-        <CopilotKit runtimeUrl="/api/copilotkit" agent="prebuilt-popup">      <MainContent />      <CopilotPopup        agentId="prebuilt-popup"        defaultOpen={true}        labels={{          chatInputPlaceholder: "Ask the popup anything...",        }}      />      <Suggestions />    </CopilotKit>
 
-## Configuring the popup#
+Copy Text
+    
+    
+        <CopilotKit runtimeUrl="/api/copilotkit" agent="prebuilt-popup">
+          <MainContent />
+          <CopilotPopup
+            agentId="prebuilt-popup"
+            defaultOpen={true}
+            labels={{
+              chatInputPlaceholder: "Ask the popup anything...",
+            }}
+          />
+          <Suggestions />
+        </CopilotKit>
+
+`<MainContent />` and `<Suggestions />` are demo components. Replace them with your own content.
+
+## Configuring the popupCopy Anchor Link
 
 `<CopilotPopup>` accepts the same props as `<CopilotChat>` plus a few of its own. Commonly used options:
 
 Prop| Description  
 ---|---  
 `defaultOpen`| Whether the popup starts open on first render.  
+`open` / `onOpenChange`| Control the open state from your own UI. See [Open, close, and feedback](https://docs.copilotkit.ai/prebuilt-components/chat-controls).  
 `agentId`| Agent slug the popup should talk to (must match an agent configured on the runtime).  
 `labels`| User-facing copy for the header, placeholder, and disclaimer.  
-`header`| Slot for the popup header bar — see the [slot system](https://docs.copilotkit.ai/custom-look-and-feel/slots).  
+`header`| Slot for the popup header bar. See the [slot system](https://docs.copilotkit.ai/custom-look-and-feel/slots).  
 `toggleButton`| Slot for the floating launcher button.  
   
-## Styling#
+## StylingCopy Anchor Link
 
 `CopilotPopup` participates in the slot system, so every piece of its UI is customizable, from Tailwind classes on the message view to a full component swap for the header or toggle button. See [custom look and feel](https://docs.copilotkit.ai/custom-look-and-feel/slots) for the full slot reference.
 
-### On this page
+How is this guide?
 
-What is this?When should I use this?Basic setupConfiguring the popupStyling
+GoodBad
+
+[Previous PageCopilotSidebar](https://docs.copilotkit.ai/prebuilt-components/sidebar)[Next PageOpen, close, and feedback](https://docs.copilotkit.ai/prebuilt-components/chat-controls)

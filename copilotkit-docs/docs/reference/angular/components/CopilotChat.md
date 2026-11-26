@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/components/CopilotChat/
 title: CopilotChat
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T12:09:27.231658+00:00
+fetched_at: 2026-11-26T12:11:20.513219+00:00
 ---
 
 # CopilotChat

@@ -2,545 +2,158 @@
 url: https://docs.copilotkit.ai/ms-agent-python/programmatic-control/
 title: Programmatic Control
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:22:39.965150+00:00
+fetched_at: 2026-11-26T12:11:38.702296+00:00
 ---
 
 # Programmatic Control
 
 > Source: https://docs.copilotkit.ai/ms-agent-python/programmatic-control/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendMS Agent Framework (Python)
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/ms-agent-python)[Quickstart](https://docs.copilotkit.ai/ms-agent-python/quickstart)[Build with agents](https://docs.copilotkit.ai/ms-agent-python/build-with-agents)[Intelligence](https://docs.copilotkit.ai/ms-agent-python/intelligence/overview)
-
-Basics
-
-Chat
-
-[Prebuilt Components](https://docs.copilotkit.ai/ms-agent-python/prebuilt-components)
-
-Custom Look and Feel
-
-[Programmatic Control](https://docs.copilotkit.ai/ms-agent-python/programmatic-control)
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/ms-agent-python/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/ms-agent-python/webmcp)
-
-Agent capabilities
-
-Microsoft Agent Framework
-
-[Sub-agents](https://docs.copilotkit.ai/ms-agent-python/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/ms-agent-python/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/ms-agent-python/learning)
-
-[User Memories](https://docs.copilotkit.ai/ms-agent-python/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/ms-agent-python/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/ms-agent-python/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/ms-agent-python/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/ms-agent-python/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ms-agent-python/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Debugging
-
-Learn
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/ms-agent-python/telemetry)[Community frameworks](https://docs.copilotkit.ai/ms-agent-python/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-Programmatic Control
-
-BasicsChat
-
 # Programmatic Control
 
-Chat with an agent using CopilotKit's UI components.
+Drive agent runs directly from code, with no chat UI required.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+## What is this?Copy Anchor Link
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Programmatic control is what you reach for when you want to drive an agent run from code rather than from a chat composer: a button, a form, a cron job, a keyboard shortcut, a graph callback. CopilotKit exposes three primitives that cover every triggering pattern:
 
-## Overview#
-
-The `useAgent` hook provides direct access to your agent from any React component. It gives you real-time access to the agent's state, messages, execution status, and allows you to subscribe to custom events.
-
-This enables you to build custom agent dashboards, monitoring tools, and interactive features that respond to your agent's behavior.
-
-▶️Running the AgentTrigger your agent programmatically with copilotkit.runAgent().[⚙️Headless UIBuild a completely custom chat interface from the ground up using CopilotKit's headless hooks.](https://docs.copilotkit.ai/ms-agent-python/programmatic-control/custom-look-and-feel/headless-ui)
-
-### Import the hook#
-
-First, import `useAgent` from the v2 package:
-
-page.tsx
-    
-    
-    import { useAgent } from "@copilotkit/react-core/v2"; 
-
-### Access your agent#
-
-Call the hook to get a reference to your agent:
-
-page.tsx
-    
-    
-    export function AgentInfo() {
-      const { agent } = useAgent(); 
-    
-      return (
-        <div>
-          <p>Agent ID: {agent.agentId}</p>
-          <p>Thread ID: {agent.threadId}</p>
-          <p>Status: {agent.isRunning ? "Running" : "Idle"}</p>
-          <p>Messages: {agent.messages.length}</p>
-        </div>
-      );
-    }
-
-If you are not using CopilotKit Cloud's public access/license key, pass your agentId to the `useAgent()` hook:
-    
-    
-    const { agent } = useAgent({ agentId: "myAgent" });
-
-The hook will throw an error if no agent is configured, so you can safely use `agent` without null checks.
-
-### Display messages#
-
-Access the agent's conversation history:
-
-page.tsx
-    
-    
-    export function MessageList() {
-      const { agent } = useAgent();
-    
-      return (
-        <div>
-          {agent.messages.map((msg) => (
-            <div key={msg.id}>
-              <strong>{msg.role}:</strong>
-              <span>{msg.content}</span>
-            </div>
-          ))}
-        </div>
-      );
-    }
-
-### Show running status#
-
-Add a loading indicator when the agent is processing:
-
-page.tsx
-    
-    
-    export function AgentStatus() {
-      const { agent } = useAgent();
-    
-      return (
-        <div>
-          {agent.isRunning ? (
-            <div>
-              <div className="spinner" />
-              <span>Agent is processing...</span>
-            </div>
-          ) : (
-            <span>Ready</span>
-          )}
-        </div>
-      );
-    }
-
-### Run the agent#
-
-Use `copilotkit.runAgent()` to trigger your agent programmatically:
-
-page.tsx
-    
-    
-    import { useAgent } from "@copilotkit/react-core/v2";
-    import { useCopilotKit } from "@copilotkit/react-core/v2";
-    import { randomUUID } from "@copilotkit/shared";
-    
-    export function RunAgent() {
-      const { agent } = useAgent();
-      const { copilotkit } = useCopilotKit();
-    
-      const handleRun = async () => {
-        agent.addMessage({
-          id: randomUUID(),
-          role: "user",
-          content: "Hello, agent!",
-        });
-    
-        await copilotkit.runAgent({ agent });
-      };
-    
-      return <button onClick={handleRun}>Send</button>;
-    }
-
-`copilotkit.runAgent()` orchestrates the full agent lifecycle — executing frontend tools, handling follow-up runs, and streaming results. This is the same method `<CopilotChat />` uses internally.
-
-## Working with State#
-
-Agents expose their state through the `agent.state` property. This state is shared between your application and the agent - both can read and modify it.
-
-### Reading State#
-
-Access your agent's current state:
-
-page.tsx
-    
-    
-    export function StateDisplay() {
-      const { agent } = useAgent();
-    
-      return (
-        <div>
-          <h3>Agent State</h3>
-          <pre>{JSON.stringify(agent.state, null, 2)}</pre>
-    
-          {/* Access specific properties */}
-          {agent.state.user_name && <p>User: {agent.state.user_name}</p>}
-          {agent.state.preferences && (
-            <p>Preferences: {JSON.stringify(agent.state.preferences)}</p>
-          )}
-        </div>
-      );
-    }
-
-Your component automatically re-renders when the agent's state changes.
-
-### Updating State#
-
-Update state that your agent can access:
-
-page.tsx
-    
-    
-    export function ThemeSelector() {
-      const { agent } = useAgent();
-    
-      const updateTheme = (theme: string) => {
-        agent.setState({
-          ...agent.state,
-          user_theme: theme,
-        });
-      };
-    
-      return (
-        <div>
-          <button onClick={() => updateTheme("dark")}>Dark Mode</button>
-          <button onClick={() => updateTheme("light")}>Light Mode</button>
-          <p>Current: {agent.state.user_theme || "default"}</p>
-        </div>
-      );
-    }
-
-State updates are immediately available to your agent in its next execution.
-
-## Subscribing to Agent Events#
-
-You can subscribe to agent events using the `subscribe()` method. This is useful for logging, monitoring, or responding to specific agent behaviors.
-
-### Basic Event Subscription#
-
-page.tsx
-    
-    
-    import { useEffect } from "react";
-    import { useAgent } from "@copilotkit/react-core/v2";
-    import type { AgentSubscriber } from "@ag-ui/client";
-    
-    export function EventLogger() {
-      const { agent } = useAgent();
-    
-      useEffect(() => {
-        const subscriber: AgentSubscriber = {
-          onCustomEvent: ({ event }) => {
-            console.log("Custom event:", event.name, event.value);
-          },
-          onRunStartedEvent: () => {
-            console.log("Agent started running");
-          },
-          onRunFinalized: () => {
-            console.log("Agent finished running");
-          },
-          onStateChanged: (state) => {
-            console.log("State changed:", state);
-          },
-        };
-    
-        const { unsubscribe } = agent.subscribe(subscriber);
-        return () => unsubscribe();
-      }, [agent]);
-    
-      return null;
-    }
-
-### Available Events#
-
-The `AgentSubscriber` interface provides:
-
-  * **`onCustomEvent`** \- Custom events emitted by the agent
-  * **`onRunStartedEvent`** \- Agent starts executing
-  * **`onRunFinalized`** \- Agent completes execution
-  * **`onStateChanged`** \- Agent's state changes
-  * **`onMessagesChanged`** \- Messages are added or modified
+  * `agent.addMessage(...)`: append a message to the conversation without running the agent. Pair with `copilotkit.runAgent({ agent })` when you want the appended message to kick off a turn.
+  * `copilotkit.runAgent({ agent })`: the same entry point `<CopilotChat />` calls internally. Orchestrates frontend tools, follow-up runs, and the subscriber lifecycle.
+  * `agent.subscribe(subscriber)`: low-level AG-UI event subscription (`onCustomEvent`, `onRunStartedEvent`, `onRunFinalized`, `onRunFailed`, …). Pairs with `copilotkit.runAgent({ agent, resume })` for standard AG-UI interrupts, or `copilotkit.runAgent({ agent, forwardedProps: { command: { resume, interruptEvent } } })` for the `on_interrupt` custom events that the LangGraph adapter emits, to drive interrupt resolution from arbitrary UI.
 
 
 
-## Rendering Tool Calls#
+## When should I use this?Copy Anchor Link
 
-You can customize how agent tool calls are displayed in your UI. First, define your tool renderers:
+Use programmatic control when you want to:
 
-components/weather-tool.tsx
-    
-    
-    import { defineToolCallRenderer } from "@copilotkit/react-core/v2";
-    
-    export const weatherToolRender = defineToolCallRenderer({
-      name: "get_weather",
-      render: ({ args, status }) => {
-        return <WeatherCard location={args.location} status={status} />;
-      },
-    });
-    
-    function WeatherCard({
-      location,
-      status,
-    }: {
-      location?: string;
-      status: string;
-    }) {
-      return (
-        <div className="rounded-lg border p-6 shadow-sm">
-          <h3 className="text-xl font-semibold">Weather in {location}</h3>
-          <div className="mt-4">
-            <span className="text-5xl font-light">70°F</span>
-          </div>
-          {status === "executing" && <div className="spinner">Loading...</div>}
-        </div>
-      );
-    }
+  * Trigger agent runs from buttons, forms, or other UI elements
+  * Execute specific tools directly from UI interactions (without an LLM turn)
+  * Build agent features without a chat window (to build your own chat UI, see [Headless UI](https://docs.copilotkit.ai/headless))
+  * Access agent state and results programmatically
+  * Create fully custom agent-driven workflows
 
-Register your tool renderers with CopilotKit:
 
-layout.tsx
-    
-    
-    import { CopilotKit } from "@copilotkit/react-core/v2";
-    import { weatherToolRender } from "./components/weather-tool";
-    
-    export default function RootLayout({ children }) {
-      return (
-        <CopilotKit
-          runtimeUrl="/api/copilotkit"
-          renderToolCalls={[weatherToolRender]}
-        >
-          {children}
-        </CopilotKit>
-      );
-    }
 
-Then use `useRenderToolCall` to render tool calls from agent messages:
+## Sending a message from codeCopy Anchor Link
 
-components/message-list.tsx
-    
-    
-    import { useAgent, useRenderToolCall } from "@copilotkit/react-core/v2";
-    
-    export function MessageList() {
-      const { agent } = useAgent();
-      const renderToolCall = useRenderToolCall();
-    
-      return (
-        <div className="messages">
-          {agent.messages.map((message) => (
-            <div key={message.id}>
-              {/* Display message content */}
-              {message.content && <p>{message.content}</p>}
-    
-              {/* Render tool calls if present */}
-              {message.role === "assistant" &&
-                message.toolCalls?.map((toolCall) => {
-                  const toolMessage = agent.messages.find(
-                    (m) => m.role === "tool" && m.toolCallId === toolCall.id,
-                  );
-                  return (
-                    <div key={toolCall.id}>
-                      {renderToolCall({ toolCall, toolMessage })}
-                    </div>
-                  );
-                })}
-            </div>
-          ))}
-        </div>
-      );
-    }
+The canonical pattern is to append a user message with `agent.addMessage`, then call `copilotkit.runAgent({ agent })`. Use `copilotkit.stopAgent({ agent })` to cancel an in-flight run.
 
-## Building a Complete Dashboard#
+frontend/src/app/agent-trigger.tsx
 
-Here's a full example combining all concepts into an interactive agent dashboard:
-
-page.tsx
+Copy Text
     
     
     "use client";
     
-    import { useAgent } from "@copilotkit/react-core/v2";
+    import { useAgent, useCopilotKit } from "@copilotkit/react-core/v2";
     
-    export default function AgentDashboard() {
-      const { agent } = useAgent();
-    
-      return (
-        <div className="p-8 max-w-4xl mx-auto space-y-6">
-          {/* Status */}
-          <div className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-xl font-bold mb-4">Agent Status</h2>
-            <div className="space-y-2">
-              <div className="flex items-center gap-2">
-                <div
-                  className={`w-3 h-3 rounded-full ${
-                    agent.isRunning ? "bg-yellow-500 animate-pulse" : "bg-green-500"
-                  }`}
-                />
-                <span>{agent.isRunning ? "Running" : "Idle"}</span>
-              </div>
-              <div>Thread: {agent.threadId}</div>
-              <div>Messages: {agent.messages.length}</div>
-            </div>
-          </div>
-    
-          {/* State */}
-          <div className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-xl font-bold mb-4">Agent State</h2>
-            <pre className="bg-gray-50 p-4 rounded text-sm overflow-auto">
-              {JSON.stringify(agent.state, null, 2)}
-            </pre>
-          </div>
-    
-          {/* Messages */}
-          <div className="p-6 bg-white rounded-lg shadow">
-            <h2 className="text-xl font-bold mb-4">Conversation</h2>
-            <div className="space-y-3">
-              {agent.messages.map((msg) => (
-                <div
-                  key={msg.id}
-                  className={`p-3 rounded-lg ${
-                    msg.role === "user" ? "bg-blue-50 ml-8" : "bg-gray-50 mr-8"
-                  }`}
-                >
-                  <div className="font-semibold text-sm mb-1">
-                    {msg.role === "user" ? "You" : "Agent"}
-                  </div>
-                  <div>{msg.content}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      );
-    }
-
-## Running the Agent Programmatically#
-
-Use `copilotkit.runAgent()` to trigger your agent from any component — no chat UI required. This is the same method CopilotKit's built-in `<CopilotChat />` uses internally.
-
-page.tsx
-    
-    
-    import { useAgent } from "@copilotkit/react-core/v2";
-    import { useCopilotKit } from "@copilotkit/react-core/v2";
-    import { randomUUID } from "@copilotkit/shared";
-    
-    export function AgentTrigger() {
-      const { agent } = useAgent();
+    export function AgentTrigger({ agentId }: { agentId: string }) {
+      const { agent } = useAgent({ agentId });
       const { copilotkit } = useCopilotKit();
     
-      const handleRun = async () => {
-        // Add a user message to the agent's conversation
+      const run = async () => {
+        if (agent.isRunning) return;
+    
         agent.addMessage({
-          id: randomUUID(),
+          id: crypto.randomUUID(),
           role: "user",
           content: "Summarize the latest sales data",
         });
     
-        // Run the agent — handles tool execution, follow-ups, and streaming
-        await copilotkit.runAgent({ agent });
+        try {
+          await copilotkit.runAgent({ agent });
+        } catch (error) {
+          console.error("CopilotKit runAgent failed:", error);
+        }
       };
     
-      return <button onClick={handleRun}>Run Agent</button>;
+      return (
+        <>
+          <button onClick={run} disabled={agent.isRunning}>
+            Run agent
+          </button>
+          <button
+            onClick={() => copilotkit.stopAgent({ agent })}
+            disabled={!agent.isRunning}
+          >
+            Stop
+          </button>
+        </>
+      );
     }
 
-### `copilotkit.runAgent()` vs `agent.runAgent()`#
+Click **Run agent**. The agent's reply arrives in `agent.messages`. To see it, render the last message, for example `agent.messages.at(-1)?.content`.
+
+### `copilotkit.runAgent()` vs `agent.runAgent()`Copy Anchor Link
 
 Both methods trigger the agent, but they operate at different levels:
 
-  * **`copilotkit.runAgent({ agent })`** — The recommended approach. Orchestrates the full agent lifecycle: executes frontend tools, handles follow-up runs when tools request them, and manages errors through the subscriber system.
-  * **`agent.runAgent()`** — Low-level method on the agent instance. Sends the request to the runtime but does **not** execute frontend tools or handle follow-ups. Use this only when you need direct control over the agent execution. To resume from an interrupt, use `copilotkit.runAgent({ agent, resume })` for standard AG-UI interrupts, or `copilotkit.runAgent({ agent, forwardedProps: { command: { resume, interruptEvent } } })` for legacy `on_interrupt` custom events, so that the subscriber lifecycle still wraps the resumed run.
+  * **`copilotkit.runAgent({ agent })`** : the recommended default. Orchestrates the full lifecycle: executes frontend tools, handles follow-up runs, and routes errors through the subscriber system.
+  * **`agent.runAgent(options)`** : low-level method on the agent instance. Sends the request to the runtime but does **not** execute frontend tools or chain follow-ups. Reach for this only when you need direct control.
 
 
 
-### Stopping a Run#
+## Subscribing to agent eventsCopy Anchor Link
 
-You can stop a running agent using `copilotkit.stopAgent()`:
+`agent.subscribe(subscriber)` returns `{ unsubscribe }`. The subscriber object accepts every AG-UI lifecycle callback: `onCustomEvent`, `onRunStartedEvent`, `onRunFinalized`, `onRunFailed`, and the streaming deltas. Use it to drive custom progress UI, forward events to analytics, or catch framework pause/resume events and resolve them with a payload (the pattern below).
+
+## Resolving a frontend tool call from a buttonCopy Anchor Link
+
+For promise-based integrations there is no native interrupt primitive. The demo uses `useFrontendTool` with a Promise-based handler instead. The handler stages its `resolve` callback and pending payload via React state, the app surface renders the picker outside the chat, and the user's pick resolves the Promise that the agent's tool call is awaiting. The user sees the same flow. Only the mechanism is different. The agent does not know that a button grid answers in place of a chat picker:
 
 page.tsx
+
+Copy Text
     
     
-    const handleStop = () => {
-      copilotkit.stopAgent({ agent });
-    };
+      useFrontendTool({
+        name: "schedule_meeting",
+        description:
+          "Ask the user to pick a time slot for a meeting via a picker popup " +
+          "that appears outside the chat. Blocks until the user chooses a " +
+          "slot or cancels.",
+        parameters: z.object({
+          topic: z
+            .string()
+            .describe("Short human-readable description of the meeting."),
+          attendee: z
+            .string()
+            .optional()
+            .describe("Who the meeting is with (optional)."),
+        }),
+        // Async handler: sets the pending payload so the popup renders, then
+        // returns a Promise that only resolves once the user interacts with the
+        // popup. This is the MS Agent shim for the LangGraph headless interrupt
+        // `resume` flow.
+        handler: async ({
+          topic,
+          attendee,
+        }: {
+          topic: string;
+          attendee?: string;
+        }): Promise<string> => {
+          setPending({ topic, attendee });
+          const result = await new Promise<PickerResult>((resolve) => {
+            resolverRef.current = resolve;
+          });
+          setPending(null);
+          if ("cancelled" in result && result.cancelled) {
+            return "User cancelled. Meeting NOT scheduled.";
+          }
+          if ("chosen_label" in result) {
+            return `Meeting scheduled for ${result.chosen_label}.`;
+          }
+          return "User did not pick a time. Meeting NOT scheduled.";
+        },
+        // Render nothing inside the chat — the UI lives in the app surface.
+        render: () => null,
+      });
 
-### On this page
+The handler stores `pending` in state and a resolver in a ref. Any UI can call the resolver. The demo itself renders a simple button grid, but the same pattern would power a modal, a toast, a sidebar form, or a voice UI. To pause inside the chat instead, see [Human-in-the-Loop](https://docs.copilotkit.ai/human-in-the-loop).
 
-OverviewWorking with StateReading StateUpdating StateSubscribing to Agent EventsBasic Event SubscriptionAvailable EventsRendering Tool CallsBuilding a Complete DashboardRunning the Agent Programmaticallycopilotkit.runAgent() vs agent.runAgent()Stopping a Run
+How is this guide?
+
+GoodBad

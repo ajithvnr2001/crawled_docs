@@ -2,125 +2,36 @@
 url: https://docs.copilotkit.ai/ms-agent-dotnet/shared-state/streaming/
 title: State Streaming
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:19:11.356143+00:00
+fetched_at: 2026-11-26T12:11:23.077808+00:00
 ---
 
 # State Streaming
 
 > Source: https://docs.copilotkit.ai/ms-agent-dotnet/shared-state/streaming/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendMS Agent Framework (.NET)
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/ms-agent-dotnet)[Quickstart](https://docs.copilotkit.ai/ms-agent-dotnet/quickstart)[Build with agents](https://docs.copilotkit.ai/ms-agent-dotnet/build-with-agents)[Intelligence](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/ms-agent-dotnet/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/ms-agent-dotnet/webmcp)
-
-Agent capabilities
-
-Microsoft Agent Framework
-
-[Sub-agents](https://docs.copilotkit.ai/ms-agent-dotnet/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/ms-agent-dotnet/learning)
-
-[User Memories](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ms-agent-dotnet/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Debugging
-
-Learn
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/ms-agent-dotnet/telemetry)[Community frameworks](https://docs.copilotkit.ai/ms-agent-dotnet/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[MS Agent Framework (.NET)](https://docs.copilotkit.ai/ms-agent-dotnet)[Shared State](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state)
 
 # State Streaming
 
 Stream partial agent state updates to the UI while a tool call is still running.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+State Streaming
 
 DemoCode
 
-page.tsx
+[](https://showcase-ms-agent-dotnet-production.up.railway.app/demos/shared-state-streaming "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/ms-agent-dotnet/src/app/demos/shared-state-streaming "View the code on GitHub")
 
-demo-layout.tsx
+Waking up the demo
 
-document-view.tsx
-
-suggestions.ts
-    
-    
-    "use client";import React from "react";import {  CopilotKit,  useAgent,  UseAgentUpdate,} from "@copilotkit/react-core/v2";import { DemoLayout } from "./demo-layout";import { useSharedStateStreamingSuggestions } from "./suggestions";interface StreamingAgentState {  document?: string;}export default function SharedStateStreamingDemo() {  return (    <CopilotKit runtimeUrl="/api/copilotkit" agent="shared-state-streaming">      <DemoContent />    </CopilotKit>  );}function DemoContent() {  // Subscribe to BOTH state changes and run-status changes. The former  // drives the per-token document rerender; the latter toggles the  // "LIVE" badge when the agent starts / stops.  const { agent } = useAgent({    agentId: "shared-state-streaming",    updates: [UseAgentUpdate.OnStateChanged, UseAgentUpdate.OnRunStatusChanged],  });  useSharedStateStreamingSuggestions();  const agentState = agent.state as StreamingAgentState | undefined;  const document = agentState?.document ?? "";  const isRunning = agent.isRunning;  return <DemoLayout document={document} isStreaming={isRunning} />;}
-
-## What is this?#
+## What is this?Copy Anchor Link
 
 By default, agent state only updates _between_ backend checkpoints, so a long-running tool call (writing a full document, drafting an email) appears to the UI as one big burst at the end. For agent-native apps, that feels broken: users expect to watch the output materialise.
 
-**State streaming** forwards the value of a specific tool argument straight into an agent state key _as the argument is being generated_. The UI, subscribed via `useAgent`, re-renders every token.
+**State streaming** copies one tool argument into an agent state key while the model writes the argument. The UI, subscribed via `useAgent`, re-renders every token.
 
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
 Use state streaming whenever a tool's output is long-form text or a growing structured value and you want the user to see it assemble in real time. Common shapes:
 
@@ -130,40 +41,122 @@ Use state streaming whenever a tool's output is long-form text or a growing stru
 
 
 
-Without streaming, the user stares at a spinner. With streaming, they see the answer grow token-by-token.
+## The backend: one streaming state mappingCopy Anchor Link
 
-## The backend: one streaming state mapping#
+### Map the tool call to a state snapshotCopy Anchor Link
 
-The backend pattern is always the same: map one streaming tool argument to one shared-state key. Middleware-backed frameworks usually expose this as a declarative mapping — for example, LangGraph Python's `StateStreamingMiddleware` with `StateItem(...)` entries, or `copilotkitCustomizeConfig` with an `emitIntermediateState` mapping for LangGraph TypeScript graphs. Direct SDK adapters do the same work in their streaming loop by parsing partial tool arguments and emitting `STATE_SNAPSHOT` whenever the mapped value changes. When the LLM streams that argument, CopilotKit writes every partial value into shared state before the tool even finishes executing.
+`AGUIStreamOptions.MapCall` maps a tool call to AG-UI events. Return a `StateSnapshotEvent` built from the tool's arguments, and attach the options to the endpoint with `WithMetadata`:
+
+Program.cs
+
+Copy Text
+    
+    
+    using System.ComponentModel;
+    using System.Text.Json;
+    using AGUI.Abstractions;
+    using AGUI.Server;
+    #pragma warning disable OPENAI001
+    using Microsoft.Extensions.AI;
+    using Microsoft.Agents.AI;
+    using Microsoft.Agents.AI.Hosting.AGUI.AspNetCore;
+    using Microsoft.Extensions.AI;
+    using OpenAI;
+    using OpenAI.Chat;
+    
+    var builder = WebApplication.CreateBuilder(args);
+    builder.Services.AddAGUIServer();
+    var app = builder.Build();
+    
+    string openAiApiKey = builder.Configuration["OPENAI_API_KEY"]
+        ?? throw new InvalidOperationException("Set OPENAI_API_KEY");
+    
+    // Define a tool the LLM may call to report its progress
+    [Description("Report current step progress.")]
+    static string StepProgress([Description("Steps completed so far")] string[] steps)
+        => "Progress received.";
+    
+    AITool stepProgress = AIFunctionFactory.Create(StepProgress, name: "step_progress");
+    var agent = new OpenAIClient(openAiApiKey)
+        .GetChatClient("gpt-6-luna")
+        .AsIChatClient().AsBuilder()
+        .ConfigureOptions(options => options.RawRepresentationFactory = _ =>
+            new OpenAI.Chat.ChatCompletionOptions { ReasoningEffortLevel = new("none") })
+        .Build()
+        .AsAIAgent(
+            name: "AGUIAssistant",
+            instructions: "You are a helpful assistant that may call the 'step_progress' tool to report intermediate steps.",
+            tools: [stepProgress]);
+    
+    // Map the completed tool arguments to a shared-state snapshot
+    AGUIStreamOptions streamOptions = new AGUIStreamOptions()
+        .MapCall("step_progress", call =>
+        {
+            if (call.Arguments?.TryGetValue("steps", out object? steps) is not true)
+            {
+                return [];
+            }
+    
+            JsonElement snapshot = JsonSerializer.SerializeToElement(
+                new { observed_steps = steps });
+            return [new StateSnapshotEvent { Snapshot = snapshot }];
+        });
+    
+    app.MapAGUIServer("/", agent).WithMetadata(streamOptions);
+    await app.RunAsync();
+
+### Know what streams and what does notCopy Anchor Link
+
+`MapCall` runs on the completed `FunctionCallContent`, so the state key updates once, when the tool call finishes. It does not grow token by token while the model writes the arguments. To stream partial arguments into state, register a provider-specific extractor with `MapStreamingToolCallArguments`.
+
+The backend pattern is always the same: map one streaming tool argument to one shared-state key. Each framework does this in its own way:
+
+  * LangGraph Python: `StateStreamingMiddleware` with `StateItem(...)` entries.
+  * LangGraph TypeScript: `copilotkitCustomizeConfig` with an `emitIntermediateState` mapping.
+  * Direct SDK adapters: parse partial tool arguments in the streaming loop, and emit `STATE_SNAPSHOT` whenever the mapped value changes.
+  * LlamaIndex and Pydantic AI: there is no per-token mapping. A backend tool sends a state snapshot after each step or tool call instead (see the setup above).
+
+
+
+When the LLM streams that argument, CopilotKit writes every partial value into shared state before the tool even finishes executing.
 
 Missing snippet
 
-Region `state-streaming-middleware` not found in `ms-agent-dotnet::shared-state-streaming`. Tag the relevant source lines with `// @region[state-streaming-middleware]` / `// @endregion[state-streaming-middleware]`.
-
-Available: frontend-use-coagent-state
+Region `state-streaming-middleware` not found in `ms-agent-dotnet::shared-state-streaming`. Tag the source lines with `// @region[state-streaming-middleware]` / `// @endregion[state-streaming-middleware]`.Available: frontend-use-coagent-state
 
 A few things to note:
 
   * The state key must exist in your agent state (`document` in this demo).
   * The tool and argument names must match the exact LLM-facing tool call you want to forward (`write_document.document` here).
-  * When the tool call completes, its final return value is written to the same key, so the streamed partial eventually becomes the authoritative final value.
+  * Streamed values are previews. When the step ends, the state the agent saves replaces them, so save the final value when the tool finishes. On CrewAI, LlamaIndex and Pydantic AI, write the final value to the agent state yourself, or it is overwritten when the step returns.
 
 
 
-## The frontend: useAgent + OnStateChanged#
+## The frontend: useAgent + OnStateChangedCopy Anchor Link
 
-The UI side is identical to any other shared-state subscription: `useAgent` with `OnStateChanged` gives you a reactive `agent.state`. Add `OnRunStatusChanged` if you want a "LIVE" / "done" indicator.
+The UI side is the same as any other [shared-state](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state) subscription: `useAgent` with `OnStateChanged` gives you a reactive `agent.state`. Add `OnRunStatusChanged` if you want a "LIVE" / "done" indicator.
 
 page.tsx
+
+Copy Text
     
     
-      // Subscribe to BOTH state changes and run-status changes. The former  // drives the per-token document rerender; the latter toggles the  // "LIVE" badge when the agent starts / stops.  const { agent } = useAgent({    agentId: "shared-state-streaming",    updates: [UseAgentUpdate.OnStateChanged, UseAgentUpdate.OnRunStatusChanged],  });
+      // Subscribe to BOTH state changes and run-status changes. The former
+      // drives the per-token document rerender; the latter toggles the
+      // "LIVE" badge when the agent starts / stops.
+      const { agent } = useAgent({
+        agentId: "shared-state-streaming",
+        updates: [UseAgentUpdate.OnStateChanged, UseAgentUpdate.OnRunStatusChanged],
+      });
 
 From there, `agent.state.document` is just a string that grows on every token, and `agent.isRunning` tells you whether to show a streaming indicator.
 
-## Related#
+## Try itCopy Anchor Link
 
-  * **[Shared State (overview)](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state)** — the bidirectional read + write pattern this extends.
-  * **[Agent read-only context](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state/agent-readonly)** — for the inverse, UI → agent one-way channel.
+Ask the agent to write a short poem. The `document` text grows in your UI while the agent writes. When the run ends, `agent.isRunning` is `false`, so your streaming indicator turns off.
 
+How is this guide?
 
+GoodBad
+
+[Previous PageRender agent state in your app](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state/rendering-in-app)[Next PageAgent Read-Only Context](https://docs.copilotkit.ai/ms-agent-dotnet/shared-state/agent-readonly)

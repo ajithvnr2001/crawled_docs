@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands-typescript/prebuilt-components/sidebar/
 title: CopilotSidebar
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:45.122214+00:00
+fetched_at: 2026-11-26T12:11:32.883574+00:00
 ---
 
 # CopilotSidebar

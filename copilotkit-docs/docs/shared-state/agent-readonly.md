@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/shared-state/agent-readonly/
 title: Agent Read-Only Context
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T10:52:44.736977+00:00
+fetched_at: 2026-11-26T12:11:33.842004+00:00
 ---
 
 # Agent Read-Only Context

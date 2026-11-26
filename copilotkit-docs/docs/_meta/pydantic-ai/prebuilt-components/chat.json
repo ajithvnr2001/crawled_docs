@@ -3,8 +3,5 @@
   "file": "pydantic-ai/prebuilt-components/chat.md",
   "title": "CopilotChat",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T09:24:23.841121+00:00",
-  "html_len": 200255,
-  "md_len": 13637,
-  "depth": 0
+  "fetched_at": "2026-11-26T12:11:34.654793+00:00"
 }

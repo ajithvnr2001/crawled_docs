@@ -2,116 +2,33 @@
 url: https://docs.copilotkit.ai/prebuilt-components/chat-controls/
 title: Open, close, and feedback
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:23:08.916843+00:00
+fetched_at: 2026-11-26T12:11:35.760960+00:00
 ---
 
 # Open, close, and feedback
 
 > Source: https://docs.copilotkit.ai/prebuilt-components/chat-controls/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendCopilotKit
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/)[Quickstart](https://docs.copilotkit.ai/quickstart)[Build with agents](https://docs.copilotkit.ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/webmcp)
-
-Agent capabilities
-
-Built-in Agent
-
-[Sub-agents](https://docs.copilotkit.ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-On this page
-
-[Prebuilt Components](https://docs.copilotkit.ai/prebuilt-components)
+Chat/Prebuilt Components
 
 # Open, close, and feedback
 
 Open and close the prebuilt chat from your UI, and capture assistant message feedback.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
+This page covers two tasks for the prebuilt chat:
 
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+  * Open and close the chat from your own UI, for example from a button in your nav bar.
+  * Capture thumbs-up and thumbs-down feedback on assistant replies.
 
-Two common controls for the prebuilt chat are opening it from your own UI and capturing thumbs-up / thumbs-down feedback on assistant messages.
 
-## Control the open state from your own UI#
 
-Pass `open` and `onOpenChange` to `<CopilotSidebar>` or `<CopilotPopup>` to own the open state yourself. This is the controlled pattern: the surface renders whatever `open` says, and every request to open or close (the toggle button, click-outside on the popup) arrives on `onOpenChange` instead of moving the surface directly.
+## Control the open state from your own UICopy Anchor Link
+
+Pass `open` and `onOpenChange` to `<CopilotSidebar>` or `<CopilotPopup>` to own the open state yourself. This is the controlled pattern. The surface shows whatever `open` says. The toggle button and click-outside on the popup send their request to `onOpenChange`, and the surface does not move by itself.
+
+Copy Text
     
     
     import { useState } from "react";
@@ -135,9 +52,11 @@ The button lives outside the sidebar, which is the point: nothing has to be rend
 
 `onOpenChange` reports a request, not a change. If you do not feed the new value back into `open`, the surface stays where it is. That is what makes it possible to gate opening the chat, for example behind a sign-in check. You can also pass `onOpenChange` on its own, without `open`: the surface keeps managing itself and you are notified each time it opens or closes.
 
-## Programmatically open or close the chat#
+## Programmatically open or close the chatCopy Anchor Link
 
 If you would rather not lift the state into your own component, the open state for `<CopilotPopup>` and `<CopilotSidebar>` also lives in the **chat configuration context**. Read it with `useCopilotChatConfiguration()` and call `setModalOpen(true | false)` from anywhere inside the provider:
+
+Copy Text
     
     
     import { useCopilotChatConfiguration } from "@copilotkit/react-core/v2";
@@ -157,24 +76,30 @@ If you would rather not lift the state into your own component, the open state f
     }
 
 To toggle, read `config.isModalOpen` and flip it:
+
+Copy Text
     
     
     <button onClick={() => config.setModalOpen(!config.isModalOpen)}>
       {config.isModalOpen ? "Close chat" : "Open chat"}
     </button>
 
-`setModalOpen` / `isModalOpen` are only defined when a provider in the tree owns modal state. The prebuilt `<CopilotPopup>` and `<CopilotSidebar>` create it automatically. If you compose chat yourself, wrap the relevant subtree in `<CopilotChatConfigurationProvider isModalDefaultOpen={false}>` so the modal state exists. See the [`useCopilotChatConfiguration` reference](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration#modal-state-management).
+`setModalOpen` / `isModalOpen` are only defined when a provider in the tree owns modal state. The prebuilt `<CopilotPopup>` and `<CopilotSidebar>` create this state inside the chat only. To open the chat from a button outside it, use `open` and `onOpenChange`, or wrap the button and the chat in one `<CopilotChatConfigurationProvider isModalDefaultOpen={false}>`. If you compose chat yourself, wrap the relevant subtree in the same provider so the modal state exists. See the [`useCopilotChatConfiguration` reference](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration#modal-state-management).
 
 You can also set the **initial** open state declaratively, and then let the surface manage itself. The prebuilt surfaces accept a `defaultOpen` prop:
+
+Copy Text
     
     
     <CopilotSidebar defaultOpen={false} />
 
 `defaultOpen` and `open` are the usual uncontrolled/controlled pair: use `defaultOpen` for a starting point, and `open` when your own state decides. When both are passed, `open` wins.
 
-## Capture message feedback (thumbs up / down)#
+## Capture message feedback (thumbs up / down)Copy Anchor Link
 
-The assistant-message toolbar can show thumbs-up and thumbs-down buttons. In v2 you opt in by passing `onThumbsUp` / `onThumbsDown` to the **assistant message slot**. The buttons only render when a handler is provided:
+The assistant-message toolbar can show thumbs-up and thumbs-down buttons. To show the buttons, pass `onThumbsUp` and `onThumbsDown` to the **assistant message slot**. Without Automatic Learning capture, the buttons only render when a handler or a custom thumb slot is provided:
+
+Copy Text
     
     
     import { CopilotChat } from "@copilotkit/react-core/v2";
@@ -194,21 +119,24 @@ The assistant-message toolbar can show thumbs-up and thumbs-down buttons. In v2 
 
 Each handler receives the assistant `message`, so you can record the feedback against the specific response (`message.id`). The same `messageView` slot works on `<CopilotPopup>` and `<CopilotSidebar>` since they wrap `<CopilotChat>`.
 
-When the slot is rendered through `CopilotChatMessageView`, a live assistant message created by a direct AG-UI `TEXT_MESSAGE_START` can also include that event's opaque `rawEvent` value. The join happens when the thumbs callback runs; canonical messages and future run input stay unchanged. Chunk, snapshot, persisted, legacy, and direct `CopilotChatAssistantMessage` paths don't provide this callback metadata.
+For raw AG-UI event data on the message, see [`CopilotChatAssistantMessage`](https://docs.copilotkit.ai/reference/components/CopilotChatAssistantMessage).
 
 The button labels come from the chat labels (`assistantMessageToolbarThumbsUpLabel` defaults to `"Good response"`, `assistantMessageToolbarThumbsDownLabel` to `"Bad response"`); override them via [chat labels](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration#copilotchatlabels).
 
+The buttons appear without handlers when all of these are true:
+
+  * [Automatic Learning capture](https://docs.copilotkit.ai/intelligence/capture-interactions#collect-reply-ratings) is on.
+  * A Trajectory is started.
+  * The chat renders messages with `CopilotChatMessageView` inside a `CopilotChatConfigurationProvider`. `CopilotChat`, `CopilotPopup`, and `CopilotSidebar` do.
+
+
+
+A rating then also goes to the active Trajectory, the user can add a comment, and clicking the chosen thumb again removes the rating. Your handlers run when a rating is given, not when it is removed.
+
 Building a fully custom message component instead of using the slot? The underlying [`CopilotChatAssistantMessage`](https://docs.copilotkit.ai/reference/components/CopilotChatAssistantMessage) exposes the same `onThumbsUp` / `onThumbsDown` props directly, but callback metadata enrichment is owned by `CopilotChatMessageView`.
 
-## Related#
+How is this guide?
 
-  * [CopilotPopup](https://docs.copilotkit.ai/prebuilt-components/popup) and [CopilotSidebar](https://docs.copilotkit.ai/prebuilt-components/sidebar): the prebuilt surfaces that own modal state.
-  * [`useCopilotChatConfiguration` reference](https://docs.copilotkit.ai/reference/hooks/useCopilotChatConfiguration): full context shape, modal state, and labels.
-  * [Slots](https://docs.copilotkit.ai/custom-look-and-feel/slots): the `messageView` / `assistantMessage` slot system used above.
-  * [Programmatic Control](https://docs.copilotkit.ai/programmatic-control): driving agent runs from code without a chat UI.
+GoodBad
 
-
-
-### On this page
-
-Control the open state from your own UIProgrammatically open or close the chatCapture message feedback (thumbs up / down)Related
+[Previous PageCopilotPopup](https://docs.copilotkit.ai/prebuilt-components/popup)[Next PageCSS Customization](https://docs.copilotkit.ai/custom-look-and-feel/css)

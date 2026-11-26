@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/agent-spec/shared-state/
 title: Shared State
 method: scrapling+scrapegraph
-fetched_at: 2026-11-18T11:27:52.253827+00:00
+fetched_at: 2026-11-26T12:11:30.354287+00:00
 ---
 
 # Shared State

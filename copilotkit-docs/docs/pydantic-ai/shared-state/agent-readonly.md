@@ -2,129 +2,42 @@
 url: https://docs.copilotkit.ai/pydantic-ai/shared-state/agent-readonly/
 title: Agent Read-Only Context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:24:27.980737+00:00
+fetched_at: 2026-11-26T12:11:34.448781+00:00
 ---
 
 # Agent Read-Only Context
 
 > Source: https://docs.copilotkit.ai/pydantic-ai/shared-state/agent-readonly/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendPydanticAI
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/pydantic-ai)[Quickstart](https://docs.copilotkit.ai/pydantic-ai/quickstart)[Build with agents](https://docs.copilotkit.ai/pydantic-ai/build-with-agents)[Intelligence](https://docs.copilotkit.ai/pydantic-ai/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/pydantic-ai/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/pydantic-ai/webmcp)
-
-Agent capabilities
-
-Pydantic AI
-
-[Sub-agents](https://docs.copilotkit.ai/pydantic-ai/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/pydantic-ai/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/pydantic-ai/learning)
-
-[User Memories](https://docs.copilotkit.ai/pydantic-ai/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/pydantic-ai/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/pydantic-ai/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/pydantic-ai/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/pydantic-ai/intelligence/analytics)[Channels](https://docs.copilotkit.ai/pydantic-ai/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Debugging
-
-Learn
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/pydantic-ai/telemetry)[Community frameworks](https://docs.copilotkit.ai/pydantic-ai/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[PydanticAI](https://docs.copilotkit.ai/pydantic-ai)[Shared State](https://docs.copilotkit.ai/pydantic-ai/shared-state)
 
 # Agent Read-Only Context
 
 Publish UI values to the agent as a one-way read-only channel via useAgentContext.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Readonly State (Agent Context)
 
 DemoCode
 
-agent.py
+[](https://showcase-pydantic-ai-production.up.railway.app/demos/readonly-state-agent-context "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/pydantic-ai/src/app/demos/readonly-state-agent-context "View the code on GitHub")
 
-page.tsx
-
-route.ts
-    
-    
-    """PydanticAI agent with sales todos state, weather/query tools, and HITL scheduling.Upgraded from proverbs demo to full feature parity with shared tool implementations."""import jsonfrom textwrap import dedentfrom typing import Anyfrom pydantic import BaseModel, Fieldfrom pydantic_ai import Agent, RunContextfrom pydantic_ai.ui import StateDepsfrom ag_ui.core import EventType, StateSnapshotEventfrom pydantic_ai.models.openai import OpenAIResponsesModelfrom dotenv import load_dotenvfrom tools import (    get_weather_impl,    query_data_impl,    manage_sales_todos_impl,    get_sales_todos_impl,    schedule_meeting_impl,    search_flights_impl,    build_a2ui_operations_from_tool_call,)from tools.types import Flightload_dotenv()# =====# State# =====class SalesTodosState(BaseModel):    """Sales pipeline todos managed by the agent."""    todos: list[dict[str, Any]] = Field(        default_factory=list,        description="The list of sales pipeline todos",    )# =====# Agent# =====agent = Agent(    model=OpenAIResponsesModel("gpt-5-mini"),    deps_type=StateDeps[SalesTodosState],    system_prompt=dedent("""        You are a helpful sales assistant that helps manage a sales pipeline.        The user has a list of sales todos that you can help them manage.        You have tools available to add, update, or retrieve todos from the pipeline.        You can also look up weather and query financial data.        You can search flights and display rich A2UI cards (via search_flights tool).        You can generate dynamic A2UI dashboards from conversation context (via generate_a2ui tool).        When discussing sales todos, ALWAYS use the get_sales_todos tool to see the current list        before mentioning, updating, or discussing todos with the user.    """).strip(),)# =====# Tools# =====@agent.tooldef get_weather(ctx: RunContext[StateDeps[SalesTodosState]], location: str) -> str:    """Get the weather for a given location. Ensure location is fully spelled out.    Useful on its own for weather questions, and a great companion to    `search_flights` — always consider checking the weather at a    destination the user is flying to, and checking flights to any    city whose weather the user has just asked about.    """    return json.dumps(get_weather_impl(location))@agent.tooldef query_data(ctx: RunContext[StateDeps[SalesTodosState]], query: str) -> str:    """Query financial database for chart data. Returns data suitable for pie or bar charts."""    return json.dumps(query_data_impl(query))@agent.toolasync def manage_sales_todos(    ctx: RunContext[StateDeps[SalesTodosState]], todos: list[dict[str, Any]]) -> StateSnapshotEvent:    """Manage the sales pipeline. Pass the complete list of sales todos."""    result = manage_sales_todos_impl(todos)    ctx.deps.state.todos = result    return StateSnapshotEvent(        type=EventType.STATE_SNAPSHOT,        snapshot=ctx.deps.state,    )@agent.tooldef get_sales_todos(ctx: RunContext[StateDeps[SalesTodosState]]) -> str:    """Get the current list of sales pipeline todos."""    return json.dumps(get_sales_todos_impl(ctx.deps.state.todos or None))@agent.tooldef schedule_meeting(    ctx: RunContext[StateDeps[SalesTodosState]], reason: str, duration_minutes: int = 30) -> str:    """Schedule a meeting. The user will be asked to pick a time via the UI."""    return json.dumps(schedule_meeting_impl(reason, duration_minutes))@agent.tooldef search_flights(    ctx: RunContext[StateDeps[SalesTodosState]], flights: list[dict[str, Any]]) -> str:    """Search for flights and display the results as rich cards. Return exactly 2 flights.    Each flight must have: airline, airlineLogo, flightNumber, origin, destination,    date (short readable format like "Tue, Mar 18" -- use near-future dates),    departureTime, arrivalTime, duration (e.g. "4h 25m"),    status (e.g. "On Time" or "Delayed"),    statusColor (hex color for status dot),    price (e.g. "$289"), and currency (e.g. "USD").    For airlineLogo use Google favicon API:    https://www.google.com/s2/favicons?domain={airline_domain}&sz=128    """    result = search_flights_impl(flights)    return json.dumps(result)@agent.tooldef generate_a2ui(ctx: RunContext[StateDeps[SalesTodosState]]) -> str:    """Generate dynamic A2UI components based on the conversation.    A secondary LLM designs the UI schema and data. The result is    returned as an a2ui_operations container for the middleware to detect.    """    from openai import OpenAI    # Extract conversation messages from deps    copilotkit_state = getattr(ctx.deps, "copilotkit", None)    conversation_messages: list[dict] = []    context_entries: list[dict] = []    if copilotkit_state:        if hasattr(copilotkit_state, "messages"):            for msg in copilotkit_state.messages or []:                role = msg.role.value if hasattr(msg.role, "value") else str(msg.role)                if role in ("user", "assistant"):                    content = ""                    if hasattr(msg, "content"):                        if isinstance(msg.content, str):                            content = msg.content                        elif isinstance(msg.content, list):                            parts = []                            for part in msg.content:                                if hasattr(part, "text"):                                    parts.append(part.text)                                elif isinstance(part, dict) and "text" in part:                                    parts.append(part["text"])                            content = "".join(parts)                    if content:                        conversation_messages.append({"role": role, "content": content})        if hasattr(copilotkit_state, "context"):            context_entries = copilotkit_state.context or []    context_text = "\n\n".join(        entry.get("value", "")        for entry in context_entries        if isinstance(entry, dict) and entry.get("value")    )    client = OpenAI()    tool_schema = {        "type": "function",        "function": {            "name": "render_a2ui",            "description": "Render a dynamic A2UI v0.9 surface.",            "parameters": {                "type": "object",                "properties": {                    "surfaceId": {"type": "string"},                    "catalogId": {"type": "string"},                    "components": {"type": "array", "items": {"type": "object"}},                    "data": {"type": "object"},                },                "required": ["surfaceId", "catalogId", "components"],            },        },    }    llm_messages: list[dict] = [        {            "role": "system",            "content": context_text or "Generate a useful dashboard UI.",        },    ]    llm_messages.extend(conversation_messages)    response = client.chat.completions.create(        model="gpt-5-mini",        messages=llm_messages,        tools=[tool_schema],        tool_choice={"type": "function", "function": {"name": "render_a2ui"}},    )    if not response.choices[0].message.tool_calls:        return json.dumps({"error": "LLM did not call render_a2ui"})    tool_call = response.choices[0].message.tool_calls[0]    args = json.loads(tool_call.function.arguments)    result = build_a2ui_operations_from_tool_call(args)    return json.dumps(result)
+Waking up the demo
 
 See this in Inspector
 
-Open Inspector on localhost. Go to **Agents** , then **Context**. The values you publish with `useAgentContext` appear here.
+Open Inspector on localhost. Go to **Inspect** , then **Context**. The values you publish with `useAgentContext` appear here.
 
 More detail: [Inspector](https://docs.copilotkit.ai/pydantic-ai/inspector).
 
-## What is this?#
+## What is this?Copy Anchor Link
 
 Sometimes you want the agent to _know_ something about the current UI, like the logged-in user, the current page, or a recent activity log, but you don't want the agent to be able to modify it. That's what `useAgentContext` is for: a one-way **UI → agent** channel for read-only context.
 
 Unlike full shared state (where the agent can call tools that mutate the state back to the UI), `useAgentContext` values are pure inputs. The agent sees them on every turn via the runtime's context injection, but it has no setter and no tool to write them back.
 
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
 Reach for `useAgentContext` instead of full shared state when:
 
@@ -136,41 +49,174 @@ Reach for `useAgentContext` instead of full shared state when:
 
 Think of it as "props for the agent".
 
-## How it works in code#
+If the agent must also write the value, use **[shared state](https://docs.copilotkit.ai/pydantic-ai/shared-state)**. To stream agent-written state to the UI during a run, see [State streaming](https://docs.copilotkit.ai/pydantic-ai/shared-state/streaming).
+
+## How it works in codeCopy Anchor Link
+
+Pydantic AI does not pass context to your agent
+
+Pydantic AI's AG-UI adapter passes `messages`, `tools`, and `state` to your agent. It does **not** pass `context`, and it does not warn when it drops the entries. An agent that never received your entries still answers confidently about them. This is deliberate: entries are client-submitted, so Pydantic AI leaves it to you to decide what to trust. Read them off `run_input` and hand them to the agent yourself. See Pydantic AI's [AG-UI Context guide](https://pydantic.dev/docs/ai/integrations/ui/ag-ui/#context).
+
+### Pass the entries to the agent through `deps`Copy Anchor Link
+
+The entries arrive on `RunAgentInput.context`. Build the adapter in two steps so you can reach `run_input`, pass the entries into `deps`, and expose them to the model through a tool.
+
+agent.py
+
+Copy Text
+    
+    
+    import json
+    from dataclasses import dataclass
+    
+    from ag_ui.core import Context
+    from pydantic_ai import Agent, RunContext
+    from pydantic_ai.ui.ag_ui import AGUIAdapter
+    from starlette.applications import Starlette
+    from starlette.requests import Request
+    from starlette.responses import Response
+    from starlette.routing import Route
+    
+    
+    @dataclass
+    class AppContextDeps:
+        """The entries the frontend shared on this run."""
+    
+        context: list[Context]
+    
+    
+    agent = Agent(
+        "openai:gpt-6-luna",
+        instructions="You are a helpful assistant that can help emailing colleagues.",
+        deps_type=AppContextDeps, 
+    )
+    
+    
+    @agent.tool
+    def colleagues(ctx: RunContext[AppContextDeps]) -> list[dict]:
+        """The current user's colleagues, as the app shared them."""
+        for entry in ctx.deps.context:
+            if entry.description == "The current user's colleagues":
+                # `useAgentContext` JSON-stringifies `value` before it leaves the
+                # browser, and AG-UI types `Context.value` as a string, so parse it.
+                return json.loads(entry.value)
+        return []
+    
+    
+    async def run_agent(request: Request) -> Response:
+        # `dispatch_request` parses the request internally, so build the adapter in
+        # two steps instead: `run_input` is what carries the frontend's entries.
+        adapter = await AGUIAdapter.from_request(request, agent=agent)
+        deps = AppContextDeps(context=adapter.run_input.context)
+        return adapter.streaming_response(adapter.run_stream(deps=deps))
+    
+    
+    app = Starlette(routes=[Route("/", run_agent, methods=["POST"])])
+
+Two details are easy to miss:
+
+  * **`value` is a string, not your object.** `useAgentContext` calls `JSON.stringify` on the value before the run leaves the browser, and AG-UI types `Context.value` as a string on both ends. So `json.loads` is required, and a shape check like `isinstance(entry.value, list)` can never pass.
+  * **Use`from_request`, not `dispatch_request`.** The one-line `AGUIAdapter.dispatch_request(request, agent=agent)` parses the request for you, which leaves you no `run_input` to build `deps` from.
+
+
+
+### Keep entries as data, not instructionsCopy Anchor Link
+
+Every entry is a claim your frontend made. It never establishes who is making the request. Deliver entries to the model as **data** , the way the tool above does. Do not build [`instructions`](https://pydantic.dev/docs/ai/agents/#instructions) out of them: instructions carry operator authority, so composing them from client-submitted text lets a prompt injection inherit that authority.
+
+Facts your _server_ established (the authenticated user, the workspace, the tenant) are what belong in instructions.
 
 Call `useAgentContext({ description, value })` once per value you want to publish. Each call registers a dynamic context entry with the runtime that is:
 
   * Refreshed whenever `value` changes (React re-renders).
   * Automatically removed when the component unmounts.
-  * Surfaced to the agent via the backend's `CopilotKitMiddleware`, which threads the entries into the model's message history on every turn.
+  * Sent to the agent with every run. The Built-in Agent adds each entry to the system prompt. Python LangGraph agents need `CopilotKitMiddleware` to add the entries, and ADK agents need an instruction provider. Microsoft Agent Framework, CrewAI Flows and Pydantic AI agents drop the entries silently unless you wire them. The setup above shows the code for your framework.
 
 
 
 page.tsx
+
+Copy Text
     
     
-      useAgentContext({    description: "The currently logged-in user's display name",    value: userName,  });  useAgentContext({    description: "The user's IANA timezone (used when mentioning times)",    value: userTimezone,  });  useAgentContext({    description: "The user's recent activity in the app, newest first",    value: recentActivity,  });
+      useAgentContext({
+        description: "The currently logged-in user's display name",
+        value: userName,
+      });
+      useAgentContext({
+        description: "The user's IANA timezone (used when mentioning times)",
+        value: userTimezone,
+      });
+      useAgentContext({
+        description: "The user's recent activity in the app, newest first",
+        value: recentActivity,
+      });
 
 The `description` is important: it's a short human-readable label the agent sees alongside the value, so it knows what to do with it. Treat it like a parameter docstring.
 
-## Wire it to your own state#
+Call `useAgentContext` in as many components as you like. The agent receives every registered entry.
+
+Context values arrive as JSON strings
+
+The AG-UI protocol defines a context value as a string. Therefore `useAgentContext` calls `JSON.stringify` on any `value` that is not already a string, and your agent receives the JSON text instead of the object or the array.
+
+Parse the value before you read a field from it. Use `json.loads(item["value"])` in Python, or `JSON.parse(item.value)` in TypeScript. If you skip the parse step, an index such as `colleagues[0]` returns a single character, and a shape check such as `isinstance(value, list)` can never pass.
+
+Do not stringify the value again, because that produces double encoding. A `value` that is already a string is sent unchanged, so no parse step is needed for it.
+
+## Wire it to your own stateCopy Anchor Link
 
 `useAgentContext` doesn't care where the value comes from: local state, a React Context, Redux, a query cache, anything. The only requirement is that the identity of the value is stable enough for React to avoid a render loop. In the demo we use a handful of `useState` hooks; in a real app these would likely come from an auth provider, a router hook, and your domain state stores.
 
 page.tsx
+
+Copy Text
     
     
-    import React, { useState } from "react";import {  CopilotKit,  CopilotPopup,  useAgentContext,} from "@copilotkit/react-core/v2";import { ACTIVITIES, DemoLayout } from "./demo-layout";import { useReadonlyStateAgentContextSuggestions } from "./suggestions";export default function ReadonlyStateAgentContextDemo() {  return (    <CopilotKit      runtimeUrl="/api/copilotkit"      agent="readonly-state-agent-context"    >      <DemoContent />      <CopilotPopup        agentId="readonly-state-agent-context"        defaultOpen={true}        labels={{ chatInputPlaceholder: "Ask about your context..." }}      />    </CopilotKit>  );}function DemoContent() {  const [userName, setUserName] = useState("Atai");  const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");  const [recentActivity, setRecentActivity] = useState<string[]>([    ACTIVITIES[0],    ACTIVITIES[2],  ]);
+    import React, { useState } from "react";
+    import {
+      CopilotKit,
+      CopilotPopup,
+      useAgentContext,
+    } from "@copilotkit/react-core/v2";
+    
+    import { ACTIVITIES, DemoLayout } from "./demo-layout";
+    import { useReadonlyStateAgentContextSuggestions } from "./suggestions";
+    
+    export default function ReadonlyStateAgentContextDemo() {
+      return (
+        <CopilotKit
+          runtimeUrl="/api/copilotkit"
+          agent="readonly-state-agent-context"
+        >
+          <DemoContent />
+          <CopilotPopup
+            agentId="readonly-state-agent-context"
+            defaultOpen={true}
+            labels={{ chatInputPlaceholder: "Ask about your context..." }}
+          />
+        </CopilotKit>
+      );
+    }
+    
+    function DemoContent() {
+      const [userName, setUserName] = useState("Atai");
+      const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");
+      const [recentActivity, setRecentActivity] = useState<string[]>([
+        ACTIVITIES[0],
+        ACTIVITIES[2],
+      ]);
 
-## Read-only, by design#
+## Treat entries as untrusted inputCopy Anchor Link
 
-Because the agent never sees a setter or a mutation tool for these values, there's no way for a confused LLM to "update" them. That makes `useAgentContext` the right tool whenever the value in question is an input, not a field: the "context object passed to the agent on every turn", rather than "shared workspace you both edit".
+Every entry is a claim your frontend made, and a user can change it. It never proves who is making the request. Let entries inform the agent's answer, but take facts that grant access, such as the authenticated user, the workspace, or the tenant, from your server. If your agent builds its prompt from entries, keep them apart from your own instructions, so text in an entry can't override them.
 
-When you need both reads _and_ writes, you want full **[shared state](https://docs.copilotkit.ai/pydantic-ai/shared-state)** instead.
+## Try itCopy Anchor Link
 
-## Related#
+Ask the agent: "What is my name?" It answers with the value of `userName`. Change the name in your UI and ask again: the answer changes.
 
-  * **[Shared State (overview)](https://docs.copilotkit.ai/pydantic-ai/shared-state)** — bidirectional reads + writes.
-  * **[State streaming](https://docs.copilotkit.ai/pydantic-ai/shared-state/streaming)** — stream agent-written state back to the UI during a run.
+How is this guide?
 
+GoodBad
 
+[Previous PageRender agent state in your app](https://docs.copilotkit.ai/pydantic-ai/shared-state/rendering-in-app)[Next PageHITL Overview](https://docs.copilotkit.ai/pydantic-ai/human-in-the-loop)

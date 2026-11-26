@@ -2,129 +2,42 @@
 url: https://docs.copilotkit.ai/ms-agent-python/shared-state/agent-readonly/
 title: Agent Read-Only Context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:22:40.094844+00:00
+fetched_at: 2026-11-26T12:11:38.962562+00:00
 ---
 
 # Agent Read-Only Context
 
 > Source: https://docs.copilotkit.ai/ms-agent-python/shared-state/agent-readonly/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendMS Agent Framework (Python)
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/ms-agent-python)[Quickstart](https://docs.copilotkit.ai/ms-agent-python/quickstart)[Build with agents](https://docs.copilotkit.ai/ms-agent-python/build-with-agents)[Intelligence](https://docs.copilotkit.ai/ms-agent-python/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/ms-agent-python/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/ms-agent-python/webmcp)
-
-Agent capabilities
-
-Microsoft Agent Framework
-
-[Sub-agents](https://docs.copilotkit.ai/ms-agent-python/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/ms-agent-python/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/ms-agent-python/learning)
-
-[User Memories](https://docs.copilotkit.ai/ms-agent-python/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/ms-agent-python/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/ms-agent-python/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/ms-agent-python/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/ms-agent-python/intelligence/analytics)[Channels](https://docs.copilotkit.ai/ms-agent-python/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Debugging
-
-Learn
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/ms-agent-python/telemetry)[Community frameworks](https://docs.copilotkit.ai/ms-agent-python/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[MS Agent Framework (Python)](https://docs.copilotkit.ai/ms-agent-python)[Shared State](https://docs.copilotkit.ai/ms-agent-python/shared-state)
 
 # Agent Read-Only Context
 
 Publish UI values to the agent as a one-way read-only channel via useAgentContext.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Readonly State (Agent Context)
 
 DemoCode
 
-agent.py
+[](https://showcase-ms-agent-python-production.up.railway.app/demos/readonly-state-agent-context "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/ms-agent-python/src/app/demos/readonly-state-agent-context "View the code on GitHub")
 
-page.tsx
-
-route.ts
-    
-    
-    """MS Agent Framework agent with sales todos state, weather tool, query data,and HITL schedule meeting tool.Adapted from examples/integrations/ms-agent-framework-python/agent/src/agent.py"""from __future__ import annotationsimport jsonfrom textwrap import dedentfrom typing import Annotatedfrom agent_framework import Agent, BaseChatClient, toolfrom agent_framework_ag_ui import AgentFrameworkAgentfrom pydantic import Field# =====================================================================# Shared tool implementations# =====================================================================from tools import (    get_weather_impl,    query_data_impl,    manage_sales_todos_impl,    get_sales_todos_impl,    schedule_meeting_impl,    search_flights_impl,)STATE_SCHEMA: dict[str, object] = {    "salesTodos": {        "type": "array",        "items": {            "type": "object",            "properties": {                "id": {"type": "string"},                "title": {"type": "string"},                "stage": {"type": "string"},                "value": {"type": "number"},                "dueDate": {"type": "string"},                "assignee": {"type": "string"},                "completed": {"type": "boolean"},            },        },        "description": "Ordered list of the user's sales pipeline todos.",    }}PREDICT_STATE_CONFIG: dict[str, dict[str, str]] = {    "salesTodos": {        "tool": "manage_sales_todos",        "tool_argument": "todos",    }}@tool(    name="manage_sales_todos",    description=(        "Replace the entire list of sales todos with the provided values. "        "Always include every todo you want to keep."    ),)def manage_sales_todos(    todos: Annotated[        list[dict],        Field(            description=(                "The complete source of truth for the user's sales todos. "                "Maintain ordering and include the full list on each call."            )        ),    ],) -> str:    """Persist the provided set of sales todos."""    result = manage_sales_todos_impl(todos)    return f"Sales todos updated. Tracking {len(result)} item(s)."@tool(    name="get_sales_todos",    description="Get the current list of sales todos.",)def get_sales_todos() -> str:    """Return the current sales todos or defaults."""    result = get_sales_todos_impl()    return json.dumps(result)@tool(    name="get_weather",    description="Get the current weather for a location. Use this to render the frontend weather card.",)def get_weather(    location: Annotated[        str,        Field(            description="The city or region to describe. Use fully spelled out names."        ),    ],) -> str:    """Return weather data as JSON for UI rendering."""    result = get_weather_impl(location)    return json.dumps(result)@tool(    name="query_data",    description="Query the database. Takes natural language. Always call before showing a chart or graph.",)def query_data(    query: Annotated[        str, Field(description="Natural language query to run against the database.")    ],) -> str:    """Query the database and return results as JSON."""    result = query_data_impl(query)    return json.dumps(result)@tool(    name="schedule_meeting",    description="Schedule a meeting. The user will be asked to pick a time via the meeting time picker UI.",    approval_mode="always_require",)def schedule_meeting(    reason: Annotated[str, Field(description="Reason for scheduling the meeting.")],    duration_minutes: Annotated[        int, Field(description="Duration of the meeting in minutes.")    ] = 30,) -> str:    """Request human approval to schedule a meeting."""    result = schedule_meeting_impl(reason, duration_minutes)    return json.dumps(result)@tool(    name="search_flights",    description=(        "Search for flights and display the results as rich A2UI cards. Return exactly 2 flights. "        "Each flight must have: airline, airlineLogo, flightNumber, origin, destination, "        "date, departureTime, arrivalTime, duration, status, statusColor, price, currency."    ),)def search_flights(    flights: Annotated[        list[dict],        Field(description="List of flight objects to search and display."),    ],) -> str:    """Search for flights and display as rich cards."""    result = search_flights_impl(flights)    return json.dumps(result)def create_agent(chat_client: BaseChatClient) -> AgentFrameworkAgent:    """Instantiate the CopilotKit demo agent backed by Microsoft Agent Framework."""    base_agent = Agent(        client=chat_client,        name="sales_agent",        instructions=dedent(            """            You help users manage their sales pipeline, check weather, query data, and schedule meetings.            State sync:            - The current list of sales todos is provided in the conversation context.            - When you add, remove, or reorder todos, call `manage_sales_todos` with the full list.              Never send partial updates--always include every todo that should exist.            - CRITICAL: When asked to "add" a todo, you must:              1. First, identify ALL existing todos from the conversation history              2. Create EXACTLY ONE new todo (never more than one unless explicitly requested)              3. Call manage_sales_todos with: [all existing todos] + [the one new todo]            - When asked to "remove" a todo, remove exactly ONE item unless user specifies otherwise.            Tool usage rules:            - When user asks to schedule a meeting, you MUST call the `schedule_meeting` tool immediately.              Do NOT ask for approval yourself--the tool's approval workflow and the client UI will handle it.            Frontend integrations:            - `get_weather` renders a weather card in the UI. Only call this tool when the user explicitly              asks for weather. Do NOT call it after unrelated tasks or approvals.            - `query_data` fetches database records. Always call before showing charts or graphs.            - `schedule_meeting` requires explicit user approval before you proceed. Only use it when a              user asks to schedule or set up a meeting. Always call the tool instead of asking manually.            Conversation tips:            - Reference the latest todo list before suggesting changes.            - Keep responses concise and friendly unless the user requests otherwise.            - After you finish executing tools for the user's request, provide a brief, final assistant              message summarizing exactly what changed. Do NOT call additional tools or switch topics              after that summary unless the user asks. ALWAYS send this conversational summary so the message persists.            """.strip()        ),        tools=[            manage_sales_todos,            get_sales_todos,            get_weather,            query_data,            schedule_meeting,            search_flights,        ],    )    return AgentFrameworkAgent(        agent=base_agent,        name="CopilotKitMicrosoftAgentFrameworkAgent",        description="Manages sales pipeline todos, weather, data queries, and meeting scheduling.",        predict_state_config=PREDICT_STATE_CONFIG,        require_confirmation=False,    )
+Waking up the demo
 
 See this in Inspector
 
-Open Inspector on localhost. Go to **Agents** , then **Context**. The values you publish with `useAgentContext` appear here.
+Open Inspector on localhost. Go to **Inspect** , then **Context**. The values you publish with `useAgentContext` appear here.
 
 More detail: [Inspector](https://docs.copilotkit.ai/ms-agent-python/inspector).
 
-## What is this?#
+## What is this?Copy Anchor Link
 
 Sometimes you want the agent to _know_ something about the current UI, like the logged-in user, the current page, or a recent activity log, but you don't want the agent to be able to modify it. That's what `useAgentContext` is for: a one-way **UI → agent** channel for read-only context.
 
 Unlike full shared state (where the agent can call tools that mutate the state back to the UI), `useAgentContext` values are pure inputs. The agent sees them on every turn via the runtime's context injection, but it has no setter and no tool to write them back.
 
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
 Reach for `useAgentContext` instead of full shared state when:
 
@@ -136,41 +49,200 @@ Reach for `useAgentContext` instead of full shared state when:
 
 Think of it as "props for the agent".
 
-## How it works in code#
+If the agent must also write the value, use **[shared state](https://docs.copilotkit.ai/ms-agent-python/shared-state)**. To stream agent-written state to the UI during a run, see [State streaming](https://docs.copilotkit.ai/ms-agent-python/shared-state/streaming).
+
+## How it works in codeCopy Anchor Link
+
+### Add the context to the model's messages yourselfCopy Anchor Link
+
+The Microsoft Agent Framework adapter does not add `useAgentContext` entries to the prompt. They arrive in the AG-UI run input as `input_data["context"]`, and the model never sees them unless your agent copies them into a message. Without this step the agent answers as if no context were registered.
+
+Subclass `AgentFrameworkAgent` and prepend a request-local system message built from the context entries:
+
+src/agents/readonly_state_agent_context.py
+
+Copy Text
+    
+    
+    import json
+    from collections.abc import AsyncGenerator
+    from typing import Any
+    from uuid import uuid4
+    
+    from ag_ui.core import BaseEvent
+    from agent_framework import Agent, BaseChatClient
+    from agent_framework_ag_ui import AgentFrameworkAgent
+    
+    
+    def build_context_system_message(context: Any) -> str | None:
+        if not isinstance(context, list) or not context:
+            return None
+    
+        lines = ["## Context from the application"]
+        for entry in context:
+            if not isinstance(entry, dict):
+                continue
+    
+            description = entry.get("description")
+            value = entry.get("value")
+            if not isinstance(description, str) or not description or value is None:
+                continue
+    
+            if not isinstance(value, str):
+                try:
+                    value = json.dumps(value, ensure_ascii=False, indent=2)
+                except (TypeError, ValueError):
+                    value = str(value)
+            lines.extend(["", description, value])
+    
+        return "\n".join(lines) if len(lines) > 1 else None
+    
+    
+    class ContextAwareAgent(AgentFrameworkAgent):
+        """Add app context to this request without mutating the shared agent."""
+    
+        async def run(
+            self,
+            input_data: dict[str, Any],
+        ) -> AsyncGenerator[BaseEvent, None]:
+            context_prompt = build_context_system_message(input_data.get("context"))
+            messages = input_data.get("messages")
+    
+            # The adapter skips the model when messages are empty. Context
+            # alone must not create an unsolicited model call.
+            if context_prompt and isinstance(messages, list) and messages:
+                run_id = input_data.get("runId") or str(uuid4())
+                request_input = dict(input_data)
+                request_input["runId"] = run_id
+                request_input["messages"] = [
+                    {
+                        "id": f"{run_id}-app-context",
+                        "role": "system",
+                        "content": context_prompt,
+                    },
+                    *[
+                        message
+                        for message in messages
+                        if not (
+                            isinstance(message, dict)
+                            and isinstance(message.get("id"), str)
+                            and message["id"].endswith("-app-context")
+                        )
+                    ],
+                ]
+                input_data = request_input
+    
+            async for event in super().run(input_data):
+                yield event
+    
+    
+    def create_agent(chat_client: BaseChatClient) -> AgentFrameworkAgent:
+        base_agent = Agent(
+            name="sample_agent",
+            instructions="You are a helpful assistant.",
+            client=chat_client,
+        )
+    
+        return ContextAwareAgent(
+            agent=base_agent,
+            name="CopilotKitMicrosoftAgentFrameworkAgent",
+            description="Assistant using request-local app context.",
+            require_confirmation=False,
+        )
+
+The message is built per request, so the shared agent instance never holds one user's context. The id filter drops the context message from an earlier turn, so the model sees only the current values.
 
 Call `useAgentContext({ description, value })` once per value you want to publish. Each call registers a dynamic context entry with the runtime that is:
 
   * Refreshed whenever `value` changes (React re-renders).
   * Automatically removed when the component unmounts.
-  * Surfaced to the agent via the backend's `CopilotKitMiddleware`, which threads the entries into the model's message history on every turn.
+  * Sent to the agent with every run. The Built-in Agent adds each entry to the system prompt. Python LangGraph agents need `CopilotKitMiddleware` to add the entries, and ADK agents need an instruction provider. Microsoft Agent Framework, CrewAI Flows and Pydantic AI agents drop the entries silently unless you wire them. The setup above shows the code for your framework.
 
 
 
 page.tsx
+
+Copy Text
     
     
-      useAgentContext({    description: "The currently logged-in user's display name",    value: userName,  });  useAgentContext({    description: "The user's IANA timezone (used when mentioning times)",    value: userTimezone,  });  useAgentContext({    description: "The user's recent activity in the app, newest first",    value: recentActivity,  });
+      useAgentContext({
+        description: "The currently logged-in user's display name",
+        value: userName,
+      });
+      useAgentContext({
+        description: "The user's IANA timezone (used when mentioning times)",
+        value: userTimezone,
+      });
+      useAgentContext({
+        description: "The user's recent activity in the app, newest first",
+        value: recentActivity,
+      });
 
 The `description` is important: it's a short human-readable label the agent sees alongside the value, so it knows what to do with it. Treat it like a parameter docstring.
 
-## Wire it to your own state#
+Call `useAgentContext` in as many components as you like. The agent receives every registered entry.
+
+Context values arrive as JSON strings
+
+The AG-UI protocol defines a context value as a string. Therefore `useAgentContext` calls `JSON.stringify` on any `value` that is not already a string, and your agent receives the JSON text instead of the object or the array.
+
+Parse the value before you read a field from it. Use `json.loads(item["value"])` in Python, or `JSON.parse(item.value)` in TypeScript. If you skip the parse step, an index such as `colleagues[0]` returns a single character, and a shape check such as `isinstance(value, list)` can never pass.
+
+Do not stringify the value again, because that produces double encoding. A `value` that is already a string is sent unchanged, so no parse step is needed for it.
+
+## Wire it to your own stateCopy Anchor Link
 
 `useAgentContext` doesn't care where the value comes from: local state, a React Context, Redux, a query cache, anything. The only requirement is that the identity of the value is stable enough for React to avoid a render loop. In the demo we use a handful of `useState` hooks; in a real app these would likely come from an auth provider, a router hook, and your domain state stores.
 
 page.tsx
+
+Copy Text
     
     
-    import React, { useState } from "react";import {  CopilotKit,  CopilotPopup,  useAgentContext,} from "@copilotkit/react-core/v2";import { ACTIVITIES, DemoLayout } from "./demo-layout";import { useReadonlyStateAgentContextSuggestions } from "./suggestions";export default function ReadonlyStateAgentContextDemo() {  return (    <CopilotKit      runtimeUrl="/api/copilotkit"      agent="readonly-state-agent-context"    >      <DemoContent />      <CopilotPopup        agentId="readonly-state-agent-context"        defaultOpen={true}        labels={{ chatInputPlaceholder: "Ask about your context..." }}      />    </CopilotKit>  );}function DemoContent() {  const [userName, setUserName] = useState("Atai");  const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");  const [recentActivity, setRecentActivity] = useState<string[]>([    ACTIVITIES[0],    ACTIVITIES[2],  ]);
+    import React, { useState } from "react";
+    import {
+      CopilotKit,
+      CopilotPopup,
+      useAgentContext,
+    } from "@copilotkit/react-core/v2";
+    
+    import { ACTIVITIES, DemoLayout } from "./demo-layout";
+    import { useReadonlyStateAgentContextSuggestions } from "./suggestions";
+    
+    export default function ReadonlyStateAgentContextDemo() {
+      return (
+        <CopilotKit
+          runtimeUrl="/api/copilotkit"
+          agent="readonly-state-agent-context"
+        >
+          <DemoContent />
+          <CopilotPopup
+            agentId="readonly-state-agent-context"
+            defaultOpen={true}
+            labels={{ chatInputPlaceholder: "Ask about your context..." }}
+          />
+        </CopilotKit>
+      );
+    }
+    
+    function DemoContent() {
+      const [userName, setUserName] = useState("Atai");
+      const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");
+      const [recentActivity, setRecentActivity] = useState<string[]>([
+        ACTIVITIES[0],
+        ACTIVITIES[2],
+      ]);
 
-## Read-only, by design#
+## Treat entries as untrusted inputCopy Anchor Link
 
-Because the agent never sees a setter or a mutation tool for these values, there's no way for a confused LLM to "update" them. That makes `useAgentContext` the right tool whenever the value in question is an input, not a field: the "context object passed to the agent on every turn", rather than "shared workspace you both edit".
+Every entry is a claim your frontend made, and a user can change it. It never proves who is making the request. Let entries inform the agent's answer, but take facts that grant access, such as the authenticated user, the workspace, or the tenant, from your server. If your agent builds its prompt from entries, keep them apart from your own instructions, so text in an entry can't override them.
 
-When you need both reads _and_ writes, you want full **[shared state](https://docs.copilotkit.ai/ms-agent-python/shared-state)** instead.
+## Try itCopy Anchor Link
 
-## Related#
+Ask the agent: "What is my name?" It answers with the value of `userName`. Change the name in your UI and ask again: the answer changes.
 
-  * **[Shared State (overview)](https://docs.copilotkit.ai/ms-agent-python/shared-state)** — bidirectional reads + writes.
-  * **[State streaming](https://docs.copilotkit.ai/ms-agent-python/shared-state/streaming)** — stream agent-written state back to the UI during a run.
+How is this guide?
 
+GoodBad
 
+[Previous PageState Streaming](https://docs.copilotkit.ai/ms-agent-python/shared-state/streaming)[Next PageHITL Overview](https://docs.copilotkit.ai/ms-agent-python/human-in-the-loop)

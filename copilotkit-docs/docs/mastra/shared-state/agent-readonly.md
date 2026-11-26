@@ -2,127 +2,42 @@
 url: https://docs.copilotkit.ai/mastra/shared-state/agent-readonly/
 title: Agent Read-Only Context
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T09:17:07.657188+00:00
+fetched_at: 2026-11-26T12:11:44.615176+00:00
 ---
 
 # Agent Read-Only Context
 
 > Source: https://docs.copilotkit.ai/mastra/shared-state/agent-readonly/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendMastra
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/mastra)[Quickstart](https://docs.copilotkit.ai/mastra/quickstart)[Build with agents](https://docs.copilotkit.ai/mastra/build-with-agents)[Intelligence](https://docs.copilotkit.ai/mastra/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/mastra/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
 Shared state
-
-Human-in-the-loop
-
-[WebMCP](https://docs.copilotkit.ai/mastra/webmcp)
-
-Agent capabilities
-
-Mastra
-
-[Sub-agents](https://docs.copilotkit.ai/mastra/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/mastra/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/mastra/learning)
-
-[User Memories](https://docs.copilotkit.ai/mastra/intelligence/memories)[Capture interactions](https://docs.copilotkit.ai/mastra/intelligence/capture-interactions)[Standalone collector](https://docs.copilotkit.ai/mastra/intelligence/standalone-collector)[Captured data](https://docs.copilotkit.ai/mastra/intelligence/captured-data)[Product Analytics](https://docs.copilotkit.ai/mastra/intelligence/analytics)[Channels](https://docs.copilotkit.ai/mastra/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Debugging
-
-Learn
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/mastra/telemetry)[Community frameworks](https://docs.copilotkit.ai/mastra/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-[Mastra](https://docs.copilotkit.ai/mastra)[Shared State](https://docs.copilotkit.ai/mastra/shared-state)
 
 # Agent Read-Only Context
 
 Publish UI values to the agent as a one-way read-only channel via useAgentContext.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+Readonly State (Agent Context)
 
 DemoCode
 
-page.tsx
+[](https://showcase-mastra-production.up.railway.app/demos/readonly-state-agent-context "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/mastra/src/app/demos/readonly-state-agent-context "View the code on GitHub")
 
-route.ts
-    
-    
-    "use client";import React, { useState } from "react";import {  CopilotKit,  CopilotPopup,  useAgentContext,} from "@copilotkit/react-core/v2";import { ACTIVITIES, DemoLayout } from "./demo-layout";import { useReadonlyStateAgentContextSuggestions } from "./suggestions";export default function ReadonlyStateAgentContextDemo() {  return (    <CopilotKit      runtimeUrl="/api/copilotkit"      agent="readonly-state-agent-context"    >      <DemoContent />      <CopilotPopup        agentId="readonly-state-agent-context"        defaultOpen={true}        labels={{ chatInputPlaceholder: "Ask about your context..." }}      />    </CopilotKit>  );}function DemoContent() {  const [userName, setUserName] = useState("Atai");  const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");  const [recentActivity, setRecentActivity] = useState<string[]>([    ACTIVITIES[0],    ACTIVITIES[2],  ]);  useAgentContext({    description: "The currently logged-in user's display name",    value: userName,  });  useAgentContext({    description: "The user's IANA timezone (used when mentioning times)",    value: userTimezone,  });  useAgentContext({    description: "The user's recent activity in the app, newest first",    value: recentActivity,  });  useReadonlyStateAgentContextSuggestions();  const toggleActivity = (activity: string) => {    setRecentActivity((prev) =>      prev.includes(activity)        ? prev.filter((a) => a !== activity)        : [...prev, activity],    );  };  return (    <DemoLayout      userName={userName}      userTimezone={userTimezone}      recentActivity={recentActivity}      onUserNameChange={setUserName}      onUserTimezoneChange={setUserTimezone}      onToggleActivity={toggleActivity}    />  );}
+Waking up the demo
 
 See this in Inspector
 
-Open Inspector on localhost. Go to **Agents** , then **Context**. The values you publish with `useAgentContext` appear here.
+Open Inspector on localhost. Go to **Inspect** , then **Context**. The values you publish with `useAgentContext` appear here.
 
 More detail: [Inspector](https://docs.copilotkit.ai/mastra/inspector).
 
-## What is this?#
+## What is this?Copy Anchor Link
 
 Sometimes you want the agent to _know_ something about the current UI, like the logged-in user, the current page, or a recent activity log, but you don't want the agent to be able to modify it. That's what `useAgentContext` is for: a one-way **UI → agent** channel for read-only context.
 
 Unlike full shared state (where the agent can call tools that mutate the state back to the UI), `useAgentContext` values are pure inputs. The agent sees them on every turn via the runtime's context injection, but it has no setter and no tool to write them back.
 
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
 Reach for `useAgentContext` instead of full shared state when:
 
@@ -134,41 +49,137 @@ Reach for `useAgentContext` instead of full shared state when:
 
 Think of it as "props for the agent".
 
-## How it works in code#
+If the agent must also write the value, use **[shared state](https://docs.copilotkit.ai/mastra/shared-state)**. To stream agent-written state to the UI during a run, see [State streaming](https://docs.copilotkit.ai/mastra/shared-state/streaming).
+
+## How it works in codeCopy Anchor Link
+
+### Read the context in your Mastra agentCopy Anchor Link
+
+The AG-UI Mastra adapter puts the `useAgentContext` entries on Mastra's `RequestContext`, under the `ag-ui` key. It does **not** add them to the prompt. An agent that never reads them answers as if they were not there, and nothing reports an error. Read them in a dynamic `instructions` function.
+
+A `value` that you passed as an object or an array arrives as a JSON string. Parse it with `JSON.parse`. Do not stringify it again.
+
+src/mastra/agents/colleagues-agent.ts
+
+Copy Text
+    
+    
+    import { openai } from "@ai-sdk/openai";
+    import { Agent } from "@mastra/core/agent";
+    
+    export const colleaguesContactAgent = new Agent({
+      id: "colleague-agent",
+      name: "Colleagues contact Agent",
+      model: openai("gpt-6-luna"),
+      // Read the context that CopilotKit put on the request context
+      instructions: ({ requestContext }) => {
+        const aguiContext = requestContext.get("ag-ui")?.context;
+        const colleaguesContextItem = aguiContext?.find(
+          (contextItem) => contextItem.description === "The current user's colleagues",
+        );
+    
+        // The value is already a JSON string, so parse it instead of stringifying it
+        const colleagues = colleaguesContextItem ? JSON.parse(colleaguesContextItem.value) : [];
+        const colleagueList = colleagues.map((c) => `${c.name} (${c.role})`).join(", ");
+    
+        return `You are a helpful assistant that can help emailing colleagues.
+    The user's colleagues are: ${colleagueList}`;
+      },
+    });
+
+The `description` you match on must be the same string that the frontend passes to `useAgentContext`. See Mastra's [runtime context guide](https://mastra.ai/en/docs/agents/runtime-context) for more about `RequestContext`.
 
 Call `useAgentContext({ description, value })` once per value you want to publish. Each call registers a dynamic context entry with the runtime that is:
 
   * Refreshed whenever `value` changes (React re-renders).
   * Automatically removed when the component unmounts.
-  * Surfaced to the agent via the backend's `CopilotKitMiddleware`, which threads the entries into the model's message history on every turn.
+  * Sent to the agent with every run. The Built-in Agent adds each entry to the system prompt. Python LangGraph agents need `CopilotKitMiddleware` to add the entries, and ADK agents need an instruction provider. Microsoft Agent Framework, CrewAI Flows and Pydantic AI agents drop the entries silently unless you wire them. The setup above shows the code for your framework.
 
 
 
 page.tsx
+
+Copy Text
     
     
-      useAgentContext({    description: "The currently logged-in user's display name",    value: userName,  });  useAgentContext({    description: "The user's IANA timezone (used when mentioning times)",    value: userTimezone,  });  useAgentContext({    description: "The user's recent activity in the app, newest first",    value: recentActivity,  });
+      useAgentContext({
+        description: "The currently logged-in user's display name",
+        value: userName,
+      });
+      useAgentContext({
+        description: "The user's IANA timezone (used when mentioning times)",
+        value: userTimezone,
+      });
+      useAgentContext({
+        description: "The user's recent activity in the app, newest first",
+        value: recentActivity,
+      });
 
 The `description` is important: it's a short human-readable label the agent sees alongside the value, so it knows what to do with it. Treat it like a parameter docstring.
 
-## Wire it to your own state#
+Call `useAgentContext` in as many components as you like. The agent receives every registered entry.
+
+Context values arrive as JSON strings
+
+The AG-UI protocol defines a context value as a string. Therefore `useAgentContext` calls `JSON.stringify` on any `value` that is not already a string, and your agent receives the JSON text instead of the object or the array.
+
+Parse the value before you read a field from it. Use `json.loads(item["value"])` in Python, or `JSON.parse(item.value)` in TypeScript. If you skip the parse step, an index such as `colleagues[0]` returns a single character, and a shape check such as `isinstance(value, list)` can never pass.
+
+Do not stringify the value again, because that produces double encoding. A `value` that is already a string is sent unchanged, so no parse step is needed for it.
+
+## Wire it to your own stateCopy Anchor Link
 
 `useAgentContext` doesn't care where the value comes from: local state, a React Context, Redux, a query cache, anything. The only requirement is that the identity of the value is stable enough for React to avoid a render loop. In the demo we use a handful of `useState` hooks; in a real app these would likely come from an auth provider, a router hook, and your domain state stores.
 
 page.tsx
+
+Copy Text
     
     
-    import React, { useState } from "react";import {  CopilotKit,  CopilotPopup,  useAgentContext,} from "@copilotkit/react-core/v2";import { ACTIVITIES, DemoLayout } from "./demo-layout";import { useReadonlyStateAgentContextSuggestions } from "./suggestions";export default function ReadonlyStateAgentContextDemo() {  return (    <CopilotKit      runtimeUrl="/api/copilotkit"      agent="readonly-state-agent-context"    >      <DemoContent />      <CopilotPopup        agentId="readonly-state-agent-context"        defaultOpen={true}        labels={{ chatInputPlaceholder: "Ask about your context..." }}      />    </CopilotKit>  );}function DemoContent() {  const [userName, setUserName] = useState("Atai");  const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");  const [recentActivity, setRecentActivity] = useState<string[]>([    ACTIVITIES[0],    ACTIVITIES[2],  ]);
+    import React, { useState } from "react";
+    import {
+      CopilotKit,
+      CopilotPopup,
+      useAgentContext,
+    } from "@copilotkit/react-core/v2";
+    
+    import { ACTIVITIES, DemoLayout } from "./demo-layout";
+    import { useReadonlyStateAgentContextSuggestions } from "./suggestions";
+    
+    export default function ReadonlyStateAgentContextDemo() {
+      return (
+        <CopilotKit
+          runtimeUrl="/api/copilotkit"
+          agent="readonly-state-agent-context"
+        >
+          <DemoContent />
+          <CopilotPopup
+            agentId="readonly-state-agent-context"
+            defaultOpen={true}
+            labels={{ chatInputPlaceholder: "Ask about your context..." }}
+          />
+        </CopilotKit>
+      );
+    }
+    
+    function DemoContent() {
+      const [userName, setUserName] = useState("Atai");
+      const [userTimezone, setUserTimezone] = useState("America/Los_Angeles");
+      const [recentActivity, setRecentActivity] = useState<string[]>([
+        ACTIVITIES[0],
+        ACTIVITIES[2],
+      ]);
 
-## Read-only, by design#
+## Treat entries as untrusted inputCopy Anchor Link
 
-Because the agent never sees a setter or a mutation tool for these values, there's no way for a confused LLM to "update" them. That makes `useAgentContext` the right tool whenever the value in question is an input, not a field: the "context object passed to the agent on every turn", rather than "shared workspace you both edit".
+Every entry is a claim your frontend made, and a user can change it. It never proves who is making the request. Let entries inform the agent's answer, but take facts that grant access, such as the authenticated user, the workspace, or the tenant, from your server. If your agent builds its prompt from entries, keep them apart from your own instructions, so text in an entry can't override them.
 
-When you need both reads _and_ writes, you want full **[shared state](https://docs.copilotkit.ai/mastra/shared-state)** instead.
+## Try itCopy Anchor Link
 
-## Related#
+Ask the agent: "What is my name?" It answers with the value of `userName`. Change the name in your UI and ask again: the answer changes.
 
-  * **[Shared State (overview)](https://docs.copilotkit.ai/mastra/shared-state)** — bidirectional reads + writes.
-  * **[State streaming](https://docs.copilotkit.ai/mastra/shared-state/streaming)** — stream agent-written state back to the UI during a run.
+How is this guide?
 
+GoodBad
 
+[Previous PageState Streaming](https://docs.copilotkit.ai/mastra/shared-state/streaming)[Next PageHITL Overview](https://docs.copilotkit.ai/mastra/human-in-the-loop)
