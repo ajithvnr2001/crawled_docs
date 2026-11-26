@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/vidu/overview/
 title: Vidu - AI video generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.654751+00:00
+fetched_at: 2026-11-26T17:36:36.026044+00:00
 ---
 
 # Vidu - AI video generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.654751+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/vidu/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 Vidu is a fast AI video generation platform by Shengshu Technology, now available inside ComfyUI. Its three model generations — **Q1** , **Q2** , and **Q3** — deliver a range of speed and quality options, from foundation generation with broad input support to 3x faster inference with camera control and exceptional anime output driven by the latest Vidu engines (2.0, 3.0, and 3.5).
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Multi-generation evolution** — Choose between Q1 (foundation), Q2 (fast + multi-reference + camera control), and Q3 (latest narrative + anime/2D focus) to match your workflow
   * **Fast inference** — Q3 generates 4-second clips in as fast as 10 seconds; Q2 delivers 3x the speed of Q1
@@ -68,11 +66,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 ## Vidu Q1
 

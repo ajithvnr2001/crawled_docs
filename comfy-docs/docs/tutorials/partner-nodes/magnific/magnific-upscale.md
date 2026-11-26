@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-upscale/
 title: Magnific Upscale in ComfyUI: Precise and Creative Image Upscaling - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:49.099880+00:00
+fetched_at: 2026-11-26T17:36:36.326995+00:00
 ---
 
 # Magnific Upscale in ComfyUI: Precise and Creative Image Upscaling - ComfyUI
@@ -57,28 +57,16 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Precise Upscale** — High-fidelity image enlargement that preserves original details and introduces minimal new content; ideal for archival or product images.
   * **Creative Upscale (16x)** — AI-powered upscaling that interprets and adds realistic detail at up to 16x magnification; the Creativity slider controls how much new detail is generated.
 
 
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Image Upscale — Precise
+### Image Upscale — Precise
 
 Generate a high-fidelity upscaled version of your input image with precise detail preservation. This mode adds minimal new content and stays as close to the original as possible.
 
@@ -90,11 +78,7 @@ Run the precise image upscale workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Image Upscale — Creative
+### Image Upscale — Creative
 
 Generate a creatively upscaled version of your input image at up to 16x magnification. The Creativity slider allows you to control how much new AI-generated detail is added — lower values stay closer to the original, while higher values produce richer, more detailed results.
 

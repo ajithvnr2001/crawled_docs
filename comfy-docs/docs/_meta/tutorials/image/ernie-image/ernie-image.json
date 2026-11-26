@@ -3,8 +3,5 @@
   "file": "tutorials/image/ernie-image/ernie-image.md",
   "title": "ERNIE-Image ComfyUI workflow example - ComfyUI",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-17T10:51:21.156489+00:00",
-  "html_len": 642110,
-  "md_len": 19556,
-  "depth": 0
+  "fetched_at": "2026-11-26T17:36:34.585885+00:00"
 }

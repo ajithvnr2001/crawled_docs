@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-01/
 title: MiniMax-01 - Text and image to video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.099348+00:00
+fetched_at: 2026-11-26T17:36:36.288702+00:00
 ---
 
 # MiniMax-01 - Text and image to video - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.099348+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-01/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -30,11 +32,7 @@ Copy pageCopy page
 
 MiniMax-01 is the first-generation MiniMax architecture, encompassing T2V-01 (text-to-video) and I2V-01 (image-to-video) models. T2V-01 offers full Director mode with 15 cinematic camera directions, while I2V-01 provides two modes — Director for camera-controlled image animation and Live for natural, organic motion that brings portraits, landscapes, and product shots to life.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **T2V-01 Director mode** — 15 camera movement types including pan, tilt, dolly, crane, tracking, aerial, handheld, roll, zoom-in, zoom-out, push-in, pull-out, orbit, first-person, and static
   * **I2V-01-Director** — Apply cinematic camera controls to image-initiated videos
@@ -68,17 +66,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text to video (T2V-01)
+### Text to video (T2V-01)
 
 Generate a video from a text prompt with full Director mode support. Choose from 15 camera movement types to craft the exact cinematic feel you need.
 
@@ -90,11 +80,7 @@ Try the T2V-01 workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Image to video (I2V-01)
+### Image to video (I2V-01)
 
 Animate a starting image into a video clip. Two modes are available: I2V-01-Director brings camera direction (pan, zoom, tilt, etc.) to image-based generation, while I2V-01-Live prioritizes natural, organic motion.
 

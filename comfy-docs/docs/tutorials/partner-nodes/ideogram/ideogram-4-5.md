@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-4-5/
 title: Ideogram 4.5 in ComfyUI: Text to Image and Edit - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:39.925270+00:00
+fetched_at: 2026-11-26T17:36:35.570196+00:00
 ---
 
 # Ideogram 4.5 in ComfyUI: Text to Image and Edit - ComfyUI
@@ -30,7 +30,7 @@ Run the Ideogram 4.5 partner nodes in ComfyUI for text to image, image edit, and
 
 Copy pageCopy page
 
-**Ideogram 4.5** is the newer model in the family and Ideogram’s most precise edit model: it changes only what the prompt asks for, so repeated edits keep colors, textures, and details in place. It ships in ComfyUI as three partner nodes that are billed per image through the same Comfy account as the rest of the partner nodes. Ideogram 4.0 keeps its own page: [Ideogram 4.0 in ComfyUI](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-v4).
+**Ideogram 4.5** changes only what the prompt asks for, so repeated edits keep colors, textures, and details in place. Ideogram 4.6 is the newer model with native 4K output: [Ideogram 4.6 in ComfyUI](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-4-6). Both run as model options in three partner nodes that are billed per image through the same Comfy account as the rest of the partner nodes. Ideogram 4.0 keeps its own page: [Ideogram 4.0 in ComfyUI](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-v4).
 
 To use the Partner Nodes, you need to ensure that you are logged in properly and using a permitted network environment. Please refer to the [Partner Nodes Overview](https://docs.comfy.org/tutorials/partner-nodes/overview) section of the documentation to understand the specific requirements for using the Partner Nodes.
 
@@ -57,11 +57,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Text to Image
+## Text to Image
 
 Generate an image from a text prompt, at a canvas size and quality tier you choose. ![Ideogram 4.5 text to image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_t2i-1.webp)
 
@@ -85,11 +81,7 @@ Input| Values| Effect
   
 The node also outputs `final_prompt`, the structured caption the image was generated from. To reproduce an image, feed that caption back with `magic_prompt` set to `off` and the same seed.
 
-## 
-
-​
-
-Image Edit
+## Image Edit
 
 Edit or combine up to five images with one instruction. `image_1` is the image being edited; images 2 to 5 supply design, material, or color references. Address them in the prompt as `@Image1`, `@Image2`, and so on. ![Ideogram 4.5 image edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_image_edit-1.webp)
 
@@ -118,11 +110,7 @@ Input| Values| Effect
   
 Up to five images can be connected in total. Inputs above roughly 4 MP are scaled down before they are uploaded, and each image must sit between 1:6 and 6:1. Edit re-renders the whole image, so it can shift the framing and the untouched areas along with the edit. Use Precise Edit when the rest of the picture has to stay exactly as it is.
 
-## 
-
-​
-
-Precise Edit
+## Precise Edit
 
 Change only what the prompt asks for. Untouched pixels stay identical. Accepts up to four reference images beyond the image being edited. ![Ideogram 4.5 precise edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
 
@@ -142,11 +130,7 @@ Load into the `image_1` slot on the Ideogram 4.5 Precise Edit node
 
 Precise Edit shares the reference slots, `@Image1` addressing, `quality`, and `seed` controls with Edit. It has no size control. With a region, the output keeps the size of `image_1`. Without a region (`context_window` at the default `none`), sources above about 4 MP are scaled down first, so the output may be smaller. The template draws its instruction with the **Build JSON Prompt** node as well.
 
-### 
-
-​
-
-Edit a single region
+### Edit a single region
 
 Without a region the node re-renders the whole of `image_1`, and anything above about 4 MP (2048x2048) is scaled down first. Set `context_window` to edit one region instead: only that region is regenerated, and the output keeps the original size of `image_1`, from a source of up to 8192x8192 pixels. Outside the region, pixels are copied through unchanged while `image_1` stays a PNG. If `image_1` is converted to JPEG because the PNG exceeds the upload budget, pixels outside the region can change slightly.
 
@@ -164,4 +148,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/ideogram/ideogram-4-5.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/ideogram/ideogram-4-5)
 
-[Ideogram Vector](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-vector)[Ideogram P Image](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-p-image)
+[Ideogram 4.6](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-4-6)[Ideogram P Image](https://docs.comfy.org/tutorials/partner-nodes/ideogram/ideogram-p-image)

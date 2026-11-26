@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/eleven-multilingual-v2/
 title: ElevenLabs Text to Speech in ComfyUI: v3, Multilingual v2, Flash v2.5 - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:49.241359+00:00
+fetched_at: 2026-11-26T17:36:36.802821+00:00
 ---
 
 # ElevenLabs Text to Speech in ComfyUI: v3, Multilingual v2, Flash v2.5 - ComfyUI
@@ -30,11 +30,7 @@ Copy pageCopy page
 
 Generate speech from text using ElevenLabs’ flagship Text-to-Speech models. Choose between the high-quality **Eleven v3** , the stable **Multilingual v2** supporting 29 languages, or the low-latency **Flash v2.5** for performance-critical applications.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Emotionally expressive speech** — Natural intonation, pacing, and tone across all three model tiers
   * **Multi-language support** — 29 languages with Multilingual v2, broader coverage with Flash v2.5
@@ -68,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Run on Cloud
 

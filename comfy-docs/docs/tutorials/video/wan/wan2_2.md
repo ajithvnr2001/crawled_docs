@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/wan/wan2_2/
 title: Wan2.2 Video Generation ComfyUI Official Native Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:48.200565+00:00
+fetched_at: 2026-11-26T17:36:34.890515+00:00
 ---
 
 # Wan2.2 Video Generation ComfyUI Official Native Workflow Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:48.200565+00:00
 > Source: https://docs.comfy.org/tutorials/video/wan/wan2_2/
 
 ## On this page
+
+Back to top
 
   * Model Highlights
   * Wan2.2 Open Source Model Versions
@@ -47,11 +49,7 @@ Copy pageCopy page
 
 Wan 2.2 is a new generation multimodal generative model launched by WAN AI. This model adopts an innovative MoE (Mixture of Experts) architecture, consisting of high-noise and low-noise expert models. It can divide expert models according to denoising timesteps, thus generating higher quality video content. Wan 2.2 has three core features: cinematic-level aesthetic control, deeply integrating professional film industry aesthetic standards, supporting multi-dimensional visual control such as lighting, color, and composition; large-scale complex motion, easily restoring various complex motions and enhancing the smoothness and controllability of motion; precise semantic compliance, excelling in complex scenes and multi-object generation, better restoring users’ creative intentions. The model supports multiple generation modes such as text-to-video and image-to-video, suitable for content creation, artistic creation, education and training, and other application scenarios. [Wan2.2 Prompt Guide](https://alidocs.dingtalk.com/i/nodes/EpGBa2Lm8aZxe5myC99MelA2WgN7R35y)
 
-## 
-
-​
-
-Model Highlights
+## Model Highlights
 
   * **Cinematic-level Aesthetic Control** : Professional camera language, supports multi-dimensional visual control such as lighting, color, and composition
   * **Large-scale Complex Motion** : Smoothly restores various complex motions, enhances motion controllability and naturalness
@@ -60,11 +58,7 @@ Model Highlights
 
 
 
-## 
-
-​
-
-Wan2.2 Open Source Model Versions
+## Wan2.2 Open Source Model Versions
 
 The Wan2.2 series models are based on the Apache 2.0 open source license and support commercial use. The Apache 2.0 license allows you to freely use, modify, and distribute these models, including for commercial purposes, as long as you retain the original copyright notice and license text.
 
@@ -74,11 +68,7 @@ Hybrid Model| Wan2.2-TI2V-5B| 5B| Hybrid version supporting both text-to-video a
 Image-to-Video| Wan2.2-I2V-A14B| 14B| Converts static images into dynamic videos, maintaining content consistency and smooth dynamic process| 🤗 [Wan2.2-I2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-I2V-A14B)  
 Text-to-Video| Wan2.2-T2V-A14B| 14B| Generates high-quality videos from text descriptions, with cinematic-level aesthetic control and precise semantic compliance| 🤗 [Wan2.2-T2V-A14B](https://huggingface.co/Wan-AI/Wan2.2-T2V-A14B)  
   
-## 
-
-​
-
-ComfyOrg Wan2.2 Live Streams
+## ComfyOrg Wan2.2 Live Streams
 
 For ComfyUI Wan2.2 usage, we have conducted live streams, which you can view to learn how to use them.
 
@@ -109,19 +99,11 @@ So, if you find any core node missing in this document, it might be because the 
 
 ![Wan2.2 template](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2_2/template.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=ccf5d56775dac715ac40f767978d4371)
 
-## 
-
-​
-
-Wan2.2 TI2V 5B Hybrid Version Workflow Example
+## Wan2.2 TI2V 5B Hybrid Version Workflow Example
 
 The Wan2.2 5B version should fit well on 8GB vram with the ComfyUI native offloading.
 
-### 
-
-​
-
-Wan 2.2 5B Video Generation
+### Wan 2.2 5B Video Generation
 
 Fast text-to-video and image-to-video generation with 5B parameters. Optimized for rapid prototyping and creative exploration. ![Wan 2.2 5B Video Generation workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2_2_5B_ti2v-1.webp)
 
@@ -133,11 +115,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Wan2.2 5B” in Template Library
 
-### 
-
-​
-
-2\. Manually Download Models
+### 2\. Manually Download Models
 
 All models mentioned can be found at [Comfy-Org/Wan_2.2_ComfyUI_Repackaged](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged). **Diffusion Model**
 
@@ -168,11 +146,7 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
     │       └── wan2.2_vae.safetensors
     
 
-### 
-
-​
-
-3\. Follow the Steps
+### 3\. Follow the Steps
 
 ![Step Diagram](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2_2/wan_2.2_5b_t2v.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=964289dd7f3c51119c95f98372dbd209)
 
@@ -186,17 +160,9 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
 
 
 
-## 
+## Wan2.2 14B T2V Text-to-Video Workflow Example
 
-​
-
-Wan2.2 14B T2V Text-to-Video Workflow Example
-
-### 
-
-​
-
-Wan 2.2 14B Text to Video
+### Wan 2.2 14B Text to Video
 
 Generate high-quality videos from text prompts with cinematic aesthetic control and dynamic motion generation using Wan 2.2. ![Wan 2.2 14B Text to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2_2_14B_t2v-1.webp)
 
@@ -208,11 +174,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Wan2.2 14B T2V” in Template Library
 
-### 
-
-​
-
-2\. Manually Download Models
+### 2\. Manually Download Models
 
 All models mentioned can be found at [Comfy-Org/Wan_2.2_ComfyUI_Repackaged](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged). **Diffusion Models**
 
@@ -248,11 +210,7 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
     │       └── wan_2.1_vae.safetensors
     
 
-### 
-
-​
-
-3\. Follow the Steps
+### 3\. Follow the Steps
 
 ![Step Diagram](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2_2/wan_2.2_14b_t2v.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=0ce44ad0e8f5e8dff6c9324404ee5e46)
 
@@ -266,17 +224,9 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
 
 
 
-## 
+## Wan2.2 14B I2V Image-to-Video Workflow Example
 
-​
-
-Wan2.2 14B I2V Image-to-Video Workflow Example
-
-### 
-
-​
-
-Wan 2.2 14B Image to Video
+### Wan 2.2 14B Image to Video
 
 Transform static images into dynamic videos with precise motion control and style preservation using Wan 2.2. ![Wan 2.2 14B Image to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2_2_14B_i2v-1.webp)
 
@@ -298,11 +248,7 @@ Download JSON or search “Wan2.2 14B I2V” in Template Library
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan2_2_14B_i2v_input_image.jpg)
 
-### 
-
-​
-
-2\. Manually Download Models
+### 2\. Manually Download Models
 
 All models mentioned can be found at [Comfy-Org/Wan_2.2_ComfyUI_Repackaged](https://huggingface.co/Comfy-Org/Wan_2.2_ComfyUI_Repackaged). **Diffusion Models**
 
@@ -338,11 +284,7 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
     │       └── wan_2.1_vae.safetensors
     
 
-### 
-
-​
-
-3\. Follow the Steps
+### 3\. Follow the Steps
 
 ![Step Diagram](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2_2/wan_2.2_14b_i2v.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=a9c4c6cfa365f7a0e4d7274b6c799316)
 
@@ -357,19 +299,11 @@ FP8 text encoder. Place in `ComfyUI/models/text_encoders/`
 
 
 
-## 
-
-​
-
-Wan2.2 14B FLF2V Workflow Example
+## Wan2.2 14B FLF2V Workflow Example
 
 The first and last frame workflow uses the same model locations as the I2V section.
 
-### 
-
-​
-
-Wan 2.2 14B First-Last Frame to Video
+### Wan 2.2 14B First-Last Frame to Video
 
 Generate smooth video transitions by defining start and end frames. ![Wan 2.2 14B First-Last Frame to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2_2_14B_flf2v-1.webp)
 
@@ -393,11 +327,7 @@ Download JSON or search “Wan2.2 14B FLF2V” in Template Library
 
 ![video_wan2_2_14B_flf2v_start_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan2_2_14B_flf2v_start_image.png)![video_wan2_2_14B_flf2v_end_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan2_2_14B_flf2v_end_image.png)
 
-### 
-
-​
-
-2\. Follow the Steps
+### 2\. Follow the Steps
 
 ![Step Diagram](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2_2/wan_2.2_14b_flf2v.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=6def22f3de024219e66dd4ea7cae7c03)
 
@@ -411,17 +341,9 @@ Download JSON or search “Wan2.2 14B FLF2V” in Template Library
 
 
 
-## 
+## Community Resources
 
-​
-
-Community Resources
-
-### 
-
-​
-
-GGUF Versions
+### GGUF Versions
 
   * [bullerwins/Wan2.2-I2V-A14B-GGUF/](https://huggingface.co/bullerwins/Wan2.2-I2V-A14B-GGUF/)
   * [bullerwins/Wan2.2-T2V-A14B-GGUF](https://huggingface.co/bullerwins/Wan2.2-T2V-A14B-GGUF)
@@ -429,11 +351,7 @@ GGUF Versions
 
 **Custom Node** [City96/ComfyUI-GGUF](https://github.com/city96/ComfyUI-GGUF)
 
-### 
-
-​
-
-WanVideoWrapper
+### WanVideoWrapper
 
 [Kijai/ComfyUI-WanVideoWrapper](https://github.com/kijai/ComfyUI-WanVideoWrapper) **Wan2.2 models** [Kijai/WanVideo_comfy_fp8_scaled](https://hf-mirror.com/Kijai/WanVideo_comfy_fp8_scaled) **Wan2.1 models** [Kijai/WanVideo_comfy/Lightx2v](https://huggingface.co/Kijai/WanVideo_comfy/tree/main/Lightx2v) **Lightx2v 4steps LoRA**
 
@@ -447,26 +365,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/wan/wan2_2.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/wan/wan2_2)
 
-[Wan Animate 2: Motion TransferPrevious](https://docs.comfy.org/tutorials/video/wan/wan-animate-2)[Wan2.2 Animate ComfyUI native workflowNext](https://docs.comfy.org/tutorials/video/wan/wan2-2-animate)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan Animate 2](https://docs.comfy.org/tutorials/video/wan/wan-animate-2)[Wan2.2 Animate](https://docs.comfy.org/tutorials/video/wan/wan2-2-animate)

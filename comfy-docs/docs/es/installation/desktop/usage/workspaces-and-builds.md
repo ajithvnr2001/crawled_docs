@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds/
-title: Espacios de trabajo y builds de ComfyUI en Comfy Desktop - ComfyUI
+title: Builds de equipo en Comfy Desktop: instalar, actualizar y subir - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.289832+00:00
+fetched_at: 2026-11-26T17:36:33.239991+00:00
 ---
 
-# Espacios de trabajo y builds de ComfyUI en Comfy Desktop - ComfyUI
+# Builds de equipo en Comfy Desktop: instalar, actualizar y subir - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds/
 
@@ -13,81 +13,117 @@ fetched_at: 2026-10-26T14:04:03.289832+00:00
 
 Volver arriba
 
-  * Iniciar sesión
-  * Cambiar de espacio de trabajo
-  * Instalar un Build
-  * Crear un Build desde una instancia
+  * Elige el espacio de trabajo cuyas compilaciones ves
+  * Instalar una compilación de tu equipo
+  * Actualizar una compilación de equipo
+  * Subir un build a la Developer Platform
+  * Solucionar problemas
 
 
 
 Guía de uso
 
-# Espacios de trabajo y builds de ComfyUI en Comfy Desktop
+# Builds de equipo en Comfy Desktop: instalar, actualizar y subir
 
 Copiar páginaCopiar página
 
-Inicia sesión en Comfy Desktop para cambiar de espacio de trabajo, instalar builds de ComfyUI y crear un build desde una instancia local.
+Instala y actualiza los Developer Platform Builds de tu equipo en Comfy Desktop y sube un build local a Developer Platform como borrador.
 
 Copiar páginaCopiar página
 
-Comfy Desktop puede conectarse a tu cuenta de Comfy. Iniciar sesión agrega funciones de espacio de trabajo al Selector: cambia entre tu Espacio de trabajo personal y cualquier espacio de trabajo en equipo al que pertenezcas, consulta las instancias que pertenecen al espacio de trabajo seleccionado e instala ComfyUI Builds publicados en él. También puedes convertir una instancia local en un Build que otros miembros del espacio de trabajo puedan instalar. Iniciar sesión es opcional. Las instancias locales, las instantáneas y las configuraciones funcionan sin una cuenta.
+Comfy Desktop puede instalar una configuración de ComfyUI que tu equipo comparte en la Comfy Developer Platform, como un build aprobado con modelos y Nodos Personalizados elegidos. En la Developer Platform, esta configuración es un Developer Platform Build que tu espacio de trabajo publica en versiones numeradas, y Comfy Desktop instala una versión en tu computadora como un build de equipo. Tú eliges el espacio de trabajo, instalas su build, lo actualizas cuando tu equipo publica una versión más reciente y subes tus propios builds a la Developer Platform. Para crear un Build en la Developer Platform y publicar sus versiones, consulta [Agregar builds personalizados a Comfy Cloud](https://docs.comfy.org/es/development/deploy/cloud-custom-builds).
 
-## 
+## Elige el espacio de trabajo cuyas compilaciones ves
 
-​
+Cada espacio de trabajo tiene sus propios Developer Platform Builds, y Comfy Desktop muestra un espacio de trabajo a la vez. Para ver las compilaciones de tu equipo, inicia sesión primero. Consulta [Inicia sesión y abre Comfy Cloud](https://docs.comfy.org/es/installation/desktop/overview#iniciar-sesi%C3%B3n-y-abrir-comfy-cloud). El espacio de trabajo seleccionado en la parte inferior de la **barra lateral** decide lo que ves:
 
-Iniciar sesión
+  * **Home** , la **barra lateral** , la página **Builds** y las páginas de compilaciones solo muestran las compilaciones de ese espacio de trabajo.
+  * **New build** ofrece los Developer Platform Builds de ese espacio de trabajo en **Your team’s builds**. Tu espacio de trabajo **Personal** tiene los suyos.
 
-El chip de la cuenta se encuentra en la parte superior derecha del Selector.
+Para cambiar de espacio de trabajo, consulta [Usa tu menú de espacio de trabajo](https://docs.comfy.org/es/installation/desktop/usage/overview#usa-el-men%C3%BA-de-tu-espacio-de-trabajo). Comfy Desktop recuerda el espacio de trabajo que seleccionas y la próxima vez se inicia en él.
 
-  * **Sesión cerrada** : el chip muestra un botón **Inicia sesión**. Haz clic en él para abrir el flujo de inicio de sesión en el navegador y luego vuelve a la aplicación.
-  * **Sesión iniciada** : el chip muestra tu avatar y tu correo electrónico. Haz clic en él para abrir un menú con **Cerrar sesión**.
+Cuando tu equipo publica una compilación mientras Comfy Desktop está abierto, haz clic en **Refresh workspaces** en la página **Builds**. Recarga tus espacios de trabajo y sus Developer Platform Builds.
 
-Cerrar sesión solo finaliza la sesión. Tus instancias permanecen en su lugar. Si hay una instalación en progreso, Comfy Desktop te advierte que cerrar sesión la cancelará antes de continuar.
+## Instalar una compilación de tu equipo
 
-## 
+Una compilación de Developer Platform aparece en Comfy Desktop en cuanto tiene una versión publicada con una compilación para el sistema operativo y la GPU de tu computadora. Instalarla agrega una compilación de tu equipo a esta computadora. Para las partes del diálogo **New build** que comparten todas las compilaciones, como **Name** y **Location** , consulta [Instalar una nueva compilación](https://docs.comfy.org/es/installation/desktop/usage/instance-management#install-a-new-build).
 
-​
+1
 
-Cambiar de espacio de trabajo
+Abre el diálogo New build
 
-Una barra de espacios de trabajo se ubica sobre la cuadrícula de instancias:
+En la página **Builds** , haz clic en **New build**.Cuando has iniciado sesión, el diálogo se abre en las compilaciones de tu espacio de trabajo, con la primera compilación seleccionada. Si el espacio de trabajo no tiene ninguna compilación para instalar, se abre en **Official release**.
 
-  * **Selector de espacio de trabajo** : tu espacio **Personal** y cada espacio de trabajo en equipo al que perteneces. Haz clic en él para cambiar.
-  * **Actualizar espacios de trabajo** : aparece una vez que has iniciado sesión. Vuelve a cargar la lista de espacios de trabajo y el catálogo de Builds del espacio de trabajo seleccionado.
-  * **INSTANCES** : la cantidad de instancias que pertenecen al espacio de trabajo seleccionado.
+2
 
-El espacio de trabajo seleccionado delimita el alcance del Selector. La cuadrícula muestra solo las instancias que le pertenecen, y el flujo de Nueva instancia ofrece los Builds de ese espacio de trabajo. Comfy Desktop recuerda el espacio de trabajo que seleccionaste y lo restaura la próxima vez que abras la aplicación.
+Revisa la compilación y el hardware
 
-## 
+El resumen muestra lo que se instala:
 
-​
+  * **Release** : el nombre de la compilación, con su descripción, **Release v** y **By**.
+  * **Hardware** : el objetivo de la compilación para el sistema operativo y la GPU de esta computadora, como NVIDIA con CUDA 12.8, junto con su versión de lanzamiento.
 
-Instalar un Build
+La caja **Name** sugiere el nombre de la compilación.
 
-Un Build es un entorno de ComfyUI empaquetado y publicado en un espacio de trabajo. El asistente de Nueva instancia muestra la versión de lanzamiento del Build, el creador, el objetivo de hardware y una estimación del espacio en disco que necesita. Instalar un Build te proporciona exactamente ese entorno como una instancia local, en lugar de una instalación simple de ComfyUI.
+3
 
-  1. Haz clic en la tarjeta **+** del Selector para abrir el asistente de Nueva instancia.
-  2. En la fila de método, selecciona **Managed Builds**. Si aún no has iniciado sesión, Comfy Desktop te pedirá que inicies sesión primero.
-  3. En **Release** , elige el Build que quieres instalar. Solo se muestran los Builds listos para instalar y compatibles con tu equipo. Usa **View builds online** para abrir la página de Builds en tu navegador, o el botón Actualizar para recargar la lista.
-  4. En **Hardware** , elige el objetivo de la versión para tu equipo, por ejemplo Windows con NVIDIA (CUDA 12.8). El objetivo recomendado para tu hardware está preseleccionado.
-  5. Continúa por el asistente para instalar la instancia.
+Elige otra compilación (opcional)
 
-Cuando hayas iniciado sesión, el asistente se abre en **Managed Builds** y recurre a **Public Builds** cuando el espacio de trabajo seleccionado no tiene un Build compatible. **Public Builds** es la instalación estándar de ComfyUI para tu hardware detectado.
+Haz clic en **Change** para abrir **Change setup**.
 
-## 
+  * **Source** : selecciona **Your team’s builds**. Si no has iniciado sesión, se abre tu navegador para que inicies sesión y el diálogo muestra **Continue in your browser**.
+  * **Release** : selecciona una compilación. La lista muestra solo las compilaciones que se pueden instalar en esta computadora. Haz clic en **View builds online** para abrir las compilaciones de tu espacio de trabajo en Developer Platform en tu navegador, o haz clic en **Refresh builds** para volver a cargar la lista.
+  * **Hardware** : selecciona un objetivo de compilación. El objetivo recomendado para esta computadora ya viene seleccionado.
 
-​
+Mientras Comfy Desktop cambia al espacio de trabajo, el diálogo muestra **Waiting for workspace authorization… Complete authorization in your browser if prompted.** Haz clic en **Save changes** para volver al resumen.
 
-Crear un Build desde una instancia
+4
 
-Puedes publicar una instancia local como Build para que otros miembros de su espacio de trabajo puedan instalarla.
+Instala la compilación
 
-  1. Inicia sesión en tu cuenta de Comfy.
-  2. En el Selector, abre el **menú ⋮** de la instancia y selecciona **Create Build**.
-  3. Comfy Desktop crea un Build en borrador a partir de esa instancia en Comfy Developer Platform. El borrador pertenece al espacio de trabajo al que pertenece la instancia.
+Haz clic en **Install**. Para seguir la instalación, consulta [Instalar una nueva compilación](https://docs.comfy.org/es/installation/desktop/usage/instance-management#install-a-new-build).
 
-**Create Build** se ofrece para instancias locales que están instaladas y tienen una ruta de instalación en el disco. No se ofrece para instancias de Cloud o remotas. El Build comienza como borrador, así que puedes revisar su contenido antes de publicarlo. Para ver el flujo de trabajo completo de los Builds, incluido cómo crear un Build a partir de una instantánea de Desktop o de un archivo JSON de flujo de trabajo, consulta [Otras formas de crear un Build de Comfy API](https://docs.comfy.org/es/development/serverless/build-sources).
+Cuando termina la instalación, el mosaico de la compilación en la página **Builds** muestra **Build v** , la versión que instalaste. Si la compilación no aparece en la lista, consulta Solucionar problemas.
+
+## Actualizar una compilación de equipo
+
+Una compilación de equipo solo pasa de una versión a otra de su Developer Platform Build. Cuando tu equipo publica una versión más reciente, actualiza la compilación para obtenerla. Su página de compilación muestra una sección **Versión de la compilación** en la pestaña **Overview**.
+
+  1. En la **barra lateral** , haz clic en la compilación de equipo para abrir su página de compilación. Cuando hay una actualización disponible, la pestaña **Overview** muestra un punto y el mosaico de la compilación muestra **Actualización disponible**.
+  2. En **Overview** , revisa la sección **Versión de la compilación** : **Instalado** , **Última publicada** y **Última comprobación** , con **Actualización disponible** o **Al día**. Para volver a comprobar, haz clic en **Buscar actualizaciones**.
+  3. Haz clic en **Actualizar a la v**. También puedes seleccionar **Actualizar** en el [menú de acciones rápidas](https://docs.comfy.org/es/installation/desktop/usage/instance-management#quick-actions-from-the-build-list).
+  4. En el cuadro de diálogo **Actualizar compilación** , revisa las versiones entre las que se mueve y luego haz clic en **Actualizar ahora**.
+
+La actualización reemplaza el entorno de la compilación con la nueva versión y conserva tus flujos de trabajo y los modelos ya preparados. Mientras se ejecuta, el progreso indica **Actualizando a la v**. Cuando termina, **Instalado** muestra la nueva versión.
+
+## Subir un build a la Developer Platform
+
+**Upload build** inicia un Build de Developer Platform a partir de un build de este equipo, para que tu espacio de trabajo pueda publicarlo y tu equipo pueda instalarlo. Debes haber iniciado sesión y el build debe estar instalado en este equipo. Comfy Cloud y los builds remotos no se pueden subir.
+
+  1. Haz clic derecho en el build en la **barra lateral** , o haz clic derecho en su mosaico en la página **Builds** o en su tarjeta en **Home**.
+  2. Selecciona **Upload build**. Su sugerencia dice **Upload this build to Comfy Developer Platform.**
+
+Mientras se ejecuta, el elemento muestra **Creating…**. Después, Comfy Desktop:
+
+  1. Guarda una instantánea manual del build. Aparece en la pestaña **Snapshots** del build. Consulta [Guardar y restaurar instantáneas](https://docs.comfy.org/es/installation/desktop/usage/instance-management#save-and-restore-snapshots).
+  2. Envía la instantánea a la Developer Platform como borrador, en el espacio de trabajo al que pertenece el build. Un build de tu espacio de trabajo **Personal** va a tu espacio de trabajo **Personal**.
+  3. Abre el borrador en tu navegador, donde la página del build muestra **Draft** y **Desktop snapshot received**.
+
+El borrador no aparece en **Your team’s builds** hasta que se publique una versión y termine de compilarse en la Developer Platform. Para publicarlo, consulta [Publicar el build](https://docs.comfy.org/es/development/deploy/cloud-custom-builds#publicar-la-build). Si otra tarea se está ejecutando en el build, **Upload build** aparece atenuado. Mantén el puntero sobre él para leer **Wait for the current task on this build to finish.**
+
+## Solucionar problemas
+
+La versión indica No compatible Builds are available to install.
+
+Comfy Desktop lista un Developer Platform Build solo cuando su última versión publicada terminó de compilarse y tiene una compilación para el sistema operativo y la GPU de esta computadora. Verifica que el espacio de trabajo seleccionado en la **barra lateral** sea el que usa tu equipo para publicar. Haz clic en **View builds online** para revisar la compilación en Developer Platform y, luego, haz clic en **Refresh builds**.
+
+El diálogo muestra Couldn't load builds. Retry
+
+Comfy Desktop no pudo cargar las compilaciones de tu espacio de trabajo. Haz clic en **Couldn’t load builds. Retry** para cargarlas de nuevo.
+
+Could not upload build
+
+La alerta **Could not upload build** indica el motivo, por ejemplo, **Could not create a draft in Comfy Developer Platform.** Selecciona **Upload build** de nuevo.
 
 ¿Esta página le ayudó?
 
@@ -95,4 +131,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/installation/desktop/usage/workspaces-and-builds.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/installation/desktop/usage/workspaces-and-builds)
 
-[Instancia](https://docs.comfy.org/es/installation/desktop/usage/instance-management)[Instantáneas](https://docs.comfy.org/es/installation/desktop/usage/snapshots)
+[Compilaciones](https://docs.comfy.org/es/installation/desktop/usage/instance-management)[Instantáneas](https://docs.comfy.org/es/installation/desktop/usage/snapshots)

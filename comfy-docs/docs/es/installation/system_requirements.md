@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/system_requirements/
 title: Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:34.014279+00:00
+fetched_at: 2026-11-26T17:36:32.998444+00:00
 ---
 
 # Requisitos del sistema en ComfyUI: OS, Python y GPU - ComfyUI

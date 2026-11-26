@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/limitations/
 title: Comfy Router capabilities and limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:37.580965+00:00
+fetched_at: 2026-11-26T17:36:36.894845+00:00
 ---
 
 # Comfy Router capabilities and limits - ComfyUI
@@ -98,13 +98,13 @@ Router cannot yet reliably price a call to the models below before it runs, so e
   * **heygen** : `heygen/starfish`
   * **ideogram** : `ideogram/ideogram-4-6`, `ideogram/ideogram-v3`, `ideogram/ideogram-v4`
   * **kelly** : `kelly/kelly-kling-4.0`, `kelly/kelly-seedance-2.0`, `kelly/kelly-seedance-2.0-fast`, `kelly/kelly-seedance-2.5`
-  * **kling** : `kling/kling-4.0`, `kling/kling-image-4.0`, `kling/kling-long-image-4.0`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`
+  * **kling** : `kling/kling-4.0`, `kling/kling-4.0-flash`, `kling/kling-image-4.0`, `kling/kling-long-image-4.0`, `kling/videos-avatar-image2video`, `kling/videos-lip-sync`
   * **ltx** : `ltx/ltx-video-alpha-gen`, `ltx/ltx-video-to-video-hdr`, `ltx/ltx-video-to-video-reframe`, `ltx/ltx-video-upscale`
   * **meshy** : `meshy/meshy-n1`
   * **minimax** : `minimax/minimax-gpt-image-2`, `minimax/minimax-gpt-image-2.5-flare`, `minimax/minimax-gpt-image-2.5-sunburst`, `minimax/minimax-gpt-image-2.6-flare`, `minimax/minimax-gpt-image-2.6-sunburst`, `minimax/minimax-h3-image`, `minimax/minimax-h3-image-highspeed`
   * **openai** : `openai/gpt-image-1.5`
   * **openrouter** : `openrouter/images`
-  * **pika** : `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`
+  * **pika** : `pika/pika-music`, `pika/pika-nano-banana-2`, `pika/pika-nano-banana-pro`, `pika/pika-soundtrack`
   * **pixverse** : `pixverse/v3.5`, `pixverse/v6`, `pixverse/v6-max`
   * **pruna** : `pruna/p-video-2-pro-avatar`, `pruna/p-video-2-pro-reference`
   * **quiver** : `quiver/arrow-2`, `quiver/arrow-2-telos`

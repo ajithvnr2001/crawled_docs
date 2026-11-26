@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-s2v-01/
 title: MiniMax S2V-01 - Subject reference to video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.209339+00:00
+fetched_at: 2026-11-26T17:36:36.412943+00:00
 ---
 
 # MiniMax S2V-01 - Subject reference to video - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.209339+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-s2v-01/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 MiniMax S2V-01 enables subject reference-to-video generation, maintaining the identity of a specific character, face, or object throughout the clip. Supply a reference image alongside your text prompt, and S2V-01 ensures consistent appearance across the entire generated sequence — ideal for character-driven narratives, branded content, and product showcases where visual identity must remain stable from frame to frame.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Subject identity preservation** — Maintain character, face, or object identity across the entire generated video
   * **Single reference image** — One input image is sufficient to guide consistent appearance
@@ -66,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Run Subject Reference-to-Video on Cloud
 

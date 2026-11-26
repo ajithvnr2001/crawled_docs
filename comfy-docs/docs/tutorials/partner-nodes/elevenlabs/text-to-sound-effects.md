@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/text-to-sound-effects/
 title: ElevenLabs Text to Sound Effects - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:27.208247+00:00
+fetched_at: 2026-11-26T17:36:36.572110+00:00
 ---
 
 # ElevenLabs Text to Sound Effects - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/wan/fun-camera/
 title: ComfyUI Wan2.1 Fun Camera Official Examples - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:45.203722+00:00
+fetched_at: 2026-11-26T17:36:35.348718+00:00
 ---
 
 # ComfyUI Wan2.1 Fun Camera Official Examples - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:45.203722+00:00
 > Source: https://docs.comfy.org/tutorials/video/wan/fun-camera/
 
 ## On this page
+
+Back to top
 
   * About Wan2.1 Fun Camera
   * Model Installation
@@ -38,11 +40,7 @@ Copy pageCopy page
 
 Wan2.1 Fun Camera is a camera-motion video generation model from Alibaba’s VideoX-Fun project, supported natively in ComfyUI. It generates videos whose camera movement follows your control conditions, so you can direct how the camera moves in the output instead of describing every shot in the prompt. The model is part of the Wan2.1-Fun family and ships in two sizes: the 1.3B version (about 19 GB) for lightweight local runs and the 14B version (about 47 GB) for higher-fidelity output. Both support multi-resolution video prediction at 512, 768, and 1024 pixels, are trained at 16 frames per second for up to 81 frames (about 5 seconds), and accept multilingual prompts. The weights are released under the Apache-2.0 license.
 
-## 
-
-​
-
-About Wan2.1 Fun Camera
+## About Wan2.1 Fun Camera
 
 **Wan2.1 Fun Camera** is a video generation project launched by the Alibaba team, focusing on controlling video generation effects through camera motion. **Model Weights Download** :
 
@@ -74,19 +72,11 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Model Installation
+## Model Installation
 
 These models only need to be installed once. Additionally, model download information is included in the corresponding workflow images, so you can choose your preferred way to download the models. All of the following models can be found at [Wan_2.1_ComfyUI_repackaged](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged)
 
-### 
-
-​
-
-Diffusion Models
+### Diffusion Models
 
 Choose either 1.3B or 14B:
 
@@ -100,11 +90,7 @@ Wan2.1 Fun Camera 14B diffusion model
 
 If you’ve used Wan2.1 related models before, you should already have the following models. If not, please download them:
 
-### 
-
-​
-
-Text Encoders
+### Text Encoders
 
 Choose one of the following:
 
@@ -116,21 +102,13 @@ Full precision text encoder
 
 FP8 quantized text encoder (recommended for lower VRAM)
 
-### 
-
-​
-
-VAE
+### VAE
 
 ## wan_2.1_vae.safetensors
 
 Wan2.1 VAE model
 
-### 
-
-​
-
-CLIP Vision
+### CLIP Vision
 
 ## clip_vision_h.safetensors
 
@@ -152,17 +130,9 @@ File Storage Location:
     │     └── clip_vision_h.safetensors
     
 
-## 
+## ComfyUI Wan2.1 Fun Camera 1.3B Workflow
 
-​
-
-ComfyUI Wan2.1 Fun Camera 1.3B Workflow
-
-### 
-
-​
-
-Wan 2.1 Fun Camera 1.3B
+### Wan 2.1 Fun Camera 1.3B
 
 Generate dynamic videos with cinematic camera movements using Wan 2.1 Fun Camera 1.3B model. ![Wan 2.1 Fun Camera 1.3B workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2.1_fun_camera_v1.1_1.3B-1.webp)
 
@@ -186,11 +156,7 @@ If you want to use the 14B version, simply replace the model file with the 14B v
 
 ![video_wan2.1_fun_camera_v1.1_1.3B_start_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan2.1_fun_camera_v1.1_1.3B_start_image.jpg)
 
-### 
-
-​
-
-3\. Complete the Workflow Step by Step
+### 3\. Complete the Workflow Step by Step
 
 ![Wan2.1 Fun Camera Workflow Steps](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan2-1-fun-camera-1-3b-step-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=f6fb10f8a36cb9036a66e1e99986c641)
 
@@ -207,17 +173,9 @@ If you want to use the 14B version, simply replace the model file with the 14B v
 
 
 
-## 
+## ComfyUI Wan2.1 Fun Camera 14B Workflow
 
-​
-
-ComfyUI Wan2.1 Fun Camera 14B Workflow
-
-### 
-
-​
-
-Wan 2.1 Fun Camera 14B
+### Wan 2.1 Fun Camera 14B
 
 Generate high-quality videos with advanced camera control using the full 14B model. ![Wan 2.1 Fun Camera 14B workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan2.1_fun_camera_v1.1_14B-1.webp)
 
@@ -237,11 +195,7 @@ Download JSON or search “Wan 2.1 Fun Camera 14B” in Template Library
 
 ![video_wan2.1_fun_camera_v1.1_14B_start_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan2.1_fun_camera_v1.1_14B_start_image.jpg)
 
-## 
-
-​
-
-Performance Reference
+## Performance Reference
 
 **1.3B Version** :
 
@@ -259,26 +213,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/wan/fun-camera.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/wan/fun-camera)
 
-[ComfyUI Wan2.1 Fun Control Video ExamplesPrevious](https://docs.comfy.org/tutorials/video/wan/fun-control)[Wan2.1 Fun InP in ComfyUI: First and Last Frame VideoNext](https://docs.comfy.org/tutorials/video/wan/fun-inp)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Wan2.1 Fun Control](https://docs.comfy.org/tutorials/video/wan/fun-control)[Wan2.1 Fun InP](https://docs.comfy.org/tutorials/video/wan/fun-inp)

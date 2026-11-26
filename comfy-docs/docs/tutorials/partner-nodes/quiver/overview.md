@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/quiver/overview/
-title: Quiver AI: SVG Generation | ComfyUI Partner Nodes - ComfyUI
+title: Quiver AI in ComfyUI: Text and Image to SVG Vectors - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.446916+00:00
+fetched_at: 2026-11-26T17:36:36.235275+00:00
 ---
 
-# Quiver AI: SVG Generation | ComfyUI Partner Nodes - ComfyUI
+# Quiver AI in ComfyUI: Text and Image to SVG Vectors - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/quiver/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,11 +20,11 @@ fetched_at: 2026-10-25T12:24:50.446916+00:00
 
 Quiver
 
-# Quiver AI: SVG Generation | ComfyUI Partner Nodes
+# Quiver AI in ComfyUI: Text and Image to SVG Vectors
 
 Copy pageCopy page
 
-This guide covers how to use the Quiver partner nodes in ComfyUI for AI-powered SVG vector graphics generation from text prompts and reference images.
+Generate editable SVG vector graphics in ComfyUI from text prompts or raster images with the Quiver Arrow 1.1 and Arrow 1.1 Max models.
 
 Copy pageCopy page
 
@@ -53,11 +55,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Text-to-SVG** — Generate fully editable SVG vector graphics from natural language descriptions; perfect for icons, logos, illustrations, and UI elements.
   * **Image-to-SVG** — Convert raster images (PNG, JPG) into clean, scalable SVG vector graphics by tracing shapes, colors, and gradients.
@@ -67,11 +65,7 @@ Key capabilities
 
 
 
-## 
-
-​
-
-Models
+## Models
 
 ## Quiver SVG
 

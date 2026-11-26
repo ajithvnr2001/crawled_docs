@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q1/
 title: Vidu Q1 - Foundation video generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.702202+00:00
+fetched_at: 2026-11-26T17:36:35.891814+00:00
 ---
 
 # Vidu Q1 - Foundation video generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.702202+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q1/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -33,11 +35,7 @@ Copy pageCopy page
 
 Vidu Q1 is the first-generation Vidu model that handles all core video generation types. It offers a broad range of input modes — text, image, reference images, start-and-end frames, and video extension — making it a reliable choice for general-purpose production where speed and expressiveness are balanced.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Five generation modes** — Text-to-video, image-to-video, reference-to-video (up to 7 images), start-end-to-video, and video extension
   * **Flexible subject reference** — Maintain character and scene identity across multi-reference inputs
@@ -71,17 +69,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text to video
+### Text to video
 
 ## Run Q1 Text-to-Video on Cloud
 
@@ -91,11 +81,7 @@ Try the Q1 Text-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Image to video
+### Image to video
 
 ## Run Q1 Image-to-Video on Cloud
 
@@ -105,11 +91,7 @@ Try the Q1 Image-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Reference to video
+### Reference to video
 
 ## Run Q1 Reference-to-Video on Cloud
 
@@ -119,11 +101,7 @@ Try the Q1 Reference-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Start end to video
+### Start end to video
 
 ## Run Q1 Start-End-to-Video on Cloud
 
@@ -133,11 +111,7 @@ Try the Q1 Start-End-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Video extension
+### Video extension
 
 ## Run Q1 Video Extension on Cloud
 

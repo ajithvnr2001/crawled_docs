@@ -1,165 +1,348 @@
 ---
 url: https://docs.comfy.org/es/installation/desktop/overview/
-title: Descripci\u00f3n general de Comfy Desktop - ComfyUI
+title: Comfy Desktop: ejecuta ComfyUI en tu computadora o en Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:48.081115+00:00
+fetched_at: 2026-11-26T17:36:33.932417+00:00
 ---
 
-# Descripción general de Comfy Desktop - ComfyUI
+# Comfy Desktop: ejecuta ComfyUI en tu computadora o en Comfy Cloud - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/desktop/overview/
 
 ## En esta página
 
-  * Empezar
-  * Primer inicio
-    * Nube o local
-    * Términos y uso compartido de datos
-    * Instalación exprés
-    * Migrar una instalación existente
-    * Espejos chinos
-    * Después de la configuración
-  * Guía de uso
-  * Migrar desde Legacy Desktop
-  * Código abierto
+Volver arriba
+
+  * Elegir dónde se ejecuta ComfyUI
+  * Descargar Comfy Desktop
+  * Instalar Comfy Desktop para tu sistema operativo
+  * Confirmar la pantalla de configuración
+    * Conservar las compilaciones existentes o migrar
+  * Ver la instalación en Home
+  * Abrir Comfy Cloud en Comfy Desktop
+    * Saltar la instalación local e ir a Home
+    * Iniciar sesión y abrir Comfy Cloud
+  * Abrir ComfyUI
+  * Desinstalar Comfy Desktop
+  * Solucionar problemas
+  * Ver el código fuente
 
 
 
 Comfy Desktop
 
-# Descripción general de Comfy Desktop
+# Comfy Desktop: ejecuta ComfyUI en tu computadora o en Comfy Cloud
 
 Copiar páginaCopiar página
 
-Descripción general de Comfy Desktop: una aplicación de escritorio que instala, gestiona e inicia varias instancias de ComfyUI, el motor basado en nodos para IA generativa.
+Descarga Comfy Desktop, completa la pantalla de configuración en el primer inicio y abre ComfyUI en una instalación local o en Comfy Cloud.
 
 Copiar páginaCopiar página
 
-**Comfy Desktop** es una aplicación de escritorio que te permite instalar, administrar e iniciar múltiples instancias de ComfyUI desde un solo lanzador. En pocas palabras: **Comfy Desktop** es la aplicación que administra e inicia **ComfyUI** , el motor basado en nodos para IA generativa. No necesitas instalar ComfyUI por separado: Comfy Desktop se encarga de la instalación, el entorno de Python y las dependencias por ti. Cada instancia de ComfyUI se ejecuta de forma independiente con su propia versión, nodos personalizados y configuraciones. ![Panel de Comfy Desktop con tarjetas de instancias](https://mintcdn.com/dripart/WYfylXoCKnX5Ph8a/images/desktop/usage/01-homepage.png?fit=max&auto=format&n=WYfylXoCKnX5Ph8a&q=85&s=31c2d1e320e37dad01de4ca0236f2c2a) Comfy Desktop funciona en **Windows 10+** , **macOS 13+ (Apple Silicon)** y **Linux** (paquetes oficiales `.deb` y AppImage). Cada instalación independiente requiere al menos **4.85 GB** de espacio en disco y **8 GB de RAM (16 GB recomendado)**. Consulta las páginas específicas de cada plataforma para ver todos los detalles.
+* * *
 
-## 
+title: “Comfy Desktop: ejecuta ComfyUI en tu computadora o en Comfy Cloud” description: “Descarga Comfy Desktop, completa la configuración inicial y abre ComfyUI en tu equipo o en Comfy Cloud.” icon: “desktop” sidebarTitle: “Descripción general” Comfy Desktop es la aplicación que usas para ejecutar ComfyUI, ya sea como una copia instalada en este equipo (un build local) o en Comfy Cloud, que se ejecuta en GPUs en la nube y funciona en cualquier equipo. Descarga y configura todo lo que ComfyUI necesita, así que Comfy Desktop es la única aplicación que instalas. En esta página, descargas Comfy Desktop, confirmas la pantalla de configuración que se abre en el primer inicio y abres ComfyUI. ![Inicio de Comfy Desktop con la barra lateral a la izquierda, el encabezado de bienvenida, una fila de Aplicaciones, el botón Open ComfyUI arriba a la derecha y la fila Builds con la tarjeta Comfy Cloud y el mosaico New build](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-landing-page.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=330ba0827d4982aa26b46d23be200b14)
 
-​
+Comfy Desktop llama build a cada copia de ComfyUI. Si usaste una versión anterior de Comfy Desktop, tus instancias aparecen como builds, con los mismos modelos y configuraciones.
 
-Empezar
+## Elegir dónde se ejecuta ComfyUI
 
-Elige tu plataforma para comenzar:
+Comfy Desktop ejecuta ComfyUI en dos lugares: en esta computadora como compilación local, o en [Comfy Cloud](https://comfy.org/cloud). Elige el que quieras antes de empezar, porque la pantalla de configuración del primer inicio instala una compilación local.
 
-## Windows
+| Compilación local| Comfy Cloud  
+---|---|---  
+Se ejecuta en| Esta computadora| GPUs en la nube, así que funciona en cualquier computadora  
+Configuración| La pantalla de configuración la instala en el primer inicio| Ninguna. **Home** muestra una tarjeta **Comfy Cloud**  
+Costo| Gratis| Créditos de Comfy, que solo se gastan mientras la GPU se ejecuta  
+Requiere| Espacio libre en disco para la instalación (la pantalla de configuración muestra la cantidad)| Una cuenta de Comfy  
+  
+Para usar solo Comfy Cloud, salta la instalación cuando se abra la pantalla de configuración. Open Comfy Cloud in Comfy Desktop muestra cómo.
 
-Guía de instalación paso a paso para Windows 10 o posterior.
+## Descargar Comfy Desktop
 
-## macOS
+La página de descargas ofrece un instalador para Windows, macOS y Linux.
 
-Guía de instalación paso a paso para macOS 13+ (Apple Silicon).
-
-## Linux
-
-Instala el `.deb` oficial o el AppImage, o compila desde la fuente.
-
-## 
-
-​
-
-Primer inicio
-
-La primera vez que abras Comfy Desktop, una configuración a pantalla completa te pregunta **¿Cómo quieres ejecutar Comfy?** y recopila las opciones que necesita antes de instalar nada. La ventana permanece en esta configuración hasta que la termines: si cierras la aplicación a mitad de camino, la misma pantalla vuelve a aparecer en el siguiente inicio.
-
-### 
-
-​
-
-Nube o local
-
-![Configuración de primer inicio que pregunta por Nube o Local](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/first_run_cloud_local.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=5209bcecf72c91605d695662cef60a2d) Dos tarjetas cubren las dos formas de ejecutar ComfyUI:
-
-  * **Nube** ejecuta ComfyUI en las GPU de Comfy Cloud. No se instala nada en tu máquina y no hay nada que descargar. La tarjeta muestra una insignia **PRUEBA GRATIS** mientras haya ejecuciones gratuitas en la nube disponibles.
-  * **Local** instala ComfyUI en esta máquina. Tú controlas la versión de ComfyUI, los nodos personalizados y los argumentos de inicio, y funciona sin conexión.
-
-Si Comfy Desktop detecta que la GPU de esta máquina no es lo suficientemente potente para la mayoría de los flujos de trabajo, la tarjeta Nube muestra una insignia **Recomendado para tu hardware** y ninguna tarjeta está preseleccionada, por lo que la elección es deliberada en lugar de predeterminada. **Continuar** permanece deshabilitado hasta que se seleccione una tarjeta.
-
-### 
-
-​
-
-Términos y uso compartido de datos
-
-Hay tres casillas de verificación debajo de las tarjetas:
-
-  * **Acepto el EULA y los Términos de Servicio** : obligatorio. Los enlaces abren el EULA, los Términos de Servicio y la Política de Privacidad. **Continuar** no avanza hasta que se marque esta casilla, cada vez que se ejecuta la configuración.
-  * **Ayuda a mejorar Comfy compartiendo datos de uso anónimos** : opcional y marcada de forma predeterminada. Comfy Desktop envía datos de uso anónimos y nunca recopila contenidos de flujos de trabajo, prompts, medios generados ni información personal. Puedes cambiar esto más adelante en [Configuraciones de Escritorio](https://docs.comfy.org/es/installation/desktop/usage/settings).
-  * **Participa en funciones beta y ayuda a probar lo que se lanzará próximamente** : opcional y marcada de forma predeterminada, y disponible solo mientras el uso compartido de datos esté activado. Al desactivar el uso compartido de datos también se desmarca esta casilla.
+  1. Ve a [comfy.org/download](https://comfy.org/download).
+  2. Haz clic en **DOWNLOAD DESKTOP**. El botón descarga el instalador del sistema operativo que detecta la página. El nombre del instalador aparece debajo del texto del botón.
+  3. Para elegir otro instalador, haz clic en la flecha (**All installers**) que está junto al botón y luego selecciona un instalador. La lista ofrece **Windows x64** , **Windows ARM64 (NVIDIA only)** , **macOS (Apple Silicon)** y **Linux x64 (AppImage)**. ![Botón DOWNLOAD DESKTOP con macOS \(Apple Silicon\) debajo del texto del botón y la lista All installers abierta debajo con Windows x64, Windows ARM64 \(NVIDIA only\), macOS \(Apple Silicon\) y Linux x64 \(AppImage\)](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-install.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=7ab11e63e89bf6a5055b9ad8f983d4e0)
 
 
 
-### 
+## Instalar Comfy Desktop para tu sistema operativo
 
-​
+Elige la pestaña de tu sistema operativo, revisa sus requisitos e instala el archivo que descargaste.
 
-Instalación exprés
+  * Windows
 
-![Configuración de primer inicio con Local seleccionado](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/first_run_local_selected.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=4a81a4b22722b83833eb4b121643d968) Cuando se selecciona **Local** , aparece una casilla **Instalación exprés con configuraciones recomendadas**. Está desmarcada de forma predeterminada, por lo que el asistente de instalación muestra la versión de ComfyUI, la ubicación de instalación y las opciones de inicio antes de que se escriba algo en el disco. Márcala para omitir ese paso e instalar una instancia Standalone con las configuraciones recomendadas. Comfy Desktop entonces muestra el hardware que detectó debajo de la casilla, para que puedas desmarcarla si la GPU detectada no es la que quieres usar.
+  * macOS
 
-### 
+  * Linux
 
-​
 
-Migrar una instalación existente
 
-Si Comfy Desktop encuentra una instalación de Desktop clásico en la máquina, aparece una casilla **Migrar instancia existente** junto a Instalación exprés, marcada de forma predeterminada. Déjala marcada para transferir tus flujos de trabajo, modelos y configuraciones cuando continúes. Consulta [Migrar desde Desktop clásico](https://docs.comfy.org/es/installation/desktop/usage/migrate) para saber qué se transfiere. Desmárcala para instalar una instancia nueva en su lugar. Con ambas casillas desmarcadas, Comfy Desktop pregunta una vez más antes de que comience la instalación: selecciona **Migrar** para transferir la instalación de Desktop clásico, o **Empezar de cero** para instalar una instancia limpia y dejar los proyectos existentes en su lugar.
 
-### 
+**Requisitos del sistema**
 
-​
+  * Windows 10 o posterior, en x64 o ARM64.
+  * Se recomienda una GPU NVIDIA o AMD dedicada, pero no es obligatoria. En ARM64, las compilaciones locales necesitan una GPU NVIDIA.
+  * Al menos 4.85 GB de espacio libre en disco para cada compilación.
 
-Espejos chinos
+**Instalar**
 
-Cuando la aplicación se ejecuta en chino, la configuración agrega una pregunta después de **Continuar** : **¿Habilitar espejos chinos?** Selecciona **Habilitar espejos** para clonar repositorios Git desde `gitcode.com` y obtener paquetes de PyPI desde los espejos de Aliyun y Tencent en lugar de `github.com` y `pypi.org`, lo que es más rápido en China continental. Selecciona **Ahora no** para mantener los valores predeterminados. Cualquiera de las dos respuestas se guarda como la configuración **Usar espejos chinos (Git y PyPI)** , así que puedes cambiarla más adelante.
+  1. Ejecuta el instalador `.exe` que descargaste y sigue sus instrucciones.
+  2. Abre Comfy Desktop desde el menú **Inicio** o el acceso directo del escritorio. ![Instalador de Comfy Desktop en ejecución en Windows](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/installation/windows_1_install.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=2f32d2b272b240371c7b2290343cf400)
 
-### 
 
-​
 
-Después de la configuración
+**Requisitos del sistema**
 
-**Continuar** guarda tus elecciones y muestra un breve paso **Preparando tu instalación…**.
+  * macOS 13 (Ventura) o posterior.
+  * Un Mac con Apple silicon (M1 o posterior).
+  * Al menos 4.85 GB de espacio libre en disco para cada compilación.
 
-  * **Nube** : Comfy Desktop cierra la configuración e inicia Comfy Cloud.
-  * **Local** : el asistente de instalación se ejecuta a menos que la Instalación exprés esté activada, la instalación muestra su progreso y la instancia finalizada aparece en el Panel.
+**Instalar**
 
-Si Comfy Desktop ya tiene una instalación Standalone, con seguimiento o remota, omite la elección Nube o Local y te lleva directamente al Panel una vez que se aceptan los términos. Se requiere dar tu consentimiento cada vez que se ejecuta la configuración. La configuración ocupa toda la pantalla: la barra de título está bloqueada mientras está abierta y, una vez que sales del paso de consentimiento, el menú de la aplicación (☰) se reduce a un único elemento **Omitir la incorporación** , que cierra la configuración y te deja en el Panel sin instalar nada.
+  1. Abre el archivo `.dmg` que descargaste.
+  2. Arrastra **Comfy Desktop** a la carpeta **Aplicaciones**.
+  3. Abre Comfy Desktop desde Launchpad o Spotlight. ![Imagen de disco de Comfy Desktop en macOS, con el icono de la aplicación y la carpeta Aplicaciones](https://mintcdn.com/dripart/gG5z6ITsBp8xzLix/images/desktop/installation/mac_1_install.png?fit=max&auto=format&n=gG5z6ITsBp8xzLix&q=85&s=32a354755add8f6d72a0787b9ad42b67)
 
-## 
+Si macOS muestra una advertencia de seguridad la primera vez que lo abres, ve a **Ajustes del Sistema** > **Privacidad y seguridad** y haz clic en **Abrir de todos modos**.
 
-​
+**Requisitos del sistema**
 
-Guía de uso
+  * Linux en x64. Se recomienda Ubuntu 22.04 o posterior.
+  * Se recomienda una GPU NVIDIA o AMD dedicada, pero no es obligatoria.
+  * Al menos 4.85 GB de espacio libre en disco para cada compilación.
 
-Una vez instalado, aprende a usar Comfy Desktop:
+La página de descarga ofrece el AppImage. También hay un paquete `.deb` para Debian y Ubuntu en el [enlace de descarga universal](https://dl.todesktop.com/241130tqe9q3y), que detecta tu plataforma.**Instalar el paquete .deb**
+    
+    
+     sudo apt install ./*.deb
+    
 
-## Guía de uso de Comfy Desktop
+El paquete instala Comfy Desktop en `/opt/Comfy Desktop` y agrega un origen APT, así que las nuevas versiones llegan con las actualizaciones normales de tu sistema (`sudo apt update` y `sudo apt upgrade`). En Ubuntu 24.04 y posteriores, también instala un perfil de AppArmor para que funcione el sandbox de Electron. Si instalaste el paquete en Ubuntu 22.04 y luego actualizaste a 24.04, ejecuta `sudo apt reinstall comfyui-desktop-2` para agregar el perfil.**Ejecutar el AppImage**
 
-Descripción general del Panel, gestión de instancias, configuraciones, instantáneas y más.
+  1. Instala FUSE 2, que el AppImage necesita. En Ubuntu 24.04 y posteriores, ejecuta `sudo apt install libfuse2t64`. En Ubuntu 22.04, ejecuta `sudo apt install libfuse2`.
+  2. Haz que el archivo sea ejecutable y ejecútalo:
+         
+         chmod +x ./*.AppImage
+         ./*.AppImage
+         
 
-## 
 
-​
+El AppImage se actualiza solo reemplazando el archivo que iniciaste, así que mantenlo en una carpeta donde tu cuenta de usuario tenga permiso de escritura. Si no arranca porque tu distribución bloquea el sandbox de Electron, ejecútalo con `--no-sandbox`. Esa opción desactiva el sandbox para todos los procesos, así que úsala solo cuando el inicio normal falle.
 
-Migrar desde Legacy Desktop
+Compilar y ejecutar desde el código fuente
 
-Si todavía usas la versión anterior Legacy Desktop (aplicación de escritorio de instalación única), puedes migrar tus nodos personalizados, flujos de trabajo y modelos al nuevo Comfy Desktop. Tus datos existentes se conservan: no se necesita ninguna migración manual.
+Para desarrollo, ejecuta Comfy Desktop desde su [repositorio](https://github.com/Comfy-Org/Comfy-Desktop#development). Necesitas Node.js 24, pnpm 10 a través de Corepack, `build-essential` y `git`.
+    
+    
+    sudo apt install build-essential git
+    nvm install 24 && nvm use 24
+    corepack enable
+    git clone https://github.com/Comfy-Org/Comfy-Desktop.git
+    cd Comfy-Desktop
+    pnpm run init
+    ./linux-dev.sh
+    
 
-## Guía de migración
+Una copia del código fuente no se actualiza sola. Para actualizarla, ejecuta `git pull` y `pnpm run init`, y luego inicia `./linux-dev.sh` de nuevo.
 
-Guía paso a paso para migrar de Legacy Desktop a Comfy Desktop.
+Luego abre Comfy Desktop. En el primer inicio, se abre la pantalla de configuración.
 
-## 
+La página de descarga en chino, [comfy.org/zh-CN/download](https://comfy.org/zh-CN/download), ofrece los mismos instaladores. Su botón dice **下载桌面版**. Para descargar los archivos de ComfyUI desde espejos en China, consulta Confirmar la pantalla de configuración.
 
-​
+## Confirmar la pantalla de configuración
 
-Código abierto
+Al iniciarla por primera vez, Comfy Desktop abre la pantalla de configuración. Su título es **Install ComfyUI on this Mac** en macOS, **Install ComfyUI on this PC** en Windows y **Install ComfyUI on this computer** en Linux. No se descarga nada hasta que hagas clic en **Install**. ![Pantalla de configuración titulada Install ComfyUI on this Mac, con el panel Detected para un Apple M5 Pro y su botón Change, las filas Hardware, Location y Version, las tres casillas de acuerdo con el cuadro de términos vacío, y el tamaño de descarga junto al botón Install](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-first-time.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=1a890066ccd5331926e9c7e5262968a1) Comfy Desktop elige las configuraciones para tu computadora. Revísalas antes de instalar:
 
-El código fuente de Comfy Desktop está en [GitHub](https://github.com/Comfy-Org/Comfy-Desktop). Tiene doble licencia: AGPL-3.0-or-later, o una licencia comercial de Comfy Org.
+  * **Detected** : el panel de arriba muestra la GPU o el procesador que encontró Comfy Desktop, y su memoria.
+  * **Hardware** : el hardware para el que está creada la compilación. **No GPU acceleration** significa que ComfyUI se ejecuta en tu procesador.
+  * **Version** : la versión de ComfyUI y su canal de lanzamiento, como **Stable**.
+  * **Location** : la carpeta en la que se instala la compilación y el espacio libre de esa unidad.
+
+Junto a **Install** , la pantalla de configuración muestra el tamaño de descarga. Pasa el cursor sobre el icono de información que está junto al botón para ver cuánto espacio en disco necesita la instalación. Para elegir otras configuraciones, haz clic en **Change** , edítalas en la pantalla **Change setup** y haz clic en **Save changes**.
+
+Para tu primera instalación, conserva las configuraciones que eligió Comfy Desktop. [Compilaciones](https://docs.comfy.org/es/installation/desktop/usage/instance-management) explica cada configuración que puedes cambiar.
+
+Para instalar:
+
+  1. Marca **I agree to the EULA and Terms of Service.** Haz clic en **EULA** o en **Terms of Service** para leer cualquiera de los dos.
+  2. Haz clic en **Install**.
+
+Si haces clic en **Install** antes de marcar la casilla de términos, **Agree to install.** aparece al lado.
+
+Si Comfy Desktop está en chino, pregunta **Enable Chinese mirrors?** después de que hagas clic en **Install**. **Enable mirrors** descarga desde `gitcode.com`, `mirrors.aliyun.com` y `mirrors.cloud.tencent.com`. **Not now** mantiene `github.com` y `pypi.org`.
+
+### Conservar las compilaciones existentes o migrar
+
+  * **Use my builds** : aparece junto a **Install** cuando esta computadora ya tiene una compilación local que no es Legacy Desktop. Marca la casilla de términos y haz clic en ella para saltar la instalación. **Home** se abre con tus compilaciones.
+  * **Migrate** : reemplaza **Install** cuando Comfy Desktop encuentra una instalación de Legacy Desktop. [Migrar desde Legacy Desktop](https://docs.comfy.org/es/installation/desktop/usage/migrate) enumera lo que se mueve.
+
+
+
+## Ver la instalación en Home
+
+La pantalla de configuración se cierra y **Home** se abre. La tarjeta de tu compilación en la fila Builds muestra el progreso, como **Instalando ComfyUI · 60%** , y luego **Iniciando ComfyUI**. ![Tarjeta de compilación en la fila Builds de Home que muestra Instalando ComfyUI · 60%, el nombre de la compilación ComfyUI y una barra de progreso en la parte inferior de la tarjeta](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-installing-build.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=98803f813470756dd1effac55bc69c5b) Mientras se ejecuta la instalación, la tarjeta puede mostrar una versión anterior de ComfyUI. El último paso de la instalación actualiza la compilación a la versión que mostraba la pantalla de configuración. De forma predeterminada, ComfyUI se abre en su propia ventana cuando está listo y la tarjeta muestra **Running**. Si fallan la instalación o el inicio, consulta Solucionar problemas.
+
+## Abrir Comfy Cloud en Comfy Desktop
+
+**Home** muestra una tarjeta de **Comfy Cloud** en la fila Builds, junto a cualquier build local. ![La fila Builds en Home con una tarjeta de build local de ComfyUI en estado Running y la tarjeta de Comfy Cloud](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-cloud-build.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=17cb663995faa281ea055742b7fafb7b)
+
+### Saltar la instalación local e ir a Home
+
+La pantalla de configuración no tiene un botón para saltar a menos que ya tengas builds. Para llegar a **Home** y usar solo Comfy Cloud:
+
+  1. En la pantalla de configuración, marca la casilla de términos.
+  2. En el panel **Detectado** , haz clic en **Change**.
+  3. En la **barra de título** , haz clic en **Menu** y luego selecciona **Skip onboarding**.
+
+**Home** se abre con la tarjeta de **Comfy Cloud** en la fila Builds.
+
+### Iniciar sesión y abrir Comfy Cloud
+
+Hasta que inicies sesión, la tarjeta de **Comfy Cloud** muestra **Log in to use**.
+
+Comfy Cloud consume créditos de Comfy mientras su GPU está en ejecución. Revisa tu saldo de **Credits** antes de abrirlo.
+
+  1. En la **barra lateral** , en la tarjeta **Log in to Comfy** , haz clic en **Log in**. La tarjeta muestra **Continue in your browser**. ![Barra lateral de Comfy Desktop con Home, Apps, Assets y Comfy Cloud bajo Builds, y la tarjeta Log in to Comfy con su botón Log in en la parte inferior](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-sign-in-sidebar.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=360d08aaddfb8f365f03d3976e7ea8fa)
+  2. Finaliza el inicio de sesión en tu navegador. La **barra lateral** muestra tu saldo de **Credits** , lo que confirma que tu cuenta funciona.
+  3. En **Home** , haz clic en la tarjeta de **Comfy Cloud**.
+
+Comfy Cloud se abre en su propia ventana.
+
+Si prefieres usar Comfy Cloud en tu navegador, abre [cloud.comfy.org](https://cloud.comfy.org/).
+
+## Abrir ComfyUI
+
+Después de la primera instalación, inicias una compilación y abres ComfyUI desde **Home** :
+
+  * Haz clic en **Open ComfyUI** en la parte superior derecha. Se abre tu compilación más reciente. Para abrir otra compilación, haz clic en la flecha del lado derecho del botón (**Choose the build to open**) y, luego, selecciona la compilación.
+  * O haz clic en la tarjeta de una compilación en la fila Builds.
+
+También puedes hacer clic en el mosaico de una compilación en la página **Builds** , o en **Start** en la página de la compilación. Si haces clic en una compilación en la **barra lateral** , se abre su página, pero no se inicia. Mientras ComfyUI se inicia, la compilación muestra **Starting…**. Cuando está lista, ComfyUI se abre en su propia ventana, la compilación muestra **Running** y tiene un punto verde en la **barra lateral**. Para volver a mostrar la ventana más tarde, haz clic de nuevo en la compilación en ejecución. Si ComfyUI no se inicia, consulta [Corregir una compilación que falla](https://docs.comfy.org/es/installation/desktop/usage/instance-management#fix-a-build-that-fails). Para conocer el resto de **Home** y la **barra lateral** , consulta [Desplazarte por Comfy Desktop](https://docs.comfy.org/es/installation/desktop/usage/overview). Para generar tu primera imagen, sigue [Tu primera imagen en ComfyUI](https://docs.comfy.org/es/get_started/first_generation).
+
+## Desinstalar Comfy Desktop
+
+Desinstalar Comfy Desktop solo elimina la aplicación. Tus instalaciones, modelos y salidas compartidos, configuraciones y registros permanecen en tu computadora hasta que los elimines. Si quieres eliminar solo una instalación, consulta [Eliminar una instalación](https://docs.comfy.org/es/installation/desktop/usage/instance-management#remove-a-build).
+
+Las carpetas a continuación contienen tus propios datos: instalaciones, modelos, salidas y configuraciones. Eliminarlas no se puede deshacer.
+
+En macOS y Linux, primero puedes limpiar los registros, la caché y los archivos temporales de la aplicación con **Remove Comfy Desktop data** en [Configuraciones de Escritorio](https://docs.comfy.org/es/installation/desktop/usage/settings#storage).
+
+  * Windows
+
+  * macOS
+
+  * Linux
+
+
+
+
+  1. Ve a **Settings** > **Apps** > **Installed apps**.
+  2. Busca **Comfy Desktop** y haz clic en **Uninstall**. ![Comfy Desktop en la lista Installed apps de Windows con su opción Uninstall](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/installation/windows_2_uninstall.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=53de7983e9318d6aecad6e76a25c5efe)
+
+
+
+Datos| Ubicación predeterminada  
+---|---  
+Instalaciones| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs` (instalaciones anteriores: `%USERPROFILE%\ComfyUI-Installs`), más cualquier carpeta que hayas elegido  
+Modelos, entradas y salidas compartidos| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared` (anteriores: `%USERPROFILE%\ComfyUI-Shared`)  
+Configuraciones y la lista de instalaciones| `%APPDATA%\Comfy Desktop`  
+Registros| `%APPDATA%\Comfy Desktop\logs`  
+  
+Para eliminarlo todo, elimina esas carpetas. Elimina la carpeta compartida solo si ya no necesitas sus modelos y salidas.
+
+  1. Abre la carpeta **Applications** en Finder.
+  2. Haz clic derecho en **Comfy Desktop** y selecciona **Move to Trash**. ![Comfy Desktop en la carpeta Applications de macOS con Move to Trash en su menú](https://mintcdn.com/dripart/gG5z6ITsBp8xzLix/images/desktop/installation/mac_2_uninstall.png?fit=max&auto=format&n=gG5z6ITsBp8xzLix&q=85&s=2b2704e427cfefa46b1a545ed55c498d)
+
+
+
+Datos| Ubicación predeterminada  
+---|---  
+Instalaciones| `~/ComfyUI-Installs`, más cualquier carpeta que hayas elegido  
+Modelos, entradas y salidas compartidos| `~/ComfyUI-Shared`  
+Configuraciones y la lista de instalaciones| `~/Library/Application Support/Comfy Desktop`  
+Registros| `~/Library/Logs/Comfy Desktop`  
+  
+Para eliminarlo todo, elimina esas carpetas. Elimina la carpeta compartida solo si ya no necesitas sus modelos y salidas.
+
+  * **.deb** : ejecuta `sudo apt remove comfyui-desktop-2`. También elimina el perfil de AppArmor. Usa `sudo apt purge comfyui-desktop-2` para eliminar también la fuente APT.
+  * **AppImage** : elimina el archivo `.AppImage`.
+
+
+
+Datos| Ubicación predeterminada  
+---|---  
+Instalaciones| `~/ComfyUI-Installs`, más cualquier carpeta que hayas elegido  
+Modelos, entradas y salidas compartidos| `~/ComfyUI-Shared`  
+Configuraciones| `~/.config/comfyui-desktop-2`  
+Datos de la aplicación, incluida la lista de instalaciones| `~/.local/share/comfyui-desktop-2`  
+Caché| `~/.cache/comfyui-desktop-2`  
+Estado| `~/.local/state/comfyui-desktop-2`  
+Registros| `~/.config/Comfy Desktop/logs`  
+  
+Para eliminarlo todo, elimina esas carpetas o ejecuta el script [reset-linux.sh](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-linux.sh) del repositorio, que limpia las carpetas de la aplicación y deja intactas `~/ComfyUI-Installs` y `~/ComfyUI-Shared`. Elimina la carpeta compartida solo si ya no necesitas sus modelos y salidas.
+
+## Solucionar problemas
+
+Usa estas entradas cuando la pantalla de configuración o la instalación no funcionen como esperas.
+
+Solucionar un botón Install que no hace nada
+
+  * **Not supported** en la fila **Hardware** : usa Comfy Cloud. Salta la instalación local y ve a Home y luego inicia sesión y abre Comfy Cloud.
+  * **Couldn’t reach the ComfyUI download server** : revisa tu conexión a internet y luego haz clic en **Try again**.
+  * **Agree to install.** junto a la caja de términos: consulta Confirmar la pantalla de configuración.
+
+
+
+Liberar espacio en disco
+
+La fila **Location** muestra **Only … free, about … needed to install** cuando la unidad está demasiado llena. Cambia la ubicación a una unidad con más espacio o libera espacio en esta.
+
+Solucionar un build que no se instaló
+
+Cuando una instalación no finaliza, la tarjeta del build en **Home** muestra **Install failed**.
+
+Desinstalar elimina de forma permanente el build y todos sus archivos. Los demás builds no se ven afectados. Primero copia fuera de la carpeta del build todo lo que quieras conservar.
+
+  1. Haz clic en la tarjeta del build. Se abre la página del build.
+  2. Haz clic en **More** y luego selecciona **Uninstall**. Confirma con **Uninstall**.
+  3. En **Home** , haz clic en **New build** para instalar un build nuevo.
+
+
+
+Recuperarte después de cerrar la configuración
+
+Si cierras Comfy Desktop durante la configuración, aparece **Quit setup?**. Si haces clic en **Quit setup** , Comfy Desktop no guarda tus elecciones. La pantalla de configuración vuelve a abrirse la próxima vez que inicies Comfy Desktop.
+
+Solucionar un build que no se inició
+
+Cuando ComfyUI no se inicia, la tarjeta del build en **Home** muestra **Didn’t start**.
+
+  1. Haz clic en la tarjeta del build. Se abre un diálogo titulado **ComfyUI didn’t start**.
+  2. Haz clic en **View logs** para leer qué salió mal.
+  3. Haz clic en **Try again**.
+
+
+
+Comfy Desktop se inicia con errores en macOS
+
+Después de una actualización manual, Comfy Desktop puede abrirse sin estilos, con texto faltante o con botones que no hacen nada. Por lo general, lo causa un perfil o una actualización en caché de la versión anterior.
+
+  1. Copia `app.log` fuera de `~/Library/Logs/Comfy Desktop` si crees que vas a reportar el problema, porque el reinicio elimina esa carpeta.
+  2. Sal de Comfy Desktop.
+  3. Ejecuta el [script de reinicio](https://github.com/Comfy-Org/Comfy-Desktop/blob/main/scripts/reset-mac.sh). Enumera cada ruta que eliminará y pregunta antes de eliminar cualquier cosa:
+         
+         curl -fsSLO https://raw.githubusercontent.com/Comfy-Org/Comfy-Desktop/main/scripts/reset-mac.sh && bash reset-mac.sh
+         
+
+
+Tus builds en `~/ComfyUI-Installs` y tus modelos en `~/ComfyUI-Shared` se conservan, pero la lista de builds se elimina. Vuelve a agregarlos con [Agregar un build existente](https://docs.comfy.org/es/installation/desktop/usage/instance-management#add-a-comfyui-you-already-have). Para reportar el problema, adjunta `app.log` en el [rastreador de problemas de Comfy Desktop](https://github.com/Comfy-Org/Comfy-Desktop/issues).
+
+## Ver el código fuente
+
+El código fuente de Comfy Desktop está en [GitHub](https://github.com/Comfy-Org/Comfy-Desktop). Tiene licencia dual: AGPL-3.0-or-later o una licencia comercial de Comfy Org.
 
 ¿Esta página le ayudó?
 

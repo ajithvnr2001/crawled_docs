@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q2/
 title: Vidu Q2 - Fast generation with camera control - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:51.005300+00:00
+fetched_at: 2026-11-26T17:36:35.808661+00:00
 ---
 
 # Vidu Q2 - Fast generation with camera control - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:51.005300+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q2/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -33,11 +35,7 @@ Copy pageCopy page
 
 Vidu Q2 builds on the Q1 foundation with significantly faster inference (3x speedup), support for up to 7 reference images, enhanced subject consistency, and cinematic camera language controls including push, pull, orbit, follow, and close-up strategies. It also delivers higher-fidelity dynamic rendering with smoother large motions and more believable physical feedback, along with finer facial expressions, eye movement, and subtle gestures for more expressive characters. Available in Turbo, Pro, and Standard model variants.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **3x faster inference** — Significantly reduced generation time compared to Q1
   * **Multi-image reference** — Up to 7 reference images ensuring identity, scene, and narrative consistency across subjects
@@ -74,17 +72,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text to video
+### Text to video
 
 ## Run Q2 Text-to-Video on Cloud
 
@@ -94,11 +84,7 @@ Try the Q2 Text-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Image to video
+### Image to video
 
 ## Run Q2 Image-to-Video on Cloud
 
@@ -108,11 +94,7 @@ Try the Q2 Image-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Reference to video
+### Reference to video
 
 ## Run Q2 Reference-to-Video on Cloud
 
@@ -122,11 +104,7 @@ Try the Q2 Reference-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-First last frame to video
+### First last frame to video
 
 ## Run Q2 First-Last-Frame-to-Video on Cloud
 
@@ -136,11 +114,7 @@ Try the Q2 First-Last-Frame-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-First last frame to video
+### First last frame to video
 
 ## Run Q2 First-Last-Frame-to-Video on Cloud
 

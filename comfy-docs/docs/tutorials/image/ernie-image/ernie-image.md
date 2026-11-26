@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/ernie-image/ernie-image/
 title: ERNIE-Image ComfyUI workflow example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:21.156166+00:00
+fetched_at: 2026-11-26T17:36:34.585229+00:00
 ---
 
 # ERNIE-Image ComfyUI workflow example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:21.156166+00:00
 > Source: https://docs.comfy.org/tutorials/image/ernie-image/ernie-image/
 
 ## On this page
+
+Back to top
 
   * ERNIE-Image text-to-image workflow
     * Ernie Image: Text to Image
@@ -52,11 +54,7 @@ Copy pageCopy page
 
 
 
-## 
-
-​
-
-ERNIE-Image text-to-image workflow
+## ERNIE-Image text-to-image workflow
 
   * Local users
 
@@ -81,11 +79,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-### 
-
-​
-
-Ernie Image: Text to Image
+### Ernie Image: Text to Image
 
 Generate images from text prompts using the ERNIE-Image model. Input a text description to produce detailed, structured visuals with a broad stylistic range. ![ERNIE-Image text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image-1.webp)
 
@@ -99,11 +93,7 @@ Download the ERNIE-Image text-to-image workflow JSON file
 
 **Example output** ![ERNIE-Image example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image.png)
 
-### 
-
-​
-
-Get started
+### Get started
 
   1. Update ComfyUI to the latest version or use [Comfy Cloud](https://cloud.comfy.org/?template=image_ernie_image&utm_source=docs&utm_medium=referral&utm_campaign=ernie-image)
   2. Go to **Template** and search for **ERNIE-Image**
@@ -112,11 +102,7 @@ Get started
 
 
 
-### 
-
-​
-
-ERNIE-Image model downloads
+### ERNIE-Image model downloads
 
 You can find all repackaged model files at [Comfy-Org/ERNIE-Image](https://huggingface.co/Comfy-Org/ERNIE-Image) on Hugging Face.
 
@@ -150,19 +136,11 @@ VAE for ERNIE-Image.
     │       └── flux2-vae.safetensors
     
 
-## 
-
-​
-
-ERNIE-Image-Turbo
+## ERNIE-Image-Turbo
 
 [ERNIE-Image-Turbo](https://huggingface.co/Baidu/ERNIE-Image-Turbo) is a faster variant optimized with DMD and RL, generating images in just **8 steps** compared to the ~50 steps required by the standard model.
 
-### 
-
-​
-
-Ernie Image Turbo: Text To Image
+### Ernie Image Turbo: Text To Image
 
 Generate images from text prompts using the ERNIE-Image turbo model. Input a text description and receive a high-quality image with precise text rendering. ![ERNIE-Image-Turbo text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_ernie_image_turbo-1.webp)
 
@@ -176,11 +154,7 @@ Download the ERNIE-Image-Turbo text-to-image workflow JSON file
 
 **Example output** ![ERNIE-Image-Turbo example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_ernie_image_turbo.png)
 
-### 
-
-​
-
-ERNIE-Image-Turbo model downloads
+### ERNIE-Image-Turbo model downloads
 
 ## ernie-image-turbo.safetensors
 
@@ -212,28 +186,16 @@ VAE for ERNIE-Image-Turbo.
     │       └── flux2-vae.safetensors
     
 
-## 
-
-​
-
-Available models
+## Available models
 
 Model| Description| Inference steps| Link  
 ---|---|---|---  
 ERNIE-Image| Main SFT model: stronger quality and instruction fidelity| ~50| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image)  
 ERNIE-Image-Turbo| Turbo model optimized with DMD and RL: faster generation| 8| [Hugging Face](https://huggingface.co/Baidu/ERNIE-Image-Turbo)  
   
-## 
+## Examples
 
-​
-
-Examples
-
-### 
-
-​
-
-Text rendering and design layouts
+### Text rendering and design layouts
 
 ![Coffee making process infographic](https://substack-post-media.s3.amazonaws.com/public/images/1cc1c3e6-e556-45b4-b6a9-205e5610d022_1360x768.png)
 
@@ -272,11 +234,7 @@ Prompt
     Split-screen conceptual poster with vertical split composition, left half representing the present and future featuring a solid stone analog clock dial with bright red hands and red scale markings, set against a deeply cracked, dry, parched earth texture in muted cool gray tones, embodying slow, static structural decay and temporal erosion, right half representing the past that is violently disintegrating, dissolving and exploding into chaotic dust, debris, flying stone shards and swirling cosmic nebula energy with a deep blood red and black color palette, the circular clock frame itself is half solid weathered stone and half crumbling into particles merging the two worlds, with the red clock hands fully positioned on the left present/future side of the dial, embodying the concept of time, past vs future, slow decay vs violent collapse, hyper-realistic 3D render with cinematic dramatic lighting, high contrast, sharp details on the left side, motion blur and dynamic particle effects on the right side, photorealistic textures of cracked earth and floating dust, atmospheric haze, futuristic graphic design with minimalist red vertical UI elements and custom technical text overlays in the corners, bold red stylized title text "ETERNAL DAWN" in the top right corner, small red technical metadata text "SPECDARY BOTHUNG" directly below the main title in the top right, dense lines of small red technical data blocks including "TIMESTAMP: 00:00:00", "COLLAPSE RATE: 99.8%", "TEMPORAL ANOMALY DETECTED", "PAST DIMENSION: DECAYING" in the bottom right corner with a red horizontal accent bar and footer text "FOR DECAY OF THE EONS" below, small red header text "TEMPORAL SHIFT PROTOCOL" with vertical red accent line running down the left edge in the top left, vertical red accent line with small red technical text annotations including "PRESENT: STABLE", "FUTURE: UNFOLDING" along it in the bottom left, red text "WARNING: TEMPORAL DISINTEGRATION" curving around the center clock dial perimeter, small red footer text "PAST FADES, FUTURE RISES" spanning the split at the bottom center, shot in the style of a high-end sci-fi movie poster, 8K ultra-high resolution, photorealistic, cinematic composition, dramatic depth, moody and intense atmosphere, detailed particle simulation, photorealistic material rendering.
     
 
-### 
-
-​
-
-Cinematic and stylized aesthetics
+### Cinematic and stylized aesthetics
 
 ![Urban night street scene](https://substack-post-media.s3.amazonaws.com/public/images/d4f27467-4d1f-4f6d-8c15-ebc92983c29d_1360x768.png)
 
@@ -302,11 +260,7 @@ Prompt
     A charming, whimsical 3D illustration featuring a fluffy, plush-textured white duck sitting comfortably in a fuzzy coral-pink armchair, holding a bright red mug of steaming black coffee against a solid warm coral-red background; defined by its tactile, huggable fabric-like texture across all elements, a bold, minimalist warm color palette of creamy white, vibrant orange, and rich reds, gentle anthropomorphism that blends cuteness with relatable cozy relaxation, soft diffused lighting, and a subtle film grain that adds a nostalgic, handcrafted feel, creating a playful yet serene mood perfect for themes of calm downtime and morning routines.
     
 
-### 
-
-​
-
-Multi-panel compositions
+### Multi-panel compositions
 
 ![North American native species infographic](https://substack-post-media.s3.amazonaws.com/public/images/4e9a2968-9f7c-4b2f-92e6-b0fa9a91ede2_1360x768.png)
 
@@ -348,26 +302,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/ernie-image/ernie-image.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/ernie-image/ernie-image)
 
-[ComfyUI NewBie-image-Exp0.1 Workflow ExamplePrevious](https://docs.comfy.org/tutorials/image/newbie-image/newbie-image-exp-0-1)[Anima Base v1 ComfyUI workflow exampleNext](https://docs.comfy.org/tutorials/image/anima/anima)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[NewBie-image-Exp0.1](https://docs.comfy.org/tutorials/image/newbie-image/newbie-image-exp-0-1)[Anima Base v1](https://docs.comfy.org/tutorials/image/anima/anima)

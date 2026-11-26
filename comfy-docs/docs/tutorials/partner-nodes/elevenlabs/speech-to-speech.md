@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/speech-to-speech/
 title: ElevenLabs Speech to Speech - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:27.438025+00:00
+fetched_at: 2026-11-26T17:36:36.524940+00:00
 ---
 
 # ElevenLabs Speech to Speech - ComfyUI

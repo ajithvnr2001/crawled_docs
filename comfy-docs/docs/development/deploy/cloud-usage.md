@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-usage/
 title: Usage and Limits - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-23T19:03:22.872710+00:00
+fetched_at: 2026-11-26T17:36:38.482502+00:00
 ---
 
 # Usage and Limits - ComfyUI
@@ -74,7 +74,8 @@ A [deployment](https://docs.comfy.org/development/serverless/overview) of a cust
 
 No. Builds and their versions are stored at no charge. Storage billing starts when you deploy:
 
-  * When you deploy a version, Comfy Cloud copies its models onto network storage that the deployment’s workers share. Comfy Cloud bills the storage per GB per month for as long as a deployment of the Build exists in that region, including while the deployment is stopped. Models a job uses from your [workspace library](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model) aren’t copied there. The worker downloads them for the job.
+  * When you deploy a version, Comfy Cloud copies its models onto network storage that the deployment’s workers share. Comfy Cloud bills the storage per GB per month for as long as a deployment of the Build exists in that region, including while the deployment is stopped. Models a job uses from your [workspace library](https://docs.comfy.org/development/deploy/cloud-custom-builds#add-your-own-lora-or-model) aren’t copied there. The worker downloads them for the job. 
+    * Models you [add to a deployment](https://docs.comfy.org/development/serverless/overview#add-a-model-to-a-running-deployment) are copied there as well, and count toward that storage.
   * Local disk on each worker adds no charge beyond the GPU rate.
   * Deleting a deployment releases its compute. Billing for the network storage ends when you delete the last deployment that uses it.
 

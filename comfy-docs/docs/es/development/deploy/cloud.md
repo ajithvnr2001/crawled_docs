@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/development/deploy/cloud/
-title: Inicio r\u00e1pido de Comfy Cloud - ComfyUI
+title: Desplegar en Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:27.237136+00:00
+fetched_at: 2026-11-26T17:36:34.110632+00:00
 ---
 
-# Inicio rápido de Comfy Cloud - ComfyUI
+# Desplegar en Comfy Cloud - ComfyUI
 
 > Source: https://docs.comfy.org/es/development/deploy/cloud/
 
@@ -13,38 +13,50 @@ fetched_at: 2026-10-26T14:03:27.237136+00:00
 
 Volver arriba
 
-  * Inicio rápido
+  * Antes de empezar
+  * Ejecutar un flujo de trabajo en la compilación estándar
+  * Ejecutar un flujo de trabajo en un Build personalizado
   * Próximos pasos
 
 
 
 Comfy Cloud
 
-# Inicio rápido de Comfy Cloud
+# Desplegar en Comfy Cloud
 
 Copiar páginaCopiar página
 
-Ejecuta un flujo de trabajo en formato API en Comfy Cloud con una suscripción de pago, una clave API y el SDK de Comfy.
+Ejecuta un flujo de trabajo en Comfy Cloud con el SDK de Comfy, en la compilación estándar o en una Build personalizada con tus Nodos Personalizados.
 
 Copiar páginaCopiar página
 
-Comfy Cloud es un entorno de ComfyUI totalmente administrado y siempre disponible. Crea flujos de trabajo en el navegador o ejecútalos mediante el SDK. No hay ningún Build ni despliegue que crear.
+Puedes ejecutar un flujo de trabajo que creaste en el editor de Comfy Cloud desde tu propia aplicación, como un servicio de backend o un script por lotes, con los [Comfy SDKs](https://docs.comfy.org/es/development/api-development/sdks). Comfy Cloud ejecuta los flujos de trabajo en una compilación estándar con un conjunto predeterminado de Nodos Personalizados. Si un flujo de trabajo necesita Nodos Personalizados o modelos que la compilación estándar no tiene, creas una Build personalizada: un paquete con tus propios Nodos Personalizados y modelos que Comfy Cloud ejecuta por ti. Esta página muestra cómo ejecutar un flujo de trabajo mediante la API en la compilación estándar y, luego, cómo apuntar el mismo código a una Build personalizada.
 
-¿Es tu primera vez con Comfy Cloud? Empieza con la [introducción a Comfy Cloud](https://docs.comfy.org/es/get_started/cloud). Este inicio rápido muestra cómo ejecutar flujos de trabajo desde una aplicación.
+## Antes de empezar
 
-## 
+Para llamar a Comfy Cloud desde tu código, asegúrate de tener lo siguiente:
 
-​
+  * **Una suscripción de pago a Comfy Cloud**
+  * **Un flujo de trabajo que se ejecute en el editor de Comfy Cloud** : pruébalo en el editor antes de ejecutarlo desde el código. Si necesita Nodos Personalizados o modelos que la compilación estándar no incluye, primero [crea una compilación personalizada](https://docs.comfy.org/es/development/deploy/cloud-custom-builds).
+  * **Python 3.10 o posterior, o Node 22 o posterior** : el SDK que instales necesita uno de ellos.
 
-Inicio rápido
+Si aún no has usado Comfy Cloud, empieza por [Comfy Cloud](https://docs.comfy.org/es/get_started/cloud).
 
-Requiere una suscripción de pago, una [clave API](https://docs.comfy.org/es/development/api-development/getting-an-api-key) y un flujo de trabajo en formato API. Los [SDK de Comfy](https://docs.comfy.org/es/development/api-development/sdks) apuntan a Cloud de forma predeterminada.
+## Ejecutar un flujo de trabajo en la compilación estándar
+
+La compilación estándar ejecuta cualquier flujo de trabajo que use solo los Nodos Personalizados que admite Comfy Cloud. Para ejecutar uno desde tu código, creas una clave API, instalas el SDK y exportas el flujo de trabajo en formato API.
 
 1
 
 Crear una clave API
 
-Crea una clave API en [platform.comfy.org](https://platform.comfy.org). Consulta [Obtener una clave API](https://docs.comfy.org/es/development/api-development/getting-an-api-key) para más detalles.
+Tu aplicación envía la clave con cada solicitud, así que crea una clave para tu aplicación en la Developer Platform.
+
+  1. Inicia sesión en [platform.comfy.org](https://platform.comfy.org) y luego haz clic en **API Keys**.
+  2. Haz clic en **New API key** , escribe un nombre y luego haz clic en **Generate key**.
+  3. Copia la clave y guárdala en un lugar seguro. La Developer Platform la muestra una sola vez.
+
+La clave empieza con `comfyui-`. Consulta [Getting an API Key](https://docs.comfy.org/es/development/api-development/getting-an-api-key) para saber cómo administrar las claves.
 
 2
 
@@ -64,13 +76,19 @@ TypeScript
 
 3
 
-Exportar un flujo de trabajo en formato API
+Exportar el flujo de trabajo en formato API
 
-En el editor de Cloud, guarda tu flujo de trabajo ya probado como `workflow_api.json` con `File → Export Workflow (API)`. Consulta [Formato API de flujo de trabajo](https://docs.comfy.org/es/development/api-development/workflow-api-format).
+El SDK envía el formato API de un flujo de trabajo, no el archivo que guarda el editor.
+
+  * En el editor de Comfy Cloud, abre el flujo de trabajo, selecciona **File** > **Export (API)** y guarda el archivo como `workflow_api.json`.
+
+Consulta [Workflow API Format](https://docs.comfy.org/es/development/api-development/workflow-api-format) para saber qué contiene el archivo.
 
 4
 
-Ejecutarlo
+Ejecutar el flujo de trabajo
+
+El SDK envía las solicitudes a Comfy Cloud a menos que establezcas otra URL base, así que pasa solo tu clave API:
 
 Python
 
@@ -79,7 +97,7 @@ TypeScript
     
     from comfy_sdk import Comfy
     
-    client = Comfy(api_key="comfyui-...")  # Comfy Cloud es el objetivo predeterminado
+    client = Comfy(api_key="comfyui-...")
     
     wf = client.workflows.from_file("workflow_api.json")
     
@@ -91,7 +109,7 @@ TypeScript
     
     import { Comfy } from "@comfyorg/sdk";
     
-    const client = new Comfy({ apiKey: "comfyui-..." }); // Comfy Cloud es el objetivo predeterminado
+    const client = new Comfy({ apiKey: "comfyui-..." });
     
     const wf = await client.workflows.fromFile("workflow_api.json");
     
@@ -99,19 +117,74 @@ TypeScript
     await job.getOutputs("9")[0].toFile("out.png");
     
 
-`"9"` es el ID del nodo de salida. Consulta la [guía del SDK](https://docs.comfy.org/es/development/api-development/sdks) para las entradas, el progreso y el manejo de errores.
+  * Reemplaza `"9"` por el ID del nodo de salida en tu `workflow_api.json`.
+  * `run()` espera hasta que la tarea finalice y luego el código escribe las salidas en el disco.
 
-El mismo código del SDK puede apuntar a [despliegues de Comfy API](https://docs.comfy.org/es/development/serverless/quickstart) y a [ComfyUI autoalojado](https://docs.comfy.org/es/development/deploy/self-hosting). Consulta [Ejecutar flujos de trabajo](https://docs.comfy.org/es/development/run-workflows/overview).
+Para establecer las entradas, seguir el progreso y manejar los errores, consulta los [Comfy SDKs](https://docs.comfy.org/es/development/api-development/sdks).
 
-## 
+## Ejecutar un flujo de trabajo en un Build personalizado
 
-​
+Desplegar un Build personalizado te da un despliegue con su propia URL. Tu código de la sección anterior se ejecuta en el despliegue en cuanto cambias la URL base.
 
-Próximos pasos
+Un despliegue genera costos de tiempo de GPU mientras sus workers se ejecutan y de almacenamiento hasta que lo elimines. Cuando termines de probar, detenlo o elimínalo. Consulta [Limpieza](https://docs.comfy.org/es/development/serverless/overview#limpieza).
+
+1
+
+Crear y desplegar un Build
+
+Sigue [Builds personalizados](https://docs.comfy.org/es/development/deploy/cloud-custom-builds) para crear un Build a partir de tu flujo de trabajo y desplegarlo.
+
+2
+
+Copiar la URL del despliegue
+
+  1. En la Developer Platform, abre la página del despliegue.
+  2. Espera hasta que el estado del despliegue indique **Ready**.
+  3. En **Run via API** , copia la **Deployment URL**.
+
+Una URL de despliegue tiene el formato `https://dep-<id>.run.comfy.app`.
+
+3
+
+Configurar la URL base
+
+Configura `COMFY_BASE_URL` con la URL del despliegue:
+    
+    
+    export COMFY_BASE_URL="https://dep-<id>.run.comfy.app"
+    
+
+4
+
+Ejecutar el flujo de trabajo
+
+Ejecuta el código de Ejecutar un flujo de trabajo en el Build estándar con tu clave API. Ahora el SDK envía la tarea a tu despliegue.
+
+Para probar primero el despliegue desde una terminal, ejecuta:
+    
+    
+    comfy deploy run --deployment <deployment-id> --workflow workflow_api.json
+    
+
+## Próximos pasos
+
+Una vez que tu flujo de trabajo se ejecute desde código, usa estas páginas para manejar las entradas y el progreso, administrar las implementaciones y revisar tus límites.
+
+## SDKs de Comfy
+
+Sube entradas, sigue el progreso de las tareas y reintenta los envíos de forma segura.
+
+## Administrar implementaciones
+
+Publica versiones de Build, escala el número de workers y llama a tu implementación.
 
 ## Uso y límites
 
-Consulta cómo funcionan los créditos de Cloud y las tareas simultáneas.
+Consulta cómo funcionan los créditos de Comfy y las tareas simultáneas en Comfy Cloud.
+
+## Ejecutar flujos de trabajo
+
+Ejecuta ese mismo código del SDK contra una instancia de ComfyUI autoalojada.
 
 ¿Esta página le ayudó?
 
@@ -119,4 +192,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/development/deploy/cloud.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/development/deploy/cloud)
 
-[Guía de despliegue](https://docs.comfy.org/es/development/serverless/overview)[Uso y límites](https://docs.comfy.org/es/development/deploy/cloud-usage)
+[Gestionar despliegues](https://docs.comfy.org/es/development/serverless/overview)[Uso y límites](https://docs.comfy.org/es/development/deploy/cloud-usage)

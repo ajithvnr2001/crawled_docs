@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/magnific/magnific-creative-tools/
 title: Magnific Creative Tools in ComfyUI: Style Transfer and Relighting - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:49.174428+00:00
+fetched_at: 2026-11-26T17:36:36.369418+00:00
 ---
 
 # Magnific Creative Tools in ComfyUI: Style Transfer and Relighting - ComfyUI
@@ -58,11 +58,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Style Transfer** — Transfers the artistic style, color palette, and lighting from a reference image onto your source image for creative transformations.
   * **Relight** — Adjusts lighting direction, intensity, and color temperature on existing images, enabling seamless compositing into new environments.
@@ -70,17 +66,9 @@ Key capabilities
 
 
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Style Transfer
+### Style Transfer
 
 Apply the visual style, color palette, and lighting mood from a reference image to your source image. This enables artistic reinterpretations — turn a photograph into an oil painting, or match the aesthetic of a cinematic frame.
 
@@ -92,11 +80,7 @@ Run the style transfer workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Relight
+### Relight
 
 Adjust the lighting on your image by specifying direction, intensity, and color temperature. This is especially useful for compositing subjects into new scenes where the original lighting doesn’t match.
 
@@ -108,11 +92,7 @@ Run the relight workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Skin Enhancer
+### Skin Enhancer
 
 Apply intelligent portrait retouching to smooth skin, reduce blemishes, and even out skin tone while preserving natural facial features and texture.
 

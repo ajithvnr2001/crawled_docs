@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/topaz/overview/
-title: Image & Video Enhancement with Topaz Labs - ComfyUI
+title: Topaz Labs in ComfyUI: Image and Video Enhancement - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.405568+00:00
+fetched_at: 2026-11-26T17:36:36.066410+00:00
 ---
 
-# Image & Video Enhancement with Topaz Labs - ComfyUI
+# Topaz Labs in ComfyUI: Image and Video Enhancement - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/topaz/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,21 +20,17 @@ fetched_at: 2026-10-25T12:24:50.405568+00:00
 
 Topaz
 
-# Image & Video Enhancement with Topaz Labs
+# Topaz Labs in ComfyUI: Image and Video Enhancement
 
 Copy pageCopy page
 
-Upscale, enhance, and restore images and video using Topaz Labs AI models — including Reimagine creative upscaling, face enhancement, Starlight diffusion upscale, and Apollo frame interpolation — all within ComfyUI.
+Enhance and upscale images and video in ComfyUI with Topaz Labs: Reimagine prompt-guided upscaling, face enhancement, Starlight, and Apollo.
 
 Copy pageCopy page
 
 Topaz Labs brings enterprise-grade AI image and video enhancement to ComfyUI — trusted by professionals worldwide. Its suite covers **image enhancement** , **landscape upscaling** , **illustration upscaling** , and **video enhancement** , all powered by ComfyCloud with no local GPU needed.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Reimagine creative upscaling** — Guide the upscaling process with text prompts to creatively reinterpret and enhance images, not just enlarge them.
   * **Face enhancement** — Dedicated facial detail reconstruction model that detects and sharpens faces in images and video, preserving natural skin texture and expression.
@@ -69,11 +67,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 Topaz Labs offers a suite of AI enhancement models for both image and video. The **Image Enhance** group covers general upscaling, landscape diffusion upscaling, and illustration-optimized upscaling, while **Video Enhance** provides frame-by-frame enhancement with Apollo interpolation.
 

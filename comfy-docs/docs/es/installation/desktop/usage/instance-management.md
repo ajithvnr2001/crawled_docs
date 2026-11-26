@@ -1,11 +1,11 @@
 ---
 url: https://docs.comfy.org/es/installation/desktop/usage/instance-management/
-title: Gesti\u00f3n de instancias - ComfyUI
+title: Compilaciones en Comfy Desktop: instalar, ejecutar, actualizar y configurar ComfyUI - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:04:03.109894+00:00
+fetched_at: 2026-11-26T17:36:34.069046+00:00
 ---
 
-# Gestión de instancias - ComfyUI
+# Compilaciones en Comfy Desktop: instalar, ejecutar, actualizar y configurar ComfyUI - ComfyUI
 
 > Source: https://docs.comfy.org/es/installation/desktop/usage/instance-management/
 
@@ -13,296 +13,634 @@ fetched_at: 2026-10-26T14:04:03.109894+00:00
 
 Volver arriba
 
-  * Tipos de instancia
-  * Crear una nueva instancia
-  * Seguimiento de una Instalación Existente
-    * Detectar tu Instalación
-    * Confirmar la Instalación Detectada
-    * Rastreada vs Standalone
-  * Iniciar, detener y reiniciar una instancia
-    * Iniciar una instancia
-    * Iniciar mientras otra instancia está en ejecución
-    * Detener una instancia
-    * Reiniciar después de un fallo
-  * Desinstalar una instancia
-  * Duplicar una instancia
-  * Editar una instancia
-  * Estado de error
+  * Tipos de compilaciones de Comfy
+  * Encontrar tus compilaciones
+    * Acciones rápidas desde la lista de compilaciones
+  * Instalar una compilación nueva
+  * Agregar un ComfyUI que ya tengas
+  * Conectarse a un servidor de ComfyUI
+  * Iniciar, detener y reiniciar una compilación
+    * Ejecutar más de una compilación
+    * Detener o reiniciar
+  * Iniciar una compilación al abrir Comfy Desktop
+  * Administrar compilaciones
+    * Usar el menú More
+    * Actualizar ComfyUI
+    * Cambiar el canal de actualización
+    * Cambiar PyTorch
+    * Cambiar la URL de una compilación remota
+    * Elegir qué carpetas usa la compilación
+    * Configurar opciones de salida para compilaciones remotas y de Comfy Cloud
+    * Establecer argumentos de inicio
+    * Elegir indicadores de la lista
+    * Controlar qué instala ComfyUI Manager
+    * Configurar la ventana, la caché y el puerto
+    * Agregar variables de entorno
+    * Guardar y restaurar instantáneas
+    * Cuándo guarda una instantánea Comfy Desktop
+    * Leer la línea de tiempo
+    * Crear una instantánea
+    * Restaurar una instantánea
+    * Exportar, importar y eliminar instantáneas
+    * Crear una compilación a partir de un archivo de instantánea
+    * Ejecutar comandos en la terminal
+    * Duplicar una compilación
+    * Eliminar una compilación
+  * Solucionar una compilación que falla
 
 
 
 Guía de uso
 
-# Gestión de instancias
+# Compilaciones en Comfy Desktop: instalar, ejecutar, actualizar y configurar ComfyUI
 
 Copiar páginaCopiar página
 
-Crea, edita, renombra y elimina instancias de ComfyUI en Comfy Desktop
+Instala, agrega o conecta una compilación de ComfyUI en Comfy Desktop, luego iníciala, actualízala y configúrala desde su página de compilación, y corrige una compilación que falla.
 
 Copiar páginaCopiar página
 
-Comfy Desktop te permite administrar varias instancias de ComfyUI desde la vista Selector.
+En Comfy Desktop puedes ejecutar ComfyUI en este equipo, en Comfy Cloud o en un servidor de ComfyUI en otra máquina. Cada una de estas opciones es una compilación. Comfy Desktop incluye Comfy Cloud en la lista, y tú instalas, agregas o conectas cualquier otra compilación antes de abrirla. En esta página preparas una compilación, la ejecutas, la actualizas y la configuras desde su página de compilación, y la eliminas cuando ya no la necesitas.
 
-### 
+## Tipos de compilaciones de Comfy
 
-​
+El lugar donde se ejecuta una compilación determina lo que puedes hacer con ella. La página **Builds** agrupa las compilaciones según dónde se ejecutan:
 
-Tipos de instancia
-
-Comfy Desktop admite cuatro tipos de instancias. Cada tipo aparece en su tarjeta y en la barra de título; las instancias **Rastreadas** comparten el icono de **Independiente**.
-
-Tipo| Icono| Descripción  
+Dónde se ejecuta| Qué es| Cómo obtenerla  
 ---|---|---  
-**Independiente**|  💻| Una instancia de ComfyUI autocontenida creada por Comfy Desktop. Incluye Python integrado, actualizaciones automáticas y compatibilidad total con instantáneas. Es la opción predeterminada al hacer clic en **Nueva instancia**.  
-**Cloud**|  ☁️| Una instancia de Comfy Cloud. Requiere una cuenta de Comfy Cloud. Las instancias Cloud se ejecutan en los servidores de Comfy y se facturan por separado.  
-**Remota**|  🌐| Se conecta a una instancia de ComfyUI que se ejecuta en otra máquina de tu red. Configura el host y el puerto remotos durante la configuración.  
-**Rastreada**|  💻| Rastrea una instalación existente de ComfyUI (clon de Git o portable). Usa el mismo icono que **Independiente**. Tú administras las actualizaciones manualmente. Consulta Rastrear una instalación existente.  
+**This computer**|  ComfyUI instalado en este equipo. Su tipo es **Standalone** , **Git clone** , **Portable** , **Legacy Desktop** o **Build** (una Developer Platform Build del espacio de trabajo de tu equipo).| Instala una compilación nueva o agrega un ComfyUI que ya tengas.  
+**Cloud**|  Comfy Cloud. Se ejecuta en GPUs en la nube y necesita una cuenta de Comfy.| Comfy Desktop la incluye en la lista como **Comfy Cloud**.  
+**Remote**|  Un servidor de ComfyUI que se ejecuta en otra máquina, al que se accede por su URL.| Conéctate a un servidor de ComfyUI.  
   
-La siguiente imagen señala las acciones clave disponibles en cada tarjeta de instancia: ![Menú ⋮ de la tarjeta de instancia: Administrar, Duplicar instancia, Mostrar en Finder, Exportar instantánea, Restaurar instantánea, Desinstalar](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/interface/interface_instance_menu.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=0b9bb65143494b31d90c57470cb4b584)
+Comfy Cloud muestra **Log in to use** hasta que [inicies sesión](https://docs.comfy.org/es/installation/desktop/overview#iniciar-sesi%C3%B3n-y-abrir-comfy-cloud). Su menú de acciones rápidas no tiene **Stop** , **Auto start** ni **Uninstall** , y conserva el nombre **Comfy Cloud**.
 
-  1. **Nueva instancia** : Crea una instancia de ComfyUI desde cero. Consulta Crear una nueva instancia. También puedes [crear una instancia a partir de un archivo de instantánea](https://docs.comfy.org/es/installation/desktop/usage/snapshots#crea-una-instancia-a-partir-de-un-archivo-de-instant%C3%A1nea).
-  2. **Menú ⋮** : Haz clic en el icono de tres puntos para abrir el menú de acciones de una instancia. Al hacer clic derecho en la tarjeta se abre el mismo menú.
-  3. **Administrar** : Abre el panel Administrar para configurar la instancia (ruta, argumentos de inicio, directorios de modelos, variables de entorno). Consulta la página [Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage).
-  4. **Duplicar instancia** : Copia una instalación independiente, con su propio entorno de Python y nodos personalizados. Consulta Duplicar una instancia.
-  5. **Mostrar en Finder** , **Mostrar en el Explorador** o **Mostrar en carpeta** : Abre la carpeta de instalación en tu administrador de archivos. El nombre depende de tu sistema operativo.
-  6. **Exportar instantánea** : Exporta la instantánea más reciente de la instancia a un archivo que puedas compartir. Consulta [Compartir una instantánea](https://docs.comfy.org/es/installation/desktop/usage/snapshots#compartir-una-instant%C3%A1nea).
-  7. **Restaurar instantánea** : Revierte la instancia a una instantánea anterior. Consulta la página [Instantáneas](https://docs.comfy.org/es/installation/desktop/usage/snapshots).
-  8. **Desinstalar** : Elimina de forma permanente la instancia y todos sus archivos del disco. Consulta Desinstalar una instancia.
+## Encontrar tus compilaciones
 
-El menú también enumera acciones que solo aparecen en ciertos estados: **Detener** mientras la instancia se está ejecutando, **Actualizar** cuando hay una nueva versión de ComfyUI disponible, **Migrar a Independiente** para una instalación que puedas migrar, y **Crear compilación** para una instancia local que puedas publicar en un espacio de trabajo. **Olvidar** no forma parte de este menú; se encuentra en el panel Administrar, consulta Desinstalar una instancia.
+La página **Builds** enumera todas las compilaciones de tu espacio de trabajo. Para abrirla, haz clic en **Builds** en la **barra lateral**. ![Página Builds de Comfy Desktop con los filtros All, This computer y Cloud, el menú de ordenación Last used, Search builds y el botón New build con su flecha, sobre los mosaicos de cuatro compilaciones locales y Comfy Cloud](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-builds.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=b7a9fccac58b3a7c8e5195a5eac74492) En la parte superior de la página:
 
-## 
+  * **New build** : inicia una compilación nueva. Haz clic en la flecha que está junto a él (**More build options**) para **Add existing build** y **Load snapshot**.
+  * **Where it runs** : filtra la lista. **All** y **This computer** siempre están ahí. **Cloud** y **Remote** aparecen cuando tienes una compilación de ese tipo.
+  * **Sort** : ordena las compilaciones por **Last used** o **Name**. Las compilaciones que se están instalando permanecen arriba.
+  * **Search builds** : encuentra una compilación por su nombre. Si no hay coincidencias, haz clic en **Clear filters**.
 
-​
+Cada compilación es un mosaico. El mosaico muestra el estado de la compilación, como **Running** , **Starting…** , **Auto start** o **Error**. Mantén el puntero sobre un mosaico para ver qué hace un clic: **Click to start** , **Click to open** o **Click to view logs**. Cuando no tienes compilaciones, la página muestra **No builds yet** e **Install ComfyUI on this computer, or run it on Comfy Cloud.** La **barra lateral** también enumera cada compilación debajo de **Builds** : ![Parte superior de la barra lateral de Comfy Desktop con Home, Apps y Assets, y la lista Builds con una compilación de ComfyUI marcada con un punto verde, y Comfy Cloud](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-builds-sidebar.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=812941a7dc8597b4971afd9166f74dba)
 
-Crear una nueva instancia
+  * Un indicador giratorio y un porcentaje significan que la compilación se está instalando.
+  * Un punto verde significa que la compilación se está ejecutando.
+  * Un punto rojo significa que la compilación falló o no se inició. Mantén el puntero sobre la compilación para leer el motivo.
+  * Haz clic en una compilación para abrir su página de compilación.
+  * Haz clic derecho en una compilación para abrir su menú de acciones rápidas.
 
-Haz clic en la tarjeta **+** (arriba a la izquierda) en la vista Chooser para agregar una nueva instancia de ComfyUI.
+Para **Home** y el resto de la **barra lateral** , consulta [Conocer Comfy Desktop](https://docs.comfy.org/es/installation/desktop/usage/overview).
+
+### Acciones rápidas desde la lista de compilaciones
+
+Haz clic derecho en una compilación de la **barra lateral** , o en su mosaico de la página **Builds** o en su tarjeta de **Home** , para abrir un menú corto de acciones. En un mosaico o una tarjeta también puedes mantener el puntero sobre él hasta que aparezca el botón **⋯** a su derecha y luego hacer clic en él. ![Menú de acciones rápidas abierto sobre la compilación de ComfyUI en la barra lateral, con Start, Turn off auto start, Manage, Duplicate, Show in Finder, Export snapshot, Restore snapshot y Uninstall](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-build-quick-actions.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=3e2b44ac451b045246247b7d145d3c6c) El menú muestra solo las acciones que se aplican a la compilación en ese momento:
+
+  * **Start** , o **View logs** , **Restart** y **Stop** mientras la compilación se ejecuta. Mientras se instala o se inicia, **View logs** y **Cancel**. Después de un fallo, **View error**.
+  * **Auto start** o **Turn off auto start**. Consulta Iniciar una compilación al abrir Comfy Desktop.
+  * **Manage** , que abre la página de la compilación.
+  * **Update** , cuando hay una actualización disponible, y **Migrate to Standalone** , cuando la compilación puede pasar a una compilación Standalone. Consulta [Migrar más adelante](https://docs.comfy.org/es/installation/desktop/usage/migrate#migrar-m%C3%A1s-tarde).
+  * **Duplicate** , y **Show in Finder** , **Show in Explorer** o **Show in folder**.
+  * **Export snapshot** y **Restore snapshot**. Consulta Instantáneas.
+  * **Upload build** , cuando has iniciado sesión en un espacio de trabajo. Consulta [Compilaciones de equipo](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds).
+  * **Uninstall**. Consulta Eliminar una compilación.
+
+**Auto start** , **Restart** , **View logs** y **Upload build** solo están en este menú. Todo lo demás también está en la página de la compilación. Cuando un elemento está atenuado, mantén el puntero sobre él para leer el motivo, como **Stop the running build first.**
+
+## Instalar una compilación nueva
+
+Una compilación nueva es el ComfyUI que Comfy Desktop instala por ti: un lanzamiento oficial como compilación **Standalone** , o una Developer Platform Build del espacio de trabajo de tu equipo. El diálogo **New build** elige la configuración para este equipo. La instalación descarga ComfyUI y prepara su entorno de Python, así que revisa el resumen antes de hacer clic en **Install**.
 
 1
 
-Crear una nueva instancia
+Abrir el diálogo New build
 
-  * Windows
+Abre el diálogo de una de estas formas:
 
-  * macOS
+  * En la **barra lateral** , mantén el puntero sobre **Builds** y luego haz clic en el botón más (**+**) (**New build**).
+  * En la página **Builds** , haz clic en **New build**.
+  * En **Home** , haz clic en el mosaico **New build** , cuando **Home** lo muestra.
 
-  * Linux
-
-
-
-
-![El asistente Crear una nueva instancia en Windows, que señala el nombre \(1\), el modo de compilación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/cAVuyhdaebQHS2CS/images/desktop/usage/new_install_01_settings_windows.png?fit=max&auto=format&n=cAVuyhdaebQHS2CS&q=85&s=f293743f357c88ea7639667b957053de)
-
-![El asistente Create a New Instance en macOS, con anotaciones para el nombre \(1\), el método de instalación \(2\), el canal de lanzamiento \(3\), el hardware \(4\) y la ubicación de instalación \(5\)](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/new_install_01_settings_mac.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=3574ee56cd34b97aadfeb9a84df1aaf8)
-
-![Asistente para crear una nueva instancia en Linux: nombre, Public Builds, versión, hardware \(AMD/NVIDIA/Intel Arc\) y ubicación de instalación con espacio libre](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_01_settings_linux.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=03b4201e96f77d5ecac7d8920268992e)
-
-  1. **Nombre** : el nombre de tu instancia. El valor predeterminado es “ComfyUI”.
-  2. **Public Builds** : la opción recomendada. Una instalación estándar de ComfyUI creada para el hardware que se detectó. Selecciona **Managed Builds** para instalar en su lugar una Build de uno de tus espacios de trabajo (consulta [Espacios de trabajo y builds](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds#instalar-un-build)), o **Remote Connection** para conectarte a una instancia de ComfyUI que se ejecuta en otra máquina.
-  3. **Release** : el canal de versión que se va a instalar. **Stable (Recommended)** viene preseleccionado.
-  4. **Hardware** : Comfy Desktop detecta tu GPU y preselecciona la build correspondiente (NVIDIA, AMD, Intel Arc (XPU) o CPU). Cada opción muestra la versión de ComfyUI, la versión de Python y el tamaño de la descarga.
-  5. **Ubicación de Instalación** : dónde se instala ComfyUI. En Windows, se recomienda encarecidamente usar un **SSD** y evitar la raíz de la unidad C:. El campo muestra el espacio libre de la unidad y una estimación del tamaño de la instalación cuando Comfy Desktop la conoce.
-
-Si el espacio libre parece bajo, el asistente muestra un diálogo **Low Disk Space**. Elige **Continuar de todos modos** , o cancela y selecciona otra ruta.![Diálogo Low Disk Space con el espacio libre frente al tamaño de instalación requerido, y los botones Cancelar y Continuar de todos modos](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/low_disk_space_dialog.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=7306da9f6d98179436d54fa23581eb62)Comfy Desktop también rechaza las carpetas en las que no puede instalar. Revisa la carpeta en cuanto seleccionas una con **Explorar…** , explica el problema bajo **Ubicación de Instalación** y mantiene **Continuar** deshabilitado hasta que la carpeta sea una que pueda usar:
-
-  * **Dentro de los propios archivos de Comfy Desktop** : la carpeta de la aplicación, sus recursos incluidos, su carpeta de datos y, en Windows, sus cachés del actualizador. Esos archivos se reemplazan cuando la aplicación se actualiza, así que una instalación allí se eliminaría. En macOS esto abarca todo lo que esté dentro del paquete de la aplicación Comfy Desktop.
-  * **Dentro de OneDrive** (Windows): la sincronización en la nube ralentiza un entorno de Python grande y puede corromper archivos mientras se suben.
-  * **Dentro de una carpeta compartida de modelos, input o output** : instalar allí puede corromper los archivos que comparten todas las instancias. Consulta [Almacenamiento](https://docs.comfy.org/es/installation/desktop/usage/settings#almacenamiento).
-  * **Dentro de la carpeta de otra instancia** : las dos instalaciones entrarían en conflicto y podrían corromper datos. ![Ubicación de instalación definida en una carpeta de modelos compartida: el motivo aparece bajo el campo y Continuar permanece deshabilitado](https://mintcdn.com/dripart/DCOqDr2XJt-Cp-c5/images/desktop/usage/install_location_guardrail.png?fit=max&auto=format&n=DCOqDr2XJt-Cp-c5&q=85&s=840a24a4bc38e17a49e542ab02e04ee2)
-
-En una máquina con GPU NVIDIA, la build de NVIDIA también revisa la versión del controlador. Si el controlador detectado es anterior a la 580, Comfy Desktop muestra un diálogo **Update NVIDIA Driver** con la versión detectada y el mínimo recomendado. **Continuar de todos modos** instala con el controlador actual.
+El diálogo **New build** se abre con el texto principal **Set up a fresh ComfyUI install.**
 
 2
 
-Instalando
+Revisar el resumen
 
-![Progreso de la instalación: Descargando ComfyUI con porcentaje, velocidad de transferencia y pasos restantes](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_02_installing.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=56f28d2fc1eb721c2ef27d4229816095)Comfy Desktop se encarga del resto. La pantalla de progreso ejecuta un stepper: las etapas finalizadas reciben una marca de verificación, la etapa activa muestra un indicador giratorio con una línea de detalle en vivo (porcentaje, velocidad de transferencia o nombre del archivo) y la siguiente etapa espera debajo. Cuando la instalación termina, ese mismo stepper continúa con el primer inicio, así que las filas siguen con **Iniciando ComfyUI** y las etapas de inicio.
+Cuando has iniciado sesión y tu espacio de trabajo tiene compilaciones, el diálogo se abre en **Your team’s builds**. Su fila **Release** las enumera, con el marcador de posición **Select a build**. Para instalar un lanzamiento oficial en su lugar, establece **Source** en **Official release** en el siguiente paso.Para un lanzamiento oficial, el diálogo muestra lo que instala:![Diálogo New build con Set up a fresh ComfyUI install., el cuadro Name que muestra ComfyUI \(1\), la tarjeta Detected para un Apple M5 Pro con 24 GB de memoria y su botón Change, las filas Release, Version, Hardware y Location, y el botón Install](https://mintcdn.com/dripart/wAHuujrGBCdG2NB1/images/desktop/installation/comfy-desktop-new-build.png?fit=max&auto=format&n=wAHuujrGBCdG2NB1&q=85&s=1ac57615b08ea555d7a7990a547af4e5)
 
-Etapa| Qué hace  
----|---  
-**Descargando ComfyUI**|  Obtiene el paquete de ComfyUI para el hardware que seleccionaste.  
-**Descomprimiendo la instalación**|  Descomprime el paquete en la carpeta de instalación.  
-**Configurar el entorno**|  Crea el entorno de Python propio de la instancia y copia en él los paquetes precompilados, lo que escribe varios gigabytes.  
-**Limpiar el entorno**|  Elimina los paquetes que la instancia no necesita, escribe la configuración del entorno, obtiene las etiquetas de versión y registra la primera instantánea de la instancia.  
-**Actualizar a la última estable**|  Lleva ComfyUI al canal de versión que elegiste e instala sus requisitos de Python, lo que puede tardar una hora o más en un equipo nuevo.  
-  
-Una instalación creada a partir de una instantánea no se actualiza automáticamente, así que su stepper omite la última etapa y muestra en su lugar las dos etapas de restauración.Si elegiste una plantilla inicial, sus modelos se descargan en segundo plano durante las etapas anteriores, así que la instalación no espera a que terminen. Luego, el stepper termina con **Descargando modelos de la plantilla** una vez que ComfyUI ha iniciado, y esa fila permanece hasta que los archivos terminan. Selecciona **Omitir y abrir ComfyUI** en esa pantalla para abrir la instancia de inmediato; la transferencia sigue ejecutándose en la [bandeja de descargas](https://docs.comfy.org/es/installation/desktop/usage/downloads).
+  * **Name** : el nombre que recibe la compilación en la **barra lateral** y en la página **Builds**. El cuadro muestra un nombre sugerido. Déjalo vacío para usar ese nombre, o escribe el tuyo.
+  * **Detected** : el equipo o la GPU que Comfy Desktop encontró, con su memoria en GB. Haz clic en **Change** junto a ella para cambiar la configuración.
+  * **Release** : **Stable** para lanzamientos probados, o **Latest on GitHub**.
+  * **Hardware** : el tipo de GPU para el que se crea la compilación, como **NVIDIA** , **AMD** , **Intel Arc (XPU)** , **Apple Silicon (MPS)** o **CPU**. Su nota dice: 
+    * **Detected** : el tipo de GPU coincide con la GPU que Comfy Desktop encontró.
+    * **No GPU acceleration** : la compilación es para **CPU**.
+    * **Not supported** : este equipo no admite el tipo de GPU seleccionado.
+  * **Version** : la versión de ComfyUI que se instala, con su lanzamiento, como **Stable**.
+  * **Location** : la carpeta en la que se instala la compilación, con el espacio libre de esa unidad y el espacio que necesita la instalación. Haz clic en **Browse** para elegir otra carpeta.
+
+Cuando la nota de **Hardware** dice **Detected** y **Location** muestra espacio libre sin ninguna advertencia debajo, la configuración encaja en este equipo.
 
 3
 
-Elegir una plantilla
+Cambiar la configuración (opcional)
 
-![Paso para elegir un flujo de trabajo inicial con pestañas Video/Image/3D/Audio antes de que termine la instalación](https://mintcdn.com/dripart/N4LZwJLSpBN0lv19/images/desktop/usage/new_install_03_interface_template.png?fit=max&auto=format&n=N4LZwJLSpBN0lv19&q=85&s=c02ae0bffd0167cecf0fea20418cba79)Cuando la instalación termina, Comfy Desktop abre la biblioteca de plantillas, donde puedes elegir una plantilla de flujo de trabajo para empezar.Las plantillas que descargan modelos necesitan suficiente espacio libre para esos archivos. Si la unidad no puede contener los modelos de una plantilla, el asistente bloquea esa opción. Elige una plantilla más ligera o libera espacio. En discos muy pequeños, el paso de plantillas puede omitirse por completo.
+Haz clic en **Change** para abrir **Change setup**. Dice **Everything here is already set to what fits this computer.**![Hoja Change setup con How to start establecido en Install a new build, Source establecido en Official release, Release establecido en Stable con ComfyUI v0.46.2, Location con espacio libre y Browse, Hardware establecido en Apple Silicon \(MPS\), y los botones Discard y Save changes](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-change-build.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=aa0c463af699488286994e140c6ab469)
 
-## 
+  * **How to start** : mantén **Install a new build**.
+  * **Source** : **Official release** instala ComfyUI. **Your team’s builds** instala una Developer Platform Build de tu espacio de trabajo. Consulta [Compilaciones de equipo](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds).
+  * **Release** : **Stable** instala lanzamientos probados. Elige la versión en la lista junto a **Stable**. **Latest on GitHub** instala los commits más recientes de la rama master.
+  * **Location** : la carpeta de instalación. Elige una carpeta que no esté dentro de la carpeta de Comfy Desktop, OneDrive, una carpeta compartida de modelos, entrada o salida, ni otra compilación. Haz clic en **Browse** para elegir otra carpeta.
+  * **Hardware** : el tipo de GPU para el que se crea la compilación. Cada opción enumera su versión de ComfyUI, su versión de Python y el tamaño de la descarga.
 
-​
+Haz clic en **Save changes** para volver al resumen, o en **Discard** para descartar tus cambios.
 
-Seguimiento de una Instalación Existente
+4
 
-Si ya tienes una instalación de ComfyUI (configurada manualmente desde el repositorio de Git o descargada como versión portable), puedes agregarla a Comfy Desktop sin crear una nueva. Abre el menú ☰ en la barra de título y selecciona **Add Existing Instance**. ![El menú ☰ abierto en el Panel, con Add Existing Instance marcado \(2\)](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/track_instance_01.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=843fefad1f2629325238092d45240b4e)
+Hacer clic en Install
 
-  1. El botón de menú **☰** en la esquina superior izquierda de la barra de título.
-  2. **Add Existing Instance** : Abre el diálogo que rastrea una instalación existente de ComfyUI.
+Haz clic en **Install**. Antes de que comience la instalación, Comfy Desktop puede detenerte:
+
+  * **Location** muestra un problema debajo e **Install** permanece atenuado cuando la carpeta no puede contener una compilación. Haz clic en **Browse** y elige otra carpeta.
+  * **Low disk space** se abre cuando la unidad tiene menos espacio libre del que necesita la instalación, o menos de 1 GB. Haz clic en **Continue anyway** para instalar, o cierra el diálogo y elige otra carpeta.
+  * **Update NVIDIA driver** se abre para una compilación **NVIDIA** cuando tu controlador es anterior a la versión 580. Muestra la versión de tu controlador y el mínimo recomendado. Haz clic en **Continue anyway** para instalar con tu controlador actual, o actualiza el controlador primero.
 
 
 
-### 
+5
 
-​
+Seguir la instalación
 
-Detectar tu Instalación
+Comfy Desktop vuelve a **Home** y la instalación se ejecuta en segundo plano. La compilación muestra **Installing ComfyUI** y el porcentaje en **Home** y en la página **Builds** , y un indicador giratorio y el porcentaje en la **barra lateral**.Para ver cada paso, haz clic en el mosaico de la compilación o selecciona **View logs** en el menú de acciones rápidas. El diálogo **Installing ComfyUI** enumera los pasos:
 
-En el diálogo, haz clic en **Browse…** y selecciona la carpeta de instalación. Comfy Desktop sondea la carpeta y completa el resto del diálogo. El menú desplegable **Detected type** muestra lo que encontró:
+  1. **Download**
+  2. **Extract**
+  3. **Set up environment**
+  4. **Get the latest ComfyUI** , o **Get ComfyUI** y la versión que elegiste
 
-  * **Standalone** : Una instalación de Comfy Desktop. El sondeo busca un directorio `standalone-env` y `ComfyUI/main.py`.
-  * **Portable** : Una compilación portable de Windows. El sondeo busca `python_embeded`, ya sea en la carpeta que seleccionaste o en una carpeta directamente dentro de ella.
-  * **Git Clone** : Un clon del repositorio de ComfyUI. El sondeo busca un directorio `.git`.
-  * **Legacy Desktop** : Una instalación de la aplicación ComfyUI Desktop anterior, reconocida por sus directorios `models/`, `user/` y `.venv`. Consulta [Migrar desde Legacy Desktop](https://docs.comfy.org/es/installation/desktop/usage/migrate).
+Haz clic en **View logs** en el diálogo para ver la salida de la instalación.Para detener la instalación:
 
-Si el sondeo no encuentra nada, el menú desplegable muestra **No known install detected**. Selecciona la carpeta que contiene la instalación en sí, no una carpeta principal ni una carpeta no relacionada.
+  1. En el menú de acciones rápidas, selecciona **Cancel**.
+  2. Haz clic en **Cancel install**.
 
-### 
+La instalación se detiene y Comfy Desktop elimina los archivos que descargó.
 
-​
+Cuando la instalación termina, el indicador giratorio de la **barra lateral** desaparece y la compilación muestra su icono de laptop. Para **Auto start** , consulta Iniciar una compilación al abrir Comfy Desktop. Si la instalación falla, consulta Solucionar una compilación que falla.
 
-Confirmar la Instalación Detectada
+## Agregar un ComfyUI que ya tengas
 
-Cuando el sondeo termina, el diálogo muestra lo que encontró. Revisa las rutas antes de rastrear la instalación. ![El diálogo Add Existing Instance con un clon de Git detectado: ubicación de instalación, versión, repositorio, rama y entorno virtual](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/track_instance_02.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=49d1202e57fd41b6f4ca412b990c77cf)
+Si configuraste ComfyUI por tu cuenta, desde un clon de Git o una descarga portátil, puedes agregarlo a Comfy Desktop. Comfy Desktop lo ejecuta desde su carpeta y no mueve ni copia sus archivos.
 
-  * **Install location** : La carpeta que seleccionaste. Haz clic en la ruta para abrirla, o en **Browse…** para elegir otra. Para una compilación portable, apunta a la carpeta que contiene `python_embeded`.
-  * **Name** : Cómo se lista la instancia en el Selector. El diálogo sugiere un nombre.
-  * **Detected type** : Qué tipo de instalación contiene la carpeta.
-  * **Version** , **Repository** y **Branch** : Se muestran para un clon de Git.
-  * **Virtual Environment** : Se muestra para un clon de Git cuando Comfy Desktop encuentra uno, en `.venv`, `venv`, `.env` o `env` con un archivo `pyvenv.cfg` dentro. **Browse…** apunta la instancia a un entorno diferente.
+  1. En la página **Builds** , haz clic en la flecha junto a **New build** (**More build options**) y luego selecciona **Add existing build**. También puedes abrir **New build** , hacer clic en **Change** , establecer **How to start** en **Use an existing build** y establecer **Where it is** en **On this computer**. La hoja muestra **Point Desktop at the ComfyUI you already have.** ![Hoja Change setup para una compilación existente: How to start establecido en Use an existing build, Where it is establecido en On this computer, Install location con Browse, Name, Detected type mostrando Browse to a directory first, y los botones Discard y Add build](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-existing-build.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=fea862acb6914ab2fa69d9ee039524f2)
+  2. Junto a **Install location** , haz clic en **Browse** y luego selecciona la carpeta de ComfyUI.
+  3. Revisa **Detected type**. Muestra **Standalone** , **Portable** , **Git clone** o **Legacy Desktop**. Si muestra **Legacy Desktop** , detente y cierra el diálogo: agregarlo aquí impide que Comfy Desktop lo migre. En su lugar, sigue [Migrar desde Legacy Desktop](https://docs.comfy.org/es/installation/desktop/usage/migrate). Si muestra **No known install detected** , selecciona la carpeta que contiene ComfyUI en sí, no una carpeta superior.
+  4. En **Name** , conserva el nombre sugerido o escribe el tuyo.
+  5. Para un **Git clone** , revisa **Version** , **Repository** y **Branch**. **Virtual environment** muestra la carpeta `.venv`, `venv`, `.env` o `env` que encontró Comfy Desktop. Haz clic en **Browse** junto a ella para elegir otra.
+  6. Haz clic en **Add build**.
 
-Haz clic en **Track Install** para agregar la instancia. No se mueve ni se copia ningún archivo.
+La compilación aparece en la **barra lateral** y en la página **Builds**. Si otra compilación tiene el nombre que escribiste, **Name** muestra **A build named ”…” already exists. Please choose a different name.** Para crear una compilación a partir de un archivo de instantánea, selecciona **Load snapshot** en **More build options**. Consulta Crear una compilación a partir de un archivo de instantánea.
 
-### 
+## Conectarse a un servidor de ComfyUI
 
-​
+Una compilación remota abre un servidor de ComfyUI que se ejecuta en otra máquina, como un servidor con GPU en tu red. Necesitas la URL del servidor.
 
-Rastreada vs Standalone
+  1. Abre el diálogo **New build** , como en Instalar una compilación nueva, y luego haz clic en **Change**.
+  2. Establece **How to start** en **Use an existing build**.
+  3. Establece **Where it is** en **On a server**. ![Hoja Change setup para una compilación remota: How to start establecido en Use an existing build, Name, Where it is establecido en On a server, ComfyUI URL con http://localhost:8188, y los botones Discard y Connect](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-server-build.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=3eaa2ad8a8c8a01ace03ed4969618ea2)
+  4. En **Name** , conserva el nombre sugerido o escribe el tuyo.
+  5. En **ComfyUI URL** , escribe la dirección del servidor. El cuadro muestra `http://localhost:8188` como ejemplo.
+  6. Haz clic en **Connect**.
 
-La diferencia clave entre una instalación **Rastreada** (Add Existing Instance) y una instalación **Standalone** es cómo se administran las actualizaciones:
+La compilación aparece en la **barra lateral** y en la página **Builds** , y el filtro **Where it runs** incluye **Remote**. Si la dirección no es una URL, el diálogo muestra **Enter a valid URL (e.g.<http://localhost:8188>).** Para cambiar la dirección más adelante, consulta Cambiar la URL de una compilación remota.
 
-Aspecto| Rastreada (Existente)| Standalone  
----|---|---  
-**Actualizaciones**|  Sin actualizaciones automáticas: en un clon de Git haces el pull y reinstalas tú mismo, y una compilación portable se reemplaza por una más nueva| Actualizaciones automáticas integradas  
-**Python**|  Usa un entorno de Python existente (`.venv`, `python_embeded`, etc.)| Python incluido, gestión automática de dependencias  
-**Aislamiento**|  Comparte la ruta y el entorno existentes| Instalación completamente autocontenida y aislada  
-**Instantáneas**|  No es compatible| Soporte de instantáneas disponible  
-**Caso de uso**|  Ya tienes ComfyUI configurado y personalizado| Instalación nueva desde cero  
+## Iniciar, detener y reiniciar una compilación
+
+Para iniciar una compilación y abrir ComfyUI, consulta [Abrir ComfyUI](https://docs.comfy.org/es/installation/desktop/overview#abrir-comfyui). Una compilación de Comfy Cloud se abre con **Open Cloud** en su página, y una compilación remota con **Open remote**.
+
+### Ejecutar más de una compilación
+
+Cuando inicias una compilación en este equipo mientras otra se está ejecutando o iniciando, Comfy Desktop abre **A build is already running**. En **Will be stopped** se enumeran las compilaciones que detendría.
+
+**Close and start** detiene las compilaciones enumeradas y pierde todo el trabajo sin guardar que haya en ellas. Guarda tus flujos de trabajo primero.
+
+  * **Close and start** : detiene las compilaciones enumeradas y luego inicia la que elegiste.
+  * **Run all** : inicia la compilación y mantiene las demás en ejecución.
+
+Cierra el diálogo para cancelar el inicio. Para dejar de ver este diálogo, abre **Desktop settings** desde la **barra lateral** y, en **Preferences** , desactiva **Warn before running multiple builds**.
+
+### Detener o reiniciar
+
+Detén una compilación antes de desinstalarla. Reiníciala para aplicar cambios a sus argumentos de inicio.
+
+Detener o reiniciar una compilación pierde todo el trabajo sin guardar en ComfyUI. Guarda tu flujo de trabajo primero.
+
+Para detener una compilación en ejecución:
+
+  1. En la página de la compilación, haz clic en **More** (**⋯**) y luego selecciona **Stop**. También puedes seleccionar **Stop** en las acciones rápidas.
+  2. En **Stop ComfyUI** , haz clic en **Stop**.
+
+ComfyUI se detiene y su ventana se cierra. Para reiniciar una compilación en ejecución:
+
+  1. En las acciones rápidas, selecciona **Restart**.
+  2. En **Restart ComfyUI** , haz clic en **Restart**.
+
+El mosaico muestra **Starting…** y luego **Running**. Reiniciar nunca abre **A build is already running**.
+
+## Iniciar una compilación al abrir Comfy Desktop
+
+**Auto start** inicia una compilación cada vez que abres Comfy Desktop. Solo una compilación a la vez tiene **Auto start**.
+
+  * En el menú de acciones rápidas de una compilación de este equipo o de una compilación remota, selecciona **Auto start**.
+
+El mosaico de la compilación muestra **Auto start**. Si otra compilación tenía **Auto start** , esa compilación lo pierde. Para desactivarlo, selecciona **Turn off auto start** en el mismo menú. Cuando instalas tu primera compilación en este equipo y ninguna otra compilación tiene **Auto start** , la nueva compilación lo obtiene. Si esa compilación no se inicia la primera vez, Comfy Desktop desactiva su **Auto start**.
+
+## Administrar compilaciones
+
+Cada compilación tiene su propia página. Es donde administras una compilación: la inicias, actualizas ComfyUI, cambias PyTorch, eliges sus carpetas, estableces argumentos de inicio y la renombras, copias o eliminas. Ábrela de una de estas formas:
+
+  * En la **barra lateral** , haz clic en la compilación dentro de **Builds**.
+  * En las acciones rápidas, selecciona **Manage**.
+
+![Página de compilación de una compilación Standalone llamada ComfyUI: la línea de metadatos This computer, Standalone, v0.46.2, los botones Start y More arriba a la derecha, las pestañas Overview, Folders, Startup arguments, Snapshots y Terminal, y la tarjeta ComfyUI que dice Up to date con Check for updates junto a los mosaicos PyTorch, On disk, Python y Location](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-manage-build.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=d8faddc485ef2a56118415239aceeb61) El encabezado te dice qué es la compilación y si se ejecuta. De izquierda a derecha:
+
+  * **Name** : haz clic en él, o en el lápiz (**Edit build name**), para renombrar la compilación. Escribe el nombre nuevo y presiona `Enter`, o presiona `Esc` para conservar el anterior. Puedes renombrar compilaciones Standalone, Portable, git y remotas, pero no las de Comfy Cloud ni las de Legacy Desktop. Cada compilación necesita un nombre que no use ninguna otra.
+  * **Chip de estado** : **Running** , **Starting…** o **Stopping…** , o una etiqueta de fallo cuando la compilación se cayó o no se inició. Haz clic en una etiqueta de fallo para ver el error.
+  * **Línea de metadatos** : dónde se ejecuta la compilación (**This computer** , **Cloud** o **Remote**), su tipo y su versión, separados por puntos.
+  * **Botón principal** : **Start** cuando una compilación local está detenida, **Open** mientras se ejecuta, **Open Cloud** para Comfy Cloud y **Open remote** para una compilación remota.
+  * **More** (**⋯**): acciones para toda la compilación. Consulta Usar el menú More.
+
+Debajo del encabezado, cada pestaña contiene un tipo de configuración. Una pestaña aparece solo cuando la compilación tiene configuraciones para ella:
+
+Compilación| Pestañas  
+---|---  
+Standalone| **Overview** , **Folders** , **Startup arguments** , **Snapshots** , **Terminal**  
+Remote| **Overview** , **Startup arguments**  
+Comfy Cloud| **Overview** , **Storage**  
   
-> **Nota:** Comfy Desktop ejecuta una instalación rastreada con su entorno de Python existente y no reinstala ComfyUI ni administra sus paquetes. La captura de instantáneas solo se ejecuta para instancias Standalone.
+Otras compilaciones locales, como las Portable y las de git, muestran las pestañas para las que tienen configuraciones, además de **Terminal**. Cada pestaña tiene su propia sección en esta página:
 
-## 
+Pestaña| Qué haces ahí| Sección  
+---|---|---  
+**Overview**|  Ver qué ejecuta la compilación, actualizar ComfyUI, cambiar el canal de actualización, cambiar PyTorch, cambiar la URL de una compilación remota| Actualizar ComfyUI  
+**Folders**|  Elegir las carpetas de modelos, entrada y salida| Elegir qué carpetas usa la compilación  
+**Startup arguments**|  Establecer indicadores, la política de ComfyUI Manager, la ventana, el puerto y las variables de entorno| Establecer argumentos de inicio  
+**Snapshots**|  Guardar y restaurar la configuración de la compilación| Guardar y restaurar instantáneas  
+**Terminal**|  Ejecutar comandos en el entorno de Python de la compilación| Ejecutar comandos en la terminal  
+**Storage** (Comfy Cloud)| Caché del navegador y descargas de salida| Establecer opciones de salida  
+  
+### Usar el menú More
 
-​
+El botón **More** (**⋯**) junto a **Start** o **Open** contiene acciones para toda la compilación. En una compilación Standalone, muestra:
 
-Iniciar, detener y reiniciar una instancia
+  * **Stop** , mientras la compilación se ejecuta.
+  * **Rename** , que selecciona el nombre en el encabezado.
+  * **Duplicate**. Consulta Duplicar una compilación.
+  * **Show in Finder** , **Show in Explorer** o **Show in folder** , según tu sistema operativo.
+  * **Export snapshot**. Consulta Instantáneas.
+  * **Forget** y **Uninstall**. Consulta Eliminar una compilación.
 
-↩ Volver a la descripción general
+En una compilación remota, muestra **Rename** y **Forget** , además de **Stop** mientras se ejecuta. En una compilación de Comfy Cloud, el botón **More** aparece atenuado.
 
-### 
+### Actualizar ComfyUI
 
-​
+**Overview** muestra qué ejecuta la compilación y dónde actualizarla. En una compilación Standalone, muestra una tarjeta **ComfyUI** y una fila de mosaicos:
 
-Iniciar una instancia
+  * **PyTorch** : la versión de PyTorch instalada, el hardware al que está destinada y un menú **Change**. Consulta Cambiar PyTorch.
+  * **On disk** : el espacio que usa la compilación, con `{size} free` debajo.
+  * **Python** : la versión de Python y el tipo de compilación.
+  * Un mosaico de detalles: la **Location** de la compilación, con botones para abrir la carpeta y para **Copy path** , y el puerto mientras la compilación se ejecuta. Una compilación copiada de otra también muestra de dónde proviene, por ejemplo **Copied from**.
 
-Haz clic en la tarjeta de una instancia en el Selector para iniciarla. Mientras ComfyUI arranca, la ventana muestra el progreso de inicio y, cuando el servidor está listo, la interfaz de ComfyUI.
+En otras compilaciones, **Overview** enumera los datos de la compilación en grupos: **Build details** , **Running details** (mientras la compilación se ejecuta), **Location & storage** (solo compilaciones locales) y **Lineage** (compilaciones copiadas de otra). Actualizar lleva la compilación al ComfyUI más reciente de su canal. Un punto en la pestaña **Overview** indica que hay una actualización disponible. La fila de la parte inferior de la tarjeta **ComfyUI** muestra la situación de la compilación:
 
-### 
+Lo que dice la fila| Significado| Botón  
+---|---|---  
+**available** , con **Saves a snapshot first · Checked**|  Hay una versión más reciente en este canal.| **Update**  
+**Up to date** , con **Checked**|  La compilación tiene la versión más reciente de este canal.| **Check for updates**  
+**Not checked yet**|  Comfy Desktop no tiene información de versión para este canal.| **Check for updates**  
+  
+Para actualizar la compilación:
 
-​
+  1. En **Overview** , haz clic en **Update**. También puedes seleccionar **Update** en el menú de acciones rápidas.
+  2. En el diálogo **Update ComfyUI** , revisa las versiones entre las que se mueve la compilación y las **Release notes** que haya, y luego haz clic en **Update now**.
 
-Iniciar mientras otra instancia está en ejecución
+Mientras la actualización se ejecuta, una tarjeta de progreso sustituye a las pestañas. Si falla, la tarjeta ofrece **Try again** y **Dismiss**. Comfy Desktop guarda una instantánea antes de actualizar. Si la actualización estropea un Nodo Personalizado, restaura esa instantánea desde la pestaña **Snapshots**. Consulta Instantáneas. Para probar una versión nueva sin tocar esta compilación, actualiza una copia:
 
-Cuando inicias una instancia local mientras otra instancia local está en ejecución o iniciándose, Comfy Desktop muestra un diálogo **Ya hay una instancia en ejecución** que enumera las instancias que detendría:
-
-  * **Cerrar e iniciar** : detiene las instancias enumeradas y luego inicia la que elegiste.
-  * **Ejecutar todas** : inicia la nueva instancia junto a las que ya están en ejecución.
-
-Descarta el diálogo para cancelar el inicio. Reiniciar una instancia nunca muestra este diálogo. Para dejar de verlo, desactiva **Advertir antes de ejecutar varias instancias** en [Configuraciones de Escritorio → Preferencias](https://docs.comfy.org/es/installation/desktop/usage/settings#preferencias).
-
-### 
-
-​
-
-Detener una instancia
-
-Selecciona **Detener** en el menú ⋮ de la tarjeta de la instancia. El servidor de ComfyUI se detiene y la ventana permanece abierta con una tarjeta **ComfyUI está detenido**. Selecciona **Volver a iniciar ComfyUI** para arrancar el servidor de nuevo, o **Volver al Panel** para regresar al Selector.
-
-### 
-
-​
-
-Reiniciar después de un fallo
-
-Si ComfyUI no logra iniciarse o se cierra inesperadamente, la ventana permanece abierta con una tarjeta que describe lo que ocurrió:
-
-  * **ComfyUI no pudo iniciarse** : la instancia no arrancó.
-  * **ComfyUI se cerró inesperadamente** : el proceso se detuvo. Cuando Comfy Desktop puede leerlo, la tarjeta también muestra el código de salida, o la señal que terminó el proceso.
-
-En Windows, un fallo puede reportar una violación de acceso a la memoria y señalar que algunos archivos de Microsoft Visual C++ Redistributable parecen faltar. Expande los registros de la tarjeta para ver los detalles y luego selecciona **Reiniciar ComfyUI** para iniciar de nuevo, o **Volver** para regresar al panel. Si ComfyUI se detiene porque no puede abrir la base de datos de recursos que guarda dentro de la instalación, el error con el que se detiene explica el motivo en lugar de reportar solo un código de salida:
-
-  * **Otro ComfyUI está usando la base de datos de esta instalación** : cierra ese ComfyUI (o la aplicación que lo inició), o dale a uno de ellos su propia ubicación de base de datos con el argumento de inicio `--database-url`.
-  * **Cualquier otro fallo de la base de datos** , desde una bloqueada por otro programa hasta una escrita por una versión más reciente de ComfyUI o imposible de crear en esa carpeta: el mensaje indica el archivo y la solución, y termina con la opción de iniciar la instancia sin el sistema de recursos, agregando `--disable-assets` a sus argumentos de inicio.
+  1. Haz clic en la flecha que está junto a **Update** (**More update options**) y selecciona **Copy & update**.
+  2. Escribe un nombre para la copia y haz clic en **Copy & update**.
 
 
 
-## 
+#### Cambiar el canal de actualización
 
-​
+El canal decide de dónde vienen las actualizaciones.
 
-Desinstalar una instancia
+Si seleccionas **Stable** en una compilación que va por delante del lanzamiento estable, la compilación retrocede y se eliminan los commits más recientes.
 
-↩ Volver a la descripción general Cuando quieres eliminar una instancia, dos acciones determinan si sus archivos permanecen en el disco. ![Olvidar y Desinstalar en el menú Más del panel Administrar](https://mintcdn.com/dripart/PBKxxhs8nJtECa3d/images/desktop/usage/instance_uninstall.png?fit=max&auto=format&n=PBKxxhs8nJtECa3d&q=85&s=620dca5ad4180a25c2deb1d8165ff3fb)
+En la tarjeta **ComfyUI** , haz clic en el nombre del canal para abrir el menú desplegable **Update channel** y selecciona uno:
 
-  1. **Olvidar** : Elimina la instancia de la aplicación sin borrar nada. La carpeta de instalación y todos sus datos permanecen en el disco. Úsalo cuando solo quieras limpiar la lista pero podrías necesitar la instancia más tarde.
-  2. **Desinstalar** : Elimina permanentemente la instalación y todos sus archivos del disco. Los archivos de modelo en directorios compartidos no se ven afectados.
+  * **Stable** : lanzamientos probados. Úsalo para la mayoría de las compilaciones. Las compilaciones usan este canal de forma predeterminada.
+  * **Latest on GitHub** : los commits más recientes de la rama master.
 
-**Desinstalar** también está en el menú ⋮ de la tarjeta de la instancia. **Olvidar** no forma parte de ese menú; lo encuentras en el panel Administrar, en el menú **Más** en la parte inferior del panel. Una instalación que Comfy Desktop adoptó, como una migrada desde Legacy Desktop, no tiene la acción **Olvidar**.
+Cuando seleccionas un canal en el que no está la compilación, la fila dice **Switch to** :
 
-## 
+  * Si ese canal tiene una versión más reciente, haz clic en **Update** para mover la compilación a ese canal.
+  * Si no tiene nada más reciente, haz clic en **Switch channel** para mover la compilación sin actualizarla.
+  * Si Comfy Desktop no tiene información de versión para ese canal, la fila dice **Select this channel and check for updates to see version info.** Haz clic en **Check for updates**.
 
-​
 
-Duplicar una instancia
 
-↩ Volver a la descripción general Puedes duplicar una instalación independiente existente. Abre el menú ⋮ de la tarjeta y selecciona **Duplicar instancia** , o usa **Duplicar instancia** en el menú **Más** del panel Administrar. La copia obtiene:
+#### Cambiar PyTorch
 
-  * Un nuevo entorno de Python
-  * La misma versión de ComfyUI
-  * Su propia configuración de nodos personalizados
+Cambiar PyTorch permite que la compilación use otra versión u otro backend de PyTorch, como una versión de CUDA más reciente. El menú **Change** aparece en el mosaico **PyTorch** en cuanto Comfy Desktop sabe qué versiones puede instalar para la compilación. Antes de cambiar PyTorch, asegúrate de que el disco tenga espacio libre para una copia completa del entorno de la compilación.
 
-Escribe un nombre para la copia duplicada cuando se te solicite. La copia se crea junto a la original. Las instalaciones en la nube, remotas y rastreadas no se pueden duplicar.
+Cambiar a una versión sin torchaudio elimina torchaudio, y los Nodos Personalizados que lo necesitan dejan de funcionar. El menú etiqueta estas versiones.
 
-## 
+  1. En **Overview** , haz clic en **Change** en el mosaico **PyTorch**.
+  2. Mantén el puntero sobre la versión que quieres.
+  3. Selecciona una de estas opciones: 
+     * **Change PyTorch** : cambia esta compilación. El diálogo **Change PyTorch** muestra el cambio y, en el caso de un paquete, su tamaño de descarga. Comfy Desktop hace una copia de seguridad del entorno actual durante el cambio y la restaura si algo falla.
+     * **Copy & change PyTorch**: hace el cambio en una copia de esta compilación y deja la original tal como está. Escribe un nombre para la copia y haz clic en **Copy & change PyTorch**.
 
-​
+En el menú **Change** , las versiones se agrupan por backend y la versión instalada muestra **In use**. Las versiones nocturnas aparecen bajo un encabezado que termina en **Nightly (unstable)** , y las versiones nocturnas más antiguas desaparecen del menú.
 
-Editar una instancia
+#### Cambiar la URL de una compilación remota
 
-↩ Volver a la descripción general En el panel **Administrar** de una instancia, puedes:
+Una compilación remota se conecta a un servidor de ComfyUI en una URL. Para apuntarla a otra dirección:
 
-  * Cambiar la ruta de instalación
-  * Ajustar los argumentos de inicio
-  * Modificar los directorios de modelos
-  * Actualizar las variables de entorno
-  * Renombrar la instancia, desde el nombre en la parte superior de la pestaña **Acerca de** o desde **Renombrar** en el menú **Más**
-  * Cambiar la dirección de conexión de una conexión remota, en la pestaña **Acerca de**
+  1. En **Overview** , dentro de **Build details** , haz clic en la **URL** o en el lápiz (**Edit connection URL**) que está junto a ella.
+  2. Escribe la nueva dirección y presiona `Enter` o haz clic en cualquier otro lugar.
 
-Abre el panel **Administrar** haciendo clic derecho en la tarjeta de la instancia (o seleccionando **Administrar** en su menú ⋮).
+Si omites el esquema, Comfy Desktop usa `http://`. Si Comfy Desktop no puede leer la dirección, mantiene la anterior. Mientras la compilación está conectada, la fila muestra **Restart to apply** , y la sesión en ejecución conserva la dirección antigua hasta que reinicies.
 
-## 
+### Elegir qué carpetas usa la compilación
 
-​
+La pestaña **Folders** de la página de la compilación define dónde encuentra sus modelos y dónde lee las entradas y guarda las salidas. Tiene tres secciones: **Models** , **Input** y **Output**. De forma predeterminada, las tres usan las carpetas compartidas de **Desktop settings**. ![Pestaña Folders de una compilación Standalone: Models con Include shared directories activado, una carpeta de modelos compartida etiquetada como Downloads y Shared, la carpeta de modelos propia de la compilación etiquetada como Build, y Add models folder; después Input y Output con Use shared input y Use shared output activados y sus carpetas compartidas](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-folders.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=10dca7b253888dd08db4d83be51c6cf1)
 
-Estado de error
+  * **Models** : **Include shared directories** activa o desactiva las carpetas de modelos compartidas para esta compilación. La lista muestra: 
+    * Carpetas compartidas, etiquetadas como **Shared**.
+    * La carpeta de modelos propia de la compilación, etiquetada como **Build**. La compilación siempre la usa.
+    * Carpetas que agregas solo para esta compilación, con **Add models folder**.
+    * Una fila etiquetada como **YAML** cuando la compilación tiene un archivo `extra_model_paths.yaml`.
+  * **Input** : con **Use shared input** activado, la compilación lee las entradas de la carpeta de entrada compartida. Desactívalo para usar la carpeta de entrada propia de la compilación.
+  * **Output** : con **Use shared output** activado, la compilación guarda las salidas en la carpeta de salida compartida. Desactívalo para usar la carpeta de salida propia de la compilación.
 
-Si una instalación encuentra un problema, aparece una insignia **Error** en su tarjeta. Selecciona la insignia para leer los detalles: el mensaje, el código de salida o la señal cuando Comfy Desktop tenga uno, y las últimas líneas de la salida de error. Iniciar o reiniciar la instancia borra la insignia. Si el problema vuelve, revisa los registros en [Ubicaciones de datos](https://docs.comfy.org/es/installation/desktop/usage/settings#ubicaciones-de-datos).
+En la lista **Models** :
+
+  * La carpeta etiquetada como **Downloads** recibe las descargas de modelos nuevas.
+  * El menú de una carpeta contiene las acciones que permite, como **Use for model downloads** , **Change folder** o **Remove**.
+  * En una carpeta compartida, selecciona **Manage shared directories in Desktop settings** para cambiar las carpetas compartidas.
+
+Si haces clic en la fila **YAML** , se abre **Custom model paths** , una lista de solo lectura de las carpetas que agrega `extra_model_paths.yaml`. Para cambiar esas carpetas:
+
+  1. En **Custom model paths** , haz clic en **Show extra_model_paths.yaml** para encontrar el archivo.
+  2. Edita y guarda el archivo.
+  3. Haz clic en **Refresh status**.
+
+Después de un cambio, la pestaña muestra **Restart the application (or close and reopen) for these changes to take effect.**
+
+#### Configurar opciones de salida para compilaciones remotas y de Comfy Cloud
+
+La pestaña **Startup arguments** de una compilación remota y la pestaña **Storage** de una compilación de Comfy Cloud contienen estas configuraciones: ![Pestaña Storage de la compilación de Comfy Cloud: Browser cache establecida en Shared, Auto-download outputs activado y Use shared output directory activado, con Open Cloud en la esquina superior derecha](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-cloud-storage.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=74e167e3b5fd088d740bbb214ebb3b59)
+
+  * **Browser cache** : **Shared** de forma predeterminada, o **Unique to this build**.
+  * **Auto-download outputs** : activado de forma predeterminada. Descarga en este equipo las salidas de cada ejecución.
+  * **Use shared output directory** : aparece mientras **Auto-download outputs** está activado y guarda las salidas en la carpeta de salida compartida. Para elegir una carpeta para esta compilación, desactívalo.
+
+
+
+### Establecer argumentos de inicio
+
+La pestaña **Startup arguments** de la página de la compilación controla cómo se inicia ComfyUI para esta compilación: sus indicadores de línea de comandos, la política de ComfyUI Manager, la ventana y el entorno. ![Pestaña Startup arguments de una compilación Standalone en Launch settings: el campo Startup arguments con --enable-manager, una etiqueta +1 beta y el engranaje, luego Manager security level, Manager network mode, Launch mode, Browser cache, If port is busy y Environment variables con Add variable](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-startup-arguments.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=d6c33a5fe6a322c45b18d18b6224f2d0) Cada cambio se aplica la próxima vez que se inicie la compilación. Si la compilación está en ejecución cuando cambias un campo, el campo muestra **Restart to apply** y el botón del encabezado dice **Restart to apply changes**. Haz clic en él para reiniciar la compilación con la nueva configuración.
+
+#### Elegir indicadores de la lista
+
+El campo **Startup arguments** contiene los argumentos de línea de comandos que se pasan a ComfyUI, como `--listen`. Puedes escribirlos o elegirlos de una lista ordenada por categoría. Si las funciones beta agregan argumentos, una etiqueta **+N beta** junto al campo los enumera. Para ver todos los indicadores, consulta la [referencia de indicadores de inicio](https://docs.comfy.org/es/development/comfyui-server/startup-flags).
+
+  1. Haz clic en el engranaje (**Configure arguments**) junto a **Startup arguments**.
+  2. Activa o desactiva indicadores en las categorías, o edita **Raw arguments**. Ambas opciones cambian los mismos argumentos para esta compilación.
+  3. Haz clic en **Back** para volver a la pestaña.
+
+
+
+#### Controlar qué instala ComfyUI Manager
+
+Dos configuraciones deciden qué Paquetes de Nodos puede instalar ComfyUI Manager para esta compilación. Configura primero **Manager security level** :
+
+  * **Strict** : bloquea todas las instalaciones, actualizaciones y desinstalaciones de Paquetes de Nodos. ComfyUI Manager es de solo lectura.
+  * **Standard (recommended)** : permite Paquetes de Nodos registrados y bloquea las instalaciones desde fuentes no registradas, como URLs de git arbitrarias. Es el valor predeterminado.
+  * **Relaxed** : igual que Standard, pero también permite instalaciones desde fuentes no registradas mientras ComfyUI sea accesible solo desde este equipo. `--listen` las bloquea de nuevo.
+  * **Permissive** : permite todos los niveles de riesgo.
+
+Luego configura **Manager network mode** , que decide cómo llega ComfyUI Manager al registro de nodos.
+
+**Personal cloud** elimina el bloqueo de instalación de `--listen`. Selecciónalo solo en un equipo que controles.
+
+  * **Public (default)** : usa el registro público. Con `--listen`, las instalaciones de Paquetes de Nodos se bloquean en todos los niveles de seguridad.
+  * **Private** : usa una base de datos de nodos privada que configures tú mismo.
+  * **Offline** : no realiza conexiones de red externas. Las instalaciones y actualizaciones que necesitan descargas no están disponibles.
+  * **Personal cloud** : trata este equipo como tu propia máquina remota de confianza y elimina el bloqueo de instalación de `--listen`. El nivel de seguridad sigue aplicándose.
+
+
+
+#### Configurar la ventana, la caché y el puerto
+
+Estas configuraciones deciden cómo se abre la compilación y qué hace cuando su puerto está ocupado:
+
+  * **Launch mode** : **App window** (predeterminado) o **Console only**.
+  * **Browser cache** : **Unique to this build** o **Shared** con otras compilaciones. Una compilación Standalone nueva comienza con **Unique to this build**.
+  * **If port is busy** : **Ask what to do** o **Use next available port (asks if —port is set)**. Las compilaciones Standalone y Portable usan **Use next available port (asks if —port is set)** de forma predeterminada, y las de git usan **Ask what to do**.
+
+
+
+#### Agregar variables de entorno
+
+Las variables de entorno pasan configuraciones adicionales a ComfyUI cuando se inicia la compilación.
+
+Comfy Desktop almacena los valores de las variables de entorno sin cifrar en el disco. No agregues claves de API, tokens ni contraseñas.
+
+  * En **Environment variables** , haz clic en **Add variable** y luego ingresa el nombre y el valor.
+
+Los valores de nombres que parecen credenciales, como `HF_TOKEN`, permanecen ocultos hasta que los reveles. Un nombre repetido muestra **Duplicate key**.
+
+### Guardar y restaurar instantáneas
+
+Una instantánea registra la versión de ComfyUI de una compilación, sus Nodos Personalizados y sus paquetes de Python, así puedes devolver la compilación a como estaba después de una actualización o de que un nodo personalizado la estropee. Los modelos, las entradas y las salidas no forman parte de una instantánea. La pestaña **Snapshots** aparece para las compilaciones Standalone instaladas. ![Pestaña Snapshots de una compilación Standalone con Import, Export all y Create snapshot en la parte superior, y una línea de tiempo de instantáneas Boot y Updated, cada una con Restore](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-snapshots.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=312f2481ac9d2efcfc3b757187f5933b)
+
+#### Cuándo guarda una instantánea Comfy Desktop
+
+Comfy Desktop guarda instantáneas por ti y etiqueta cada una con el motivo por el que se guardó:
+
+Etiqueta| Se guarda cuando  
+---|---  
+**Boot**|  ComfyUI se inicia y la configuración cambió desde la última instantánea, y una vez después de la primera instalación  
+**Manager**|  ComfyUI Manager reinicia ComfyUI  
+**Update** , **Updated**|  Antes y después de actualizar ComfyUI o cambiar PyTorch  
+**Restored**|  Después de restaurar una instantánea  
+**Manual**|  Haces clic en **Create snapshot**  
+  
+Comfy Desktop conserva hasta 200 instantáneas **Boot** y **Manager** y elimina las más antiguas cuando supera esa cantidad. Nunca elimina una instantánea que tenga una etiqueta.
+
+#### Leer la línea de tiempo
+
+La pestaña **Snapshots** lista las instantáneas, más recientes primero, bajo **Latest:** y hace cuánto se guardó la última. La instantánea más reciente se abre automáticamente. Haz clic en cualquier otra instantánea para abrirla y haz clic en **What changed in this snapshot** para ver qué Nodos Personalizados y paquetes agregó, quitó o cambió. Una instantánea muestra su etiqueta cuando tiene una, y el cambio de versión, como **v0.42.1 → v0.46.2** , después de una actualización.
+
+#### Crear una instantánea
+
+Guarda una instantánea antes de probar algo riesgoso, como un nuevo Nodo Personalizado.
+
+  1. Haz clic en **Create snapshot**.
+  2. En **Create snapshot** , escribe una etiqueta si quieres una, como `before-experiment`. Una instantánea con etiqueta nunca se elimina para hacer espacio.
+  3. Haz clic en **Create snapshot**.
+
+
+
+#### Restaurar una instantánea
+
+  1. Haz clic en **Restore** en la instantánea. La instantánea más reciente no tiene **Restore** , porque la compilación ya coincide con ella.
+  2. En **Restore this snapshot?** , revisa qué cambios se aplicarán y luego confirma.
+
+Comfy Desktop hace primero una copia de seguridad de la compilación. Si la compilación está en ejecución, Comfy Desktop la detiene, restaura la instantánea y la vuelve a iniciar. Cuando la instantánea usaba un PyTorch diferente, la restauración también cambia PyTorch. Si ese PyTorch no está disponible, Comfy Desktop conserva el actual o se detiene sin cambiar nada. Cuando termina la restauración, la compilación muestra **Snapshot restored**. Si falla, haz clic en **Try again** o en **Dismiss**. También puedes abrir las instantáneas de una compilación desde el menú de acciones rápidas: selecciona **Restore snapshot**.
+
+#### Exportar, importar y eliminar instantáneas
+
+  * **Exportar una instantánea** : haz clic en **More actions** (**⋯**) en la instantánea y luego selecciona **Export**. Para exportar la instantánea más reciente sin abrir la pestaña, selecciona **Export snapshot** en el menú de acciones rápidas o en el menú **More** de la página de la compilación.
+  * **Export all** : guarda todas las instantáneas de la compilación en un archivo.
+  * **Import** : elige un archivo de instantánea. **Import snapshot?** te pide que confirmes y luego Comfy Desktop restaura la compilación a esa instantánea de inmediato. Si la instantánea usa un PyTorch diferente, el diálogo advierte **Snapshot uses a different PyTorch**.
+  * **Delete** : haz clic en **More actions** (**⋯**) en la instantánea, selecciona **Delete** y confirma. La compilación y sus otras instantáneas no cambian.
+
+Comfy Desktop almacena las instantáneas de una compilación en la carpeta `.launcher/snapshots` dentro de la carpeta de la compilación.
+
+#### Crear una compilación a partir de un archivo de instantánea
+
+Un archivo de instantánea puede configurar una compilación nueva con la misma versión de ComfyUI, los mismos Nodos Personalizados y los mismos paquetes, como una que exportó un compañero de equipo.
+
+  1. En la página **Builds** , haz clic en la flecha junto a **New build** (**More build options**) y luego selecciona **Load snapshot**. La página muestra **Load a snapshot file to install a build.**
+  2. Suelta el archivo `.json` en la página, o haz clic en **Browse** y elígelo.
+  3. Revisa **Name** , **Release** y **Hardware**. La página te advierte cuando la instantánea se creó para un hardware diferente.
+  4. Haz clic en **Create build**.
+
+La nueva compilación Standalone se instala y se inicia cuando termina la instalación.
+
+### Ejecutar comandos en la terminal
+
+La pestaña **Terminal** de la página de la compilación abre un shell en la carpeta `ComfyUI` dentro de la carpeta de la compilación. El entorno de Python de la compilación está activo, así que comandos como `pip` actúan sobre esta compilación. ![Pestaña Terminal de una compilación Standalone con un indicador de shell que muestra el entorno .venv activo en la carpeta ComfyUI](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy-desktop-terminal.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=75fc6548765af23b2c92a501f191540c)
+
+  * La terminal funciona tanto si ComfyUI está en ejecución como si está detenido.
+  * Haz clic derecho en la terminal para **Copy** , **Paste** o **Select all**.
+
+
+
+### Duplicar una compilación
+
+Un duplicado es una copia de una compilación que puedes modificar sin tocar el original. Puedes duplicar una compilación **Standalone** o una Developer Platform Build del espacio de trabajo de tu equipo.
+
+  1. En el menú de acciones rápidas o en el menú **More** , selecciona **Duplicate**.
+  2. En **Duplicate build** , escribe un nombre para la copia.
+  3. Haz clic en **Duplicate**.
+
+Comfy Desktop crea la copia junto al original. Cuando la copia está lista, Comfy Desktop abre la página de compilación de la copia. Para copiar una compilación y modificarla en un solo paso, usa **Copy & update** en Actualizar ComfyUI o **Copy & change PyTorch** en Cambiar PyTorch.
+
+### Eliminar una compilación
+
+Dos acciones eliminan una compilación. **Forget** mantiene sus archivos en el disco. **Uninstall** los elimina. **Forget** quita la compilación de Comfy Desktop. Su carpeta permanece en tu equipo y puedes volver a agregarla con **Add existing build**.
+
+  1. Abre la página de la compilación y luego haz clic en **More**.
+  2. Selecciona **Forget** y luego confirma en **Forget build**.
+
+En una compilación remota, **Forget** elimina la conexión. El servidor no cambia. Una compilación **Standalone** que Comfy Desktop creó a partir de Legacy Desktop no tiene **Forget**. **Uninstall** elimina una compilación de este equipo. En una compilación remota, la quita de Comfy Desktop y no modifica el servidor.
+
+**Uninstall** elimina de forma permanente la compilación y todos sus archivos, y no puedes deshacerlo. Otras compilaciones no se ven afectadas. Si cancelas una desinstalación, no puedes restaurar los archivos que Comfy Desktop ya haya eliminado.
+
+  1. Detén la compilación si está en ejecución.
+  2. En el menú de acciones rápidas o en el menú **More** , selecciona **Uninstall**.
+  3. Revisa la carpeta que muestra el diálogo y luego haz clic en **Uninstall**.
+
+La compilación muestra **Uninstalling** y el porcentaje. Cuando finaliza, la compilación desaparece de la **barra lateral** y de la página **Builds**. Para detener la desinstalación:
+
+  1. En el menú de acciones rápidas, selecciona **Cancel**.
+  2. Haz clic en **Stop uninstalling**.
+
+La compilación permanece en tu lista de compilaciones. No puedes restaurar los archivos que Comfy Desktop ya haya eliminado, así que vuelve a desinstalarla para finalizar. Si la desinstalación falla, consulta Solucionar una compilación que falla.
+
+## Solucionar una compilación que falla
+
+Cuando una compilación falla, Comfy Desktop la marca en varios lugares:
+
+  * **Barra lateral** : un punto rojo. Su descripción emergente dice, por ejemplo, **Crashed (exit code 1)** o **Didn’t start:** y el motivo.
+  * **Página Builds** : un chip de estado en el mosaico, como **Didn’t start** , **Crashed** o **Error**.
+  * **Menú de acciones rápidas** : **View error** , que abre los detalles.
+  * **Página de la compilación** : un chip rojo junto al nombre. Haz clic en él para abrir los detalles.
+  * **Home** : la tarjeta de la compilación dice **Didn’t start** o nombra un problema con la compilación, como **Install failed** o **Folder not found**. Una caída repentina no aparece en la tarjeta.
+
+Busca abajo el mensaje que ves.
+
+ComfyUI no se instaló
+
+La instalación se detuvo antes de terminar. El diálogo **Installing ComfyUI** dice **ComfyUI didn’t install** y muestra el paso que falló. Haz clic en **View logs** en el diálogo para leer la salida.La compilación muestra entonces **Install failed** : **This build’s installation did not finish. Uninstall it and reinstall.** **Uninstall** la compilación y luego vuelve a instalarla.
+
+ComfyUI no se inició
+
+La compilación no logró iniciarse. La página de la compilación muestra **ComfyUI didn’t start** con el motivo.
+
+  1. Haz clic en **View logs** en la página de la compilación, o selecciona **View error** en el menú de acciones rápidas, para leer qué falló.
+  2. Corrige la causa. En el diálogo que se abre, haz clic en **Try again**.
+
+
+
+ComfyUI se cerró inesperadamente
+
+ComfyUI se detuvo mientras se ejecutaba. La descripción emergente de la **barra lateral** dice **Crashed** con el código de salida o la señal, y la página de la compilación muestra **ComfyUI exited unexpectedly**.
+
+  * Selecciona **View error** en el menú de acciones rápidas para leer el mensaje y las últimas líneas que imprimió ComfyUI.
+  * En la ventana de ComfyUI, haz clic en **Restart ComfyUI** para iniciarlo de nuevo, o en **Back to Home**.
+
+En Windows, una caída puede reportar una violación de acceso a la memoria. Si el mensaje también dice que parecen faltar algunos archivos de Microsoft Visual C++ Redistributable, repara o instala el redistributable más reciente y luego reinicia la compilación.
+
+Folder not found o Folder access denied
+
+Comfy Desktop no puede acceder a la carpeta de la compilación.
+
+  * **Folder not found** : **Build folder not found. Reconnect the drive or restore the folder, then try again.**
+  * **Folder access denied** : **Can’t access the build folder. Check that you have permission to read it (or that the drive is online), then try again.**
+
+Selecciona **View error** en el menú de acciones rápidas para leer el mensaje y la ruta de la carpeta.
+
+Uninstall no terminó
+
+La página de la compilación muestra **Uninstall didn’t finish** con el motivo. Cuando un archivo está en uso, el motivo nombra el programa que lo retiene, o dice que Comfy Desktop no pudo identificarlo. Cierra ese programa y luego haz clic en **Try again**. Haz clic en **Dismiss** para cerrar el mensaje.Si una desinstalación anterior se interrumpió, la compilación muestra **Uninstall interrupted** : **A previous uninstall of this build was interrupted. Open it to resume or retry the uninstall.** Abre la página de la compilación y luego desinstálala otra vez.
+
+Port already in use
+
+ComfyUI escucha en un puerto, `8188` a menos que los argumentos de inicio de la compilación establezcan `--port`. Cuando otro programa usa ese puerto, el ajuste **If port is busy** de Configurar la ventana, la caché y el puerto decide qué ocurre:
+
+  * **Use next available port (asks if —port is set)** : el valor predeterminado para las compilaciones **Standalone** y **Portable**. Comfy Desktop inicia la compilación en el siguiente puerto libre, y el progreso del inicio indica el puerto ocupado y el puerto que usa en su lugar.
+  * **Ask what to do** : el valor predeterminado para los demás tipos de compilación.
+
+Comfy Desktop abre **Port already in use** y nombra el programa que retiene el puerto cuando **If port is busy** es **Ask what to do** , cuando los argumentos de inicio establecen `--port`, o cuando Comfy Desktop no encuentra ningún puerto libre.
+
+**Stop process and retry** detiene el otro ComfyUI y pierde su trabajo sin guardar.
+
+  * **Use next available port** : inicia esta compilación en el siguiente puerto libre.
+  * **Stop process and retry** : detiene el programa que retiene el puerto y luego inicia la compilación otra vez. Solo aparece cuando ese programa parece un ComfyUI.
+
+Cierra el diálogo para cancelar el inicio.Cuando los argumentos de inicio de la compilación incluyen `--enable-assets`, Comfy Desktop también comprueba si el puerto lo retiene otro ComfyUI que ejecuta esta misma compilación. Si es así, Comfy Desktop no ofrece otro puerto, porque ambas copias de ComfyUI usarían la misma base de datos. Detén primero la otra copia, o cierra la aplicación que la inició.
+
+Un ComfyUI anterior sigue en ejecución
+
+Una sesión anterior de Comfy Desktop dejó un ComfyUI en ejecución para esta compilación. Ese ComfyUI mantiene la base de datos de la compilación, así que un ComfyUI nuevo para la compilación no puede iniciarse.
+
+**Stop it and start this build** cancela los prompts que el ComfyUI anterior está procesando.
+
+  * **ComfyUI is still running a prompt** : haz clic en **Stop it and start this build** para detenerlo y cancelar sus prompts, o déjalo en ejecución y cancela este inicio.
+  * **Processes from an earlier ComfyUI are still running** : el mensaje enumera sus identificadores de proceso. Haz clic en **Stop them and start this build**.
+  * Cuando el ComfyUI anterior no se cierra, termina el proceso tú mismo y luego inicia la compilación otra vez.
+
+
+
+Otro ComfyUI está usando la base de datos de esta compilación
+
+Otro ComfyUI usa la base de datos de esta compilación, así que ComfyUI no puede iniciarse para esta compilación. Cierra el otro ComfyUI, o la aplicación que lo inició, y vuelve a iniciar la compilación. Para ejecutar ambos a la vez, dale a uno de ellos su propia ubicación de base de datos con el argumento de inicio `--database-url`.
 
 ¿Esta página le ayudó?
 
@@ -310,4 +648,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/installation/desktop/usage/instance-management.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/installation/desktop/usage/instance-management)
 
-[Descripción general](https://docs.comfy.org/es/installation/desktop/usage/overview)[Espacios de trabajo y builds](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds)
+[Descripción general](https://docs.comfy.org/es/installation/desktop/usage/overview)[Builds de equipo](https://docs.comfy.org/es/installation/desktop/usage/workspaces-and-builds)

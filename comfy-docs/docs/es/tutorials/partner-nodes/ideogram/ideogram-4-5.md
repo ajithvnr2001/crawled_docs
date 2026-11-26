@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-4-5/
 title: Ideogram 4.5 en ComfyUI: texto a imagen y edici\u00f3n - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-02T16:54:40.069549+00:00
+fetched_at: 2026-11-26T17:36:35.938705+00:00
 ---
 
 # Ideogram 4.5 en ComfyUI: texto a imagen y edición - ComfyUI
@@ -30,7 +30,7 @@ Usa los nodos asociados de Ideogram 4.5 en ComfyUI para texto a imagen, edición
 
 Copiar páginaCopiar página
 
-**Ideogram 4.5** es el modelo más reciente de la familia y el modelo de edición más preciso de Ideogram: solo cambia lo que el prompt indica, así que las ediciones repetidas conservan los colores, las texturas y los detalles en su sitio. Llega a ComfyUI como tres nodos asociados que se facturan por imagen a través de la misma cuenta de Comfy que el resto de los nodos asociados. Ideogram 4.0 conserva su propia página: [Ideogram 4.0 en ComfyUI](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-v4).
+**Ideogram 4.5** solo cambia lo que el prompt indica, así que las ediciones repetidas conservan los colores, las texturas y los detalles en su sitio. Ideogram 4.6 es el modelo más reciente, con salida 4K nativa: [Ideogram 4.6 en ComfyUI](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-4-6). Ambos llegan a ComfyUI como opciones de modelo en tres nodos asociados que se facturan por imagen a través de la misma cuenta de Comfy que el resto de los nodos asociados. Ideogram 4.0 conserva su propia página: [Ideogram 4.0 en ComfyUI](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-v4).
 
 Para usar los Nodos asociados, debes asegurarte de haber iniciado sesión correctamente y de estar utilizando un entorno de red permitido. Consulta la sección [Descripción general de los Nodos asociados](https://docs.comfy.org/es/tutorials/partner-nodes/overview) de la documentación para conocer los requisitos específicos de uso de los Nodos asociados.
 
@@ -57,11 +57,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Texto a imagen
+## Texto a imagen
 
 Genera una imagen a partir de un prompt de texto, con el tamaño de lienzo y el nivel de calidad que elijas. ![Vista previa del flujo de trabajo Texto a imagen de Ideogram 4.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_t2i-1.webp)
 
@@ -85,11 +81,7 @@ Entrada| Valores| Efecto
   
 El nodo también genera `final_prompt`, la leyenda estructurada con la que se generó la imagen. Para reproducir una imagen, pasa esa leyenda de nuevo con `magic_prompt` en `off` y la misma semilla.
 
-## 
-
-​
-
-Editar imagen
+## Editar imagen
 
 Edita o combina hasta cinco imágenes con una sola instrucción. `image_1` es la imagen que editas; las imágenes 2 a 5 aportan referencias de diseño, material o color. Menciónalas en el prompt como `@Image1`, `@Image2`, etc. ![Vista previa del flujo de trabajo de edición de imagen de Ideogram 4.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_image_edit-1.webp)
 
@@ -118,11 +110,7 @@ Entrada| Valores| Efecto
   
 Puedes conectar hasta cinco imágenes en total. Las entradas de más de unos 4 MP se reducen antes de subirlas, y cada imagen debe tener una relación de aspecto entre 1:6 y 6:1. La edición vuelve a renderizar toda la imagen, por lo que el encuadre y las zonas sin editar pueden cambiar junto con la edición. Usa Precise Edit cuando el resto de la imagen tenga que permanecer exactamente como está.
 
-## 
-
-​
-
-Edición precisa
+## Edición precisa
 
 Cambia solo lo que pida el prompt. Los píxeles sin tocar permanecen idénticos. Acepta hasta cuatro imágenes de referencia además de la imagen que se edita. ![Vista previa del flujo de trabajo de edición precisa de Ideogram 4.5](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/api_ideogram_v4_5_precise_image_edit-1.webp)
 
@@ -142,11 +130,7 @@ Carga en la ranura `image_1` del nodo Ideogram 4.5 Precise Edit
 
 La edición precisa comparte las ranuras de referencia, el direccionamiento `@Image1` y los controles `quality` y `seed` con el modo Edit. No tiene control de tamaño. Con una región, la salida conserva el tamaño de `image_1`. Sin región (`context_window` en el valor predeterminado `none`), las fuentes de más de unos 4 MP se reducen primero, así que la salida puede ser más pequeña. La plantilla también genera su instrucción con el nodo **Build JSON Prompt**.
 
-### 
-
-​
-
-Editar una sola región
+### Editar una sola región
 
 Sin región, el nodo vuelve a generar todo `image_1` y reduce primero cualquier imagen de más de unos 4 MP (2048x2048). Ajusta `context_window` para editar una sola región: solo esa región se regenera y la salida conserva el tamaño original de `image_1`, desde una fuente de hasta 8192x8192 píxeles. Fuera de la región, los píxeles se copian sin cambios mientras `image_1` se envía como PNG. Si el PNG supera el límite de subida y `image_1` se convierte a JPEG, los píxeles fuera de la región pueden cambiar ligeramente.
 
@@ -164,4 +148,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/partner-nodes/ideogram/ideogram-4-5.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/partner-nodes/ideogram/ideogram-4-5)
 
-[Ideogram Vector](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-vector)[Ideogram P Image](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-p-image)
+[Ideogram 4.6](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-4-6)[Ideogram P Image](https://docs.comfy.org/es/tutorials/partner-nodes/ideogram/ideogram-p-image)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/desktop/usage/settings/
 title: Configuraciones de Comfy Desktop - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:07.640599+00:00
+fetched_at: 2026-11-26T17:36:33.089987+00:00
 ---
 
 # Configuraciones de Comfy Desktop - ComfyUI
@@ -13,18 +13,17 @@ fetched_at: 2026-11-16T16:52:07.640599+00:00
 
 Volver arriba
 
-  * Preferencias
-    * Comportamiento de la aplicación
-    * Privacidad
-    * Comunidad
-  * Actualizaciones
-  * Almacenamiento
-  * Avanzado
-    * Caché de descargas
-  * Registros
-  * Ubicaciones de datos
-  * Atajos de teclado
-  * Comentarios y problemas
+  * Abrir Configuraciones de Escritorio
+  * Configurar tus preferencias
+    * Activar las funciones beta
+  * Actualizar Comfy Desktop
+    * Dejar que las actualizaciones se instalen solas
+    * Actualizar desde la barra lateral
+    * Buscar actualizaciones tú mismo
+  * Elegir carpetas compartidas y la ubicación de instalación
+  * Configurar espejos y aceleración por hardware
+    * Conservar la caché de descargas
+  * Encontrar el registro de la aplicación
 
 
 
@@ -34,147 +33,127 @@ Guía de uso
 
 Copiar páginaCopiar página
 
-Configuración global, configuración de proxy/espejo y ubicaciones de datos
+Cambia las configuraciones de Comfy Desktop: actualiza la app, define carpetas compartidas, ubicación de instalación, espejos, caché de descargas y registro.
 
 Copiar páginaCopiar página
 
-Haz clic en el menú ☰ (1) en la esquina superior izquierda y selecciona **Configuraciones de Escritorio** (2) para abrir el panel de configuración global. ![Panel de Comfy Desktop con el menú ☰ abierto y Configuraciones de Escritorio en el menú](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=c159ee0f220f359169a739852ff90fea) El panel de configuraciones está organizado en cinco pestañas. Haz clic en una pestaña de la barra lateral para cambiar de vista.
+Comfy Desktop ejecuta tus compilaciones de ComfyUI, y **Configuraciones de Escritorio** contiene las opciones que afectan a todas ellas a la vez, como las carpetas que todas las compilaciones comparten para los modelos o el espejo que usan las descargas de paquetes. En cambio, las configuraciones de una compilación individual, como sus propias carpetas o argumentos de inicio, están en la página de esa compilación. Usa **Configuraciones de Escritorio** para actualizar Comfy Desktop, elegir carpetas compartidas y la ubicación de instalación predeterminada, configurar espejos y la caché de descargas, activar funciones beta y encontrar el registro de la aplicación.
 
-## Preferencias
+## Abrir Configuraciones de Escritorio
 
-![Preferencias: idioma, comportamiento de la aplicación, telemetría y participación en funciones beta](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=2f708f5b4699204effebaac74780fd58) La pestaña Preferencias se abre con un selector de **Idioma** y luego agrupa el resto de sus controles en tres secciones.
+  * En la parte inferior de la **barra lateral** , haz clic en **Desktop settings**. En una ventana que ejecuta ComfyUI, también puedes abrir el **Menú** de la **barra de título** y seleccionar **Desktop settings**. Consulta [Cómo moverte por Comfy Desktop](https://docs.comfy.org/es/installation/desktop/usage/overview#ubica-la-barra-lateral) para la **barra lateral** y la **barra de título**.
 
-  * **Idioma** : Elige el idioma de la interfaz. **English** y **简体中文** están disponibles.
+![La página Builds con la fila Desktop settings resaltada en la parte inferior de la barra lateral](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_00_menu.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=fe218501a37ba11b0fa56252ca4882a7) La ventana **Desktop settings** tiene cinco pestañas a la izquierda: **Preferences** , **Updates** , **Folders** , **Advanced** y **Logs**. Haz clic en una pestaña para cambiar a ella.
 
+## Configurar tus preferencias
 
+La pestaña **Preferences** configura el idioma de la aplicación y cómo se comporta Comfy Desktop cuando cierras ventanas o inicias compilaciones. ![Pestaña Preferences: Language establecido en English, los interruptores de App behavior, Share anonymous usage telemetry y Opt in to beta features en Privacy, y la tarjeta Comfy Desktop en Community](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_01_preferences.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=c7b8602a403358ba90b70d8d55a827f9)
 
-### Comportamiento de la aplicación
+  * **Language** : el idioma de Comfy Desktop. Selecciona **English** o **简体中文**.
 
-  * **Inicio automático al arrancar** : Elige qué instancia iniciar cuando se abre Comfy Desktop. **Ninguna (mostrar el panel)** es la opción predeterminada. También puedes elegir **Última instancia utilizada** o una instalación específica.
-  * **Confirmar antes de cerrar una ventana** : Pide confirmación antes de cerrar una ventana que está ejecutando una instalación local.
-  * **Advertir antes de ejecutar varias instancias** : Muestra una advertencia antes de iniciar otra instancia local de ComfyUI mientras una ya se está ejecutando o iniciando.
-  * **Ocultar Cloud del selector de instancias** : Oculta la fila de Cloud del panel. Cloud sigue funcionando si vuelves a activar esta opción más tarde.
+En **App behavior** :
 
-
-
-### Privacidad
-
-  * **Compartir telemetría de uso anónima** : Envía datos de uso anónimos para ayudar a mejorar Comfy Desktop.
-  * **Participar en funciones beta** : Permite que Comfy Desktop active funciones Core en fase temprana para tus instancias. El interruptor permanece desactivado hasta que confirmes el uso compartido de datos con **Compartir telemetría de uso anónima** , incluso cuando la telemetría ya está activada.
-
-Las funciones beta llegan como argumentos de inicio adicionales, que se añaden delante de los que configuras tú mismo. Tus propios argumentos conservan su orden: solo se descarta una opción `--` que el ComfyUI instalado no incluya en su lista de argumentos. Si no puede leer esa lista, se inicia con tus argumentos tal como están y no añade argumentos beta. Cuando una función beta se activa para una instancia, aparece en la barra de título una tarjeta con el encabezado **Hay una función beta activada**. **Entendido** la descarta, y **Configuraciones** abre este panel en el interruptor de participación. Puedes ver qué argumentos añadió una función beta en la pestaña de argumentos de inicio de la instancia, detrás de la etiqueta **+N beta** que aparece junto a **Argumentos de inicio**.
-
-### Comunidad
-
-  * **Comfy Desktop** : Una tarjeta con un enlace al [repositorio de Comfy Desktop en GitHub](https://github.com/Comfy-Org/Comfy-Desktop), con un recuento de estrellas.
-
-
-
-## Actualizaciones
-
-![Pestaña Actualizaciones: versión instalada, Buscar actualizaciones, Instalar automáticamente las actualizaciones de Desktop](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=715b9ed65225064b76935e2415dcc593)
-
-  * **Estado** : Muestra si Comfy Desktop está actualizado y qué versión está instalada. Una vez que se ejecuta una comprobación, también muestra cuándo comprobó Comfy Desktop por última vez.
-  * **Buscar actualizaciones** : Comprueba manualmente si hay una nueva versión. Cuando hay una actualización disponible, el botón cambia a **Descargar** y luego a **Reiniciar y actualizar** cuando finaliza la descarga.
-  * **Instalar automáticamente las actualizaciones de Desktop** : Descarga e instala las actualizaciones automáticamente en segundo plano.
-
-
-
-## Almacenamiento
-
-La pestaña Almacenamiento es donde configuras dónde Comfy Desktop encuentra y almacena los archivos. El concepto clave es **compartir** : en lugar de que cada instancia tenga sus propios modelos, entradas y salidas aislados, configuras directorios compartidos accesibles para todas las instancias. ![Pestaña Almacenamiento: rutas de Modelos compartidos, Entrada compartida y Salida compartida](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=0d907789b20aecac354099423ff37814)
-
-  * **Modelos compartidos** : cada directorio listado aquí es escaneado en busca de modelos por todas las instancias. Los modelos nuevos se descargan en el directorio marcado con la insignia **DESCARGAS**. ![Menú ⋯ del directorio con Usar para descargas de modelos](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_03-2_storage.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=dde71f37e5c437ac15dfa865b5d68f05)
-    * Haz clic en la ruta del directorio para abrirlo en tu administrador de archivos.
-    * El menú **⋯** (1) aparece en todos los directorios compartidos excepto en el que ya recibe descargas. Selecciona **Usar para descargas de modelos** (2) para convertir ese directorio en el destino de las descargas, o **Eliminar** para quitarlo de la lista. Eliminar un directorio conserva sus archivos.
-    * Haz clic en **\+ Agregar directorio compartido** para añadir más directorios de modelos.
-  * **Entrada compartida** : una ruta compartida donde todas las instancias buscan archivos de entrada (imágenes, videos, etc.).
-  * **Salida compartida** : una ruta compartida donde todas las instancias guardan las salidas generadas. Personalizarla te permite mantener todos los resultados en un solo lugar.
-  * Haz clic en el icono de carpeta para explorar y seleccionar una nueva ruta. Las descripciones emergentes de **?** proporcionan detalles adicionales.
-
-Las anulaciones por instancia (incluir directorios compartidos, separar entrada/salida, carpetas de modelos adicionales) se encuentran en la pestaña Almacenamiento de [Administrar](https://docs.comfy.org/es/installation/desktop/usage/manage#pesta%C3%B1a-almacenamiento) de la instancia.
-
-## Avanzado
-
-![Pestaña Avanzado: ubicación de instalación predeterminada, espejos y aceleración por hardware](https://mintcdn.com/dripart/yHvKoCnya_bBNqAd/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=yHvKoCnya_bBNqAd&q=85&s=5ecf350b2a261d990cfe555a03a952ba)
-
-  * **Ubicación de Instalación Predeterminada** : Donde se crean las nuevas instancias independientes. Haz clic en el icono de carpeta para cambiarla.
-  * **URL del espejo de PyPI** : Espejo de pip personalizado (por ejemplo, `https://mirrors.aliyun.com/pypi/simple/`).
-  * **Usar espejos chinos (Git y PyPI)** : Usa servidores espejo chinos para Git y PyPI. Útil en China continental. Cuando el idioma de la aplicación es chino, este interruptor se encuentra en **Comportamiento de la Aplicación** , en la pestaña Preferencias.
-  * **Usar aceleración por hardware** : Usa la GPU para renderizar Comfy Desktop. Reinicia Comfy Desktop para que los cambios surtan efecto.
-  * **Directorio de Caché** : Donde Comfy Desktop almacena datos temporales y en caché. Haz clic en el icono de carpeta para cambiarlo.
-
-
-
-### Caché de descargas
-
-Las instalaciones independientes descargan un paquete de ComfyUI en el **Directorio de Caché** (la ruta predeterminada termina en `download-cache`). Una instalación posterior del mismo paquete omite la descarga y muestra **Using cached download** , así que termina mucho más rápido. Dedica el **Directorio de Caché** solo a esta caché: cuando termina una descarga, se eliminan las subcarpetas más antiguas de su interior, así que cualquier otra cosa que guardes ahí también puede borrarse. Borrar una carpeta de caché dedicada solo obliga a una nueva descarga en la próxima instalación; los modelos, las entradas, las salidas y las instalaciones están en otro lugar.
-
-## Registros
-
-  * **Diagnósticos** : **Abrir carpeta de registros** muestra el directorio de registros de la aplicación de escritorio (`app.log`). Consulta [¿Cómo reviso los registros de inicio de Comfy Desktop?](https://docs.comfy.org/es/installation/desktop/faq#c%C3%B3mo-reviso-los-registros-de-inicio-de-comfy-desktop).
-
-
-
-## Ubicaciones de datos
-
-Comfy Desktop almacena los datos en directorios específicos de cada plataforma.
-
-  * Windows
-
-  * macOS
-
-  * Linux
-
-
-
-    
-    
-    App data:     %APPDATA%\Comfy Desktop
-    Logs:         %APPDATA%\Comfy Desktop\logs
-    Installs:     %LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs
-    Shared data:  %LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared
-    
-
-Las instalaciones nuevas colocan los datos grandes (instalaciones, modelos compartidos, caché) en `%LOCALAPPDATA%\Comfy-Desktop`. Si ya tenías `ComfyUI-Installs` o `ComfyUI-Shared` en tu perfil de usuario antes de actualizar, esas carpetas ubicadas en la raíz del directorio personal se conservan. Si instalaste la aplicación en otra unidad, los datos grandes se guardan en `<drive>\Comfy-Desktop\`.
-    
-    
-    App data:     ~/Library/Application Support/Comfy Desktop
-    Logs:         ~/Library/Logs/Comfy Desktop
-    Installs:     ~/ComfyUI-Installs
-    Shared data:  ~/ComfyUI-Shared
-    
-    
-    
-    Config:       ~/.config/comfyui-desktop-2
-    Data:         ~/.local/share/comfyui-desktop-2
-    Cache:        ~/.cache/comfyui-desktop-2
-    State:        ~/.local/state/comfyui-desktop-2
-    Logs:         ~/.config/Comfy Desktop/logs
-    Installs:     ~/ComfyUI-Installs
-    Shared data:  ~/ComfyUI-Shared
-    
-
-En Linux, Comfy Desktop guarda los ajustes, la caché, los datos y el estado en `comfyui-desktop-2`, mientras que Electron guarda el perfil y los registros de la aplicación bajo el nombre visible `Comfy Desktop`. Si ejecutas desde el código fuente, ambos usan `comfyui-desktop-2`. Estas son las rutas predeterminadas: `XDG_CONFIG_HOME`, `XDG_CACHE_HOME`, `XDG_DATA_HOME` y `XDG_STATE_HOME` las cambian, y los registros siguen a `XDG_CONFIG_HOME`.
-
-## Atajos de teclado
-
-Atajo| Acción  
----|---  
-`Ctrl+R` / `Cmd+R`| Recarga la vista actual de ComfyUI  
-`Ctrl`/`Cmd` \+ `+` / `-` / `0`| Acerca, aleja o restablece al 100% la vista de ComfyUI  
-`Escape`| Cierra un diálogo o una ventana emergente  
+Configuración| Predeterminado| Qué hace  
+---|---|---  
+**Confirm before closing a window**|  Off| Pregunta antes de cerrar una ventana cuando eso detiene ComfyUI o cierra Comfy Desktop.  
+**Warn before running multiple builds**|  On| Muestra una advertencia antes de que inicies otra compilación local de ComfyUI mientras una está en ejecución o iniciándose.  
+**Hide Cloud from the build picker**|  Off| Oculta la fila de Comfy Cloud de **Home**. Comfy Cloud sigue funcionando y puedes desactivar el interruptor de nuevo en cualquier momento.  
   
-Comfy Desktop no asigna `Ctrl+W` / `Cmd+W`, así que una pulsación accidental no puede cerrar una ventana con una instancia en ejecución. Para cerrar una ventana, usa **Close Window** en el menú ☰.
+En **Privacy** :
 
-## Comentarios y problemas
+  * **Share anonymous usage telemetry** : envía datos de uso anónimos. El interruptor aparece activado hasta que lo desactives.
+  * **Opt in to beta features** : permite que Comfy Desktop active funciones de ComfyUI en fase temprana en tus compilaciones. Consulta Activar las funciones beta.
 
-¿Encontraste un error o tienes una sugerencia? Comfy Desktop es de código abierto. Puedes reportar problemas y consultar las funciones planificadas aquí:
+En **Community** , la tarjeta **Comfy Desktop** abre el [repositorio de Comfy Desktop en GitHub](https://github.com/Comfy-Org/Comfy-Desktop).
 
-  * **Problemas de Comfy Desktop** : [github.com/Comfy-Org/Comfy-Desktop/issues](https://github.com/Comfy-Org/Comfy-Desktop/issues)
-  * **Problemas de la documentación** : [github.com/Comfy-Org/docs/issues](https://github.com/Comfy-Org/docs/issues)
+### Activar las funciones beta
 
-Para preguntas generales sobre ComfyUI, visita las [Discusiones de ComfyUI en GitHub](https://github.com/Comfy-Org/ComfyUI/discussions) o únete al [Discord de ComfyUI](https://www.comfy.org/discord).
+Con **Opt in to beta features** activado, ayudas a probar funciones de ComfyUI antes de que se publiquen. Cuando el interruptor está activado, Comfy Desktop puede agregar uno de estos argumentos de inicio cuando inicia una compilación en esta computadora: `--enable-asset-hashing`, `--disable-assets` o `--enable-agent`. Solo agrega un argumento cuando la versión de ComfyUI de la compilación lo admite. Si ya estableciste ese argumento o su opuesto en los argumentos de inicio de la compilación, Comfy Desktop deja los tuyos como están. Si nunca cambiaste el interruptor, sigue tu respuesta a **Help improve Comfy by sharing anonymous usage data.** durante la configuración inicial. Para activarlo:
+
+  1. En la pestaña **Preferences** , activa **Opt in to beta features**.
+  2. Si el interruptor no se activa, confirma primero el uso compartido de datos: desactiva **Share anonymous usage telemetry** y vuelve a activarlo. Luego activa **Opt in to beta features**.
+
+Cuando una compilación se inicia con una función beta, un aviso en su **barra de título** dice **A beta feature is on** o **The beta is on**. Haz clic en **Got it** para cerrarlo, o en **Settings** para abrir esta pestaña en el interruptor beta. Cuando una función beta está desactivada para una compilación, el aviso dice **A beta feature is off** o **The beta is off**. Para ver qué argumentos agregó una función beta, abre la [pestaña **Startup arguments**](https://docs.comfy.org/es/installation/desktop/usage/instance-management#set-startup-arguments) de la compilación y haz clic en la píldora **+N beta**. Enumera los argumentos en **Added for this session** o **Eligible for next launch** , y **Manage beta features** abre esta pestaña en el interruptor beta.
+
+## Actualizar Comfy Desktop
+
+Comfy Desktop busca actualizaciones de sí mismo 2 segundos después de iniciarse y luego cada 10 minutos. Comfy Desktop no tiene un canal de actualización que elegir. El canal de actualización en la página de una compilación es para ComfyUI en esa compilación: consulta [Actualizar ComfyUI](https://docs.comfy.org/es/installation/desktop/usage/instance-management#update-comfyui).
+
+En Linux, cómo se actualiza Comfy Desktop depende de si instalaste el paquete `.deb`, el AppImage o una copia del código fuente. Consulta [Actualizar en Linux](https://docs.comfy.org/es/installation/desktop/overview#instalar-comfy-desktop-para-tu-sistema-operativo).
+
+### Dejar que las actualizaciones se instalen solas
+
+La opción **Automatically install Desktop updates** en la pestaña **Updates** está activada de forma predeterminada. Cuando una búsqueda encuentra una actualización, Comfy Desktop la descarga y la instala:
+
+  * En macOS y Linux, cuando salgas de Comfy Desktop.
+  * En Windows, la próxima vez que inicies Comfy Desktop.
+
+Cuando el interruptor está desactivado, una actualización se instala solo cuando haces clic en **Restart & update**.
+
+### Actualizar desde la barra lateral
+
+Cuando hay una actualización disponible, una entrada en la parte inferior de la **barra lateral** muestra su estado:
+
+La entrada dice| Haz clic para  
+---|---  
+**Desktop update**|  Abrir el diálogo **Desktop update available**. Haz clic en **Download**.  
+**Downloading update…**|  Abrir **Configuraciones de Escritorio** en la pestaña **Updates** , donde se muestra el progreso de la descarga.  
+**Desktop update ready**|  Abrir el diálogo **Desktop update ready**. Haz clic en **Restart & update** para reiniciar con la actualización.  
+  
+### Buscar actualizaciones tú mismo
+
+  1. Abre **Configuraciones de Escritorio** y haz clic en la pestaña **Updates**.
+  2. Haz clic en **Check for updates**.
+  3. Si la pestaña dice **Update available** , haz clic en **Download**.
+  4. Cuando la pestaña diga **Update ready to install** , haz clic en **Restart & update**.
+
+Comfy Desktop se reinicia con la actualización. La actualización se completó cuando la pestaña **Updates** dice **Comfy Desktop is up to date** y **Installed** muestra la versión que descargaste. ![Pestaña Updates mostrando Comfy Desktop is up to date, con la versión instalada, el botón Check for updates y el interruptor Automatically install Desktop updates](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_02_updates.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=9ede3287ce6d57b57b80142f13bb69bd)
+
+## Elegir carpetas compartidas y la ubicación de instalación
+
+Las carpetas compartidas permiten que cada instalación use los mismos modelos, entradas y salidas, así que descargas un modelo una vez en lugar de una vez por instalación. La pestaña **Folders** configura estas carpetas y la carpeta donde Comfy Desktop sugiere colocar las instalaciones que creas. ![Pestaña Folders: Default install location con su ruta, la lista Shared folders con las filas Models, Input y Output, la etiqueta Downloads, Use for downloads y Add models folder, luego Remove Comfy Desktop data](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_03_storage.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=c1c1c1e9f85f3343d0cdaf2f544137ff) En cada fila de carpeta, haz clic en la ruta para abrir la carpeta, o haz clic en el icono de carpeta para elegir otra carpeta.
+
+  * **Default install location** : la carpeta principal que Comfy Desktop sugiere cuando creas una instalación. Cambiarla no mueve las instalaciones existentes.
+  * **Shared folders** : una lista de carpetas **Models** , **Input** y **Output**. Cada instalación las usa de forma predeterminada. Para cambiar eso en una instalación, consulta [Elegir qué carpetas usa la instalación](https://docs.comfy.org/es/installation/desktop/usage/instance-management#choose-which-folders-the-build-uses).
+
+Para administrar las carpetas compartidas de modelos:
+
+  * **Agregar una carpeta de modelos** : haz clic en **Add models folder** y elige la carpeta.
+  * **Elegir dónde descargar los modelos** : en una fila **Models** , haz clic en **Use for downloads**. Esa fila pasa a tener la etiqueta **Downloads**. Una instalación puede elegir su propia carpeta de descargas en su lugar. Consulta [Dónde se guardan las descargas](https://docs.comfy.org/es/installation/desktop/usage/downloads#d%C3%B3nde-se-guardan-las-descargas).
+  * **Eliminar una carpeta de modelos** : haz clic en el menú **⋯** de la fila, selecciona **Remove** y confirma. Los archivos permanecen en el disco. La carpeta con la etiqueta **Downloads** no tiene menú **⋯** , así que primero elige otra carpeta de descargas. No puedes eliminar las filas **Input** y **Output**.
+
+De forma predeterminada, las carpetas son:
+
+Carpeta| macOS y Linux| Windows  
+---|---|---  
+**Default install location**| `~/ComfyUI-Installs`| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Installs`  
+Carpetas compartidas **Models** , **Input** y **Output**| `~/ComfyUI-Shared/models`, `input`, `output`| `%LOCALAPPDATA%\Comfy-Desktop\ComfyUI-Shared\models`, `input`, `output`  
+  
+En Windows, si tu carpeta de usuario ya tenía `ComfyUI-Installs` o `ComfyUI-Shared`, Comfy Desktop sigue usando esas. Si instalaste Comfy Desktop en una unidad distinta de la unidad del sistema, las carpetas están en `<drive>:\Comfy-Desktop` en su lugar.
+
+En macOS y Linux, la pestaña **Folders** también tiene **Remove Comfy Desktop data** , que elimina los registros, cachés y archivos temporales de la aplicación antes de desinstalarla. Consulta [Desinstalar Comfy Desktop en macOS](https://docs.comfy.org/es/installation/desktop/overview#desinstalar-comfy-desktop) o [eliminar los datos sobrantes en Linux](https://docs.comfy.org/es/installation/desktop/overview#desinstalar-comfy-desktop).
+
+## Configurar espejos y aceleración por hardware
+
+Si las descargas desde pypi.org o github.com son lentas en tu ubicación, apunta Comfy Desktop a un espejo en la pestaña **Advanced**. ![Pestaña Advanced: URL del espejo de PyPI, Use Chinese mirrors \(Git & PyPI\), Use hardware acceleration y la sección Cache con el directorio de caché](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_04_advanced.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=a8a0dffff51604ac3d52282a4ed1deaf)
+
+  * **PyPI mirror URL** : un índice de paquetes de Python, como `https://mirrors.aliyun.com/pypi/simple/`. Comfy Desktop instala los paquetes de Python desde este índice y usa pypi.org como índice adicional. Está vacío de forma predeterminada.
+  * **Use Chinese mirrors (Git & PyPI)**: desactivado de forma predeterminada. Cuando está activado, los repositorios Git se clonan desde gitcode.com en lugar de github.com, y los paquetes de Python provienen de mirrors.aliyun.com y mirrors.cloud.tencent.com en lugar de pypi.org. Cuando el idioma de la aplicación es chino, este interruptor aparece en la pestaña **Preferences** , dentro de **App behavior**. Cuando el idioma de tu sistema es chino, la instalación también pregunta **Enable Chinese mirrors?**.
+  * **Use hardware acceleration** : activado de forma predeterminada. Usa la GPU para renderizar Comfy Desktop. Reinicia Comfy Desktop para que un cambio surta efecto.
+
+
+
+### Conservar la caché de descargas
+
+Cuando instalas una compilación Standalone, Comfy Desktop descarga un paquete de ComfyUI en la carpeta de caché que se muestra en **Cache** , en la pestaña **Advanced**. De forma predeterminada, la carpeta se llama `download-cache`. Si instalas el mismo paquete otra vez, la instalación muestra **Using cached download** y omite la descarga. Comfy Desktop guarda solo el paquete más reciente en esta carpeta. Cuando termina una descarga, elimina las demás subcarpetas dentro de la carpeta de caché, así que no guardes nada más ahí. Haz clic en el icono de carpeta para elegir otra carpeta.
+
+## Encontrar el registro de la aplicación
+
+El registro de la aplicación registra lo que hace Comfy Desktop, incluida la salida cuando una compilación se instala o se inicia. Adjúntalo cuando reportes un problema en el [rastreador de problemas de Comfy Desktop](https://github.com/Comfy-Org/Comfy-Desktop/issues). ![Pestaña Registros con la sección Diagnóstico y el botón Abrir carpeta de registros](https://mintcdn.com/dripart/HtsWGj9PL-oHaM8n/images/desktop/usage/comfy_desktop_settings_05_logs.png?fit=max&auto=format&n=HtsWGj9PL-oHaM8n&q=85&s=1bbd4ef749d3b545631ef195bcf3c143)
+
+  * En la pestaña **Registros** , dentro de **Diagnóstico** , haz clic en **Abrir carpeta de registros**.
+
+La carpeta contiene `app.log` de la sesión actual. En cada inicio, y cuando `app.log` supera los 5 MB, Comfy Desktop cambia el nombre del archivo antiguo a `app.log_<timestamp>.log` y conserva hasta 50 de ellos. Elige el archivo de la sesión en la que ocurrió el problema.
 
 ¿Esta página le ayudó?
 

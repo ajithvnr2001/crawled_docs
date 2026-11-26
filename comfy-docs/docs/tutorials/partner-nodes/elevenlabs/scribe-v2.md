@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/scribe-v2/
 title: ElevenLabs Scribe v2: Speech-to-Text - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:38.468410+00:00
+fetched_at: 2026-11-26T17:36:36.741015+00:00
 ---
 
 # ElevenLabs Scribe v2: Speech-to-Text - ComfyUI

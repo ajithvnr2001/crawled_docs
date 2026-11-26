@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/overview/
 title: ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:27.341756+00:00
+fetched_at: 2026-11-26T17:36:36.841635+00:00
 ---
 
 # ElevenLabs in ComfyUI: Speech, Voice Tools, and Sound Effects - ComfyUI

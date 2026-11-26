@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:33.948407+00:00
+fetched_at: 2026-11-26T17:36:33.565414+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -72,7 +72,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 ## Find by output
 
-Video (92)
+Video (93)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -102,6 +102,7 @@ Video (92)
   * [Kelly Seedance 2.0](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-0/code): `kelly/kelly-seedance-2.0`
   * [Kelly Seedance 2.5](https://docs.comfy.org/development/comfy-router/models/kelly/kelly-seedance-2-5/code): `kelly/kelly-seedance-2.5`
   * [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code): `kling/kling-3.0-turbo`
+  * [Kling 4.0 Flash](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0-flash/code): `kling/kling-4.0-flash`
   * [Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code): `kling/kling-4.0`
   * [Kling V2.5 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-5-turbo/code): `kling/kling-v2-5-turbo`
   * [Kling V2.6](https://docs.comfy.org/development/comfy-router/models/kling/kling-v2-6/code): `kling/kling-v2-6`
@@ -650,6 +651,7 @@ Model| ID| Input| Output
 Model| ID| Input| Output  
 ---|---|---|---  
 [Kling 3.0 Turbo](https://docs.comfy.org/development/comfy-router/models/kling/kling-3-0-turbo/code)| `kling/kling-3.0-turbo`| Text| Video  
+[Kling 4.0 Flash](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0-flash/code)| `kling/kling-4.0-flash`| Text| Video  
 [Kling 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-4-0/code)| `kling/kling-4.0`| Text, Image, Video| Video  
 [Kling Image 4.0](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-4-0/code)| `kling/kling-image-4.0`| Text, Image| Image  
 [Kling Image O1](https://docs.comfy.org/development/comfy-router/models/kling/kling-image-o1/code)| `kling/kling-image-o1`| Text, Image| Image  

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/deploy/cloud-custom-builds/
 title: Adding Custom Builds to Comfy Cloud - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:37.273850+00:00
+fetched_at: 2026-11-26T17:36:38.585246+00:00
 ---
 
 # Adding Custom Builds to Comfy Cloud - ComfyUI
@@ -38,7 +38,7 @@ Copy pageCopy page
 
 A Build packages your Custom Nodes, private Custom Nodes, LoRAs and other models, and Python dependencies so your Workflows can run on Comfy Cloud. You start the Build from the Comfy Cloud editor, create and deploy it on the Developer Platform, and then run your Workflow on it in the editor. A deployment of your Build also gives you GPU workers that serve only your Workflows, even when Comfy Cloud already supports every Node in them.
 
-To use your own LoRA or another model with Nodes that Comfy Cloud already supports, you don’t need a Build. Upload the model to your **Model Library** instead. See Add your own LoRA or model.
+To use your own LoRA or another model with Nodes that Comfy Cloud already supports, you don’t need a Build. Upload the model to your **Model Library** instead. See Add your own LoRA or model.To put a model on one deployment you already run, without a new Build version, see [Add a model to a running deployment](https://docs.comfy.org/development/serverless/overview#add-a-model-to-a-running-deployment).
 
 ### Prerequisites
 
@@ -149,7 +149,7 @@ This browser keeps running your Workflows on the deployment until you select ano
 The **Model Library** holds the models your workspace uploads. A model you upload runs on Comfy Cloud and on your deployments. Before you upload a model, make sure you meet these requirements:
 
   * **An active Pro, Creator, Team, or Enterprise plan** : your workspace needs one to upload a model.
-  * **A`.safetensors` file of 2 GB or less**: put larger base models, such as SDXL or Flux, in the Build.
+  * **A`.safetensors` file of 2 GB or less**: put larger base models, such as SDXL or Flux, in the Build, or directly [add them to the deployment](https://docs.comfy.org/development/serverless/overview#add-a-model-to-a-running-deployment).
 
 
 
@@ -200,7 +200,7 @@ Once the model is uploaded, you can use it on Comfy Cloud or on your deployment.
 
 ![Workflow with Load Checkpoint and Load LoRA \(Model and CLIP\) Nodes, the uploaded LoRA selected in lora_name, and the queue panel's top row reading Downloading my_style_lora_9e2417.safetensors 0 B of 97.37 MB](https://mintcdn.com/dripart/A-FVGUweJXUuD_Sl/images/development/serverless/library-models-editor-downloading.png?fit=max&auto=format&n=A-FVGUweJXUuD_Sl&q=85&s=7e7bb638ea4aa1f7599ca742dbcbcf09)
 
-On a deployment, the first run downloads the model, and the job’s row in the queue shows `Downloading <file name>`. Later jobs on the same running GPU skip the download. A GPU the deployment starts later downloads the model again. To skip the download, add the model to the Build.
+On a deployment, the first run downloads the model, and the job’s row in the queue shows `Downloading <file name>`. Later jobs on the same running GPU skip the download. A GPU the deployment starts later downloads the model again. To skip the download, add the model to the Build, or [add it to the deployment](https://docs.comfy.org/development/serverless/overview#add-a-model-to-a-running-deployment).
 
 Follow these rules so a job finds your model:
 
@@ -213,7 +213,7 @@ Follow these rules so a job finds your model:
 
 ### Change or delete a library model
 
-When a deployment is selected under **Run on** , the **Model Library** lists only the Build’s models. To change or delete a model you uploaded, switch back to Comfy Cloud first, and then in the **Left sidebar** , click **Model Library**. To change the model type:
+When a deployment is selected under **Run on** , the **Model Library** lists only the Build’s models and the models added to that deployment. To change or delete a model you uploaded, switch back to Comfy Cloud first, and then in the **Left sidebar** , click **Model Library**. To change the model type:
 
   1. Hover over the model’s card, and then click **Model Info**.
   2. Select a new **Model Type**.

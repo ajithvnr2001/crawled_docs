@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/minimax/overview/
 title: MiniMax (Hailuo) - AI video generation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.168748+00:00
+fetched_at: 2026-11-26T17:36:36.188399+00:00
 ---
 
 # MiniMax (Hailuo) - AI video generation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.168748+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/minimax/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 MiniMax (Hailuo) is a leading AI video generation platform renowned for exceptional motion quality and cinematic output, now inside ComfyUI. It offers two model lines — **MiniMax-01** (T2V-01 text-to-video and I2V-01 image-to-video with Director/Live modes) and **MiniMax S2V-01** (subject reference-to-video) — covering everything from film-grade narrative to character-driven content.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **T2V-01 with Director mode** — 15 cinematic camera movement types (pan, tilt, dolly, crane, tracking, aerial, handheld, roll, zoom-in, zoom-out, push-in, pull-out, orbit, first-person, static) for precise shot-level direction
   * **I2V-01-Director** — Apply cinematic camera controls to image-initiated videos, combining the visual foundation of a starting image with the expressive language of Director mode
@@ -67,11 +65,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 ## MiniMax-01
 
@@ -91,4 +85,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/minimax/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/minimax/overview)
 
-[Luma Image to Video (Legacy)](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-image-to-video)[MiniMax-01](https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-01)
+[Luma Image to Video](https://docs.comfy.org/tutorials/partner-nodes/luma/luma-image-to-video)[MiniMax-01](https://docs.comfy.org/tutorials/partner-nodes/minimax/minimax-01)

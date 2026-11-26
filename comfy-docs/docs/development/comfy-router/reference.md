@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/reference/
 title: Comfy Router API reference - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:25.382143+00:00
+fetched_at: 2026-11-26T17:36:35.208165+00:00
 ---
 
 # Comfy Router API reference - ComfyUI
@@ -913,6 +913,7 @@ Raised for a request Router accepted and then could not complete.
 `budget_exceeded`| A hard spend cap has been reached.  
 `model_not_found`| The `{provider}/{model}` ID names no model Router can run: an unknown provider, an unenrolled id, one the catalog has retired past its sunset date, or a catalogued ID the provider does not currently serve for Comfy.  
 `byok_credential_rejected`| The provider rejected the key supplied for this call.  
+`no_output`| The model finished without producing the image it was asked for and named no content policy for it, so the request is retryable.  
   
 ### Transport-level buckets
 
@@ -1298,7 +1299,7 @@ RouterErrorType
 
 required
 
-Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty-three values: the seven request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits`, `budget_exceeded` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `budget_check_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`, plus the request-level `byok_credential_rejected`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
+Coarse, machine-readable bucket for a Router failure, mirrored on the `X-Comfy-Error-Type` response header so a caller can branch without parsing the body. The set is closed at twenty-four values: the seven request-level buckets `invalid_input`, `content_policy_violation`, `provider_error`, `provider_timeout`, `insufficient_credits`, `budget_exceeded` and `model_not_found`, plus the transport-level `unauthorized`, `forbidden`, `concurrency_limit_exceeded`, `client_disconnected`, `internal_error`, `deadline_exceeded`, `not_enabled`, `service_unavailable`, `budget_check_unavailable`, `rate_limited`, `cancelled`, `queue_timeout`, `request_not_found`, `queue_backlog_full` and `result_expired`, plus the request-level `byok_credential_rejected` and `no_output`. Closed describes the set as documented today, not a bound that holds forever: the set is expected to grow, which is why this is deliberately a plain string and not an `enum`, so a client must treat an unrecognised value as `internal_error` rather than switch exhaustively over the list above and break on the next addition.Type: `RouterErrorType`
 
 upstream_detail
 

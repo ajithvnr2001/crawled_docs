@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/development/comfy-router/models/
 title: Modelos de Comfy Router - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:35.006580+00:00
+fetched_at: 2026-11-26T17:36:32.916189+00:00
 ---
 
 # Modelos de Comfy Router - ComfyUI
@@ -72,7 +72,7 @@ Todos los modelos que aparecen a continuación se sirven por la misma ruta, `POS
 
 ## Buscar por salida
 
-Video (92)
+Video (93)
 
   * [SwitchX](https://docs.comfy.org/es/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/es/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -102,6 +102,7 @@ Video (92)
   * [Kelly Seedance 2.0](https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-seedance-2-0/code): `kelly/kelly-seedance-2.0`
   * [Kelly Seedance 2.5](https://docs.comfy.org/es/development/comfy-router/models/kelly/kelly-seedance-2-5/code): `kelly/kelly-seedance-2.5`
   * [Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code): `kling/kling-3.0-turbo`
+  * [Kling 4.0 Flash](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-4-0-flash/code): `kling/kling-4.0-flash`
   * [Kling 4.0](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-4-0/code): `kling/kling-4.0`
   * [Kling V2.5 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v2-5-turbo/code): `kling/kling-v2-5-turbo`
   * [Kling V2.6](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-v2-6/code): `kling/kling-v2-6`
@@ -398,7 +399,7 @@ Audio (54)
 
 
 
-Texto (52)
+Texto (54)
 
   * [Claude Fable 5.1](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5-1/code): `anthropic/claude-fable-5-1`
   * [Claude Fable 5.2](https://docs.comfy.org/es/development/comfy-router/models/anthropic/claude-fable-5-2/code): `anthropic/claude-fable-5-2`
@@ -445,6 +446,8 @@ Texto (52)
   * [GPT 5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5/code): `openai/gpt-5`
   * [GPT 6.1 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-sol/code): `openai/gpt-6.1-sol`
   * [GPT 6.1 Terra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-terra/code): `openai/gpt-6.1-terra`
+  * [GPT 6.2 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-2-astra/code): `openai/gpt-6.2-astra`
+  * [GPT 6.2 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-2-sol/code): `openai/gpt-6.2-sol`
   * [GPT 6 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-astra/code): `openai/gpt-6-astra`
   * [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code): `openai/gpt-6-luna`
   * [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code): `openai/gpt-6-sol`
@@ -648,6 +651,7 @@ Modelo| ID| Entrada| Salida
 Modelo| ID| Entrada| Salida  
 ---|---|---|---  
 [Kling 3.0 Turbo](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-3-0-turbo/code)| `kling/kling-3.0-turbo`| Texto| Video  
+[Kling 4.0 Flash](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-4-0-flash/code)| `kling/kling-4.0-flash`| Texto| Video  
 [Kling 4.0](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-4-0/code)| `kling/kling-4.0`| Texto, Imagen, Video| Video  
 [Kling Image 4.0](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-4-0/code)| `kling/kling-image-4.0`| Texto, Imagen| Imagen  
 [Kling Image O1](https://docs.comfy.org/es/development/comfy-router/models/kling/kling-image-o1/code)| `kling/kling-image-o1`| Texto, Imagen| Imagen  
@@ -727,6 +731,8 @@ Modelo| ID| Entrada| Salida
 [GPT 5](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-5/code)| `openai/gpt-5`| Texto, Imagen| Texto  
 [GPT 6.1 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-sol/code)| `openai/gpt-6.1-sol`| Texto, Imagen| Texto  
 [GPT 6.1 Terra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-1-terra/code)| `openai/gpt-6.1-terra`| Texto, Imagen| Texto  
+[GPT 6.2 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-2-astra/code)| `openai/gpt-6.2-astra`| Texto, Imagen| Texto  
+[GPT 6.2 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-2-sol/code)| `openai/gpt-6.2-sol`| Texto, Imagen| Texto  
 [GPT 6 Astra](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-astra/code)| `openai/gpt-6-astra`| Texto, Imagen| Texto  
 [GPT 6 Luna](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-luna/code)| `openai/gpt-6-luna`| Texto, Imagen| Texto  
 [GPT 6 Sol](https://docs.comfy.org/es/development/comfy-router/models/openai/gpt-6-sol/code)| `openai/gpt-6-sol`| Texto, Imagen| Texto  

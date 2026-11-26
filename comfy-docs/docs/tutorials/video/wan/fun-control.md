@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/wan/fun-control/
 title: ComfyUI Wan2.1 Fun Control Video Examples - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:45.346689+00:00
+fetched_at: 2026-11-26T17:36:34.945229+00:00
 ---
 
 # ComfyUI Wan2.1 Fun Control Video Examples - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:45.346689+00:00
 > Source: https://docs.comfy.org/tutorials/video/wan/fun-control/
 
 ## On this page
+
+Back to top
 
   * About Wan2.1-Fun-Control
   * Model Installation
@@ -37,11 +39,7 @@ Copy pageCopy page
 
 Wan2.1-Fun-Control is an open-source video generation model from Alibaba’s VideoX-Fun project that follows preset control conditions instead of relying on prompt text alone. You can guide the output with Canny edge maps, depth maps, OpenPose skeletons, MLSD geometric edges, or point trajectories. The model ships in two sizes: the 1.3B version (about 19 GB) for lightweight local deployment with lower VRAM requirements, and the 14B version (about 47 GB of total model storage, with the diffusion weights at about 32.8 GB) for higher-quality results. Both support multi-resolution video prediction at 512, 768, and 1024 pixels, generate up to 81 frames (about 5 seconds) at 16 frames per second, and accept multilingual prompts. ComfyUI supports Wan2.1-Fun-Control natively.
 
-## 
-
-​
-
-About Wan2.1-Fun-Control
+## About Wan2.1-Fun-Control
 
 **Wan2.1-Fun-Control** is an open-source video generation and control project developed by Alibaba team. It introduces innovative Control Codes mechanisms combined with deep learning and multimodal conditional inputs to generate high-quality videos that conform to preset control conditions. The project focuses on precisely guiding generated video content through multimodal control conditions. Currently, the Fun Control model supports various control conditions, including **Canny (line art), Depth, OpenPose (human posture), MLSD (geometric edges), and trajectory control.** The model also supports multi-resolution video prediction with options for 512, 768, and 1024 resolutions at 16 frames per second, generating videos up to 81 frames (approximately 5 seconds) in length. Model versions:
 
@@ -90,11 +88,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Model Installation
+## Model Installation
 
 You only need to install these models once. The workflow images also contain model download information, so you can choose your preferred download method. The following models can be found at [Wan_2.1_ComfyUI_repackaged](https://huggingface.co/Comfy-Org/Wan_2.1_ComfyUI_repackaged) and [Wan2.1-Fun](https://huggingface.co/collections/alibaba-pai/wan21-fun-67e4fb3b76ca01241eb7e334) Click the corresponding links to download. If you have used Wan-related workflows before, you only need to download the **Diffusion models**. **Diffusion models** — choose 1.3B or 14B. The 14B version has a larger file size (32GB) and higher VRAM requirements:
 
@@ -144,19 +138,11 @@ File storage location:
     │       └── clip_vision_h.safetensors
     
 
-## 
-
-​
-
-ComfyUI Native Workflow
+## ComfyUI Native Workflow
 
 In this workflow, we use videos converted to **WebP format** since the `Load Image` node does not currently support mp4 format. We also use **Canny Edge** to preprocess the original video. Because many users encounter installation failures and environment issues when installing custom nodes, this version of the workflow uses only native nodes to ensure a smoother experience. Thanks to our powerful ComfyUI authors who provide feature-rich nodes. If you want to directly check the related version, see Workflow Using Custom Nodes.
 
-### 
-
-​
-
-1\. Workflow File Download
+### 1\. Workflow File Download
 
 ![Wan2.1 Fun Control Native Workflow](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/wan2.1_fun_control/wan2.1_fun_control_native.webp)
 
@@ -178,11 +164,7 @@ Input start frame for the native workflow. Download and use this image, or repla
 
 Input control video in WebP format for the native workflow. The native workflow requires WebP format since Load Image does not support mp4.
 
-### 
-
-​
-
-2\. Complete the Workflow Step by Step
+### 2\. Complete the Workflow Step by Step
 
 ![Wan2.1 Fun Control Workflow Steps](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/fun_control_native_flow_diagram.png?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=97774a50d0e95007c34d94a6eb2d9580)
 
@@ -198,11 +180,7 @@ Input control video in WebP format for the native workflow. The native workflow 
 
 
 
-### 
-
-​
-
-3\. Usage Notes
+### 3\. Usage Notes
 
   * Since we need to input the same number of frames as the control video into the `WanFunControlToVideo` node, if the specified frame count exceeds the actual control video frames, the excess frames may display scenes not conforming to control conditions. We will address this issue in the Workflow Using Custom Nodes
   * Avoid setting overly large dimensions, as this can make the sampling process very time-consuming. Try generating smaller images first, then upscale
@@ -211,11 +189,7 @@ Input control video in WebP format for the native workflow. The native workflow 
 
 
 
-## 
-
-​
-
-Workflow Using Custom Nodes
+## Workflow Using Custom Nodes
 
 We will need to install the following two custom nodes:
 
@@ -224,11 +198,7 @@ We will need to install the following two custom nodes:
 
 You can use [ComfyUI Manager](https://github.com/Comfy-Org/ComfyUI-Manager) to install missing nodes or follow the installation instructions for each custom node package.
 
-### 
-
-​
-
-1\. Workflow File Download
+### 1\. Workflow File Download
 
 ![Wan2.1 Fun Control Workflow](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/wan2.1_fun_control-1.webp)
 
@@ -250,11 +220,7 @@ Input start frame for the custom nodes workflow. Download and use this image, or
 
 Input control video in MP4 format for the custom nodes workflow. The custom Load Video node supports mp4 format.
 
-### 
-
-​
-
-2\. Complete the Workflow Step by Step
+### 2\. Complete the Workflow Step by Step
 
 ![Wan2.1 Fun Control Workflow Using Custom Nodes Steps](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/fun_control_using_custom_nodes_flow_diagram.png?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=b22315f2f052e9196bd49b3d95a983f5)
 
@@ -273,11 +239,7 @@ Input control video in MP4 format for the custom nodes workflow. The custom Load
 
 
 
-### 
-
-​
-
-3\. Workflow Notes
+### 3\. Workflow Notes
 
 Thanks to the ComfyUI community authors for their custom node packages:
 
@@ -288,11 +250,7 @@ Thanks to the ComfyUI community authors for their custom node packages:
 
 
 
-## 
-
-​
-
-Usage Tips
+## Usage Tips
 
 ![Apply Multi Control Videos](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/apply_multi_control_videos.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=7bb51781350a318a61068b1b369b816f)
 
@@ -311,26 +269,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/wan/fun-control.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/wan/fun-control)
 
-[Wan ATI Native WorkflowPrevious](https://docs.comfy.org/tutorials/video/wan/wan-ati)[ComfyUI Wan2.1 Fun Camera Official ExamplesNext](https://docs.comfy.org/tutorials/video/wan/fun-camera)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[WAN2l1 ATI](https://docs.comfy.org/tutorials/video/wan/wan-ati)[Wan2.1 Fun Camera](https://docs.comfy.org/tutorials/video/wan/fun-camera)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/elevenlabs/text-to-dialogue/
 title: ElevenLabs Text to Dialogue - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:27.248175+00:00
+fetched_at: 2026-11-26T17:36:36.605679+00:00
 ---
 
 # ElevenLabs Text to Dialogue - ComfyUI

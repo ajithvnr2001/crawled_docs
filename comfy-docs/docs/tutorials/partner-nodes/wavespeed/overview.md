@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/overview/
-title: Image & Video Enhancement with WaveSpeed - ComfyUI
+title: WaveSpeed in ComfyUI: Image and Video Upscaling - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.851092+00:00
+fetched_at: 2026-11-26T17:36:35.767582+00:00
 ---
 
-# Image & Video Enhancement with WaveSpeed - ComfyUI
+# WaveSpeed in ComfyUI: Image and Video Upscaling - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,21 +20,17 @@ fetched_at: 2026-10-25T12:24:50.851092+00:00
 
 WaveSpeed
 
-# Image & Video Enhancement with WaveSpeed
+# WaveSpeed in ComfyUI: Image and Video Upscaling
 
 Copy pageCopy page
 
-Upscale video and images, and restore old photos using WaveSpeed AI models — FLSH-VSR video upscaling, SeedVR2 image restoration, and general image upscaling, all within ComfyUI.
+Upscale video and restore images in ComfyUI with WaveSpeed: FLSH-VSR temporal video upscaling, SeedVR2 photo restoration, and general upscaling.
 
 Copy pageCopy page
 
 WaveSpeed is a high-performance AI media enhancement platform, now available as native workflow nodes in ComfyUI. It offers **image upscaling** and **SeedVR2 AI image fix** for photos, plus **FLSH-VSR video upscaling** — all powered by ComfyCloud with no local GPU needed.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **FLSH-VSR video upscaling** — Temporal-coherent AI video super-resolution that maintains consistent detail across frames, ideal for archiving, AI video enhancement, and SD-to-HD conversion.
   * **General image upscaling** — Multi-purpose image enlargement and quality improvement covering photographs, digital art, renders, and screenshots.
@@ -68,11 +66,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Models
+## Models
 
 WaveSpeed offers two model groups in ComfyUI. The **Upscale** group covers general image upscaling and SeedVR2 restoration, while **FlashVSR** provides temporal-aware video super-resolution.
 

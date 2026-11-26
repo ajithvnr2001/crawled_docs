@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/magnific/overview/
-title: Magnific AI: Image Enhancement & Creative Tools | ComfyUI Partner Nodes - ComfyUI
+title: Magnific AI in ComfyUI: Upscaling and Creative Tools - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.057835+00:00
+fetched_at: 2026-11-26T17:36:36.455623+00:00
 ---
 
-# Magnific AI: Image Enhancement & Creative Tools | ComfyUI Partner Nodes - ComfyUI
+# Magnific AI in ComfyUI: Upscaling and Creative Tools - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/magnific/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,11 +20,11 @@ fetched_at: 2026-10-25T12:24:50.057835+00:00
 
 Magnific
 
-# Magnific AI: Image Enhancement & Creative Tools | ComfyUI Partner Nodes
+# Magnific AI in ComfyUI: Upscaling and Creative Tools
 
 Copy pageCopy page
 
-This guide covers how to use the Magnific partner nodes in ComfyUI for AI-powered image enhancement, upscaling, style transfer, relighting, and skin enhancement.
+Upscale images up to 16x with Precise or Creative modes, then apply style transfer, relighting, and skin enhancement in ComfyUI.
 
 Copy pageCopy page
 
@@ -53,11 +55,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Precise Upscale** — High-fidelity image enlargement that preserves original details and introduces minimal new content; ideal for archival or product images.
   * **Creative Upscale (16x)** — AI-powered upscaling that interprets and adds realistic detail at up to 16x magnification; the Creativity slider controls how much new detail is generated.
@@ -67,11 +65,7 @@ Key capabilities
 
 
 
-## 
-
-​
-
-Models
+## Models
 
 ## Magnific Upscale
 

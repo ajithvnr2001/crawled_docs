@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/quiver/quiver-svg/
 title: Quiver SVG in ComfyUI: Text-to-SVG and Image-to-SVG - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:49.412505+00:00
+fetched_at: 2026-11-26T17:36:35.979719+00:00
 ---
 
 # Quiver SVG in ComfyUI: Text-to-SVG and Image-to-SVG - ComfyUI
@@ -57,28 +57,16 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Text-to-SVG** — Generate fully editable SVG vector graphics from natural language descriptions; perfect for icons, logos, illustrations, and UI elements.
   * **Image-to-SVG** — Convert raster images (PNG, JPG) into clean, scalable SVG vector graphics by tracing shapes, colors, and gradients.
 
 
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text-to-SVG
+### Text-to-SVG
 
 Describe the vector graphic you want in natural language, and Quiver generates a clean, editable SVG. Use it for creating icons, logos, diagrams, illustrations, and UI components.
 
@@ -90,11 +78,7 @@ Run the text-to-SVG workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Image-to-SVG
+### Image-to-SVG
 
 Convert an existing raster image into a clean, scalable SVG vector graphic. Shapes, colors, and gradients from the source are traced and reconstructed as vector paths.
 

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/hidream/hidream-o1/
 title: ComfyUI Native HiDream-O1-Image Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:21.715306+00:00
+fetched_at: 2026-11-26T17:36:34.159368+00:00
 ---
 
 # ComfyUI Native HiDream-O1-Image Workflow Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:21.715306+00:00
 > Source: https://docs.comfy.org/tutorials/image/hidream/hidream-o1/
 
 ## On this page
+
+Back to top
 
   * Model Versions
   * HiDream-O1-Image Full Workflow
@@ -61,28 +63,16 @@ So, if you find any core node missing in this document, it might be because the 
 
 ![HiDream-O1-Image Demo](https://raw.githubusercontent.com/HiDream-ai/HiDream-O1-Image/main/assets/general.webp) HiDream-O1-Image is a unified image generative foundation model open-sourced by HiDream-ai on May 8, 2026. Built on a Pixel-level Unified Transformer (UiT), it operates without external VAEs or disjoint text encoders, supporting **text-to-image** , **instruction-based image editing** , **subject-driven personalization** , and **storyboard generation** at up to 2,048 × 2,048 resolution. HiDream-O1-Image is released under the [MIT License](https://github.com/HiDream-ai/HiDream-O1-Image?tab=MIT-1-ov-file) and natively supported in ComfyUI (PR [#13817](https://github.com/Comfy-Org/ComfyUI/pull/13817)). [HiDream-O1-Image - GitHub](https://github.com/HiDream-ai/HiDream-O1-Image)
 
-### 
-
-​
-
-Model Versions
+### Model Versions
 
 Model| Inference Steps| Repository  
 ---|---|---  
 HiDream-O1-Image (Full)| 50| [🤗 HiDream-O1-Image](https://huggingface.co/HiDream-ai/HiDream-O1-Image)  
 HiDream-O1-Image-Dev| 28| [🤗 HiDream-O1-Image-Dev](https://huggingface.co/HiDream-ai/HiDream-O1-Image-Dev)  
   
-## 
+## HiDream-O1-Image Full Workflow
 
-​
-
-HiDream-O1-Image Full Workflow
-
-### 
-
-​
-
-HiDream O1 Full: Image generation
+### HiDream O1 Full: Image generation
 
 Input a text prompt and optionally upload reference images. Generate a high-resolution image up to 2048x2048 with text-to-image, editing, or subject-driven personalization. ![HiDream O1 Full workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_hidream_o1-1.webp)
 
@@ -96,17 +86,9 @@ Download JSON or search “HiDream O1 Full” in Template Library
 
 **Example output** ![HiDream O1 Full example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_hidream_o1.png)
 
-### 
+### 1\. Download Workflow
 
-​
-
-1\. Download Workflow
-
-### 
-
-​
-
-2\. Download Models
+### 2\. Download Models
 
 **Checkpoint** : re-packaged and quantized. All use bf16 for worst outliers, unused deepstack layers removed:
 
@@ -139,11 +121,7 @@ Download JSON or search “HiDream O1 Full” in Template Library
     │       └── gemma4_e4b_it_fp8_scaled.safetensors
     
 
-### 
-
-​
-
-3\. Using the Workflow
+### 3\. Using the Workflow
 
   * Make sure `CheckpointLoaderSimple` loads your chosen checkpoint
   * Enter your prompt in the `CLIPTextEncode` node
@@ -154,17 +132,9 @@ Download JSON or search “HiDream O1 Full” in Template Library
 
 > **Note:** The O1 sampler outputs latent samples that need to be decoded through a `VAEDecode` node using the VAE loaded by `CheckpointLoaderSimple`.
 
-## 
+## HiDream-O1-Image Dev Workflow
 
-​
-
-HiDream-O1-Image Dev Workflow
-
-### 
-
-​
-
-HiDream O1 Dev
+### HiDream O1 Dev
 
 Input a text prompt and optional reference images. Generate a high-resolution image (up to 2048x2048) with support for text-to-image, image editing, and subject-driven personalization. ![HiDream O1 Dev workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_hidream_o1_dev-1.webp)
 
@@ -188,17 +158,9 @@ Download JSON or search “HiDream O1 Dev” in Template Library
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/noir_portrait.png)![HiDream O1 Dev example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/image_hidream_o1_dev.png)
 
-### 
+### 1\. Download Workflow
 
-​
-
-1\. Download Workflow
-
-### 
-
-​
-
-2\. Download Models
+### 2\. Download Models
 
 **Checkpoint (Dev)** : re-packaged and quantized. All use bf16 for worst outliers, unused deepstack layers removed:
 
@@ -223,11 +185,7 @@ Download JSON or search “HiDream O1 Dev” in Template Library
     │       └── gemma4_e4b_it_fp8_scaled.safetensors
     
 
-### 
-
-​
-
-3\. Using the Workflow
+### 3\. Using the Workflow
 
   * Make sure `CheckpointLoaderSimple` loads `hidream_o1_image_dev_fp8_scaled.safetensors`
   * The Dev version uses 28 steps with CFG=1.0, no negative prompt needed
@@ -236,11 +194,7 @@ Download JSON or search “HiDream O1 Dev” in Template Library
 
 
 
-## 
-
-​
-
-Additional Notes
+## Additional Notes
 
   * **Long Text Rendering:** HiDream-O1-Image excels at rendering text within images. Specify text content, font style, color, and positioning in your prompt for best results. ![Long-Text Rendering & Layout Control](https://raw.githubusercontent.com/HiDream-ai/HiDream-O1-Image/main/assets/text-layout.webp)
   * **Image Scaling:** If your input reference image is too large, enable the `ImageScaleToTotalPixels` node (Ctrl+B) to scale it to 4MP.
@@ -254,26 +208,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/hidream/hidream-o1.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/hidream/hidream-o1)
 
-[HiDream-E1 and E1.1 in ComfyUI: Instruct Image EditingPrevious](https://docs.comfy.org/tutorials/image/hidream/hidream-e1)[Ovis-Image ComfyUI Workflow ExampleNext](https://docs.comfy.org/tutorials/image/ovis/ovis-image)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[HiDream-e1](https://docs.comfy.org/tutorials/image/hidream/hidream-e1)[Ovis-Image](https://docs.comfy.org/tutorials/image/ovis/ovis-image)

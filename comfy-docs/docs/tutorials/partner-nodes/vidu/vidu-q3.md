@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q3/
 title: Vidu Q3 - Latest generation for narrative and animation - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.894286+00:00
+fetched_at: 2026-11-26T17:36:35.686808+00:00
 ---
 
 # Vidu Q3 - Latest generation for narrative and animation - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.894286+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/vidu/vidu-q3/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -30,11 +32,7 @@ Copy pageCopy page
 
 Vidu Q3 is the newest and most capable Vidu model generation, powered by the Vidu 3.5 engine. It delivers the highest visual quality with a particular strength in anime and 2D animation styles, making it the top choice for animation production pipelines. Q3 also supports synchronized audio generation including dialogue, sound effects, and background music. Available in **Pro** (up to 2K resolution) and **Turbo** (optimized for speed) tiers.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Vidu 3.5 engine** — The latest engine delivering the highest visual quality across the Vidu family
   * **Exceptional anime quality** — Industry-leading output for 2D animation production
@@ -71,17 +69,9 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text to video
+### Text to video
 
 ## Run Q3 Text-to-Video on Cloud
 
@@ -91,11 +81,7 @@ Try the Q3 Text-to-Video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON.
 
-### 
-
-​
-
-Image to video
+### Image to video
 
 ## Run Q3 Image-to-Video on Cloud
 

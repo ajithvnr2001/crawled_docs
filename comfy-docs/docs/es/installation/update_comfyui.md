@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/installation/update_comfyui/
 title: Actualizar ComfyUI: Portable, Desktop e instalaci\u00f3n manual - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T18:44:34.138138+00:00
+fetched_at: 2026-11-26T17:36:33.154184+00:00
 ---
 
 # Actualizar ComfyUI: Portable, Desktop e instalación manual - ComfyUI

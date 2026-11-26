@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/wavespeed-flashvsr/
 title: WaveSpeed FlashVSR - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.961855+00:00
+fetched_at: 2026-11-26T17:36:35.729028+00:00
 ---
 
 # WaveSpeed FlashVSR - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-25T12:24:50.961855+00:00
 > Source: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/wavespeed-flashvsr/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Available workflows
@@ -28,11 +30,7 @@ Copy pageCopy page
 
 WaveSpeed FlashVSR (FLSH-VSR) is a temporal-coherent AI video super-resolution model that upscales low-resolution video while maintaining consistent detail across frames. Ideal for archiving, AI video enhancement, and SD-to-HD conversion.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Temporal-coherent upscaling** — Maintains frame-to-frame consistency for smooth, realistic output.
   * **SD-to-HD conversion** — Upscales standard-definition video to high definition with realistic detail.
@@ -66,11 +64,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Available workflows
+## Available workflows
 
 ## Open in ComfyCloud
 

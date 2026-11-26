@@ -1,15 +1,17 @@
 ---
 url: https://docs.comfy.org/tutorials/partner-nodes/pixverse/overview/
-title: PixVerse AI: Video Generation | ComfyUI Partner Nodes - ComfyUI
+title: PixVerse AI in ComfyUI: Text, Image, and Template Video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-25T12:24:50.300122+00:00
+fetched_at: 2026-11-26T17:36:36.110643+00:00
 ---
 
-# PixVerse AI: Video Generation | ComfyUI Partner Nodes - ComfyUI
+# PixVerse AI in ComfyUI: Text, Image, and Template Video - ComfyUI
 
 > Source: https://docs.comfy.org/tutorials/partner-nodes/pixverse/overview/
 
 ## On this page
+
+Back to top
 
   * Key capabilities
   * Models
@@ -18,11 +20,11 @@ fetched_at: 2026-10-25T12:24:50.300122+00:00
 
 PixVerse
 
-# PixVerse AI: Video Generation | ComfyUI Partner Nodes
+# PixVerse AI in ComfyUI: Text, Image, and Template Video
 
 Copy pageCopy page
 
-This guide covers how to use the PixVerse partner nodes in ComfyUI for AI-powered video generation from text prompts, images, and template-based workflows.
+Generate video in ComfyUI with PixVerse V5.6, V6, C1, and R1, from a text prompt, a single image, or a motion template.
 
 Copy pageCopy page
 
@@ -53,11 +55,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Text-to-Video** — Generate original videos from text prompts, ideal for concept visualization, storyboarding, and rapid creative exploration.
   * **Image-to-Video** — Animate a reference image while preserving subject identity and scene composition, bringing static visuals to life with natural motion.
@@ -65,11 +63,7 @@ Key capabilities
 
 
 
-## 
-
-​
-
-Models
+## Models
 
 ## PixVerse Video
 
@@ -81,4 +75,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/partner-nodes/pixverse/overview.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/partner-nodes/pixverse/overview)
 
-[Moonvalley Video Generation](https://docs.comfy.org/tutorials/partner-nodes/moonvalley/moonvalley-video-generation)[PixVerse Video](https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-video)
+[Pika Music & SFX](https://docs.comfy.org/tutorials/partner-nodes/pika/pika-audio)[PixVerse Video](https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-video)

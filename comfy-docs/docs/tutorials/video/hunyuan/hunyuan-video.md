@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video/
 title: ComfyUI Hunyuan Video Examples - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:43.170942+00:00
+fetched_at: 2026-11-26T17:36:35.404273+00:00
 ---
 
 # ComfyUI Hunyuan Video Examples - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:43.170942+00:00
 > Source: https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video/
 
 ## On this page
+
+Back to top
 
   * Common Models for All Workflows
   * Hunyuan Text-to-Video Workflow
@@ -73,11 +75,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Common Models for All Workflows
+## Common Models for All Workflows
 
 The following models are used in both Text-to-Video and Image-to-Video workflows. Download and save them to the specified directories:
 
@@ -105,19 +103,11 @@ Storage location:
     │       └── hunyuan_video_vae_bf16.safetensors
     
 
-## 
-
-​
-
-Hunyuan Text-to-Video Workflow
+## Hunyuan Text-to-Video Workflow
 
 Hunyuan Text-to-Video was open-sourced in December 2024, supporting 5-second short video generation through natural language descriptions in both Chinese and English.
 
-### 
-
-​
-
-1\. Workflow
+### 1\. Workflow
 
 Download the workflow image below and drag it into ComfyUI to load the workflow: ![ComfyUI Workflow - Hunyuan Text-to-Video](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/hunyuan_video_text_to_video-1.webp)
 
@@ -129,11 +119,7 @@ Open in Comfy Cloud
 
 Download JSON or search “Hunyuan Video” in Template Library
 
-### 
-
-​
-
-2\. Manual models installation
+### 2\. Manual models installation
 
 ## Diffusion Model: hunyuan_video_t2v_720p_bf16.safetensors
 
@@ -153,11 +139,7 @@ Ensure you have all these model files in the correct locations:
     │       └── hunyuan_video_t2v_720p_bf16.safetensors  // T2V model
     
 
-### 
-
-​
-
-3\. Steps to run the workflow
+### 3\. Steps to run the workflow
 
 ![ComfyUI Hunyuan Video T2V Workflow](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/advanced/hunyuanvideo/flow_diagram_t2v.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=8cf9db23e82c1c31702966878d7d6326)
 
@@ -172,11 +154,7 @@ Ensure you have all these model files in the correct locations:
 
 When the `length` parameter in the `EmptyHunyuanLatentVideo` node is set to 1, the model can generate a static image.
 
-## 
-
-​
-
-Hunyuan Image-to-Video Workflow
+## Hunyuan Image-to-Video Workflow
 
 Hunyuan Image-to-Video model was open-sourced on March 6, 2025, based on the HunyuanVideo framework. It transforms static images into smooth, high-quality videos and also provides LoRA training code to customize special video effects like hair growth, object transformation, and more. Currently, the Hunyuan Image-to-Video model has two versions:
 
@@ -193,27 +171,15 @@ v2 “replace”
 
 ![HunyuanVideo v2](https://comfyanonymous.github.io/ComfyUI_examples/hunyuan_video/hunyuan_video_image_to_video_v2.webp)
 
-### 
-
-​
-
-Shared Model for v1 and v2 Versions
+### Shared Model for v1 and v2 Versions
 
 ## CLIP Vision: llava_llama3_vision.safetensors
 
 Save to ComfyUI/models/clip_vision
 
-### 
+### V1 “concat” Image-to-Video Workflow
 
-​
-
-V1 “concat” Image-to-Video Workflow
-
-#### 
-
-​
-
-1\. Workflow and Asset
+#### 1\. Workflow and Asset
 
 Download the workflow image below and drag it into ComfyUI to load the workflow: ![ComfyUI Workflow - Hunyuan Image-to-Video v1](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hunyuan-video/i2v/v1_robot.webp)
 
@@ -227,11 +193,7 @@ Download the image below and use it as the starting frame for the image-to-video
 
 Save and use as input image for I2V generation
 
-#### 
-
-​
-
-2\. Related models manual installation
+#### 2\. Related models manual installation
 
 ## Diffusion Model: hunyuan_video_image_to_video_720p_bf16.safetensors
 
@@ -253,11 +215,7 @@ Ensure you have all these model files in the correct locations:
     │       └── hunyuan_video_image_to_video_720p_bf16.safetensors  // I2V v1 "concat" version model
     
 
-#### 
-
-​
-
-3\. Steps to run the workflow
+#### 3\. Steps to run the workflow
 
 ![ComfyUI Hunyuan Video I2V v1 Workflow](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/advanced/hunyuanvideo/flow_diagram_i2v_v1.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=66d1fd271cc2a45a4fbcd92850074912)
 
@@ -272,19 +230,11 @@ Ensure you have all these model files in the correct locations:
 
 
 
-### 
-
-​
-
-v2 “replace” Image-to-Video Workflow
+### v2 “replace” Image-to-Video Workflow
 
 The v2 workflow is essentially the same as the v1 workflow. You just need to download the **replace** model and use it in the `Load Diffusion Model` node.
 
-#### 
-
-​
-
-1\. Workflow and Asset
+#### 1\. Workflow and Asset
 
 Download the workflow image below and drag it into ComfyUI to load the workflow: ![ComfyUI Workflow - Hunyuan Image-to-Video v2](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/hunyuan-video/i2v/v2_fennec_gril.webp)
 
@@ -298,11 +248,7 @@ Download the image below and use it as the starting frame for the image-to-video
 
 Save and use as input image for I2V generation
 
-#### 
-
-​
-
-2\. Related models manual installation
+#### 2\. Related models manual installation
 
 ## Diffusion Model: hunyuan_video_v2_replace_image_to_video_720p_bf16.safetensors
 
@@ -324,11 +270,7 @@ Ensure you have all these model files in the correct locations:
     │       └── hunyuan_video_v2_replace_image_to_video_720p_bf16.safetensors  // V2 "replace" version model
     
 
-#### 
-
-​
-
-3\. Steps to run the workflow
+#### 3\. Steps to run the workflow
 
 ![ComfyUI Hunyuan Video I2V v2 Workflow](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/advanced/hunyuanvideo/flow_diagram_i2v_v2.jpg?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=f26ddd8edc837fbf9d2bb4f6459a82ee)
 
@@ -343,11 +285,7 @@ Ensure you have all these model files in the correct locations:
 
 
 
-## 
-
-​
-
-Try It Yourself
+## Try It Yourself
 
 Here are some images and prompts we provide. Use them as-is or adjust to create your own video. ![example](https://mintcdn.com/dripart/OVkvfOwYrH10fL3Y/images/tutorial/advanced/hunyuanvideo/humanoid_android_dressed_in_a_flowing.png?fit=max&auto=format&n=OVkvfOwYrH10fL3Y&q=85&s=16d6b0ea15e14c74e8d2e5bfacfe4bf8)
     
@@ -385,26 +323,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/hunyuan/hunyuan-video.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/hunyuan/hunyuan-video)
 
-[Bernini-R in ComfyUI: In-Context Image and Video EditingPrevious](https://docs.comfy.org/tutorials/video/bytedance/bernini-r)[HunyuanVideo 1.5Next](https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video-1-5)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Bernini-R](https://docs.comfy.org/tutorials/video/bytedance/bernini-r)[HunyuanVideo 1.5](https://docs.comfy.org/tutorials/video/hunyuan/hunyuan-video-1-5)

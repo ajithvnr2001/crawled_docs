@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/flux/flux-1-fill-dev/
 title: ComfyUI Flux.1 fill dev Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:19.242742+00:00
+fetched_at: 2026-11-26T17:36:35.044874+00:00
 ---
 
 # ComfyUI Flux.1 fill dev Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:19.242742+00:00
 > Source: https://docs.comfy.org/tutorials/flux/flux-1-fill-dev/
 
 ## On this page
+
+Back to top
 
   * Introduction to Flux.1 fill dev Model
   * Flux.1 Fill dev and related models installation
@@ -36,11 +38,7 @@ Copy pageCopy page
 
 ![Flux.1 fill dev](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flux-fill-dev-demo.jpeg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=e9b567aff5fbd43dce197d819f5f028e)
 
-## 
-
-​
-
-Introduction to Flux.1 fill dev Model
+## Introduction to Flux.1 fill dev Model
 
 Flux.1 fill dev is one of the core tools in the [FLUX.1 Tools suite](https://blackforestlabs.ai/flux-1-tools/) launched by [Black Forest Labs](https://blackforestlabs.ai/), specifically designed for image inpainting and outpainting. Key features of Flux.1 fill dev:
 
@@ -51,11 +49,7 @@ Flux.1 fill dev is one of the core tools in the [FLUX.1 Tools suite](https://bla
 
 Open Source Repository: [FLUX.1 [dev]](https://huggingface.co/black-forest-labs/FLUX.1-dev) This guide will demonstrate inpainting and outpainting workflows based on the Flux.1 fill dev model. If you’re not familiar with inpainting and outpainting workflows, you can refer to [ComfyUI Layout Inpainting Example](https://docs.comfy.org/tutorials/basic/inpaint) and [ComfyUI Image Extension Example](https://docs.comfy.org/tutorials/basic/outpaint) for some related explanations.
 
-## 
-
-​
-
-Flux.1 Fill dev and related models installation
+## Flux.1 Fill dev and related models installation
 
 Before we begin, let’s complete the installation of the Flux.1 Fill dev model files. The inpainting and outpainting workflows will use exactly the same model files. If you’ve previously used the full version of the [Flux.1 Text-to-Image workflow](https://docs.comfy.org/tutorials/flux/flux-1-text-to-image), then you only need to download the **flux1-fill-dev.safetensors** model file in this section. However, since downloading the corresponding model requires agreeing to the corresponding usage agreement, please visit the [black-forest-labs/FLUX.1-Fill-dev](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev) page and make sure you have agreed to the corresponding agreement as shown in the image below. ![Flux Agreement](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flux1_fill_dev_agreement.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=388a26b32b5841dbf6ef32f31537e43d) Complete model list: |- [clip_l.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/clip_l.safetensors) |- [t5xxl_fp16.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp16.safetensors) |- [ae.safetensors](https://huggingface.co/black-forest-labs/FLUX.1-schnell/blob/main/ae.safetensors) |- [flux1-fill-dev.safetensors](https://huggingface.co/black-forest-labs/FLUX.1-Fill-dev/blob/main/flux1-fill-dev.safetensors) File storage location:
     
@@ -71,17 +65,9 @@ Before we begin, let’s complete the installation of the Flux.1 Fill dev model 
     │        └── flux1-fill-dev.safetensors
     
 
-## 
+## Flux.1 Fill dev inpainting workflow
 
-​
-
-Flux.1 Fill dev inpainting workflow
-
-### 
-
-​
-
-Flux.1 Inpaint
+### Flux.1 Inpaint
 
 Fill missing parts of images using Flux.1 Fill Inpainting. ![Flux.1 inpaint workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_fill_inpaint_example-1.webp)
 
@@ -105,19 +91,11 @@ Download JSON or search “Flux.1 Inpaint” in Template Library
 
 ![Input image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/flux_fill_inpaint_example_input_image.png)![Flux.1 inpaint example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/flux_fill_inpaint_example.png)
 
-### 
-
-​
-
-1\. Inpainting workflow and asset
+### 1\. Inpainting workflow and asset
 
 The corresponding image already contains an alpha channel, so you don’t need to draw a mask separately. If you want to draw your own mask, please [click here](https://raw.githubusercontent.com/Comfy-Org/example_workflows/main/flux/inpaint/flux_fill_inpaint_input_original.png) to get the image without a mask, and refer to the MaskEditor usage section in the [ComfyUI Layout Inpainting Example](https://docs.comfy.org/tutorials/basic/inpaint#using-the-mask-editor) to learn how to draw a mask in the `Load Image` node.
 
-### 
-
-​
-
-2\. Steps to run the workflow
+### 2\. Steps to run the workflow
 
 ![ComfyUI Flux.1 Fill dev Inpainting Workflow](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flow_diagram_inpaint.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=8d4238c0487b7ddf527ec044aa02d578)
 
@@ -131,17 +109,9 @@ The corresponding image already contains an alpha channel, so you don’t need t
 
 
 
-## 
+## Flux.1 Fill dev Outpainting Workflow
 
-​
-
-Flux.1 Fill dev Outpainting Workflow
-
-### 
-
-​
-
-Flux.1 Outpaint
+### Flux.1 Outpaint
 
 Extend images beyond boundaries using Flux.1 outpainting. ![Flux.1 outpaint workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_fill_outpaint_example-1.webp)
 
@@ -161,17 +131,9 @@ Download JSON or search “Flux.1 Outpaint” in Template Library
 
 ![flux_fill_outpaint_example_input_image.png](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/flux_fill_outpaint_example_input_image.png)
 
-### 
+### 1\. Outpainting workflow and asset
 
-​
-
-1\. Outpainting workflow and asset
-
-### 
-
-​
-
-2\. Steps to run the workflow
+### 2\. Steps to run the workflow
 
 ![ComfyUI Flux.1 Fill dev Outpainting Workflow](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flow_diagram_outpaint.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=5f152f459be5f120b3895636685cb3d3)
 
@@ -191,26 +153,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/flux/flux-1-fill-dev.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/flux/flux-1-fill-dev)
 
-[ByteDance USO ComfyUI Native Workflow examplePrevious](https://docs.comfy.org/tutorials/flux/flux-1-uso)[ComfyUI Flux.1 ControlNet ExamplesNext](https://docs.comfy.org/tutorials/flux/flux-1-controlnet)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[ByteDance USO](https://docs.comfy.org/tutorials/flux/flux-1-uso)[Flux.1 ControlNet](https://docs.comfy.org/tutorials/flux/flux-1-controlnet)

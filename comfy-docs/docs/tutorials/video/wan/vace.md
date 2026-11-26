@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/video/wan/vace/
 title: ComfyUI Wan2.1 VACE Video Examples - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:45.557358+00:00
+fetched_at: 2026-11-26T17:36:34.657454+00:00
 ---
 
 # ComfyUI Wan2.1 VACE Video Examples - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:45.557358+00:00
 > Source: https://docs.comfy.org/tutorials/video/wan/vace/
 
 ## On this page
+
+Back to top
 
   * About VACE
   * Model Download and Loading in Workflows
@@ -47,11 +49,7 @@ Copy pageCopy page
 
 As we have made adjustments to the template and added related usage and instructions for CausVid LoRA, this document needs to be updated and requires some preparation time. Until then, please refer to the notes in the template for usage.
 
-## 
-
-​
-
-About VACE
+## About VACE
 
 VACE 14B is an open-source unified video editing model launched by the Alibaba Tongyi Wanxiang team. Through integrating multi-task capabilities, supporting high-resolution processing and flexible multi-modal input mechanisms, this model significantly improves the efficiency and quality of video creation. The model is open-sourced under the [Apache-2.0](https://github.com/ali-vilab/VACE?tab=Apache-2.0-1-ov-file) license and can be used for personal or commercial purposes. Here is a comprehensive analysis of its core features and technical highlights:
 
@@ -110,19 +108,11 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Model Download and Loading in Workflows
+## Model Download and Loading in Workflows
 
 Since the workflows covered in this document all use the same workflow template, we can first complete the model download and loading information introduction, then enable or disable different inputs through bypassing different nodes to achieve different workflows. The model download information is already embedded in the workflow information in specific examples, so you can also complete the model download when downloading specific example workflows.
 
-### 
-
-​
-
-Model Download
+### Model Download
 
 **Diffusion Models**
 
@@ -165,11 +155,7 @@ File save location:
     │       └──  wan_2.1_vae.safetensors
     
 
-### 
-
-​
-
-Model Loading
+### Model Loading
 
 Since the models used in the workflows covered in this document are consistent, the workflows are also the same, and only the nodes are bypassed to enable or disable different inputs. Please refer to the following image to ensure that the corresponding models are correctly loaded in different workflows. ![Wan2.1 VACE Model Loading](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan-vace-model-loading.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=d46629d2ee7cfa1b942d4d92217992b1)
 
@@ -179,11 +165,7 @@ Since the models used in the workflows covered in this document are consistent, 
 
 
 
-### 
-
-​
-
-How to toggle Node Bypass Status
+### How to toggle Node Bypass Status
 
 When a node is set to Bypass status, data passing through the node will not be affected by the node and will be output directly. We often set nodes to Bypass status when we don’t need them. Here are three ways to toggle a node’s Bypass status: ![Toggle Bypass](https://mintcdn.com/dripart/qYv6P0RgI3co7-eH/images/interface/nodes/cancel-bypass.jpg?fit=max&auto=format&n=qYv6P0RgI3co7-eH&q=85&s=3a57352f6bc6f1c16ce0792d384d16fd)
 
@@ -195,19 +177,11 @@ When a node is set to Bypass status, data passing through the node will not be a
 
 * * *
 
-## 
-
-​
-
-1\. VACE Text-to-Video
+## 1\. VACE Text-to-Video
 
 **What it does:** Transform text descriptions into high-quality videos using the Wan2.1 VACE 14B model. Supports both 480p and 720p resolution.
 
-### 
-
-​
-
-Wan2.1 VACE Text to Video
+### Wan2.1 VACE Text to Video
 
 Transform text descriptions into high-quality videos. Supports both 480p and 720p with VACE-14B model. ![Wan2.1 VACE Text to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_14B_t2v-1.webp)
 
@@ -221,11 +195,7 @@ Download JSON or search “Wan2.1 VACE Text to Video” in Template Library
 
 If you cannot load the workflow from mp4 file, please ensure that your ComfyUI front-end version is up to date version in [requirements.txt](https://github.com/Comfy-Org/ComfyUI/blob/master/requirements.txt), make sure you can load the workflow from mp4 file.Currently 1.19.9 is the latest ComfyUI front-end version in the requirements.txt file.
 
-### 
-
-​
-
-Steps to Run
+### Steps to Run
 
 ![image](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan-vace-t2v-step-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=6f24e0be5f1ee91ea5becd79501053bd) Please follow the numbered steps in the image to ensure smooth workflow execution:
 
@@ -246,19 +216,11 @@ However, 720P video quality is better.
 
 * * *
 
-## 
-
-​
-
-2\. VACE Image-to-Video
+## 2\. VACE Image-to-Video
 
 **What it does:** Generate videos that match the style and content of a reference image. Perfect for style-consistent video generation. You can continue using the workflow above, just unbypass the `Load image` node in **Load reference image** and input your image. You can also use the image below. In this file we have already set up the corresponding parameters.
 
-### 
-
-​
-
-Wan2.1 VACE Reference to Video
+### Wan2.1 VACE Reference to Video
 
 Create videos that match the style and content of a reference image. Perfect for style-consistent video generation. ![Wan2.1 VACE Reference to Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_14B_ref2v-1.webp)
 
@@ -278,11 +240,7 @@ Download JSON or search “Wan2.1 VACE Reference to Video” in Template Library
 
 ![video_wan_vace_14B_ref2v_reference_image.jpg](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/input/video_wan_vace_14B_ref2v_reference_image.jpg)
 
-### 
-
-​
-
-Steps to Run
+### Steps to Run
 
 ![Workflow Steps](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan-vace-i2v-step-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=e22bf953a5900de76c55ed9af3881ea3) Please follow the numbered steps in the image to ensure smooth workflow execution:
 
@@ -296,29 +254,17 @@ Steps to Run
 
 You may want to use nodes like getting image dimensions to set the resolution, but due to width and height step requirements of the corresponding nodes, you may get error messages if your image dimensions are not divisible by 16.
 
-### 
-
-​
-
-Additional Notes
+### Additional Notes
 
 VACE also supports inputting multiple reference images in a single image to generate corresponding videos. You can see related examples on the VACE project [page](https://ali-vilab.github.io/VACE-Page/).
 
 * * *
 
-## 
-
-​
-
-3\. VACE Video-to-Video
+## 3\. VACE Video-to-Video
 
 **What it does:** Generate videos by controlling input videos and reference images using Wan VACE. Control video style and motion through reference materials.
 
-### 
-
-​
-
-Wan2.1 VACE Control Video
+### Wan2.1 VACE Control Video
 
 Generate videos by controlling input videos and reference images using Wan VACE. ![Wan2.1 VACE Control Video workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_14B_v2v-1.webp)
 
@@ -352,11 +298,7 @@ Preprocessed control video (depth). Use directly in `Load Video` under **Load co
 
 
 
-### 
-
-​
-
-Steps to Run
+### Steps to Run
 
 ![Workflow Steps](https://mintcdn.com/dripart/SIDaLac8vBogzwm7/images/tutorial/video/wan/wan-vace-v2v-step-guide.jpg?fit=max&auto=format&n=SIDaLac8vBogzwm7&q=85&s=a59e79204a1faf9b3f63c482b65df764) Please follow the numbered steps in the image to ensure smooth workflow execution:
 
@@ -372,19 +314,11 @@ Steps to Run
 
 * * *
 
-## 
-
-​
-
-4\. VACE Inpainting
+## 4\. VACE Inpainting
 
 **What it does:** Edit specific regions in videos while preserving surrounding content. Great for object removal or replacement.
 
-### 
-
-​
-
-Wan2.1 VACE Inpainting
+### Wan2.1 VACE Inpainting
 
 Edit specific regions in videos while preserving surrounding content. Great for object removal or replacement. ![Wan2.1 VACE Inpainting workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_inpainting-1.webp)
 
@@ -414,19 +348,11 @@ Reference image for inpainting content.
 
 * * *
 
-## 
-
-​
-
-5\. VACE Video Outpainting
+## 5\. VACE Video Outpainting
 
 **What it does:** Generate extended videos by expanding video size using Wan VACE outpainting.
 
-### 
-
-​
-
-Wan2.1 VACE Outpainting
+### Wan2.1 VACE Outpainting
 
 Generate extended videos by expanding video size using Wan VACE outpainting. ![Wan2.1 VACE Outpainting workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_outpainting-1.webp)
 
@@ -448,19 +374,11 @@ Input video for outpainting. Load in the `Load Video` node.
 
 * * *
 
-## 
-
-​
-
-6\. VACE First-Last Frame Video Generation
+## 6\. VACE First-Last Frame Video Generation
 
 **What it does:** Generate smooth video transitions by defining start and end frames. Supports custom keyframe sequences.
 
-### 
-
-​
-
-Wan2.1 VACE First-Last Frame
+### Wan2.1 VACE First-Last Frame
 
 Generate smooth video transitions by defining start and end frames. Supports custom keyframe sequences. ![Wan2.1 VACE First-Last Frame workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/video_wan_vace_flf2v-1.webp)
 
@@ -490,26 +408,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/video/wan/vace.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/video/wan/vace)
 
-[Causal Forcing I2V ComfyUI Workflow ExamplePrevious](https://docs.comfy.org/tutorials/video/wan/wan-causal-forcing)[ComfyUI Wan-Move Workflow ExampleNext](https://docs.comfy.org/tutorials/video/wan/wan-move)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[Causal Forcing I2V](https://docs.comfy.org/tutorials/video/wan/wan-causal-forcing)[Wan-Move](https://docs.comfy.org/tutorials/video/wan/wan-move)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/pixverse/pixverse-video/
 title: PixVerse Video in ComfyUI: Text-to-Video and Image-to-Video - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-08T14:09:49.338637+00:00
+fetched_at: 2026-11-26T17:36:36.150283+00:00
 ---
 
 # PixVerse Video in ComfyUI: Text-to-Video and Image-to-Video - ComfyUI
@@ -58,11 +58,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Key capabilities
+## Key capabilities
 
   * **Text-to-Video** — Generate original videos from text prompts, ideal for concept visualization, storyboarding, and rapid creative exploration.
   * **Image-to-Video** — Animate a reference image while preserving subject identity and scene composition, bringing static visuals to life with natural motion.
@@ -70,17 +66,9 @@ Key capabilities
 
 
 
-## 
+## Available workflows
 
-​
-
-Available workflows
-
-### 
-
-​
-
-Text-to-Video
+### Text-to-Video
 
 Create original videos from text prompts. Describe the scene, characters, and action — PixVerse generates a corresponding video clip with cinematic quality.
 
@@ -92,11 +80,7 @@ Run the text-to-video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Image-to-Video
+### Image-to-Video
 
 Take a reference image and generate a video that animates it while preserving the original subject, style, and composition.
 
@@ -108,11 +92,7 @@ Run the image-to-video workflow instantly on Comfy Cloud.
 
 Download the workflow JSON file for local use.
 
-### 
-
-​
-
-Template Image-to-Video
+### Template Image-to-Video
 
 Apply a pre-defined motion template to your input image for predictable, repeatable animation results. This mode reduces variability and is ideal for consistent batch processing.
 

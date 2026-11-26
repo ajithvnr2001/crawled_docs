@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/flux/flux-1-text-to-image/
 title: ComfyUI Flux.1 Text-to-Image Workflow Example - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T10:51:19.787339+00:00
+fetched_at: 2026-11-26T17:36:34.722381+00:00
 ---
 
 # ComfyUI Flux.1 Text-to-Image Workflow Example - ComfyUI
@@ -10,6 +10,8 @@ fetched_at: 2026-10-17T10:51:19.787339+00:00
 > Source: https://docs.comfy.org/tutorials/flux/flux-1-text-to-image/
 
 ## On this page
+
+Back to top
 
   * Flux.1 Full Version Text-to-Image Example
     * Flux.1 Dev
@@ -66,25 +68,13 @@ All workflow images’s Metadata contains the corresponding model download infor
 
 If you’re not using the Desktop Version or some models can’t be downloaded automatically, please refer to the manual installation sections to save the model files to the corresponding folder. Make sure your ComfyUI is updated to the latest version before starting.
 
-## 
-
-​
-
-Flux.1 Full Version Text-to-Image Example
+## Flux.1 Full Version Text-to-Image Example
 
 If you can’t download models from [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev), make sure you’ve logged into Huggingface and agreed to the corresponding repository’s license agreement.![Flux Agreement](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flux_agreement.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=7171d72127bc5b3d6943996a9ef06970)
 
-### 
+### Flux.1 Dev
 
-​
-
-Flux.1 Dev
-
-### 
-
-​
-
-Flux.1 Dev fp8: Text to Image
+### Flux.1 Dev fp8: Text to Image
 
 Generate images using Flux.1 Dev fp8 quantized version. Suitable for devices with limited VRAM, requires only one model file, but image quality is slightly reduced compared to the full version. ![Flux.1 Dev fp8 workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_dev_checkpoint_example-1.webp)
 
@@ -98,17 +88,9 @@ Download JSON or search “Flux.1 Dev fp8” in Template Library
 
 **Example output** ![Flux.1 Dev fp8 example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/flux_dev_checkpoint_example.png)
 
-#### 
+#### 1\. Workflow File
 
-​
-
-1\. Workflow File
-
-#### 
-
-​
-
-2\. Manual Model Installation
+#### 2\. Manual Model Installation
 
   * The `flux1-dev.safetensors` file requires agreeing to the [black-forest-labs/FLUX.1-dev](https://huggingface.co/black-forest-labs/FLUX.1-dev) agreement before downloading via browser.
   * If your VRAM is low, you can try using [t5xxl_fp8_e4m3fn.safetensors](https://huggingface.co/comfyanonymous/flux_text_encoders/blob/main/t5xxl_fp8_e4m3fn.safetensors?download=true) to replace the `t5xxl_fp16.safetensors` file.
@@ -136,11 +118,7 @@ Storage location:
     │       └── flux1-dev.safetensors
     
 
-#### 
-
-​
-
-3\. Steps to Run the Workflow
+#### 3\. Steps to Run the Workflow
 
 Please refer to the image below to ensure all model files are loaded correctly ![ComfyUI Flux Dev Workflow](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flow_diagram_flux_dev_t5fp16.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=fbdc3a3b3b795328425b4ab854b77f13)
 
@@ -155,17 +133,9 @@ Please refer to the image below to ensure all model files are loaded correctly !
 
 Thanks to Flux’s excellent prompt following capability, we don’t need any negative prompts
 
-### 
+### Flux.1 Schnell
 
-​
-
-Flux.1 Schnell
-
-### 
-
-​
-
-Flux.1 Schnell FP8
+### Flux.1 Schnell FP8
 
 Quickly generate images with Flux.1 Schnell fp8 quantized version. Ideal for low-end hardware, requires only 4 steps to generate images. ![Flux.1 Schnell FP8 workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_schnell-1.webp)
 
@@ -177,17 +147,9 @@ Run this workflow on Comfy Cloud
 
 Download JSON or search “Flux.1 Schnell” in Template Library
 
-#### 
+#### 1\. Workflow File
 
-​
-
-1\. Workflow File
-
-#### 
-
-​
-
-2\. Manual Models Installation
+#### 2\. Manual Models Installation
 
 In this workflow, only two model files are different from the Flux1 Dev version workflow. For t5xxl, you can still use the fp16 version for better results.
 
@@ -217,11 +179,7 @@ File storage location:
     │       └── flux1-schnell.safetensors
     
 
-#### 
-
-​
-
-3\. Steps to Run the Workflow
+#### 3\. Steps to Run the Workflow
 
 ![Flux Schnell Version Workflow](https://mintcdn.com/dripart/TwfNQ2dEaWQA7tIL/images/tutorial/flux/flow_diagram_flux_schnell_t5fp8.jpg?fit=max&auto=format&n=TwfNQ2dEaWQA7tIL&q=85&s=6ce852c65510f40dde8069dc6370869d)
 
@@ -234,25 +192,13 @@ File storage location:
 
 
 
-## 
-
-​
-
-Flux.1 FP8 Checkpoint Version Text-to-Image Example
+## Flux.1 FP8 Checkpoint Version Text-to-Image Example
 
 The fp8 version is a quantized version of the original Flux.1 fp16 version. To some extent, the quality of this version will be lower than that of the fp16 version, but it also requires less VRAM, and you only need to install one model file to try running it.
 
-### 
+### Flux.1 Dev
 
-​
-
-Flux.1 Dev
-
-### 
-
-​
-
-Flux.1 Dev: Text to Image
+### Flux.1 Dev: Text to Image
 
 Generate high-quality images with Flux Dev full version. Requires larger VRAM and multiple model files, but provides the best prompt following capability. ![Flux.1 Dev text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_dev_full_text_to_image-1.webp)
 
@@ -266,17 +212,9 @@ Download JSON or search “Flux.1 Dev FP8” in Template Library
 
 **Example output** ![Flux.1 Dev FP8 checkpoint example output](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/output/flux_dev_full_text_to_image.png) Please download the image below and drag it into ComfyUI to load the workflow. Please download [flux1-dev-fp8.safetensors](https://huggingface.co/Comfy-Org/flux1-dev/blob/main/flux1-dev-fp8.safetensors?download=true) and save it to the `ComfyUI/models/checkpoints/` directory. Ensure that the corresponding `Load Checkpoint` node loads `flux1-dev-fp8.safetensors`, and you can try to run the workflow.
 
-### 
+### Flux.1 Schnell
 
-​
-
-Flux.1 Schnell
-
-### 
-
-​
-
-Flux.1 Schnell FP8
+### Flux.1 Schnell FP8
 
 Quickly generate images with Flux.1 Schnell fp8 quantized version. Ideal for low-end hardware, requires only 4 steps to generate images. ![Flux.1 Schnell FP8 checkpoint workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/flux_schnell-1.webp)
 
@@ -296,26 +234,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/flux/flux-1-text-to-image.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/flux/flux-1-text-to-image)
 
-[ComfyUI FLUX Kontext Dev Native Workflow ExamplePrevious](https://docs.comfy.org/tutorials/flux/flux-1-kontext-dev)[ByteDance USO ComfyUI Native Workflow exampleNext](https://docs.comfy.org/tutorials/flux/flux-1-uso)
-
-⌘I
-
-[ComfyUI home page![light logo](https://mintcdn.com/dripart/WCFdTagRdhtvk9-o/logo/light.svg?fit=max&auto=format&n=WCFdTagRdhtvk9-o&q=85&s=ec112de87239058f5a931a7e4b594965)![dark logo](https://mintcdn.com/dripart/QzWbjSCBG7w61rR3/logo/dark.svg?fit=max&auto=format&n=QzWbjSCBG7w61rR3&q=85&s=62b4d879fb3aadbd7a468d1539032d6f)](https://docs.comfy.org/)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-Resources
-
-[installation](https://docs.comfy.org/installation/system_requirements)[Tutorials](https://docs.comfy.org/tutorials/basic/text-to-image)[Development](https://docs.comfy.org/development/overview)
-
-Products
-
-[Features](https://www.comfy.org/?utm_source=docs)[Gallery](https://www.comfy.org/gallery?utm_source=docs)[Download](https://www.comfy.org/download?utm_source=docs)
-
-Company
-
-[About](https://www.comfy.org/about?utm_source=docs)[Careers](https://www.comfy.org/careers?utm_source=docs)[Terms of Service](https://www.comfy.org/terms-of-service?utm_source=docs)[Privacy Policy](https://www.comfy.org/privacy-policy?utm_source=docs)
-
-[github](https://github.com/Comfy-Org/ComfyUI)[x](https://x.com/ComfyUI)[discord](https://discord.com/invite/comfyorg)[youtube](https://www.youtube.com/@comfyorg)
-
-[Powered byThis documentation is built and hosted on Mintlify, a developer documentation platform](https://www.mintlify.com?utm_campaign=poweredBy&utm_medium=referral&utm_source=dripart)
+[FLUX.1 Kontext Dev](https://docs.comfy.org/tutorials/flux/flux-1-kontext-dev)[ByteDance USO](https://docs.comfy.org/tutorials/flux/flux-1-uso)
