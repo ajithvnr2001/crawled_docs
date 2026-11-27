@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/text-to-speech/
 title: Text to Speech - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:49:33.767803+00:00
+fetched_at: 2026-11-27T17:34:38.981724+00:00
 ---
 
 # Text to Speech - Fish Audio
@@ -109,12 +109,9 @@ JavaScript
     
     const client = new FishAudioClient({ apiKey: process.env.FISH_API_KEY });
     
-    // Pass the model explicitly: the current npm release (`fish-audio` 0.1.0)
-    // defaults to `s1`, which is deprecated and retires on December 31, 2026.
-    const stream = await client.textToSpeech.convert(
-      { text: "Hello from Fish Audio!" },
-      "s2-pro",
-    );
+    const stream = await client.textToSpeech.convert({
+      text: "Hello from Fish Audio!",
+    });
     
     const chunks = [];
     for await (const chunk of stream) chunks.push(Buffer.from(chunk));

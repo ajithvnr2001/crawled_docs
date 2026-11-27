@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-transcription/
 title: Transcribe a live audio stream in realtime - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T13:46:34.618813+00:00
+fetched_at: 2026-11-27T17:34:40.489978+00:00
 ---
 
 # Transcribe a live audio stream in realtime - Fish Audio
@@ -33,11 +33,7 @@ Copy pageCopy page
 
 `transcribe-stream-1` is in preview.
 
-## 
-
-​
-
-Prerequisites
+## Prerequisites
 
 Create a Fish Audio account
 
@@ -61,7 +57,7 @@ Once you have an account, you’ll need an API key to authenticate your requests
 
 Keep your API key secret! Never commit it to version control or share it publicly.
 
-The SDKs do not wrap the realtime speech-to-text endpoint yet, so this recipe speaks the WebSocket protocol directly. Install a WebSocket client and a MessagePack library:
+This recipe speaks the WebSocket protocol directly, so it needs no SDK. The Python SDK (`fish-audio-sdk` 1.5.0 or later) also wraps this endpoint as `client.asr.stream_websocket()`, and the JavaScript SDK (`fish-audio` 0.2.0 or later, Node.js only) as [`client.speechToText.convertRealtime()`](https://docs.fish.audio/api-reference/sdk/javascript/api-reference#speech-to-text). Install a WebSocket client and a MessagePack library:
 
 Python
 
@@ -77,11 +73,7 @@ JavaScript
 
 You also need a 16-bit PCM mono WAV file, at 8000, 12000, 16000, 22050, 24000, 32000, 44100 or 48000 Hz. To convert a recording, run `ffmpeg -i input.mp3 -ac 1 -ar 16000 -c:a pcm_s16le speech.wav`.
 
-## 
-
-​
-
-Recipe
+## Recipe
 
 The script connects to `wss://api.fish.audio/v1/asr/realtime`, sends a `config` message, waits for `session_started`, and then streams the file in 40 ms messages at real-time speed, as a live microphone would. It prints every message the server sends until the session ends.
 
@@ -326,11 +318,7 @@ For a 15-second customer-support clip, the output looks like this (`...` marks d
 
 The clip ends mid-sentence, so the last turn is committed by `audio_done`. Drafts can hold partial words, such as `deli-`; the committed text is final.
 
-## 
-
-​
-
-Read the events
+## Read the events
 
   * **`speech_start`** opens a turn when voice activity begins. In the default `auto` mode, noise and other voices open turns too.
   * **`draft`** is the whole turn so far, and replaces the previous draft. Drafts come only with `results.drafts: true`; use them for live captions.
@@ -343,11 +331,7 @@ Ignore message types and fields you do not know: new ones can be added. Every me
 
 The script streams the file at real-time speed so that the events arrive as they would for live audio. To transcribe a recording you already have, use [`POST /v1/asr`](https://docs.fish.audio/features/speech-to-text) instead; it is simpler and returns the whole transcript at once.
 
-## 
-
-​
-
-Capture from a browser microphone
+## Capture from a browser microphone
 
 The API key travels in a request header, and browsers cannot set headers on a WebSocket. Never put your API key in a web page: run a small relay on your server that adds the `Authorization` header and passes MessagePack frames through unchanged. The page then speaks the same protocol as the scripts above.
 
@@ -551,11 +535,7 @@ Install `aiohttp`, put both files in one folder, run `python relay.py`, and open
 
 
 
-## 
-
-​
-
-Related
+## Related
 
   * [Realtime Speech to Text](https://docs.fish.audio/features/speech-to-text/realtime)
   * [Build a realtime voice agent](https://docs.fish.audio/developer-guide/sdk-guide/cookbook/realtime-voice-agent)

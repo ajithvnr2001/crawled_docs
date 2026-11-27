@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.733628+00:00
+fetched_at: 2026-11-27T17:34:40.076953+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -157,9 +157,9 @@ JavaScript (Node.js 20+)
     console.log(result.text);
     
 
-The response contains `text`, `duration` (seconds), `segments`, and `request_id`, plus `speaker_turns` when timestamps are requested, and `language_code` and `language` when the language is known. Do not depend on the order of keys in the JSON. If you use `transcribe-1`, rely on `text`, `duration`, `segments`, and the language fields. The Python SDK currently returns only `text`, `duration`, and `segments`. To read the other fields, call the API directly (see Direct API).
+The response contains `text`, `duration` (seconds), `segments`, and `request_id`, plus `speaker_turns` when timestamps are requested, and `language_code` and `language` when the language is known. Do not depend on the order of keys in the JSON. If you use `transcribe-1`, rely on `text`, `duration`, `segments`, and the language fields. The Python SDK returns these fields on the result, for example `result.request_id` and `result.language_code` (`fish-audio-sdk` 1.4.0 or later; earlier versions keep only `text`, `duration`, and `segments`).
 
-The Python SDK selects Pro through `RequestOptions.additional_headers`; `asr.transcribe()` has no `model` argument, and it cannot send the `transcribe-1-pro` fields such as `diarize`. The JavaScript example calls the REST API directly so the header is explicit. For multipart uploads, let your HTTP client set `Content-Type` and its boundary.
+In the Python SDK, `model="transcribe-1-pro"` sends the `model` header. The argument requires `fish-audio-sdk` 1.5.0 or later; on earlier versions, pass `request_options=RequestOptions(additional_headers={"model": "transcribe-1-pro"})` instead. `asr.transcribe()` cannot send the `transcribe-1-pro` fields such as `diarize`. The JavaScript example calls the REST API directly so the header is explicit. For multipart uploads, let your HTTP client set `Content-Type` and its boundary.
 
 ## Read the timestamps
 
@@ -358,7 +358,7 @@ These are annotations inferred from the audio, not words you need to add to the 
   * `language_code`: the two-letter ISO 639-1 code, such as `en`. Use it in application logic.
   * `language`: the language’s English name, such as `English` or `Chinese`. Use it for display.
 
-If the language cannot be determined (for example, very short audio), `language_code` reports your hint, which is not checked against the audio, and `language` may be absent. Responses report one language: for recordings that switch languages, `language` and `language_code` do not list every language spoken. The Python SDK does not return these fields; call the API directly to read them.
+If the language cannot be determined (for example, very short audio), `language_code` reports your hint, which is not checked against the audio, and `language` may be absent. Responses report one language: for recordings that switch languages, `language` and `language_code` do not list every language spoken. The Python SDK returns them as `result.language` and `result.language_code` (`fish-audio-sdk` 1.4.0 or later).
 
 Python
 
@@ -448,7 +448,7 @@ These values are examples, not a server guarantee. If a long request fails with 
 
 ### Request IDs
 
-`transcribe-1-pro` returns a unique `request_id` in the response body, both on success and on its own errors, and the same value in the `x-request-id` response header. Platform and network-edge errors do not carry it. Log it, and include it when you contact support. The Python SDK does not return it on success; read it with a direct API call, or from the error body as shown in Errors.
+`transcribe-1-pro` returns a unique `request_id` in the response body, both on success and on its own errors, and the same value in the `x-request-id` response header. Platform and network-edge errors do not carry it. Log it, and include it when you contact support. The Python SDK returns it as `result.request_id` (`fish-audio-sdk` 1.4.0 or later); on an error, read it from the error body as shown in Errors.
 
 ### Errors
 
@@ -542,7 +542,7 @@ To run several files in parallel, gather the coroutines:
 
 ### Direct API (MessagePack)
 
-`POST /v1/asr` also accepts a [MessagePack](https://msgpack.org) body instead of multipart form data, the same path the API reference links to for low-overhead, server-side calls. Calling the API directly also gives you the response fields the Python SDK does not return. Pack the audio bytes and options into one payload and set `Content-Type: application/msgpack`:
+`POST /v1/asr` also accepts a [MessagePack](https://msgpack.org) body instead of multipart form data, the same path the API reference links to for low-overhead, server-side calls. Calling the API directly also lets you send the request fields the Python SDK cannot, such as `diarize`. Pack the audio bytes and options into one payload and set `Content-Type: application/msgpack`:
     
     
     import os

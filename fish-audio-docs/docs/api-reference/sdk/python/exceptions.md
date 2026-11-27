@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/exceptions/
 title: Exceptions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.072264+00:00
+fetched_at: 2026-11-27T17:34:39.718930+00:00
 ---
 
 # Exceptions - Fish Audio
@@ -22,6 +22,7 @@ Back to top
   * RateLimitError Objects
   * ServerError Objects
   * WebSocketError Objects
+  * ASRRealtimeError Objects
   * ValidationError Objects
   * DependencyError Objects
 
@@ -35,19 +36,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.exceptions
+# fishaudio.exceptions
 
 Custom exceptions for the Fish Audio SDK.
 
-## 
-
-​
-
-FishAudioError Objects
+## FishAudioError Objects
     
     
     class FishAudioError(Exception)
@@ -55,11 +48,7 @@ FishAudioError Objects
 
 Base exception for all Fish Audio SDK errors.
 
-## 
-
-​
-
-APIError Objects
+## APIError Objects
     
     
     class APIError(FishAudioError)
@@ -67,11 +56,7 @@ APIError Objects
 
 Raised when the API returns an error response.
 
-## 
-
-​
-
-AuthenticationError Objects
+## AuthenticationError Objects
     
     
     class AuthenticationError(APIError)
@@ -79,11 +64,7 @@ AuthenticationError Objects
 
 Raised when authentication fails (401).
 
-## 
-
-​
-
-PermissionError Objects
+## PermissionError Objects
     
     
     class PermissionError(APIError)
@@ -91,11 +72,7 @@ PermissionError Objects
 
 Raised when permission is denied (403).
 
-## 
-
-​
-
-NotFoundError Objects
+## NotFoundError Objects
     
     
     class NotFoundError(APIError)
@@ -103,11 +80,7 @@ NotFoundError Objects
 
 Raised when a resource is not found (404).
 
-## 
-
-​
-
-RateLimitError Objects
+## RateLimitError Objects
     
     
     class RateLimitError(APIError)
@@ -115,11 +88,7 @@ RateLimitError Objects
 
 Raised when rate limit is exceeded (429).
 
-## 
-
-​
-
-ServerError Objects
+## ServerError Objects
     
     
     class ServerError(APIError)
@@ -127,11 +96,7 @@ ServerError Objects
 
 Raised when the server encounters an error (5xx).
 
-## 
-
-​
-
-WebSocketError Objects
+## WebSocketError Objects
     
     
     class WebSocketError(FishAudioError)
@@ -139,11 +104,23 @@ WebSocketError Objects
 
 Raised when WebSocket connection or streaming fails.
 
-## 
+## ASRRealtimeError Objects
+    
+    
+    class ASRRealtimeError(WebSocketError)
+    
 
-​
+Raised when a realtime speech-to-text session ends with an error. **Attributes** :
 
-ValidationError Objects
+  * `message` \- A short English description, for humans
+  * `error_type` \- Machine-readable error type from the server’s error event (e.g., “invalid_config”, “idle_timeout”). None if the connection closed without one
+  * `code` \- HTTP-style status from the server’s error event. None if not sent
+  * `request_id` \- Identifier of the request; quote it when reporting a problem
+  * `close_code` \- WebSocket close code (e.g., 4400, 4408, 1012). None if the error was raised before the connection closed
+
+
+
+## ValidationError Objects
     
     
     class ValidationError(FishAudioError)
@@ -151,11 +128,7 @@ ValidationError Objects
 
 Raised when request validation fails.
 
-## 
-
-​
-
-DependencyError Objects
+## DependencyError Objects
     
     
     class DependencyError(FishAudioError)

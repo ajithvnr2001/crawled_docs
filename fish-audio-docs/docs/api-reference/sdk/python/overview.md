@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/overview/
 title: Overview - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.104869+00:00
+fetched_at: 2026-11-27T17:34:39.806788+00:00
 ---
 
 # Overview - Fish Audio
@@ -58,7 +58,7 @@ Copy pageCopy page
     pip install fish-audio-sdk
     
     # With audio playback utilities
-    pip install fish-audio-sdk[utils]
+    pip install "fish-audio-sdk[utils]"
     
 
 ## Authentication
@@ -164,22 +164,35 @@ Most examples on this page pass `model="s2.1-pro-free"`, the free model, so they
     audio = client.tts.stream(text="Hello!", model="s2.1-pro-free").collect()
     
 
-[Learn more](https://docs.fish.audio/features/text-to-speech)
+**Word-level timestamps** (`fish-audio-sdk` 1.6.0 or later):
+    
+    
+    from fishaudio.utils import save
+    
+    # Audio plus the start and end time of every word
+    result = client.tts.convert_with_timestamps(
+        text="Hello! Welcome to Fish Audio.",
+        model="s2.1-pro-free",
+    )
+    save(result.audio, "output.mp3")
+    
+    for segment in result.segments:
+        print(f"{segment.start:.2f}s - {segment.end:.2f}s  {segment.text}")
+    
+
+`client.tts.stream_with_timestamps()` yields audio and timings while they arrive. [Learn more](https://docs.fish.audio/features/text-to-speech)
 
 ### Speech-to-Text
     
     
-    from fishaudio.core import RequestOptions
-    
     # Transcribe audio with transcribe-1-pro (recommended).
-    # Without the model header, the request runs on transcribe-1.
+    # Without model, the request runs on transcribe-1.
+    # The model argument requires fish-audio-sdk 1.5.0 or later.
     with open("audio.wav", "rb") as f:
         result = client.asr.transcribe(
             audio=f.read(),
             language="en",
-            request_options=RequestOptions(
-                additional_headers={"model": "transcribe-1-pro"}
-            ),
+            model="transcribe-1-pro",
         )
     
     print(result.text)
@@ -189,7 +202,27 @@ Most examples on this page pass `model="s2.1-pro-free"`, the free model, so they
         print(f"[{segment.start:.2f}s - {segment.end:.2f}s] {segment.text}")
     
 
-[Learn more](https://docs.fish.audio/features/speech-to-text)
+[Learn more](https://docs.fish.audio/features/speech-to-text) **Realtime (Preview)** (`fish-audio-sdk` 1.5.0 or later): stream 16-bit mono PCM to `transcribe-stream-1` in 20 to 40 ms chunks and read the transcript turn by turn.
+    
+    
+    import wave
+    
+    def audio_chunks():
+        with wave.open("speech.wav", "rb") as wav:  # 16-bit mono PCM, 16 kHz
+            while chunk := wav.readframes(640):  # 40 ms
+                yield chunk
+    
+    # diarize=False removes the speaker tag that the text starts with by default
+    for event in client.asr.stream_websocket(
+        audio_chunks(), sample_rate=16000, drafts=True, diarize=False
+    ):
+        if event.type == "draft":  # live text of the open turn, not final
+            print("...", event.text)
+        elif event.type == "committed":  # final transcript of the turn
+            print(event.text)
+    
+
+[Learn more](https://docs.fish.audio/features/speech-to-text/realtime)
 
 ### Real-time Streaming
 
@@ -272,8 +305,8 @@ Stream dynamically generated text for conversational AI and live applications: *
 
 Resource| Description| Key Methods  
 ---|---|---  
-`client.tts`| Text-to-speech| `convert()`, `stream()`, `stream_websocket()`  
-`client.asr`| Speech recognition| `transcribe()`  
+`client.tts`| Text-to-speech| `convert()`, `stream()`, `convert_with_timestamps()`, `stream_with_timestamps()`, `stream_websocket()`  
+`client.asr`| Speech recognition| `transcribe()`, `stream_websocket()`  
 `client.voices`| Voice management| `list()`, `get()`, `create()`, `update()`, `delete()`  
 `client.account`| Account info| `get_credits()`, `get_package()`  
   

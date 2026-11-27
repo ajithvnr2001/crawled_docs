@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/transcribe-to-captions/
 title: Transcribe audio to SRT/VTT captions - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:49:33.988790+00:00
+fetched_at: 2026-11-27T17:34:40.368902+00:00
 ---
 
 # Transcribe audio to SRT/VTT captions - Fish Audio
@@ -250,7 +250,7 @@ Both tabs send the same request and write the same `captions.srt` and `captions.
 
 In Node.js, the built-in `fetch` that the JavaScript SDK uses stops waiting for a response after 5 minutes, even with a longer `timeoutInSeconds`. To wait longer, install `undici@7` and, once at startup, call its `setGlobalDispatcher(new Agent({ headersTimeout: 900_000, bodyTimeout: 900_000 }))`. See [Processing time and timeouts](https://docs.fish.audio/features/speech-to-text#processing-time-and-timeouts).
 
-Captions built from `segments` have no punctuation. Because this recipe requests timestamps from `transcribe-1-pro`, the response also includes `speaker_turns`, with each turn’s punctuated text and its start and end time. To keep speakers in separate cues, start a new cue at each turn boundary. In JavaScript, read `result.speaker_turns`; it is not in the SDK’s TypeScript type. The Python SDK does not return `speaker_turns`; to read it from the API, see [Speaker turns](https://docs.fish.audio/features/speech-to-text#speaker-turns).
+Captions built from `segments` have no punctuation. Because this recipe requests timestamps from `transcribe-1-pro`, the response also includes `speaker_turns`, with each turn’s punctuated text and its start and end time. To keep speakers in separate cues, start a new cue at each turn boundary. In JavaScript, read `result.speaker_turns`; it is not in the SDK’s TypeScript type. In Python, read `result.speaker_turns` (`fish-audio-sdk` 1.4.0 or later). See [Speaker turns](https://docs.fish.audio/features/speech-to-text#speaker-turns).
 
 ## Related
 

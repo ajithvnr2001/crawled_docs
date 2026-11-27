@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/utils/
 title: Utils - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-11T15:29:47.253524+00:00
+fetched_at: 2026-11-27T17:34:39.130972+00:00
 ---
 
 # Utils - Fish Audio
@@ -30,19 +30,11 @@ Copy pageCopy page
 
 Copy pageCopy page
 
-# 
-
-​
-
-fishaudio.utils.play
+# fishaudio.utils.play
 
 Audio playback utility. Install the Python SDK first: `pip install fish-audio-sdk`.
 
-#### 
-
-​
-
-play
+#### play
     
     
     def play(audio: Union[bytes, Iterable[bytes]],
@@ -79,19 +71,11 @@ Play audio using various playback methods. **Arguments** :
     play(audio, use_ffmpeg=False)
     
 
-# 
-
-​
-
-fishaudio.utils.save
+# fishaudio.utils.save
 
 Audio saving utility.
 
-#### 
-
-​
-
-save
+#### save
     
     
     def save(audio: Union[bytes, Iterable[bytes]], filename: str) -> None
@@ -118,19 +102,11 @@ Save audio to a file. **Arguments** :
     save(audio_stream, "another.mp3")
     
 
-# 
-
-​
-
-fishaudio.utils.stream
+# fishaudio.utils.stream
 
 Audio streaming utility.
 
-#### 
-
-​
-
-stream
+#### stream
     
     
     def stream(audio_stream: Iterator[bytes]) -> bytes
@@ -150,7 +126,7 @@ Stream audio in real-time while playing it with mpv. This function plays the aud
     from fishaudio import FishAudio, stream
     
     client = FishAudio(api_key="...")
-    audio_stream = client.tts.convert(text="Hello world")
+    audio_stream = client.tts.stream(text="Hello world")
     
     # Stream and play in real-time, get complete audio
     complete_audio = stream(audio_stream)

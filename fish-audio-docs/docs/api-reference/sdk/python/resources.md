@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/sdk/python/resources/
 title: Resources - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:44.765924+00:00
+fetched_at: 2026-11-27T17:34:39.660921+00:00
 ---
 
 # Resources - Fish Audio
@@ -37,10 +37,14 @@ Back to top
   * TTSClient Objects
     * stream
     * convert
+    * stream_with_timestamps
+    * convert_with_timestamps
     * stream_websocket
   * AsyncTTSClient Objects
     * stream
     * convert
+    * stream_with_timestamps
+    * convert_with_timestamps
     * stream_websocket
   * fishaudio.resources.realtime
     * iter_websocket_audio
@@ -48,8 +52,30 @@ Back to top
   * fishaudio.resources.asr
   * ASRClient Objects
     * transcribe
+    * stream_websocket
   * AsyncASRClient Objects
     * transcribe
+    * stream_websocket
+  * fishaudio.resources.asr_realtime
+    * encode_config
+    * encode_message
+    * decode_event
+  * ASRRealtimeStream Objects
+    * close
+    * send
+    * finalize
+    * agent_speaking
+    * add_context
+    * configure
+    * keepalive
+  * AsyncASRRealtimeStream Objects
+    * aclose
+    * send
+    * finalize
+    * agent_speaking
+    * add_context
+    * configure
+    * keepalive
 
 
 
@@ -454,7 +480,7 @@ Synchronous TTS operations.
                latency: Optional[LatencyMode] = None,
                speed: Optional[float] = None,
                config: TTSConfig = TTSConfig(),
-               model: Model = "s2-pro",
+               model: Union[Model, str] = "s2.1-pro",
                request_options: Optional[RequestOptions] = None) -> AudioStream
     
 
@@ -496,7 +522,7 @@ Stream text-to-speech audio chunks. **Arguments** :
                 latency: Optional[LatencyMode] = None,
                 speed: Optional[float] = None,
                 config: TTSConfig = TTSConfig(),
-                model: Model = "s2-pro",
+                model: Union[Model, str] = "s2.1-pro",
                 request_options: Optional[RequestOptions] = None) -> bytes
     
 
@@ -530,6 +556,95 @@ Convert text to speech and return complete audio as bytes. This is a convenience
     save(audio, "output.mp3")
     
 
+#### stream_with_timestamps
+    
+    
+    def stream_with_timestamps(
+            *,
+            text: str,
+            reference_id: Optional[str] = None,
+            references: Optional[list[ReferenceAudio]] = None,
+            format: Optional[AudioFormat] = None,
+            latency: Optional[LatencyMode] = None,
+            speed: Optional[float] = None,
+            config: TTSConfig = TTSConfig(),
+            model: Union[Model, str] = "s2.1-pro",
+            request_options: Optional[RequestOptions] = None
+    ) -> TTSTimestampStream
+    
+
+Stream text-to-speech audio together with word-level timestamps. Each event carries the next audio bytes and the newest timing snapshot. The returned stream keeps the timings up to date in `stream.segments`. **Arguments** :
+
+  * `text` \- Text to synthesize
+  * `reference_id` \- Voice reference ID (overrides config.reference_id if provided)
+  * `references` \- Reference audio samples (overrides config.references if provided)
+  * `format` \- Audio format - “mp3”, “wav”, “pcm”, or “opus” (overrides config.format if provided). “opus” is the best fit for playing audio while it streams; “wav” and “pcm” are uncompressed, which keeps sample positions exact.
+  * `latency` \- Latency mode - “normal” or “balanced” (overrides config.latency if provided)
+  * `speed` \- Speech speed multiplier, e.g. 1.5 for 1.5x speed (overrides config.prosody.speed if provided)
+  * `config` \- TTS configuration (audio settings, voice, model parameters)
+  * `model` \- TTS model to use
+  * `request_options` \- Request-level overrides
+
+**Returns** : TTSTimestampStream that yields TTSTimestampEvent objects **Example** :
+    
+    
+    from fishaudio import FishAudio
+    
+    client = FishAudio(api_key="...")
+    
+    with client.tts.stream_with_timestamps(text="Hello world") as stream:
+        for event in stream:
+            player.write(event.audio)
+            show_captions(stream.segments)  # timings received so far
+    
+    # Or collect the audio and final timings at once
+    result = client.tts.stream_with_timestamps(text="Hello world").collect()
+    
+
+#### convert_with_timestamps
+    
+    
+    def convert_with_timestamps(
+            *,
+            text: str,
+            reference_id: Optional[str] = None,
+            references: Optional[list[ReferenceAudio]] = None,
+            format: Optional[AudioFormat] = None,
+            latency: Optional[LatencyMode] = None,
+            speed: Optional[float] = None,
+            config: TTSConfig = TTSConfig(),
+            model: Union[Model, str] = "s2.1-pro",
+            request_options: Optional[RequestOptions] = None
+    ) -> TTSTimestampResult
+    
+
+Convert text to speech and return the audio with word-level timestamps. This is a convenience method that reads the whole stream. To use audio and timings while they arrive, use stream_with_timestamps() instead. **Arguments** :
+
+  * `text` \- Text to synthesize
+  * `reference_id` \- Voice reference ID (overrides config.reference_id if provided)
+  * `references` \- Reference audio samples (overrides config.references if provided)
+  * `format` \- Audio format - “mp3”, “wav”, “pcm”, or “opus” (overrides config.format if provided). “opus” is the best fit for playing audio while it streams; “wav” and “pcm” are uncompressed, which keeps sample positions exact.
+  * `latency` \- Latency mode - “normal” or “balanced” (overrides config.latency if provided)
+  * `speed` \- Speech speed multiplier, e.g. 1.5 for 1.5x speed (overrides config.prosody.speed if provided)
+  * `config` \- TTS configuration (audio settings, voice, model parameters)
+  * `model` \- TTS model to use
+  * `request_options` \- Request-level overrides
+
+**Returns** : TTSTimestampResult with the complete audio, the timing of each word in seconds from the start of the audio, and the audio duration. When the API has no timings for the text (for example text without words), `segments` is empty and `duration` is None. **Example** :
+    
+    
+    from fishaudio import FishAudio
+    from fishaudio.utils import save
+    
+    client = FishAudio(api_key="...")
+    
+    result = client.tts.convert_with_timestamps(text="Hello world")
+    save(result.audio, "output.mp3")
+    
+    for segment in result.segments:
+        print(f"{segment.start:.2f}-{segment.end:.2f} {segment.text}")
+    
+
 #### stream_websocket
     
     
@@ -542,7 +657,7 @@ Convert text to speech and return complete audio as bytes. This is a convenience
             latency: Optional[LatencyMode] = None,
             speed: Optional[float] = None,
             config: TTSConfig = TTSConfig(),
-            model: Model = "s2-pro",
+            model: Union[Model, str] = "s2.1-pro",
             max_workers: int = 10,
             ws_options: Optional[WebSocketOptions] = None) -> Iterator[bytes]
     
@@ -640,7 +755,7 @@ Asynchronous TTS operations.
             latency: Optional[LatencyMode] = None,
             speed: Optional[float] = None,
             config: TTSConfig = TTSConfig(),
-            model: Model = "s2-pro",
+            model: Union[Model, str] = "s2.1-pro",
             request_options: Optional[RequestOptions] = None) -> AsyncAudioStream
     
 
@@ -683,7 +798,7 @@ Stream text-to-speech audio chunks (async). **Arguments** :
                       latency: Optional[LatencyMode] = None,
                       speed: Optional[float] = None,
                       config: TTSConfig = TTSConfig(),
-                      model: Model = "s2-pro",
+                      model: Union[Model, str] = "s2.1-pro",
                       request_options: Optional[RequestOptions] = None) -> bytes
     
 
@@ -717,6 +832,96 @@ Convert text to speech and return complete audio as bytes (async). This is a con
     save(audio, "output.mp3")
     
 
+#### stream_with_timestamps
+    
+    
+    async def stream_with_timestamps(
+        *,
+        text: str,
+        reference_id: Optional[str] = None,
+        references: Optional[list[ReferenceAudio]] = None,
+        format: Optional[AudioFormat] = None,
+        latency: Optional[LatencyMode] = None,
+        speed: Optional[float] = None,
+        config: TTSConfig = TTSConfig(),
+        model: Union[Model, str] = "s2.1-pro",
+        request_options: Optional[RequestOptions] = None
+    ) -> AsyncTTSTimestampStream
+    
+
+Stream text-to-speech audio together with word-level timestamps (async). Each event carries the next audio bytes and the newest timing snapshot. The returned stream keeps the timings up to date in `stream.segments`. **Arguments** :
+
+  * `text` \- Text to synthesize
+  * `reference_id` \- Voice reference ID (overrides config.reference_id if provided)
+  * `references` \- Reference audio samples (overrides config.references if provided)
+  * `format` \- Audio format - “mp3”, “wav”, “pcm”, or “opus” (overrides config.format if provided). “opus” is the best fit for playing audio while it streams; “wav” and “pcm” are uncompressed, which keeps sample positions exact.
+  * `latency` \- Latency mode - “normal” or “balanced” (overrides config.latency if provided)
+  * `speed` \- Speech speed multiplier, e.g. 1.5 for 1.5x speed (overrides config.prosody.speed if provided)
+  * `config` \- TTS configuration (audio settings, voice, model parameters)
+  * `model` \- TTS model to use
+  * `request_options` \- Request-level overrides
+
+**Returns** : AsyncTTSTimestampStream that yields TTSTimestampEvent objects **Example** :
+    
+    
+    from fishaudio import AsyncFishAudio
+    
+    client = AsyncFishAudio(api_key="...")
+    
+    async with await client.tts.stream_with_timestamps(text="Hello world") as stream:
+        async for event in stream:
+            await player.write(event.audio)
+            show_captions(stream.segments)  # timings received so far
+    
+    # Or collect the audio and final timings at once
+    stream = await client.tts.stream_with_timestamps(text="Hello world")
+    result = await stream.collect()
+    
+
+#### convert_with_timestamps
+    
+    
+    async def convert_with_timestamps(
+            *,
+            text: str,
+            reference_id: Optional[str] = None,
+            references: Optional[list[ReferenceAudio]] = None,
+            format: Optional[AudioFormat] = None,
+            latency: Optional[LatencyMode] = None,
+            speed: Optional[float] = None,
+            config: TTSConfig = TTSConfig(),
+            model: Union[Model, str] = "s2.1-pro",
+            request_options: Optional[RequestOptions] = None
+    ) -> TTSTimestampResult
+    
+
+Convert text to speech and return the audio with word-level timestamps (async). This is a convenience method that reads the whole stream. To use audio and timings while they arrive, use stream_with_timestamps() instead. **Arguments** :
+
+  * `text` \- Text to synthesize
+  * `reference_id` \- Voice reference ID (overrides config.reference_id if provided)
+  * `references` \- Reference audio samples (overrides config.references if provided)
+  * `format` \- Audio format - “mp3”, “wav”, “pcm”, or “opus” (overrides config.format if provided). “opus” is the best fit for playing audio while it streams; “wav” and “pcm” are uncompressed, which keeps sample positions exact.
+  * `latency` \- Latency mode - “normal” or “balanced” (overrides config.latency if provided)
+  * `speed` \- Speech speed multiplier, e.g. 1.5 for 1.5x speed (overrides config.prosody.speed if provided)
+  * `config` \- TTS configuration (audio settings, voice, model parameters)
+  * `model` \- TTS model to use
+  * `request_options` \- Request-level overrides
+
+**Returns** : TTSTimestampResult with the complete audio, the timing of each word in seconds from the start of the audio, and the audio duration. When the API has no timings for the text (for example text without words), `segments` is empty and `duration` is None. **Example** :
+    
+    
+    from fishaudio import AsyncFishAudio
+    from fishaudio.utils import save
+    
+    client = AsyncFishAudio(api_key="...")
+    
+    result = await client.tts.convert_with_timestamps(text="Hello world")
+    save(result.audio, "output.mp3")
+    
+    for segment in result.segments:
+        print(f"{segment.start:.2f}-{segment.end:.2f} {segment.text}")
+    
+
 #### stream_websocket
     
     
@@ -729,7 +934,7 @@ Convert text to speech and return complete audio as bytes (async). This is a con
                                latency: Optional[LatencyMode] = None,
                                speed: Optional[float] = None,
                                config: TTSConfig = TTSConfig(),
-                               model: Model = "s2-pro",
+                               model: Union[Model, str] = "s2.1-pro",
                                ws_options: Optional[WebSocketOptions] = None)
     
 
@@ -861,6 +1066,7 @@ Synchronous ASR operations.
             audio: bytes,
             language: Optional[str] = OMIT,
             include_timestamps: bool = True,
+            model: Optional[str] = None,
             request_options: Optional[RequestOptions] = None) -> ASRResponse
     
 
@@ -868,10 +1074,11 @@ Transcribe audio to text. **Arguments** :
 
   * `audio` \- Audio file bytes
   * `language` \- Language code (e.g., “en”, “zh”). Auto-detected if not provided.
-  * `include_timestamps` \- Whether to include timestamp information for segments
+  * `include_timestamps` \- Whether to include timestamp information for segments (and speaker turns, on models that return them)
+  * `model` \- ASR model, e.g. “transcribe-1-pro” (recommended). Sent as the `model` header and takes precedence over one in request_options. If not provided and request_options sets no `model` header, the request runs on the API’s default model, transcribe-1
   * `request_options` \- Request-level overrides
 
-**Returns** : ASRResponse with transcription text, duration, and segments **Example** :
+**Returns** : ASRResponse with transcription text, duration (in seconds), and segments, plus language, request ID and speaker turns when the API returns them **Example** :
     
     
     client = FishAudio(api_key="...")
@@ -879,10 +1086,91 @@ Transcribe audio to text. **Arguments** :
     with open("audio.mp3", "rb") as f:
         audio_bytes = f.read()
     
-    result = client.asr.transcribe(audio=audio_bytes, language="en")
+    result = client.asr.transcribe(
+        audio=audio_bytes, model="transcribe-1-pro"
+    )
     print(result.text)
     for segment in result.segments:
         print(f"{segment.start}-{segment.end}: {segment.text}")
+    
+
+#### stream_websocket
+    
+    
+    def stream_websocket(
+            audio_stream: Iterable[Union[bytes, ASRRealtimeControl]],
+            *,
+            sample_rate: Optional[ASRSampleRate] = None,
+            turn_detection: Optional[TurnDetectionMode] = None,
+            eager: Optional[bool] = None,
+            drafts: Optional[bool] = None,
+            diarize: Optional[bool] = None,
+            terms: Optional[list[str]] = None,
+            config: ASRRealtimeConfig = ASRRealtimeConfig(),
+            model: str = "transcribe-stream-1",
+            ws_options: Optional[WebSocketOptions] = None) -> ASRRealtimeStream
+    
+
+Stream audio and receive transcripts in real-time via WebSocket. Audio is divided into turns. Each turn ends with one committed event that holds its final transcript; with drafts=True you also get live draft events while the turn is open. The session ends with a session_done event once audio_stream is exhausted. By default the transcript text starts with a speaker tag, e.g. `<|speaker:0|> Hello.`, and can contain sound tags such as `[laughter]`. Pass diarize=False for text without speaker tags; sound tags are turned off with config=ASRRealtimeConfig(results=ASRResults(tag_audio_events=False)). **Arguments** :
+
+  * `audio_stream` \- Iterator of raw audio chunks: 16-bit little-endian mono PCM, ideally 20-40 ms each, sent as you capture them. It can also yield control messages (e.g. ASRFinalizeEvent()), which are sent at that position in the audio
+  * `sample_rate` \- Sample rate of the audio in Hz: 8000, 12000, 16000, 22050, 24000, 32000, 44100 or 48000 (overrides config.sample_rate if provided)
+  * `turn_detection` \- When a turn ends - “auto” (the server judges that the user has finished), “vad” (after a fixed silence) or “manual” (when you send finalize) (overrides config.turn_detection.mode if provided)
+  * `eager` \- Send eager_end_of_turn events in auto mode (overrides config.turn_detection.eager if provided)
+  * `drafts` \- Send live draft events (overrides config.results.drafts if provided)
+  * `diarize` \- Speaker tags such as `<|speaker:0|>` in the transcript text. The server adds them by default; pass False for text without speaker tags (overrides config.results.diarize if provided)
+  * `terms` \- Names, products and jargon to recognize (overrides config.context.terms if provided)
+  * `config` \- Session configuration (audio, turn detection, results, context)
+  * `model` \- Realtime speech-to-text model
+  * `ws_options` \- WebSocket connection options for configuring timeouts, message size limits, etc. See WebSocketOptions class for available parameters.
+
+**Returns** :
+
+  * `ASRRealtimeStream` \- an iterator of typed events (check event.type), with methods to send control messages during the session: finalize(), agent_speaking(), add_context() and configure()
+
+**Raises** :
+
+  * `ASRRealtimeError` \- If the server reports an error that ends the session, or closes the connection abnormally (see error_type and close_code)
+  * `APIError` \- If the connection is refused (e.g. AuthenticationError for 401)
+  * `WebSocketError` \- If the connection is lost
+
+**Example** :
+    
+    
+    import wave
+    
+    from fishaudio import FishAudio
+    
+    client = FishAudio(api_key="...")
+    
+    def audio_chunks():
+        with wave.open("speech.wav", "rb") as wav:  # 16-bit mono PCM
+            while chunk := wav.readframes(640):  # 40 ms at 16 kHz
+                yield chunk
+    
+    # Final transcript of each turn (diarize=False: no <|speaker:0|> tags)
+    for event in client.asr.stream_websocket(
+        audio_chunks(), sample_rate=16000, diarize=False
+    ):
+        if event.type == "committed":
+            print(event.text)
+    
+    # Live captions: drafts while the turn is open, then the final text
+    for event in client.asr.stream_websocket(audio_chunks(), drafts=True):
+        if event.type == "draft":
+            print("...", event.text)
+        elif event.type == "committed":
+            print(event.text)
+    
+    # Voice agent: answer the user's turns, and tell the server while you speak.
+    # microphone_chunks() stands for your live audio source. It must keep
+    # yielding audio: once the source ends, the session finishes and control
+    # methods can no longer be sent.
+    with client.asr.stream_websocket(microphone_chunks(), eager=True) as stream:
+        for event in stream:
+            if event.type == "committed" and event.user_turn:
+                stream.agent_speaking(True)
+                ...  # reply, then stream.agent_speaking(False)
     
 
 ## AsyncASRClient Objects
@@ -901,6 +1189,7 @@ Asynchronous ASR operations.
             audio: bytes,
             language: Optional[str] = OMIT,
             include_timestamps: bool = True,
+            model: Optional[str] = None,
             request_options: Optional[RequestOptions] = None) -> ASRResponse
     
 
@@ -908,10 +1197,11 @@ Transcribe audio to text (async). **Arguments** :
 
   * `audio` \- Audio file bytes
   * `language` \- Language code (e.g., “en”, “zh”). Auto-detected if not provided.
-  * `include_timestamps` \- Whether to include timestamp information for segments
+  * `include_timestamps` \- Whether to include timestamp information for segments (and speaker turns, on models that return them)
+  * `model` \- ASR model, e.g. “transcribe-1-pro” (recommended). Sent as the `model` header and takes precedence over one in request_options. If not provided and request_options sets no `model` header, the request runs on the API’s default model, transcribe-1
   * `request_options` \- Request-level overrides
 
-**Returns** : ASRResponse with transcription text, duration, and segments **Example** :
+**Returns** : ASRResponse with transcription text, duration (in seconds), and segments, plus language, request ID and speaker turns when the API returns them **Example** :
     
     
     client = AsyncFishAudio(api_key="...")
@@ -919,11 +1209,267 @@ Transcribe audio to text (async). **Arguments** :
     async with aiofiles.open("audio.mp3", "rb") as f:
         audio_bytes = await f.read()
     
-    result = await client.asr.transcribe(audio=audio_bytes, language="en")
+    result = await client.asr.transcribe(
+        audio=audio_bytes, model="transcribe-1-pro"
+    )
     print(result.text)
     for segment in result.segments:
         print(f"{segment.start}-{segment.end}: {segment.text}")
     
+
+#### stream_websocket
+    
+    
+    def stream_websocket(
+            audio_stream: AsyncIterable[Union[bytes, ASRRealtimeControl]],
+            *,
+            sample_rate: Optional[ASRSampleRate] = None,
+            turn_detection: Optional[TurnDetectionMode] = None,
+            eager: Optional[bool] = None,
+            drafts: Optional[bool] = None,
+            diarize: Optional[bool] = None,
+            terms: Optional[list[str]] = None,
+            config: ASRRealtimeConfig = ASRRealtimeConfig(),
+            model: str = "transcribe-stream-1",
+            ws_options: Optional[WebSocketOptions] = None
+    ) -> AsyncASRRealtimeStream
+    
+
+Stream audio and receive transcripts in real-time via WebSocket (async). Audio is divided into turns. Each turn ends with one committed event that holds its final transcript; with drafts=True you also get live draft events while the turn is open. The session ends with a session_done event once audio_stream is exhausted. By default the transcript text starts with a speaker tag, e.g. `<|speaker:0|> Hello.`, and can contain sound tags such as `[laughter]`. Pass diarize=False for text without speaker tags; sound tags are turned off with config=ASRRealtimeConfig(results=ASRResults(tag_audio_events=False)). **Arguments** :
+
+  * `audio_stream` \- Async iterator of raw audio chunks: 16-bit little-endian mono PCM, ideally 20-40 ms each, sent as you capture them. It can also yield control messages (e.g. ASRFinalizeEvent()), which are sent at that position in the audio
+  * `sample_rate` \- Sample rate of the audio in Hz: 8000, 12000, 16000, 22050, 24000, 32000, 44100 or 48000 (overrides config.sample_rate if provided)
+  * `turn_detection` \- When a turn ends - “auto” (the server judges that the user has finished), “vad” (after a fixed silence) or “manual” (when you send finalize) (overrides config.turn_detection.mode if provided)
+  * `eager` \- Send eager_end_of_turn events in auto mode (overrides config.turn_detection.eager if provided)
+  * `drafts` \- Send live draft events (overrides config.results.drafts if provided)
+  * `diarize` \- Speaker tags such as `<|speaker:0|>` in the transcript text. The server adds them by default; pass False for text without speaker tags (overrides config.results.diarize if provided)
+  * `terms` \- Names, products and jargon to recognize (overrides config.context.terms if provided)
+  * `config` \- Session configuration (audio, turn detection, results, context)
+  * `model` \- Realtime speech-to-text model
+  * `ws_options` \- WebSocket connection options for configuring timeouts, message size limits, etc. See WebSocketOptions class for available parameters.
+
+**Returns** :
+
+  * `AsyncASRRealtimeStream` \- an async iterator of typed events (check event.type), with methods to send control messages during the session: finalize(), agent_speaking(), add_context() and configure()
+
+**Raises** :
+
+  * `ASRRealtimeError` \- If the server reports an error that ends the session, or closes the connection abnormally (see error_type and close_code)
+  * `APIError` \- If the connection is refused (e.g. AuthenticationError for 401)
+  * `WebSocketError` \- If the connection is lost
+
+**Example** :
+    
+    
+    import wave
+    
+    from fishaudio import AsyncFishAudio
+    
+    client = AsyncFishAudio(api_key="...")
+    
+    async def audio_chunks():
+        with wave.open("speech.wav", "rb") as wav:  # 16-bit mono PCM
+            while chunk := wav.readframes(640):  # 40 ms at 16 kHz
+                yield chunk
+    
+    # Final transcript of each turn (diarize=False: no <|speaker:0|> tags)
+    async for event in client.asr.stream_websocket(
+        audio_chunks(), sample_rate=16000, diarize=False
+    ):
+        if event.type == "committed":
+            print(event.text)
+    
+    # Live captions: drafts while the turn is open, then the final text
+    async for event in client.asr.stream_websocket(audio_chunks(), drafts=True):
+        if event.type == "draft":
+            print("...", event.text)
+        elif event.type == "committed":
+            print(event.text)
+    
+    # Voice agent: answer the user's turns, and tell the server while you speak.
+    # microphone_chunks() stands for your live audio source. It must keep
+    # yielding audio: once the source ends, the session finishes and control
+    # methods can no longer be sent.
+    async with client.asr.stream_websocket(microphone_chunks(), eager=True) as stream:
+        async for event in stream:
+            if event.type == "committed" and event.user_turn:
+                await stream.agent_speaking(True)
+                ...  # reply, then await stream.agent_speaking(False)
+    
+
+# fishaudio.resources.asr_realtime
+
+Realtime speech-to-text sessions over WebSocket.
+
+#### encode_config
+    
+    
+    def encode_config(config: ASRRealtimeConfig) -> bytes
+    
+
+Pack the `config` message that opens a session.
+
+#### encode_message
+    
+    
+    def encode_message(item: Union[bytes, ASRRealtimeControl]) -> bytes
+    
+
+Pack an audio chunk or a control message for the wire.
+
+#### decode_event
+    
+    
+    def decode_event(message: bytes) -> Optional[ASRRealtimeEvent]
+    
+
+Parse a server message. Returns None for message types this SDK does not know.
+
+## ASRRealtimeStream Objects
+    
+    
+    class ASRRealtimeStream()
+    
+
+A realtime speech-to-text session (sync). Iterate it for the server’s events. The connection opens on the first iteration and closes when the session ends, when an error is raised, or when you leave the loop early. Use it as a context manager (or call `close()`) if you keep a reference to it after leaving the loop. The audio stream is read on a background thread. When the session ends before the audio does, that thread stops as soon as the audio stream yields its next chunk, and closes the stream if it is a generator. The SDK cannot interrupt an audio stream that is blocked waiting for audio (for example a microphone read with no timeout): make your audio source end, or yield regularly, so the thread can exit. Closing does not wait for a server that has stopped reading: a write that is still pending after half a second is interrupted by cutting the connection, without a close frame. Read the events from one thread at a time. The control methods send a message at the current position in the audio stream; they can be called from any thread once `session_started` has been received.
+
+#### close
+    
+    
+    def close() -> None
+    
+
+Close the connection. Safe to call more than once.
+
+#### send
+    
+    
+    def send(message: ASRRealtimeControl) -> None
+    
+
+Send a control message. **Raises** :
+
+  * `WebSocketError` \- If the session is not open (not started yet, or closed)
+
+
+
+#### finalize
+    
+    
+    def finalize() -> None
+    
+
+Commit the current turn now (push-to-talk: the button was released).
+
+#### agent_speaking
+    
+    
+    def agent_speaking(speaking: bool) -> None
+    
+
+Tell the server that your voice agent started or stopped speaking.
+
+#### add_context
+    
+    
+    def add_context(items: list[ASRContextItem],
+                    *,
+                    reset_history: bool = False) -> None
+    
+
+Add conversation context, typically each line your agent speaks.
+
+#### configure
+    
+    
+    def configure(*,
+                  turn_detection: Optional[ASRTurnDetection] = None,
+                  results: Optional[ASRResults] = None,
+                  terms: Optional[list[str]] = None) -> None
+    
+
+Change settings during the session. The server answers with a configured event.
+
+#### keepalive
+    
+    
+    def keepalive() -> None
+    
+
+Keep an idle session open. Rarely needed: WebSocket pings count as activity.
+
+## AsyncASRRealtimeStream Objects
+    
+    
+    class AsyncASRRealtimeStream()
+    
+
+A realtime speech-to-text session (async). Iterate it with `async for` for the server’s events. The connection opens on the first iteration and closes when the session ends, when an error is raised, or when you leave the loop early. Use it as an async context manager (or call `aclose()`) if you keep a reference to it after leaving the loop. Closing cancels the task that reads the audio stream and closes the stream if it is an async generator. Up to 256 events are buffered for a consumer that reads slowly; beyond that the session stops reading from the server until the consumer catches up. Read the events from one task at a time: a read started while another is waiting raises `RuntimeError`. A read that was cancelled (for example by `asyncio.wait_for`) loses nothing; just read again. The control methods send a message at the current position in the audio stream; they can be awaited once `session_started` has been received. Keep reading: when you stop, the SDK buffers a few hundred events and then stops reading from the connection, which also stops it answering keepalive pings. A consumer that stays stalled past the keepalive timeout (20 s by default, see `ws_options`) while events keep arriving loses the connection.
+
+#### aclose
+    
+    
+    async def aclose() -> None
+    
+
+Close the connection. Safe to call more than once.
+
+#### send
+    
+    
+    async def send(message: ASRRealtimeControl) -> None
+    
+
+Send a control message. **Raises** :
+
+  * `WebSocketError` \- If the session is not open (not started yet, or closed)
+
+
+
+#### finalize
+    
+    
+    async def finalize() -> None
+    
+
+Commit the current turn now (push-to-talk: the button was released).
+
+#### agent_speaking
+    
+    
+    async def agent_speaking(speaking: bool) -> None
+    
+
+Tell the server that your voice agent started or stopped speaking.
+
+#### add_context
+    
+    
+    async def add_context(items: list[ASRContextItem],
+                          *,
+                          reset_history: bool = False) -> None
+    
+
+Add conversation context, typically each line your agent speaks.
+
+#### configure
+    
+    
+    async def configure(*,
+                        turn_detection: Optional[ASRTurnDetection] = None,
+                        results: Optional[ASRResults] = None,
+                        terms: Optional[list[str]] = None) -> None
+    
+
+Change settings during the session. The server answers with a configured event.
+
+#### keepalive
+    
+    
+    async def keepalive() -> None
+    
+
+Keep an idle session open. Rarely needed: WebSocket pings count as activity.
 
 Was this page helpful?
 

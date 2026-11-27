@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/api-reference/endpoint/openapi-v1/speech-to-text/
 title: Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:45.952463+00:00
+fetched_at: 2026-11-27T17:34:40.287388+00:00
 ---
 
 # Speech to Text - Fish Audio
@@ -446,7 +446,7 @@ Field| Description
   
 A field that is not returned is absent from the JSON, never `null`. Do not depend on the order of keys in the JSON. **If you use`transcribe-1`:** rely on `text`, `duration`, `segments`, `language`, and `language_code`. Speaker markers, `speaker_turns`, and `request_id` are `transcribe-1-pro` features.
 
-Both SDKs select `transcribe-1-pro` through the `model` header. In Python, pass `request_options=RequestOptions(additional_headers={"model": "transcribe-1-pro"})` to `asr.transcribe()`. In JavaScript, pass `{ headers: { model: "transcribe-1-pro" } }` as the second argument to `speechToText.convert()`. The Python SDK currently returns only `text`, `duration`, and `segments`, and neither SDK can send `tag_audio_events`, `diarize`, or the speaker-count hints. To use them, call the API directly, as in the examples above. The JavaScript SDK returns the whole response body, but its `STTResponse` type declares only `text`, `duration`, and `segments`.
+Both SDKs select `transcribe-1-pro` through the `model` header. In Python, pass `request_options=RequestOptions(additional_headers={"model": "transcribe-1-pro"})` to `asr.transcribe()`. In JavaScript, pass `{ headers: { model: "transcribe-1-pro" } }` as the second argument to `speechToText.convert()`. Neither SDK can send `tag_audio_events`, `diarize`, or the speaker-count hints. To use them, call the API directly, as in the examples above. The Python SDK returns the fields listed above (`fish-audio-sdk` 1.4.0 or later; earlier versions keep only `text`, `duration`, and `segments`). The JavaScript SDK returns the whole response body, but its `STTResponse` type declares only `text`, `duration`, and `segments`.
 
 ### Multi-speaker response format
 
@@ -632,7 +632,9 @@ Available options:
 
 `transcribe-1`, 
 
-`transcribe-1-pro`
+`transcribe-1-pro`, 
+
+`transcribe-2-pro`
 
 #### Body
 
@@ -708,4 +710,4 @@ YesNo
 
 [Suggest edits](https://github.com/fishaudio/docs/edit/main/api-reference/endpoint/openapi-v1/speech-to-text.mdx)[Raise issue](https://github.com/fishaudio/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/api-reference/endpoint/openapi-v1/speech-to-text)
 
-[WebSocket TTS with Timestamps](https://docs.fish.audio/api-reference/endpoint/openapi-v1/text-to-speech-live-with-timestamps)[WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime)
+[Audio Infill](https://docs.fish.audio/api-reference/endpoint/openapi-v1/audio-infill)[WebSocket Realtime Speech to Text](https://docs.fish.audio/api-reference/endpoint/websocket/asr-realtime)

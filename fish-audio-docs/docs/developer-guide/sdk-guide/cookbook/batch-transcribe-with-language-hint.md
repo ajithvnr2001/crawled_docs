@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/cookbook/batch-transcribe-with-language-hint/
 title: Batch-transcribe files with a language hint - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:49:34.049060+00:00
+fetched_at: 2026-11-27T17:34:40.197069+00:00
 ---
 
 # Batch-transcribe files with a language hint - Fish Audio
@@ -211,7 +211,7 @@ JavaScript
     }
     
 
-Each call returns an [`ASRResponse`](https://docs.fish.audio/api-reference/sdk/python/types#asrresponse-objects) with `.text` and `.duration` (seconds). With `transcribe-1-pro`, `text` can contain inline speaker markers such as `<|speaker:0|>` and cues such as `[laughter]`; see [Speaker markers](https://docs.fish.audio/features/speech-to-text#speaker-markers) to split it into turns. This recipe skips timestamps; pass `include_timestamps=True` (Python) or `ignore_timestamps: false` (JavaScript) for word-level `.segments`. The Python SDK currently returns only `text`, `duration`, and `segments`; to read `language_code`, call the API directly (see [Direct API](https://docs.fish.audio/features/speech-to-text#direct-api-messagepack)). A file that fails is recorded with its error, and the loop continues. After the summary, the script exits with a non-zero status if any file failed, so a scheduled job does not report success. A file that failed with 429, a 5xx status, or a network error such as a timeout is worth retrying later with backoff; for other 4xx errors, fix the file or the request first. Long recordings can take several minutes to transcribe, so every tab sets a 15-minute request timeout, longer than the SDKs’ default; in Node.js, also see the note below.
+Each call returns an [`ASRResponse`](https://docs.fish.audio/api-reference/sdk/python/types#asrresponse-objects) with `.text` and `.duration` (seconds). With `transcribe-1-pro`, `text` can contain inline speaker markers such as `<|speaker:0|>` and cues such as `[laughter]`; see [Speaker markers](https://docs.fish.audio/features/speech-to-text#speaker-markers) to split it into turns. This recipe skips timestamps; pass `include_timestamps=True` (Python) or `ignore_timestamps: false` (JavaScript) for word-level `.segments`. In Python, `.language_code` holds the detected language, or your hint when the language cannot be determined (`fish-audio-sdk` 1.4.0 or later). A file that fails is recorded with its error, and the loop continues. After the summary, the script exits with a non-zero status if any file failed, so a scheduled job does not report success. A file that failed with 429, a 5xx status, or a network error such as a timeout is worth retrying later with backoff; for other 4xx errors, fix the file or the request first. Long recordings can take several minutes to transcribe, so every tab sets a 15-minute request timeout, longer than the SDKs’ default; in Node.js, also see the note below.
 
 In Node.js, the built-in `fetch` that the JavaScript SDK uses stops waiting for a response after 5 minutes, even with a longer `timeoutInSeconds`. To wait longer, install `undici@7` and, once at startup, call its `setGlobalDispatcher(new Agent({ headersTimeout: 900_000, bodyTimeout: 900_000 }))`. See [Processing time and timeouts](https://docs.fish.audio/features/speech-to-text#processing-time-and-timeouts).
 

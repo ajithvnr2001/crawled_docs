@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/features/speech-to-text/realtime/
 title: Realtime Speech to Text - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T15:33:42.415554+00:00
+fetched_at: 2026-11-27T17:34:39.960746+00:00
 ---
 
 # Realtime Speech to Text - Fish Audio
@@ -93,7 +93,7 @@ The realtime endpoints of the [compatible APIs](https://docs.fish.audio/develope
 
 ## Quick start
 
-The SDKs do not wrap this endpoint; you connect with any WebSocket client and exchange MessagePack messages.
+The steps below use the protocol directly: you connect with any WebSocket client and exchange MessagePack messages. The Python SDK (`fish-audio-sdk` 1.5.0 or later) wraps this endpoint as `client.asr.stream_websocket()`, and the JavaScript SDK (`fish-audio` 0.2.0 or later, Node.js only) as [`client.speechToText.convertRealtime()`](https://docs.fish.audio/api-reference/sdk/javascript/api-reference#speech-to-text).
 
 1
 

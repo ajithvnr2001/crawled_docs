@@ -2,7 +2,7 @@
 url: https://docs.fish.audio/developer-guide/sdk-guide/python/errors/
 title: Errors & Retries - Fish Audio
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:49:34.394587+00:00
+fetched_at: 2026-11-27T17:34:39.188384+00:00
 ---
 
 # Errors & Retries - Fish Audio
@@ -69,6 +69,7 @@ Exception| Raised when| Notes
 `ServerError`| `5xx`| Transient server-side failure  
 `APIError`| any other non-2xx| Base for the above; `status == 422` for invalid parameters  
 `WebSocketError`| realtime stream failed mid-session| Reconnect rather than retrying the same socket  
+`ASRRealtimeError`| a realtime speech-to-text session ended with an error| Subclass of `WebSocketError`; carries `.error_type`, `.code`, `.request_id`, and `.close_code`, each `None` when not sent  
 `DependencyError`| a required system tool is missing (e.g. ffmpeg for `play()`)| Carries `.dependency` and `.install_command`  
   
 Invalid request parameters come back as an `APIError` with `status == 422`. Catch `APIError`, not a separate `ValidationError` (none is raised at runtime).
