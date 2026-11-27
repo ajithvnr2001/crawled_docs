@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/languages/rust/
 title: Cloudflare Workers \u2014 Rust language support \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:32.903192+00:00
+fetched_at: 2026-11-27T10:39:58.200340+00:00
 ---
 
 # Cloudflare Workers — Rust language support · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:17:32.903192+00:00
 
 # Rust
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/languages/rust/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewPrerequisites1\. Create a new project with Wrangler2\. Develop locally3\. Write your Worker code Related runtime APIs4\. Deploy your Worker projectHow this deployment works JavaScript Plumbing (wasm-bindgen) Async (wasm-bindgen-futures) Bundling (worker-build) Binary Size (wasm-opt)Related resources
+OverviewPrerequisites1\. Create a new project with Wrangler2\. Develop locally3\. Write your Worker code Related runtime APIs4\. Deploy your Worker projectHow this deployment works JavaScript Plumbing (wasm-bindgen) Async (wasm-bindgen-futures) Bundling (worker-build) Binary size (wasm-opt)Related resources
 
 Cloudflare Workers provides support for Rust via the [`workers-rs` crate ↗︎](https://github.com/cloudflare/workers-rs), which makes [Runtime APIs](https://developers.cloudflare.com/workers/runtime-apis) and [bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/) to developer platform products, such as [Workers KV](https://developers.cloudflare.com/kv/concepts/how-kv-works/), [R2](https://developers.cloudflare.com/r2/), and [Queues](https://developers.cloudflare.com/queues/), available directly from your Rust code.
 
@@ -234,17 +234,24 @@ To run the resulting Wasm binary on Workers, `workers-rs` includes a build tool 
 
 `worker-build` is invoked by default in the template project using a custom build command specified in the `wrangler.toml` file.
 
-### Binary Size (`wasm-opt`)
+### Binary size (`wasm-opt`)
 
-Unoptimized Rust Wasm binaries can be large and may exceed Worker bundle size limits or experience long startup times. The template project pre-configures several useful size optimizations in your `Cargo.toml` file:
+Unoptimized Rust Wasm binaries can be large and may exceed Worker bundle size limits or experience long startup times. To reduce binary size, add these settings to the release profile in your `Cargo.toml` file:
     
     
     [profile.release]
     lto = true
-    strip = true
     codegen-units = 1
 
-Finally, `worker-bundle` automatically invokes [`wasm-opt` ↗︎](https://github.com/brson/wasm-opt-rs) to further optimize binary size before upload.
+Do not set `strip = true`. The linker removes the `target_features` custom section, which `wasm-bindgen` uses to detect enabled Wasm features. For example, `wasm-bindgen` 0.2.125 could fail with `externref table required for catch wrappers` when this section was missing.
+
+For release builds targeting `wasm32-unknown-unknown`, `worker-build` runs Binaryen's [`wasm-opt` ↗︎](https://github.com/WebAssembly/binaryen) to optimize the binary. By default, it keeps Wasm function names so CPU profiles and stack traces stay readable. With `worker-build` 0.9.0 or later, use `wasm-opt = ["-O"]` to remove function names, or specify your own `wasm-opt` arguments in `Cargo.toml`:
+    
+    
+    [package.metadata.wasm-pack.profile.release]
+    wasm-opt = ["-O"]
+
+To skip this optimization step, set `wasm-opt = false` in the same section or pass `--no-opt` to `worker-build`. Neither option controls the optimizer that Emscripten runs during linking.
 
 ## Related resources
 
@@ -252,7 +259,7 @@ Finally, `worker-bundle` automatically invokes [`wasm-opt` ↗︎](https://githu
 
 
 
-[PreviousLangchain](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)[NextSupported crates](https://developers.cloudflare.com/workers/languages/rust/crates/)
+[PreviousDjango](https://developers.cloudflare.com/workers/languages/python/packages/django/)[NextSupported crates](https://developers.cloudflare.com/workers/languages/rust/crates/)
 
 Was this helpful?
 

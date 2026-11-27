@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/pi-ai/
 title: Pi AI \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T09:24:32.986266+00:00
+fetched_at: 2026-11-27T10:39:58.942379+00:00
 ---
 
 # Pi AI · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-21T09:24:32.986266+00:00
 
 # Pi AI
 
-Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and time out requestsFall back to another modelRead gateway metadataResume a dropped streamHow requests are routedGenerate imagesRelated resources
 
@@ -26,7 +26,7 @@ OverviewInstallCall a modelName a modelUse it with the Pi harnessCache, tag, and
 
 ## Install
 
-The provider needs `@earendil-works/pi-ai@~1.6.0`, an optional peer dependency of `agents`:
+The provider needs `@earendil-works/pi-ai@~1.6.1`, an optional peer dependency of `agents`:
 
 npmyarnpnpmbun
     
@@ -187,7 +187,9 @@ Pi Durable's `Harness` takes a Pi AI `Models` registry. Register the provider on
 
 A Pi session stores only its model's provider and id, then looks the model up in the `Models` registry. Use the `@cf/`, `dynamic/`, and `<provider>/<id>` forms there. They belong to the `cloudflare` provider (`CLOUDFLARE_PROVIDER_ID`) that you registered. A model object keeps its vendor's provider id, which this registry does not know. Options passed to `ai(model, options)` do not reach a session. Set them on `createAI` instead.
 
-A model stream that is cut off, or that sends nothing for `streamIdleTimeoutMs`, ends in an error that Pi AI's `isRetryableAssistantError()` treats as transient. The Pi harness retries the turn under its retry settings instead of failing it.
+A model stream that is cut off, or that sends nothing for `streamIdleTimeoutMs`, ends in an error that Pi AI's `isRetryableAssistantError()` treats as transient. So does a chat completions stream that ends with `finish_reason: "error"`, and an OpenRouter stream that stops with no output for a reason that marks a failure. The Pi harness retries the turn under its retry settings instead of failing it.
+
+The message's `rawStopReason` records the finish reason the provider sent. For OpenRouter, it adds the upstream provider's own reason, for example `stop.MALFORMED_RESPONSE`.
 
 The provider's model list is every Workers AI model Pi AI knows, plus every `<provider>/<id>` in Pi AI's AI Gateway catalog, so `models.getModel("cloudflare", "anthropic/claude-opus-5.5")` resolves.
 
@@ -245,7 +247,7 @@ Every assistant message has a `cloudflare` diagnostic with the gateway details f
     // { model, gateway, provider?, specifier?, logId?, eventId?, cacheStatus?,
     //   step?, traceId?, runId? }
 
-A failed request ends the stream with an `error` event. Its message has a `cloudflare-error` diagnostic with `status`, `code`, and `logId`. `onResponse` receives the status and headers of every request.
+A failed request ends the stream with an `error` event. Its message has a `cloudflare-error` diagnostic with `status`, `code`, and `logId`. `onResponse` receives the status and headers of every response, including a vendor's error response and the gateway's own failure, so you can read headers such as `retry-after` from a failed request.
 
 The gateway's own failures, such as a missing gateway or an unpaid account, become a `CloudflareAIError`. Errors from the vendor come back as the vendor sent them.
 

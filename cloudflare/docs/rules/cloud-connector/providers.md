@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/cloud-connector/providers/
 title: Supported cloud providers in Cloud Connector \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:46.572049+00:00
+fetched_at: 2026-11-27T10:39:59.264685+00:00
 ---
 
 # Supported cloud providers in Cloud Connector · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:46.572049+00:00
 
 # Supported cloud providers in Cloud Connector
 
-Last updated Aug 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/cloud-connector/providers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCloudflare R2Amazon Web Services - S3 SSL connections to AWS S3 endpoints Get the bucket URLGoogle Cloud Platform - Cloud Storage Get the bucket URLMicrosoft Azure - Blob Storage Get the bucket URLOracle Cloud Infrastructure Object Storage
 
@@ -39,6 +39,8 @@ The Cloudflare R2 bucket must be public and [exposed using a custom domain](http
 Additionally, the custom domain must be defined in the same zone where you are configuring the Cloud Connector rule.
 
 ## Amazon Web Services - S3
+
+To read a private bucket, use an HTTPS S3 API endpoint and a separate [Request Header Transform Rule for SigV4 signing](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/). Cloud Connector does not sign requests itself. Website endpoints do not support this authenticated access pattern.
 
 The hostname of your S3 bucket URL must have one of the following formats (where `*` is a wildcard character):
 
@@ -110,7 +112,7 @@ To obtain the URI path bucket URL, remove `https://` and `/<BUCKET_NAME>/<OBJECT
 
 
 
-If the files in your bucket are not publicly accessible, you must change the bucket permissions. For details, refer to the [Google Cloud Storage documentation ↗︎](https://cloud.google.com/storage/docs/access-control/making-data-public#buckets).
+For private buckets, use the `<BUCKET_NAME>.storage.googleapis.com` XML API endpoint with a separate [Request Header Transform Rule for GCS V4 signing](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/). Cloud Connector does not sign requests itself. Without separate authentication, the files must be publicly accessible. For public access configuration, refer to the [Google Cloud Storage documentation ↗︎](https://cloud.google.com/storage/docs/access-control/making-data-public#buckets).
 
 Once you configure Cloud Connector with your storage provider's public bucket, you may wish that only Cloudflare can access the objects in that bucket. To achieve this, check your provider's documentation on how to create a policy that only allows incoming requests from [Cloudflare IP addresses ↗︎](https://www.cloudflare.com/ips/).
 

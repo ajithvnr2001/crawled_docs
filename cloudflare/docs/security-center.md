@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/security-center/
 title: Overview \u00b7 Cloudflare Security Center docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:29.355103+00:00
+fetched_at: 2026-11-27T10:39:59.407648+00:00
 ---
 
 # Overview · Cloudflare Security Center docs
@@ -16,9 +16,9 @@ fetched_at: 2026-10-08T07:15:29.355103+00:00
 
 # Cloudflare Security Center
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/security-center/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewMain featuresAvailabilityLimitations
+OverviewMain featuresAvailability
 
 Cloudflare Security Center brings together your Cloudflare security products, threat intelligence from Cloudflare's global network, and configuration analysis into a unified security intelligence solution. Security Center enables you to strengthen your security posture by:
 
@@ -48,13 +48,6 @@ Cloudflare Security Center is available to customers on all plans.
 The frequency of automatic security scans depends on your Cloudflare plan, ranging from every 7 days on Free, Pro, and Business plans to every 3 days on Enterprise plans. Refer to [Scan frequency](https://developers.cloudflare.com/security/security-insights/how-it-works/#scan-frequency) for more information.
 
 If you have any comments, questions, or bugs to report, create a post in the [Cloudflare Community forum ↗︎](https://community.cloudflare.com/c/security/security-center/65).
-
-## Limitations
-
-  * Users with an [Administrator Read Only](https://developers.cloudflare.com/fundamentals/manage-members/roles/#account-scoped-roles) role cannot access the Cloudflare Security Center.
-  * Only Cloudflare accounts with at least one Business or Enterprise zone (domain on your account), or accounts on the Teams Standard or Teams Enterprise plans, can manually start a new scan.
-
-
 
 [NextGet started](https://developers.cloudflare.com/security-center/get-started/)
 

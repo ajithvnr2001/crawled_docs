@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/email-service/get-started/send-emails/
 title: Send emails \u00b7 Cloudflare Email Service docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T10:59:49.447977+00:00
+fetched_at: 2026-11-27T10:39:59.654646+00:00
 ---
 
 # Send emails · Cloudflare Email Service docs
@@ -20,7 +20,7 @@ fetched_at: 2026-11-25T10:59:49.447977+00:00
 
 Send your first email using the Workers binding, the REST API, or SMTP.
 
-Last updated Nov 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up your domainSend your first emailNext steps
 
@@ -93,7 +93,17 @@ When prompted, select **"Hello World" Worker** as the template.
          name = "EMAIL"
          remote = true
 
-  3. Create your Worker code in `src/index.ts`:
+  3. Generate TypeScript types for your bindings so that `Env` includes `EMAIL`:
+
+npmyarnpnpm
+         
+         npm run cf-typegen
+         
+         yarn run cf-typegen
+         
+         pnpm run cf-typegen
+
+  4. Create your Worker code in `src/index.ts`:
          
          // Configuration - Update these values
          const YOUR_DOMAIN = "yourdomain.com"; // Replace with your verified domain
@@ -114,14 +124,14 @@ When prompted, select **"Hello World" Worker** as the template.
          	},
          } satisfies ExportedHandler<Env>;
 
-  4. Use `npx wrangler dev` to develop your Worker project and send emails. This runs your code locally while connecting to Cloudflare Email Service (using [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings)).
+  5. Use `npx wrangler dev` to develop your Worker project and send emails. This runs your code locally while connecting to Cloudflare Email Service (using [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings)).
          
          npx wrangler dev
          # ⎔ Starting remote preview...
          # Total Upload: 24.96 KiB / gzip: 6.17 KiB
          # [wrangler:info] Ready on http://localhost:8787
 
-  5. Deploy your Worker:
+  6. Deploy your Worker:
          
          npm run deploy
 

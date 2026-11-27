@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/fundamentals/manage-members/roles/
 title: Account roles \u00b7 Cloudflare Fundamentals docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:12.578180+00:00
+fetched_at: 2026-11-27T10:39:59.590072+00:00
 ---
 
 # Account roles · Cloudflare Fundamentals docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-13T08:48:12.578180+00:00
 
 # Roles
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAccount-scoped rolesDomain-scoped rolesResource-scoped roles
 
@@ -101,6 +101,8 @@ Realtime Admin | Grants administrator access to Realtime configuration.
 Hyperdrive Read only | Grants read access to [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) database configuration.  
 Hyperdrive Admin | Grants write access to [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) database configuration.  
 SSL/TLS, Caching, Performance, Page Rules, and Customization | Can edit most Cloudflare settings except for [DNS](https://developers.cloudflare.com/dns/) and [Firewall](https://developers.cloudflare.com/waf/).  
+Security Center Admin | Can view and manage [Security Insights](https://developers.cloudflare.com/security/security-insights/roles-and-permissions/), start on-demand scans, and turn automatic scans on or off. Does not grant permission to edit the underlying product configuration.  
+Security Center Read | Can view [Security Insights](https://developers.cloudflare.com/security/security-insights/roles-and-permissions/) and scan settings without changing findings or scans.  
 Secrets Store Admin | Can create, edit, duplicate, delete, and view secrets metadata. Can also [add a Secrets Store binding to a Worker](https://developers.cloudflare.com/secrets-store/integrations/workers/).  
 Secrets Store Deployer | Can view secrets metadata but cannot create, edit, duplicate, nor delete secrets. Can also [add a Secrets Store binding to a Worker](https://developers.cloudflare.com/secrets-store/integrations/workers/).  
 Secrets Store Reporter | Can view secrets metadata. Cannot perform any actions (create, edit, duplicate, delete secrets), nor add a Secrets Store binding to a Worker.  

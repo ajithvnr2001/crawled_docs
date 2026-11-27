@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/known-issues/
 title: Known issues \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:38.471144+00:00
+fetched_at: 2026-11-27T10:39:58.069712+00:00
 ---
 
 # Known issues · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:38.471144+00:00
 
 # Known issues
 
-Last updated Sep 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/platform/known-issues/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRoute specificitywrangler devFetch API in CNAME setupFetch to IP addresses
 
@@ -67,31 +67,7 @@ When adding a wildcard on a subdomain, here are how the following URLs will be r
 
 ## Fetch API in CNAME setup
 
-When you make a subrequest using [`fetch()`](https://developers.cloudflare.com/workers/runtime-apis/fetch/) from a Worker, the Cloudflare DNS resolver is used. When a zone has a [Partial (CNAME) setup](https://developers.cloudflare.com/dns/zone-setups/partial-setup/), all hostnames that the Worker needs to be able to resolve require a dedicated DNS entry in Cloudflare's DNS setup. Otherwise the Fetch API call will fail with status code [530 (1016)](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/).
-
-Setup with missing DNS records in Cloudflare DNS
-    
-    
-    // Zone in partial setup: example.com
-    // DNS records at Authoritative DNS: sub1.example.com, sub2.example.com, ...
-    // DNS records at Cloudflare DNS: sub1.example.com
-    
-    "sub1.example.com/"
-    // -> Can be resolved by Fetch API
-    "sub2.example.com/"
-    // -> Cannot be resolved by Fetch API, will lead to 530 status code
-
-After adding `sub2.example.com` to Cloudflare DNS
-    
-    
-    // Zone in partial setup: example.com
-    // DNS records at Authoritative DNS: sub1.example.com, sub2.example.com, ...
-    // DNS records at Cloudflare DNS: sub1.example.com, sub2.example.com
-    
-    "sub1.example.com/"
-    // -> Can be resolved by Fetch API
-    "sub2.example.com/"
-    // -> Can be resolved by Fetch API
+If a Worker subrequest to a hostname in its own Partial (CNAME) zone returns HTTP `530` with Cloudflare error `1016`, refer to [Fetch a hostname in a Partial (CNAME) zone](https://developers.cloudflare.com/workers/runtime-apis/fetch/#fetch-a-hostname-in-a-partial-cname-zone).
 
 ## Fetch to IP addresses
 

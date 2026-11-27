@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/
 title: Error 1016 \u00b7 Cloudflare Support docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:57.319398+00:00
+fetched_at: 2026-11-27T10:39:58.014018+00:00
 ---
 
 # Error 1016 · Cloudflare Support docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:57.319398+00:00
 
 # Error 1016
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1016/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewError 1016: Origin DNS error Common cause ResolutionError 1016 in the context of SSL for SaaS Common cause ResolutionWorkers
 
@@ -38,7 +38,7 @@ Common causes for error `1016` are:
   * A CNAME record in the Cloudflare DNS points to an unresolvable external domain.
   * The origin hostnames (CNAMEs) in your Cloudflare [Load Balancer](https://developers.cloudflare.com/load-balancing/) default, region, and fallback pools are unresolvable. Use a fallback pool configured with an origin IP as a backup in case all other pools are unavailable.
   * When creating a Spectrum app with a CNAME origin, you need first to create a CNAME on the Cloudflare DNS side that points to the origin. Please see [Spectrum CNAME origins](https://developers.cloudflare.com/spectrum/get-started/#create-a-spectrum-application-using-a-cname-record) for more details.
-  * There is no DNS record for the hostname in the target [Partial (CNAME) setup zone](https://developers.cloudflare.com/dns/zone-setups/partial-setup/) of a Workers subrequest ([Fetch API](https://developers.cloudflare.com/workers/runtime-apis/fetch/)).
+  * A Worker subrequest uses default routing to reach a hostname in the Worker's own Partial (CNAME) zone, but Cloudflare DNS has no record for that hostname.
 
 
 
@@ -48,7 +48,6 @@ To resolve error `1016`:
 
   1. Verify your Cloudflare DNS settings include an A record that points to a valid IP address that resolves via a [DNS lookup tool ↗︎](https://dnschecker.org/).
   2. For a CNAME record pointing to a different domain, ensure that the target domain resolves via a [DNS lookup tool ↗︎](https://dnschecker.org/).
-  3. For a Workers subrequest to a Partial (CNAME) setup zone, ensure that the hostname exists on the Cloudflare zone (and not only at the authoritative DNS).
 
 
 
@@ -76,7 +75,7 @@ Cloudflare returns a `1016` error when the [custom hostname](https://developers.
 
 ## Workers
 
-If you encounter this error with a Worker, you might be using the [Fetch API in a partial zone setup](https://developers.cloudflare.com/workers/platform/known-issues/#fetch-api-in-cname-setup).
+If the hostname resolves publicly but has no Cloudflare DNS record in the Worker's own [Partial (CNAME) zone](https://developers.cloudflare.com/dns/zone-setups/partial-setup/), add a matching DNS-only record or configure the Worker to use public routing. Refer to [Fetch a hostname in a Partial (CNAME) zone](https://developers.cloudflare.com/workers/runtime-apis/fetch/#fetch-a-hostname-in-a-partial-cname-zone) for both options.
 
 [PreviousError 1015](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1015/)[NextError 1018](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1018/)
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/request-header-modification/
 title: Request Header Transform Rules \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T09:12:13.298667+00:00
+fetched_at: 2026-11-27T10:39:59.382706+00:00
 ---
 
 # Request Header Transform Rules · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-16T09:12:13.298667+00:00
 
 # Request Header Transform Rules
 
-Last updated Nov 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewImportant remarksExecution orderTroubleshooting
 
@@ -56,6 +56,8 @@ Through Request Header Transform Rules you can:
 
 
 You can create a request header transform rule [in the dashboard](https://developers.cloudflare.com/rules/transform/request-header-modification/create-dashboard/), [via API](https://developers.cloudflare.com/rules/transform/request-header-modification/create-api/), or [using Terraform](https://developers.cloudflare.com/terraform/additional-configurations/transform-rules/#create-a-request-header-transform-rule).
+
+With access to the HMAC signing functions, you can [sign requests to private S3 and GCS buckets](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/). The same rule can generate the signature and the required UTC date header.
 
 For more complex request header modifications, consider using [Snippets](https://developers.cloudflare.com/rules/snippets/).
 

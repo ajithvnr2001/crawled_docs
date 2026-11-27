@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/models/ai-sdk/
 title: AI SDK \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T09:24:33.264084+00:00
+fetched_at: 2026-11-27T10:39:58.445152+00:00
 ---
 
 # AI SDK · Cloudflare Agents docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-21T09:24:33.264084+00:00
 
 # AI SDK
 
-Last updated Nov 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstallUse an account id and API tokenCall a Workers AI modelCall an AI Gateway catalog modelCall a dynamic routeCall a vendor's model object Unified billing and BYOKStream, call tools, and return structured outputResume a dropped streamUse it in ThinkCache responsesTag requests for logs and analyticsFall back to another modelSet optionsRead gateway metadataHandle errorsUse other modalitiesUse a provider registryLimitationsRelated resources
 
@@ -389,7 +389,7 @@ Through the binding, a stream from a catalog model or a dynamic route resumes af
 
 AI Gateway names each streamed run in the `cf-aig-run-id` header and keeps its events. If the connection drops mid-stream, the provider reconnects through the binding and replays the run from the last complete event. Your stream continues with nothing lost or repeated. The run keeps going on the gateway while the connection is down, so the resumed stream continues the same answer.
 
-The provider gives up and throws a `CloudflareAIError` after five drops in one stream, or once the gateway no longer holds the run. The gateway keeps a run for a few minutes after it ends. Aborting the call never resumes it.
+The provider reconnects up to five times in one stream. The stream fails if the connection drops again after the fifth reconnect. It also fails if a reconnect request fails, such as when the gateway no longer holds the run. The gateway keeps a run for a few minutes after it ends. Aborting the call never resumes it.
 
 Workers AI `@cf/` streams and model objects have no run id, so they do not resume. The run id is in `providerMetadata.cloudflare.runId`.
 
@@ -562,7 +562,7 @@ Only `model` is always present. Check for the other fields before you use them.
 
 ## Handle errors
 
-The provider throws `CloudflareAIError`, which extends the AI SDK's `APICallError`, for Workers AI failures, AI Gateway failures, failed stream resumes, and a fallback chain where every model failed. The AI SDK's retry loop reads its `isRetryable` flag:
+The provider throws `CloudflareAIError`, which extends the AI SDK's `APICallError`, for Workers AI and AI Gateway request failures and when every model in a fallback chain fails. The AI SDK's retry loop reads its `isRetryable` flag:
     
     
     import { CloudflareAIError } from "agents/models/ai-sdk";
@@ -572,9 +572,10 @@ The provider throws `CloudflareAIError`, which extends the AI SDK's `APICallErro
     } catch (error) {
     	if (error instanceof CloudflareAIError) {
     		console.log(error.status, error.code, error.logId, error.model);
-    		// error.attempts lists every fallback model that failed.
     	}
     }
+
+When every model in a fallback chain fails before producing output, `error.attempts` lists the failed attempts in order, starting with the primary model. If you call a model without fallbacks, `error.attempts` is `undefined`.
 
 `code` is one of `"auth"`, `"rate-limit"`, `"not-found"`, `"bad-request"`, `"provider-error"`, `"gateway-error"`, or `"unknown"`.
 

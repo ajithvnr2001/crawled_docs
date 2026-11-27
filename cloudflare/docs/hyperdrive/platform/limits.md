@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/platform/limits/
 title: Limits \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:33.193267+00:00
+fetched_at: 2026-11-27T10:39:58.333597+00:00
 ---
 
 # Limits · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:33.193267+00:00
 
 # Limits
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/hyperdrive/platform/limits/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfiguration limitsConnection limits Connection errorsQuery limitsRequest a limit increase
 
@@ -30,7 +30,7 @@ These limits apply when creating or updating Hyperdrive configurations.
 
 Limit | Free | Paid  
 ---|---|---  
-Maximum configured databases | 10 per account | 25 per account  
+Maximum configured databases | 10 per account | 100 per account  
 Maximum username length 1 | 63 characters (bytes) | 63 characters (bytes)  
 Maximum database name length 1 | 63 characters (bytes) | 63 characters (bytes)  
   
@@ -42,7 +42,7 @@ Limit | Free | Paid
 ---|---|---  
 Initial connection timeout | 15 seconds | 15 seconds  
 Idle connection timeout | 10 minutes | 10 minutes  
-Maximum origin database connections (per configuration) 2 | ~20 connections | ~100 connections  
+Maximum origin database connections (per configuration) 2 | ~20 connections | up to 1,500 connections  
   
 Hyperdrive does not limit the number of concurrent client connections from your Workers. However, Hyperdrive limits connections to your origin database because most hosted databases have connection limits.
 

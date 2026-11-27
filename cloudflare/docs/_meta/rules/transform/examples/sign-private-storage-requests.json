@@ -1,0 +1,7 @@
+{
+  "url": "https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/",
+  "file": "rules/transform/examples/sign-private-storage-requests.md",
+  "title": "Sign requests to private S3 and GCS buckets \u00b7 Cloudflare Rules docs",
+  "method": "scrapling+scrapegraph",
+  "fetched_at": "2026-11-27T10:39:57.979783+00:00"
+}

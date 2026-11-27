@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/builds/api-reference/
 title: Builds API reference \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:19.071041+00:00
+fetched_at: 2026-11-27T10:39:57.819623+00:00
 ---
 
 # Builds API reference · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-31T08:10:19.071041+00:00
 
 # Builds API reference
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start Create an API token Get your Worker tagConnect a Worker to a repository Prerequisites Create the build configurationView and update build settings Get build settings Update build settingsManage Previews List Previews Update a Preview Build a PreviewWork with builds Start a production build List builds Get build logs Cancel a buildRelated resources
 
@@ -32,9 +32,11 @@ This guide shows you how to use the [Workers Builds REST API](https://developers
 
 ### Create an API token
 
-The Builds API requires a **user-scoped** API token. Account-scoped tokens are not supported and will return "Invalid token" errors.
+The Workers Builds API requires requests to act on behalf of a Cloudflare user. An [account-owned API token](https://developers.cloudflare.com/fundamentals/api/get-started/account-owned-tokens/) does not represent a user, so the Builds API returns `Invalid token` even if the token has the required account permissions.
 
-Create your token at [dash.cloudflare.com/profile/api-tokens ↗︎](https://dash.cloudflare.com/profile/api-tokens) with the following permissions:
+For the Builds API requests in this guide, [create a **user-owned API token**](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) from **My Profile** > **API Tokens**.
+
+Under **Permissions** , select _Account_ for each permission in the following table. Under **Account Resources** , include the account that owns your Worker.
 
 Permission | Access level | Why you need it  
 ---|---|---  

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/basin-pipelines/pipelines/manage-pipelines/
 title: Manage pipelines \u00b7 Cloudflare Basin Pipelines Docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:24.802027+00:00
+fetched_at: 2026-11-27T10:39:59.772511+00:00
 ---
 
 # Manage pipelines · Cloudflare Basin Pipelines Docs
@@ -18,14 +18,16 @@ fetched_at: 2026-10-08T07:05:24.802027+00:00
 
 # Manage pipelines
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/basin-pipelines/pipelines/manage-pipelines/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCreate a pipeline Dashboard Wrangler CLI SQL transformationsView pipeline configuration Dashboard Wrangler CLIDelete a pipeline Dashboard Wrangler CLILimitations
+OverviewCreate a pipeline Dashboard Wrangler CLI SQL transformationsView pipeline configuration Dashboard Wrangler CLIUpdate a pipeline Dashboard APIFix a failed pipelineDelete a pipeline Dashboard Wrangler CLILimitations
 
 Learn how to:
 
   * Create pipelines with SQL transformations
   * View pipeline configuration and SQL
+  * Update pipelines after a stream or sink changes
+  * Fix a failed pipeline
   * Delete pipelines when no longer needed
 
 
@@ -186,6 +188,43 @@ npmyarnpnpm
     
     
     pnpm wrangler basin pipelines list
+
+## Update a pipeline
+
+After a stream or sink changes, for example when you [update a sink's credentials](https://developers.cloudflare.com/basin-pipelines/sinks/manage-sinks/#update-sink-credentials), a pipeline keeps the earlier version until you update the pipeline. Updating a failed pipeline also retries it.
+
+### Dashboard
+
+  1. In the Cloudflare dashboard, go to the **Basin Pipelines** page.
+
+[ Go to **Pipelines** ↗ ](https://dash.cloudflare.com/?to=/:account/pipelines/overview)
+  2. Select the pipeline.
+
+  3. Select **Update pipeline**. The button appears only when a stream or sink the pipeline uses has changed.
+
+
+
+
+### API
+
+The [API token](https://developers.cloudflare.com/fundamentals/api/get-started/create-token/) for this request must have **Basin Pipelines Edit** permission.
+    
+    
+    curl "https://api.cloudflare.com/client/v4/accounts/$ACCOUNT_ID/pipelines/v1/pipelines/$PIPELINE_ID/update_tables" \
+      --request POST \
+      --header "Authorization: Bearer $CLOUDFLARE_API_TOKEN"
+
+To check whether a pipeline needs an update, [get the pipeline](https://developers.cloudflare.com/api/resources/pipelines/methods/get_v1/) and read its `outdated` field.
+
+## Fix a failed pipeline
+
+A failed pipeline stops processing data. Its page in the dashboard shows the reason, and the API returns it in the pipeline's `failure_reason` field.
+
+**Cause** : One cause is that the pipeline can no longer write to its sink, because the sink's credentials expired or were revoked.
+
+**Fix** : [Update the sink's credentials](https://developers.cloudflare.com/basin-pipelines/sinks/manage-sinks/#update-sink-credentials), then update the pipeline. Updating a failed pipeline retries it.
+
+**Verify** : The pipeline's status changes from failed to running.
 
 ## Delete a pipeline
 

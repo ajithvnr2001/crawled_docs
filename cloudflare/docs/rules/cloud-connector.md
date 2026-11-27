@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/cloud-connector/
 title: Cloud Connector \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T09:24:36.958913+00:00
+fetched_at: 2026-11-27T10:39:59.346332+00:00
 ---
 
 # Cloud Connector · Cloudflare Rules docs
@@ -17,11 +17,11 @@ fetched_at: 2026-11-21T09:24:36.958913+00:00
 
 # Cloud Connector
 
-Last updated Nov 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksApplied configurationsAvailability
 
-Cloud Connector (Beta) allows you to route matching incoming traffic from your website to a public cloud provider that you define: [Cloudflare R2](https://developers.cloudflare.com/r2/) object storage or an external provider such as AWS, Google Cloud, Microsoft Azure, and Oracle Cloud. With Cloud Connector, you can manage traffic to cloud-hosted content through the same Cloudflare dashboard you use for the rest of your website, without having to configure additional rules.
+Cloud Connector allows you to route matching incoming traffic from your website to a public cloud provider that you define: [Cloudflare R2](https://developers.cloudflare.com/r2/) object storage or an external provider such as AWS, Google Cloud, Microsoft Azure, and Oracle Cloud. With Cloud Connector, you can manage traffic to cloud-hosted content through the same Cloudflare dashboard you use for the rest of your website, without having to configure additional rules.
 
 Note
 
@@ -36,7 +36,9 @@ First, you configure a Cloud Connector rule that specifies:
 
 
 
-Then, Cloudflare will create the necessary configurations so that the content is accessible for requests matching your Cloud Connector rule. Your object storage bucket must be publicly accessible for Cloud Connector to work.
+Then, Cloudflare will create the necessary configurations so that the content is accessible for requests matching your Cloud Connector rule. Cloud Connector routes requests but does not authenticate them. Without separate origin authentication, your object storage bucket must be publicly accessible.
+
+For private Amazon S3 and Google Cloud Storage buckets, you can combine Cloud Connector with a [Request Header Transform Rule that signs origin requests](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/). The signing functions require a Pro, Business, or Enterprise plan.
 
 Cloud Connector rules are evaluated last in the [request evaluation workflow](https://developers.cloudflare.com/ruleset-engine/reference/phases-list/). When a Cloud Connector rule matches and other rules have modified the same settings (such as the `Host` header), the Cloud Connector rule takes precedence.
 

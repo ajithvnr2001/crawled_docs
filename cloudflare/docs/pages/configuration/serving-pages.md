@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/serving-pages/
 title: Serving Pages \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:26.237749+00:00
+fetched_at: 2026-11-27T10:39:58.236597+00:00
 ---
 
 # Serving Pages · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-12T09:30:26.237749+00:00
 
 # Serving Pages
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRoute matchingNot Found behaviorSingle-page application (SPA) renderingCaching and performance Recommendations BehaviorAsset retentionHeaders
 
@@ -34,7 +34,16 @@ You can define a custom page to be displayed when Pages cannot find a requested 
 
 ## Single-page application (SPA) rendering
 
-If your project does not include a top-level `404.html` file, Pages assumes that you are deploying a single-page application. This includes frameworks like React, Vue, and Angular. Pages' default single-page application behavior serves the root (`/`) for any incoming path that does not correspond to a static asset, allowing your application to handle routes like `/about` or `/help` client-side from within your SPA.
+If Pages cannot find a static asset or a custom `404.html` for a request, it falls back to the root `index.html`. This lets your SPA handle routes on the client. A top-level `404.html` disables the fallback because Pages always finds a custom 404 page for unmatched paths.
+
+To return `404` for missing static assets without disabling SPA fallback, add `404.html` to the asset subdirectory, not to the root of your build output. For example, if your build output contains `index.html` and `static/404.html`, but no top-level `404.html`:
+
+  * `/static/missing.js` returns `404` with `static/404.html` as the response body.
+  * `/about` returns `200` with `index.html`, which lets your SPA handle the route.
+
+
+
+The custom 404 applies to all unmatched paths under `/static/`, not just requests for files with extensions. Keep client-side routes outside that directory.
 
 ## Caching and performance
 

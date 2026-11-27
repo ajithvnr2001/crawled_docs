@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/cloud-connector/examples/
 title: Cloud Connector examples \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:45.666391+00:00
+fetched_at: 2026-11-27T10:39:59.310976+00:00
 ---
 
 # Cloud Connector examples · Cloudflare Rules docs
@@ -18,7 +18,9 @@ fetched_at: 2026-10-08T07:14:45.666391+00:00
 
 # Cloud Connector examples
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/cloud-connector/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+To authenticate requests to private buckets, refer to [Sign requests to private S3 and GCS buckets](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/#cloud-connector-rule). The example combines a Cloud Connector routing rule with a Request Header Transform Rule that generates the signature and date headers.
 
 [**Route /images to an S3 Bucket using Terraform** Route requests with a URI path starting with `/images` to a specific AWS S3 bucket with Cloud Connector using Terraform.](https://developers.cloudflare.com/rules/cloud-connector/examples/route-images-to-aws-s3-using-terraform/)
 

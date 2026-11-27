@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/request-header-modification/reference/fields-functions/
 title: Available fields and functions \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-07T08:31:58.484935+00:00
+fetched_at: 2026-11-27T10:39:58.878207+00:00
 ---
 
 # Available fields and functions · Cloudflare Rules docs
@@ -22,7 +22,9 @@ fetched_at: 2026-11-07T08:31:58.484935+00:00
 
 # Available fields and functions
 
-Last updated Nov 6, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewDate and signing functions
 
 The available fields when setting an HTTP request header value using an expression are the following:
 
@@ -128,6 +130,26 @@ Important
 
 
 For information on the available functions, refer to [Functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/).
+
+## Date and signing functions
+
+Use [`format_date()`](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#format_date) to format `http.request.timestamp.sec` as UTC text. This function is available on all plans without an additional entitlement. You can set a timestamp header and calculate a signature from the same timestamp in one rule.
+
+The [HMAC functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#hmac_sha256) and [`sign_sigv4_hmac_sha256()`](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#sign_sigv4_hmac_sha256) are available on Pro, Business, and Enterprise plans.
+
+The following limits apply to each header value expression:
+
+Function | Maximum calls  
+---|---  
+`concat()` | 3  
+`encode_hex()` | 4  
+`format_date()` | 4  
+Each of `hmac_md5()`, `hmac_sha1()`, `hmac_sha256()`, and `hmac_sha512()` | 5  
+`sign_sigv4_hmac_sha256()` | 1  
+  
+Signing and hash functions accept a narrower set of fields than the complete header rewrite field list. Supported inputs include request headers, the method, URI fields, and `http.request.timestamp.sec`. Do not pass `http.host` or request body fields to these functions. For storage signing, put the expected origin hostname in the canonical request as a literal.
+
+For complete expressions, refer to [Sign requests to private S3 and GCS buckets](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/).
 
 [PreviousFormat of header names and values](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/header-format/)[NextAPI parameter reference](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/parameters/)
 

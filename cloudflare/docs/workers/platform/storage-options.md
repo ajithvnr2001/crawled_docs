@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/platform/storage-options/
 title: Choosing a data or storage product. \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-21T06:51:30.080756+00:00
+fetched_at: 2026-11-27T10:39:58.788068+00:00
 ---
 
 # Choosing a data or storage product. · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-21T06:51:30.080756+00:00
 
 # Choose a data or storage product
 
-Last updated Oct 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a storage productSQL database options Session storageProduct overviews Workers KV R2 Durable Objects D1 Queues K2 HyperdriveBasin Pipelines Analytics Engine VectorizeSQL in Durable Objects vs D1
 
@@ -112,27 +112,27 @@ To get started with R2:
 
 ### Durable Objects
 
-Durable Objects provide low-latency coordination and consistent storage for the Workers platform through global uniqueness and a transactional storage API.
+Durable Objects combine stateful serverless compute with storage on the Workers platform. Each object has a unique ID. The runtime routes new requests for that ID to a single current instance, which can move between locations. Only the current instance can access the object's storage.
 
-  * Global Uniqueness guarantees that there will be a single instance of a Durable Object class with a given ID running at once, across the world. Requests for a Durable Object ID are routed by the Workers runtime to the Cloudflare data center that owns the Durable Object.
-  * The transactional storage API provides strongly consistent key-value storage to the Durable Object. Each Object can only read and modify keys associated with that Object. Execution of a Durable Object is single-threaded, but multiple request events may still be processed out-of-order from how they arrived at the Object.
+Each object has private, strongly consistent, transactional storage. [SQLite-backed Durable Objects](https://developers.cloudflare.com/durable-objects/api/sqlite-storage-api/) are recommended for new classes and provide both SQL and key-value APIs. Durable storage persists across restarts, but in-memory state does not.
 
+Each Durable Object is single-threaded, but requests can interleave while a handler awaits non-storage I/O, such as an outbound `fetch()` call.
 
+Durable Objects are ideal for projects that require:
 
-It is ideal for projects that require:
-
-  * Real-time collaboration (such as a chat application or a game server).
-  * Consistent storage.
-  * Data locality.
+  * Real-time collaboration, such as chat rooms, multiplayer games, and collaborative documents
+  * Per-user, per-tenant, or per-resource databases with application logic
+  * Strongly consistent coordination, such as bookings or per-user rate limits
+  * Stateful AI agents built with the [Agents SDK](https://developers.cloudflare.com/agents/)
 
 
 
 To get started with Durable Objects:
 
-  * Read the [introductory blog post ↗︎](https://blog.cloudflare.com/introducing-workers-durable-objects/).
-  * Review the [Durable Objects documentation](https://developers.cloudflare.com/durable-objects/).
-  * Get started with [Durable Objects](https://developers.cloudflare.com/durable-objects/get-started/).
-  * Learn about Durable Objects [Limits](https://developers.cloudflare.com/durable-objects/platform/limits/).
+  * Read [What are Durable Objects?](https://developers.cloudflare.com/durable-objects/concepts/what-are-durable-objects/).
+  * Review the [Rules of Durable Objects](https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/).
+  * Follow the [Durable Objects getting started guide](https://developers.cloudflare.com/durable-objects/get-started/).
+  * Review [Durable Objects limits](https://developers.cloudflare.com/durable-objects/platform/limits/).
 
 
 
@@ -287,7 +287,7 @@ Cloudflare Workers offers a SQLite-backed serverless database product - [D1](htt
 
 **D1 is a managed database product.**
 
-D1 fits into a familiar architecture for developers, where application servers communicate with a database over the network. Application servers are typically Workers; however, D1 also supports external, non-Worker access via an [HTTP API ↗︎](https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/query/), which helps unlock [third-party tooling](https://developers.cloudflare.com/d1/reference/community-projects/#_top) support for D1.
+D1 fits into a familiar architecture for developers, where application servers communicate with a database over the network. Application servers are typically Workers; however, D1 also supports external, non-Worker access via an [HTTP API ↗︎](https://developers.cloudflare.com/api/resources/d1/subresources/database/methods/query/), which helps unlock third-party tooling support for D1.
 
 D1 aims for a "batteries included" feature set, including the above HTTP API, [database schema management](https://developers.cloudflare.com/d1/reference/migrations/#_top), [data import/export](https://developers.cloudflare.com/d1/best-practices/import-export-data/), and [database query insights](https://developers.cloudflare.com/d1/observability/metrics-analytics/#query-insights).
 
@@ -303,7 +303,7 @@ With SQLite in Durable Objects, you may also need to build some of your own data
 
 SQL query pricing and limits are intended to be identical between D1 ([pricing](https://developers.cloudflare.com/d1/platform/pricing/), [limits](https://developers.cloudflare.com/d1/platform/limits/)) and SQLite in Durable Objects ([pricing](https://developers.cloudflare.com/durable-objects/platform/pricing/#sqlite-storage-backend), [limits](https://developers.cloudflare.com/durable-objects/platform/limits/)).
 
-[PreviousLimits](https://developers.cloudflare.com/workers/platform/limits/)[NextBetas](https://developers.cloudflare.com/workers/platform/betas/)
+[PreviousLimits](https://developers.cloudflare.com/workers/platform/limits/)[NextSpending limits](https://developers.cloudflare.com/workers/platform/spend-management/)
 
 Was this helpful?
 

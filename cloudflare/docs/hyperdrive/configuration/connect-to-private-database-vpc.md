@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/configuration/connect-to-private-database-vpc/
 title: Connect to a private database using Workers VPC (Recommended) \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T12:11:04.957450+00:00
+fetched_at: 2026-11-27T10:39:59.726997+00:00
 ---
 
 # Connect to a private database using Workers VPC (Recommended) · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-24T12:11:04.957450+00:00
 
 # Connect to a private database using Workers VPC (Recommended)
 
-Last updated Nov 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it worksBefore you startPrerequisites1\. Set up a Cloudflare Tunnel2\. Create a TCP VPC Service TLS certificate verification Private CA and client certificates3\. Create a Hyperdrive configuration4\. Bind Hyperdrive to a Worker5\. Query the databaseNext steps
 
@@ -160,7 +160,7 @@ If your database uses a certificate signed by a private CA (for example, the Ama
       --client-certificate <CLIENT_CERTIFICATE_ID> \
       --cert-verification-mode verify_full
 
-Omit `--client-certificate` if your database does not require client certificate authentication. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates) for all options, including the API and certificate rotation.
+Omit `--client-certificate` if your database does not require client certificate authentication. Refer to [Custom CA and client certificates](https://developers.cloudflare.com/workers-vpc/configuration/vpc-services/#custom-ca-and-client-certificates) for all options, including the dashboard, the API, and certificate rotation. In the dashboard, you can upload and select both certificates in the **TLS settings** of the VPC Service.
 
 ## 3\. Create a Hyperdrive configuration
 
@@ -297,7 +297,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-11-24",
+    	"compatibility_date": "2026-11-27",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -309,7 +309,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-11-24"
+    compatibility_date = "2026-11-27"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"
@@ -390,7 +390,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     		"nodejs_compat"
     	],
     	// Set this to today's date
-    	"compatibility_date": "2026-11-24",
+    	"compatibility_date": "2026-11-27",
     	"hyperdrive": [
     		{
     			"binding": "HYPERDRIVE",
@@ -402,7 +402,7 @@ Add the required Node.js compatibility flags and Hyperdrive binding to your `wra
     
     compatibility_flags = [ "nodejs_compat" ]
     # Set this to today's date
-    compatibility_date = "2026-11-24"
+    compatibility_date = "2026-11-27"
     
     [[hyperdrive]]
     binding = "HYPERDRIVE"

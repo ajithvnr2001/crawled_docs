@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/response-header-modification/reference/fields-functions/
 title: Available fields and functions \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:57.901718+00:00
+fetched_at: 2026-11-27T10:39:58.827693+00:00
 ---
 
 # Available fields and functions · Cloudflare Rules docs
@@ -22,7 +22,9 @@ fetched_at: 2026-10-08T07:14:57.901718+00:00
 
 # Available fields and functions
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/fields-functions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+OverviewDate and signing functions
 
 The available fields when setting an HTTP response header value using an expression are the following:
 
@@ -119,6 +121,14 @@ Important
 
 
 For information on the available functions, refer to [Functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/).
+
+## Date and signing functions
+
+Use [`format_date()`](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#format_date) in a dynamic header value to format `http.request.timestamp.sec` as UTC text. This function is available on all plans without an additional entitlement. It can appear up to four times per header value expression. It is not available in filter expressions.
+
+The [HMAC functions](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#hmac_sha256) and [`sign_sigv4_hmac_sha256()`](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#sign_sigv4_hmac_sha256) are available on Pro, Business, and Enterprise plans. Each HMAC function can appear up to five times per header value expression, and the SigV4 signer can appear once. Arguments remain subject to signing and hash field restrictions.
+
+Do not expose secret keys or origin authorization headers to visitors. To authenticate storage origin requests, use a [Request Header Transform Rule](https://developers.cloudflare.com/rules/transform/examples/sign-private-storage-requests/) instead.
 
 [PreviousFormat of header names and values](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/header-format/)[NextAPI parameter reference](https://developers.cloudflare.com/rules/transform/response-header-modification/reference/parameters/)
 

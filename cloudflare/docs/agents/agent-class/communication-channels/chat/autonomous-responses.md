@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/agent-class/communication-channels/chat/autonomous-responses/
 title: Autonomous responses \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:47.489110+00:00
+fetched_at: 2026-11-27T10:39:58.591452+00:00
 ---
 
 # Autonomous responses · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:47.489110+00:00
 
 # Autonomous responses
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverview saveMessages vs persistMessages saveMessages vs submitMessages When to use saveMessages vs onChatResponsewaitUntilStableTrigger patterns Cron schedule Processing a queue Email-triggered Webhook-triggered Injecting context without triggering a responseReacting to responses you did not initiate Broadcasting state Analytics Chained reasoning Reactive queue processing ChatResponseResult fieldsClient-side: detecting server-initiated streamsInteraction with messageConcurrencyCombining with other Agent primitivesCancelling a server-driven turnImportant notesNext steps
 
@@ -255,6 +255,13 @@ When you control the trigger, a simple loop is the clearest pattern:
 No special hooks needed — `saveMessages` returns after the full turn completes.
 
 ### Email-triggered
+
+Install [`postal-mime` ↗︎](https://www.npmjs.com/package/postal-mime) and add this import to your agent's module:
+    
+    
+    import PostalMime from "postal-mime";
+
+Then add the `onEmail` handler to your agent class:
     
     
     async onEmail(email: AgentEmail) {
@@ -264,8 +271,10 @@ No special hooks needed — `saveMessages` returns after the full turn completes
     		return;
     	}
     
-    	const subject = email.headers.get("subject") ?? "(no subject)";
-    	const body = await new Response(email.raw).text();
+    	const raw = await email.getRaw();
+    	const parsed = await PostalMime.parse(raw);
+    	const subject = parsed.subject ?? "(no subject)";
+    	const body = parsed.text?.trim() ?? "";
     
     	await this.saveMessages((messages) => [
     		...messages,

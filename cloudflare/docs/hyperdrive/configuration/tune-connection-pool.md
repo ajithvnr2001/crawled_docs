@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/hyperdrive/configuration/tune-connection-pool/
 title: Tune connection pooling \u00b7 Cloudflare Hyperdrive docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:11:29.788499+00:00
+fetched_at: 2026-11-27T10:39:58.625485+00:00
 ---
 
 # Tune connection pooling · Cloudflare Hyperdrive docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:11:29.788499+00:00
 
 # Tune connection pooling
 
-Last updated Jun 9, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/hyperdrive/configuration/tune-connection-pool/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewConfigure connection pool sizeBest practicesRelated resources
 
@@ -68,15 +68,11 @@ Use the [Hyperdrive REST API](https://developers.cloudflare.com/api/resources/hy
         "origin_connection_limit": <MAX_CONNECTIONS>
       }'
 
-All Hyperdrive configurations have a minimum of 5 connections. The maximum connection count depends on your [Workers plan](https://developers.cloudflare.com/hyperdrive/platform/limits/).
+All Hyperdrive configurations have a minimum of 5 connections. Workers Paid customers can configure up to 1,500 connections per configuration. For the full set of limits by plan, refer to [Hyperdrive limits](https://developers.cloudflare.com/hyperdrive/platform/limits/).
 
 Note
 
 The Hyperdrive connection pool limit is a "soft limit". This means that it is possible for Hyperdrive to make more connections to your database than this limit in the event of network failure to ensure high availability. We recommend that you set the Hyperdrive connection limit to be lower than the limit of your origin database to account for occasions where Hyperdrive needs to create more connections for resiliency.
-
-Note
-
-You can request adjustments to Hyperdrive's origin connection limits. To request an increase, submit a [Limit Increase Request ↗︎](https://forms.gle/eX6pXvit1wBv77Yw5) and Cloudflare will contact you with next steps. Cloudflare also regularly monitors the Hyperdrive channel in [Cloudflare's Discord community ↗︎](https://discord.cloudflare.com/) and can answer questions regarding limits and requests.
 
 ## Best practices
 
