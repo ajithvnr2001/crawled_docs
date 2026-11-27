@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/
 title: CopilotKit: bring your agent into any app
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:44.654551+00:00
+fetched_at: 2026-11-27T11:59:04.440609+00:00
 ---
 
 # CopilotKit: bring your agent into any app
@@ -35,19 +35,19 @@ Start the quickstart
 
 Copy prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
 
-[](https://docs.copilotkit.ai/angular "Angular")[](https://docs.copilotkit.ai/slack "Slack")[](https://docs.copilotkit.ai/teams "Teams")[](https://docs.copilotkit.ai/quickstart "React")[](https://docs.copilotkit.ai/vue "Vue")[](https://docs.copilotkit.ai/angular "Angular")[](https://docs.copilotkit.ai/slack "Slack")[](https://docs.copilotkit.ai/openai-agents-python "OpenAI Agents SDK")[](https://docs.copilotkit.ai/deepagents "Deep Agents")[![](https://docs.copilotkit.ai/logos/oracle-agent-spec.png)](https://docs.copilotkit.ai/agent-spec "Agent Spec")[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)](https://docs.copilotkit.ai/mastra "Mastra")[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)](https://docs.copilotkit.ai/langgraph-python "LangGraph \(Python\)")[![](https://docs.copilotkit.ai/logos/frameworks/crewai-crews.png)](https://docs.copilotkit.ai/crewai-crews "CrewAI Flows")[![](https://docs.copilotkit.ai/logos/frameworks/pydantic-ai.svg)](https://docs.copilotkit.ai/pydantic-ai "Pydantic AI")
+[](https://docs.copilotkit.ai/angular/mastra "Angular")[](https://docs.copilotkit.ai/slack/mastra "Slack")[](https://docs.copilotkit.ai/teams/mastra "Teams")[](https://docs.copilotkit.ai/mastra "React")[](https://docs.copilotkit.ai/vue/mastra "Vue")[](https://docs.copilotkit.ai/angular/mastra "Angular")[](https://docs.copilotkit.ai/slack/mastra "Slack")[](https://docs.copilotkit.ai/openai-agents-python "OpenAI Agents SDK")[](https://docs.copilotkit.ai/deepagents "Deep Agents")[![](https://docs.copilotkit.ai/logos/oracle-agent-spec.png)](https://docs.copilotkit.ai/agent-spec "Agent Spec")[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)](https://docs.copilotkit.ai/mastra "Mastra")[![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)](https://docs.copilotkit.ai/langgraph-python "LangGraph \(Python\)")[![](https://docs.copilotkit.ai/logos/frameworks/crewai-crews.png)](https://docs.copilotkit.ai/crewai-crews "CrewAI Flows")[![](https://docs.copilotkit.ai/logos/frameworks/pydantic-ai.svg)](https://docs.copilotkit.ai/pydantic-ai "Pydantic AI")
 
 ## Guides
 
-[QuickstartAdd a chat to your app and connect it to your agent.](https://docs.copilotkit.ai/mastra/quickstart)[Generative UILet your agent render your own components in the chat: cards, charts, forms.](https://docs.copilotkit.ai/mastra/generative-ui/tool-based)[Human in the loopPause the agent and ask a person before it acts.](https://docs.copilotkit.ai/mastra/human-in-the-loop)[Shared stateRead and write your agent's state from your app, live.](https://docs.copilotkit.ai/mastra/shared-state)[ThreadsKeep conversations, and pick them up later.](https://docs.copilotkit.ai/mastra/threads)[IntelligenceThreads that persist, user memories, and agents that learn from real use.](https://docs.copilotkit.ai/intelligence)
+[QuickstartAdd a chat to your app and connect it to your agent.](https://docs.copilotkit.ai/mastra/quickstart)[Generative UILet your agent render your own components in the chat: cards, charts, forms.](https://docs.copilotkit.ai/mastra/generative-ui/tool-based)[Human in the loopPause the agent and ask a person before it acts.](https://docs.copilotkit.ai/mastra/human-in-the-loop)[Shared stateRead and write your agent's state from your app, live.](https://docs.copilotkit.ai/mastra/shared-state)[ThreadsKeep conversations, and pick them up later.](https://docs.copilotkit.ai/mastra/AG-UI-Streams)[IntelligenceThreads that persist, user memories, and agents that learn from real use.](https://docs.copilotkit.ai/mastra/intelligence/overview)
 
 ## Frontends
 
-[ReactProvider, hooks, and chat components.](https://docs.copilotkit.ai/quickstart)[VueVue 3 provider, composables, and chat primitives.](https://docs.copilotkit.ai/vue)[AngularComponents, directives, and services.](https://docs.copilotkit.ai/angular)[React NativeBindings for React Native and Expo apps.](https://docs.copilotkit.ai/react-native)[SlackRun your agent as a Slack bot.](https://docs.copilotkit.ai/slack)[TeamsRun your agent as a Microsoft Teams bot.](https://docs.copilotkit.ai/teams)
+[ReactProvider, hooks, and chat components.](https://docs.copilotkit.ai/mastra)[VueVue 3 provider, composables, and chat primitives.](https://docs.copilotkit.ai/vue/mastra)[AngularComponents, directives, and services.](https://docs.copilotkit.ai/angular/mastra)[React NativeBindings for React Native and Expo apps.](https://docs.copilotkit.ai/react-native/mastra)[SlackRun your agent as a Slack bot.](https://docs.copilotkit.ai/slack/mastra)[TeamsRun your agent as a Microsoft Teams bot.](https://docs.copilotkit.ai/teams/mastra)
 
 ## Integrations
 
-[CopilotKitCopilotKit's own agent, running inside your runtime with no separate backend.](https://docs.copilotkit.ai/built-in-agent/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)MastraA TypeScript framework for AI-powered applications and agents.](https://docs.copilotkit.ai/mastra/quickstart)
+[CopilotKitCopilotKit's own agent, running inside your runtime with no separate backend.](https://docs.copilotkit.ai/quickstart)[![](https://docs.copilotkit.ai/logos/frameworks/mastra.svg)MastraA TypeScript framework for AI-powered applications and agents.](https://docs.copilotkit.ai/mastra/quickstart)
 
 ![](https://docs.copilotkit.ai/logos/frameworks/langgraph.png)
 

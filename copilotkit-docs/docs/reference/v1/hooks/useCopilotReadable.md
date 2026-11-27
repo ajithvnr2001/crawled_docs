@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCopilotReadable/
 title: useCopilotReadable
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:47.955171+00:00
+fetched_at: 2026-11-27T11:59:07.214525+00:00
 ---
 
 # useCopilotReadable

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/classes/llm-adapters/GoogleGenerativeAIAdapter/
 title: GoogleGenerativeAIAdapter
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:49.956470+00:00
+fetched_at: 2026-11-27T11:59:09.528727+00:00
 ---
 
 # GoogleGenerativeAIAdapter

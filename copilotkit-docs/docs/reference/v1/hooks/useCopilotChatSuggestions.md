@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useCopilotChatSuggestions/
 title: useCopilotChatSuggestions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:47.901274+00:00
+fetched_at: 2026-11-27T11:59:07.336508+00:00
 ---
 
 # useCopilotChatSuggestions

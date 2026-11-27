@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/components/chat/CopilotSidebar/
 title: CopilotSidebar
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:49.197697+00:00
+fetched_at: 2026-11-27T11:59:09.325619+00:00
 ---
 
 # CopilotSidebar

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v2/hooks/useFrontendTools/
 title: useFrontendTools
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:52.476292+00:00
+fetched_at: 2026-11-27T11:59:08.045205+00:00
 ---
 
 # useFrontendTools

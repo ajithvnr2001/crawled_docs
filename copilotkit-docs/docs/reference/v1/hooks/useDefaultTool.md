@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/hooks/useDefaultTool/
 title: useDefaultTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:48.164369+00:00
+fetched_at: 2026-11-27T11:59:07.258890+00:00
 ---
 
 # useDefaultTool

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/v1/sdk/python/RemoteEndpoints/
 title: Remote Endpoints
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:47.315362+00:00
+fetched_at: 2026-11-27T11:59:06.614732+00:00
 ---
 
 # Remote Endpoints

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/vue/hooks/useCopilotChatConfiguration/
 title: useCopilotChatConfiguration
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:45.947537+00:00
+fetched_at: 2026-11-27T11:59:05.338385+00:00
 ---
 
 # useCopilotChatConfiguration
