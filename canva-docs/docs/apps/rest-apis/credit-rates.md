@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/credit-rates/
 title: Canva REST API credit rates - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T16:58:42.705348+00:00
+fetched_at: 2026-11-27T19:13:17.588257+00:00
 ---
 
 # Canva REST API credit rates - Canva Developers SDK Documentation
@@ -86,9 +86,12 @@ CRAFT-1 2K| `craft_v1_2k`| 3 credits per 2K image
 
 API job| Credits  
 ---|---  
+CRAFT-1 2K image editing, using [Create image generation job](https://www.canva.dev/docs/apps/rest-apis/reference/generations/create-image-generation-job/) with `images` and the `craft_v1_2k` model| 3 credits per 2K image, including the first input image, plus 0.6 credits for each additional input image  
 Magic Layers, using [Create image-to-design import job](https://www.canva.dev/docs/apps/rest-apis/reference/design-imports/create-image-to-design-import-job/)| 1.7 credits per image or page  
 Background removal, using [Create image transformation job](https://www.canva.dev/docs/apps/rest-apis/reference/image-transformations/create-image-transformation-job/) with the `background_removal` transformation| 2 credits per image  
   
+For CRAFT-1 2K image editing, the first input image is included in the 3 credits. For example, an edit with 3 input images uses 3 + (2 × 0.6) = 4.2 credits, and an edit with the maximum of 12 input images uses 3 + (11 × 0.6) = 9.6 credits.
+
 ## Related
 
   * [API requests and responses](https://www.canva.dev/docs/apps/rest-apis/requests-responses/)

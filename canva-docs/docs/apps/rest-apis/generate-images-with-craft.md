@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/
 title: Generate images with CRAFT - Canva for your platform - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-06T16:58:42.774400+00:00
+fetched_at: 2026-11-27T19:13:17.566050+00:00
 ---
 
 # Generate images with CRAFT - Canva for your platform - Canva Developers SDK Documentation
@@ -19,7 +19,7 @@ Fundamentals
 
 Development guides
 
-[Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/)[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
+[Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/)[Autofill designs with data](https://www.canva.dev/docs/apps/rest-apis/autofill-guide/)[Open designs with deep links](https://www.canva.dev/docs/apps/rest-apis/deep-links/)[Return users to your platform](https://www.canva.dev/docs/apps/rest-apis/return-navigation-guide/)
 
 Design guidelines
 
@@ -27,7 +27,7 @@ Design guidelines
 
 # Generate images with CRAFT
 
-Set up an app and generate your first image with Canva's CRAFT-1 2K model.
+Set up an app, then generate and edit images with Canva's CRAFT-1 2K model.
 
 Copy page
 
@@ -39,14 +39,14 @@ The image generation APIs are currently provided as a preview. Be aware of the f
 
 
 
-Use CRAFT-1 2K (`craft_v1_2k`), Canva's first-party image generation model, to generate an image from your own platform. This guide shows you how to create an app, start a generation job, and download the image.
+Use CRAFT-1 2K (`craft_v1_2k`), Canva's first-party image generation model, to generate an image from your own platform. This guide shows you how to create an app, start a generation job, download the image, and edit an existing image.
 
 ## Set up your app
 
 Image generation works with a public or private app, or with a service app. Choose one of the following:
 
   * **Public or private app:** The app acts on behalf of a Canva user, who signs in and authorizes it. The access token needs the `asset:write` scope, and the user needs the `image_generation` capability. Starting a job uses that user's [AI credit allowance⁠(opens in a new tab or window)](https://www.canva.com/help/ai-access/). If the user has reached their allowance, the request returns a `402` error with the `credit_quota_exceeded` code.
-  * **Service app:** The app acts on its own behalf, using the OAuth client credentials flow. The access token needs the `service:asset:write` scope. [Capabilities](https://www.canva.dev/docs/apps/rest-apis/capabilities/) don't apply to a service app. Starting a job uses credits from your team's API credit pool. CRAFT-1 2K costs 3 credits per 2K image. For the rates, and for how a failed job returns credits, see [Canva REST API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/). If the app has reached its credit quota, the request returns a `402` error with the `app_credit_quota_exceeded` code.
+  * **Service app:** The app acts on its own behalf, using the OAuth client credentials flow. The access token needs the `service:asset:write` scope. [Capabilities](https://www.canva.dev/docs/apps/rest-apis/capabilities/) don't apply to a service app. Starting a job uses credits from your team's API credit pool. CRAFT-1 2K costs 3 credits per 2K image. An [edit](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/#edit-an-image) costs an extra 0.6 credits for each input image after the first. For the rates, and for how a failed job returns credits, see [Canva REST API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/). If the app has reached its credit quota, the request returns a `402` error with the `app_credit_quota_exceeded` code.
 
 
 
@@ -57,7 +57,7 @@ You can download the generated image from a URL. A public or private app can als
 To set up a public or private app:
 
   1. Create an app and enable the REST APIs using the [Quickstart for public or private apps](https://www.canva.dev/docs/apps/quickstart/?app-surface=Canva%20for%20your%20platform&platform-app-type=Public%20or%20private%20app).
-  2. In the Developer Portal, go to **Outside Canva > Configuration**. Under **Scopes** , select **Write** for **asset**. This grants the `asset:write` scope.
+  2. In the Developer Portal, go to **Outside Canva > Configuration**. Under **Scopes** , select **Write** for **asset**. This grants the `asset:write` scope. To [edit](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/#edit-an-image) images from the user's Canva account, also select **Read** for **asset** , which grants the `asset:read` scope.
   3. Authorize the user with the [authorization code flow](https://www.canva.dev/docs/apps/rest-apis/authentication/#authenticate-public-or-private-apps). You can check the `image_generation` capability with [Get user capabilities](https://www.canva.dev/docs/apps/rest-apis/reference/users/get-user-capabilities/).
 
 
@@ -124,6 +124,45 @@ The prompt in this guide generates an image like the following:
 
 ![A speckled ceramic coffee cup on a saucer, on a sunlit wooden table beside a croissant, an open notebook, and a glass vase of daisies](https://www.canva.dev/_next/static/media/example-output.75f8fd72.webp)
 
+## Edit an image
+
+CRAFT-1 2K can also edit an existing image. Add `images` to the same request, with the image to edit first. You can add up to 11 more images as references, and refer to them by position in the prompt. You must set `model` to `craft_v1_2k`, because no other model accepts input images.
+    
+    
+    curl --request POST 'https://api.canva.com/rest/v1/image-generations' \
+    
+      --header 'Authorization: Bearer {access token}' \
+    
+      --header 'Content-Type: application/json' \
+    
+      --data '{
+    
+        "prompt": "Put the logo from the second image on the side of the cup",
+    
+        "model": "craft_v1_2k",
+    
+        "images": [
+    
+          { "type": "url", "url": "https://example.com/images/coffee-cup.png" },
+    
+          { "type": "url", "url": "https://example.com/images/logo.png" }
+    
+        ],
+    
+        "idempotency_key": "{idempotency key}"
+    
+      }'
+
+SHELL
+
+Copy
+
+Each URL must be a publicly accessible HTTPS URL for a JPEG or PNG image. A public or private app can instead use an image asset from the user's Canva account, with `{ "type": "asset", "asset_id": "{asset ID}" }`. Asset inputs need the `asset:read` scope as well as `asset:write`, and a service app can't use them.
+
+If you omit `aspect_ratio`, the edited image usually keeps the shape of the first image. To get the edited image, poll the job as described in [Get the generated image](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/#get-the-generated-image).
+
+A service app uses 3 credits for this request, which covers the first image, plus 0.6 credits for the second image, for a total of 3.6 credits.
+
 ## Call CRAFT from the Canva CLI
 
 You can run the same requests from a terminal with the [Canva CLI](https://www.canva.dev/docs/apps/canva-cli/making-rest-api-requests/). The CLI calls the REST APIs as the Canva account you're logged in with, so that account needs the `image_generation` capability. Run `canva login` first. If a call fails with `MISSING_SCOPE`, log in again so the CLI can request `asset:write`.
@@ -158,6 +197,7 @@ For more detail:
 
   * Read the request and response fields for [Create image generation job](https://www.canva.dev/docs/apps/rest-apis/reference/generations/create-image-generation-job/) and [Get image generation job](https://www.canva.dev/docs/apps/rest-apis/reference/generations/get-image-generation-job/).
   * Compare CRAFT-1 2K with the other image models on [Generations](https://www.canva.dev/docs/apps/rest-apis/reference/generations/).
+  * Learn how input images work in [Image editing](https://www.canva.dev/docs/apps/rest-apis/reference/generations/#image-editing).
   * See how many credits a service app uses on [Canva REST API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/).
 
 

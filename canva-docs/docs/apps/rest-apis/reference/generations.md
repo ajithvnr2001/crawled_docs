@@ -2,7 +2,7 @@
 url: https://www.canva.dev/docs/apps/rest-apis/reference/generations/
 title: Generations - Canva REST API reference - Canva Developers SDK Documentation
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T20:23:37.434568+00:00
+fetched_at: 2026-11-27T19:13:17.476610+00:00
 ---
 
 # Generations - Canva REST API reference - Canva Developers SDK Documentation
@@ -111,7 +111,7 @@ The `generations` endpoint lets you generate a Canva document or presentation fr
 
 ## Image generation
 
-The image generation APIs let you generate an image from a plain-text prompt. A successful job returns the generated image as a download URL that's valid for 24 hours. You can also save the image to the user's Canva account as an image asset, so it appears in their uploads.
+The image generation APIs let you generate an image from a plain-text prompt, or edit an existing image with a prompt and optional reference images. A successful job returns the generated image as a download URL that's valid for 24 hours. You can also save the image to the user's Canva account as an image asset, so it appears in their uploads.
 
 For how to generate your first image, see [Generate images with CRAFT](https://www.canva.dev/docs/apps/rest-apis/generate-images-with-craft/).
 
@@ -121,11 +121,11 @@ A public or private app needs the `asset:write` scope, and the job uses the user
 
 You can choose the model that generates the image with the `model` parameter. If you don't set `model`, Canva selects the best available model for the request.
 
-Model| Value| Status  
----|---|---  
-CRAFT-1 2K| `craft_v1_2k`| Available  
-Lucid Origin| `lucid_origin`| Available  
-Z Image Turbo| `z_image_turbo`| Available  
+Model| Value| Image inputs (`images`)| Status  
+---|---|---|---  
+CRAFT-1 2K| `craft_v1_2k`| Supported| Available  
+Lucid Origin| `lucid_origin`| Not supported| Available  
+Z Image Turbo| `z_image_turbo`| Not supported| Available  
   
 If you request a specific model, Canva never uses a different model to serve the request. If that model can't serve the request, the job fails with one of the following error codes:
 
@@ -137,6 +137,28 @@ If you request a specific model, Canva never uses a different model to serve the
 Any model can return `model_not_available` at any time, so your app must handle this error.
 
 A retired model keeps its `model` value for the lifetime of the API version, and its status in the table above changes to **Retired**. The model is then removed in the next API version.
+
+### Image editing
+
+To edit an image instead of generating one from the prompt alone, add `images` to the request and set `model` to `craft_v1_2k`. CRAFT-1 2K is the only model that accepts input images. If you send `images` with any other model, or without `model`, the request returns a `400` error.
+
+`images` takes between 1 and 12 input images, in order:
+
+  * **The first image** is the image to edit. The generated image is this image, changed as the prompt describes.
+  * **Any further images** are references. The prompt can refer to them by position, for example "add the logo in the second image to the mug".
+
+
+
+Each input image is one of the following types:
+
+  * **`url`:** A publicly accessible HTTPS URL for a JPEG or PNG image. Canva downloads the image before generating, so the URL must work without extra request headers. Any app type can use a URL input.
+  * **`asset`:** The `asset_id` of an image asset in the user's Canva account. This requires a public or private app, and an access token that has both the `asset:read` and `asset:write` scopes. A service app can't use asset inputs.
+
+
+
+If you set `aspect_ratio`, the edited image has that shape. If you omit it, the model chooses the shape from the prompt and the input images. This is usually the shape of the first image.
+
+For a service app, an edit costs more credits for each additional input image. For the rates, see [Canva REST API credit rates](https://www.canva.dev/docs/apps/rest-apis/credit-rates/).
 
 ### Results and retries
 
