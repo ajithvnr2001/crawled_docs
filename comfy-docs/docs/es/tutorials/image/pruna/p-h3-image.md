@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/image/pruna/p-h3-image/
 title: P-H3-Image en ComfyUI: texto a imagen y edici\u00f3n en 8 pasos - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:40.921335+00:00
+fetched_at: 2026-11-27T17:19:27.589730+00:00
 ---
 
 # P-H3-Image en ComfyUI: texto a imagen y edición en 8 pasos - ComfyUI
@@ -32,7 +32,7 @@ Renderiza imágenes fotorrealistas de 8 MP en 8 pasos sin CFG y edita fotos con 
 
 Copiar páginaCopiar página
 
-**P-H3-Image** es el modelo de imagen de pesos abiertos de Pruna AI, construido sobre [MiniMax H3](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3). Resuelve dos tareas en un solo checkpoint: generación de texto a imagen y edición de imágenes. Una imagen completa requiere 8 pasos de muestreo sin orientación libre de clasificador (CFG) y se genera a 8 megapíxeles por defecto. El modelo tiende a estéticas fotográficas y cinematográficas: fotografía documental y editorial, retratos con textura de piel real, anime con estética de pantalla de TV, carteles serigrafiados y diseño gráfico plano con texto corto entre comillas. Un upsampler de prompts basado en Qwen3.5-9B reescribe una petición de una sola línea en el prompt detallado que el modelo mejor renderiza, y devuelve ese prompt reescrito para que puedas leerlo antes de que llegue al sampler. En ComfyUI, P-H3-Image se ejecuta como dos plantillas de flujo de trabajo, una para texto a imagen y otra para edición de imágenes. Reutiliza el modelo de difusión MiniMax H3 y añade el codificador de texto de Pruna, el upsampler de prompts, el VAE y el LoRA: unos 35 GB de archivos de modelo en total. Los archivos int8 caben en unos 21 GB de VRAM. **Aspectos destacados del modelo**
+**P-H3-Image** es el modelo de imagen de pesos abiertos de Pruna AI, construido sobre [MiniMax H3](https://docs.comfy.org/es/tutorials/video/minimax/minimax-h3). Resuelve dos tareas en un solo checkpoint: generación de texto a imagen y edición de imágenes. Una imagen completa requiere 8 pasos de muestreo sin orientación libre de clasificador (CFG) y se genera a 8 megapíxeles por defecto. El modelo tiende a estéticas fotográficas y cinematográficas: fotografía documental y editorial, retratos con textura de piel real, anime con estética de pantalla de TV, carteles serigrafiados y diseño gráfico plano con texto corto entre comillas. Un upsampler de prompts basado en Qwen3.5-9B reescribe una petición de una sola línea en el prompt detallado que el modelo mejor renderiza, y devuelve ese prompt reescrito para que puedas leerlo antes de que llegue al sampler. En ComfyUI, P-H3-Image se ejecuta como dos plantillas de flujo de trabajo, una para texto a imagen y otra para edición de imágenes. Reutiliza el modelo de difusión MiniMax H3 y añade el codificador de texto de Pruna, el upsampler de prompts, el VAE y el LoRA: unos 35 GB de archivos de modelo en total. Los archivos int8 caben en unos 21 GB de VRAM. Pruna cambió el nombre del modelo a **P-Image-OSS**. Los pesos se publican con nombres `p-image-oss_*`, que es lo que cargan las plantillas. **Aspectos destacados del modelo**
 
   * **8 pasos, sin CFG** : un único programa de muestreo destilado y un solo acondicionamiento positivo, sin prompt negativo
   * **8 megapíxeles** : cuadrada, 4:3, 3:2, 16:9 y sus versiones verticales, hasta 3872 x 2176
@@ -42,8 +42,8 @@ Copiar páginaCopiar página
 
 **Enlaces relacionados**
 
-  * [Hugging Face: P-H3-Image](https://huggingface.co/PrunaAI/P-H3-Image)
-  * [Hugging Face: archivos de P-H3-Image para ComfyUI](https://huggingface.co/PrunaAI/P-H3-Image-Comfy)
+  * [Hugging Face: P-Image-OSS](https://huggingface.co/PrunaAI/P-Image-OSS)
+  * [Hugging Face: archivos de P-Image-OSS para ComfyUI](https://huggingface.co/PrunaAI/P-Image-OSS-Comfy)
   * [Publicación de lanzamiento de Pruna AI](https://www.pruna.ai/blog/oss-p-h3-image-launch)
 
 
@@ -71,11 +71,7 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
-
-​
-
-Requisitos
+## Requisitos
 
   * ComfyUI 0.44.0 o posterior. Ambas plantillas usan el nodo PH3ImageConditioning añadido en 0.44.0
   * Aproximadamente 35 GB de archivos de modelo. El modelo de diffusion es el mismo que usan los flujos de trabajo de MiniMax H3, así que puede que ya lo tengas
@@ -83,11 +79,7 @@ Requisitos
 
 P-H3-Image se distribuye bajo la Licencia Comunitaria de MiniMax H3, que excluye algunas regiones a menos que cuentes con una licencia independiente de MiniMax. Para uso comercial, solicita una licencia a través de [Comfy](https://comfy.org/minimax/license).
 
-## 
-
-​
-
-Descarga de modelos
+## Descarga de modelos
 
 ## Modelo de difusión (INT8)
 
@@ -95,19 +87,19 @@ minimax_h3_fl2va_pruned_int8_convrot.safetensors → ComfyUI/models/diffusion_mo
 
 ## Codificador de texto (INT8)
 
-p-h3-image_text_encoder_int8_convrot.safetensors → ComfyUI/models/text_encoders/
+p-image-oss_text_encoder_int8_convrot.safetensors → ComfyUI/models/text_encoders/
 
 ## Ampliador de prompt (W4A8)
 
-p-h3-image_prompt_upsampler_w4a8.safetensors → ComfyUI/models/text_encoders/
+p-image-oss_prompt_upsampler_w4a8.safetensors → ComfyUI/models/text_encoders/
 
 ## VAE (INT8)
 
-p-h3-image_vae_int8_convrot.safetensors → ComfyUI/models/vae/
+p-image-oss_vae_int8_convrot.safetensors → ComfyUI/models/vae/
 
 ## LoRA (BF16)
 
-p-h3-image_lora_bf16.safetensors → ComfyUI/models/loras/
+p-image-oss_lora_bf16.safetensors → ComfyUI/models/loras/
 
 Coloca los archivos en los siguientes directorios:
     
@@ -117,19 +109,15 @@ Coloca los archivos en los siguientes directorios:
     │   ├── 📂 diffusion_models/
     │   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors
     │   ├── 📂 text_encoders/
-    │   │   ├── p-h3-image_text_encoder_int8_convrot.safetensors
-    │   │   └── p-h3-image_prompt_upsampler_w4a8.safetensors
+    │   │   ├── p-image-oss_text_encoder_int8_convrot.safetensors
+    │   │   └── p-image-oss_prompt_upsampler_w4a8.safetensors
     │   ├── 📂 vae/
-    │   │   └── p-h3-image_vae_int8_convrot.safetensors
+    │   │   └── p-image-oss_vae_int8_convrot.safetensors
     │   └── 📂 loras/
-    │       └── p-h3-image_lora_bf16.safetensors
+    │       └── p-image-oss_lora_bf16.safetensors
     
 
-## 
-
-​
-
-Flujo de trabajo texto a imagen de P-H3-Image
+## Flujo de trabajo texto a imagen de P-H3-Image
 
 Genera una imagen de 8 megapíxeles a partir de una solicitud de una línea. La plantilla ejecuta primero el upsampler del prompt y después el programa de 8 pasos. ![Vista previa del flujo de trabajo texto a imagen de P-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_t2i-1.webp)
 
@@ -155,11 +143,7 @@ Relación del selector| Tamaño a 8 MP, múltiplo 32
 
 
 
-## 
-
-​
-
-Flujo de trabajo de edición de imagen de P-H3-Image
+## Flujo de trabajo de edición de imagen de P-H3-Image
 
 Edita una foto con una instrucción breve, usando hasta nueve imágenes en total. ![Vista previa del flujo de trabajo de edición de imagen de P-H3-Image](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_image_edit-1.webp)
 
@@ -179,11 +163,7 @@ Carga la imagen que quieres cambiar en el nodo `Load Image` y describe el result
 
 
 
-## 
-
-​
-
-Consejos para los prompts
+## Consejos para los prompts
 
   1. **Di qué es la imagen** : empieza con una frase que nombre el objeto real, por ejemplo “una fotografía de un fotógrafo callejero con experiencia” o “una impresión risográfica a dos colores”. Esto define el aspecto de forma más fiable que las palabras de estilo
   2. **Describe una sola escena** : define un punto de vista, un sujeto principal captado en un momento, unos pocos elementos de apoyo y una iluminación con una fuente y una dirección
@@ -192,11 +172,7 @@ Consejos para los prompts
 
 
 
-## 
-
-​
-
-Limitaciones
+## Limitaciones
 
   * **Las resoluciones más bajas muestran más artefactos** : las caras, las manos y los detalles pequeños se rompen más a menudo a 2 y 4 megapíxeles que a 8
   * **Las manos y las personas del fondo pueden romperse** : las personas pequeñas del fondo pueden salir distorsionadas. Renderizar a 8 megapíxeles ayuda
@@ -211,4 +187,4 @@ SíNo
 
 [Sugerir cambios](https://github.com/comfy-org/docs/edit/main/es/tutorials/image/pruna/p-h3-image.mdx)[Reportar problema](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/es/tutorials/image/pruna/p-h3-image)
 
-[Combinar ControlNet](https://docs.comfy.org/es/tutorials/controlnet/mixing-controlnets)[MOSS-Image](https://docs.comfy.org/es/tutorials/image/moss-image/moss-image)
+[FIBO 2.0](https://docs.comfy.org/es/tutorials/image/bria/fibo-2-0)[MOSS-Image](https://docs.comfy.org/es/tutorials/image/moss-image/moss-image)

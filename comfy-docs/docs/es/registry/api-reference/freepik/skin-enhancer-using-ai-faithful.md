@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/skin-enhancer-using-ai-faithful/
 title: Skin enhancer using AI (Faithful) - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:31.040312+00:00
+fetched_at: 2026-11-27T17:19:32.672390+00:00
 ---
 
 # Skin enhancer using AI (Faithful) - ComfyUI

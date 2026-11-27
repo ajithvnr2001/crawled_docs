@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/partner-nodes/wavespeed/wavespeed-upscale/
 title: WaveSpeed Upscale - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:36:35.851378+00:00
+fetched_at: 2026-11-27T17:19:27.097108+00:00
 ---
 
 # WaveSpeed Upscale - ComfyUI

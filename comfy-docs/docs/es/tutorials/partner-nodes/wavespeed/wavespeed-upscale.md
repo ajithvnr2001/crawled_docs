@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/wavespeed/wavespeed-upscale/
 title: WaveSpeed Upscale - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-10-26T14:03:57.508225+00:00
+fetched_at: 2026-11-27T17:19:27.828469+00:00
 ---
 
 # WaveSpeed Upscale - ComfyUI
@@ -32,11 +32,7 @@ Copiar páginaCopiar página
 
 WaveSpeed Upscale cubre dos flujos de trabajo de mejora de imágenes: la **ampliación general de imágenes** para aumentar el tamaño y mejorar la calidad en múltiples casos, y la **corrección de imágenes con SeedVR2 AI** para la restauración basada en diffusion de fotos dañadas, degradadas o de baja calidad.
 
-## 
-
-​
-
-Capacidades principales
+## Capacidades principales
 
   * **Ampliación general de imágenes** : aumento de tamaño y mejora de calidad versátiles para fotografías, arte digital, renders y capturas de pantalla.
   * **Corrección de imágenes con SeedVR2 AI** : restauración basada en diffusion para recuperar imágenes dañadas, degradadas o de baja calidad, incluida la reparación de fotos antiguas y la eliminación de artefactos.
@@ -70,17 +66,9 @@ Los flujos de trabajo de esta guía se encuentran en las [Plantillas de flujos d
 
 Por lo tanto, si notas que falta algún nodo central en este documento, puede deberse a que los nuevos nodos centrales aún no se han publicado en la última versión estable. Espera al próximo lanzamiento estable.
 
-## 
+## Flujos de trabajo disponibles
 
-​
-
-Flujos de trabajo disponibles
-
-### 
-
-​
-
-Ampliación de imágenes
+### Ampliación de imágenes
 
 Ampliación de imágenes con IA de uso general para fotografías, renders y obras de arte digital. Aumenta el tamaño y mejora la imagen preservando el detalle natural.
 
@@ -92,11 +80,7 @@ Abre el flujo de trabajo de ampliación de imágenes en ComfyCloud
 
 Descarga el JSON del flujo de trabajo para ComfyUI local
 
-### 
-
-​
-
-Corrección de imágenes con SeedVR2 AI
+### Corrección de imágenes con SeedVR2 AI
 
 Restaura imágenes dañadas, degradadas o de baja calidad con el modelo de restauración basado en diffusion de WaveSpeed. Repara ruido, artefactos, degradación del color y detalles faciales faltantes.
 

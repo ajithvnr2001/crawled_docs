@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/registry/api-reference/registry/returns-a-node-version-to-be-installed/
 title: Returns a node version to be installed. - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-21T15:11:40.896872+00:00
+fetched_at: 2026-11-27T17:19:36.285090+00:00
 ---
 
 # Returns a node version to be installed. - ComfyUI

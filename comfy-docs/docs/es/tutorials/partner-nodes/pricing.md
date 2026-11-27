@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/tutorials/partner-nodes/pricing/
 title: Precios de los Nodos asociados - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-16T16:52:03.134179+00:00
+fetched_at: 2026-11-27T17:19:27.338846+00:00
 ---
 
 # Precios de los Nodos asociados - ComfyUI
@@ -31,7 +31,7 @@ Planes de suscripción y lo que incluye cada plan.
 
 ## Precios de Comfy Router
 
-Los precios de Comfy Router son distintos de los precios de los Nodos asociados. Consulta la página de precios de Comfy Router para ver la lista completa.
+Los precios de Comfy Router son distintos de los precios de los Nodos asociados. Los precios de Comfy Router se han trasladado a router.comfy.org.
 
 ## Anthropic
 
@@ -1528,31 +1528,7 @@ Upscaler **Disabled** solo con interpolación **apo-8** : la UI muestra **Interp
 
 Los precios de generación de los nodos clásicos son aproximados. El nodo convierte los créditos internos de Tripo a USD usando **credits × 0.01**.
 
-**Retirado** : la versión del modelo `v1.4-20240625` se ha eliminado de la enumeración `TripoModelVersion` del nodo Tripo en ComfyUI v0.34.0+ y ya no se puede seleccionar. Su precio ya no está documentado; migra los flujos de trabajo existentes a `v2.5-20250123` o `v3.x`. El nodo **Tripo: Refine Draft model** , que solo funcionaba con borradores v1.4, también se ha eliminado.**Clásico** : los nodos **Tripo: Text to Model (Legacy)** , **Tripo: Image to Model (Legacy)** y **Tripo: Texture model (Legacy)** están obsoletos en ComfyUI v0.35.1+. Mantienen sus esquemas exactos, así que los flujos de trabajo guardados siguen funcionando, pero los flujos de trabajo nuevos deben usar los nodos actuales **Tripo: Text to Model** , **Tripo: Image to Model** y **Tripo: Texture model**. Los precios de generación clásicos que aparecen a continuación cubren ambas versiones de los nodos.
-
-### Generación: v2.0 / v2.5
-
-`model_version` **v2.5-20250123**. La versión **v2.0-20240919** se ha retirado y ya no se ofrece en la enumeración. `texture` o `pbr` cuentan como texturizado. En v2.5, **`geometry_quality: detailed` no cambia el precio**. **Tripo: Text to Model**
-
-texture| texture_quality| Créditos  
----|---|---  
-off| standard| 21.1 / run  
-on| standard| 42.2 / run  
-on| detailed| 63.3 / run  
-  
-**Tripo: Image to Model** y **Tripo: Multiview to Model**
-
-texture| texture_quality| Créditos  
----|---|---  
-off| standard| 42.2 / run  
-on| standard| 63.3 / run  
-on| detailed| 84.4 / run  
-  
-opción| Créditos  
----|---  
-`quad`| +10.55 / run  
-  
-`quad` se aplica solo a **Tripo: Text to Model** y **Tripo: Image to Model**. `smart_low_poly` agrega **+21.1 / run** en cada nodo de generación de esta sección y limita `face_limit` a 20,000 (10,000 con `quad`).
+**Retirado** : la versión del modelo `v1.4-20240625` se ha eliminado de la enumeración `TripoModelVersion` del nodo Tripo en ComfyUI v0.34.0+ y ya no se puede seleccionar. `v2.5-20250123` también se ha eliminado de `TripoModelVersion` y `TripoTextureModelVersion` y ya no se puede seleccionar. El precio de estas versiones retiradas ya no está documentado; migra los flujos de trabajo existentes a `v3.1-20260211` para generación, o a `v3.0-20250812` para textura (v3.0 sigue disponible para generación). El nodo **Tripo: Refine Draft model** , que solo funcionaba con borradores v1.4, también se ha eliminado.**Clásico** : los nodos **Tripo: Text to Model (Legacy)** , **Tripo: Image to Model (Legacy)** y **Tripo: Texture model (Legacy)** están obsoletos en ComfyUI v0.35.1+. Mantienen sus esquemas exactos, así que los flujos de trabajo guardados siguen funcionando, pero los flujos de trabajo nuevos deben usar los nodos actuales **Tripo: Text to Model** , **Tripo: Image to Model** y **Tripo: Texture model**. Los precios de generación clásicos que aparecen a continuación cubren ambas versiones de los nodos.
 
 ### Generación: v3.0 / v3.1
 

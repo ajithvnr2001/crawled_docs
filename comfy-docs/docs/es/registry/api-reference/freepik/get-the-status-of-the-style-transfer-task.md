@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/es/registry/api-reference/freepik/get-the-status-of-the-style-transfer-task/
 title: Get the status of the style transfer task - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T17:52:31.563457+00:00
+fetched_at: 2026-11-27T17:19:33.226234+00:00
 ---
 
 # Get the status of the style transfer task - ComfyUI

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/tutorials/image/pruna/p-h3-image/
 title: P-H3-Image in ComfyUI: 8-Step Text to Image and Edit - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-04T15:15:41.522986+00:00
+fetched_at: 2026-11-27T17:19:26.722818+00:00
 ---
 
 # P-H3-Image in ComfyUI: 8-Step Text to Image and Edit - ComfyUI
@@ -32,7 +32,7 @@ Run P-H3-Image in ComfyUI to render 8 MP photoreal images in 8 steps without CFG
 
 Copy pageCopy page
 
-**P-H3-Image** is Pruna AI’s open-weights image model built on [MiniMax H3](https://docs.comfy.org/tutorials/video/minimax/minimax-h3). It handles two tasks in one checkpoint: text-to-image generation and image editing. A full image takes 8 sampling steps with no classifier-free guidance, at 8 megapixels by default. The model leans toward photographic and film looks: documentary and editorial photography, portraits with real skin texture, TV-frame anime, screen-printed posters, and flat graphic design with short quoted text. A prompt upsampler based on Qwen3.5-9B rewrites a one-line request into the detailed prompt the model renders best, and returns that rewritten prompt so you can read it before it reaches the sampler. In ComfyUI, P-H3-Image runs as two workflow templates, one for text to image and one for image editing. It reuses the MiniMax H3 diffusion model and adds Pruna’s text encoder, prompt upsampler, VAE and LoRA, about 35 GB of model files in total. The int8 files fit in about 21 GB of VRAM. **Model Highlights**
+**P-H3-Image** is Pruna AI’s open-weights image model built on [MiniMax H3](https://docs.comfy.org/tutorials/video/minimax/minimax-h3). It handles two tasks in one checkpoint: text-to-image generation and image editing. A full image takes 8 sampling steps with no classifier-free guidance, at 8 megapixels by default. The model leans toward photographic and film looks: documentary and editorial photography, portraits with real skin texture, TV-frame anime, screen-printed posters, and flat graphic design with short quoted text. A prompt upsampler based on Qwen3.5-9B rewrites a one-line request into the detailed prompt the model renders best, and returns that rewritten prompt so you can read it before it reaches the sampler. In ComfyUI, P-H3-Image runs as two workflow templates, one for text to image and one for image editing. It reuses the MiniMax H3 diffusion model and adds Pruna’s text encoder, prompt upsampler, VAE and LoRA, about 35 GB of model files in total. The int8 files fit in about 21 GB of VRAM. Pruna renamed the model to **P-Image-OSS**. The weights ship as `p-image-oss_*` files, so download the names below and let the templates load them. **Model Highlights**
 
   * **8 steps, no CFG** : One distilled sampling schedule and a single positive conditioning, with no negative prompt
   * **8 megapixels** : Square, 4:3, 3:2, 16:9 and their portrait versions, up to 3872 x 2176
@@ -42,8 +42,8 @@ Copy pageCopy page
 
 **Related Links**
 
-  * [Hugging Face: P-H3-Image](https://huggingface.co/PrunaAI/P-H3-Image)
-  * [Hugging Face: P-H3-Image ComfyUI files](https://huggingface.co/PrunaAI/P-H3-Image-Comfy)
+  * [Hugging Face: P-Image-OSS](https://huggingface.co/PrunaAI/P-Image-OSS)
+  * [Hugging Face: P-Image-OSS ComfyUI files](https://huggingface.co/PrunaAI/P-Image-OSS-Comfy)
   * [Pruna AI release post](https://www.pruna.ai/blog/oss-p-h3-image-launch)
 
 
@@ -71,11 +71,7 @@ Workflows in this guide can be found in the [Workflow Templates](https://docs.co
 
 So, if you find any core node missing in this document, it might be because the new core nodes have not yet been released in the latest stable version. Please wait for the next stable release.
 
-## 
-
-​
-
-Requirements
+## Requirements
 
   * ComfyUI 0.44.0 or later. Both templates use the PH3ImageConditioning node added in 0.44.0
   * About 35 GB of model files. The diffusion model is the same one the MiniMax H3 workflows use, so you may already have it
@@ -83,11 +79,7 @@ Requirements
 
 P-H3-Image is released under the MiniMax H3 Community License, which excludes some regions unless you hold a separate license from MiniMax. For commercial use, request a license through [Comfy](https://comfy.org/minimax/license).
 
-## 
-
-​
-
-Model downloads
+## Model downloads
 
 ## Diffusion Model (INT8)
 
@@ -95,19 +87,19 @@ minimax_h3_fl2va_pruned_int8_convrot.safetensors → ComfyUI/models/diffusion_mo
 
 ## Text Encoder (INT8)
 
-p-h3-image_text_encoder_int8_convrot.safetensors → ComfyUI/models/text_encoders/
+p-image-oss_text_encoder_int8_convrot.safetensors → ComfyUI/models/text_encoders/
 
 ## Prompt Upsampler (W4A8)
 
-p-h3-image_prompt_upsampler_w4a8.safetensors → ComfyUI/models/text_encoders/
+p-image-oss_prompt_upsampler_w4a8.safetensors → ComfyUI/models/text_encoders/
 
 ## VAE (INT8)
 
-p-h3-image_vae_int8_convrot.safetensors → ComfyUI/models/vae/
+p-image-oss_vae_int8_convrot.safetensors → ComfyUI/models/vae/
 
 ## LoRA (BF16)
 
-p-h3-image_lora_bf16.safetensors → ComfyUI/models/loras/
+p-image-oss_lora_bf16.safetensors → ComfyUI/models/loras/
 
 Place the files in the following directories:
     
@@ -117,19 +109,15 @@ Place the files in the following directories:
     │   ├── 📂 diffusion_models/
     │   │   └── minimax_h3_fl2va_pruned_int8_convrot.safetensors
     │   ├── 📂 text_encoders/
-    │   │   ├── p-h3-image_text_encoder_int8_convrot.safetensors
-    │   │   └── p-h3-image_prompt_upsampler_w4a8.safetensors
+    │   │   ├── p-image-oss_text_encoder_int8_convrot.safetensors
+    │   │   └── p-image-oss_prompt_upsampler_w4a8.safetensors
     │   ├── 📂 vae/
-    │   │   └── p-h3-image_vae_int8_convrot.safetensors
+    │   │   └── p-image-oss_vae_int8_convrot.safetensors
     │   └── 📂 loras/
-    │       └── p-h3-image_lora_bf16.safetensors
+    │       └── p-image-oss_lora_bf16.safetensors
     
 
-## 
-
-​
-
-P-H3-Image text-to-image workflow
+## P-H3-Image text-to-image workflow
 
 Generate an 8 megapixel image from a one-line request. The template runs the prompt upsampler first, then the 8-step schedule. ![P-H3-Image text-to-image workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_t2i-1.webp)
 
@@ -155,11 +143,7 @@ Selector ratio| Size at 8 MP, multiple 32
 
 
 
-## 
-
-​
-
-P-H3-Image image edit workflow
+## P-H3-Image image edit workflow
 
 Edit a photo with a short instruction, using up to nine images in total. ![P-H3-Image image edit workflow preview](https://raw.githubusercontent.com/Comfy-Org/workflow_templates/main/templates/image_p_h3_image_edit-1.webp)
 
@@ -179,11 +163,7 @@ Load the image you want to change into the `Load Image` node and describe the re
 
 
 
-## 
-
-​
-
-Prompting tips
+## Prompting tips
 
   1. **Say what the image is** : Open with one sentence that names the real object, for example “a photograph by an experienced street photographer” or “a two-color risograph print”. This sets the look more reliably than style words
   2. **Describe one scene** : Give a viewpoint, one main subject caught in a moment, a few supporting elements, and light with a source and a direction
@@ -192,11 +172,7 @@ Prompting tips
 
 
 
-## 
-
-​
-
-Limitations
+## Limitations
 
   * **Lower resolutions show more artifacts** : Faces, hands and small details break more often at 2 and 4 megapixels than at 8
   * **Hands and background people can break** : Small people in the background can come out distorted. Rendering at 8 megapixels helps
@@ -211,4 +187,4 @@ YesNo
 
 [Suggest edits](https://github.com/comfy-org/docs/edit/main/tutorials/image/pruna/p-h3-image.mdx)[Raise issue](https://github.com/comfy-org/docs/issues/new?title=Issue%20on%20docs&body=Path:%20/tutorials/image/pruna/p-h3-image)
 
-[Mixing ControlNet](https://docs.comfy.org/tutorials/controlnet/mixing-controlnets)[MOSS-Image](https://docs.comfy.org/tutorials/image/moss-image/moss-image)
+[FIBO 2.0](https://docs.comfy.org/tutorials/image/bria/fibo-2-0)[MOSS-Image](https://docs.comfy.org/tutorials/image/moss-image/moss-image)

@@ -2,7 +2,7 @@
 url: https://docs.comfy.org/development/comfy-router/models/
 title: Comfy Router models - ComfyUI
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T17:36:33.565414+00:00
+fetched_at: 2026-11-27T17:19:26.173916+00:00
 ---
 
 # Comfy Router models - ComfyUI
@@ -20,6 +20,7 @@ Back to top
   * Bria
   * BytePlus
   * Byteplusomnihuman
+  * Cartwheel
   * Elevenlabs
   * fal
   * Freepik
@@ -72,7 +73,7 @@ Every model below is served by the same route, `POST /v2/models/{provider}/{mode
 
 ## Find by output
 
-Video (93)
+Video (94)
 
   * [SwitchX](https://docs.comfy.org/development/comfy-router/models/beeble/switchx/code): `beeble/switchx`
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
@@ -131,6 +132,7 @@ Video (93)
   * [P Video 2 Pro Avatar](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-avatar/code): `pruna/p-video-2-pro-avatar`
   * [P Video 2 Pro Reference](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-reference/code): `pruna/p-video-2-pro-reference`
   * [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
+  * [P Video Upscale](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-upscale/code): `pruna/p-video-upscale`
   * [Aleph 2](https://docs.comfy.org/development/comfy-router/models/runway/aleph2/code): `runway/aleph2`
   * [Gen 4 Turbo](https://docs.comfy.org/development/comfy-router/models/runway/gen4-turbo/code): `runway/gen4_turbo`
   * [Sync 3](https://docs.comfy.org/development/comfy-router/models/synclabs/sync-3/code): `synclabs/sync-3`
@@ -306,7 +308,7 @@ Image (131)
 
 
 
-Audio (54)
+Audio (55)
 
   * [FLUX 3 Video](https://docs.comfy.org/development/comfy-router/models/black-forest-labs/flux-3-video/code): `bfl/flux-3-video`
   * [Dreamina Seedance 2.0 260128](https://docs.comfy.org/development/comfy-router/models/byteplus/dreamina-seedance-2-0-260128/code): `byteplus/dreamina-seedance-2-0-260128`
@@ -346,6 +348,7 @@ Audio (54)
   * [P Video 2 Pro Avatar](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-avatar/code): `pruna/p-video-2-pro-avatar`
   * [P Video 2 Pro Reference](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-reference/code): `pruna/p-video-2-pro-reference`
   * [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code): `pruna/p-video-2`
+  * [P Video Upscale](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-upscale/code): `pruna/p-video-upscale`
   * [Clean Audio Video](https://docs.comfy.org/development/comfy-router/models/veed/clean-audio-video/code): `veed/clean-audio-video`
   * [Clean Audio](https://docs.comfy.org/development/comfy-router/models/veed/clean-audio/code): `veed/clean-audio`
   * [Fabric 1.0](https://docs.comfy.org/development/comfy-router/models/veed/fabric-1-0/code): `veed/fabric-1.0`
@@ -365,8 +368,10 @@ Audio (54)
 
 
 
-3D (29)
+3D (31)
 
+  * [Swing Choreo](https://docs.comfy.org/development/comfy-router/models/cartwheel/swing-choreo/code): `cartwheel/swing-choreo`
+  * [Swing Sketch](https://docs.comfy.org/development/comfy-router/models/cartwheel/swing-sketch/code): `cartwheel/swing-sketch`
   * [Animations](https://docs.comfy.org/development/comfy-router/models/meshy/animations/code): `meshy/animations`
   * [Meshy 6](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-6/code): `meshy/meshy-6`
   * [Meshy 7.1](https://docs.comfy.org/development/comfy-router/models/meshy/meshy-7-1/code): `meshy/meshy-7.1`
@@ -553,6 +558,13 @@ Model| ID| Input| Output
 Model| ID| Input| Output  
 ---|---|---|---  
 [Omnihuman 2.0](https://docs.comfy.org/development/comfy-router/models/byteplusomnihuman/omnihuman-2-0/code)| `byteplusomnihuman/omnihuman-2.0`| Image, Audio, Text| Video + Audio  
+  
+## Cartwheel
+
+Model| ID| Input| Output  
+---|---|---|---  
+[Swing Choreo](https://docs.comfy.org/development/comfy-router/models/cartwheel/swing-choreo/code)| `cartwheel/swing-choreo`| Text| 3D  
+[Swing Sketch](https://docs.comfy.org/development/comfy-router/models/cartwheel/swing-sketch/code)| `cartwheel/swing-sketch`| Text| 3D  
   
 ## Elevenlabs
 
@@ -779,6 +791,7 @@ Model| ID| Input| Output
 [P Video 2 Pro Avatar](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-avatar/code)| `pruna/p-video-2-pro-avatar`| Image, Audio, Text| Video + Audio  
 [P Video 2 Pro Reference](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2-pro-reference/code)| `pruna/p-video-2-pro-reference`| Text, Image, Video, Audio| Video + Audio  
 [P Video 2](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-2/code)| `pruna/p-video-2`| Text, Image, Audio| Video + Audio  
+[P Video Upscale](https://docs.comfy.org/development/comfy-router/models/pruna/p-video-upscale/code)| `pruna/p-video-upscale`| Video| Video + Audio  
   
 ## Quiver
 
