@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands-typescript/
 title: AWS Strands
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:37.091766+00:00
+fetched_at: 2026-11-28T11:35:21.283304+00:00
 ---
 
 # AWS Strands

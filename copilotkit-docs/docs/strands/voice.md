@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/voice/
 title: Voice
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:16.977953+00:00
+fetched_at: 2026-11-28T11:35:18.454648+00:00
 ---
 
 # Voice
@@ -91,41 +91,16 @@ Copy Text
     import type { NextRequest } from "next/server";
     import {
       CopilotRuntime,
-      TranscriptionService,
       createCopilotRuntimeHandler,
     } from "@copilotkit/runtime/v2";
-    import type { TranscribeFileOptions } from "@copilotkit/runtime/v2";
     import { HttpAgent } from "@ag-ui/client";
-    import { TranscriptionServiceOpenAI } from "@copilotkit/voice";
-    import OpenAI from "openai";
+    import { createTranscriptionService } from "@/lib/transcription-service";
     
     const AGENT_URL = process.env.AGENT_URL || "http://localhost:8000";
     
     // Point at the tool-free /voice endpoint so aimock returns a direct text
     // response instead of a tool call that the agent can't summarize.
     const voiceDemoAgent = new HttpAgent({ url: `${AGENT_URL}/voice/` });
-    
-    class GuardedOpenAITranscriptionService extends TranscriptionService {
-      private delegate: TranscriptionServiceOpenAI | null;
-    
-      constructor() {
-        super();
-        const apiKey = process.env.OPENAI_API_KEY;
-        this.delegate = apiKey
-          ? new TranscriptionServiceOpenAI({ openai: new OpenAI({ apiKey }) })
-          : null;
-      }
-    
-      async transcribeFile(options: TranscribeFileOptions): Promise<string> {
-        if (!this.delegate) {
-          throw new Error(
-            "OPENAI_API_KEY not configured for this deployment (api key missing). " +
-              "Set OPENAI_API_KEY to enable voice transcription.",
-          );
-        }
-        return this.delegate.transcribeFile(options);
-      }
-    }
     
     let cachedHandler: ((req: Request) => Promise<Response>) | null = null;
     function getHandler(): (req: Request) => Promise<Response> {
@@ -139,7 +114,7 @@ Copy Text
           "voice-demo": voiceDemoAgent,
           default: voiceDemoAgent,
         },
-        transcriptionService: new GuardedOpenAITranscriptionService(),
+        transcriptionService: createTranscriptionService(),
       });
     
       cachedHandler = createCopilotRuntimeHandler({
@@ -185,48 +160,28 @@ Let the provider's own errors propagate unchanged. The runtime classifies failur
 
 Create the service only when its API key is set. If the key is missing, omit `transcriptionService`. The runtime then reports the capability as disabled and hides the mic. A direct call to `/transcribe` returns the 503 described above:
 
-route.ts
+transcription-service.ts
 
 Copy Text
     
     
-    import type { NextRequest } from "next/server";
-    import {
-      CopilotRuntime,
-      TranscriptionService,
-      createCopilotRuntimeHandler,
-    } from "@copilotkit/runtime/v2";
-    import type { TranscribeFileOptions } from "@copilotkit/runtime/v2";
-    import { HttpAgent } from "@ag-ui/client";
     import { TranscriptionServiceOpenAI } from "@copilotkit/voice";
-    import OpenAI from "openai";
+    import { OpenAI } from "openai";
     
-    const AGENT_URL = process.env.AGENT_URL || "http://localhost:8000";
+    const OPENAI_TRANSCRIPTION_URL = "https://api.openai.com/v1";
     
-    // Point at the tool-free /voice endpoint so aimock returns a direct text
-    // response instead of a tool call that the agent can't summarize.
-    const voiceDemoAgent = new HttpAgent({ url: `${AGENT_URL}/voice/` });
+    export function createTranscriptionService(
+      env: NodeJS.ProcessEnv = process.env,
+    ): TranscriptionServiceOpenAI | undefined {
+      const apiKey = env.OPENAI_TRANSCRIPTION_API_KEY;
+      if (!apiKey) return undefined;
     
-    class GuardedOpenAITranscriptionService extends TranscriptionService {
-      private delegate: TranscriptionServiceOpenAI | null;
-    
-      constructor() {
-        super();
-        const apiKey = process.env.OPENAI_API_KEY;
-        this.delegate = apiKey
-          ? new TranscriptionServiceOpenAI({ openai: new OpenAI({ apiKey }) })
-          : null;
-      }
-    
-      async transcribeFile(options: TranscribeFileOptions): Promise<string> {
-        if (!this.delegate) {
-          throw new Error(
-            "OPENAI_API_KEY not configured for this deployment (api key missing). " +
-              "Set OPENAI_API_KEY to enable voice transcription.",
-          );
-        }
-        return this.delegate.transcribeFile(options);
-      }
+      return new TranscriptionServiceOpenAI({
+        openai: new OpenAI({
+          apiKey,
+          baseURL: env.OPENAI_TRANSCRIPTION_BASE_URL ?? OPENAI_TRANSCRIPTION_URL,
+        }),
+      });
     }
 
 Open the chat. Click the mic, say "What is the weather in Tokyo?", and click the mic again. The text appears in the composer, ready to send.

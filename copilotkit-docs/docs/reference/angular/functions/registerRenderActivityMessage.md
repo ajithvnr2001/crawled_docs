@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerRenderActivityMessage/
 title: registerRenderActivityMessage
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.754783+00:00
+fetched_at: 2026-11-28T11:35:17.232760+00:00
 ---
 
 # registerRenderActivityMessage

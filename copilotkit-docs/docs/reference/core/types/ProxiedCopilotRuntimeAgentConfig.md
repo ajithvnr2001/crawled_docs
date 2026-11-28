@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/types/ProxiedCopilotRuntimeAgentConfig/
 title: ProxiedCopilotRuntimeAgentConfig
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:11.190723+00:00
+fetched_at: 2026-11-28T11:35:15.075213+00:00
 ---
 
 # ProxiedCopilotRuntimeAgentConfig

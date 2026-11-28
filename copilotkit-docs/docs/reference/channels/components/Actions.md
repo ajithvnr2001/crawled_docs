@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Actions/
 title: Actions
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.380186+00:00
+fetched_at: 2026-11-28T11:35:16.834889+00:00
 ---
 
 # Actions

@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/types/FrontendTool/
 title: FrontendTool
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:11.939184+00:00
+fetched_at: 2026-11-28T11:35:15.141274+00:00
 ---
 
 # FrontendTool

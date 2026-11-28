@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands-typescript/quickstart/
 title: Quickstart
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T11:26:36.595713+00:00
+fetched_at: 2026-11-28T11:35:20.301775+00:00
 ---
 
 # Quickstart

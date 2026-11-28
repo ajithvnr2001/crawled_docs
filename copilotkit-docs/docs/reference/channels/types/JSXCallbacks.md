@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/JSXCallbacks/
 title: JSX callbacks
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:13.410415+00:00
+fetched_at: 2026-11-28T11:35:15.744711+00:00
 ---
 
 # JSX callbacks
@@ -91,6 +91,8 @@ Copy Text
                 const value = action.value;
                 if (value === undefined) return;
     
+                await thread.assertCanResume();
+    
                 if (message.ref.id) {
                   try {
                     await thread.update(message.ref, `Approved ${value.id}.`);
@@ -108,7 +110,7 @@ Copy Text
       );
     }
 
-An interaction ref is updateable only when `message.ref.id` is non-empty. Always resume outside the update guard and error handler so an omitted ref or failed card update cannot strand the interrupted run.
+An interaction ref is updateable only when `message.ref.id` is non-empty. Call `assertCanResume` first so a refused click leaves the card untouched, and resume outside the update guard and error handler so an omitted ref or failed card update cannot strand the interrupted run.
 
 ## Reaction callbackCopy Anchor Link
 

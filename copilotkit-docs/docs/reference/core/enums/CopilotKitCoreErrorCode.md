@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/enums/CopilotKitCoreErrorCode/
 title: CopilotKitCoreErrorCode
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:11.896794+00:00
+fetched_at: 2026-11-28T11:35:15.324107+00:00
 ---
 
 # CopilotKitCoreErrorCode

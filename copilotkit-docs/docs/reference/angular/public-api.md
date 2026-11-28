@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/public-api/
 title: Public API inventory
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.785416+00:00
+fetched_at: 2026-11-28T11:35:17.153305+00:00
 ---
 
 # Public API inventory

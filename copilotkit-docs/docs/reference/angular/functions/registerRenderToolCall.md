@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/functions/registerRenderToolCall/
 title: registerRenderToolCall
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.873744+00:00
+fetched_at: 2026-11-28T11:35:17.334876+00:00
 ---
 
 # registerRenderToolCall

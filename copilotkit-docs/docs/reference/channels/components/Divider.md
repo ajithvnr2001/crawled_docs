@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Divider/
 title: Divider
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.335504+00:00
+fetched_at: 2026-11-28T11:35:16.861971+00:00
 ---
 
 # Divider

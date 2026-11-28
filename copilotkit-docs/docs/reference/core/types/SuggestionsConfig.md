@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/core/types/SuggestionsConfig/
 title: SuggestionsConfig
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:11.047132+00:00
+fetched_at: 2026-11-28T11:35:15.041435+00:00
 ---
 
 # SuggestionsConfig

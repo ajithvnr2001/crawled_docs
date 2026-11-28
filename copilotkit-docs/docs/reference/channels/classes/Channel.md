@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/classes/Channel/
 title: Channel
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.609465+00:00
+fetched_at: 2026-11-28T11:35:17.022962+00:00
 ---
 
 # Channel
@@ -108,6 +108,8 @@ Copy Text
       dedup: {
         // true means the key was already recorded inside the TTL.
         seen(key: string, ttlMs: number): Promise<boolean>;
+        // Optional: drop a recorded key so a redelivery can retry a failed event.
+        forget?(key: string): Promise<void>;
       };
       queue: {
         enqueue<T>(

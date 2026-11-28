@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/strands/shared-state/
 title: Shared State
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:16.512733+00:00
+fetched_at: 2026-11-28T11:35:18.594774+00:00
 ---
 
 # Shared State

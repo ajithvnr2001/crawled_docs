@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/functions/defineChannelCommand/
 title: defineChannelCommand
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:13.610296+00:00
+fetched_at: 2026-11-28T11:35:16.198926+00:00
 ---
 
 # defineChannelCommand

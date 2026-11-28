@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/angular/production-lifecycle/
 title: Production and lifecycle
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.716067+00:00
+fetched_at: 2026-11-28T11:35:17.195256+00:00
 ---
 
 # Production and lifecycle

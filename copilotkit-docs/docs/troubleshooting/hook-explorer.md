@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/hook-explorer/
 title: Hook Explorer
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:15.782706+00:00
+fetched_at: 2026-11-28T11:35:18.189405+00:00
 ---
 
 # Hook Explorer

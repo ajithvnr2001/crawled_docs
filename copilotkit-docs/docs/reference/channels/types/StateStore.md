@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/StateStore/
 title: StateStore
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:13.083812+00:00
+fetched_at: 2026-11-28T11:35:15.786818+00:00
 ---
 
 # StateStore
@@ -50,6 +50,7 @@ Copy Text
       };
       dedup: {
         seen(key: string, ttlMs: number): Promise<boolean>;
+        forget?(key: string): Promise<void>;
       };
       queue: {
         enqueue<T>(
@@ -73,6 +74,7 @@ Copy Text
   * `lock.acquire` returns `null` while another token holds an unexpired lock.
   * `lock.release` must not release a lock owned by another or newer token.
   * `dedup.seen` returns `false` for the first observation and `true` for a repeat inside the TTL.
+  * `dedup.forget` is optional. It drops a recorded key so a redelivery can retry an event whose handler threw. Without it, the event stays recorded for the TTL.
   * Queues are FIFO. The configured overflow policy must be deterministic.
 
 

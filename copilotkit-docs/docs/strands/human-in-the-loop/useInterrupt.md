@@ -2,156 +2,59 @@
 url: https://docs.copilotkit.ai/strands/human-in-the-loop/useInterrupt/
 title: Pausing the Agent for Input
 method: scrapling+scrapegraph
-fetched_at: 2026-11-03T10:43:39.680565+00:00
+fetched_at: 2026-11-28T11:35:20.541657+00:00
 ---
 
 # Pausing the Agent for Input
 
 > Source: https://docs.copilotkit.ai/strands/human-in-the-loop/useInterrupt/
 
-[CopilotKitDocs](https://docs.copilotkit.ai/)Docs[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[](https://copilotkit.ai/talk-to-an-engineer)[](https://dashboard.operations.copilotkit.ai/sign-in?post_auth_redirect=ready&utm_source=docs&utm_medium=cta&utm_campaign=intelligence&utm_content=navbar)
-
-[](https://docs.copilotkit.ai/)
-
-FrontendReactAgent backendAWS Strands (Python)
-
-[Docs](https://docs.copilotkit.ai/)[Reference](https://docs.copilotkit.ai/reference)[Cookbook](https://docs.copilotkit.ai/cookbook)
-
-[Introduction](https://docs.copilotkit.ai/strands)[Quickstart](https://docs.copilotkit.ai/strands/quickstart)[Build with agents](https://docs.copilotkit.ai/strands/build-with-agents)[Intelligence](https://docs.copilotkit.ai/strands/intelligence/overview)
-
-Basics
-
-Chat
-
-Threads
-
-[Frontend-tools](https://docs.copilotkit.ai/strands/frontend-tools)
-
-Generative UI
-
-Controlled
-
-Declarative
-
-Open-ended
-
-Interactivity
-
-Shared state
-
 Human-in-the-loop
-
-[HITL Overview](https://docs.copilotkit.ai/strands/human-in-the-loop/index)[Pausing the Agent for Input](https://docs.copilotkit.ai/strands/human-in-the-loop/useInterrupt)[Headless Interrupts](https://docs.copilotkit.ai/strands/human-in-the-loop/headless)[Governed Action Approval UI](https://docs.copilotkit.ai/strands/human-in-the-loop/governed-actions)
-
-[WebMCP](https://docs.copilotkit.ai/strands/webmcp)
-
-Agent capabilities
-
-AWS Strands (Python)
-
-[Sub-agents](https://docs.copilotkit.ai/strands/multi-agent/subagents)
-
-Intelligence
-
-[Overview](https://docs.copilotkit.ai/strands/intelligence/overview)
-
-Get started
-
-Features
-
-AG-UI Streams
-
-[Automatic Learning](https://docs.copilotkit.ai/strands/learning)
-
-[User Memories](https://docs.copilotkit.ai/strands/intelligence/memories)
-
-[Trajectories](https://docs.copilotkit.ai/strands/intelligence/trajectories)
-
-[Standalone collector](https://docs.copilotkit.ai/strands/intelligence/standalone-collector)[Product Analytics](https://docs.copilotkit.ai/strands/intelligence/analytics)[Channels](https://docs.copilotkit.ai/strands/intelligence/channels)
-
-Hosting
-
-Backend
-
-Runtime
-
-Deployment
-
-Debugging
-
-Learn
-
-Concepts
-
-[Cookbook](https://docs.copilotkit.ai/cookbook)[Reference](https://docs.copilotkit.ai/reference)
-
-Other
-
-Contributing
-
-Troubleshooting
-
-[Open-source telemetry](https://docs.copilotkit.ai/strands/telemetry)[Community frameworks](https://docs.copilotkit.ai/strands/community-frameworks)
-
-Talk to an engineer
-
-[](https://github.com/copilotkit/copilotkit "GitHub")[](https://discord.gg/6dffbvGU3D "Discord")
-
-InteractivityHuman-in-the-loop
 
 # Pausing the Agent for Input
 
 Pause an agent run mid-tool, hand control to a custom React component, and resume with the user's answer.
 
-Copy Prompt![](https://docs.copilotkit.ai/images/prompt-claude.webp)![](https://docs.copilotkit.ai/images/prompt-codex.webp)
+Copy MarkdownOpen
 
-View prompt
-
-Open your coding agent in your project's folder, or in an empty folder for a new app.This runs in a coding agent on your computer.
+In-Chat HITL (useInterrupt — low-level primitive)
 
 DemoCode
 
-interrupt_agent.py
+[](https://showcase-strands-production.up.railway.app/demos/gen-ui-interrupt "Open in a new tab")[](https://github.com/CopilotKit/CopilotKit/tree/main/showcase/integrations/strands/src/app/demos/gen-ui-interrupt "View the code on GitHub")
 
-page.tsx
+Waking up the demo
 
-time-picker-card.tsx
+## What is this?Copy Anchor Link
 
-route.ts
-    
-    
-    """Dedicated Strands agent for the two interrupt demos.`schedule_meeting` pauses itself through Strands' native interrupt system:`tool_context.interrupt(...)` halts the agent loop and the AG-UI bridge finishesthe run with `RUN_FINISHED` carrying `outcome.type == "interrupt"`. The frontendrenders the time picker from the interrupt payload and resuming on the same`thread_id` returns the user's choice to that same `interrupt()` call, so thetool body continues where it left off.The resume payload arrives wrapped: a resolved answer as `{"response": ...}`, aclient-side cancel as `{"cancelled": True}`. The bridge wraps it becauseStrands' resume gate is truthiness-based, and a bare falsy answer would re-raisethe same interrupt forever.This is a dedicated agent rather than a tool on the shared showcase agentbecause the shared agent already owns a `schedule_meeting` that answers straightaway. One tool name cannot both answer immediately for the other demos and pausefor these two, so the pausing version gets its own mount.Pause and resume happen in the same process here, so no `SessionManager` isneeded. Durable resume across a restart requires one.Docs: https://strandsagents.com/docs/user-guide/concepts/interrupts/"""from __future__ import annotationsfrom collections.abc import Mappingfrom strands import Agent, toolfrom strands.types.tools import ToolContextfrom ag_ui_strands import StrandsAgentfrom agents.agent import _build_modelSYSTEM_PROMPT = """You are a scheduling assistant.Whenever the user asks you to book a call or schedule a meeting, you MUST callthe `schedule_meeting` tool. Pass a short `topic` describing the purpose and, ifknown, an `attendee` describing who the meeting is with.The tool pauses execution and shows the user a time picker. Once it resumes withtheir choice, briefly confirm whether the meeting was scheduled and at whattime, or note that the user cancelled. Do not ask for approval yourself: alwayscall the tool and let the picker handle the decision. Keep responses short andfriendly.Never claim a meeting is scheduled unless the tool result says so."""@tool(context=True)def schedule_meeting(topic: str, tool_context: ToolContext, attendee: str = "") -> str:    """Ask the user to pick a meeting time, then confirm what was scheduled.    Args:        topic: Short description of the meeting purpose.        attendee: Who the meeting is with, if known.    """    answer = tool_context.interrupt(        "schedule_meeting",        reason={"topic": topic, "attendee": attendee},    )    # Neither the envelope nor the value inside it is guaranteed to be a    # mapping: `ag_ui_strands` wraps a resolved answer as `{"response": ...}`    # and a cancel as `{"cancelled": True}`, but the payload itself is whatever    # the client sent, and a client that answers with a bare value would make    # `answer.get` raise inside the tool. Both levels are checked.    envelope: Mapping = answer if isinstance(answer, Mapping) else {}    # `ag_ui_strands` wraps the answer under "response"; a bridge that passes    # the client payload through (the published TypeScript one does) hands the    # payload itself, so a mapping without that key IS the payload.    inner = envelope["response"] if "response" in envelope else envelope    payload = inner if isinstance(inner, Mapping) else {}    cancelled = (        envelope.get("cancelled")        or envelope.get("status") == "cancelled"        or payload.get("cancelled")        or payload.get("status") == "cancelled"    )    if cancelled:        return f"User cancelled. Meeting NOT scheduled: {topic}"    label = payload.get("chosen_label") or payload.get("chosen_time")    if not label:        return f"User did not pick a time. Meeting NOT scheduled: {topic}"    return f"Meeting scheduled for {label}: {topic}"def build_interrupt_agent() -> StrandsAgent:    """Construct the StrandsAgent backing gen-ui-interrupt and interrupt-headless."""    strands_agent = Agent(        model=_build_model(),        system_prompt=SYSTEM_PROMPT,        tools=[schedule_meeting],    )    return StrandsAgent(        agent=strands_agent,        name="interrupt",        description=(            "Strands agent whose scheduling tool pauses natively for the user "            "to pick a time"        ),    )
+Some agent steps need a person's answer before the run can continue, such as approving a payment or picking a meeting time. `useInterrupt` pauses the run, shows your React component, and resumes the run with the answer. How the pause works depends on your agent framework.
 
-## What is this?#
-
-`useInterrupt` lets your agent pause mid-run, hand control to the user through a custom React component, and resume with whatever the user returns. How that pause is implemented depends on the framework's runtime.
-
-This framework ships a first-class interrupt primitive that lets running work suspend itself and hand control to the client ([LangGraph](https://docs.langchain.com/oss/python/langgraph/interrupts), [AWS Strands](https://strandsagents.com/docs/user-guide/concepts/interrupts/)). The run is frozen server-side until the client resolves the interrupt with a payload, at which point execution resumes as if the interrupt call had simply returned that payload.
+This framework ships a first-class interrupt primitive that lets running work suspend itself and hand control to the client: `interrupt()` in [LangGraph](https://docs.langchain.com/oss/python/langgraph/interrupts), [interrupts in AWS Strands](https://strandsagents.com/docs/user-guide/concepts/interrupts/), a tool that returns `suspend()` in Mastra, or a `@human_feedback` step in a CrewAI Flow. The run is frozen server-side until the client resolves the interrupt with a payload. Then the run resumes, and the agent receives that payload as the answer.
 
 CopilotKit's `useInterrupt` is the frontend half of that contract: it subscribes to the paused run, renders whatever component you give it, and calls the agent back with the user's answer.
 
-## When should I use this?#
+## When should I use this?Copy Anchor Link
 
-Reach for `useInterrupt` when the pause is a **graph-enforced checkpoint** where the code path _must_ stop and wait for a human, not an LLM-initiated tool call. Typical cases:
+Reach for `useInterrupt` when the pause is a **checkpoint in your agent code** where the code path _must_ stop and wait for a human, not an LLM-initiated tool call. Typical cases:
 
   * A sensitive action (payments, irreversible writes) must be approved
   * A required piece of state isn't known and can only be collected from the user
   * The agent explicitly reaches an approval node in a longer workflow
-  * You want the server-side contract to be `interrupt(...)` and resume with a payload
+  * You want the server-side contract to be an interrupt that resumes with a payload
 
 
 
 For LLM-initiated pauses where the model decides on the fly to ask the user, prefer [`useHumanInTheLoop`](https://docs.copilotkit.ai/human-in-the-loop).
 
-## The backend: `interrupt()` inside a tool#
+## The backend: pause the run in your agentCopy Anchor Link
 
-### Pause a tool with Strands' native interrupt
+### Pause a tool with Strands' native interruptCopy Anchor Link
 
 AWS Strands ships a first-class [interrupt primitive](https://strandsagents.com/docs/user-guide/concepts/interrupts/). A tool declared with `@tool(context=True)` calls `tool_context.interrupt(name, reason=...)`, which halts the agent loop and hands `reason` to the client as the interrupt payload. The AG-UI adapter finishes the run with `RUN_FINISHED` carrying `outcome.type == "interrupt"`.
 
 src/agents/interrupt_agent.py
+
+Copy Text
     
     
     @tool(context=True)
@@ -196,78 +99,296 @@ src/agents/interrupt_agent.py
 
 The resume payload arrives wrapped: an answer as `{"response": ...}`, a client-side cancel as `{"cancelled": True}`. The adapter wraps it because Strands' resume gate is truthiness-based, so a bare falsy answer would re-raise the same interrupt forever.
 
-### Keep the pausing tool off a client-executed name
+### Keep the pausing tool off a client-executed nameCopy Anchor Link
 
 `useHumanInTheLoop` registers its tool on the FRONTEND, so a name used there cannot also be a pausing backend tool. This showcase mounts a dedicated interrupt agent and points the interrupt demos' agent names at it, leaving `schedule_meeting` on the shared agent free for the frontend-tool flow.
 
-### Resume in the same process, or across a restart
+### Resume in the same process, or across a restartCopy Anchor Link
 
 Pause and resume on the same running process need no extra wiring. For a resume that survives a restart, give the agent a Strands `SessionManager` through `StrandsAgentConfig.session_manager_provider`; the adapter persists its interrupt checkpoint into that session.
 
-The example agent exposes a `schedule_meeting` tool. When the model calls it, the tool interrupts itself with the meeting context. The run freezes here until the client resolves; the resolution becomes the return value of the interrupt call, which the tool then turns into a final string for the model:
+In the tool or step that needs the user's answer, call your framework's interrupt primitive with the data your UI needs: `interrupt()` in LangGraph, `suspend()` in Mastra, or a `@human_feedback` step in a CrewAI Flow. The example agent does this in its `schedule_meeting` tool:
 
 interrupt_agent.py
+
+Copy Text
     
     
-    @tool(context=True)def schedule_meeting(topic: str, tool_context: ToolContext, attendee: str = "") -> str:    """Ask the user to pick a meeting time, then confirm what was scheduled.    Args:        topic: Short description of the meeting purpose.        attendee: Who the meeting is with, if known.    """    answer = tool_context.interrupt(        "schedule_meeting",        reason={"topic": topic, "attendee": attendee},    )    # Neither the envelope nor the value inside it is guaranteed to be a    # mapping: `ag_ui_strands` wraps a resolved answer as `{"response": ...}`    # and a cancel as `{"cancelled": True}`, but the payload itself is whatever    # the client sent, and a client that answers with a bare value would make    # `answer.get` raise inside the tool. Both levels are checked.    envelope: Mapping = answer if isinstance(answer, Mapping) else {}    # `ag_ui_strands` wraps the answer under "response"; a bridge that passes    # the client payload through (the published TypeScript one does) hands the    # payload itself, so a mapping without that key IS the payload.    inner = envelope["response"] if "response" in envelope else envelope    payload = inner if isinstance(inner, Mapping) else {}    cancelled = (        envelope.get("cancelled")        or envelope.get("status") == "cancelled"        or payload.get("cancelled")        or payload.get("status") == "cancelled"    )    if cancelled:        return f"User cancelled. Meeting NOT scheduled: {topic}"    label = payload.get("chosen_label") or payload.get("chosen_time")    if not label:        return f"User did not pick a time. Meeting NOT scheduled: {topic}"    return f"Meeting scheduled for {label}: {topic}"
+    @tool(context=True)
+    def schedule_meeting(topic: str, tool_context: ToolContext, attendee: str = "") -> str:
+        """Ask the user to pick a meeting time, then confirm what was scheduled.
+    
+        Args:
+            topic: Short description of the meeting purpose.
+            attendee: Who the meeting is with, if known.
+        """
+        answer = tool_context.interrupt(
+            "schedule_meeting",
+            reason={"topic": topic, "attendee": attendee},
+        )
+    
+        # Neither the envelope nor the value inside it is guaranteed to be a
+        # mapping: `ag_ui_strands` wraps a resolved answer as `{"response": ...}`
+        # and a cancel as `{"cancelled": True}`, but the payload itself is whatever
+        # the client sent, and a client that answers with a bare value would make
+        # `answer.get` raise inside the tool. Both levels are checked.
+        envelope: Mapping = answer if isinstance(answer, Mapping) else {}
+        # `ag_ui_strands` wraps the answer under "response"; a bridge that passes
+        # the client payload through (the published TypeScript one does) hands the
+        # payload itself, so a mapping without that key IS the payload.
+        inner = envelope["response"] if "response" in envelope else envelope
+        payload = inner if isinstance(inner, Mapping) else {}
+        cancelled = (
+            envelope.get("cancelled")
+            or envelope.get("status") == "cancelled"
+            or payload.get("cancelled")
+            or payload.get("status") == "cancelled"
+        )
+        if cancelled:
+            return f"User cancelled. Meeting NOT scheduled: {topic}"
+    
+        label = payload.get("chosen_label") or payload.get("chosen_time")
+        if not label:
+            return f"User did not pick a time. Meeting NOT scheduled: {topic}"
+        return f"Meeting scheduled for {label}: {topic}"
+    
+
+The run stops here until the client resolves the interrupt. The resolve payload comes back to the agent as the answer: the return value of `interrupt()` in LangGraph, `resumeData` in Mastra, or the `HumanFeedbackResult` that the next step of a CrewAI Flow receives. The example turns that value into a string for the model.
 
 Two things to note:
 
-  * The payload (`{"topic": topic, "attendee": attendee}`) is what the frontend reads off the interrupt. Keep it a plain, serializable object. It's the "pause-time context" the UI needs to render. Where it lands depends on the bridge: LangGraph hands it to `render` as `event.value`, while a standard AG-UI interrupt carries it on the interrupt itself, either under `metadata` or JSON-encoded into `message`. Read the channels your bridge uses rather than assuming one.
+  * The payload (`{"topic": topic, "attendee": attendee}`) is what the frontend reads off the interrupt. Keep it a plain, serializable object. It's the "pause-time context" the UI needs to render.
   * The return-side contract (`{chosen_label, chosen_time}` or `{cancelled: true}`) is entirely yours. The client can send anything as the resolve payload; the tool is the one that gives it meaning.
 
 
 
-## The frontend: `useInterrupt` render prop#
+## The frontend: `useInterrupt` render propCopy Anchor Link
 
-On the client you register a `useInterrupt` hook per agent. When the paused run arrives, `render` receives both the raw `event` and the `interrupt` itself, and `resolve(...)` is how you resume the run. Where the payload sits depends on how the framework pauses: a legacy custom-event interrupt carries it on `event.value`, while a standard AG-UI interrupt carries it on the `interrupt` (its `metadata`, or a JSON-encoded `message`, depending on the bridge). Read the channel your framework uses:
+On the client you register a `useInterrupt` hook per agent. When the paused run arrives, `render` receives both the raw `event` and the `interrupt` itself, and `resolve(...)` is how you resume the run. Your agent framework decides where the payload sits:
+
+  * Custom-event interrupt (`on_interrupt`): `event.value`.
+  * Standard AG-UI interrupt: `interrupt.metadata`, or a JSON string in `interrupt.message`.
+
+
 
 page.tsx
+
+Copy Text
     
     
-    import {  CopilotKit,  CopilotChat,  useInterrupt,} from "@copilotkit/react-core/v2";import type { TimeSlot } from "./_components/time-picker-card";import { TimePickerCard } from "./_components/time-picker-card";import { generateFallbackSlots } from "../_shared/interrupt-fallback-slots";import { useGenUiInterruptSuggestions } from "./suggestions";// Shape the backend `schedule_meeting` tool pauses with: its `interrupt()`// `reason` payload. `slots` is absent on the Strands path (the tool passes only// topic and attendee), so the picker falls back to generated slots.type SchedulingPayload = {  topic?: string;  attendee?: string;  slots?: TimeSlot[];};// Read the tool's `interrupt()` reason off an AG-UI interrupt.//// The two bridges expose it on different channels: `ag_ui_strands` (Python)// carries the reason object under `metadata.reason`, while the published// `@ag-ui/aws-strands` 0.2.3 JSON-encodes it into `message` instead. Both are// read so one page serves both, and the legacy event value is read last for// adapters that pass the payload through unwrapped./** * JSON.parse that never throws and never returns a primitive. Both readers run * inside a React render callback, where a throw takes the whole pane down. */function parseObject(raw: string | undefined): Record<string, unknown> | null {  if (!raw) return null;  try {    const parsed: unknown = JSON.parse(raw);    return parsed && typeof parsed === "object"      ? (parsed as Record<string, unknown>)      : null;  } catch {    return null;  }}function readSchedulingPayload(  interrupt: { metadata?: unknown; message?: string } | null | undefined,  eventValue: unknown,): SchedulingPayload {  const metadata = interrupt?.metadata as    | { reason?: SchedulingPayload }    | undefined;  if (metadata?.reason && typeof metadata.reason === "object") {    return metadata.reason;  }  // The published TypeScript bridge JSON-encodes the reason into `message`  // instead of carrying it on metadata.  const decoded = parseObject(interrupt?.message);  if (decoded) {    const nested = (decoded as { reason?: SchedulingPayload }).reason;    return nested && typeof nested === "object"      ? nested      : (decoded as SchedulingPayload);  }  // Legacy channel: some adapters pass the payload through as the event value,  // JSON-encoded or not.  const legacy =    typeof eventValue === "string" ? parseObject(eventValue) : eventValue;  if (!legacy || typeof legacy !== "object") return {};  const wrapped = (legacy as { metadata?: { reason?: SchedulingPayload } })    .metadata?.reason;  if (wrapped && typeof wrapped === "object") return wrapped;  return legacy as SchedulingPayload;}export default function GenUiInterruptDemo() {  return (    <CopilotKit runtimeUrl="/api/copilotkit" agent="gen-ui-interrupt">      <div className="flex justify-center items-center h-screen w-full">        <div className="h-full w-full max-w-4xl">          <Chat />        </div>      </div>    </CopilotKit>  );}function Chat() {  // The failure banner lives OUTSIDE the interrupt element on purpose. The hook  // caches the element it rendered, so a picker already on screen never sees an  // updated prop: a flag threaded into the card would keep showing a stale  // failure on the NEXT booking, before that booking's resume has even started.  const [resumeFailed, setResumeFailed] = useState(false);  return (    <div className="flex h-full flex-col">      {resumeFailed && (        <div          role="alert"          data-testid="time-picker-resume-error"          className="m-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800"        >          Your previous selection could not be sent. Please try booking again.        </div>      )}      <div className="min-h-0 flex-1">        <InterruptChat setResumeFailed={setResumeFailed} />      </div>    </div>  );}function InterruptChat({  setResumeFailed,}: {  setResumeFailed: (failed: boolean) => void;}) {  useGenUiInterruptSuggestions();  // Native interrupt path. The backend `schedule_meeting` tool calls Strands'  // `tool_context.interrupt(...)`; the @ag-ui/aws-strands bridge finishes the  // run with `outcome.type === "interrupt"` and carries the tool's `reason`  // under the interrupt's `metadata.reason`. `resolve(...)` resumes the same  // Strands run, handing the selection back to that `interrupt()` call.  useInterrupt({    agentId: "gen-ui-interrupt",    renderInChat: true,    render: ({ event, interrupt, resolve }) => {      const payload = readSchedulingPayload(interrupt, event.value);      const slots =        payload.slots && payload.slots.length > 0          ? payload.slots          : generateFallbackSlots();      return (        <TimePickerCard          topic={payload.topic ?? "a call"}          attendee={payload.attendee}          slots={slots}          onSubmit={(result) => {            setResumeFailed(false);            // Defer resolve so React commits the picked/cancelled badge before            // useInterrupt clears the interrupt element (a single rAF is not            // reliable: it can fire before React's commit). The rejection is            // re-surfaced rather than dropped, because the card has already            // shown a green "Booked" badge by then and a silently failed            // resume would leave the user reading a success that never            // happened.            window.setTimeout(() => {              void resolve(result).catch((error: unknown) => {                setResumeFailed(true);                queueMicrotask(() => {                  throw error;                });              });            }, 500);          }}        />      );    },  });
-
-Whatever you pass to `resolve` is round-tripped back to the agent as the return value of the matching `interrupt(...)` call.
-
-### Key props#
-
-  * **`agentId`** — must match a runtime-registered agent. If omitted, the hook assumes `"default"`. A mismatch means the interrupt never fires.
-  * **`render`** — receives `{ event, interrupt, resolve }`. The payload you passed to `interrupt(...)` on the server arrives on `event.value` for a legacy custom-event interrupt and on the `interrupt` for a standard one.
-  * **`renderInChat`** — when `true` (as above), the picker appears inline in the chat transcript, between the paused assistant turn and the still-pending continuation.
-
-
-
-## Multiple interrupts? Add a type and gate with `enabled`#
-
-If your graph issues more than one kind of interrupt (e.g. `"ask"` vs `"approval"`), tag each with a `type` field on the payload and install one `useInterrupt` per shape, each gated by an `enabled` predicate:
+    import {
+      CopilotKit,
+      CopilotChat,
+      useInterrupt,
+    } from "@copilotkit/react-core/v2";
+    import type { TimeSlot } from "./_components/time-picker-card";
+    import { TimePickerCard } from "./_components/time-picker-card";
+    import { generateFallbackSlots } from "../_shared/interrupt-fallback-slots";
+    import { useGenUiInterruptSuggestions } from "./suggestions";
     
+    // Shape the backend `schedule_meeting` tool pauses with: its `interrupt()`
+    // `reason` payload. `slots` is absent on the Strands path (the tool passes only
+    // topic and attendee), so the picker falls back to generated slots.
+    type SchedulingPayload = {
+      topic?: string;
+      attendee?: string;
+      slots?: TimeSlot[];
+    };
+    
+    // Read the tool's `interrupt()` reason off an AG-UI interrupt.
+    //
+    // The two bridges expose it on different channels: `ag_ui_strands` (Python)
+    // carries the reason object under `metadata.reason`, while the published
+    // `@ag-ui/aws-strands` 0.2.3 JSON-encodes it into `message` instead. Both are
+    // read so one page serves both, and the legacy event value is read last for
+    // adapters that pass the payload through unwrapped.
+    /**
+     * JSON.parse that never throws and never returns a primitive. Both readers run
+     * inside a React render callback, where a throw takes the whole pane down.
+     */
+    function parseObject(raw: string | undefined): Record<string, unknown> | null {
+      if (!raw) return null;
+      try {
+        const parsed: unknown = JSON.parse(raw);
+        return parsed && typeof parsed === "object"
+          ? (parsed as Record<string, unknown>)
+          : null;
+      } catch {
+        return null;
+      }
+    }
+    
+    function readSchedulingPayload(
+      interrupt: { metadata?: unknown; message?: string } | null | undefined,
+      eventValue: unknown,
+    ): SchedulingPayload {
+      const metadata = interrupt?.metadata as
+        | { reason?: SchedulingPayload }
+        | undefined;
+      if (metadata?.reason && typeof metadata.reason === "object") {
+        return metadata.reason;
+      }
+    
+      // The published TypeScript bridge JSON-encodes the reason into `message`
+      // instead of carrying it on metadata.
+      const decoded = parseObject(interrupt?.message);
+      if (decoded) {
+        const nested = (decoded as { reason?: SchedulingPayload }).reason;
+        return nested && typeof nested === "object"
+          ? nested
+          : (decoded as SchedulingPayload);
+      }
+    
+      // Legacy channel: some adapters pass the payload through as the event value,
+      // JSON-encoded or not.
+      const legacy =
+        typeof eventValue === "string" ? parseObject(eventValue) : eventValue;
+      if (!legacy || typeof legacy !== "object") return {};
+      const wrapped = (legacy as { metadata?: { reason?: SchedulingPayload } })
+        .metadata?.reason;
+      if (wrapped && typeof wrapped === "object") return wrapped;
+      return legacy as SchedulingPayload;
+    }
+    
+    export default function GenUiInterruptDemo() {
+      return (
+        <CopilotKit runtimeUrl="/api/copilotkit" agent="gen-ui-interrupt">
+          <div className="flex justify-center items-center h-screen w-full">
+            <div className="h-full w-full max-w-4xl">
+              <Chat />
+            </div>
+          </div>
+        </CopilotKit>
+      );
+    }
+    
+    function Chat() {
+      // The failure banner lives OUTSIDE the interrupt element on purpose. The hook
+      // caches the element it rendered, so a picker already on screen never sees an
+      // updated prop: a flag threaded into the card would keep showing a stale
+      // failure on the NEXT booking, before that booking's resume has even started.
+      const [resumeFailed, setResumeFailed] = useState(false);
+    
+      return (
+        <div className="flex h-full flex-col">
+          {resumeFailed && (
+            <div
+              role="alert"
+              data-testid="time-picker-resume-error"
+              className="m-4 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-800 dark:border-red-900 dark:bg-red-950/40 dark:text-red-300"
+            >
+              Your previous selection could not be sent. Please try booking again.
+            </div>
+          )}
+          <div className="min-h-0 flex-1">
+            <InterruptChat setResumeFailed={setResumeFailed} />
+          </div>
+        </div>
+      );
+    }
+    
+    function InterruptChat({
+      setResumeFailed,
+    }: {
+      setResumeFailed: (failed: boolean) => void;
+    }) {
+      useGenUiInterruptSuggestions();
+    
+      // Native interrupt path. The backend `schedule_meeting` tool calls Strands'
+      // `tool_context.interrupt(...)`; the @ag-ui/aws-strands bridge finishes the
+      // run with `outcome.type === "interrupt"` and carries the tool's `reason`
+      // under the interrupt's `metadata.reason`. `resolve(...)` resumes the same
+      // Strands run, handing the selection back to that `interrupt()` call.
+      useInterrupt({
+        agentId: "gen-ui-interrupt",
+        renderInChat: true,
+        render: ({ event, interrupt, resolve }) => {
+          const payload = readSchedulingPayload(interrupt, event.value);
+          const slots =
+            payload.slots && payload.slots.length > 0
+              ? payload.slots
+              : generateFallbackSlots();
+          return (
+            <TimePickerCard
+              topic={payload.topic ?? "a call"}
+              attendee={payload.attendee}
+              slots={slots}
+              onSubmit={(result) => {
+                setResumeFailed(false);
+                // Defer resolve so React commits the picked/cancelled badge before
+                // useInterrupt clears the interrupt element (a single rAF is not
+                // reliable: it can fire before React's commit). The rejection is
+                // re-surfaced rather than dropped, because the card has already
+                // shown a green "Booked" badge by then and a silently failed
+                // resume would leave the user reading a success that never
+                // happened.
+                window.setTimeout(() => {
+                  void resolve(result).catch((error: unknown) => {
+                    setResumeFailed(true);
+                    queueMicrotask(() => {
+                      throw error;
+                    });
+                  });
+                }, 500);
+              }}
+            />
+          );
+        },
+      });
+
+Whatever you pass to `resolve` is sent back to the agent as the answer to the matching interrupt, for example the return value of `interrupt(...)` in LangGraph.
+
+Ask the agent to book a call. The time picker appears in the chat. Pick a slot, and the agent confirms the booked time.
+
+### Key propsCopy Anchor Link
+
+  * **`agentId`** : must match a runtime-registered agent. If omitted, the hook uses the agent of the surrounding chat configuration, then the `agentId` set on `CopilotKitProvider`, then `"default"`. A mismatch means the interrupt never fires.
+  * **`render`** : receives `{ event, interrupt, resolve }`.
+  * **`renderInChat`** : when `true` (as above), the picker appears inline in the chat transcript, between the paused assistant turn and the still-pending continuation. To show it outside the chat, see [Headless interrupts](https://docs.copilotkit.ai/headless).
+
+
+
+## Multiple interrupts? Add a type and gate with `enabled`Copy Anchor Link
+
+If your agent issues more than one kind of interrupt (e.g. `"ask"` vs `"approval"`), tag each with a `type` field on the payload and install one `useInterrupt` per shape, each gated by an `enabled` predicate:
+
+Copy Text
+    
+    
+    // The LangGraph adapter sends `event.value` as a JSON string.
+    const readValue = (value: unknown) =>
+      typeof value === "string" ? JSON.parse(value) : value;
     
     useInterrupt({
       agentId: "gen-ui-interrupt",
-      enabled: (event) => event.value.type === "ask",
+      enabled: (event) => readValue(event.value).type === "ask",
       render: ({ event, resolve }) => (
-        <AskCard question={event.value.content} onAnswer={resolve} />
+        <AskCard question={readValue(event.value).content} onAnswer={resolve} />
       ),
     });
     
     useInterrupt({
       agentId: "gen-ui-interrupt",
-      enabled: (event) => event.value.type === "approval",
+      enabled: (event) => readValue(event.value).type === "approval",
       render: ({ event, resolve }) => (
-        <ApproveCard content={event.value.content} onAnswer={resolve} />
+        <ApproveCard content={readValue(event.value).content} onAnswer={resolve} />
       ),
     });
 
-## Preprocess with `handler`#
+## Preprocess with `handler`Copy Anchor Link
 
-For cases where the interrupt can sometimes be resolved _without_ user input (e.g. the current user already has permission), pass a `handler` that runs before `render`. The handler can call `resolve(...)` itself to resume the agent early — the interrupt card unmounts when the resume run starts. Or return a value that `render` receives as `result`:
+For cases where the interrupt can sometimes be resolved _without_ user input (e.g. the current user already has permission), pass a `handler` that runs before `render`. The handler can call `resolve(...)` itself to resume the agent early. The interrupt card unmounts when the resume run starts. Or return a value that `render` receives as `result`:
+
+Copy Text
     
     
     useInterrupt({
       agentId: "gen-ui-interrupt",
       handler: async ({ event, resolve }) => {
+        const value =
+          typeof event.value === "string" ? JSON.parse(event.value) : event.value;
         const dept = await lookupUserDepartment();
-        if (event.value.accessDepartment === dept || dept === "admin") {
+        if (value.accessDepartment === dept || dept === "admin") {
           resolve({ code: "AUTH_BY_DEPARTMENT" });
           return; // agent will resume; card unmounts when the run starts
         }
@@ -282,13 +403,15 @@ For cases where the interrupt can sometimes be resolved _without_ user input (e.
       ),
     });
 
-## AG-UI standard interrupt flow vs. legacy#
+## AG-UI standard interrupt flow vs. custom-event flowCopy Anchor Link
 
-`useInterrupt` supports two interrupt transports. Understanding which one your agent uses helps you write the right `render` code.
+This section is a reference for developers who write `render` code for their own agent. The [`useInterrupt` reference](https://docs.copilotkit.ai/reference/hooks/useInterrupt) lists every option. `useInterrupt` handles two kinds of interrupt, and your agent framework decides which kind it sends.
 
-### Standard flow (`RUN_FINISHED` with `outcome.type === "interrupt"`)#
+### Standard flow (`RUN_FINISHED` with `outcome.type === "interrupt"`)Copy Anchor Link
 
 When the agent backend conforms to the AG-UI protocol, it signals an interrupt by emitting a `RUN_FINISHED` event whose outcome carries the interrupts array:
+
+Copy Text
     
     
     outcome.type === "interrupt"
@@ -296,22 +419,26 @@ When the agent backend conforms to the AG-UI protocol, it signals an interrupt b
 
 The hook detects this on `onRunFinishedEvent` and exposes the interrupts on the render props **after** `onRunFinalized` fires. Your `render` function receives:
 
-  * **`interrupt`** — the primary `Interrupt` (`interrupts[0]`), with shape `{ id, reason, message?, toolCallId?, responseSchema?, expiresAt?, metadata? }`.
-  * **`interrupts`** — the full open set (usually one, but multi-interrupt is supported — see below).
-  * **`resolve(payload?, interruptId?)`** — records `{ status: "resolved", payload }` for the targeted interrupt (defaults to the primary). The agent run resumes once every open interrupt has a response.
-  * **`cancel(interruptId?)`** — records `{ status: "cancelled" }` for the targeted interrupt. Same accumulate-then-submit logic applies.
+  * **`interrupt`** : the primary `Interrupt` (`interrupts[0]`), with shape `{ id, reason, message?, toolCallId?, responseSchema?, expiresAt?, metadata? }`.
+  * **`interrupts`** : the full open set (usually one, but multi-interrupt is supported, as described below).
+  * **`resolve(payload?, interruptId?)`** : records `{ status: "resolved", payload }` for the targeted interrupt (defaults to the primary). The agent run resumes once every open interrupt has a response.
+  * **`cancel(interruptId?)`** : records `{ status: "cancelled" }` for the targeted interrupt. Same accumulate-then-submit logic applies.
 
 
 
-### Legacy flow (`on_interrupt` custom event)#
+Each resume entry carries the interrupt `id`, the status, and your payload. `resolve` and `cancel` send no `metadata`.
 
-Older agents (or agents not yet migrated to the AG-UI interrupt spec) emit a custom `on_interrupt` event. The hook detects this on `onCustomEvent` and sets `interrupt` to `null` and `interrupts` to `[]`. The payload is in `event.value`. Calling `resolve(payload)` resumes via `forwardedProps.command` (the legacy resume mechanism). `cancel()` dismisses the interrupt without resuming — the agent never receives a response.
+### Custom-event flow (`on_interrupt`)Copy Anchor Link
 
-### Priority#
+Agents that emit a custom `on_interrupt` event use this flow. The LangGraph adapter emits this event by default. The hook detects this on `onCustomEvent` and sets `interrupt` to `null` and `interrupts` to `[]`. The payload is in `event.value`. Calling `resolve(payload)` resumes via `forwardedProps.command` (the custom-event resume mechanism). `cancel()` dismisses the interrupt without resuming. The agent never receives a response.
 
-If both signals appear on the same run (unlikely but possible during migration), the standard flow wins.
+### PriorityCopy Anchor Link
 
-### Approve / Cancel example#
+If both signals appear on the same run, the standard flow wins.
+
+### Approve / Cancel exampleCopy Anchor Link
+
+Copy Text
     
     
     function ApprovalInterrupt() {
@@ -331,9 +458,11 @@ If both signals appear on the same run (unlikely but possible during migration),
 
 `resolve({ approved: true })` records a resolved entry and submits the `resume` array to the agent. `cancel()` records a cancelled entry and does the same. Both return the `RunAgentResult` once the run restarts.
 
-### Multi-interrupt behavior#
+### Multi-interrupt behaviorCopy Anchor Link
 
 Some agents issue more than one interrupt in a single run (e.g. two independent approvals). Each interrupt has its own `id`. Address them individually:
+
+Copy Text
     
     
     useInterrupt({
@@ -352,13 +481,12 @@ Some agents issue more than one interrupt in a single run (e.g. two independent 
 
 The agent run only resumes once **every** open interrupt has been addressed. Calling `resolve` or `cancel` with a specific `interruptId` marks that interrupt done; the hook auto-submits the accumulated responses when the last one is addressed. If you omit `interruptId`, the primary interrupt (`interrupts[0]`) is targeted.
 
-### `responseSchema` — surface only, no client-side validation#
+### `responseSchema`: surface only, no client-side validationCopy Anchor Link
 
 The `Interrupt` type exposes a `responseSchema` field (a JSON Schema object) that the agent can use to describe the expected payload shape. `useInterrupt` surfaces this field on `interrupt.responseSchema` for your UI to read (e.g. to drive a form), but it does **not** validate `resolve` payloads against it. Validation is the agent's responsibility on resume.
 
-## Going further#
+How is this guide?
 
-  * [Tool-based HITL with `useHumanInTheLoop`](https://docs.copilotkit.ai/human-in-the-loop) — for LLM-initiated pauses.
-  * [Headless interrupts](https://docs.copilotkit.ai/headless) — compose the lower-level primitives (`useAgent`, `agent.subscribe`, `copilotkit.runAgent`) to resolve interrupts outside a chat surface.
+GoodBad
 
-
+[Previous PageHITL Overview](https://docs.copilotkit.ai/strands/human-in-the-loop)[Next PageHeadless Interrupts](https://docs.copilotkit.ai/strands/human-in-the-loop/headless)

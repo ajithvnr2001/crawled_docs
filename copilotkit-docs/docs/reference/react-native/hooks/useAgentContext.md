@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/react-native/hooks/useAgentContext/
 title: useAgentContext
 method: scrapling+scrapegraph
-fetched_at: 2026-11-24T13:30:51.056504+00:00
+fetched_at: 2026-11-28T11:35:14.386480+00:00
 ---
 
 # useAgentContext

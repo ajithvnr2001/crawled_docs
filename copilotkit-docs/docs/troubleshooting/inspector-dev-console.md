@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/troubleshooting/inspector-dev-console/
 title: Inspector and dev console
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:17.086789+00:00
+fetched_at: 2026-11-28T11:35:18.220839+00:00
 ---
 
 # Inspector and dev console

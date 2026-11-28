@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/types/ChannelNode/
 title: ChannelNode
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:13.440270+00:00
+fetched_at: 2026-11-28T11:35:15.854669+00:00
 ---
 
 # ChannelNode

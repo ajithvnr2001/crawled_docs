@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Header/
 title: Header
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:14.092086+00:00
+fetched_at: 2026-11-28T11:35:16.492521+00:00
 ---
 
 # Header

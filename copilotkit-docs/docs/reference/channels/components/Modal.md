@@ -2,7 +2,7 @@
 url: https://docs.copilotkit.ai/reference/channels/components/Modal/
 title: Modal
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T12:31:13.993270+00:00
+fetched_at: 2026-11-28T11:35:16.401362+00:00
 ---
 
 # Modal
