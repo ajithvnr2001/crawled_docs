@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/environment-variables/
 title: Environment variables and secrets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:33.604737+00:00
+fetched_at: 2026-11-28T09:57:29.346761+00:00
 ---
 
 # Environment variables and secrets · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:33.604737+00:00
 
 # Environment variables and secrets
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/environment-variables/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Basic setupMultiple local environmentsLearn more
 
@@ -157,7 +157,7 @@ npmyarnpnpm
 
 
 
-[PreviousOverview](https://developers.cloudflare.com/workers/local-development/)[NextVite Plugin ↗︎](https://developers.cloudflare.com/workers/vite-plugin/)
+[PreviousChoosing between Wrangler & Vite](https://developers.cloudflare.com/workers/local-development/wrangler-vs-vite/)[NextAdding local data](https://developers.cloudflare.com/workers/local-development/local-data/)
 
 Was this helpful?
 

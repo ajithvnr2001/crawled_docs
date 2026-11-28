@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-zola-site/
 title: Zola \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:31.103994+00:00
+fetched_at: 2026-11-28T09:57:32.900632+00:00
 ---
 
 # Zola · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:31.103994+00:00
 
 # Zola
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-zola-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewInstalling Zola macOS (Homebrew) Windows (Chocolatey) Windows (Scoop) Linux (pkg) Manual installationCreating a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare Pages Handling Preview DeploymentsLearn more
+OverviewInstalling Zola macOS (Homebrew) Windows (Chocolatey) Windows (Scoop) Linux (pkg) Manual installationCreating a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare Pages Handling preview deploymentsLearn more
+
+Note
+
+Starting a new static site? You can also deploy Zola sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Zola ↗︎](https://www.getzola.org/) is a fast static site generator in a single binary with everything built-in. In this guide, you will create a new Zola application and deploy it using Cloudflare Pages. You will use the `zola` CLI to create a new Zola site.
 
@@ -71,16 +75,12 @@ With Zola installed, create a new project by running the `zola init` command in 
     
     zola init my-zola-project
 
-Upon running `zola init`, you will prompted with three questions:
+Upon running `zola init`, you will be prompted with four questions:
 
-  1. What is the URL of your site? (<https://example.com>[ ↗︎](https://example.com)): You can leave this one blank for now.
-
-  2. Do you want to enable Sass compilation? [Y/n]: Y
-
-  3. Do you want to enable syntax highlighting? [y/N]: y
-
-  4. Do you want to build a search index of the content? [y/N]: y
-
+  1. What is the URL of your site? (`https://example.com`): You can leave this one blank for now.
+  2. Do you want to enable Sass compilation? `[Y/n]`: `Y`
+  3. Do you want to enable syntax highlighting? `[y/N]`: `y`
+  4. Do you want to build a search index of the content? `[y/N]`: `y`
 
 
 
@@ -103,16 +103,32 @@ Create a new GitHub repository by visiting [repo.new ↗︎](https://repo.new). 
 
 ## Deploy with Cloudflare Pages
 
+To deploy your site to Pages:
+
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
+
+[ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
+  2. Select **Create application**.
+
+  3. Select the **Pages** tab.
+
+  4. Select **Import an existing Git repository**.
+
+  5. Select the new GitHub repository that you created and then select **Begin setup**.
+
+  6. In the **Build settings** section, select _Zola_ as your **Framework preset**. Your selection will provide the following information:
+
+
 Configuration option| Value| Production branch| `main`  
 ---|---  
 Build command| `zola build`  
 Build directory| `public`  
   
-Zola is preinstalled in the Cloudflare Pages build environment, so no additional configuration is required. You can optionally set the `ZOLA_VERSION` environment variable under **Environment Variables (advanced)** to pin a specific version.
+Zola is preinstalled in the Cloudflare Pages build environment, so no additional configuration is required. You can optionally set the `ZOLA_VERSION` environment variable under **Environment variables** (or **Settings** > **Variables and Secrets**) to pin a specific version.
 
-For example, `ZOLA_VERSION`: `0.19.2`.
+For example, `ZOLA_VERSION`: `0.22.1`.
 
-After configuring your site, you can begin your first deploy. You should see Cloudflare Pages building your site with Zola, before deploying it.
+After configuring your site, you can begin your first deploy. You should see Cloudflare Pages building your site with Zola before deploying it.
 
 Note
 
@@ -130,7 +146,7 @@ For example:
 
 Every time you commit new code to your Zola site, Cloudflare Pages will automatically rebuild your project and deploy it. You will also get access to [preview deployments](https://developers.cloudflare.com/pages/configuration/preview-deployments/) on new pull requests, so you can preview how changes look to your site before deploying them to production.
 
-### Handling Preview Deployments
+### Handling preview deployments
 
 When working with Cloudflare Pages, you might use preview deployments for testing changes before merging to your main branch. However, these preview deployments use different URLs (like `https://your-branch-name.my-zola-project.pages.dev`), which can cause issues with asset loading if your `base_url` is hardcoded.
 
@@ -150,7 +166,7 @@ This command uses:
 
 By completing this guide, you have successfully deployed your Zola site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousVue](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vue-site/)[NextBranch deployment controls](https://developers.cloudflare.com/pages/configuration/branch-build-controls/)
+[PreviousVue](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vue-site/)[NextMigrate to Workers ↗︎](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/)
 
 Was this helpful?
 

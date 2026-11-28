@@ -3,8 +3,5 @@
   "file": "workers/tutorials.md",
   "title": "Tutorials \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:59.836520+00:00",
-  "html_len": 183342,
-  "md_len": 7630,
-  "depth": 0
+  "fetched_at": "2026-11-28T09:57:28.159151+00:00"
 }

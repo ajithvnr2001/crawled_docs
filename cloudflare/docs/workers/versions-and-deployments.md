@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/versions-and-deployments/
 title: Versions & deployments \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:40.597385+00:00
+fetched_at: 2026-11-28T09:57:28.641397+00:00
 ---
 
 # Versions & deployments · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-20T09:50:40.597385+00:00
 
 # Versions & deployments
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewVersions Version retentionDeploymentsDefault behaviorView versions and deployments Via Wrangler Via the Cloudflare dashboardNext steps
 
@@ -100,7 +100,7 @@ Wrangler allows you to view the 100 most recent versions and deployments. Refer 
 
 
 
-[PreviousDurable Objects](https://developers.cloudflare.com/workers/authorization/durable-objects/)[NextDeployment management](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/)
+[PreviousExamples](https://developers.cloudflare.com/workers/previews/examples/)[NextDeployment management](https://developers.cloudflare.com/workers/versions-and-deployments/deployment-management/)
 
 Was this helpful?
 

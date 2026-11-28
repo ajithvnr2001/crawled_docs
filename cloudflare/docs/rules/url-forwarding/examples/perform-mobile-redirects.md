@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/examples/perform-mobile-redirects/
 title: Perform mobile redirects \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:59.779641+00:00
+fetched_at: 2026-11-28T09:57:36.494958+00:00
 ---
 
 # Perform mobile redirects · Cloudflare Rules docs
@@ -24,7 +24,7 @@ fetched_at: 2026-10-08T07:14:59.779641+00:00
 
 Create a redirect rule to redirect visitors using mobile devices to a different hostname.
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/examples/perform-mobile-redirects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRedirect mobile users dropping the original URI pathRedirect mobile users keeping the original path
 
@@ -44,8 +44,8 @@ This example static redirect will redirect requests for the current zone (`examp
 **Then**
 
   * **Type:** _Static_
-  * **URL:** `m.example.com`
-  * **Status code:** _301_
+  * **URL:** `https://m.example.com/`
+  * **Status code:** _302_
 
 
 
@@ -53,7 +53,9 @@ Notes about this example:
 
   * The `not http.host in {"m.example.com"}` condition prevents redirect loops.
   * The user agent condition follows [Mozilla's recommendation ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent/Firefox#device-specific_user_agent_strings) for identifying mobile devices.
-  * The **Then** > **URL** value should be the same as the one you entered in the `http.host` condition of the rule's filter expression.
+  * The **Then** > **URL** value should use the same hostname you entered in the `http.host` condition of the rule's filter expression.
+  * Include the URI scheme (`https://`) in the target URL. Cloudflare sends a target URL without a scheme, such as `m.example.com`, unchanged in the `Location` header, and browsers treat it as a relative path on the current hostname.
+  * This example uses a `302` (temporary) status code. Browsers can cache `301` (permanent) redirects, and Cloudflare does not add a `Cache-Control` header to redirect responses. A visitor who later uses the same browser on a desktop device might keep receiving a cached `301` redirect.
   * You can redirect users to other zones on Cloudflare or to other hostnames not on Cloudflare.
 
 
@@ -73,7 +75,7 @@ This example single redirect will redirect requests for the current zone (`examp
 
   * **Type:** _Dynamic_
   * **Expression:** `concat("https://m.example.com", http.request.uri.path)`
-  * **Status code:** _301_
+  * **Status code:** _302_
 
 
 
@@ -82,12 +84,12 @@ Notes about this example:
   * The `not http.host in {"m.example.com"}` condition prevents redirect loops.
   * The user agent condition follows [Mozilla's recommendation ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/User-Agent/Firefox#device-specific_user_agent_strings) for identifying mobile devices.
   * The hostname in **Then** > **Expression** should be the same as the one you entered in the `http.host` condition of the rule's filter expression.
-  * Depending on your use case, you may want to enable **Then** > **Preserve query string** to also keep the query string of the original request.
+  * Depending on your use case, you might want to enable **Then** > **Preserve query string** to also keep the query string of the original request.
   * You can redirect users to other zones on Cloudflare or to other hostnames not on Cloudflare.
 
 
 
-[PreviousOverview](https://developers.cloudflare.com/rules/url-forwarding/examples/)[NextRedirect admin area requests to HTTPS](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-admin-https/)
+[PreviousOverview](https://developers.cloudflare.com/rules/url-forwarding/examples/)[NextRedirect a website section to a subdomain](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-section-to-subdomain/)
 
 Was this helpful?
 

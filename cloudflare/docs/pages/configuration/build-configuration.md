@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/build-configuration/
 title: Build configuration \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:28.417384+00:00
+fetched_at: 2026-11-28T09:57:32.524976+00:00
 ---
 
 # Build configuration · Cloudflare Pages docs
@@ -18,31 +18,31 @@ fetched_at: 2026-10-08T07:12:28.417384+00:00
 
 # Build configuration
 
-Last updated Sep 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/build-configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBuild commands and directoriesFramework presetsEnvironment variables
 
-You may tell Cloudflare Pages how your site needs to be built as well as where its output files will be located.
+You can configure how Cloudflare Pages builds your site and where its output files are located. For build configuration on Cloudflare Workers, refer to [Workers Builds configuration](https://developers.cloudflare.com/workers/ci-cd/builds/configuration/).
 
 ## Build commands and directories
 
-You should provide a build command to tell Cloudflare Pages how to build your application. For projects not listed here, consider reading the tool's documentation or framework, and submit a pull request to add it here.
+Provide a build command to tell Cloudflare Pages how to build your application. For projects not listed in the presets table, refer to your framework's documentation.
 
-Build directories indicates where your project's build command outputs the built version of your Cloudflare Pages site. Often, this defaults to the industry-standard `public`, but you may find that you need to customize it.
+The build output directory indicates where your project's build command outputs the built version of your Cloudflare Pages site. Often, this defaults to `dist` or `public`, but you can customize it.
 
 Understanding your build configuration
 
-The build command is provided by your framework. For example, the Gatsby framework uses `gatsby build` as its build command. When you are working without a framework, leave the **Build command** field blank. Pages determines whether a build has succeeded or failed by reading the exit code returned from the user supplied build command. Any non-zero return code will cause a build to be marked as failed. An exit code of 0 will cause the Pages build to be marked as successful and assets will be uploaded regardless of if error logs are written to standard error.
+The build command is provided by your framework. For example, a Vite project uses `npm run build` as its build command. When you are working without a framework and do not need a build step, leave the **Build command** field blank. Pages determines whether a build has succeeded or failed by reading the exit code returned from the user-supplied build command. Any non-zero return code causes a build to fail. An exit code of `0` marks the Pages build as successful and uploads assets regardless of whether logs are written to standard error.
 
-The build directory is generated from the build command. Each framework has its own naming convention, for example, the build output directory is named `/public` for many frameworks.
+The build output directory is generated from the build command. Each framework has its own naming convention. For example, the build output directory is `dist` or `public` for many frameworks.
 
-The root directory is where your site’s content lives. If not specified, Cloudflare assumes that your linked git repository is the root directory. The root directory needs to be specified in cases like monorepos, where there may be multiple projects in one repository.
+The root directory is where your site's content lives. If not specified, Cloudflare assumes that your linked Git repository is the root directory. Specify the root directory for cases like monorepos, where multiple projects live in one repository.
 
 ## Framework presets
 
-Cloudflare maintains a list of build configurations for popular frameworks and tools. These are accessible during project creation. Below are some standard build commands and directories for popular frameworks and tools.
+Cloudflare maintains a list of build configurations for popular frameworks and tools. These are accessible during project creation. The following table lists the standard build commands and output directories for each preset.
 
-If you are not using a preset, use `exit 0` as your **Build command**.
+If you are not using a preset and do not need a build step, leave the **Build command** field blank (or use `exit 0` if your workflow requires a non-empty command).
 
 Framework/tool| Build command| Build directory  
 ---|---|---  
@@ -77,17 +77,21 @@ Zola| `zola build`| `public`
   
 ## Environment variables
 
-If your project makes use of environment variables to build your site, you can provide custom environment variables:
+If your project uses environment variables during builds, you can configure them in the Cloudflare dashboard:
 
   1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
 
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
   2. Select your Pages project.
 
-  3. Select **Settings** > **Environment variables**.
+  3. Select **Settings** > **Variables and Secrets**.
 
 
 
+
+Note
+
+Environment variables configured under **Settings** > **Variables and Secrets** are available at build time and at runtime for Pages Functions. Changes take effect on the next deployment.
 
 The following system environment variables are injected by default (but can be overridden):
 

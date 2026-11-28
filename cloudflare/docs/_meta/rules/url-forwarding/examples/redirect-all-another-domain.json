@@ -3,8 +3,5 @@
   "file": "rules/url-forwarding/examples/redirect-all-another-domain.md",
   "title": "Redirect requests from one domain to another \u00b7 Cloudflare Rules docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:14:59.978185+00:00",
-  "html_len": 133107,
-  "md_len": 2452,
-  "depth": 0
+  "fetched_at": "2026-11-28T09:57:36.552155+00:00"
 }

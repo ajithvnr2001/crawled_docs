@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-an-mkdocs-site/
 title: MkDocs \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:31.521947+00:00
+fetched_at: 2026-11-28T09:57:32.806984+00:00
 ---
 
 # MkDocs · Cloudflare Pages docs
@@ -18,17 +18,23 @@ fetched_at: 2026-10-08T07:12:31.521947+00:00
 
 # MkDocs
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-an-mkdocs-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall MkDocsCreate an MkDocs projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
 
-[MkDocs ↗︎](https://www.mkdocs.org/) is a modern documentation platform where teams can document products, internal knowledge bases and APIs.
+Note
+
+Starting a new static documentation site? You can also deploy static sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+
+[MkDocs ↗︎](https://www.mkdocs.org/) is a documentation platform where teams can document products, internal knowledge bases, and APIs.
 
 ## Install MkDocs
 
-MkDocs requires a recent version of Python and the Python package manager, pip, to be installed on your system. To install pip, refer to the [MkDocs Installation guide ↗︎](https://www.mkdocs.org/user-guide/installation/). With pip installed, run:
+MkDocs requires Python 3 and the Python package manager `pip`. To install Python and `pip`, refer to the [MkDocs installation guide ↗︎](https://www.mkdocs.org/user-guide/installation/). With `pip` installed, create a virtual environment and install MkDocs:
     
     
+    python3 -m venv .venv
+    source .venv/bin/activate
     pip install mkdocs
 
 ## Create an MkDocs project
@@ -37,11 +43,12 @@ Use the `mkdocs new` command to create a new application:
     
     
     mkdocs new <PROJECT_NAME>
+    cd <PROJECT_NAME>
 
-Then `cd` into your project, take MkDocs and its dependencies and put them into a `requirements.txt` file:
+Create a `requirements.txt` file listing MkDocs (and any themes or plugins your site uses) so Cloudflare Pages installs them automatically during builds:
     
     
-    pip freeze > requirements.txt
+    echo "mkdocs" > requirements.txt
 
 ## Before you continue
 
@@ -63,7 +70,7 @@ Create a new GitHub repository by visiting [repo.new ↗︎](https://repo.new). 
     git branch -M main
     git push -u origin main
 
-You have successfully created a GitHub repository and pushed your MkDocs project to that repository.
+You have created a GitHub repository and pushed your MkDocs project to that repository.
 
 ## Deploy with Cloudflare Pages
 
@@ -88,9 +95,7 @@ Configuration option| Value| Production branch| `main`
 Build command| `mkdocs build`  
 Build directory| `site`  
   
-  7. Go to **Environment variables (advanced)** > **Add variable** > and add the variable `PYTHON_VERSION` with a value of `3.7`.
-
-
+Cloudflare Pages Build Image v3 includes Python 3.13 by default and automatically installs packages listed in `requirements.txt`. If you need to pin a specific Python version, set `PYTHON_VERSION` under **Environment variables** as described in [Override default versions](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
 
 After deploying your site, you will receive a unique subdomain for your project on `*.pages.dev`.
 

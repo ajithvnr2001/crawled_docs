@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/wrangler/api/
 title: API \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:25.503682+00:00
+fetched_at: 2026-11-28T09:57:28.471977+00:00
 ---
 
 # API · Cloudflare Workers docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-13T08:48:25.503682+00:00
 
 # API
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewcreateTestHarness Syntax Parameters Return type Usageexperimental_generateTypes Syntax Parameters Return Type Usageunstable_startWorkerunstable_dev Constructor Parameters Return Type UsagegetPlatformProxy Syntax Parameters Return Type Usage Supported bindings
+OverviewcreateTestHarness Syntax Parameters Return type Usageexperimental_generateTypes Syntax Parameters Return Type Usageunstable_startWorkerunstable_dev Constructor Parameters Return Type UsagegetPlatformProxy Syntax Parameters Return Type Usage Supported bindingsRemote bindings proxy API startRemoteProxySession unstable_convertConfigBindingsToStartWorkerBindings maybeStartOrUpdateRemoteProxySession Example
 
 Wrangler offers APIs to programmatically interact with your Cloudflare Workers.
 
@@ -29,6 +29,7 @@ Wrangler offers APIs to programmatically interact with your Cloudflare Workers.
   * `unstable_startWorker` \- Start a server for running integration tests against your Worker.
   * `unstable_dev` \- Start a server for running either end-to-end (e2e) or integration tests against your Worker.
   * `getPlatformProxy` \- Get proxies and values for emulating the Cloudflare Workers platform in a Node.js process.
+  * Remote bindings proxy API \- Programmatic utilities (`startRemoteProxySession`, `unstable_convertConfigBindingsToStartWorkerBindings`, `maybeStartOrUpdateRemoteProxySession`) for connecting Miniflare to remote bindings.
 
 
 
@@ -808,6 +809,159 @@ npmyarnpnpm
 
 
 
+
+## Remote bindings proxy API
+
+Wrangler provides programmatic utilities to help tooling authors support [remote bindings](https://developers.cloudflare.com/workers/local-development/#remote-bindings) when running Workers code with [Miniflare](https://developers.cloudflare.com/workers/testing/miniflare/).
+
+**Key APIs include:**
+
+  * `startRemoteProxySession`: Starts a proxy session that allows interaction with remote bindings.
+  * `unstable_convertConfigBindingsToStartWorkerBindings`: Utility for converting binding definitions.
+  * `maybeStartOrUpdateRemoteProxySession`: Convenience function to easily start or update a proxy session.
+
+
+
+### `startRemoteProxySession`
+
+This function starts a proxy session for a given set of bindings. It accepts options to control session behavior, including an `auth` option with your Cloudflare account ID and API token for remote binding access.
+
+It returns an object with:
+
+  * `ready` `Promise<void>`: Resolves when the session is ready.
+  * `dispose` `() => Promise<void>`: Stops the session.
+  * `updateBindings` `(bindings: StartDevWorkerInput['bindings']) => Promise<void>`: Updates session bindings.
+  * `remoteProxyConnectionString` `remoteProxyConnectionString`: String to pass to Miniflare for remote binding access.
+
+
+
+### `unstable_convertConfigBindingsToStartWorkerBindings`
+
+The `unstable_readConfig` utility returns an `Unstable_Config` object which includes the definition of the bindings included in the configuration file. These binding definitions are not directly compatible with `startRemoteProxySession`. To read binding declarations with `unstable_readConfig` and pass them to `startRemoteProxySession`, Wrangler exposes `unstable_convertConfigBindingsToStartWorkerBindings`, which converts the bindings in an `Unstable_Config` object into a structure that can be passed to `startRemoteProxySession`.
+
+Note
+
+This type conversion is temporary. In the future, the types will be unified so you can pass the config object directly to `startRemoteProxySession`.
+
+### `maybeStartOrUpdateRemoteProxySession`
+
+This wrapper simplifies proxy session management. It takes:
+
+  * An object that contains either: 
+    * the path to a Wrangler configuration and a potential target environment
+    * the name of the Worker and the bindings it is using
+  * The current proxy session details (this parameter can be set to `null` or not provided if none).
+  * Potentially the auth data to use for the remote proxy session.
+
+
+
+It returns an object with the proxy session details if started or updated, or `null` if no proxy session is needed.
+
+The function:
+
+  * Based on the first argument, prepares the input arguments for the proxy session.
+  * If there are no remote bindings to be used (nor a pre-existing proxy session), returns `null`, signaling that no proxy session is needed.
+  * If the details of an existing proxy session have been provided, updates the proxy session accordingly.
+  * Otherwise, starts a new proxy session.
+  * Returns the proxy session details (that can later be passed as the second argument to `maybeStartOrUpdateRemoteProxySession`).
+
+
+
+### Example
+
+Here is a basic example of using Miniflare with `maybeStartOrUpdateRemoteProxySession` to provide a local dev session with remote bindings. This example uses a single hardcoded KV binding.
+    
+    
+    import { Miniflare, MiniflareOptions } from "miniflare";
+    import { maybeStartOrUpdateRemoteProxySession } from "wrangler";
+    
+    let mf;
+    
+    let remoteProxySessionDetails = null;
+    
+    async function startOrUpdateDevSession() {
+    	remoteProxySessionDetails = await maybeStartOrUpdateRemoteProxySession(
+    		{
+    			bindings: {
+    				MY_KV: {
+    					type: "kv_namespace",
+    					id: "kv-id",
+    					remote: true,
+    				},
+    			},
+    		},
+    		remoteProxySessionDetails,
+    	);
+    
+    	const miniflareOptions = {
+    		scriptPath: "./worker.js",
+    		kvNamespaces: {
+    			MY_KV: {
+    				id: "kv-id",
+    				remoteProxyConnectionString:
+    					remoteProxySessionDetails?.session.remoteProxyConnectionString,
+    			},
+    		},
+    	};
+    
+    	if (!mf) {
+    		mf = new Miniflare(miniflareOptions);
+    	} else {
+    		mf.setOptions(miniflareOptions);
+    	}
+    }
+    
+    // ... tool logic that invokes `startOrUpdateDevSession()` ...
+    
+    // ... once the dev session is no longer needed run
+    // `remoteProxySessionDetails?.session.dispose()`
+    
+    
+    import { Miniflare, MiniflareOptions } from "miniflare";
+    import { maybeStartOrUpdateRemoteProxySession } from "wrangler";
+    
+    let mf: Miniflare | null;
+    
+    let remoteProxySessionDetails: Awaited<
+    	ReturnType<typeof maybeStartOrUpdateRemoteProxySession>
+    > | null = null;
+    
+    async function startOrUpdateDevSession() {
+    	remoteProxySessionDetails = await maybeStartOrUpdateRemoteProxySession(
+    		{
+    			bindings: {
+    				MY_KV: {
+    					type: "kv_namespace",
+    					id: "kv-id",
+    					remote: true,
+    				},
+    			},
+    		},
+    		remoteProxySessionDetails,
+    	);
+    
+    	const miniflareOptions: MiniflareOptions = {
+    		scriptPath: "./worker.js",
+    		kvNamespaces: {
+    			MY_KV: {
+    				id: "kv-id",
+    				remoteProxyConnectionString:
+    					remoteProxySessionDetails?.session.remoteProxyConnectionString,
+    			},
+    		},
+    	};
+    
+    	if (!mf) {
+    		mf = new Miniflare(miniflareOptions);
+    	} else {
+    		mf.setOptions(miniflareOptions);
+    	}
+    }
+    
+    // ... tool logic that invokes `startOrUpdateDevSession()` ...
+    
+    // ... once the dev session is no longer needed run
+    // `remoteProxySessionDetails?.session.dispose()`
 
 [Previous2\. Update to Wrangler v2](https://developers.cloudflare.com/workers/wrangler/migration/v1-to-v2/update-v1-to-v2/)[NextOverview](https://developers.cloudflare.com/workers/wrangler/commands/)
 

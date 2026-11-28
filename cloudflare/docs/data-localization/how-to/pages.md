@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/data-localization/how-to/pages/
 title: Pages \u00b7 Cloudflare Data Localization Suite docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:10:42.171910+00:00
+fetched_at: 2026-11-28T09:57:35.884646+00:00
 ---
 
 # Pages · Cloudflare Data Localization Suite docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:10:42.171910+00:00
 
 # Pages
 
-Last updated Jul 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/data-localization/how-to/pages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRegional ServicesCustomer Metadata Boundary
 
@@ -63,11 +63,11 @@ It is recommended not to store any Personally Identifiable Information (PII) in 
 
 Note
 
-Page [Functions](https://developers.cloudflare.com/pages/functions/) are implemented as Cloudflare Workers. Refer to the Workers section for more information.
+Pages [Functions](https://developers.cloudflare.com/pages/functions/) are implemented as Cloudflare Workers. Refer to [Workers Data Localization](https://developers.cloudflare.com/data-localization/how-to/workers/) for more information.
 
-Refer to the [Pages documentation](https://developers.cloudflare.com/pages) for more information.
+Refer to the [Pages documentation](https://developers.cloudflare.com/pages/) for more information.
 
-[PreviousZero Trust](https://developers.cloudflare.com/data-localization/how-to/zero-trust/)[NextCache](https://developers.cloudflare.com/data-localization/how-to/cache/)
+[PreviousData residency for Cloudflare One](https://developers.cloudflare.com/data-localization/how-to/zero-trust/)[NextCache](https://developers.cloudflare.com/data-localization/how-to/cache/)
 
 Was this helpful?
 

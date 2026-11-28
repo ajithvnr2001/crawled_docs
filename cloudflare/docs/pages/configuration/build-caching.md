@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/build-caching/
 title: Build caching \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:28.257147+00:00
+fetched_at: 2026-11-28T09:57:32.485230+00:00
 ---
 
 # Build caching · Cloudflare Pages docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:12:28.257147+00:00
 
 # Build caching
 
-Last updated May 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/build-caching/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewAbout build cache Requirements Package managers Frameworks LimitsEnable build cacheClear build cache
 
-Improve Pages build times by caching dependencies and build output between builds with a project-wide shared cache.
+Improve Pages build times by caching dependencies and build output between builds with a project-wide shared cache. For build caching on Cloudflare Workers, refer to [Workers Builds build caching](https://developers.cloudflare.com/workers/ci-cd/builds/build-caching/).
 
 The first build to occur after enabling build caching on your Pages project will save to cache. Every subsequent build will restore from cache unless configured otherwise.
 
@@ -32,7 +32,7 @@ When enabled, the build cache will automatically detect and cache data from each
 
 ### Requirements
 
-Build caching requires the [V2 build system](https://developers.cloudflare.com/pages/configuration/build-image/#v2-build-system) or later. To update from V1, refer to the [V2 build system migration instructions](https://developers.cloudflare.com/pages/configuration/build-image/#v1-to-v2-migration).
+Build caching requires the V2 or [V3 build system](https://developers.cloudflare.com/pages/configuration/build-image/#v3-build-system). To upgrade from V2 to V3, refer to the [v2 to v3 migration instructions](https://developers.cloudflare.com/pages/configuration/build-image/#v2-to-v3-migration).
 
 ### Package managers
 
@@ -42,7 +42,7 @@ Package Manager | Directories cached
 ---|---  
 [npm ↗︎](https://www.npmjs.com/) | `.npm`  
 [yarn ↗︎](https://yarnpkg.com/) | `.cache/yarn`  
-[pnpm ↗︎](https://pnpm.io/) | `.pnpm-store`  
+[pnpm ↗︎](https://pnpm.io/) | `.pnpm-store`, `.local/share/pnpm/store`  
 [bun ↗︎](https://bun.sh/) | `.bun/install/cache`  
   
 ### Frameworks
@@ -82,12 +82,12 @@ The following limits are imposed for build caching:
 
 ## Enable build cache
 
-To enable build caching :
+To enable build caching:
 
-  1. Go to the **Workers & Pages** in the Cloudflare dashboard.
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
 
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
-  2. Find your Pages project.
+  2. Select your Pages project.
 
   3. Go to **Settings** > **Build** > **Build cache**.
 
@@ -100,10 +100,10 @@ To enable build caching :
 
 The build cache can be cleared for a project if needed, such as when debugging build issues. To clear the build cache:
 
-  1. Go to the **Workers & Pages** in the Cloudflare dashboard.
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
 
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
-  2. Find your Pages project.
+  2. Select your Pages project.
 
   3. Go to **Settings** > **Build** > **Build cache**.
 

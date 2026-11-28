@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/
 title: Purge by single-file \u00b7 Cloudflare Cache (CDN) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:05:44.975400+00:00
+fetched_at: 2026-11-28T09:57:35.945647+00:00
 ---
 
 # Purge by single-file · Cloudflare Cache (CDN) docs
@@ -22,7 +22,7 @@ Cache configuration
 
 # Purge by single-file
 
-Last updated Sep 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-single-file/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow to purge a single fileLimitations and alternatives Custom cache keys Cache Rules that match on request properties Redirect responses Resources with special headersAdditional notesResulting cache status
 
@@ -76,6 +76,18 @@ Single-file purge may also not work as expected if your Cache Rules match only o
 Update your Cache Rule expression to also match on the `PURGE` method, for example `(http.host eq "example.com" and (http.request.method eq "GET" or http.request.method eq "PURGE"))`. This allows the rule to apply to both client requests and purge requests.
 
 For rules that match on fields which cannot be evaluated during purge (such as `cf.bot_management.score`), use [purge by prefix](https://developers.cloudflare.com/cache/how-to/purge-cache/purge_by_prefix/), [purge by tag](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-by-tags/), or [purge everything](https://developers.cloudflare.com/cache/how-to/purge-cache/purge-everything/).
+
+**Why some URLs appear to purge successfully while others do not:**
+
+If single-file purge appears to clear some URLs on your zone but not others, consider these common explanations:
+
+  * **Different Cache Rules apply to different paths.** A URL that appears to purge successfully may be covered by a different Cache Rule that does not filter on `GET`. Review your Cache Rules list to check which rule matches each URL.
+  * **The URL was never cached.** A URL that returns fresh content after a purge attempt may not have been cached at all. For example, URLs with different query strings are treated as separate cache entries and may return `DYNAMIC` or `MISS` without requiring a purge. Check `cf-cache-status` on a fresh request to confirm the resource is cached (`HIT` or `REVALIDATED`) before purging.
+  * **A broader purge method was also run.** If purge by prefix, purge by tag, or purge everything was run on the zone, those URLs may have been evicted by that operation rather than by single-file purge.
+
+
+
+Single-file purge does not partially succeed. If the Cache Rule does not match the `PURGE` method, no eviction occurs regardless of the API response.
 
 ### Redirect responses
 

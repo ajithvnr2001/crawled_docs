@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/multi-workers/
 title: Developing with multiple Workers \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:34.570631+00:00
+fetched_at: 2026-11-28T09:57:29.111306+00:00
 ---
 
 # Developing with multiple Workers · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:34.570631+00:00
 
 # Developing with multiple Workers
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/multi-workers/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSingle dev commandMultiple dev commands
 
@@ -139,7 +139,7 @@ You can also combine both approaches — for example, run a group of Workers tog
 
 This setup is especially useful in larger projects where each team maintains a subset of Workers. Running everything in a single dev command might require significant restructuring or build integration that isn't always practical.
 
-[PreviousChoosing between Wrangler & Vite](https://developers.cloudflare.com/workers/local-development/wrangler-vs-vite/)[NextAdding local data](https://developers.cloudflare.com/workers/local-development/local-data/)
+[PreviousLocal Explorer](https://developers.cloudflare.com/workers/local-development/local-explorer/)[NextShare a local dev server](https://developers.cloudflare.com/workers/local-development/local-dev-tunnels/)
 
 Was this helpful?
 

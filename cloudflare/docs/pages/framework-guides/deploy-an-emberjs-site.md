@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/
 title: Ember \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:31.317853+00:00
+fetched_at: 2026-11-28T09:57:32.715594+00:00
 ---
 
 # Ember · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:31.317853+00:00
 
 # Ember
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall EmberCreate an Ember projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
+
+Note
+
+Starting a new Ember.js project? You can also deploy Ember.js single-page applications to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Ember.js ↗︎](https://emberjs.com) is a productive, battle-tested JavaScript framework for building modern web applications. It includes everything you need to build rich UIs that work on any device.
 

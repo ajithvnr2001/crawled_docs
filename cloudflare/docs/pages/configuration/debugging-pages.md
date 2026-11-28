@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/debugging-pages/
 title: Debugging Pages \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-12T09:30:26.644228+00:00
+fetched_at: 2026-11-28T09:57:32.244557+00:00
 ---
 
 # Debugging Pages · Cloudflare Pages docs
@@ -18,9 +18,9 @@ fetched_at: 2026-11-12T09:30:26.644228+00:00
 
 # Debugging Pages
 
-Last updated Nov 11, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewCheck your build log Initializing build environment Cloning git repository Building application Deploying to Cloudflare's global networkDifferences between pages.dev and custom domainsDomain stuck in verification Blocked HTTP validation Missing CAA records Zone holds Missing index.html on the root pages.dev URLResources
+OverviewCheck your build log Initializing build environment Cloning git repository Building application Deploying to Cloudflare's global networkDifferences between pages.dev and custom domainsDomain stuck in verification Blocked HTTP validation Missing CAA records Zone holdsMissing index.html on the root pages.dev URLResources
 
 When setting up your Pages project, you may encounter various errors that prevent you from successfully deploying your site. This guide gives an overview of some common errors and solutions.
 
@@ -48,7 +48,7 @@ To fix this in GitHub:
 
   1. Log in to your GitHub account.
   2. Go to **Settings** from your user icon > find **Applications** under Integrations.
-  3. Find **Cloudflare Pages** > **Configure** > scroll down and select **Uninstall**.
+  3. Find **Cloudflare Workers and Pages** > **Configure** > scroll down and select **Uninstall**.
   4. Re-authorize your GitHub user/organization on the Cloudflare dashboard.
 
 
@@ -57,7 +57,7 @@ To fix this in GitLab:
 
   1. Log in to your GitLab account.
   2. Go to **Preferences** from your user icon > **Applications**.
-  3. Find **Cloudflare Pages** > scroll down and select **Revoke**.
+  3. Find **Cloudflare Workers** (or **Cloudflare Pages**) > scroll down and select **Revoke**.
 
 
 
@@ -65,7 +65,7 @@ Be aware that you need a role of **Maintainer** or above to successfully link yo
 
 ### Cloning git repository
 
-Possible errors in this step could be caused by lack of Git Large File Storage (LFS). Check your LFS usage by referring to the [GitHub ↗︎](https://docs.github.com/en/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage) and [GitLab ↗︎](https://docs.gitlab.com/ee/topics/git/lfs/) documentation.
+Possible errors in this step could be caused by lack of Git Large File Storage (LFS). Check your LFS usage by referring to the [GitHub ↗︎](https://docs.github.com/en/billing/managing-billing-for-git-large-file-storage/viewing-your-git-large-file-storage-usage) and [GitLab ↗︎](https://docs.gitlab.com/topics/git/lfs/) documentation.
 
 Make sure to also review your submodule configuration by going to the `.gitmodules` file in your root directory. This file needs to contain both a `path` and a `url` property.
 
@@ -74,7 +74,7 @@ Example of a valid configuration:
     
     [submodule "example"]
     	path = example/path
-    	url = git://github.com/example/repo.git
+    	url = https://github.com/example/repo.git
 
 Example of an invalid configuration:
     
@@ -86,7 +86,7 @@ or
     
     
     [submodule "example"]
-            url = git://github.com/example/repo.git
+    	url = https://github.com/example/repo.git
 
 ### Building application
 
@@ -110,7 +110,7 @@ If new content does not appear after a deployment, check for Cache Rules or lega
 
 A DNS-only comparison bypasses your zone's HTTP settings, including security rules, but still uses Pages-managed settings. It does not isolate every custom domain issue. [Custom domains for branch aliases](https://developers.cloudflare.com/pages/how-to/custom-branch-aliases/) require proxied DNS records. Unproxied records route to the production branch instead.
 
-If a request returns [Error 1010](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/), check [Browser Integrity Check on Pages](https://developers.cloudflare.com/pages/platform/known-issues/#browser-integrity-check). Turning off or skipping this check in your zone does not turn it off in Pages.
+If a request returns [Error 1010](https://developers.cloudflare.com/support/troubleshooting/http-status-codes/cloudflare-1xxx-errors/error-1010/), check [Browser Integrity Check on Pages](https://developers.cloudflare.com/pages/platform/known-issues/#browser-integrity-check-on-pages). Turning off or skipping this check in your zone does not turn it off in Pages.
 
 ## Domain stuck in verification
 
@@ -134,7 +134,7 @@ To check this, run a `curl` command against your domain hitting `/.well-known/ac
     server: cloudflare
     cf-ray: 7b1ffdaa8ad60693-MAN
 
-In the example above, you are redirecting to Cloudflare Access (as shown by the `Location` header). In this case, you need to disable Access over the domain until the domain is verified. After the domain is verified, Access can be re-enabled.
+In this example, you are redirecting to Cloudflare Access (as shown by the `Location` header). In this case, you need to disable Access over the domain until the domain is verified. After the domain is verified, Access can be re-enabled.
 
 You will need to do the same kind of thing for Redirect Rules or a Worker example too.
 
@@ -169,9 +169,9 @@ To check this, run a `dig` on the custom domain's apex (or zone, if this is a [s
     ;; WHEN: Mon Apr 03 10:15:51 BST 2023
     ;; MSG SIZE  rcvd: 76
 
-In the above example, there is only a single CAA record which is allowing Amazon to issue certificates.
+In this example, there is only a single CAA record allowing Amazon to issue certificates.
 
-To resolve this, you will need to add the following CAA records which allows all of the Certificate Authorities (CAs) Cloudflare uses to issue certificates:
+To resolve this, add the following CAA records to allow all of the Certificate Authorities (CAs) Cloudflare uses to issue certificates:
     
     
     example.com.            300     IN      CAA     0 issue "letsencrypt.org"
@@ -191,9 +191,9 @@ Once the custom domain has been successfully completed, you may [reinstate the z
 
 Still having issues
 
-If you have done the steps above and your domain is still verifying after 15 minutes, join our [Discord ↗︎](https://discord.cloudflare.com) for support or contact our support team through the [Support Portal ↗︎](https://dash.cloudflare.com/?to=/:account/support).
+If you have completed these steps and your domain is still verifying after 15 minutes, join the [Cloudflare Developers Discord ↗︎](https://discord.cloudflare.com) for support or contact our support team through the [Support Portal ↗︎](https://dash.cloudflare.com/?to=/:account/support).
 
-### Missing `index.html` on the root `pages.dev` URL
+## Missing `index.html` on the root `pages.dev` URL
 
 If you see a `404` error on the root `pages.dev` URL (`example.pages.dev`), you are likely missing an `index.html` file in your project.
 
@@ -203,7 +203,7 @@ Upload an `index.html` file to resolve this issue.
 
 If you need additional guidance on build errors, contact your Cloudflare account team (Enterprise) or refer to the [Support Center](https://developers.cloudflare.com/support/contacting-cloudflare-support/) for guidance on contacting Cloudflare Support.
 
-You can also ask questions in the Pages section of the [Cloudflare Developers Discord ↗︎](https://discord.com/invite/cloudflaredev).
+You can also ask questions in the Pages section of the [Cloudflare Developers Discord ↗︎](https://discord.cloudflare.com).
 
 [PreviousCustom domains](https://developers.cloudflare.com/pages/configuration/custom-domains/)[NextDeploy Hooks](https://developers.cloudflare.com/pages/configuration/deploy-hooks/)
 

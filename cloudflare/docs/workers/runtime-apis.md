@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/runtime-apis/
 title: Runtime APIs \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:41.534434+00:00
+fetched_at: 2026-11-28T09:57:28.578673+00:00
 ---
 
 # Runtime APIs · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:41.534434+00:00
 
 # Runtime APIs
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/runtime-apis/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 The [Workers runtime ↗︎](https://blog.cloudflare.com/workerd-open-source-workers-runtime/) is designed to be [JavaScript standards compliant ↗︎](https://ecma-international.org/publications-and-standards/standards/ecma-262/) and web-interoperable. Wherever possible, it uses web platform APIs, so that code can be reused across client and server, as well as across [WinterCG ↗︎](https://wintercg.org/) JavaScript runtimes.
 
@@ -49,7 +49,7 @@ The [Workers runtime ↗︎](https://blog.cloudflare.com/workerd-open-source-wor
 
 
 
-[PreviousLimitations](https://developers.cloudflare.com/workers/cache/limitations/)[NextOverview](https://developers.cloudflare.com/workers/runtime-apis/rpc/)
+[PreviousXata](https://developers.cloudflare.com/workers/databases/third-party-integrations/xata/)[NextOverview](https://developers.cloudflare.com/workers/runtime-apis/rpc/)
 
 Was this helpful?
 

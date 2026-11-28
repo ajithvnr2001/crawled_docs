@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/branch-build-controls/
 title: Branch deployment controls \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:28.294362+00:00
+fetched_at: 2026-11-28T09:57:32.446317+00:00
 ---
 
 # Branch deployment controls · Cloudflare Pages docs
@@ -18,11 +18,13 @@ fetched_at: 2026-10-08T07:12:28.294362+00:00
 
 # Branch deployment controls
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/branch-build-controls/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewProduction branch controlPreview branch control Custom preview branch control
 
-When connected to your git repository, Pages allows you to control which environments and branches you would like to automatically deploy to. By default, Pages will trigger a deployment any time you commit to either your production or preview environment. However, with branch deployment controls, you can configure automatic deployments to suit your preference on a per project basis.
+When connected to your Git repository, Pages allows you to control which environments and branches automatically deploy. By default, Pages triggers a deployment whenever you commit to either your production or preview environment. With branch deployment controls, you can configure automatic deployments on a per-project basis.
+
+For branch build controls on Cloudflare Workers, refer to [Workers Builds branch controls](https://developers.cloudflare.com/workers/ci-cd/builds/build-branches/).
 
 ## Production branch control
 
@@ -37,9 +39,21 @@ If your project is a [Direct Upload](https://developers.cloudflare.com/pages/get
     --header "Content-Type: application/json" \
     --data "{\"production_branch\": \"main\"}"
 
-To configure deployment options, go to your Pages project > **Settings** > **Builds & deployments** > **Configure Production deployments**. Pages will default to setting your production environment to the branch you first push, but you can set your production to another branch if you choose.
+To configure deployment options:
 
-You can also enable or disable automatic deployment behavior on the production branch by checking the **Enable automatic production branch deployments** box. You must save your settings in order for the new production branch controls to take effect.
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
+
+[ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
+  2. Select your Pages project.
+
+  3. Go to **Settings** > **Build** > **Branch control**.
+
+
+
+
+Pages defaults to setting your production environment to the branch you first push, but you can set your production branch to another branch.
+
+You can also turn automatic deployment behavior on or off for the production branch using **Enable automatic production branch deployments** , then save your settings for the changes to take effect.
 
 ## Preview branch control
 
@@ -62,48 +76,42 @@ By selecting **Custom branches** , you can specify branches you wish to include 
 
 Wildcard syntax
 
-A wildcard (`*`) is a character that is used within rules. It can be placed alone to match anything or placed at the start or end of a rule to allow for better control over branch configuration. A wildcard will match zero or more characters.For example, if you wanted to match all branches that started with `fix/` then you would create the rule `fix/*` to match strings like `fix/1`, `fix/bugs`or `fix/`.
+A wildcard (`*`) is a character that is used within rules. It can be placed alone to match anything or placed at the start or end of a rule to allow for better control over branch configuration. A wildcard matches zero or more characters. For example, if you want to match all branches that start with `fix/`, create the rule `fix/*` to match strings like `fix/1`, `fix/bugs`, or `fix/`.
 
 **Example 1:**
 
 If you want to enforce branch prefixes such as `fix/`, `feat/`, or `chore/` with wildcard syntax, you can include and exclude certain branches with the following rules:
 
   * Include Preview branches: `fix/*`, `feat/*`, `chore/*`
-
-  * Exclude Preview branches: ``
-
+  * Exclude Preview branches: _(leave empty)_
 
 
 
-Here Pages will include any branches with the indicated prefixes and exclude everything else. In this example, the excluding option is left empty.
+Here Pages includes any branches with the indicated prefixes and skips everything else.
 
 **Example 2:**
 
-If you wanted to prevent [dependabot ↗︎](https://github.com/dependabot) from creating a deployment for each PR it creates, you can exclude those branches with the following:
+If you want to prevent [Dependabot ↗︎](https://github.com/dependabot) from creating a deployment for each PR it creates, you can exclude those branches with the following rules:
 
   * Include Preview branches: `*`
-
   * Exclude Preview branches: `dependabot/*`
 
 
 
-
-Here Pages will include all branches except any branch starting with `dependabot`. In this example, the excluding option means any `dependabot/` branches will not be built.
+Here Pages includes all branches except any branch starting with `dependabot/`.
 
 **Example 3:**
 
-If you only want to deploy release-prefixed branches, then you could use the following rules:
+If you only want to deploy release-prefixed branches, leave **Exclude Preview branches** empty (excludes evaluate before includes, so setting `*` in excludes would skip every branch):
 
   * Include Preview branches: `release/*`
-
-  * Exclude Preview branches: `*`
-
+  * Exclude Preview branches: _(leave empty)_
 
 
 
-This will deploy only branches starting with `release/`.
+This deploys only branches starting with `release/` and skips all other branches.
 
-[PreviousZola](https://developers.cloudflare.com/pages/framework-guides/deploy-a-zola-site/)[NextBuild caching](https://developers.cloudflare.com/pages/configuration/build-caching/)
+[PreviousMigrate to Workers ↗︎](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/)[NextBuild caching](https://developers.cloudflare.com/pages/configuration/build-caching/)
 
 Was this helpful?
 

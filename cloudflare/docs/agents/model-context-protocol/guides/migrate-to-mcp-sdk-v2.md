@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/agents/model-context-protocol/guides/migrate-to-mcp-sdk-v2/
 title: Migrate to MCP SDK v2 \u00b7 Cloudflare Agents docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-28T08:03:54.298025+00:00
+fetched_at: 2026-11-28T09:57:30.545955+00:00
 ---
 
 # Migrate to MCP SDK v2 · Cloudflare Agents docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-28T08:03:54.298025+00:00
 
 # Migrate to MCP SDK v2
 
-Last updated Oct 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewChoose a server pathInstall the MCP packagesDecide whether a temporary legacy lane is requiredMove a stateless server to SDK v2 Handler options for stateless servers Origin validation on Workers Understand compatibility with legacy clientsMigrate an McpAgent server Migrate directly without legacy stateful features Plan stateless equivalents for stateful features Run stateless and legacy lanes togetherUpdate MCP clients Configure elicitation for stateless requests Update custom OAuth providersReview protocol differences Integration compatibilityPlan the rollout
 
@@ -482,7 +482,7 @@ The draft deprecates Roots, Sampling, Logging, the old HTTP+SSE transport, and D
 These integrations accept an SDK v2 `McpServer`. Serve them with `createMcpHandler`:
 
   * The server-side `withX402` helper, from `agents@0.27.0`. Refer to [Charge for MCP tools](https://developers.cloudflare.com/agents/tools/payments/x402/charge-for-mcp-tools/).
-  * OpenAI Apps SDK servers. Refer to the [ChatGPT app demo](https://developers.cloudflare.com/workers/demos/chatgpt-app/).
+  * OpenAI Apps SDK servers. Refer to the [ChatGPT app demo](https://developers.cloudflare.com/agents/examples/chatgpt-app/).
 
 
 

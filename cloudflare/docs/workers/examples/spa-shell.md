@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/examples/spa-shell/
 title: Single Page App (SPA) shell with bootstrap data \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-13T08:48:28.616091+00:00
+fetched_at: 2026-11-28T09:57:30.187174+00:00
 ---
 
 # Single Page App (SPA) shell with bootstrap data · Cloudflare Workers docs
@@ -12,7 +12,7 @@ fetched_at: 2026-10-13T08:48:28.616091+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
   3. /[Examples](https://developers.cloudflare.com/workers/examples/)
-  4. /Spa Shell
+  4. /Single Page App (SPA) shell with bootstrap data
 
 
 
@@ -20,7 +20,7 @@ fetched_at: 2026-10-13T08:48:28.616091+00:00
 
 Use HTMLRewriter to inject bootstrap data into an SPA shell — whether the shell is served from Workers Static Assets or fetched from an external origin.
 
-Last updated Oct 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOption 1: Single Page App (SPA) built entirely on Workers Configure static assets Inject bootstrap data with HTMLRewriterOption 2: SPA hosted on an external origin Configure the Worker Inject bootstrap data with HTMLRewriterConsume prefetched data in your SPAAdditional injection techniques Set meta tags Add CSP nonces Inject user configurationRelated resources
 
@@ -53,7 +53,7 @@ Set `not_found_handling` to `"single-page-application"` so that every route retu
     	"main": "src/worker.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-28",
     	"compatibility_flags": ["nodejs_compat"],
     	"assets": {
     		"directory": "./dist",
@@ -68,7 +68,7 @@ Set `not_found_handling` to `"single-page-application"` so that every route retu
     main = "src/worker.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-28"
     compatibility_flags = [ "nodejs_compat" ]
     
     [assets]
@@ -217,7 +217,7 @@ Because the SPA is not in Workers Static Assets, you do not need an `assets` blo
     	"main": "src/worker.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-13",
+    	"compatibility_date": "2026-11-28",
     	"compatibility_flags": ["nodejs_compat"],
     	"vars": {
     		"SPA_ORIGIN": "https://my-spa.example-hosting.com",
@@ -230,7 +230,7 @@ Because the SPA is not in Workers Static Assets, you do not need an `assets` blo
     main = "src/worker.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-13"
+    compatibility_date = "2026-11-28"
     compatibility_flags = [ "nodejs_compat" ]
     
     [vars]
@@ -469,7 +469,7 @@ Expose feature flags or environment-specific settings to the SPA without an extr
   * [Static Assets binding](https://developers.cloudflare.com/workers/static-assets/binding/) — Reference for the `ASSETS` binding and routing options.
   * [Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/) — Attach a Worker to a domain as the origin.
   * [Routes](https://developers.cloudflare.com/workers/configuration/routing/routes/) — Run a Worker in front of an existing origin server.
-  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/) — Code patterns and configuration guidance for Workers.
+  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/) — Code patterns and configuration guidance for Workers.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/browser-run/limits/
 title: Limits \u00b7 Cloudflare Browser Run docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-15T14:53:10.553472+00:00
+fetched_at: 2026-11-28T09:57:32.633358+00:00
 ---
 
 # Limits · Cloudflare Browser Run docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-15T14:53:10.553472+00:00
 
 # Limits
 
-Last updated Oct 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWorkers Free /crawl endpoint limitsWorkers PaidFAQ How can I manage concurrency and session isolation with Browser Run? Can I increase the browser timeout? Is there a maximum session duration? I upgraded from the Workers Free plan, but I'm still hitting the 10-minute per day limit. What should I do? Why is my browser usage higher than expected?Troubleshooting Error: 429 Too many requests Error: 429 Browser time limit exceeded for today
 
@@ -113,28 +113,38 @@ Refer to [Browser close reasons](https://developers.cloudflare.com/browser-run/r
 
 ### Error: `429 Too many requests`
 
-When you make too many requests in a short period of time, Browser Run will respond with HTTP status code `429 Too many requests`. You can view your account's rate limits in the Workers Free and Workers Paid sections above.
+When you make too many requests in a short period of time, Browser Run responds with HTTP status code `429 Too many requests` and a `Retry-After` response header. Quick Actions REST endpoints return error code `2001` in the JSON body:
+    
+    
+    {
+    	"errors": [{ "code": 2001, "message": "Rate limit exceeded" }],
+    	"success": false
+    }
 
-The example below demonstrates how to handle rate limiting gracefully by reading the `Retry-After` value and retrying the request after that delay.
+You can view your account's rate limits in the Workers Free and Workers Paid sections.
+
+The following example handles rate limiting by reading the `Retry-After` header and retrying after that delay:
     
     
-    const response = await fetch('https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/content', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer <your-token>',
-        },
-        body: JSON.stringify({ url: 'https://example.com' })
-    });
+    const response = await fetch(
+    	"https://api.cloudflare.com/client/v4/accounts/<accountId>/browser-run/content",
+    	{
+    		method: "POST",
+    		headers: {
+    			"Content-Type": "application/json",
+    			Authorization: "Bearer <your-token>",
+    		},
+    		body: JSON.stringify({ url: "https://example.com" }),
+    	},
+    );
     
     if (response.status === 429) {
-    const retryAfter = response.headers.get('Retry-After');
-    console.log(`Rate limited. Waiting ${retryAfter} seconds...`);
-    await new Promise(resolve => setTimeout(resolve, retryAfter \* 1000));
+    	const retryAfter = Number(response.headers.get("Retry-After") ?? "1");
+    	console.log(`Rate limited (code 2001). Waiting ${retryAfter} seconds...`);
+    	await new Promise((resolve) => setTimeout(resolve, retryAfter * 1000));
     
-        // Retry the request
-        const retryResponse = await fetch(/* same request as above */);
-    
+    	// Retry the request
+    	const retryResponse = await fetch(/* same request as above */);
     }
     
     

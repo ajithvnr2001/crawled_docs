@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-gatsby-site/
 title: Gatsby \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:29.815873+00:00
+fetched_at: 2026-11-28T09:57:35.004849+00:00
 ---
 
 # Gatsby · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:29.815873+00:00
 
 # Gatsby
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gatsby-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall GatsbyCreate a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesDynamic routesLearn more
 
@@ -99,7 +99,7 @@ If you have a dynamic route, such as `/users/[id]`, create your proxy redirect b
 
 By completing this guide, you have successfully deployed your Gatsby site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousEmber](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/)[NextGridsome](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gridsome-site/)
+[PreviousEmber](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/)[NextHexo](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hexo-site/)
 
 Was this helpful?
 

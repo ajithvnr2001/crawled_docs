@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/reference/
 title: Reference \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:40.788327+00:00
+fetched_at: 2026-11-28T09:57:28.523667+00:00
 ---
 
 # Reference · Cloudflare Workers docs
@@ -11,13 +11,14 @@ fetched_at: 2026-10-08T07:17:40.788327+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
-  3. /Reference
+  3. /[Workers](https://developers.cloudflare.com/workers/)
+  4. /Reference
 
 
 
 # Reference
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/reference/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Conceptual knowledge about how Workers works.
 

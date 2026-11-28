@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/rules-of-workflows/
 title: Rules of Workflows \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:30.390647+00:00
+fetched_at: 2026-11-28T09:57:28.029775+00:00
 ---
 
 # Rules of Workflows · Cloudflare Workflows docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-16T06:38:30.390647+00:00
 
 # Rules of Workflows
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Ensure API/Binding calls are idempotent Make your steps granular Do not rely on state outside of a step Avoid doing side effects outside of a step.do Do not mutate your incoming events Name steps deterministically Take care with Promise.race() and Promise.any() Instance IDs are unique await your steps Use conditional logic carefully Batch multiple Workflow invocations Limit timeouts to 30 minutes or less Keep non-stream step return values under 1 MiBRelated resources
 
@@ -1112,7 +1112,7 @@ index.tsts
 
 ## Related resources
 
-  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/): code patterns for request handling, observability, and security that apply to the Workers triggering your Workflows.
+  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/): code patterns for request handling, observability, and security that apply to the Workers triggering your Workflows.
   * [Rules of Durable Objects](https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/): best practices for stateful, coordinated applications — useful when combining Durable Objects with Workflows.
 
 

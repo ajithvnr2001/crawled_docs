@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ruleset-engine/rules-language/functions/
 title: Functions reference \u00b7 Cloudflare Ruleset Engine docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-27T10:39:59.054266+00:00
+fetched_at: 2026-11-28T09:57:35.855735+00:00
 ---
 
 # Functions reference · Cloudflare Ruleset Engine docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-27T10:39:59.054266+00:00
 
 # Functions
 
-Last updated Nov 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTransformation functions any all encode_base64 cidr cidr6 coalesce concat decode_base64 encode_hex ends_with format_date hash_in_range hmac_md5 hmac_sha1 hmac_sha256 hmac_sha512 join has_key has_value is_jwt_present is_jwt_valid len lookup_json_integer lookup_json_string lower md5 regex_replace remove_bytes remove_query_args sha1 sha256 sha512 sign_sigv4_hmac_sha256 split starts_with substring to_string trim trim_end trim_start upper url_decode uuidv4 wildcard_replaceCloudflare Network Firewall Functions bit_sliceHMAC validation Overview Usage MessageMACHMAC validation examples MessageMAC in a single field Concatenated MessageMAC argument
 
@@ -511,14 +511,16 @@ For example, if `http.host` is `"WWW.cloudflare.com"`, then `lower(http.host) ==
 
 Computes the MD5 hash of the `input` string or byte array. Returns a 16-byte hash value.
 
-Caution
-
-MD5 is not considered cryptographically secure because of known collision attacks. Avoid it for security-sensitive uses. Use `sha256()` instead where possible.
+The `input` must be a field or a function result. It cannot be a literal value.
 
 To encode the hash as a string, combine `md5()` with `encode_base64()`:
     
     
-    encode_base64(md5("hello world"))
+    encode_base64(md5(http.request.uri.path))
+
+Notes
+
+Access to the `md5()` function requires a Cloudflare Pro, Business, or Enterprise plan.
 
 ### `regex_replace`
 
@@ -608,6 +610,8 @@ You can only use the `remove_query_args()` function in [rewrite expressions of T
 
 Computes the SHA-1 hash of the `input` string or byte array. Returns a 20-byte hash value.
 
+The `input` must be a field or a function result. It cannot be a literal value.
+
 Caution
 
 SHA-1 is not considered cryptographically secure because of known collision attacks. Avoid it for security-sensitive uses. Use `sha256()` instead where possible.
@@ -615,7 +619,11 @@ SHA-1 is not considered cryptographically secure because of known collision atta
 To encode the hash as a string, combine `sha1()` with `encode_base64()`:
     
     
-    encode_base64(sha1("hello world"))
+    encode_base64(sha1(http.request.uri.path))
+
+Notes
+
+Access to the `sha1()` function requires a Cloudflare Pro, Business, or Enterprise plan.
 
 ### `sha256`
 
@@ -623,19 +631,21 @@ To encode the hash as a string, combine `sha1()` with `encode_base64()`:
 
 Computes the SHA-256 cryptographic hash of the `input` string or byte array. Returns a 32-byte hash value.
 
-Use this function to hash a canonical request before signing it. For keyed message authentication, use `hmac_sha256()`.
+The `input` must be a field or a function result. It cannot be a literal value.
+
+Use this function to generate signed request headers, validate request integrity, or create secure tokens directly in rule expressions.
 
 Examples:
     
     
-    sha256("my-token")
+    sha256(http.request.uri.path)
 
 The example returns a 32-byte hash. A hash alone does not authenticate a request.
 
 You can combine `sha256()` with `encode_base64()` to create Base64-encoded hashes:
     
     
-    encode_base64(sha256("my-token"))
+    encode_base64(sha256(http.request.uri.path))
 
 To create an HMAC-signed header value from the URI path:
     
@@ -654,10 +664,12 @@ You can only use the `sha256()` function in rewrite expressions of [Transform Ru
 
 Computes the SHA-512 hash of the `input` string or byte array. Returns a 64-byte hash value.
 
+The `input` must be a field or a function result. It cannot be a literal value.
+
 To encode the hash as a string, combine `sha512()` with `encode_base64()`:
     
     
-    encode_base64(sha512("hello world"))
+    encode_base64(sha512(http.request.uri.path))
 
 ### `sign_sigv4_hmac_sha256`
 
@@ -929,6 +941,10 @@ To enter a literal `$` character in the `replacement` parameter, you must escape
 To perform case-sensitive wildcard matching, set the `flags` parameter to `"s"`.
 
 This function uses lazy matching, that is, it tries to match each `*` metacharacter with the shortest possible string.
+
+The function numbers capture group references by the position of each `*` in `wildcard_pattern`, from left to right, starting at `${1}`. Every `*` in `wildcard_pattern` counts, including a `*` in the URI scheme. For example, in the pattern `http*://example.com/*`, `${1}` captures the `*` in `http*`, and `${2}` captures the path.
+
+In the **Wildcard pattern** view of the dashboard, Single Redirects use the **Request URL** as `wildcard_pattern`. URL Rewrite Rules use the **Target path** or **Target query** instead, so the function ignores `*` characters in a rewrite rule's **Request URL**.
 
 You can only use the `wildcard_replace()` function once in an expression, and you cannot nest it with the [`regex_replace()`](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#regex_replace) function.
 

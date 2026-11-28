@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/bindings-per-env/
 title: Supported bindings per development mode \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:33.360925+00:00
+fetched_at: 2026-11-28T09:57:29.417551+00:00
 ---
 
 # Supported bindings per development mode · Cloudflare Workers docs
@@ -12,13 +12,13 @@ fetched_at: 2026-10-08T07:17:33.360925+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
   3. /[Local development](https://developers.cloudflare.com/workers/local-development/)
-  4. /Supported bindings per development mode
+  4. /Supported bindings
 
 
 
 # Supported bindings per development mode
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/bindings-per-env/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLocal developmentRemote development
 
@@ -32,12 +32,13 @@ Binding | Local simulations | Remote binding connections
 ---|---|---  
 **AI** | ❌ | ✅  
 **Assets** | ✅ | ❌  
-**Analytics Engine** | ✅ | ❌  
+**Analytics Engine** | ✅ | ✅  
 **Browser Run** | ✅ | ✅  
 **D1** | ✅ | ✅  
 **Durable Objects** | ✅ | ❌ 1  
 **Containers** | ✅ | ❌  
 **Email Bindings** | ✅ | ✅  
+**Flagship** | ✅ | ✅  
 **Hyperdrive** | ✅ | ❌  
 **Images** | ✅ | ✅  
 **KV** | ✅ | ✅  
@@ -66,6 +67,7 @@ Binding | Remote development
 **Durable Objects** | ✅  
 **Containers** | ❌  
 **Email Bindings** | ✅  
+**Flagship** | ✅  
 **Hyperdrive** | ✅  
 **Images** | ✅  
 **KV** | ✅  
@@ -85,7 +87,7 @@ Binding | Remote development
 
 
 
-[PreviousAdding local data](https://developers.cloudflare.com/workers/local-development/local-data/)[NextLocal Explorer](https://developers.cloudflare.com/workers/local-development/local-explorer/)
+[PreviousShare a local dev server](https://developers.cloudflare.com/workers/local-development/local-dev-tunnels/)[NextOverview](https://developers.cloudflare.com/workers/configuration/)
 
 Was this helpful?
 

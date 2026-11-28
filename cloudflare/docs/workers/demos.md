@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/demos/
 title: Demos and architectures \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:18.664363+00:00
+fetched_at: 2026-11-28T09:57:29.832507+00:00
 ---
 
 # Demos and architectures · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:18.664363+00:00
 
 # Demos and architectures
 
-Last updated May 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/demos/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewReference architectures
 
@@ -59,7 +59,7 @@ Explore the following reference architectures that use Workers:
 
 [**Enterprise AI agent workspace** Reference architecture for building governed, stateful enterprise AI agent workspaces on Cloudflare.](https://developers.cloudflare.com/reference-architecture/diagrams/ai/enterprise-ai-agent-workspace/)
 
-[PreviousWorkers Best Practices](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/)[NextBuild an Interactive ChatGPT App](https://developers.cloudflare.com/workers/demos/chatgpt-app/)
+[PreviousTutorials](https://developers.cloudflare.com/workers/tutorials/)[NextPlayground](https://developers.cloudflare.com/workers/playground/)
 
 Was this helpful?
 

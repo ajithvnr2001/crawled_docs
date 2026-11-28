@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/local-data/
 title: Adding local data \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-30T08:19:30.187491+00:00
+fetched_at: 2026-11-28T09:57:29.199021+00:00
 ---
 
 # Adding local data · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-30T08:19:30.187491+00:00
 
 # Adding local data
 
-Last updated Oct 29, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview How it worksPopulating local resources with data KV namespaces R2 buckets D1 databases Flagship apps Durable ObjectsWhere local data gets stored Clearing local storage Changing the local data directory
 
@@ -223,7 +223,7 @@ vite.config.jsjs
 
 If you want Wrangler and the Vite plugin to share the same state, configure them to use the same persistence path.
 
-[PreviousDeveloping with multiple Workers](https://developers.cloudflare.com/workers/local-development/multi-workers/)[NextSupported bindings per development mode](https://developers.cloudflare.com/workers/local-development/bindings-per-env/)
+[PreviousEnvironment variables and secrets](https://developers.cloudflare.com/workers/local-development/environment-variables/)[NextLocal Explorer](https://developers.cloudflare.com/workers/local-development/local-explorer/)
 
 Was this helpful?
 

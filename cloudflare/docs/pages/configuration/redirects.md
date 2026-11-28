@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/redirects/
 title: Redirects \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:29.529872+00:00
+fetched_at: 2026-11-28T09:57:31.857539+00:00
 ---
 
 # Redirects · Cloudflare Pages docs
@@ -18,11 +18,11 @@ fetched_at: 2026-10-08T07:12:29.529872+00:00
 
 # Redirects
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/configuration/redirects/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewStructure Per line Per fileAdvanced redirectsRedirects and header matching Splats Placeholders ProxyingSurpass _redirects limitsRelated resources
 
-To apply custom redirects on Cloudflare Pages, declare your redirects in a plain text file called `_redirects` without a file extension, in the static asset directory of your project. This file will not itself be served as a static asset, but will instead be parsed by Cloudflare Pages and its rules will be applied to static asset responses.
+To apply custom redirects on Cloudflare Pages, declare your redirects in a plain text file called `_redirects` without a file extension, in the static asset directory of your project. This file will not itself be served as a static asset, but will instead be parsed by Cloudflare Pages and its rules will be applied to static asset responses. For `_redirects` on Cloudflare Workers, refer to [Workers Static Assets redirects](https://developers.cloudflare.com/workers/static-assets/redirects/).
 
 If you are using a framework, you will often have a directory named `public/` or `static/`, and this usually contains deploy-ready assets, such as favicons, `robots.txt` files, and site manifests. These files get copied over to a final output directory during the build, so this is the perfect place to author your `_redirects` file. If you are not using a framework, the `_redirects` file can go directly into your [build output directory](https://developers.cloudflare.com/pages/configuration/build-configuration/).
 
@@ -40,16 +40,13 @@ Only one redirect can be defined per line and must follow this format, otherwise
     [source] [destination] [code?]
 
   * `source` `string` required
-
     * A file path.
     * Can include wildcards (`*`) and placeholders.
     * Because fragments are evaluated by your browser and not Cloudflare's network, any fragments in the source are not evaluated.
   * `destination` `string` required
-
     * A file path or external link.
     * Can include fragments, query strings, splats, and placeholders.
   * `code` `number` (default: 302) optional
-
     * Optional parameter
 
 
@@ -62,7 +59,7 @@ A `_redirects` file is limited to 2,000 static redirects and 100 dynamic redirec
 
 In your `_redirects` file:
 
-  * The order of your redirects matter. If there are multiple redirects for the same `source` path, the top-most redirect is applied.
+  * The order of your redirects matters. If there are multiple redirects for the same `source` path, the top-most redirect is applied.
   * Static redirects should appear before dynamic redirects.
   * Redirects are always followed, regardless of whether or not an asset matches the incoming request.
 
@@ -76,14 +73,14 @@ A complete example with multiple redirects may look like the following:
     /querystrings /?query=string 301
     /twitch https://twitch.tv
     /trailing /trailing/ 301
-    /notrailing/ /nottrailing 301
+    /notrailing/ /notrailing 301
     /page/ /page2/#fragment 301
     /blog/* https://blog.my.domain/:splat
     /products/:code/:name /products?code=:code&name=:name
 
 ## Advanced redirects
 
-Cloudflare currently offers limited support for advanced redirects.
+Cloudflare offers limited support for advanced redirects.
 
 Feature | Support | Example | Notes  
 ---|---|---|---  
@@ -95,7 +92,7 @@ Query Parameters | ❌ | `/shop id=:id /blog/:id 301` |
 Proxying | ✅ | `/blog/* /news/:splat 200` | Refer to Proxying.  
 Domain-level redirects | ❌ | `workers.example.com/* workers.example.com/blog/:splat 301` |   
 Redirect by country or language | ❌ | `/ /us 302 Country=us` |   
-Redirect by cookie | ❌ | `/\* /preview/:splat 302 Cookie=preview` |   
+Redirect by cookie | ❌ | `/* /preview/:splat 302 Cookie=preview` |   
   
 ## Redirects and header matching
 
@@ -138,13 +135,13 @@ For example, if you have added `/about/faq/* /about/faqs 200` to your `_redirect
 
 ## Surpass `_redirects` limits
 
-A [`_redirects`](https://developers.cloudflare.com/pages/platform/limits/#redirects) file has a maximum of 2,000 static redirects and 100 dynamic redirects, for a combined total of 2,100 redirects. Use [Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/) to handle redirects that surpasses the 2,100 redirect rules limit of `_redirects`.
+A [`_redirects`](https://developers.cloudflare.com/pages/platform/limits/#redirects) file has a maximum of 2,000 static redirects and 100 dynamic redirects, for a combined total of 2,100 redirects. Use [Bulk Redirects](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/) to handle redirects that surpass the 2,100 redirect rules limit of `_redirects`.
 
 Note
 
-The redirects defined in the `_redirects` file of your build folder can work together with your Bulk Redirects. In case of duplicates, Bulk Redirects will run in front of your Pages project, where your other redirects live.
+The redirects defined in the `_redirects` file of your build folder can work together with your Bulk Redirects. In case of duplicates, Bulk Redirects run in front of your Pages project.
 
-For example, if you have Bulk Redirects set up to direct `abc.com` to `xyz.com` but also have `_redirects` set up to direct `xyz.com` to `foo.com`, a request for `abc.com` will eventually redirect to `foo.com`.
+For example, if you have Bulk Redirects set up to redirect `abc.example.com` to `xyz.example.com` (your Pages site), and `_redirects` on that Pages site contains `/* https://foo.example.com/:splat 301`, a request for `abc.example.com` redirects through `xyz.example.com` to `foo.example.com`.
 
 To use Bulk Redirects, refer to the [Bulk Redirects dashboard documentation](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-dashboard/) or the [Bulk Redirects API documentation](https://developers.cloudflare.com/rules/url-forwarding/bulk-redirects/create-api/).
 

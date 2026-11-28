@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-docusaurus-site/
 title: Docusaurus \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:29.876371+00:00
+fetched_at: 2026-11-28T09:57:35.063938+00:00
 ---
 
 # Docusaurus · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:29.876371+00:00
 
 # Docusaurus
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-docusaurus-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare Pages Deploy via the create-cloudflare CLI (C3) Deploy via the Cloudflare dashboardLearn more
 
@@ -102,7 +102,7 @@ For the complete guide to deploying your first site to Cloudflare Pages, refer t
 
 By completing this guide, you have successfully deployed your Docusaurus site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousBrunch](https://developers.cloudflare.com/pages/framework-guides/deploy-a-brunch-site/)[NextElder.js](https://developers.cloudflare.com/pages/framework-guides/deploy-an-elderjs-site/)
+[PreviousBlazor](https://developers.cloudflare.com/pages/framework-guides/deploy-a-blazor-site/)[NextEleventy](https://developers.cloudflare.com/pages/framework-guides/deploy-an-eleventy-site/)
 
 Was this helpful?
 

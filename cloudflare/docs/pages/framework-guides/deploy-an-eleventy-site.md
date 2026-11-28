@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-an-eleventy-site/
 title: Eleventy \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:33.508609+00:00
+fetched_at: 2026-11-28T09:57:33.012515+00:00
 ---
 
 # Eleventy · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:33.508609+00:00
 
 # Eleventy
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-an-eleventy-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstalling EleventyCreating a new projectBefore you continueCreating a GitHub repositoryDeploy with Cloudflare PagesLearn more
+
+Note
+
+Starting a new static site? You can also deploy Eleventy sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Eleventy ↗︎](https://www.11ty.dev/) is a simple static site generator. In this guide, you will create a new Eleventy site and deploy it using Cloudflare Pages. You will be using the `eleventy` CLI to create a new Eleventy site.
 
@@ -53,7 +57,7 @@ Refer to the [GitHub documentation ↗︎](https://guides.github.com/introductio
 Create a new GitHub repository by visiting [repo.new ↗︎](https://repo.new). After creating a new repository, prepare and push your local application to GitHub by running the following command in your terminal:
     
     
-    git remote set-url origin https://github.com/yourgithubusername/githubrepo
+    git remote set-url origin https://github.com/<YOUR_GH_USERNAME>/<REPOSITORY_NAME>.git
     git branch -M main
     git push -u origin main
 
@@ -90,7 +94,7 @@ After deploying your site, you will receive a unique subdomain for your project 
 
 By completing this guide, you have successfully deployed your Eleventy site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousElder.js](https://developers.cloudflare.com/pages/framework-guides/deploy-an-elderjs-site/)[NextEmber](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/)
+[PreviousDocusaurus](https://developers.cloudflare.com/pages/framework-guides/deploy-a-docusaurus-site/)[NextEmber](https://developers.cloudflare.com/pages/framework-guides/deploy-an-emberjs-site/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-blazor-site/
 title: Blazor \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:29.610595+00:00
+fetched_at: 2026-11-28T09:57:33.380581+00:00
 ---
 
 # Blazor · Cloudflare Pages docs
@@ -18,19 +18,23 @@ fetched_at: 2026-10-08T07:12:29.610595+00:00
 
 # Blazor
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-blazor-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstall .NETCreating a new Blazor WASM projectCreate the build scriptBefore you continueCreate a .gitignore fileCreate a GitHub repositoryDeploy with Cloudflare PagesTroubleshooting A file is over the 25 MiB limitLearn more
+
+Note
+
+Starting a new Blazor WebAssembly project? You can also deploy Blazor WebAssembly apps to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Blazor ↗︎](https://blazor.net) is an SPA framework that can use C# code, rather than JavaScript in the browser. In this guide, you will build a site using Blazor, and deploy it using Cloudflare Pages.
 
 ## Install .NET
 
-Blazor uses C#. You will need the latest version of the [.NET SDK ↗︎](https://dotnet.microsoft.com/download) to continue creating a Blazor project. If you don't have the SDK installed on your system please download and run the installer.
+Blazor uses C#. You will need the latest version of the [.NET SDK ↗︎](https://dotnet.microsoft.com/download) to continue creating a Blazor project. If you do not have the SDK installed on your system, download and run the installer.
 
 ## Creating a new Blazor WASM project
 
-There are two types of Blazor hosting models: [Blazor Server ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0#blazor-server) which requires a server to serve the Blazor application to the end user, and [Blazor WebAssembly ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0#blazor-webassembly) which runs in the browser. Blazor Server is incompatible with the Cloudflare edge network model, thus this guide only use Blazor WebAssembly.
+There are two types of Blazor hosting models: [Blazor Server ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0#blazor-server), which requires a server to serve the Blazor application to the end user, and [Blazor WebAssembly ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/hosting-models?view=aspnetcore-8.0#blazor-webassembly), which runs in the browser. Blazor Server is incompatible with Cloudflare Pages' static hosting model, so this guide only uses Blazor WebAssembly.
 
 Create a new Blazor WebAssembly (WASM) application by running the following command:
     
@@ -39,7 +43,7 @@ Create a new Blazor WebAssembly (WASM) application by running the following comm
 
 ## Create the build script
 
-To deploy, Cloudflare Pages will need a way to build the Blazor project. In the project's directory root, create a `build.sh` file. Populate the file with this (updating the `.dotnet-install.sh` line appropriately if you're not using the latest .NET SDK):
+To deploy, Cloudflare Pages needs a way to build the Blazor project. In the project's directory root, create a `build.sh` file (adjusting the `-c` channel argument to match the .NET SDK version your project targets):
     
     
     #!/bin/sh
@@ -118,13 +122,13 @@ After deploying your site, you will receive a unique subdomain for your project 
 
 If you receive the error message `Error: Asset "/opt/buildhome/repo/output/wwwroot/_framework/dotnet.wasm" is over the 25MiB limit`, resolve this by doing one of the following actions:
 
-  1. Reduce the size of your assets with the following [guide ↗︎](https://docs.microsoft.com/en-us/aspnet/core/blazor/performance?view=aspnetcore-6.0#minimize-app-download-size).
+  1. Reduce the size of your assets with the following [guide ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/performance?view=aspnetcore-8.0#minimize-app-download-size).
 
 
 
 Or
 
-  2. Remove the `*.wasm` files from the output (`rm output/wwwroot/_framework/*.wasm`) and modify your Blazor application to [load the Brotli compressed files ↗︎](https://docs.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-6.0#compression) instead.
+  2. Remove the `*.wasm` files from the output (`rm output/wwwroot/_framework/*.wasm`) and modify your Blazor application to [load the Brotli compressed files ↗︎](https://learn.microsoft.com/en-us/aspnet/core/blazor/host-and-deploy/webassembly?view=aspnetcore-8.0#compression) instead.
 
 
 
@@ -132,7 +136,7 @@ Or
 
 By completing this guide, you have successfully deployed your Blazor site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousAstro](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/)[NextBrunch](https://developers.cloudflare.com/pages/framework-guides/deploy-a-brunch-site/)
+[PreviousAstro](https://developers.cloudflare.com/pages/framework-guides/deploy-an-astro-site/)[NextDocusaurus](https://developers.cloudflare.com/pages/framework-guides/deploy-a-docusaurus-site/)
 
 Was this helpful?
 

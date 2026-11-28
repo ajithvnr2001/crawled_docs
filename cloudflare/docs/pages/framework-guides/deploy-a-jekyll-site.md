@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-jekyll-site/
 title: Jekyll \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.364422+00:00
+fetched_at: 2026-11-28T09:57:33.280125+00:00
 ---
 
 # Jekyll · Cloudflare Pages docs
@@ -18,24 +18,28 @@ fetched_at: 2026-10-08T07:12:30.364422+00:00
 
 # Jekyll
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-jekyll-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstalling JekyllCreating a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
+
+Note
+
+Starting a new static site? You can also deploy Jekyll sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Jekyll ↗︎](https://jekyllrb.com/) is an open-source framework for creating websites, based around Markdown with Liquid templates. In this guide, you will create a new Jekyll application and deploy it using Cloudflare Pages. You use the `jekyll` CLI to create a new Jekyll site.
 
 Note
 
-If you have an existing Jekyll site on GitHub Pages, refer to [the Jekyll migration guide](https://developers.cloudflare.com/pages/migrations/migrating-jekyll-from-github-pages/).
+If you have an existing Jekyll site on GitHub Pages, refer to [Migrate from GitHub Pages to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/github-pages-to-workers/).
 
 ## Installing Jekyll
 
 Jekyll is written in Ruby, meaning that you will need a functioning Ruby installation, like `rbenv`, to install Jekyll.
 
-To install Ruby on your computer, follow the [`rbenv` installation instructions ↗︎](https://github.com/rbenv/rbenv#installation) and select a recent version of Ruby by running the `rbenv` command in your terminal. The Ruby version you install will also be used to configure the Pages deployment for your application.
+To install Ruby on your computer, follow the [`rbenv` installation instructions ↗︎](https://github.com/rbenv/rbenv#installation) and select a recent version of Ruby by running the `rbenv` command in your terminal. The Ruby version you install should match your Pages build environment (Build Image v3 defaults to Ruby 3.4).
     
     
-    rbenv install <RUBY_VERSION> # For example, 3.1.3
+    rbenv install <RUBY_VERSION> # For example, 3.4.4
 
 With Ruby installed, you can install the `jekyll` Ruby gem:
     
@@ -107,11 +111,11 @@ Configuration option| Value| Production branch| `main`
 Build command| `jekyll build`  
 Build directory| `_site`  
   
-Add an [environment variable](https://developers.cloudflare.com/pages/configuration/build-image/) that matches the Ruby version that you are using locally. Set this as `RUBY_VERSION` on both your preview and production deployments. Below, `3.1.3` is used as an example:
+If you need to pin a specific Ruby version instead of the Build Image v3 default, add a `RUBY_VERSION` [environment variable](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions) under **Settings** > **Variables and Secrets** for both your **Production** and **Preview** environments. For example:
 
 Environment variable | Value  
 ---|---  
-`RUBY_VERSION` | `3.1.3`  
+`RUBY_VERSION` | `3.4.4`  
   
 After configuring your site, you can begin your first deployment. You should see Cloudflare Pages installing `jekyll`, your project dependencies, and building your site before deploying it.
 

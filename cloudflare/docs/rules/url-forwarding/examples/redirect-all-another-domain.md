@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-another-domain/
 title: Redirect requests from one domain to another \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:59.977956+00:00
+fetched_at: 2026-11-28T09:57:36.551770+00:00
 ---
 
 # Redirect requests from one domain to another · Cloudflare Rules docs
@@ -24,7 +24,7 @@ fetched_at: 2026-10-08T07:14:59.977956+00:00
 
 Create a redirect rule to redirect all requests to a different domain, maintaining all functionality, except for the discontinued HTTP service (port 80).
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-all-another-domain/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 In this example the original domain was replaced with a different domain. All functionality was maintained, except for the HTTP service (port 80) which was discontinued.
 
@@ -44,6 +44,8 @@ In this example the original domain was replaced with a different domain. All fu
   * **Preserve query string:** Enabled
 
 
+
+The target URL uses `${2}` instead of `${1}`. In the request URL, the `*` in `http*` is `${1}`, and the second `*` captures the path. Refer to [How wildcard references are numbered](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/#how-wildcard-references-are-numbered).
 
 This configuration will perform the following redirects:
 

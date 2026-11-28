@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/transform/response-header-modification/
 title: Response Header Transform Rules \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:57.643112+00:00
+fetched_at: 2026-11-28T09:57:37.285602+00:00
 ---
 
 # Response Header Transform Rules · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:57.643112+00:00
 
 # Response Header Transform Rules
 
-Last updated Sep 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/transform/response-header-modification/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewImportant remarksTroubleshooting
 
@@ -69,7 +69,7 @@ For more complex response header modifications, consider using [Snippets](https:
 
   * You cannot modify the value of certain headers such as `server`, `eh-cache-tag`, or `eh-cdn-cache-control`.
 
-  * Currently you cannot reference [IP lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/#ip-lists) in expressions of Response Header Transform Rules.
+  * You can reference [custom IP and ASN lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/#ip-and-asn-lists-across-rules-products) in rule filter expressions. This support does not extend to dynamic header-value expressions. Existing list plan requirements and quotas apply.
 
   * The HTTP response header removal operation will remove all response headers with the provided name.
 
@@ -92,7 +92,7 @@ For more complex response header modifications, consider using [Snippets](https:
 
 ## Troubleshooting
 
-When troubleshooting Response Header Transform Rules, use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to determine if a rule is triggering for a specific URL.
+When troubleshooting Response Header Transform Rules, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to determine if a rule is triggering for a specific URL.
 
 [PreviousAPI parameter reference](https://developers.cloudflare.com/rules/transform/request-header-modification/reference/parameters/)[NextCreate a rule in the dashboard](https://developers.cloudflare.com/rules/transform/response-header-modification/create-dashboard/)
 

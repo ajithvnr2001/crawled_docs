@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/
 title: Local development \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-20T09:50:39.417203+00:00
+fetched_at: 2026-11-28T09:57:29.624154+00:00
 ---
 
 # Local development · Cloudflare Workers docs
@@ -17,9 +17,9 @@ fetched_at: 2026-11-20T09:50:39.417203+00:00
 
 # Local development
 
-Last updated Nov 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Inbound TCP and gRPC Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
+OverviewSecurity considerationsCore concepts Worker execution vs BindingsStart a local development server Inbound TCP and gRPC Defaults Bindings during local developmentRemote bindings Example configuration Integration with environments Recommended remote bindings Unsupported remote bindings Important Considerations Connect to Access-protected Workers Programmatic APIwrangler dev --remote (Legacy) When to use Remote development Considerations Limitations
 
 You can build, run, and test your Worker code on your own local machine before deploying it to Cloudflare's network. This is made possible through [Miniflare](https://developers.cloudflare.com/workers/testing/miniflare/), a simulator that executes your Worker code in a local [`workerd` ↗︎](https://github.com/cloudflare/workerd) process. `workerd` also powers the hosted Workers platform.
 
@@ -139,7 +139,7 @@ During local development, your Worker code interacts with these bindings using t
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-20",
+    	"compatibility_date": "2026-11-28",
     
     	"r2_buckets": [
     		{
@@ -153,7 +153,7 @@ During local development, your Worker code interacts with these bindings using t
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-11-20"
+    compatibility_date = "2026-11-28"
     
     [[r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -172,7 +172,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     {
     	"name": "my-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-20",
+    	"compatibility_date": "2026-11-28",
     
     	"env": {
     		"production": {
@@ -198,7 +198,7 @@ Remote Bindings work well together with [Workers Environments](https://developer
     
     name = "my-worker"
     # Set this to today's date
-    compatibility_date = "2026-11-20"
+    compatibility_date = "2026-11-28"
     
     [[env.production.r2_buckets]]
     bucket_name = "screenshots-bucket"
@@ -445,158 +445,9 @@ In CI, store the values as secrets and expose them as environment variables to t
 
 
 
-### API
+### Programmatic API
 
-Wrangler provides programmatic utilities to help tooling authors support remote binding connections when running Workers code with [Miniflare](https://developers.cloudflare.com/workers/testing/miniflare/).
-
-**Key APIs include:**
-
-  * `startRemoteProxySession`: Starts a proxy session that allows interaction with remote bindings.
-  * `unstable_convertConfigBindingsToStartWorkerBindings`: Utility for converting binding definitions.
-  * `experimental_maybeStartOrUpdateProxySession`: Convenience function to easily start or update a proxy session.
-
-
-
-#### `startRemoteProxySession`
-
-This function starts a proxy session for a given set of bindings. It accepts options to control session behavior, including an `auth` option with your Cloudflare account ID and API token for remote binding access.
-
-It returns an object with:
-
-  * `ready` `Promise<void>`: Resolves when the session is ready.
-  * `dispose` `() => Promise<void>`: Stops the session.
-  * `updateBindings` `(bindings: StartDevWorkerInput['bindings']) => Promise<void>`: Updates session bindings.
-  * `remoteProxyConnectionString` `remoteProxyConnectionString`: String to pass to Miniflare for remote binding access.
-
-
-
-#### `unstable_convertConfigBindingsToStartWorkerBindings`
-
-The `unstable_readConfig` utility returns an `Unstable_Config` object which includes the definition of the bindings included in the configuration file. These bindings definitions are however not directly compatible with `startRemoteProxySession`. It can be quite convenient to however read the binding declarations with `unstable_readConfig` and then pass them to `startRemoteProxySession`, so for this wrangler exposes `unstable_convertConfigBindingsToStartWorkerBindings` which is a simple utility to convert the bindings in an `Unstable_Config` object into a structure that can be passed to `startRemoteProxySession`.
-
-Note
-
-This type conversion is temporary. In the future, the types will be unified so you can pass the config object directly to `startRemoteProxySession`.
-
-#### `maybeStartOrUpdateRemoteProxySession`
-
-This wrapper simplifies proxy session management. It takes:
-
-  * An object that contains either: 
-    * the path to a Wrangler configuration and a potential target environment
-    * the name of the Worker and the bindings it is using
-  * The current proxy session details (this parameter can be set to `null` or not being provided if none).
-  * Potentially the auth data to use for the remote proxy session.
-
-
-
-It returns an object with the proxy session details if started or updated, or `null` if no proxy session is needed.
-
-The function:
-
-  * Based on the first argument prepares the input arguments for the proxy session.
-  * If there are no remote bindings to be used (nor a pre-existing proxy session) it returns null, signaling that no proxy session is needed.
-  * If the details of an existing proxy session have been provided it updates the proxy session accordingly.
-  * Otherwise if starts a new proxy session.
-  * Returns the proxy session details (that can later be passed as the second argument to `maybeStartOrUpdateRemoteProxySession`).
-
-
-
-#### Example
-
-Here's a basic example of using Miniflare with `maybeStartOrUpdateRemoteProxySession` to provide a local dev session with remote bindings. This example uses a single hardcoded KV binding.
-    
-    
-    import { Miniflare, MiniflareOptions } from "miniflare";
-    import { maybeStartOrUpdateRemoteProxySession } from "wrangler";
-    
-    let mf;
-    
-    let remoteProxySessionDetails = null;
-    
-    async function startOrUpdateDevSession() {
-    	remoteProxySessionDetails = await maybeStartOrUpdateRemoteProxySession(
-    		{
-    			bindings: {
-    				MY_KV: {
-    					type: "kv_namespace",
-    					id: "kv-id",
-    					remote: true,
-    				},
-    			},
-    		},
-    		remoteProxySessionDetails,
-    	);
-    
-    	const miniflareOptions = {
-    		scriptPath: "./worker.js",
-    		kvNamespaces: {
-    			MY_KV: {
-    				id: "kv-id",
-    				remoteProxyConnectionString:
-    					remoteProxySessionDetails?.session.remoteProxyConnectionString,
-    			},
-    		},
-    	};
-    
-    	if (!mf) {
-    		mf = new Miniflare(miniflareOptions);
-    	} else {
-    		mf.setOptions(miniflareOptions);
-    	}
-    }
-    
-    // ... tool logic that invokes `startOrUpdateDevSession()` ...
-    
-    // ... once the dev session is no longer needed run
-    // `remoteProxySessionDetails?.session.dispose()`
-    
-    
-    import { Miniflare, MiniflareOptions } from "miniflare";
-    import { maybeStartOrUpdateRemoteProxySession } from "wrangler";
-    
-    let mf: Miniflare | null;
-    
-    let remoteProxySessionDetails: Awaited<
-    	ReturnType<typeof maybeStartOrUpdateRemoteProxySession>
-    > | null = null;
-    
-    async function startOrUpdateDevSession() {
-    	remoteProxySessionDetails = await maybeStartOrUpdateRemoteProxySession(
-    		{
-    			bindings: {
-    				MY_KV: {
-    					type: "kv_namespace",
-    					id: "kv-id",
-    					remote: true,
-    				},
-    			},
-    		},
-    		remoteProxySessionDetails,
-    	);
-    
-    	const miniflareOptions: MiniflareOptions = {
-    		scriptPath: "./worker.js",
-    		kvNamespaces: {
-    			MY_KV: {
-    				id: "kv-id",
-    				remoteProxyConnectionString:
-    					remoteProxySessionDetails?.session.remoteProxyConnectionString,
-    			},
-    		},
-    	};
-    
-    	if (!mf) {
-    		mf = new Miniflare(miniflareOptions);
-    	} else {
-    		mf.setOptions(miniflareOptions);
-    	}
-    }
-    
-    // ... tool logic that invokes `startOrUpdateDevSession()` ...
-    
-    // ... once the dev session is no longer needed run
-    // `remoteProxySessionDetails?.session.dispose()`
+For tooling authors integrating remote bindings with [Miniflare](https://developers.cloudflare.com/workers/testing/miniflare/), refer to the [Remote bindings proxy API](https://developers.cloudflare.com/workers/wrangler/api/#remote-bindings-proxy-api) in the Wrangler API reference (`startRemoteProxySession`, `unstable_convertConfigBindingsToStartWorkerBindings`, and `maybeStartOrUpdateRemoteProxySession`).
 
 ## `wrangler dev --remote` (Legacy)
 
@@ -637,7 +488,7 @@ When using remote development, all bindings automatically connect to their remot
 
 
 
-[PreviousBuild an Interactive ChatGPT App](https://developers.cloudflare.com/workers/demos/chatgpt-app/)[NextEnvironment variables and secrets](https://developers.cloudflare.com/workers/local-development/environment-variables/)
+[PreviousMigrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)[NextChoosing between Wrangler & Vite](https://developers.cloudflare.com/workers/local-development/wrangler-vs-vite/)
 
 Was this helpful?
 

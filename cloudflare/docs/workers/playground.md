@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/playground/
 title: Playground \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:39.149513+00:00
+fetched_at: 2026-11-28T09:57:28.847580+00:00
 ---
 
 # Playground · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:39.149513+00:00
 
 # Playground
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/playground/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHello Cloudflare WorkersUse the PlaygroundLog viewerShareDeploy
 
@@ -95,7 +95,7 @@ You can deploy a Worker from the Playground. If you are already logged in, you c
 
 Once deployed, your Worker will get its own unique URL and be available almost instantly on Cloudflare's global network. From here, you can add [Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/), [storage resources](https://developers.cloudflare.com/workers/platform/storage-options/), and more.
 
-[PreviousShare a local dev server](https://developers.cloudflare.com/workers/local-development/local-dev-tunnels/)[NextOverview](https://developers.cloudflare.com/workers/configuration/)
+[PreviousDemos and architectures](https://developers.cloudflare.com/workers/demos/)[NextGlossary](https://developers.cloudflare.com/workers/glossary/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/local-explorer/
 title: Local Explorer \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:12.807359+00:00
+fetched_at: 2026-11-28T09:57:29.273806+00:00
 ---
 
 # Local Explorer · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-19T07:11:12.807359+00:00
 
 # Local Explorer
 
-Last updated Oct 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesOpen Local ExplorerSupported bindings D1 and Durable Objects SQL StudioTest Cron Triggers Build an ad hoc expressionObservability Logs TracesAPI Use with AI agents
 
@@ -186,7 +186,7 @@ This can be useful as an alternative to the CLI when you want an agent to:
 
 
 
-[PreviousSupported bindings per development mode](https://developers.cloudflare.com/workers/local-development/bindings-per-env/)[NextShare a local dev server](https://developers.cloudflare.com/workers/local-development/local-dev-tunnels/)
+[PreviousAdding local data](https://developers.cloudflare.com/workers/local-development/local-data/)[NextDeveloping with multiple Workers](https://developers.cloudflare.com/workers/local-development/multi-workers/)
 
 Was this helpful?
 

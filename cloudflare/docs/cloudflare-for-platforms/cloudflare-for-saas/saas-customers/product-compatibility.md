@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/product-compatibility/
 title: Product compatibility \u00b7 Cloudflare for Platforms docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-26T10:37:17.196417+00:00
+fetched_at: 2026-11-28T09:57:37.150255+00:00
 ---
 
 # Product compatibility · Cloudflare for Platforms docs
@@ -22,7 +22,7 @@ fetched_at: 2026-11-26T10:37:17.196417+00:00
 
 # Product compatibility
 
-Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 As a general rule, settings on the customer zone will override settings on the SaaS zone. In addition, [O2O](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/) does not permit traffic directed to a custom hostname zone into another custom hostname zone.
 
@@ -59,7 +59,7 @@ IPv6 | Yes | Yes |
 If not, make sure the SaaS zone enables [Pseudo IPv4](https://developers.cloudflare.com/network/pseudo-ipv4/).  
 [Load Balancing](https://developers.cloudflare.com/load-balancing/) | No | Yes | Customer zones can still use Load Balancing for non-O2O traffic.  
 [Page Rules](https://developers.cloudflare.com/rules/page-rules/) | Yes* | Yes | Page Rules that match the subdomain used for O2O may block or interfere with the flow of visitors to your website.  
-[Origin Rules](https://developers.cloudflare.com/rules/origin-rules/) | No | Yes |   
+[Origin Rules](https://developers.cloudflare.com/rules/origin-rules/) | Yes* | Yes | On an Enterprise customer zone, a [DNS record override](https://developers.cloudflare.com/rules/origin-rules/#route-a-path-on-an-o2o-hostname) can send matching requests to another origin without passing through the original SaaS provider zone. Requests that do not match continue using O2O.  
 [Client-side security](https://developers.cloudflare.com/client-side-security/) (formerly Page Shield) | Yes | Yes |   
 [Polish](https://developers.cloudflare.com/images/polish/) | Yes* | Yes | Polish only runs on cached assets. If the customer zone is bypassing cache for SaaS zone destined traffic, then images optimized by Polish will not be loaded from origin.  
 [Rate Limiting](https://developers.cloudflare.com/waf/rate-limiting-rules/) | Yes* | Yes | Rate Limiting rules that match the subdomain used for O2O may block or interfere with the flow of visitors to your website.  

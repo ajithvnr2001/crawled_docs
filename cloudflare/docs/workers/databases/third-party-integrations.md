@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/databases/third-party-integrations/
 title: 3rd Party Integrations \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:17.550006+00:00
+fetched_at: 2026-11-28T09:57:30.243870+00:00
 ---
 
 # 3rd Party Integrations · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:17.550006+00:00
 
 # 3rd Party Integrations
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/databases/third-party-integrations/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBackgroundDatabase credentialsDatabase limitsPopular providers
 
@@ -40,8 +40,10 @@ You can connect to multiple databases by configuring separate sets of secrets fo
 
 ## Popular providers
 
+  * [MongoDB](https://developers.cloudflare.com/workers/databases/third-party-integrations/mongodb/)
   * [Neon](https://developers.cloudflare.com/workers/databases/third-party-integrations/neon/)
   * [PlanetScale](https://developers.cloudflare.com/workers/databases/third-party-integrations/planetscale/)
+  * [Set up and use a Prisma Postgres database](https://developers.cloudflare.com/workers/databases/third-party-integrations/prisma-postgres/)
   * [Supabase](https://developers.cloudflare.com/workers/databases/third-party-integrations/supabase/)
   * [Turso](https://developers.cloudflare.com/workers/databases/third-party-integrations/turso/)
   * [Upstash](https://developers.cloudflare.com/workers/databases/third-party-integrations/upstash/)
@@ -49,7 +51,7 @@ You can connect to multiple databases by configuring separate sets of secrets fo
 
 
 
-[PreviousHyperdrive ↗︎](https://developers.cloudflare.com/hyperdrive/)[NextNeon](https://developers.cloudflare.com/workers/databases/third-party-integrations/neon/)
+[PreviousVectorize (vector database) ↗︎](https://developers.cloudflare.com/vectorize/)[NextMongoDB](https://developers.cloudflare.com/workers/databases/third-party-integrations/mongodb/)
 
 Was this helpful?
 

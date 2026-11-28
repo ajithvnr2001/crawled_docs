@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/ruleset-engine/managed-rulesets/create-exception/
 title: Create an exception \u00b7 Cloudflare Ruleset Engine docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:01.418111+00:00
+fetched_at: 2026-11-28T09:57:35.998060+00:00
 ---
 
 # Create an exception · Cloudflare Ruleset Engine docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:15:01.418111+00:00
 
 # Create an exception
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/ruleset-engine/managed-rulesets/create-exception/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTypes of exceptions Skip all remaining rules Skip one or more managed rulesets Skip one or more rules of managed rulesetsAdditional notes
 
@@ -44,7 +44,7 @@ An exception can have one of the following behaviors (from highest to lowest pri
 
 
 
-You define exceptions in a given context — zone level or account level — and they apply only to that context. For example, if you define an exception that skips all remaining rules at the account level, the rules defined in the entry point ruleset at the zone level will still be evaluated.
+You define exceptions in a given context — zone level or account level. Account-level exceptions that skip managed ruleset rules also apply to zone-level deployments of the same managed ruleset that run after them. Zone-level exceptions do not affect account-level rules. For details on how the `phases` skip option behaves at each level, refer to [Skip phases](https://developers.cloudflare.com/waf/custom-rules/skip/options/#skip-phases).
 
 If there is a match for the expressions of several exceptions, Cloudflare will consider the exception with the highest priority.
 

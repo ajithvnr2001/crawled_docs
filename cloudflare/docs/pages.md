@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/
 title: Overview \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:27.878781+00:00
+fetched_at: 2026-11-28T09:57:32.669859+00:00
 ---
 
 # Overview · Cloudflare Pages docs
@@ -16,19 +16,17 @@ fetched_at: 2026-10-08T07:12:27.878781+00:00
 
 # Cloudflare Pages
 
-Last updated Aug 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewFeaturesRelated productsMore resources
 
-Are you sure you want to use Pages?
-
-[Workers supports most Pages use cases and offers a broader feature set](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/). It is Cloudflare's primary platform for building applications. Start new projects with Workers.
-
-Create full-stack applications that are instantly deployed to the Cloudflare global network.
+Deploy static and full-stack applications to the Cloudflare global network with Cloudflare Pages.
 
 Available on all plans
 
-Deploy your Pages project by connecting to [your Git provider](https://developers.cloudflare.com/pages/get-started/git-integration/), uploading prebuilt assets directly to Pages with [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/) or using [C3](https://developers.cloudflare.com/pages/get-started/c3/) from the command line.
+For new static sites and full-stack applications, start with [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/get-started/). Workers supports [static assets](https://developers.cloudflare.com/workers/static-assets/), [framework guides](https://developers.cloudflare.com/workers/framework-guides/), [automatic configuration](https://developers.cloudflare.com/workers/framework-guides/automatic-configuration/) for existing projects, and [Git-connected builds](https://developers.cloudflare.com/workers/ci-cd/builds/). If you already run a Pages project and want to move to Workers, refer to the [Pages to Workers migration guide](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/).
+
+Deploy Pages projects by connecting to [your Git provider](https://developers.cloudflare.com/pages/get-started/git-integration/), uploading prebuilt assets with [Direct Upload](https://developers.cloudflare.com/pages/get-started/direct-upload/), or using [C3](https://developers.cloudflare.com/pages/get-started/c3/) from the command line.
 
 * * *
 
@@ -56,9 +54,9 @@ Use Redirects
 
 ## Related products
 
-[Workers](https://developers.cloudflare.com/workers/)
+[Workers](https://developers.cloudflare.com/workers/static-assets/)
 
-Cloudflare Workers provides a serverless execution environment that allows you to create new applications or augment existing ones without configuring or maintaining infrastructure.
+Deploy static sites, front-end frameworks, and full-stack serverless applications with Workers Static Assets and Workers Builds.
 
 [R2](https://developers.cloudflare.com/r2/)
 
@@ -80,9 +78,9 @@ Offload third-party tools and services to the cloud and improve the speed and se
 
 Learn about limits that apply to your Pages project (500 deploys per month on the Free plan).
 
-### [Framework guides](https://developers.cloudflare.com/pages/framework-guides/)
+### [Migrate to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/migrate-from-pages/)
 
-Deploy popular frameworks such as React, Hugo, and static Next.js exports on Pages.
+Move an existing Pages project to Cloudflare Workers with Static Assets and Workers Builds.
 
 ### [Developer Discord](https://discord.cloudflare.com)
 

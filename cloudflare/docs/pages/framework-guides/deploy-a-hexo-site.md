@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-hexo-site/
 title: Hexo \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.189313+00:00
+fetched_at: 2026-11-28T09:57:33.171197+00:00
 ---
 
 # Hexo · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:30.189313+00:00
 
 # Hexo
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hexo-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewInstalling HexoBefore you continueCreating a new projectCreating a postCreate a GitHub repositoryDeploy with Cloudflare PagesUsing a specific Node.js versionLearn more
+
+Note
+
+Starting a new static site? You can also deploy Hexo sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [Hexo ↗︎](https://hexo.io/) is a tool for generating static websites, powered by Node.js. Hexo's benefits include speed, simplicity, and flexibility, allowing it to render Markdown files into static web pages via Node.js.
 
@@ -105,7 +109,7 @@ Production branch | `main`
 Build command | `npm run build`  
 Build directory | `public`  
   
-After completing configuration, click the **Save and Deploy** button. You should see Cloudflare Pages installing `hexo` and your project dependencies, and building your site, before deploying it.
+After completing configuration, select **Save and Deploy**. You should see Cloudflare Pages installing `hexo` and your project dependencies, and building your site, before deploying it.
 
 Note
 
@@ -115,11 +119,11 @@ After deploying your site, you will receive a unique subdomain for your project 
 
 ## Using a specific Node.js version
 
-Some Hexo themes or plugins have additional requirements for different Node.js versions. To use a specific Node.js version for Hexo:
+Some Hexo themes or plugins require a specific Node.js version. To override the Build Image v3 default Node.js version for Hexo:
 
   1. Go to your Pages project.
-  2. Go to **Settings** > **Environment variables**.
-  3. Set the environment variable `NODE_VERSION` and a value of your required Node.js version (for example, `14.3`).
+  2. Go to **Settings** > **Variables and Secrets**.
+  3. Set the environment variable `NODE_VERSION` to your required Node.js version (for example, `22.23.4`). Refer to [Override default versions](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions) for more options.
 
 ![Follow the instructions above to set up an environment variable in the Pages dashboard](https://developers.cloudflare.com/cdn-cgi/image/onerror=redirect,width=2121,height=948,format=webp/_astro/node-version-pages.19kURO88.png)
 
@@ -127,7 +131,7 @@ Some Hexo themes or plugins have additional requirements for different Node.js v
 
 By completing this guide, you have successfully deployed your Hexo site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousGridsome](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gridsome-site/)[NextHono](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hono-site/)
+[PreviousGatsby](https://developers.cloudflare.com/pages/framework-guides/deploy-a-gatsby-site/)[NextHono](https://developers.cloudflare.com/pages/framework-guides/deploy-a-hono-site/)
 
 Was this helpful?
 

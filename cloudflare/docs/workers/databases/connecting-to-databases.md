@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/databases/connecting-to-databases/
 title: Connect to databases \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:07.350623+00:00
+fetched_at: 2026-11-28T09:57:30.001056+00:00
 ---
 
 # Connect to databases · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-13T09:17:07.350623+00:00
 
 # Connect to databases
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview D1 and Durable Objects Traditional databases Serverless databasesAuthenticationNext steps
 
@@ -55,8 +55,8 @@ This also includes serverless databases that are PostgreSQL or MySQL-compatible 
 
 Database | Integration | Library or Driver | Connection Method  
 ---|---|---|---  
-[Postgres](https://developers.cloudflare.com/workers/tutorials/postgres/) | Direct connection | [node-postgres ↗︎](https://node-postgres.com/),[Postgres.js ↗︎](https://github.com/porsager/postgres) | [TCP Socket](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) via database driver, using [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) for optimal performance (optional, recommended)  
-[MySQL](https://developers.cloudflare.com/workers/tutorials/mysql/) | Direct connection | [mysql2 ↗︎](https://github.com/sidorares/node-mysql2), [mysql ↗︎](https://github.com/mysqljs/mysql) | [TCP Socket](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) via database driver, using [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) for optimal performance (optional, recommended)  
+[Postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/) | Direct connection | [node-postgres ↗︎](https://node-postgres.com/),[Postgres.js ↗︎](https://github.com/porsager/postgres) | [TCP Socket](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) via database driver, using [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) for optimal performance (optional, recommended)  
+[MySQL](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/) | Direct connection | [mysql2 ↗︎](https://github.com/sidorares/node-mysql2), [mysql ↗︎](https://github.com/mysqljs/mysql) | [TCP Socket](https://developers.cloudflare.com/workers/runtime-apis/tcp-sockets/) via database driver, using [Hyperdrive](https://developers.cloudflare.com/hyperdrive/) for optimal performance (optional, recommended)  
   
 Speed up database connectivity with Hyperdrive
 
@@ -84,7 +84,7 @@ Database | Library or Driver | Connection Method
 ---|---|---  
 [PlanetScale ↗︎](https://planetscale.com/blog/introducing-the-planetscale-serverless-driver-for-javascript) | [Hyperdrive (MySQL)](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-database-providers/planetscale), [Hyperdrive (PostgreSQL)](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/planetscale-postgres/), [@planetscale/database ↗︎](https://github.com/planetscale/database-js) | [mysql2](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql2/), [mysql](https://developers.cloudflare.com/hyperdrive/examples/connect-to-mysql/mysql-drivers-and-libraries/mysql/), [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/), [Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
 [Supabase ↗︎](https://github.com/supabase/supabase/tree/master/examples/with-cloudflare-workers) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/supabase/), [@supabase/supabase-js ↗︎](https://github.com/supabase/supabase-js) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
-[Prisma Postgres](https://developers.cloudflare.com/workers/tutorials/using-prisma-postgres-with-workers/) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/prisma-postgres/), [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/)  
+[Prisma Postgres](https://developers.cloudflare.com/workers/databases/third-party-integrations/prisma-postgres/) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/prisma-postgres/), [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or [Prisma ORM](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/prisma-orm/)  
 [Neon ↗︎](https://blog.cloudflare.com/neon-postgres-database-from-workers/) | [Hyperdrive](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-database-providers/neon/), [@neondatabase/serverless ↗︎](https://neon.tech/blog/serverless-driver-for-postgres/) | [node-postgres](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/node-postgres/),[Postgres.js](https://developers.cloudflare.com/hyperdrive/examples/connect-to-postgres/postgres-drivers-and-libraries/postgres-js/), or API via client library  
 [Hasura ↗︎](https://hasura.io/blog/building-applications-with-cloudflare-workers-and-hasura-graphql-engine/) | API | GraphQL API via fetch()  
 [Upstash Redis ↗︎](https://blog.cloudflare.com/cloudflare-workers-database-integration-with-upstash/) | [@upstash/redis ↗︎](https://github.com/upstash/upstash-redis) | API via client library  
@@ -116,7 +116,7 @@ For services that require mTLS authentication, use [mTLS certificates](https://d
 
 
 
-[PreviousLangChain ↗︎](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)[NextVectorize (vector database) ↗︎](https://developers.cloudflare.com/vectorize/)
+[PreviousSecrets](https://developers.cloudflare.com/workers/configuration/secrets/)[NextHyperdrive (PostgreSQL, MySQL) ↗︎](https://developers.cloudflare.com/hyperdrive/)
 
 Was this helpful?
 

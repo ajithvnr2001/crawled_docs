@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/durable-objects/best-practices/rules-of-durable-objects/
 title: Rules of Durable Objects \u00b7 Cloudflare Durable Objects docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-19T10:02:07.762816+00:00
+fetched_at: 2026-11-28T09:57:31.614327+00:00
 ---
 
 # Rules of Durable Objects · Cloudflare Durable Objects docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-19T10:02:07.762816+00:00
 
 # Rules of Durable Objects
 
-Last updated Nov 18, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhen to use Durable Objects Use Durable Objects for stateful coordination, not stateless request handling Use deterministic IDs for predictable routing Use parent-child relationships for related entitiesStorage and state Use SQLite-backed Durable Objects Understand the difference between in-memory state and persistent storage Understand how input and output gates work Use blockConcurrencyWhile() sparingly Read a Durable Object's identity from ctx.idError handling Handle errors and use exception boundaries Use serializeAttachment() to persist per-connection state Make alarm handlers idempotent Design for unexpected shutdownsAnti-patterns to avoid Do not use a single Durable Object as a global singletonRelated resources
 
@@ -2586,7 +2586,7 @@ Refer to [Durable Object class exports](https://developers.cloudflare.com/durabl
 
 ## Related resources
 
-  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/): code patterns for request handling, observability, and security that apply to the Workers calling your Durable Objects.
+  * [Workers Best Practices](https://developers.cloudflare.com/workers/best-practices/): code patterns for request handling, observability, and security that apply to the Workers calling your Durable Objects.
   * [Rules of Workflows](https://developers.cloudflare.com/workflows/build/rules-of-workflows/): best practices for durable, multi-step Workflows — useful when combining Workflows with Durable Objects for long-running orchestration.
 
 

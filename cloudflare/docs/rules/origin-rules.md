@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/origin-rules/
 title: Origin Rules \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:49.443356+00:00
+fetched_at: 2026-11-28T09:57:37.242819+00:00
 ---
 
 # Origin Rules · Cloudflare Rules docs
@@ -17,9 +17,9 @@ fetched_at: 2026-10-08T07:14:49.443356+00:00
 
 # Origin Rules
 
-Last updated Aug 14, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/origin-rules/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewRules templatesAvailabilityExecution orderImportant remarksTroubleshooting
+OverviewRules templatesAvailabilityExecution orderImportant remarksRoute a path on an O2O hostnameTroubleshooting
 
 Origin Rules allow you to change the origin server that Cloudflare sends a request to, or modify how the request reaches that server. This is useful when you need to route specific requests to a different backend, such as a third-party service or a server on a non-standard port. You can perform the following overrides:
 
@@ -101,9 +101,30 @@ If you override the hostname with an origin rule (via `Host` header override or 
 
 Like [Page Rules](https://developers.cloudflare.com/rules/page-rules/), an origin rule performing a `Host` header override will update the SNI value of the original request to the same value of the `Host` header. To set an SNI value different from the `Host` header override, add an SNI override in the same origin rule or create a separate origin rule for this purpose.
 
+## Route a path on an O2O hostname
+
+If your hostname uses [Orange-to-Orange (O2O)](https://developers.cloudflare.com/cloudflare-for-platforms/cloudflare-for-saas/saas-customers/how-it-works/), use a [DNS record override](https://developers.cloudflare.com/rules/origin-rules/features/#dns-record) on your Enterprise customer zone to send matching requests to a directly reachable origin. These requests bypass the original SaaS provider zone and its settings. Requests that do not match the rule continue using the existing O2O route.
+
+For example, to serve `/microsite` and its subpaths from another origin:
+
+  1. Keep the proxied `CNAME` record for `platform.example.com` pointing to your SaaS provider.
+
+  2. Create a DNS record, such as `microsite-origin.example.com`, that points to the alternate origin.
+
+  3. [Create an origin rule](https://developers.cloudflare.com/rules/origin-rules/create-dashboard/) on `example.com` with this expression:
+         
+         http.host eq "platform.example.com" and (http.request.uri.path eq "/microsite" or starts_with(http.request.uri.path, "/microsite/"))
+
+  4. Set the DNS record override to `microsite-origin.example.com`. If the alternate origin expects a different `Host` header, also set a [`Host` header override](https://developers.cloudflare.com/rules/origin-rules/features/#host-header).
+
+
+
+
+Like [Resolve Override in Page Rules](https://developers.cloudflare.com/rules/page-rules/reference/settings/), this changes the origin for matching requests without redirecting visitors. It does not onboard the hostname with another SaaS provider or add a provider zone to the existing O2O route.
+
 ## Troubleshooting
 
-When troubleshooting origin rules, use [Cloudflare Trace](https://developers.cloudflare.com/rules/trace-request/) to determine if a rule is triggering for a specific URL.
+When troubleshooting origin rules, use [Rules simulator](https://developers.cloudflare.com/rules/simulator/) to determine if a rule is triggering for a specific URL.
 
 [PreviousRemove locale from URL path](https://developers.cloudflare.com/rules/url-forwarding/examples/remove-locale-url/)[NextCreate a rule in the dashboard](https://developers.cloudflare.com/rules/origin-rules/create-dashboard/)
 

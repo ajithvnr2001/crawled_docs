@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/tutorials/
 title: Tutorials \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:59.836342+00:00
+fetched_at: 2026-11-28T09:57:28.158420+00:00
 ---
 
 # Tutorials · Cloudflare Workers docs
@@ -17,24 +17,23 @@ fetched_at: 2026-10-08T07:17:59.836342+00:00
 
 # Tutorials
 
-Last updated May 19, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/tutorials/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 View tutorials to help you get started with Workers.
 
 Name| Last Updated| Difficulty  
 ---|---|---  
-[Build a coding agent runner](https://developers.cloudflare.com/sandbox/get-started/build-a-coding-agent-runner/)| 14 days ago| Intermediate  
-[Build an AI code interpreter](https://developers.cloudflare.com/sandbox/get-started/build-an-ai-code-interpreter/)| 15 days ago| Intermediate  
-[Tutorial - React SPA with an API](https://developers.cloudflare.com/workers/vite-plugin/tutorial/)| 4 months ago| Beginner  
-[Build a Comments API](https://developers.cloudflare.com/d1/tutorials/build-a-comments-api/)| 7 months ago| Intermediate  
-[Build an Interactive ChatGPT App](https://developers.cloudflare.com/workers/demos/chatgpt-app/)| 11 months ago| Advanced  
-[Deploy an Express.js application on Cloudflare Workers](https://developers.cloudflare.com/workers/tutorials/deploy-an-express-app/)| 12 months ago| Beginner  
-[Connect to a PostgreSQL database with Cloudflare Workers](https://developers.cloudflare.com/workers/tutorials/postgres/)| last year| Beginner  
+[Set up and use a Prisma Postgres database](https://developers.cloudflare.com/workers/databases/third-party-integrations/prisma-postgres/)| 25 days ago| Beginner  
+[Migrate from Vercel to Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/)| 26 days ago| Beginner  
+[Build a coding agent runner](https://developers.cloudflare.com/sandbox/get-started/build-a-coding-agent-runner/)| 2 months ago| Intermediate  
+[Build an AI code interpreter](https://developers.cloudflare.com/sandbox/get-started/build-an-ai-code-interpreter/)| 2 months ago| Intermediate  
+[Tutorial - React SPA with an API](https://developers.cloudflare.com/workers/vite-plugin/tutorial/)| 6 months ago| Beginner  
+[Build a Comments API](https://developers.cloudflare.com/d1/tutorials/build-a-comments-api/)| 9 months ago| Intermediate  
+[Build an Interactive ChatGPT App](https://developers.cloudflare.com/agents/examples/chatgpt-app/)| last year| Advanced  
+[Deploy an Express.js application on Cloudflare Workers](https://developers.cloudflare.com/workers/tutorials/deploy-an-express-app/)| last year| Beginner  
+[Connect to a MongoDB database with Cloudflare Workers](https://developers.cloudflare.com/workers/tutorials/connect-to-mongodb-atlas/)| last year| Beginner  
 [Query D1 using Prisma ORM](https://developers.cloudflare.com/d1/tutorials/d1-and-prisma-orm/)| last year| Beginner  
-[Migrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)| last year| Beginner  
-[Migrate from Vercel to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/vercel-to-workers/)| last year| Beginner  
-[Connect to a MySQL database with Cloudflare Workers](https://developers.cloudflare.com/workers/tutorials/mysql/)| 2 years ago| Beginner  
-[Set up and use a Prisma Postgres database](https://developers.cloudflare.com/workers/tutorials/using-prisma-postgres-with-workers/)| 2 years ago| Beginner  
+[Migrate from Netlify to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/netlify-to-workers/)| 2 years ago| Beginner  
 [Store and Catalog AI Generated Images with R2 (Part 3)](https://developers.cloudflare.com/workers-ai/guides/tutorials/image-generation-playground/image-generator-store-and-catalog/)| 2 years ago| Beginner  
 [Build a Retrieval Augmented Generation (RAG) AI](https://developers.cloudflare.com/workers-ai/guides/tutorials/build-a-retrieval-augmented-generation-ai/)| 2 years ago| Beginner  
 [Using BigQuery with Workers AI](https://developers.cloudflare.com/workers-ai/guides/tutorials/using-bigquery-with-workers-ai/)| 2 years ago| Beginner  
@@ -48,10 +47,10 @@ Name| Last Updated| Difficulty
 [Build a web crawler with Queues and Browser Run](https://developers.cloudflare.com/queues/tutorials/web-crawler-with-browser-run/)| 2 years ago| Intermediate  
 [Create a fine-tuned OpenAI model with R2](https://developers.cloudflare.com/workers/tutorials/create-finetuned-chatgpt-ai-models-with-r2/)| 2 years ago| Intermediate  
 [Build a Slackbot](https://developers.cloudflare.com/workers/tutorials/build-a-slackbot/)| 2 years ago| Beginner  
-[Use Workers KV directly from Rust](https://developers.cloudflare.com/workers/tutorials/workers-kv-from-rust/)| 2 years ago| Intermediate  
-[Build a todo list Jamstack application](https://developers.cloudflare.com/workers/tutorials/build-a-jamstack-app/)| 2 years ago| Beginner  
-[Send Emails With Postmark](https://developers.cloudflare.com/workers/tutorials/send-emails-with-postmark/)| 2 years ago| Beginner  
-[Send Emails With Resend](https://developers.cloudflare.com/workers/tutorials/send-emails-with-resend/)| 2 years ago| Beginner  
+[Use Workers KV directly from Rust](https://developers.cloudflare.com/workers/tutorials/workers-kv-from-rust/)| 3 years ago| Intermediate  
+[Build a todo list Jamstack application](https://developers.cloudflare.com/workers/tutorials/build-a-jamstack-app/)| 3 years ago| Beginner  
+[Send Emails With Postmark](https://developers.cloudflare.com/workers/tutorials/send-emails-with-postmark/)| 3 years ago| Beginner  
+[Send Emails With Resend](https://developers.cloudflare.com/workers/tutorials/send-emails-with-resend/)| 3 years ago| Beginner  
 [Log and store upload events in R2 with event notifications](https://developers.cloudflare.com/r2/tutorials/upload-logs-event-notifications/)| 3 years ago| Beginner  
 [Create custom headers for Cloudflare Access-protected origins with Workers](https://developers.cloudflare.com/cloudflare-one/tutorials/access-workers/)| 3 years ago| Intermediate  
 [Create a serverless, globally distributed time-series API with Timescale](https://developers.cloudflare.com/hyperdrive/tutorials/serverless-timeseries-api-with-timescale/)| 3 years ago| Beginner  
@@ -67,8 +66,17 @@ Name| Last Updated| Difficulty
 [Extract a brand kit from any website](https://developers.cloudflare.com/browser-run/how-to/extract-brand-kit/)| | Intermediate  
 [Generate OG images for Astro sites](https://developers.cloudflare.com/browser-run/how-to/og-images-astro/)| | Intermediate  
 [Pre-render pages for crawlers](https://developers.cloudflare.com/browser-run/how-to/pre-render-pages/)| | Intermediate  
+[Display a coaching page](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/coaching-page/)| | Beginner  
+[Capture a downloaded file](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/download-capture/)| | Intermediate  
+[Store headers and bodies as JSON](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/json-capture/)| | Intermediate  
+[Redact a JSON field](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/json-redaction/)| | Intermediate  
+[Capture a screenshot](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/screenshot/)| | Beginner  
+[Send a Slack notification](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/slack-notification/)| | Beginner  
+[Watermark HTML pages](https://developers.cloudflare.com/cloudflare-one/traffic-controls/integrate-workers/worker-templates/watermark/)| | Beginner  
+[Migrate from Firebase Hosting to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/firebase-to-workers/)| | Beginner  
+[Migrate from GitHub Pages to Workers](https://developers.cloudflare.com/workers/static-assets/migration-guides/github-pages-to-workers/)| | Beginner  
   
-[PreviousExamples](https://developers.cloudflare.com/workers/examples/)[NextWorkers Best Practices](https://developers.cloudflare.com/workers/best-practices/workers-best-practices/)
+[PreviousSecurity model](https://developers.cloudflare.com/workers/reference/security-model/)[NextDemos and architectures](https://developers.cloudflare.com/workers/demos/)
 
 Was this helpful?
 

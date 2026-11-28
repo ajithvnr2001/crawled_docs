@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/origin-rules/features/
 title: Origin Rules settings \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:14:49.823573+00:00
+fetched_at: 2026-11-28T09:57:37.194874+00:00
 ---
 
 # Origin Rules settings · Cloudflare Rules docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:14:49.823573+00:00
 
 # Origin Rules settings
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/origin-rules/features/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHost headerServer Name Indication (SNI)DNS recordDestination port
 
@@ -64,6 +64,8 @@ A common use case is when you are serving an application from a specific path (f
 Note
 
   * You must specify a valid hostname in a DNS record override that is a hostname on the same Cloudflare account (possibly on a different zone). You can [configure a DNS record](https://developers.cloudflare.com/dns/manage-dns-records/how-to/create-dns-records#create-dns-records) (a `CNAME`, `A`, or `AAAA` record) with a hostname pointing to a third-party hostname/IP address, either proxied by Cloudflare or not.
+
+  * If your hostname uses Orange-to-Orange (O2O), refer to [Route a path on an O2O hostname](https://developers.cloudflare.com/rules/origin-rules/#route-a-path-on-an-o2o-hostname).
 
   * In most situations, when you configure a DNS record override you also need to configure a `Host` header override. The DNS record override handles the rerouting of the request; the `Host` header override updates the `Host` HTTP header value in the request. Defining a `Host` header override will also update the Server Name Indication (SNI) value of the original request to the same value. To set an SNI value different from the `Host` header value, add an SNI override in the same origin rule or create a separate origin rule for this purpose.
 

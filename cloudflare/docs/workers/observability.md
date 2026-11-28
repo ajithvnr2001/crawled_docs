@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/observability/
 title: Observability \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-10T14:39:24.042799+00:00
+fetched_at: 2026-11-28T09:57:29.043795+00:00
 ---
 
 # Observability · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-10T14:39:24.042799+00:00
 
 # Observability
 
-Last updated Oct 10, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewLogsTracesIssuesMetrics and analyticsQuery BuilderExporting dataDebuggingAdditional resources
 
@@ -95,7 +95,7 @@ Query Workers observability data with the Cloudflare API MCP server.
 
 Integrate Workers with third-party observability platforms.
 
-[PreviousXata](https://developers.cloudflare.com/workers/databases/third-party-integrations/xata/)[NextMetrics and analytics](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/)
+[PreviousLimitations](https://developers.cloudflare.com/workers/cache/limitations/)[NextMetrics and analytics](https://developers.cloudflare.com/workers/observability/metrics-and-analytics/)
 
 Was this helpful?
 

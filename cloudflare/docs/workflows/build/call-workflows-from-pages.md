@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workflows/build/call-workflows-from-pages/
 title: Call Workflows from Pages \u00b7 Cloudflare Workflows docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:18:13.815650+00:00
+fetched_at: 2026-11-28T09:57:35.464069+00:00
 ---
 
 # Call Workflows from Pages · Cloudflare Workflows docs
@@ -18,9 +18,9 @@ fetched_at: 2026-10-08T07:18:13.815650+00:00
 
 # Call Workflows from Pages
 
-Last updated Apr 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workflows/build/call-workflows-from-pages/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-Overview Use Service Bindings Using fetch Next steps
+OverviewUse Service bindingsUse fetchNext steps
 
 Use Static Assets
 
@@ -36,15 +36,15 @@ Note
 
 You will need to deploy your Workflow as a standalone Workers project first before your Pages Function can call it. If you have not yet deployed a Workflow, refer to the Workflows [get started guide](https://developers.cloudflare.com/workflows/get-started/guide/).
 
-### Use Service Bindings
+## Use Service bindings
 
 [Service Bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) allow you to call a Worker from another Worker or a Pages Function without needing to expose it directly.
 
 To do this, you will need to:
 
-  1. Deploy your Workflow in a Worker
-  2. Create a Service Binding to that Worker in your Pages project
-  3. Call the Worker remotely using the binding
+  1. Deploy your Workflow in a Worker.
+  2. Create a Service Binding to that Worker in your Pages project.
+  3. Call the Worker remotely using the binding.
 
 
 
@@ -67,7 +67,7 @@ For example, if you have a Worker called `workflows-starter`, you would create a
 
 Your Worker can expose a specific method (or methods) that only other Workers or Pages Functions can call over the Service Binding.
 
-In the following example, we expose a specific `createInstance` method that accepts our `Payload` and returns the [`InstanceStatus`](https://developers.cloudflare.com/workflows/build/workers-api/#instancestatus) from the Workflows API:
+In the following example, we expose a specific `createInstance` method that accepts our `Payload` and returns a `Response` containing the instance ID and [`InstanceStatus`](https://developers.cloudflare.com/workflows/build/workers-api/#instancestatus) from the Workflows API:
 
 index.jsjs
     
@@ -81,7 +81,7 @@ index.jsjs
     	}
     
     	async createInstance(payload) {
-    		let instance = await this.env.MY_WORKFLOW.create({
+    		const instance = await this.env.MY_WORKFLOW.create({
     			params: payload,
     		});
     
@@ -112,7 +112,7 @@ index.tsts
     	}
     
     	async createInstance(payload: Payload) {
-    		let instance = await this.env.MY_WORKFLOW.create({
+    		const instance = await this.env.MY_WORKFLOW.create({
     			params: payload,
     		});
     
@@ -130,32 +130,42 @@ functions/request.jsjs
     
     export const onRequest = async (context) => {
     	// This payload could be anything from within your app or from your frontend
-    	let payload = { hello: "world" };
-    	return context.env.WORKFLOWS_SERVICE.createInstance(payload);
+    	const payload = { hello: "world" };
+    	return context.env.WORKFLOW_SERVICE.createInstance(payload);
     };
 
 functions/request.tsts
     
     
+    import type { WorkerEntrypoint } from "cloudflare:workers";
+    
+    type Payload = {
+    	hello: string;
+    };
+    
+    declare class WorkflowsService extends WorkerEntrypoint {
+    	createInstance(payload: Payload): Promise<Response>;
+    }
+    
     interface Env {
-    	WORKFLOW_SERVICE: Service;
+    	WORKFLOW_SERVICE: Service<WorkflowsService>;
     }
     
     export const onRequest: PagesFunction<Env> = async (context) => {
     	// This payload could be anything from within your app or from your frontend
-    	let payload = { hello: "world" };
-    	return context.env.WORKFLOWS_SERVICE.createInstance(payload);
+    	const payload: Payload = { hello: "world" };
+    	return context.env.WORKFLOW_SERVICE.createInstance(payload);
     };
 
 To learn more about binding to resources from Pages Functions, including how to bind via the Cloudflare dashboard, refer to the [bindings documentation for Pages Functions](https://developers.cloudflare.com/pages/functions/bindings/#service-bindings).
 
-### Using fetch
+## Use fetch
 
 Service Bindings vs. fetch
 
 We recommend using [Service Bindings](https://developers.cloudflare.com/workers/runtime-apis/bindings/service-bindings/) when calling a Worker in your own account.
 
-Service Bindings don't require you to expose a public endpoint from your Worker, don't require you to configure authentication, and allow you to call methods on your Worker directly, avoiding the overhead of managing HTTP requests and responses.
+Service Bindings do not require you to expose a public endpoint from your Worker, do not require you to configure authentication, and allow you to call methods on your Worker directly, avoiding the overhead of managing HTTP requests and responses.
 
 An alternative to setting up a Service Binding is to call the Worker over HTTP by using the Workflows [Workers API](https://developers.cloudflare.com/workflows/build/workers-api/#workflow) to `create` a new Workflow instance for each incoming HTTP call to the Worker:
 
@@ -165,7 +175,8 @@ index.jsjs
     // This is in the same file as your Workflow definition
     export default {
     	async fetch(req, env) {
-    		let instance = await env.MY_WORKFLOW.create({
+    		const payload = await req.json();
+    		const instance = await env.MY_WORKFLOW.create({
     			params: payload,
     		});
     		return Response.json({
@@ -178,10 +189,15 @@ index.jsjs
 index.tsts
     
     
+    interface Env {
+    	MY_WORKFLOW: Workflow;
+    }
+    
     // This is in the same file as your Workflow definition
     export default {
     	async fetch(req: Request, env: Env): Promise<Response> {
-    		let instance = await env.MY_WORKFLOW.create({
+    		const payload = await req.json();
+    		const instance = await env.MY_WORKFLOW.create({
     			params: payload,
     		});
     		return Response.json({
@@ -196,34 +212,42 @@ Your [Pages Function](https://developers.cloudflare.com/pages/functions/get-star
 functions/request.jsjs
     
     
-    export const onRequest = async (context) => {
+    export const onRequest = async () => {
     	// Other code
-    	let payload = { hello: "world" };
-    	const instanceStatus = await fetch("https://YOUR_WORKER.workers.dev/", {
+    	const payload = { hello: "world" };
+    	const response = await fetch("https://YOUR_WORKER.workers.dev/", {
     		method: "POST",
+    		headers: {
+    			"Content-Type": "application/json",
+    		},
     		body: JSON.stringify(payload), // Send a payload for our Worker to pass to the Workflow
     	});
     
+    	const instanceStatus = await response.json();
     	return Response.json(instanceStatus);
     };
 
 functions/request.tsts
     
     
-    export const onRequest: PagesFunction<Env> = async (context) => {
+    export const onRequest: PagesFunction = async () => {
     	// Other code
-    	let payload = { hello: "world" };
-    	const instanceStatus = await fetch("https://YOUR_WORKER.workers.dev/", {
+    	const payload = { hello: "world" };
+    	const response = await fetch("https://YOUR_WORKER.workers.dev/", {
     		method: "POST",
+    		headers: {
+    			"Content-Type": "application/json",
+    		},
     		body: JSON.stringify(payload), // Send a payload for our Worker to pass to the Workflow
     	});
     
+    	const instanceStatus = await response.json();
     	return Response.json(instanceStatus);
     };
 
 You can also choose to authenticate these requests by passing a shared secret in a header and validating that in your Worker.
 
-### Next steps
+## Next steps
 
   * Learn more about how to programmatically call and trigger Workflows from the [Workers API](https://developers.cloudflare.com/workflows/build/workers-api/)
   * Understand how to send [events and parameters](https://developers.cloudflare.com/workflows/build/events-and-parameters/) when triggering a Workflow

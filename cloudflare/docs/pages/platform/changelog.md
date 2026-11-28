@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/platform/changelog/
 title: Changelog \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:36.482868+00:00
+fetched_at: 2026-11-28T09:57:31.727856+00:00
 ---
 
 # Changelog · Cloudflare Pages docs
@@ -18,7 +18,11 @@ fetched_at: 2026-10-08T07:12:36.482868+00:00
 
 # Changelog
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/platform/changelog/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+
+Note
+
+This page archives historical Cloudflare Pages release notes. For recent Cloudflare Pages announcements and updates, refer to the [Cloudflare Pages changelog](https://developers.cloudflare.com/changelog/product/pages/).
 
 [Subscribe to RSS](https://developers.cloudflare.com/pages/platform/changelog/index.xml)
 
@@ -63,8 +67,8 @@ Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers
 
 **Updating Bun version to 1.1.33 in V2 build system**
 
-  * Bun version is being updated from `1.0.1` to `1.1.33` in Pages V2 build system. This is a minor version change, please see details at [Bun](https://bun.sh/blog/bun-v1.1.33).
-  * If you wish to use a previous Bun version, you can [override default version](https://developers.cloudflare.com/pages/configuration/build-image/#overriding-default-versions).
+  * Bun version is being updated from `1.0.1` to `1.1.33` in Pages V2 build system. This is a minor version change; refer to [Bun](https://bun.sh/blog/bun-v1.1.33) for details.
+  * If you wish to use a previous Bun version, you can [override the default version](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
 
 
 
@@ -199,7 +203,7 @@ Updated all API messaging to be more helpful.
   * We also made the following updates to Functions: 
     * [Functions metrics](https://dash.cloudflare.com?to=/:account/pages/view/:pages-project/analytics/production) are now available in the dashboard.
     * [Functions billing](https://developers.cloudflare.com/pages/functions/pricing/) is now available.
-    * The [Unbound usage model](https://developers.cloudflare.com/workers/platform/limits/#response-limits) is now available for Functions.
+    * The [Unbound usage model](https://developers.cloudflare.com/workers/platform/limits/#request-and-response-limits) is now available for Functions.
     * [Secrets](https://developers.cloudflare.com/pages/functions/bindings/#secrets) are now available.
     * Functions tailing is now available via the [dashboard](https://dash.cloudflare.com?to=/:account/pages/view/:pages-project/:pages-deployment/functions) or with Wrangler (`wrangler pages deployment tail`).
 
@@ -267,7 +271,7 @@ Build log expiration time increased from 2 weeks to 1 year.
 
 **Added support for .dev.vars in wrangler pages**
 
-Pages now supports `.dev.vars` in `wrangler pages`, which allows you to use use environmental variables during your local development without chaining `--env`s.
+Pages now supports `.dev.vars` in `wrangler pages`, which allows you to use environment variables during your local development without chaining `--env`s.
 
 This functionality requires Wrangler v2.0.16 or higher.
 

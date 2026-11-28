@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/examples/
 title: Examples \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:19.126093+00:00
+fetched_at: 2026-11-28T09:57:29.933277+00:00
 ---
 
 # Examples · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:19.126093+00:00
 
 # Examples
 
-Last updated May 20, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/examples/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Explore the following examples for Workers.
 
@@ -117,7 +117,9 @@ Explore the following examples for Workers.
 
 [**Respond with another site** Respond to the Worker request with the response from another website (example.com in this example).](https://developers.cloudflare.com/workers/examples/respond-with-another-site/)
 
-[PreviousTemplates](https://developers.cloudflare.com/workers/get-started/quickstarts/)[NextTutorials](https://developers.cloudflare.com/workers/tutorials/)
+[**Bidirectional gRPC with Workers and Containers** Build a bidirectional gRPC service that receives TCP connections in a Worker and forwards them to a Cloudflare Container.](https://developers.cloudflare.com/workers/examples/bidirectional-grpc/)
+
+[PreviousOverview](https://developers.cloudflare.com/workers/languages/javascript/)[NextOverview](https://developers.cloudflare.com/workers/languages/typescript/)
 
 Was this helpful?
 

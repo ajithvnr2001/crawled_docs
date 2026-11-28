@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/
 title: Create WAF exceptions \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:16:45.610884+00:00
+fetched_at: 2026-11-28T09:57:36.251496+00:00
 ---
 
 # Create WAF exceptions · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:16:45.610884+00:00
 
 # Create exceptions
 
-Last updated Apr 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/waf/managed-rules/waf-exceptions/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewTypes of exceptionsScope and execution orderNext steps
 
@@ -40,7 +40,7 @@ For more information on exceptions, refer to [Create an exception](https://devel
 
 You can define exceptions at the account level and at the zone level. The scope of an exception determines which rules it affects:
 
-  * An account-level exception only skips rules configured at the account level. It does not affect zone-level rules.
+  * An account-level exception skips the matching rules in account-level deployments and in any zone-level deployments of the same managed ruleset that run after it.
   * A zone-level exception only skips rules configured at the zone level. It does not affect account-level rules.
 
 

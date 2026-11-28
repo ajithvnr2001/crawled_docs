@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/local-development/wrangler-vs-vite/
 title: Choosing between Wrangler & Vite \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:34.384177+00:00
+fetched_at: 2026-11-28T09:57:28.975978+00:00
 ---
 
 # Choosing between Wrangler & Vite · Cloudflare Workers docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:17:34.384177+00:00
 
 # Choosing between Wrangler & Vite
 
-Last updated Jul 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/local-development/wrangler-vs-vite/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCompare Wrangler and Vite
 
@@ -49,7 +49,7 @@ For local development that requires deployed resources, both tools support [remo
 
 For configuration differences when moving an existing project, refer to [Migrating from wrangler dev](https://developers.cloudflare.com/workers/vite-plugin/reference/migrating-from-wrangler-dev/).
 
-[PreviousVite Plugin ↗︎](https://developers.cloudflare.com/workers/vite-plugin/)[NextDeveloping with multiple Workers](https://developers.cloudflare.com/workers/local-development/multi-workers/)
+[PreviousOverview](https://developers.cloudflare.com/workers/local-development/)[NextEnvironment variables and secrets](https://developers.cloudflare.com/workers/local-development/environment-variables/)
 
 Was this helpful?
 

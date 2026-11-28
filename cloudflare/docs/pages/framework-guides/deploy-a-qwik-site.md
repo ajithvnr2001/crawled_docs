@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-qwik-site/
 title: Qwik \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.477383+00:00
+fetched_at: 2026-11-28T09:57:34.958435+00:00
 ---
 
 # Qwik · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:30.477383+00:00
 
 # Qwik
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-qwik-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreating a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare Pages Deploy via the create-cloudflare CLI (C3) Deploy via the Cloudflare dashboardUse bindings in your Qwik applicationLearn more
 

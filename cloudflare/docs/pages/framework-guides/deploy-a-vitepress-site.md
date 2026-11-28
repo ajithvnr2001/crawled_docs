@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-vitepress-site/
 title: VitePress \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:31.042651+00:00
+fetched_at: 2026-11-28T09:57:32.766817+00:00
 ---
 
 # VitePress · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:31.042651+00:00
 
 # VitePress
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vitepress-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSet up a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
+
+Note
+
+Starting a new documentation site? You can also deploy VitePress sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 [VitePress ↗︎](https://vitepress.dev/) is a [static site generator ↗︎](https://en.wikipedia.org/wiki/Static_site_generator) (SSG) designed for building fast, content-centric websites. VitePress takes your source content written in [Markdown ↗︎](https://en.wikipedia.org/wiki/Markdown), applies a theme to it, and generates static HTML pages that can be easily deployed anywhere.
 
@@ -127,7 +131,7 @@ After deploying your site, you will receive a unique subdomain for your project 
 
 By completing this guide, you have successfully deployed your VitePress site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousVite 3](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/)[NextVue](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vue-site/)
+[PreviousSvelteKit](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-kit-site/)[NextVue](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vue-site/)
 
 Was this helpful?
 

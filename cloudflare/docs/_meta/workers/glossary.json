@@ -3,8 +3,5 @@
   "file": "workers/glossary.md",
   "title": "Glossary \u00b7 Cloudflare Workers docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:17:30.989823+00:00",
-  "html_len": 183874,
-  "md_len": 7164,
-  "depth": 0
+  "fetched_at": "2026-11-28T09:57:29.684693+00:00"
 }

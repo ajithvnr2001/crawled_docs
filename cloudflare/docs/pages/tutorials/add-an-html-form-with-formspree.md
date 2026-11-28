@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/tutorials/add-an-html-form-with-formspree/
 title: Add an HTML form with Formspree \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:36.742340+00:00
+fetched_at: 2026-11-28T09:57:35.278174+00:00
 ---
 
 # Add an HTML form with Formspree · Cloudflare Pages docs
@@ -12,13 +12,13 @@ fetched_at: 2026-10-08T07:12:36.742340+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Pages](https://developers.cloudflare.com/pages/)
   3. /[Tutorials](https://developers.cloudflare.com/pages/tutorials/)
-  4. /Add An Html Form With Formspree
+  4. /Add an HTML form with Formspree
 
 
 
 # Add an HTML form with Formspree
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/tutorials/add-an-html-form-with-formspree/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetupThe website markupThe Formspree back endDeploymentRelated resources
 
@@ -176,8 +176,8 @@ If you would like to review the full source code for this application, you can f
 
 ## Related resources
 
-  * [Add a React form with Formspree](https://developers.cloudflare.com/pages/tutorials/add-a-react-form-with-formspree/)
-  * [HTML Forms](https://developers.cloudflare.com/pages/tutorials/forms/)
+  * [Create an HTML form](https://developers.cloudflare.com/pages/tutorials/forms/)
+  * [Handle form submissions with Airtable](https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/)
 
 
 

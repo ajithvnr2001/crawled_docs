@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/cache/
 title: Workers Cache \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-31T08:10:18.943978+00:00
+fetched_at: 2026-11-28T09:57:31.066365+00:00
 ---
 
 # Workers Cache · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-31T08:10:18.943978+00:00
 
 # Workers Cache
 
-Last updated Oct 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewYour Worker's cache The Worker is the configuration surfaceWhen caching helpsHow it worksTiered cacheRequest collapsingQuickstart 1\. Enable caching in your Wrangler configuration 2\. Return a cacheable response from your Worker 3\. Deploy and observe the cacheWhat gets cachedContent negotiation with VaryCaching between WorkersCache Durable Object responsesSmart placement and the cachePurging the cachePricingNext steps
 
@@ -150,7 +150,7 @@ This quickstart walks you through enabling caching, deploying, and observing the
      "main": "src/index.ts",
      "upload_source_maps": true,
      // Set this to today's date
-     "compatibility_date": "2026-10-31",
+     "compatibility_date": "2026-11-28",
      "cache": {
       "enabled": true,
      },
@@ -161,7 +161,7 @@ This quickstart walks you through enabling caching, deploying, and observing the
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-31"
+    compatibility_date = "2026-11-28"
     
     [cache]
     enabled = true
@@ -350,7 +350,7 @@ The default entrypoint here is a gateway that should run on every request, so di
     	"main": "src/index.ts",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-31",
+    	"compatibility_date": "2026-11-28",
     	"cache": { "enabled": true },
     	"exports": {
     		"default": { "type": "worker", "cache": { "enabled": false } },
@@ -363,7 +363,7 @@ The default entrypoint here is a gateway that should run on every request, so di
     main = "src/index.ts"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-31"
+    compatibility_date = "2026-11-28"
     
     [cache]
     enabled = true

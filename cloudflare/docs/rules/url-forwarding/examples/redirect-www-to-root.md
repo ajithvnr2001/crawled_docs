@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-www-to-root/
 title: Redirect from WWW to root \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:00.241874+00:00
+fetched_at: 2026-11-28T09:57:36.295559+00:00
 ---
 
 # Redirect from WWW to root · Cloudflare Rules docs
@@ -24,7 +24,7 @@ fetched_at: 2026-10-08T07:15:00.241874+00:00
 
 Create a redirect rule to forward HTTPS requests from the WWW subdomain to the root (also known as the “apex” or “naked” domain).
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/examples/redirect-www-to-root/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 This example creates a redirect rule that forwards HTTPS requests from the WWW subdomain (`www.example.com`) to the root domain (`example.com`), while retaining the original path and query string.
 
@@ -43,7 +43,9 @@ This example creates a redirect rule that forwards HTTPS requests from the WWW s
 
 
 
-This rule ensures that only HTTPS requests from `www.` subdomains are redirected to the root domain, leaving other requests (such as HTTP or non-WWW) unchanged.
+This rule ensures that only HTTPS requests from `www.` subdomains are redirected to the root domain, leaving other requests (such as HTTP or non-WWW) unchanged. The target URL uses `${1}` because the request URL has only one `*`, which captures everything after `www.`: the rest of the hostname, the path, and the query string.
+
+To also redirect HTTP requests, turn on [Always Use HTTPS](https://developers.cloudflare.com/ssl/edge-certificates/additional-options/always-use-https/), or use the request URL `http*://www.*` with the target URL `https://${2}`. The `http*` rule redirects HTTP visitors in one step. With Always Use HTTPS, HTTP visitors are redirected twice: first to `https://www.`, then to the root domain. Refer to [How wildcard references are numbered](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/#how-wildcard-references-are-numbered).
 
 For example, the redirect rule would perform the following redirects:
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/sandbox/coding-agents/
 title: Run coding agents in a sandbox \u00b7 Cloudflare Sandboxes docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:16.492115+00:00
+fetched_at: 2026-11-28T09:57:27.743735+00:00
 ---
 
 # Run coding agents in a sandbox · Cloudflare Sandboxes docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:15:16.492115+00:00
 
 # Run coding agents in a sandbox
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/sandbox/coding-agents/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewThe agent runs in your sandboxThe vendor runs the agent loopBuild your own agent
 
@@ -53,7 +53,9 @@ Edit a GitHub repository with Pi, which calls models through its built-in AI Gat
 
 ## The vendor runs the agent loop
 
-Devin, Cursor, Claude Managed Agents, and the OpenAI Agents API run their agent loop in their own service. The loop sends commands and file edits to sandboxes in your Cloudflare account. Each vendor template gives every session its own sandbox. In the Devin, Cursor, and OpenAI Agents API templates, the vendor worker process runs inside the sandbox, so the sandbox also holds a vendor credential.
+Devin, Cursor, Claude Managed Agents, Gemini API managed agents, and the OpenAI Agents API run their agent loop in their own service. The loop sends commands and file edits to sandboxes in your Cloudflare account.
+
+Each vendor template assigns a sandbox to a session or environment. Gemini agent runs can share an environment and its sandbox. In the Devin, Cursor, Gemini, and OpenAI Agents API examples, the vendor worker process runs inside the sandbox, so the sandbox also holds a vendor credential.
 
 ### [Devin](https://developers.cloudflare.com/sandbox/coding-agents/devin/)
 
@@ -70,6 +72,10 @@ Run Claude Managed Agents sessions in sandboxes on Containers and Dynamic Worker
 ### [OpenAI Agents API](https://developers.cloudflare.com/sandbox/coding-agents/openai-agents-api/)
 
 Deploy a self-hosted environment that runs each Codex session in its own sandbox on Containers.
+
+### [Gemini API managed agents](https://developers.cloudflare.com/sandbox/coding-agents/gemini-managed-agents/)
+
+Run Gemini API managed agent file and shell tools in a sandbox on Containers with Bring Your Own Sandbox.
 
 ## Build your own agent
 

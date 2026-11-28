@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-pelican-site/
 title: Pelican \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.771887+00:00
+fetched_at: 2026-11-28T09:57:33.122225+00:00
 ---
 
 # Pelican · Cloudflare Pages docs
@@ -18,28 +18,37 @@ fetched_at: 2026-10-08T07:12:30.771887+00:00
 
 # Pelican
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-pelican-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a Pelican projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
 
-[Pelican ↗︎](https://docs.getpelican.com) is a static site generator, written in Python. With Pelican, you can write your content directly with your editor of choice in reStructuredText or Markdown formats.
+Note
+
+Starting a new static site? You can also deploy static sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+
+[Pelican ↗︎](https://docs.getpelican.com) is a static site generator written in Python. With Pelican, you can write your content directly with your editor of choice in reStructuredText or Markdown formats.
 
 ## Create a Pelican project
 
-To begin, create a Pelican project directory. `cd` into your new directory and run:
+To begin, create a Pelican project directory, set up a virtual environment, and install Pelican:
     
     
+    mkdir my-pelican-site
+    cd my-pelican-site
+    python3 -m venv .venv
+    source .venv/bin/activate
     python3 -m pip install pelican
 
-Then run:
+Record Pelican (and any plugins or themes you use) in `requirements.txt` so Cloudflare Pages installs them automatically during builds:
     
     
-    pip freeze > requirements.txt
+    echo "pelican" > requirements.txt
 
-Create a directory in your project named `content`:
+Create a directory in your project named `content` and add `.venv/` to `.gitignore`:
     
     
     mkdir content
+    echo ".venv/" >> .gitignore
 
 This is the directory name that you will set in the build command.
 
@@ -86,9 +95,7 @@ Configuration option| Value| Production branch| `main`
 Build command| `pelican content`  
 Build directory| `output`  
   
-  7. Select **Environment variables (advanced)** and set the `PYTHON_VERSION` variable with the value of `3.7`.
-
-
+Cloudflare Pages Build Image v3 includes Python 3.13 by default and automatically installs packages listed in `requirements.txt`. If you need to pin a specific Python version, set `PYTHON_VERSION` under **Environment variables** as described in [Override default versions](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
 
 For the complete guide to deploying your first site to Cloudflare Pages, refer to the [Get started guide](https://developers.cloudflare.com/pages/get-started/).
 

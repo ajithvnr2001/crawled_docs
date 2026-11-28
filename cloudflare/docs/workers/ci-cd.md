@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/ci-cd/
 title: CI/CD \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:11.044716+00:00
+fetched_at: 2026-11-28T09:57:30.306898+00:00
 ---
 
 # CI/CD · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:11.044716+00:00
 
 # CI/CD
 
-Last updated Oct 1, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/ci-cd/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewWhy use CI/CD?Which CI/CD should I use?Workers BuildsExternal CI/CD
 

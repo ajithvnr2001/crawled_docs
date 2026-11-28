@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-solid-start-site/
 title: SolidStart \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.670363+00:00
+fetched_at: 2026-11-28T09:57:34.737903+00:00
 ---
 
 # SolidStart · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:30.670363+00:00
 
 # SolidStart
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-solid-start-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewCreate a new projectSolidStart Cloudflare configurationBefore you continueCreate a GitHub repositoryDeploy with Cloudflare Pages Deploy via the create-cloudflare CLI (C3) Deploy via the Cloudflare dashboardLearn more
 

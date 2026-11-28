@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/previews/
 title: Previews \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:39.373842+00:00
+fetched_at: 2026-11-28T09:57:28.709318+00:00
 ---
 
 # Previews · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:39.373842+00:00
 
 # Previews
 
-Last updated Sep 24, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/previews/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewHow it works URLs Settings and isolation Access control LimitsNext steps
 
@@ -93,7 +93,7 @@ You can also delete Previews yourself with `npx wrangler preview delete --name <
 
 
 
-[PreviousSecrets](https://developers.cloudflare.com/workers/configuration/secrets/)[NextGet started](https://developers.cloudflare.com/workers/previews/get-started/)
+[PreviousWebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/)[NextGet started](https://developers.cloudflare.com/workers/previews/get-started/)
 
 Was this helpful?
 

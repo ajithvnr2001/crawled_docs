@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/configuration/
 title: Configuration \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:13.766771+00:00
+fetched_at: 2026-11-28T09:57:30.446759+00:00
 ---
 
 # Configuration · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:13.766771+00:00
 
 # Configuration
 
-Last updated Sep 30, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/configuration/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Worker configuration defines project settings, bindings, and deployment options. Use [`cloudflare.config.ts`](https://developers.cloudflare.com/cf/projects/cloudflare-config/) for typed, programmatic configuration. This configuration format is in open beta.
 
@@ -42,7 +42,7 @@ For more information on Wrangler, refer to [Wrangler](https://developers.cloudfl
 
 
 
-[PreviousPlayground](https://developers.cloudflare.com/workers/playground/)[NextProgrammatic configuration ↗︎](https://developers.cloudflare.com/cf/projects/cloudflare-config/)
+[PreviousSupported bindings](https://developers.cloudflare.com/workers/local-development/bindings-per-env/)[NextProgrammatic configuration ↗︎](https://developers.cloudflare.com/cf/projects/cloudflare-config/)
 
 Was this helpful?
 

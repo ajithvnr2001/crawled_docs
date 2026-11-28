@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/static-assets/
 title: Static Assets \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-13T09:17:14.728312+00:00
+fetched_at: 2026-11-28T09:57:28.246006+00:00
 ---
 
 # Static Assets · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-13T09:17:14.728312+00:00
 
 # Static Assets
 
-Last updated Nov 12, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview How it works Routing behavior Caching behaviorTry it outLearn more
 
@@ -63,7 +63,7 @@ The **assets directory** specified in your [Wrangler configuration file](https:/
       "main": "src/index.js",
       "upload_source_maps": true,
       // Set this to today's date
-      "compatibility_date": "2026-11-13",
+      "compatibility_date": "2026-11-28",
       "assets": {
         "directory": "./dist",
         "binding": "ASSETS"
@@ -76,7 +76,7 @@ The **assets directory** specified in your [Wrangler configuration file](https:/
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-11-13"
+    compatibility_date = "2026-11-28"
     
     [assets]
     directory = "./dist"
@@ -150,7 +150,7 @@ If you want the Worker code to execute before serving assets, you can use the `r
     {
     	"name": "my-spa-worker",
     	// Set this to today's date
-    	"compatibility_date": "2026-11-13",
+    	"compatibility_date": "2026-11-28",
     	"main": "./src/index.ts",
     	"upload_source_maps": true,
     	"assets": {
@@ -164,7 +164,7 @@ If you want the Worker code to execute before serving assets, you can use the `r
     
     name = "my-spa-worker"
     # Set this to today's date
-    compatibility_date = "2026-11-13"
+    compatibility_date = "2026-11-28"
     main = "./src/index.ts"
     upload_source_maps = true
     
@@ -207,7 +207,7 @@ Start building on Workers with our framework guides.
 
 Learn more about how requests are billed, current limitations, and troubleshooting.
 
-[PreviousWebSockets](https://developers.cloudflare.com/workers/runtime-apis/websockets/)[NextGet Started](https://developers.cloudflare.com/workers/static-assets/get-started/)
+[PreviousLangChain ↗︎](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)[NextGet Started](https://developers.cloudflare.com/workers/static-assets/get-started/)
 
 Was this helpful?
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-nuxt-site/
 title: Nuxt \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.417214+00:00
+fetched_at: 2026-11-28T09:57:34.864618+00:00
 ---
 
 # Nuxt · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:30.417214+00:00
 
 # Nuxt
 
-Last updated Jun 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-nuxt-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Overview Video TutorialCreate a new project using the create-cloudflare CLI (C3)Configure and deploy a project without C3Git integration Create a GitHub repository Create a Pages projectUse bindings in your Nuxt application Set up bindings for local development Set up bindings for a deployed application Add bindings to TypeScript projects Access bindings in your Nuxt applicationLearn more
 

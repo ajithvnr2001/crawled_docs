@@ -1,6 +1,6 @@
 {
   "base": "https://developers.cloudflare.com",
-  "generated_at": "2026-11-27T10:39:57.571631+00:00",
+  "generated_at": "2026-11-28T09:57:26.744309+00:00",
   "sitemap_developers": {
     "total": 8729,
     "covered": 8729,
@@ -52,5 +52,5 @@
     "scrapegraph-ai cleanup_html/convert_to_md - ScrapeGraphAI/Scrapegraph-ai"
   ],
   "notes": "Incremental updater verified 0 new (dev/blog/www up to date). 697 junk in _excluded/. community/dash/support/radar blocked, in crawl_state.json.",
-  "last_verified": "2026-11-27"
+  "last_verified": "2026-11-28"
 }

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/build-image/
 title: Build image \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-27T07:31:33.043403+00:00
+fetched_at: 2026-11-28T09:57:32.410212+00:00
 ---
 
 # Build image · Cloudflare Pages docs
@@ -18,13 +18,13 @@ fetched_at: 2026-10-27T07:31:33.043403+00:00
 
 # Build image
 
-Last updated Oct 26, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-OverviewSupported languages and tools Languages and runtime Tools FrameworksAdvanced Settings Override default versions Skip dependency installv3 build system v2 to v3 Migration LimitationsBuild environment Trusted certificatesBuild Image Policy Build Image Version Deprecation Preinstalled Software Updates Best Practices
+OverviewSupported languages and tools Languages and runtime Tools FrameworksAdvanced settings Override default versions Skip dependency installv3 build system v2 to v3 migration LimitationsBuild environment Trusted certificatesBuild image policy Build image version deprecation Preinstalled software updates Best practices
 
-Cloudflare Pages' build environment has broad support for a variety of languages, such as Ruby, Node.js, Python, PHP, and Go.
+The Cloudflare Pages build environment supports a variety of languages, including Go, Node.js, Bun, Python, and Ruby. For the build image used by Cloudflare Workers, refer to [Workers Builds build image](https://developers.cloudflare.com/workers/ci-cd/builds/build-image/).
 
-If you need to use a specific version of a language, (for example, Node.js or Ruby) you can specify it by providing an associated environment variable in your build configuration, or setting the relevant file in your source code.
+If you need to use a specific version of a language (for example, Node.js or Ruby), specify it by setting the associated environment variable in your build configuration or adding the corresponding version file to your source code.
 
 ## Supported languages and tools
 
@@ -118,36 +118,38 @@ Under Supported versions, "Any version" refers to support for all versions of th
 
 ### Frameworks
 
-To use a specific version of a framework, specify it in the project's package manager configuration file. For example, if you use Gatsby, your `package.json` should include the following:
+To use a specific version of a framework, specify it in the project's package manager configuration file. For example, your `package.json` might include:
     
     
-    "dependencies": {
-    	"gatsby": "^5.13.7",
+    {
+    	"dependencies": {
+    		"vite": "^6.0.0"
+    	}
     }
 
-When your build starts, if not already [cached](https://developers.cloudflare.com/pages/configuration/build-caching/), version 5.13.7 of Gatsby will be installed using `npm install`.
+When your build starts, if not already [cached](https://developers.cloudflare.com/pages/configuration/build-caching/), the declared version is installed using your package manager.
 
-## Advanced Settings
+## Advanced settings
 
 ### Override default versions
 
-To override default versions of languages and tools in the build system, you can either set the desired version through environment variables or by adding files to your project.
+To override default versions of languages and tools in the build system, set the desired version through environment variables in the Cloudflare dashboard or by adding version files to your project.
 
-To set the version using environment variables, you can:
+To set the version using environment variables:
 
-  1. Find the environment variable name for the language or tool in [this table](https://developers.cloudflare.com/pages/configuration/build-image/#supported-languages-and-tools).
-  2. Add the environment variable on the dashboard by going to **Settings** > **Environment variables** in your Pages project, or [add the environment variable via Wrangler](https://developers.cloudflare.com/workers/configuration/environment-variables/#add-environment-variables-via-wrangler).
+  1. Find the environment variable name for the language or tool in the Supported languages and tools tables.
+  2. In your Pages project in the Cloudflare dashboard, go to **Settings** > **Variables and Secrets** and add the build environment variable (for example, `NODE_VERSION`).
 
 
 
-Or, to set the version by adding a file to your project, you can:
+Or, to set the version by adding a file to your project:
 
-  1. Find the file name for the language or tool in [this table](https://developers.cloudflare.com/pages/configuration/build-image/#supported-languages-and-tools).
+  1. Find the file name for the language or tool in the Supported languages and tools tables.
   2. Add the specified file name to the root directory of your project, and add the desired version number as the contents of the file.
 
 
 
-For example, if you were previously relying on the default version of Node.js in the v1 build system, to migrate to v2, you must specify that you need Node.js `12.18.0` by setting a `NODE_VERSION = 12.18.0` environment variable or by adding a `.node-version` or `.nvmrc` file to your project with `12.18.0` added as the contents to the file.
+For example, to pin Node.js `20.19.0`, set a `NODE_VERSION` environment variable to `20.19.0` or add a `.node-version` or `.nvmrc` file to your project containing `20.19.0`.
 
 ### Skip dependency install
 
@@ -159,27 +161,27 @@ Build variable | Value
   
 ## v3 build system
 
-The v3 build system updates the default tools, libraries and languages to their LTS versions, as of May 2025.
+The v3 build system updates the default tools, libraries, and languages to current LTS versions and receives rolling updates.
 
-### v2 to v3 Migration
+### v2 to v3 migration
 
-To migrate to this new version, configure your Pages project settings in the dashboard:
+To migrate from the v2 build system to v3, configure your Pages project settings in the dashboard:
 
   1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
 
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
   2. Select your Pages project.
 
-  3. Go to **Deployments** > **All deployments** > and select the latest version.
+  3. Go to **Settings** > **Build** > **Build system version** and select **Version 3 (latest)**.
 
 
 
 
-If you were previously relying on the default versions of any languages or tools in the build system, your build may fail when migrating to v3. To fix this, you must specify the version you wish to use by [overriding](https://developers.cloudflare.com/pages/configuration/build-image/#overriding-default-versions) the default versions.
+If you were previously relying on the default versions of any languages or tools in the build system, your build may fail when migrating to v3. To fix this, specify the version you want to use by overriding the default versions.
 
 ### Limitations
 
-The following features are not currently supported when using the v3 build system:
+The following features are not supported when using the v3 build system:
 
   * Specifying Node.js versions as codenames (for example, `hydrogen` or `lts/hydrogen`).
   * Detecting Yarn version from `yarn.lock` file version.
@@ -218,33 +220,33 @@ Environment variable | Value
   
 If you set any of these variables as an [environment variable](https://developers.cloudflare.com/pages/configuration/build-configuration/#environment-variables) in your project, your value replaces the default. `--use-openssl-ca` is added to your own `NODE_OPTIONS`, unless it already contains `--use-openssl-ca` or `--use-bundled-ca`.
 
-## Build Image Policy
+## Build image policy
 
-### Build Image Version Deprecation
+### Build image version deprecation
 
-If you are currently using the v1 or v2 build image, your project will be automatically moved to v3:
+Projects using older build image versions migrate to v3 on the following schedule:
 
-  * **v1 build image** : If you are using the Pages v1 build image, your project will be automatically moved to v3 on September 15, 2026.
-  * **v2 build image** : If you are using the Pages v2 build image, your project will be automatically moved to v3 on February 23, 2027.
-
-
-
-You will receive 6 months’ notice before the deprecation date via the [Cloudflare Changelog ↗︎](https://developers.cloudflare.com/changelog/), dashboard notifications, and email.
-
-Going forward, the v3 build image will receive rolling updates to preinstalled software per the policy below. There will be no further build image version changes.
-
-### Preinstalled Software Updates
-
-Preinstalled software (languages and tools) will be updated before reaching end-of-life (EOL). These updates apply only if you have not [overridden the default version](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
-
-  * **Minor version updates** : May be updated to the latest available minor version without notice. For tools that do not follow semantic versioning (e.g., Bun or Hugo), updates that may contain breaking changes will receive 3 months’ notice.
-  * **Major version updates** : Updated to the next stable long-term support (LTS) version with 3 months’ notice.
+  * **v1 build image** : Projects on the Pages v1 build image were automatically moved to v3 on 2026-09-15.
+  * **v2 build image** : Projects on the Pages v2 build image will be automatically moved to v3 on 2027-02-23.
 
 
 
-**How you'll be notified (for changes requiring notice):**
+Cloudflare provides six months' notice before a deprecation date via the [Cloudflare Changelog](https://developers.cloudflare.com/changelog/product/pages/), dashboard notifications, and email.
 
-  * [Cloudflare Changelog ↗︎](https://developers.cloudflare.com/changelog/)
+The v3 build image receives rolling updates to preinstalled software under the following policy, with no further major build image version changes.
+
+### Preinstalled software updates
+
+Preinstalled software (languages and tools) is updated before reaching end-of-life (EOL). These updates apply only if you have not [overridden the default version](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
+
+  * **Minor version updates** : May be updated to the latest available minor version without notice. For tools that do not follow semantic versioning (for example, Bun or Hugo), updates that may contain breaking changes receive three months' notice.
+  * **Major version updates** : Updated to the next stable long-term support (LTS) version with three months' notice.
+
+
+
+**How you will be notified (for changes requiring notice):**
+
+  * [Cloudflare Changelog](https://developers.cloudflare.com/changelog/product/pages/)
   * Dashboard notifications for projects that will receive the update
   * Email notifications to project owners
 
@@ -252,13 +254,13 @@ Preinstalled software (languages and tools) will be updated before reaching end-
 
 To maintain a specific version and avoid automatic updates, [override the default version](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
 
-### Best Practices
+### Best practices
 
 To avoid unexpected build failures:
 
-  * **Monitor announcements** via the [Cloudflare Changelog ↗︎](https://developers.cloudflare.com/changelog/), dashboard notifications, and email
-  * **Plan for migration** when you receive update notices
-  * **Pin specific versions** of critical preinstalled software by [overriding default versions](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions)
+  * **Monitor announcements** via the [Cloudflare Changelog](https://developers.cloudflare.com/changelog/product/pages/), dashboard notifications, and email.
+  * **Plan for migration** when you receive update notices.
+  * **Pin specific versions** of critical preinstalled software by [overriding default versions](https://developers.cloudflare.com/pages/configuration/build-image/#override-default-versions).
 
 
 

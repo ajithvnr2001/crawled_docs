@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/testing/vitest-integration/write-your-first-test/
 title: Write your first test \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-19T07:11:12.606772+00:00
+fetched_at: 2026-11-28T09:57:36.084524+00:00
 ---
 
 # Write your first test · Cloudflare Workers docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-19T07:11:12.606772+00:00
 
 # Write your first test
 
-Last updated Oct 17, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewPrerequisitesDefine Vitest configurationDefine typesWriting tests Unit tests Integration testsRelated resources
 
@@ -40,17 +40,17 @@ First, make sure that:
 
 npmyarnpnpmbun
         
-        npm i -D vitest@^4.1.0 @cloudflare/vitest-plugin
+        npm i -D vitest @cloudflare/vitest-plugin
         
-        yarn add -D vitest@^4.1.0 @cloudflare/vitest-plugin
+        yarn add -D vitest @cloudflare/vitest-plugin
         
-        pnpm add -D vitest@^4.1.0 @cloudflare/vitest-plugin
+        pnpm add -D vitest @cloudflare/vitest-plugin
         
-        bun add -d vitest@^4.1.0 @cloudflare/vitest-plugin
+        bun add -d vitest @cloudflare/vitest-plugin
 
 Note
 
-The `@cloudflare/vitest-plugin` package requires Vitest 4.1 or later.
+The `@cloudflare/vitest-plugin` package supports Vitest 4.1+ and Vitest 5 (`^4.1.0 || ^5.0.0`). Vitest 5 requires `@cloudflare/vitest-plugin` `1.4.0` or later.
 
 
 

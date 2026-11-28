@@ -1,24 +1,24 @@
 ---
 url: https://developers.cloudflare.com/pages/tutorials/forms/
-title: Create a HTML form \u00b7 Cloudflare Pages docs
+title: Create an HTML form \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:37.349495+00:00
+fetched_at: 2026-11-28T09:57:35.615049+00:00
 ---
 
-# Create a HTML form · Cloudflare Pages docs
+# Create an HTML form · Cloudflare Pages docs
 
 > Source: https://developers.cloudflare.com/pages/tutorials/forms/
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Pages](https://developers.cloudflare.com/pages/)
   3. /[Tutorials](https://developers.cloudflare.com/pages/tutorials/)
-  4. /Forms
+  4. /Create an HTML form
 
 
 
-# Create a HTML form
+# Create an HTML form
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/tutorials/forms/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewOverviewLive example Setup Markup Worker DeploymentRelated resources
 
@@ -28,7 +28,7 @@ MDN Introductory Series
 
 This tutorial will briefly touch upon the basics of HTML forms. For a more in-depth overview, refer to MDN's [Web Forms – Working with user data ↗︎](https://developer.mozilla.org/en-US/docs/Learn/Forms) introductory series.
 
-This tutorial will make heavy use of Cloudflare Pages and [its Workers integration](https://developers.cloudflare.com/pages/functions/). Refer to the [Get started guide](https://developers.cloudflare.com/pages/get-started/) guide to familiarize yourself with the platform.
+This tutorial uses Cloudflare Pages and [Pages Functions](https://developers.cloudflare.com/pages/functions/). Refer to the [Get started guide](https://developers.cloudflare.com/pages/get-started/) to familiarize yourself with the platform.
 
 ## Overview
 
@@ -47,11 +47,11 @@ Below is an example HTML5 form with a few inputs and their validation rules defi
     	<button type="submit">Submit</button>
     </form>
 
-If an HTML5 form has validation rules defined, browsers will automatically check all rules when the user attempts to submit the form. Should there be any errors, the submission is prevented and the browser displays the error message(s) to the user for correction. The `<form>` will only `POST` data to the `/submit` endpoint when there are no outstanding validation errors. This entire process is native to HTML5 and only requires the appropriate form and input attributes to exist — no JavaScript is required.
+If an HTML5 form has validation rules defined, browsers will automatically check all rules when the user attempts to submit the form. Should there be any errors, the submission is prevented and the browser displays the error message(s) to the user for correction. The `<form>` will only `POST` data to the `/api/submit` endpoint when there are no outstanding validation errors. This entire process is native to HTML5 and only requires the appropriate form and input attributes to exist — no JavaScript is required.
 
 Form elements may also have a [`<label>` ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label) element associated with them, allowing you to clearly describe each input. This is great for visual clarity, of course, but it also allows for more accessible user experiences since the HTML markup is more well-defined. Assistive technologies directly benefit from this; for example, screen readers can announce which `<input>` is focused. And when a `<label>` is clicked, its assigned form input is focused instead, increasing the activation area for the input.
 
-To enable this, you must create a `<label>` element for each input and assign each `<input>` element and unique `id` attribute value. The `<label>` must also possess a [`for` ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for) attribute that reflects its input's unique `id` value. Amending the previous snippet should produce the following:
+To enable this, you must create a `<label>` element for each input and assign each `<input>` element a unique `id` attribute value. The `<label>` must also possess a [`for` ↗︎](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/label#attr-for) attribute that reflects its input's unique `id` value. Amending the previous snippet should produce the following:
     
     
     <form method="POST" action="/api/submit">
@@ -205,7 +205,7 @@ Copy and paste the following content into your `public/index.html` file:
     	</body>
     </html>
 
-This HTML document will contain a form with a few fields for the user to fill out. Because there is no validation rules within the form, all fields are optional and the user is able to submit an empty form. For this example, this is intended behavior.
+This HTML document contains a form with a few fields for the user to fill out. Because there are no validation rules within the form, all fields are optional and the user is able to submit an empty form. For this example, this is intended behavior.
 
 Optional content
 
@@ -260,7 +260,7 @@ For illustrative purposes, the example application's form handler will reply wit
     			},
     		});
     	} catch (err) {
-    		return new Response("Error parsing JSON content", { status: 400 });
+    		return new Response("Error parsing form data", { status: 400 });
     	}
     }
 
@@ -295,7 +295,7 @@ However, if you want to reply with a JSON object instead of the key-value pairs 
     			},
     		});
     	} catch (err) {
-    		return new Response("Error parsing JSON content", { status: 400 });
+    		return new Response("Error parsing form data", { status: 400 });
     	}
     }
 
@@ -327,15 +327,15 @@ If this is your first Cloudflare Pages project, refer to the [Get started guide]
 
 
 
-After clicking the **Save and Deploy** button, your Pages project will begin its first deployment. When successful, you will be presented with a unique `*.pages.dev` subdomain and a link to your live demo.
+After selecting **Save and Deploy** , your Pages project will begin its first deployment. When successful, you will be presented with a unique `*.pages.dev` subdomain and a link to your live demo.
 
-In this tutorial, you built and deployed a website and its back-end logic using Cloudflare Pages with its Workers integration. You created a static HTML document with a form that communicates with a Worker handler to parse the submission request(s).
+In this tutorial, you built and deployed a website and its back-end logic using Cloudflare Pages with Pages Functions. You created a static HTML document with a form that communicates with a Function handler to parse submission requests.
 
 If you would like to review the full source code for this application, you can find it on [GitHub ↗︎](https://github.com/cloudflare/submit.pages.dev).
 
 ## Related resources
 
-  * [Build an API for your front end using Cloudflare Workers](https://developers.cloudflare.com/pages/tutorials/build-an-api-with-pages-functions/)
+  * [Build an API for your front end using Pages Functions](https://developers.cloudflare.com/pages/tutorials/build-an-api-with-pages-functions/)
   * [Handle form submissions with Airtable](https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/)
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/load-balancing/pools/cloudflare-pages-origin/
 title: Use Pages as an origin for Load Balancing \u00b7 Cloudflare Load Balancing docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:05.689743+00:00
+fetched_at: 2026-11-28T09:57:35.721287+00:00
 ---
 
 # Use Pages as an origin for Load Balancing · Cloudflare Load Balancing docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:05.689743+00:00
 
 # Use Pages as an origin for Load Balancing
 
-Last updated Oct 13, 2025|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/load-balancing/pools/cloudflare-pages-origin/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewUse casesBefore you beginCreate health monitorCreate poolsCheck the endpoints health statusCreate load balancerOptional - Deploy on a test hostnameRoute production traffic to load balancer
 
@@ -28,7 +28,7 @@ The following sections will guide you through setting up an [active-passive fail
 
 ## Use cases
 
-This setup can be useful if you are migrating your production website or application to Pages or if you just want to have a backup or a personalized web page for when your primary origin goes down.
+This setup can be useful if you are migrating your production website or application to Pages, or if you want a backup or personalized web page when your primary origin goes down. For new static and full-stack applications, Cloudflare recommends [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/) with [Custom Domains](https://developers.cloudflare.com/workers/configuration/routing/custom-domains/).
 
 ## Before you begin
 
@@ -95,7 +95,7 @@ Failing to add the host header will result in [response code mismatch error](htt
   1. In the Cloudflare dashboard, go to the **Load Balancing** page.
 
 [ Go to **Load Balancing** ↗ ](https://dash.cloudflare.com/?to=/:account/load-balancing)
-  2. Select the **Pools** tab and then **Create monitor**.
+  2. Select the **Pools** tab and then **Create pool**.
 
   3. For the first pool, start by filling out the fields:
 
@@ -125,7 +125,7 @@ As exemplified in Step 8 below, when using Cloudflare as an endpoint, **do not**
 
 Caution
 
-If your production website is hosted on a platform like Cloudflare Pages, where you have a default subdomain (`example.pages.dev`) and then configure a [custom domain](https://developers.cloudflare.com/pages/configuration/custom-domains) (`my-app.com`), you will need to add a host header to avoid failing the health monitor request.
+If your production website is hosted on a platform like Cloudflare Pages, where you have a default subdomain (`example.pages.dev`) and then configure a [custom domain](https://developers.cloudflare.com/pages/configuration/custom-domains/) (`my-app.com`), you will need to add a host header to avoid failing the health monitor request.
 
 
 
@@ -198,7 +198,7 @@ After confirming the endpoints and monitors are set up correctly and return the 
      * If needed, update the [**Fallback Pool**](https://developers.cloudflare.com/load-balancing/understand-basics/health-details/#fallback-pools). For the purposes of this tutorial, you can leave this pointing to your secondary pool.
   5. On the **Monitors** page, review the monitors attached to your pools and the expected health status, and select **Next**.
 
-  6. On the **Traffic Steering** page, make sure **Off** is selected. This means the load balancer will follow the order established on the **Add a Pool** section (Step 3 above), achieving an [Active - Passive Failover](https://developers.cloudflare.com/load-balancing/load-balancers/common-configurations/#active---passive-failover) configuration.
+  6. On the **Traffic Steering** page, make sure **Off** is selected. This means the load balancer will follow the order established in the **Add a Pool** section (Step 4), achieving an [Active - Passive Failover](https://developers.cloudflare.com/load-balancing/load-balancers/common-configurations/#active---passive-failover) configuration.
 
   7. For the purposes of this tutorial, leave the [**Custom Rules**](https://developers.cloudflare.com/load-balancing/additional-options/load-balancing-rules/) option empty.
 

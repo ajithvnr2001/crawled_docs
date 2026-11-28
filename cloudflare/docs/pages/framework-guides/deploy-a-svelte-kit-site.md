@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-kit-site/
 title: SvelteKit \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.825960+00:00
+fetched_at: 2026-11-28T09:57:34.640930+00:00
 ---
 
 # SvelteKit · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:30.825960+00:00
 
 # SvelteKit
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-svelte-kit-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetting up a new projectBefore you continueCreate a GitHub repositorySvelteKit Cloudflare configurationDeploy with Cloudflare Pages Deploy via the create-cloudflare CLI (C3) Deploy via the Cloudflare dashboardFunctions setupLearn more
 
@@ -218,7 +218,7 @@ For more information about SvelteKit API Routes, refer to the [SvelteKit documen
 
 By completing this guide, you have successfully deployed your Svelte site to Cloudflare Pages. To get started with other frameworks, [refer to the list of Framework guides](https://developers.cloudflare.com/pages/framework-guides/).
 
-[PreviousStatic HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)[NextVite 3](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vite3-project/)
+[PreviousStatic HTML](https://developers.cloudflare.com/pages/framework-guides/deploy-anything/)[NextVitePress](https://developers.cloudflare.com/pages/framework-guides/deploy-a-vitepress-site/)
 
 Was this helpful?
 

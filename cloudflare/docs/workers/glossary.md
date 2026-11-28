@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/glossary/
 title: Glossary \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:30.989622+00:00
+fetched_at: 2026-11-28T09:57:29.684293+00:00
 ---
 
 # Glossary · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-10-08T07:17:30.989622+00:00
 
 # Glossary
 
-Last updated Apr 23, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/glossary/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Review the definitions for terms used across Cloudflare's Workers documentation.
 
@@ -39,7 +39,7 @@ isolate| [Isolates](https://developers.cloudflare.com/workers/reference/how-work
 KV| [Workers KV](https://developers.cloudflare.com/kv/) is Cloudflare's key-value data storage.  
 module Worker| Refers to a Worker written in [module syntax](https://developers.cloudflare.com/workers/reference/migrate-to-module-workers/).  
 origin| [Origin](https://www.cloudflare.com/learning/cdn/glossary/origin-server/) generally refers to the web server behind Cloudflare where your application is hosted.  
-Pages| [Cloudflare Pages](https://developers.cloudflare.com/pages/) is Cloudflare's product offering for building and deploying full-stack applications.  
+Pages| [Cloudflare Pages](https://developers.cloudflare.com/pages/) is Cloudflare's product for hosting JAMstack sites and full-stack applications. For new static and full-stack applications, Cloudflare recommends [Cloudflare Workers](https://developers.cloudflare.com/workers/static-assets/).  
 Queues| [Queues](https://developers.cloudflare.com/queues/) integrates with Cloudflare Workers and enables you to build applications that can guarantee delivery.  
 R2| [R2](https://developers.cloudflare.com/r2/) is an S3-compatible distributed object storage designed to eliminate the obstacles of sharing data across clouds.  
 rollback| [Rollbacks](https://developers.cloudflare.com/workers/versions-and-deployments/rollbacks/) are a way to deploy an older deployment to the Cloudflare global network.  
@@ -56,7 +56,7 @@ wrangler.toml / wrangler.json / wrangler.jsonc| The [configuration](https://deve
   
 View more terms
 
-[PreviousInfrastructure as Code (IaC)](https://developers.cloudflare.com/workers/platform/infrastructure-as-code/)[NextHow the Cache works](https://developers.cloudflare.com/workers/reference/how-the-cache-works/)
+[PreviousPlayground](https://developers.cloudflare.com/workers/playground/)
 
 Was this helpful?
 

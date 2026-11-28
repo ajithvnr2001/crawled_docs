@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/rules/url-forwarding/single-redirects/create-dashboard/
 title: Create a redirect rule in the dashboard \u00b7 Cloudflare Rules docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:15:00.488336+00:00
+fetched_at: 2026-11-28T09:57:36.408454+00:00
 ---
 
 # Create a redirect rule in the dashboard · Cloudflare Rules docs
@@ -22,7 +22,7 @@ fetched_at: 2026-10-08T07:15:00.488336+00:00
 
 # Create a redirect rule in the dashboard
 
-Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/create-dashboard/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
   1. In the Cloudflare dashboard, go to the Rules **Overview** page.
 
@@ -38,7 +38,7 @@ Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.
      * **Wildcard pattern** : The rule will only apply to traffic matching the wildcard pattern. 
        * **Request URL** : Enter the [wildcard pattern](https://developers.cloudflare.com/ruleset-engine/rules-language/operators/#wildcard-matching) using the asterisk (`*`) character to match multiple requests. For example, `http*://*.example.com/files/*`.
        * **Then** : Define the [URL redirect settings](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/) including: 
-         * **Target URL** : Enter the target URL, which can be static (for example, `https://example.com`) or dynamic (for example, `https://example.com/${1}/files/${2}`). Use [wildcard replacement](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#wildcard_replace) such as `${1}` and `${2}` to define dynamic target URLs.
+         * **Target URL** : Enter the target URL, which can be static (for example, `https://example.com`) or dynamic (for example, `https://example.com/${2}/files/${3}`). Use [wildcard replacement](https://developers.cloudflare.com/ruleset-engine/rules-language/functions/#wildcard_replace) such as `${1}` and `${2}` to define dynamic target URLs. Each `*` in the request URL is numbered, including the `*` in `http*`. Refer to [How wildcard references are numbered](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/#how-wildcard-references-are-numbered).
          * **Status code** : Select the status code for the redirect (for example, `301`).
          * **Preserve query string** : Choose whether to keep the query string from the original request.
      * **All incoming requests** : The rule will apply to all traffic. 
@@ -46,6 +46,8 @@ Last updated May 5, 2026|Copy as Markdown|[View as Markdown](https://developers.
      * **Custom filter expression** : The rule will only apply to traffic matching a custom expression. Define the [rule expression](https://developers.cloudflare.com/ruleset-engine/rules-language/expressions/edit-expressions/) to configure which requests should be redirected. 
        * **Then** : Define the [URL redirect settings](https://developers.cloudflare.com/rules/url-forwarding/single-redirects/settings/) for requests matching the custom rule expression.
   6. To save and deploy your rule, select **Deploy**. If you are not ready to deploy your rule, select **Save as Draft**.
+
+Cloudflare evaluates redirect rules in order and applies the first matching rule. After you deploy, check the rule's position in the list and place more specific rules above general ones.
 
 If you are matching a hostname in your rule expression, you may be prompted to create a proxied DNS record for that hostname. Refer to [Troubleshooting](https://developers.cloudflare.com/rules/reference/troubleshooting/#this-rule-may-not-apply-to-your-traffic) for more information.
 

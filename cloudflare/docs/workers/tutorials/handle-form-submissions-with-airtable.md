@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/
 title: Handle form submissions with Airtable \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-23T16:40:02.216027+00:00
+fetched_at: 2026-11-28T09:57:35.159791+00:00
 ---
 
 # Handle form submissions with Airtable · Cloudflare Workers docs
@@ -12,13 +12,13 @@ fetched_at: 2026-10-23T16:40:02.216027+00:00
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
   3. /[Tutorials](https://developers.cloudflare.com/workers/tutorials/)
-  4. /Handle Form Submissions With Airtable
+  4. /Handle form submissions with Airtable
 
 
 
 # Handle form submissions with Airtable
 
-Last updated Oct 22, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/tutorials/handle-form-submissions-with-airtable/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you start1\. Create a form2\. Create a Worker project3\. Configure an Airtable base4\. Submit data to AirtableConclusionRelated resources
 
@@ -269,7 +269,7 @@ Add a `vars` table at the end of your Wrangler file:
     	"main": "src/index.js",
     	"upload_source_maps": true,
     	// Set this to today's date
-    	"compatibility_date": "2026-10-23",
+    	"compatibility_date": "2026-11-28",
     	"vars": {
     		"AIRTABLE_BASE_ID": "exampleBaseId",
     		"AIRTABLE_TABLE_NAME": "Form Submissions"
@@ -282,7 +282,7 @@ Add a `vars` table at the end of your Wrangler file:
     main = "src/index.js"
     upload_source_maps = true
     # Set this to today's date
-    compatibility_date = "2026-10-23"
+    compatibility_date = "2026-11-28"
     
     [vars]
     AIRTABLE_BASE_ID = "exampleBaseId"
@@ -316,9 +316,9 @@ With this tutorial completed, you have created a Worker that can accept form sub
 
 ## Related resources
 
-  * [Build a Slackbot](https://developers.cloudflare.com/workers/tutorials/build-a-slackbot)
-  * [Build a To-Do List Jamstack App](https://developers.cloudflare.com/workers/tutorials/build-a-jamstack-app)
-  * [Build a blog using Nuxt.js and Sanity.io on Cloudflare Pages](https://developers.cloudflare.com/pages/tutorials/build-a-blog-using-nuxt-and-sanity)
+  * [Build a Slackbot](https://developers.cloudflare.com/workers/tutorials/build-a-slackbot/)
+  * [Build a To-Do List Jamstack App](https://developers.cloudflare.com/workers/tutorials/build-a-jamstack-app/)
+  * [Deploy a Nuxt app on Cloudflare Workers](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/nuxt/)
   * [James Quick's video on building a Cloudflare Workers + Airtable integration ↗︎](https://www.youtube.com/watch?v=tFQ2kbiu1K4)
 
 

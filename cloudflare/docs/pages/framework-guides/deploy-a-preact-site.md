@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-preact-site/
 title: Preact \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.546991+00:00
+fetched_at: 2026-11-28T09:57:33.080097+00:00
 ---
 
 # Preact · Cloudflare Pages docs
@@ -18,9 +18,13 @@ fetched_at: 2026-10-08T07:12:30.546991+00:00
 
 # Preact
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-preact-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSetting up a new projectBefore you continueCreate a GitHub repositoryDeploy with Cloudflare PagesLearn more
+
+Note
+
+Starting a new Preact project? You can deploy Vite-based Preact apps directly to [Cloudflare Workers](https://developers.cloudflare.com/workers/vite-plugin/) with Static Assets and server-side API routes.
 
 [Preact ↗︎](https://preactjs.com) is a popular, open-source framework for building modern web applications. Preact can also be used as a lightweight alternative to React because the two share the same API and component model.
 
@@ -28,7 +32,7 @@ In this guide, you will create a new Preact application and deploy it using Clou
 
 ## Setting up a new project
 
-Create a new project by running the [`npm init` ↗︎](https://docs.npmjs.com/cli/v6/commands/npm-init) command in your terminal, giving it a title:
+Create a new project by running the [`npm init` ↗︎](https://docs.npmjs.com/cli/commands/npm-init) command in your terminal, giving it a title:
     
     
     npm init preact

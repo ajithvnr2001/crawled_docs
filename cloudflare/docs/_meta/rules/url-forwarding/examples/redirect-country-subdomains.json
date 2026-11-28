@@ -3,8 +3,5 @@
   "file": "rules/url-forwarding/examples/redirect-country-subdomains.md",
   "title": "Redirect local visitors to specific subdomains \u00b7 Cloudflare Rules docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:15:00.118915+00:00",
-  "html_len": 133285,
-  "md_len": 2400,
-  "depth": 0
+  "fetched_at": "2026-11-28T09:57:36.665739+00:00"
 }

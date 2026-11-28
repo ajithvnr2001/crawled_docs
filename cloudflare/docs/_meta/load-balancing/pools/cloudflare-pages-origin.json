@@ -3,8 +3,5 @@
   "file": "load-balancing/pools/cloudflare-pages-origin.md",
   "title": "Use Pages as an origin for Load Balancing \u00b7 Cloudflare Load Balancing docs",
   "method": "scrapling+scrapegraph",
-  "fetched_at": "2026-10-08T07:12:05.689924+00:00",
-  "html_len": 141936,
-  "md_len": 14592,
-  "depth": 0
+  "fetched_at": "2026-11-28T09:57:35.722949+00:00"
 }

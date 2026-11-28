@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/waf/rate-limiting-rules/parameters/
 title: Rate limiting parameters \u00b7 Cloudflare Web Application Firewall (WAF) docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-05T09:11:09.444040+00:00
+fetched_at: 2026-11-28T09:57:36.739039+00:00
 ---
 
 # Rate limiting parameters · Cloudflare Web Application Firewall (WAF) docs
@@ -18,7 +18,7 @@ fetched_at: 2026-11-05T09:11:09.444040+00:00
 
 # Rate limiting parameters
 
-Last updated Nov 4, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 27, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewParameter reference When incoming requests match Also apply rate limiting to cached assets With the same characteristics Increment counter when When rate exceeds When rate exceeds > Requests When rate exceeds > Period When rate exceeds > Score per period When rate exceeds > Response header name Then take action For duration With the following behaviorNotes about rate limiting characteristics Use cases of IP with NAT support Incompatible characteristics Do not use cf.colo.id as a field in expressions Use a lowercased header name (for API users) Missing field versus empty value Recommended configurations when using Cookie value of Requirements for using claims inside a JSON Web Token (JWT)Configuration restrictions
 
@@ -102,6 +102,8 @@ Only available in the Cloudflare dashboard when you enable **Use custom counting
 Defines the criteria used for determining the request rate. By default, the counting expression is the same as the rule matching expression (defined in **When incoming requests match**). This default is also applied when you set this field to an empty string (`""`).
 
 The counting expression can include [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response). When there are response fields in the counting expression, the counting will happen after the response is sent.
+
+You can combine HTTP response fields with [custom IP or ASN lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/#ip-and-asn-lists-across-rules-products). For example, `http.response.code eq 401 and ip.src in $office_network` counts matching responses for clients in the IP list. Existing plan requirements for custom counting expressions and lists apply.
 
 In some cases, you cannot include HTTP response fields in the counting expression due to configuration restrictions. Refer to Configuration restrictions for details.
 
@@ -316,10 +318,10 @@ To use claims inside a JSON Web Token (JWT), you must first set up a [token vali
 
 ## Configuration restrictions
 
-  * If the rule filter expression, defined in the **When incoming requests match** parameter, includes [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/), you must enable the **Also apply rate limiting to cached assets** parameter.
+  * If the rule filter expression, defined in the **When incoming requests match** parameter, includes a custom hostname list, you must enable the **Also apply rate limiting to cached assets** parameter. This restriction does not apply to custom IP or ASN lists.
   * The rule filter expression cannot contain [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response).
-  * The rule counting expression, defined in the **Increment counter when** parameter, cannot include both [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response) and [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/). If you use custom lists, you must enable the **Also apply rate limiting to cached assets** parameter.
-  * When creating a rate limiting ruleset [at the account level](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/), the ruleset deployment expression (defining the scope) cannot contain [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response) or [custom lists](https://developers.cloudflare.com/waf/tools/lists/custom-lists/).
+  * The rule counting expression, defined in the **Increment counter when** parameter, cannot combine [HTTP response fields](https://developers.cloudflare.com/ruleset-engine/rules-language/fields/reference/?field-category=Response) with custom hostname lists. If you use a hostname list, you must enable the **Also apply rate limiting to cached assets** parameter. Custom IP and ASN lists are supported in response-counting expressions.
+  * When creating a rate limiting ruleset [at the account level](https://developers.cloudflare.com/waf/account/rate-limiting-rulesets/), the ruleset deployment expression (defining the scope) can reference custom IP and ASN lists, but cannot contain HTTP response fields or custom hostname lists.
 
 
 

@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/authorization/
 title: Roles and permissions \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-11-25T10:59:48.918347+00:00
+fetched_at: 2026-11-28T09:57:30.618654+00:00
 ---
 
 # Roles and permissions · Cloudflare Workers docs
@@ -17,7 +17,7 @@ fetched_at: 2026-11-25T10:59:48.918347+00:00
 
 # Roles and permissions
 
-Last updated Nov 25, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewRolesMembers, User Groups, and API tokens Members and User Groups Manage team access with User Groups API tokens Use granular permissions with WranglerBindingsCommon access patterns
 
@@ -122,7 +122,7 @@ Automated deployments from CI/CD or agents | API token with Workers product | Ed
 Automated deployments to one specific Worker | API token with individual Worker | Editor  
 Automated deployments to one dispatch namespace | API token scoped to that namespace | [Workers Namespace Editor](https://developers.cloudflare.com/workers/authorization/workers-for-platforms/)  
   
-[PreviousExamples](https://developers.cloudflare.com/workers/previews/examples/)[NextWorkers](https://developers.cloudflare.com/workers/authorization/workers/)
+[PreviousSupported crates](https://developers.cloudflare.com/workers/languages/rust/crates/)[NextWorkers](https://developers.cloudflare.com/workers/authorization/workers/)
 
 Was this helpful?
 

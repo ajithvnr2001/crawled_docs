@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/workers/framework-guides/
 title: Framework guides \u00b7 Cloudflare Workers docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:17:26.477295+00:00
+fetched_at: 2026-11-28T09:57:29.742331+00:00
 ---
 
 # Framework guides · Cloudflare Workers docs
@@ -11,13 +11,14 @@ fetched_at: 2026-10-08T07:17:26.477295+00:00
 
   1. [Home](https://developers.cloudflare.com/)
   2. /[Workers](https://developers.cloudflare.com/workers/)
-  3. /Framework Guides
+  3. /[Workers](https://developers.cloudflare.com/workers/)
+  4. /Framework guides
 
 
 
 # Framework guides
 
-Last updated Jul 3, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/workers/framework-guides/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 Create full-stack applications deployed to Cloudflare Workers.
 
@@ -25,7 +26,9 @@ Create full-stack applications deployed to Cloudflare Workers.
   * [Web applications](https://developers.cloudflare.com/workers/framework-guides/web-apps/)
     * [React + Vite](https://developers.cloudflare.com/workers/framework-guides/web-apps/react/)
     * [Astro](https://developers.cloudflare.com/workers/framework-guides/web-apps/astro/)
+    * [EmDash](https://developers.cloudflare.com/workers/framework-guides/web-apps/emdash/)
     * [React Router (formerly Remix)](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/)
+    * [Remix 3](https://developers.cloudflare.com/workers/framework-guides/web-apps/remix/)
     * [Next.js](https://developers.cloudflare.com/workers/framework-guides/web-apps/nextjs/)
     * [OpenNext adapter](https://developers.cloudflare.com/workers/framework-guides/web-apps/opennext/)
     * [Vue](https://developers.cloudflare.com/workers/framework-guides/web-apps/vue/)
@@ -34,6 +37,8 @@ Create full-stack applications deployed to Cloudflare Workers.
     * [Microfrontends](https://developers.cloudflare.com/workers/framework-guides/web-apps/microfrontends/)
     * [SvelteKit](https://developers.cloudflare.com/workers/framework-guides/web-apps/sveltekit/)
     * [Vike](https://developers.cloudflare.com/workers/framework-guides/web-apps/vike/)
+    * [Foldkit](https://developers.cloudflare.com/workers/framework-guides/web-apps/foldkit/)
+    * [fate](https://developers.cloudflare.com/workers/framework-guides/web-apps/fate/)
     * [More guides...](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/)
       * [Analog](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/analog/)
       * [Angular](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/angular/)
@@ -50,8 +55,14 @@ Create full-stack applications deployed to Cloudflare Workers.
     * [FastAPI](https://developers.cloudflare.com/workers/languages/python/packages/fastapi/)
     * [Flask](https://developers.cloudflare.com/workers/languages/python/packages/flask/)
     * [Hono](https://developers.cloudflare.com/workers/framework-guides/web-apps/more-web-frameworks/hono/)
-  * [AI & agents](https://developers.cloudflare.com/workers/framework-guides/ai-and-agents/)
-    * [Agents SDK](https://developers.cloudflare.com/agents/)
+  * [Agent Harnesses](https://developers.cloudflare.com/workers/framework-guides/agent-harnesses/)
+    * [Pi](https://developers.cloudflare.com/agents/harnesses/pi/)
+    * [OpenCode](https://developers.cloudflare.com/agents/harnesses/opencode/)
+    * [Claude Code](https://developers.cloudflare.com/agents/harnesses/claude-code/)
+    * [Codex](https://developers.cloudflare.com/agents/harnesses/codex/)
+    * [Think](https://developers.cloudflare.com/agents/harnesses/think/)
+    * [Nanocode](https://developers.cloudflare.com/agents/harnesses/nanocode/)
+    * [Exo](https://developers.cloudflare.com/agents/harnesses/exo/)
     * [LangChain](https://developers.cloudflare.com/workers/languages/python/packages/langchain/)
 
 

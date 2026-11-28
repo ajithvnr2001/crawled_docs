@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-an-analog-site/
 title: Analog \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:31.168125+00:00
+fetched_at: 2026-11-28T09:57:33.475217+00:00
 ---
 
 # Analog · Cloudflare Pages docs
@@ -18,7 +18,7 @@ fetched_at: 2026-10-08T07:12:31.168125+00:00
 
 # Analog
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-an-analog-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 [Analog ↗︎](https://analogjs.org/) is a fullstack meta-framework for Angular, powered by [Vite ↗︎](https://vitejs.dev/) and [Nitro ↗︎](https://nitro.unjs.io/).
 

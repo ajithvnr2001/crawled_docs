@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-hugo-site/
 title: Hugo \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-17T06:28:14.535396+00:00
+fetched_at: 2026-11-28T09:57:33.226266+00:00
 ---
 
 # Hugo · Cloudflare Pages docs
@@ -18,11 +18,15 @@ fetched_at: 2026-10-17T06:28:14.535396+00:00
 
 # Hugo
 
-Last updated Oct 16, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewBefore you continueInstall Hugo Manual installationCreate a new projectCreate a postCreate a GitHub repositoryDeploy with Cloudflare PagesUse a specific or newer Hugo versionLearn more
 
-[Hugo ↗︎](https://gohugo.io/) is a tool for generating static sites, written in Go. It is incredibly fast and has great high-level, flexible primitives for managing your content using different [content formats ↗︎](https://gohugo.io/content-management/formats/).
+Note
+
+Starting a new static site? You can also deploy Hugo sites to [Cloudflare Workers Static Assets](https://developers.cloudflare.com/workers/static-assets/) with Git-connected [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+
+[Hugo ↗︎](https://gohugo.io/) is a tool for generating static sites, written in Go. It is fast and has high-level, flexible primitives for managing your content using different [content formats ↗︎](https://gohugo.io/content-management/formats/).
 
 In this guide, you will create a new Hugo application and deploy it using Cloudflare Pages. You will use the `hugo` CLI to create a new Hugo site.
 
@@ -135,7 +139,7 @@ Your final build command may look like this:
     
     hugo -b $CF_PAGES_URL
 
-After completing deployment configuration, select the **Save and Deploy**. You should see Cloudflare Pages installing `hugo` and your project dependencies, and building your site, before deploying it.
+After completing deployment configuration, select **Save and Deploy**. You should see Cloudflare Pages installing `hugo` and your project dependencies, and building your site, before deploying it.
 
 Note
 
@@ -145,9 +149,9 @@ After deploying your site, you will receive a unique subdomain for your project 
 
 ## Use a specific or newer Hugo version
 
-To use a [specific or newer version of Hugo ↗︎](https://github.com/gohugoio/hugo/releases), create the `HUGO_VERSION` environment variable in your Pages project > **Settings** > **Environment variables**. Set the value as the Hugo version you want to specify (see the [Prerequisites ↗︎](https://gohugo.io/getting-started/quick-start/#prerequisites) for the minimum recommended version).
+To use a [specific or newer version of Hugo ↗︎](https://github.com/gohugoio/hugo/releases), create the `HUGO_VERSION` environment variable in your Pages project under **Settings** > **Variables and Secrets**. Set the value to the Hugo version you want to specify (refer to [Hugo prerequisites ↗︎](https://gohugo.io/getting-started/quick-start/#prerequisites) and [Build image](https://developers.cloudflare.com/pages/configuration/build-image/) for default versions).
 
-For example, `HUGO_VERSION`: `0.128.0`.
+For example, `HUGO_VERSION`: `0.147.7`.
 
 Note
 

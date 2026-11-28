@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/configuration/git-integration/
 title: Git integration \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-16T06:38:32.990828+00:00
+fetched_at: 2026-11-28T09:57:31.962959+00:00
 ---
 
 # Git integration · Cloudflare Pages docs
@@ -18,15 +18,15 @@ fetched_at: 2026-10-16T06:38:32.990828+00:00
 
 # Git integration
 
-Last updated Oct 15, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
 OverviewSupported Git providersAdd a Git integrationManage a Git integrationDisable automatic deployments
 
-You can connect each Cloudflare Pages project to a [GitHub](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration) or [GitLab](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration) repository, and Cloudflare will automatically deploy your code every time you push a change to a branch.
+You can connect each Cloudflare Pages project to a [GitHub](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/) or [GitLab](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration/) repository, and Cloudflare will automatically deploy your code every time you push a change to a branch.
 
 Note
 
-Cloudflare Workers now also supports Git integrations to automatically build and deploy Workers from your connected Git repository. Learn more in [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
+Cloudflare Workers supports Git integrations to automatically build and deploy Workers from your connected Git repository. Refer to [Workers Builds](https://developers.cloudflare.com/workers/ci-cd/builds/).
 
 When you connect a git repository to your Cloudflare Pages project, Cloudflare will also:
 
@@ -45,9 +45,9 @@ If you deploy using the Git integration, you cannot switch to [Direct Upload](ht
 
 ## Supported Git providers
 
-Cloudflare supports connecting Cloudflare Pages to your GitHub and GitLab repositories. Pages does not currently support connecting self-hosted instances of GitHub or GitLab.
+Cloudflare supports connecting Cloudflare Pages to your GitHub and GitLab repositories. Pages does not support connecting self-hosted instances of GitHub or GitLab.
 
-If you using a different Git provider (e.g. Bitbucket) or a self-hosted instance, you can start with a Direct Upload project and deploy using a CI/CD provider (e.g. GitHub Actions) with [Wrangler CLI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/).
+If you are using a different Git provider (for example, Bitbucket) or a self-hosted instance, you can start with a Direct Upload project and deploy using a CI/CD provider (for example, GitHub Actions) with the [Wrangler CLI](https://developers.cloudflare.com/pages/how-to/use-direct-upload-with-continuous-integration/).
 
 ## Add a Git integration
 
@@ -55,29 +55,29 @@ If you do not have a Git account linked to your Cloudflare account, you will be 
 
 You can check the following pages to see if your Git integration has been installed:
 
-  * [GitHub Applications page ↗︎](https://github.com/settings/installations) (if you're in an organization, select **Switch settings context** to access your GitHub organization settings)
+  * [GitHub Applications page ↗︎](https://github.com/settings/installations) (if you are in an organization, select **Switch settings context** to access your GitHub organization settings)
   * [GitLab Authorized Applications page ↗︎](https://gitlab.com/-/profile/applications)
 
 
 
-For details on providing access to organization accounts, see the [GitHub](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/#organizational-access) and [GitLab](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration/#organizational-access) guides.
+For details on providing access to organization accounts, refer to the [GitHub](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/#organizational-access) and [GitLab](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration/#organizational-access) guides.
 
 ## Manage a Git integration
 
-You can manage the Git installation associated with your repository connection by navigating to the Pages project, then going to **Settings** > **Builds** and selecting **Manage** under **Git Repository**.
+You can manage the Git installation associated with your repository connection by going to your Pages project, then going to **Settings** > **Build** and selecting **Manage** under **Git Repository**.
 
 This can be useful for managing repository access or troubleshooting installation issues by reinstalling. For more details, refer to the [GitHub](https://developers.cloudflare.com/pages/configuration/git-integration/github-integration/#manage-access) and [GitLab](https://developers.cloudflare.com/pages/configuration/git-integration/gitlab-integration/#manage-access) guides.
 
 ## Disable automatic deployments
 
-If you are using a Git-integrated project and do not want to trigger deployments every time you push a commit, you can use [branch control](https://developers.cloudflare.com/pages/configuration/branch-build-controls/) to disable/pause builds:
+If you are using a Git-integrated project and do not want to trigger deployments every time you push a commit, you can use [branch control](https://developers.cloudflare.com/pages/configuration/branch-build-controls/) to pause builds:
 
-  1. Go to **Workers & Pages** in the Cloudflare dashboard.
+  1. In the Cloudflare dashboard, go to the **Workers & Pages** page.
 
 [ Go to **Workers & Pages** ↗ ](https://dash.cloudflare.com/?to=/:account/workers-and-pages)
   2. Select your Pages project.
 
-  3. Navigate to **Build** > edit **Branch control** > turn off **Enable automatic production branch deployments**.
+  3. Go to **Settings** > **Build** > **Branch control** and turn off **Enable automatic production branch deployments**.
 
   4. You can also change your Preview branch to **None (Disable automatic branch deployments)** to pause automatic preview deployments.
 

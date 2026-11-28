@@ -2,7 +2,7 @@
 url: https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/
 title: Remix \u00b7 Cloudflare Pages docs
 method: scrapling+scrapegraph
-fetched_at: 2026-10-08T07:12:30.696387+00:00
+fetched_at: 2026-11-28T09:57:33.040249+00:00
 ---
 
 # Remix · Cloudflare Pages docs
@@ -18,13 +18,14 @@ fetched_at: 2026-10-08T07:12:30.696387+00:00
 
 # Remix
 
-Last updated Apr 21, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/pages/framework-guides/deploy-a-remix-site/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
+Last updated Nov 28, 2026|Copy as Markdown|[View as Markdown](https://developers.cloudflare.com/index.md)|[Agent setup](https://developers.cloudflare.com/agent-setup/)
 
-[Remix ↗︎](https://remix.run/) is a framework that focused on web standard. The framework is no longer recommended for new projects by the authors and its successor React Router should be used instead.
+[Remix ↗︎](https://remix.run/) is a full-stack web framework built on web standards.
 
-To start a new React Router project please refer to the [React Router Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router).
+  * To start a new **Remix 3** application on Cloudflare, refer to the [Remix 3 Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/remix/).
+  * For **Remix v2** applications (whose successor is React Router v7), refer to the [React Router Workers guide](https://developers.cloudflare.com/workers/framework-guides/web-apps/react-router/) and the [official Remix upgrade documentation ↗︎](https://reactrouter.com/upgrading/remix).
 
-And if you have an existing Remix application consider migrating it to React Router as described in the [official Remix upgrade documentation ↗︎](https://reactrouter.com/upgrading/remix).
+
 
 [PreviousReact](https://developers.cloudflare.com/pages/framework-guides/deploy-a-react-site/)[NextSolidStart](https://developers.cloudflare.com/pages/framework-guides/deploy-a-solid-start-site/)
 
